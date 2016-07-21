@@ -1,14 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/v1/units",
+  "id": "https://api.maas.global/v1/agency-option",
   "description": "MaaS Single agency option response",
   "type": "object",
-  "required": [
-    "leg",
-    "meta",
-    "terms"
-  ],
   "properties": {
+    "id": {
+      "type": "string",
+      "description": "Id of the option among others"
+    },
     "leg": {
       "type": "object",
       "properties": {
@@ -19,15 +18,19 @@
           "$ref": "units.json#definitions/time"
         },
         "from": {
-          "$ref": "units.json#definitions/location"
+          "$ref": "units.json#definitions/location",
+          "description": "Stating location's lat and lon pair of this request"
         },
         "to": {
-          "$ref": "units.json#definitions/location"
+          "$ref": "units.json#definitions/location",
+          "description": "Destinated location's lat and lon pair of this request"
         },
         "agencyId": {
           "type": "string"
         }
-      }
+      },
+      "required": ["agencyId"],
+      "additionalProperties": false
     },
     "meta": {
       "type": "object",
@@ -42,9 +45,10 @@
       "description": "This object's signature"
     }
   },
-  "definitions": {
-    "identityId": {
-      "$ref": "aws.json#/definitions/cognitoIdentityId"
-    }
-  }
+  "required": [
+    "id",
+    "leg",
+    "meta",
+    "terms"
+  ]
 }

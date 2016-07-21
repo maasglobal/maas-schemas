@@ -7,11 +7,8 @@
     "options": {
       "type": "array",
       "items": {
-        "$ref": "general/<agency></agency>-option.json"
+        "$ref": "core/agency-option.json"
       }
-    },
-    "meta": {
-      "type": "object"
     }
   },
   "required": ["options"]
