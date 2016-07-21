@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/v1/bookings-create/response-schema.json",
-  "description": "Response schema for bookings-create",
-  "$ref": "../../schemas/v1/booking.json#definitions/bookingCore"
+  "description": "A new MaaS Booking schema (what we give out to mobile clients), created by MaaS POST request in 'START' state",
+  "$ref": "../../core/booking.json#definitions/booking"
 }
