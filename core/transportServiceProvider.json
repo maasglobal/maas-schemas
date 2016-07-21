@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/units",
+  "description": "MaaS Transport Service Provider (TSP) metadata",
+  "type": "object",
+  "required": [
+    "agencyId",
+    "name",
+    "modes",
+    "locations"
+  ],
+  "properties": {
+    "agencyId": {
+      "description": "The id of the TSP, as identified by route provider",
+      "type": "string"
+    },
+    "name": {
+      "description": "The human readable name of the TSP",
+      "type": "string"
+    },
+    "modes": {
+      "description": "The OTP modes this TSP serves",
+      "type": "array",
+      "items": [
+        {
+          "$ref": "plan.json#/definitions/mode"
+        }
+      ]
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "$ref": "geocoding.json#/definitions/geometry"
+      }
+    },
+    "adapter": {
+      "description": "The schema version for the adapter",
+      "hostname": "string",
+      "port": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 65535
+      },
+      "basepath": "string"
+    }
+  }
+}

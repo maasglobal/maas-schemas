@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/tsp/booking-options-list/request-schema.json",
+  "description": "Request schema for getting options from a TSP adapter",
+  "type": "object",
+  "required": ["mode", "startTime", "from"],
+  "properties": {
+    "mode": {
+      "$ref": "general/modes.json#definitions/mode",
+    },
+    "startTime": {
+      "$ref": "general/units.json#definitions/time"
+    },
+    "endTime": {
+      "$ref": "general/units.json#definitions/time"
+    },
+    "from": {
+      "$ref": "general/units.json#definitions/location"
+    },
+    "to": {
+      "$ref": "general/units.json#definitions/location"
+    },
+    "fromRadius":{
+      "$ref": "general/units.json#definitions/distance"
+    },
+    "toRadius":{
+      "$ref": "general/units.json#definitions/distance"
+    }
+  }
+}
