@@ -15,13 +15,13 @@
           "type": "object",
           "properties": {
             "lat": {
-              "$ref": "units.json#definitions/latitude"
+              "$ref": "core/units.json#definitions/latitude"
             },
             "lon": {
-              "$ref": "units.json#definitions/longitude"
+              "$ref": "core/units.json#definitions/longitude"
             },
             "timestamp": {
-              "$ref": "units.json#definitions/time"
+              "$ref": "core/units.json#definitions/time"
             },
             "legId": {
               "type": "string"
@@ -35,7 +35,7 @@
               "type": "string"
             },
             "timestamp": {
-              "$ref": "units.json#definitions/time"
+              "$ref": "core/units.json#definitions/time"
             },
             "state": {
               "type": "string"

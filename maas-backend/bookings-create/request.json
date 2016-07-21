@@ -10,16 +10,16 @@
   ],
   "properties": {
     "leg": {
-      "$ref": "../../core/plan.json#/definitions/leg"
+      "$ref": "core/plan.json#/definitions/leg"
     },
     "terms": {
-      "$ref": "../../core/booking.json#/definitions/terms"
+      "$ref": "core/booking.json#/definitions/terms"
     },
     "meta": {
-      "$ref": "../../core/booking.json#/definitions/terms"
+      "$ref": "core/booking.json#/definitions/terms"
     },
     "customer": {
-      "$ref": "../../core/customer.json#/definitions/customer"
+      "$ref": "core/customer.json#/definitions/customer"
     }
   }
 }

@@ -6,25 +6,25 @@
   "required": ["mode", "startTime", "from"],
   "properties": {
     "mode": {
-      "$ref": "general/modes.json#definitions/mode",
+      "$ref": "core/modes.json#definitions/mode",
     },
     "startTime": {
-      "$ref": "general/units.json#definitions/time"
+      "$ref": "core/units.json#definitions/time"
     },
     "endTime": {
-      "$ref": "general/units.json#definitions/time"
+      "$ref": "core/units.json#definitions/time"
     },
     "from": {
-      "$ref": "general/units.json#definitions/location"
+      "$ref": "core/units.json#definitions/location"
     },
     "to": {
-      "$ref": "general/units.json#definitions/location"
+      "$ref": "core/units.json#definitions/location"
     },
     "fromRadius":{
-      "$ref": "general/units.json#definitions/distance"
+      "$ref": "core/units.json#definitions/distance"
     },
     "toRadius":{
-      "$ref": "general/units.json#definitions/distance"
+      "$ref": "core/units.json#definitions/distance"
     }
   }
 }

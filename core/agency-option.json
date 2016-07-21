@@ -12,24 +12,24 @@
       "type": "object",
       "properties": {
         "startTime": {
-          "$ref": "units.json#definitions/time"
+          "$ref": "core/units.json#definitions/time"
         },
         "endTime": {
-          "$ref": "units.json#definitions/time"
+          "$ref": "core/units.json#definitions/time"
         },
         "from": {
           "description": "Stating location's lat and lon pair of this request",
-          "$ref": "units.json#definitions/location"
+          "$ref": "core/units.json#definitions/location"
         },
         "to": {
           "description": "Destinated location's lat and lon pair of this request",
-          "$ref": "units.json#definitions/location"
+          "$ref": "core/units.json#definitions/location"
         },
         "agencyId": {
           "type": "string"
         },
         "mode": {
-          "$ref": "plan.json#definitions/mode"
+          "$ref": "core/plan.json#definitions/mode"
         }
       },
       "required": ["agencyId"],
@@ -44,10 +44,10 @@
       "description": "Tsp terms of usage / order",
       "properties": {
         "price": {
-          "$ref": "units.json#definitions/price"
+          "$ref": "core/units.json#definitions/price"
         },
         "validityDuration": {
-          "$ref": "units.json#definitions/time"
+          "$ref": "core/units.json#definitions/time"
         }
       },
       "additionalProperties": false

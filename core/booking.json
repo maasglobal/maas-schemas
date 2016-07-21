@@ -13,7 +13,7 @@
       ],
       "properties": {
         "leg": {
-          "$ref": "plan.json#/definitions/leg"
+          "$ref": "core/plan.json#/definitions/leg"
         }
       },
       "required": [
@@ -45,7 +45,7 @@
           "$ref": "#/definitions/token"
         },
         "customer": {
-          "$ref": "customer.json"
+          "$ref": "core/customer.json"
         }
       },
       "required": [
@@ -82,10 +82,7 @@
       "type": "object",
       "properties": {
         "price": {
-          "$ref": "units#definitions/price"
-        },
-        "currency": {
-          "$ref": "units.json#definitions/currency"
+          "$ref": "core/units.json#definitions/price"
         }
       }
     },
@@ -98,11 +95,11 @@
           "properties": {
             "from": {
               "description": "The starting time from which the ticket is valid",
-              "$ref": "units.json#/definitions/time"
+              "$ref": "core/units.json#/definitions/time"
             },
             "to": {
               "description": "The finishing time the ticket is valid for",
-              "$ref": "units.json#/definitions/time"
+              "$ref": "core/units.json#/definitions/time"
             }
           }
         },

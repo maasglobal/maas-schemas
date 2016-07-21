@@ -23,10 +23,10 @@
       "type": "number"
     },
     "phone": {
-      "$ref": "units.json#definitions/phone"
+      "$ref": "core/units.json#definitions/phone"
     },
     "email": {
-      "$ref": "units.json#definitions/email"
+      "$ref": "core/units.json#definitions/email"
     }
   },
   "additionalProperties": false,
@@ -44,10 +44,10 @@
           "type": "string"
         },
         "lat":{
-          "$ref": "units.json#definitions/latitude"
+          "$ref": "core/units.json#definitions/latitude"
         },
         "lon":{
-          "$ref": "units.json#definitions/latitude"
+          "$ref": "core/units.json#definitions/latitude"
         }
       }
     }

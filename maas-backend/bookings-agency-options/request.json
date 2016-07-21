@@ -11,22 +11,22 @@
       "type": "String"
     },
     "startTime": {
-      "$ref": "../../schemas/v1/units.json#definitions/time"
+      "$ref": "core/units.json#definitions/time"
     },
     "endTime": {
-      "$ref": "../../schemas/v1/units.json#definitions/time"
+      "$ref": "core/units.json#definitions/time"
     },
     "from": {
-      "$ref": "../../schemas/v1/units.json#definitions/location"
+      "$ref": "core/units.json#definitions/location"
     },
     "to": {
-      "$ref": "../../schemas/v1/units.json#definitions/location"
+      "$ref": "core/units.json#definitions/location"
     },
     "fromRadius":{
-      "$ref": "../../schemas/v1/units.json#definitions/distance"
+      "$ref": "core/units.json#definitions/distance"
     },
     "toRadius":{
-      "$ref": "../../schemas/v1/units.json#definitions/distance"
+      "$ref": "core/units.json#definitions/distance"
     }
   }
 }
