@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/v1/units",
-  "description": "MaaS Booking schema (what we give out to mobile clients)",
+  "description": "MaaS Booking schema",
   "definitions": {
     "booking": {
       "type": "object",
@@ -52,9 +52,7 @@
         "id",
         "tspId",
         "state",
-        "meta",
         "terms",
-        "token",
         "customer"
       ],
       "aditionalProperties": false
@@ -84,7 +82,7 @@
       "type": "object",
       "properties": {
         "price": {
-          "type": "number"
+          "$ref": "units#definitions/price"
         },
         "currency": {
           "$ref": "units.json#definitions/currency"

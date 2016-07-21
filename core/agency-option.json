@@ -18,15 +18,18 @@
           "$ref": "units.json#definitions/time"
         },
         "from": {
-          "$ref": "units.json#definitions/location",
-          "description": "Stating location's lat and lon pair of this request"
+          "description": "Stating location's lat and lon pair of this request",
+          "$ref": "units.json#definitions/location"
         },
         "to": {
-          "$ref": "units.json#definitions/location",
-          "description": "Destinated location's lat and lon pair of this request"
+          "description": "Destinated location's lat and lon pair of this request",
+          "$ref": "units.json#definitions/location"
         },
         "agencyId": {
           "type": "string"
+        },
+        "mode": {
+          "$ref": "plan.json#definitions/mode"
         }
       },
       "required": ["agencyId"],
@@ -38,7 +41,16 @@
     },
     "terms": {
       "type": "object",
-      "description": "Tsp terms of usage / order"
+      "description": "Tsp terms of usage / order",
+      "properties": {
+        "price": {
+          "$ref": "units.json#definitions/price"
+        },
+        "validityDuration": {
+          "$ref": "units.json#definitions/time"
+        }
+      },
+      "additionalProperties": false
     },
     "signature": {
       "type": "string",
