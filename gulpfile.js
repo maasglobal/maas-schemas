@@ -4,7 +4,6 @@ const gulp = require('gulp');
 const jsonlint = require('gulp-jsonlint');
 const jsonclint = require('gulp-json-lint');
 const eslint = require('gulp-eslint');
-const gulpSequence = require('gulp-sequence');
 
 const jsoncFiles = ['.eslintrc']; // json with comments
 const jsonFiles = ['**/*.json', '!**/node_modules/**/*.json', '!www/**/*.json', '!_meta/**/*.json'];
@@ -36,6 +35,6 @@ gulp.task('eslint', () => {
 
 gulp.task('validate', ['jsonclint', 'jsonlint', 'eslint']);
 
-gulp.task('test', gulpSequence('validate'));
+gulp.task('test', ['validate']);
 
 gulp.task('default');
