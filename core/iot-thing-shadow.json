@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/thing-shadow",
+  "description": "Schema for MaaS thing shadow",
+  "type": "object",
+  "properties": {
+    "desired": {
+      "type": "object",
+      "properties": {}
+    },
+    "reported": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "object",
+          "properties": {
+            "lat": {
+              "$ref": "units.json#definitions/latitude"
+            },
+            "lon": {
+              "$ref": "units.json#definitions/longitude"
+            },
+            "timestamp": {
+              "$ref": "units.json#definitions/time"
+            },
+            "legId": {
+              "type": "string"
+            }
+          }
+        },
+        "leg": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "timestamp": {
+              "$ref": "units.json#definitions/time"
+            },
+            "state": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

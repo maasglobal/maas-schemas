@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/bookings-agency-options/request-schema.json",
+  "description": "Request schema for bookings-agency-options",
+  "type": "object",
+  "required": ["mode", "startTime", "endTime", "from"],
+  "properties": {
+    "agencyId": {
+      "type": "String"
+    },
+    "mode": {
+      "type": "String"
+    },
+    "startTime": {
+      "$ref": "../../schemas/v1/units.json#definitions/time"
+    },
+    "endTime": {
+      "$ref": "../../schemas/v1/units.json#definitions/time"
+    },
+    "from": {
+      "$ref": "../../schemas/v1/units.json#definitions/location"
+    },
+    "to": {
+      "$ref": "../../schemas/v1/units.json#definitions/location"
+    },
+    "fromRadius":{
+      "$ref": "../../schemas/v1/units.json#definitions/distance"
+    },
+    "toRadius":{
+      "$ref": "../../schemas/v1/units.json#definitions/distance"
+    }
+  }
+}

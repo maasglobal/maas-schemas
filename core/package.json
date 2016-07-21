@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/package",
+  "description": "MaaS subscription plans and addons",
+  "type": "object",
+  "properties": {
+    "plans": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/plan"
+      }
+    },
+    "addons": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/definitions/addon"
+      }
+    }
+  },
+  "definitions": {
+    "plan": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "id",
+        "name",
+        "price",
+        "currency"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "invoiceName": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "pointGrant": {
+          "type": "integer"
+        },
+        "period": {
+          "type": "integer"
+        },
+        "periodUnit": {
+          "type": "string",
+          "enum": [
+            "month"
+          ]
+        },
+        "chargeModel": {
+          "type": "string"
+        },
+        "feature": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "desc": {
+                "type": "string"
+              },
+              "icon": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "provider": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "desc": {
+                "type": "string"
+              },
+              "icon": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "addon": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "price"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "invoiceName": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

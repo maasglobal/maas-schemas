@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/units",
+  "description": "MaaS Customer object",
+  "type": "object",
+  "required": [
+    "id",
+    "firstName",
+    "lastName",
+    "phone",
+    "purchases",
+    "favouriteLocations"
+  ],
+  "properties": {
+    "identityId": {
+      "description": "The identifier MaaS uses to identify the customer",
+      "type": "string"
+    },
+    "firstName": {
+      "description": "First name of the customer (e.g. John)",
+      "type": "string"
+    },
+    "lastName": {
+      "description": "Last name of the customer (e.g. Doe)",
+      "type": "string"
+    },
+    "phone": {
+      "description": "Phone number that the customer may be reached from",
+      "type": "string"
+    },
+    "packages": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "points": {
+      "type": "number"
+    },
+    "favouriteLocations": {
+      "type": "array",
+      "items": {
+        "$ref": "units.json#/definitions/place"
+      }
+    }
+  },
+  "definitions": {
+    "identityId": {
+      "$ref": "aws.json#/definitions/cognitoIdentityId"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/itineraries/response-schema.json",
+  "description": "Response schema for bookings",
+  "type": "object",
+  "properties": {
+    "booking": {
+      "$ref": "v1/booking.json"
+    },
+    "maas": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": [ "itinerary" ],
+  "additionalProperties": false
+}

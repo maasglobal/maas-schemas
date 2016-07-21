@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/geocoding-partial",
+  "description": "Partial (Points only) GeoJSON Schema",
+  "definitions": {
+    "featureCollection": {
+      "properties": {
+        "type": { "enum": [ "Feature" ] },
+        "features": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/feature"
+          }
+        }
+      }
+    },
+    "feature": {
+      "properties": {
+        "type": { "enum": [ "Feature" ] },
+        "geometry": {
+          "$ref": "#/definitions/geometry"
+        },
+        "properties": {
+          "$ref": "#/definitions/properties"
+        }
+      },
+      "additionalProperties": false,
+      "required": [ "geometry"]
+    },
+    "geometry": {
+      "type": "object",
+      "properties": {
+        "type": { "enum": [ "Point" ] },
+        "coordinates": {
+          "$ref": "units.json#/definitions/shortLocation"
+        }
+      },
+      "additionalProperties": false,
+      "required": [ "type", "coordinates" ]
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

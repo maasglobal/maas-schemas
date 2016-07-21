@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/units",
+  "description": "MaaS event response error objects",
+  "type": "object",
+  "description": "An error that the service may send",
+  "required": [
+    "message",
+    "code"
+  ],
+  "properties": {
+    "message": {
+      "type": "string",
+      "description": "A human readable error message (preferrably in English)"
+    },
+    "code": {
+      "type": "string",
+      "description": "An internal error code, used for reference"
+    }
+  }
+}

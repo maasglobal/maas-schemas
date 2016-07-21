@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/bookings-agency-options/response-schema.json",
+  "description": "Response schema for bookings-agency-options (to mobile clients)",
+  "type": "object",
+  "properties": {
+    "options": {
+      "type": "array",
+      "items": {
+        "$ref": "general/<agency></agency>-option.json"
+      }
+    },
+    "meta": {
+      "type": "object"
+    }
+  },
+  "required": ["options"]
+}
