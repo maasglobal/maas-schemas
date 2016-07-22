@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/tsp/booking-option",
+  "description": "MaaS single TSP adapter option response",
+  "type": "object",
+  "required": ["leg", "meta", "terms"],
+  "additionalProperties": false,
+  "definitions": {
+    "leg": {
+      "id": "leg",
+      "type": "object",
+      "properties": {
+        "required": ["agencyId", "startTime", "from"],
+        "agencyId": {
+          "type": "string",
+          "minLength": 2
+        },
+        "startTime": { "$ref": "core/units.json#/definitions/time" },
+        "endTime": { "$ref": "core/units.json#/definitions/time" },
+        "from": { "$ref": "core/units.json#/definitions/coordinates" },
+        "to": { "$ref": "core/units.json#/definitions/coordinates" }
+      },
+      "additionalProperties": false,
+      "required": ["agencyId", "startTime", "endTime", "from", "to"]
+    }
+  },
+  "properties": {
+    "leg": {
+      "$ref": "#/definitions/leg"
+     },
+    "terms": {
+      "type": "object",
+      "properties": {
+        "required": ["price"],
+        "price": {
+          "type": "object",
+          "required": ["amount", "currency"],
+          "properties": {
+            "amount": {
+              "type": "number",
+              "minimum": 0
+            },
+            "currency": {
+              "type": "string",
+              "pattern": "[A-Z]{3}"
+            }
+          },
+          "additionalProperties": true
+        },
+        "validityDuration": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["price"]
+    },
+    "meta": {
+      "type": "object",
+      "description": "TSP/mode-specific additional information",
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "description": "An ID for this option that should be used when creating a booking, e.g. an Uber product_id"
+        },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "image": {
+          "type": "string",
+          "format": "url"
+        },
+        "car": {
+          "type": "object",
+          "properties": {
+            "passengers": { "type": "integer" }
+          }
+        }
+      },
+      "additionalProperties": true,
+      "required": ["id", "name", "description", "image"]
+    }
+  },
+}

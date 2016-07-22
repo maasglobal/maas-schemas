@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/tsp/booking-create/request",
+  "description": "Request schema for creating a booking through a TSP adapter",
+  "type": "object",
+  "required": ["leg", "meta"],
+  "additionalProperties": false,
+  "properties": {
+    "leg": {
+      "$ref": "tsp/booking-options.json#/definitions/leg",
+    },
+    "meta": {
+      "type": "object"
+    }
+  }
+}
