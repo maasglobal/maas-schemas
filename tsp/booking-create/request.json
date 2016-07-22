@@ -3,14 +3,15 @@
   "id": "https://api.maas.global/v1/tsp/booking-create/request",
   "description": "Request schema for creating a booking through a TSP adapter",
   "type": "object",
-  "required": ["leg", "meta"],
-  "additionalProperties": false,
   "properties": {
     "leg": {
       "$ref": "core/plan.json#/definitions/leg"
     },
     "meta": {
-      "type": "object"
+      "type": "object",
+      "description": "The original metadata from the TSP provided in options should be included"
     }
-  }
+  },
+  "required": ["leg", "meta"],
+  "additionalProperties": false
 }

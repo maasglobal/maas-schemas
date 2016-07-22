@@ -21,9 +21,11 @@
       "$ref": "core/units.json#definitions/location"
     },
     "fromRadius":{
+      "description": "'from' location radius in meters",
       "$ref": "core/units.json#definitions/distance"
     },
     "toRadius":{
+      "description": "'to' location radius in meters",
       "$ref": "core/units.json#definitions/distance"
     },
     "customer": {

@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/tsp/booking",
+  "description": "MaaS Booking schema for a TSP adapter",
+  "type": "object",
+  "properties": {
+    "tspId": {
+      "description": "The id that a TSP uses for the booking",
+      "type": "string"
+    },
+    "state": {
+      "$ref": "core/booking.json#/definitions/bookingState"
+    },
+    "leg": {
+      "$ref": "core/plan.json#/definitions/leg"
+    },
+    "meta": {
+      "$ref": "core/booking.json#/definitions/meta"
+    },
+    "terms": {
+      "$ref": "core/booking.json#/definitions/terms"
+    },
+    "token": {
+      "$ref": "core/booking.json#/definitions/token"
+    },
+    "customer": {
+      "$ref": "core/customer.json"
+    }
+  },
+  "required": [
+    "tspId",
+    "state",
+    "leg",
+    "meta",
+    "terms",
+    "token",
+    "customer"
+  ],
+  "additionalProperties": false
+}
