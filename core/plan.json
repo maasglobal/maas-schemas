@@ -25,10 +25,10 @@
           "type": "string"
         },
         "startTime": {
-          "$ref": "units.json#/definitions/time"
+          "$ref": "core/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "units.json#/definitions/time"
+          "$ref": "core/units.json#/definitions/time"
         },
         "waitingTime": {
           "type": "integer",
@@ -77,10 +77,10 @@
           "$ref": "#/definitions/place"
         },
         "startTime": {
-          "$ref": "units.json#/definitions/time"
+          "$ref": "core/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "units.json#/definitions/time"
+          "$ref": "core/units.json#/definitions/time"
         },
         "mode": {
           "$ref": "#/definitions/mode"
@@ -129,10 +129,10 @@
       "additionalProperties": true,
       "properties": {
         "startTime": {
-          "$ref": "units.json#/definitions/time"
+          "$ref": "core/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "units.json#/definitions/time"
+          "$ref": "core/units.json#/definitions/time"
         },
         "mode": {
           "type": "string",
@@ -152,10 +152,10 @@
       "additionalProperties": true,
       "properties": {
         "startTime": {
-          "$ref": "units.json#/definitions/time"
+          "$ref": "core/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "units.json#/definitions/time"
+          "$ref": "core/units.json#/definitions/time"
         },
         "mode": {
           "type": "string",
@@ -175,7 +175,7 @@
       "additionalProperties": true,
       "allOf": [
         {
-          "$ref": "units.json#/definitions/place"
+          "$ref": "core/units.json#/definitions/place"
         }
       ],
       "properties": {

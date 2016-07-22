@@ -23,7 +23,7 @@
       "type": "array",
       "items": [
         {
-          "$ref": "plan.json#/definitions/mode"
+          "$ref": "core/plan.json#/definitions/mode"
         }
       ]
     },
@@ -31,7 +31,7 @@
       "type": "array",
       "description": "Supporting locations of the TSP",
       "items": {
-        "$ref": "geocoding.json#/definitions/geometry"
+        "$ref": "core/geolocation.json#/definitions/geometry"
       }
     },
     "adapter": {

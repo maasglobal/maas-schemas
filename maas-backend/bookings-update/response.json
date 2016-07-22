@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "booking": {
-      "$ref": "v1/booking.json"
+      "$ref": "core/booking.json"
     },
     "maas": {
       "type": "object",

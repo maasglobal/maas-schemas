@@ -17,8 +17,8 @@
         },
         "startTime": { "$ref": "core/units.json#/definitions/time" },
         "endTime": { "$ref": "core/units.json#/definitions/time" },
-        "from": { "$ref": "core/units.json#/definitions/coordinates" },
-        "to": { "$ref": "core/units.json#/definitions/coordinates" }
+        "from": { "$ref": "core/units.json#/definitions/location" },
+        "to": { "$ref": "core/units.json#/definitions/location" }
       },
       "additionalProperties": false,
       "required": ["agencyId", "startTime", "endTime", "from", "to"]
@@ -78,5 +78,5 @@
       "additionalProperties": true,
       "required": ["id", "name", "description", "image"]
     }
-  },
+  }
 }

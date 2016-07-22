@@ -7,7 +7,7 @@
   "additionalProperties": false,
   "properties": {
     "leg": {
-      "$ref": "tsp/booking-options.json#/definitions/leg",
+      "$ref": "core/plan.json#/definitions/leg"
     },
     "meta": {
       "type": "object"
