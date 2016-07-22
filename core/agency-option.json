@@ -1,33 +1,39 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/v1/units",
+  "id": "https://api.maas.global/v1/agency-option",
   "description": "MaaS Single agency option response",
   "type": "object",
-  "required": [
-    "leg",
-    "meta",
-    "terms"
-  ],
   "properties": {
+    "id": {
+      "type": "string",
+      "description": "Id of the option among others"
+    },
     "leg": {
       "type": "object",
       "properties": {
         "startTime": {
-          "$ref": "units.json#definitions/time"
+          "$ref": "core/units.json#definitions/time"
         },
         "endTime": {
-          "$ref": "units.json#definitions/time"
+          "$ref": "core/units.json#definitions/time"
         },
         "from": {
-          "$ref": "units.json#definitions/location"
+          "description": "Stating location's lat and lon pair of this request",
+          "$ref": "core/units.json#definitions/location"
         },
         "to": {
-          "$ref": "units.json#definitions/location"
+          "description": "Destinated location's lat and lon pair of this request",
+          "$ref": "core/units.json#definitions/location"
         },
         "agencyId": {
           "type": "string"
+        },
+        "mode": {
+          "$ref": "core/plan.json#definitions/mode"
         }
-      }
+      },
+      "required": ["agencyId"],
+      "additionalProperties": false
     },
     "meta": {
       "type": "object",
@@ -35,16 +41,26 @@
     },
     "terms": {
       "type": "object",
-      "description": "Tsp terms of usage / order"
+      "description": "Tsp terms of usage / order",
+      "properties": {
+        "price": {
+          "$ref": "core/units.json#definitions/price"
+        },
+        "validityDuration": {
+          "$ref": "core/units.json#definitions/time"
+        }
+      },
+      "additionalProperties": false
     },
     "signature": {
       "type": "string",
       "description": "This object's signature"
     }
   },
-  "definitions": {
-    "identityId": {
-      "$ref": "aws.json#/definitions/cognitoIdentityId"
-    }
-  }
+  "required": [
+    "id",
+    "leg",
+    "meta",
+    "terms"
+  ]
 }

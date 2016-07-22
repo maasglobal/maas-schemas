@@ -1,11 +1,28 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/v1/units",
-  "description": "MaaS Booking schema (what we give out to mobile clients)",
+  "description": "MaaS Booking schema",
   "definitions": {
+    "booking": {
+      "type": "object",
+      "description": "The detailed booking object contains all information of the booking, tsp, customer and plans",
+      "allOf": [
+        {
+          "$ref": "#/definitions/bookingCore"
+        }
+      ],
+      "properties": {
+        "leg": {
+          "$ref": "core/plan.json#/definitions/leg"
+        }
+      },
+      "required": [
+        "leg"
+      ]
+    },
     "bookingCore": {
       "type": "object",
-      "description": "The basic booking, not containing leg or customer info",
+      "description": "The base booking, not containing leg",
       "properties": {
         "id": {
           "description": "The id that MaaS uses for the booking",
@@ -18,65 +35,27 @@
         "state": {
           "$ref": "#/definitions/bookingState"
         },
+        "meta": {
+          "$ref": "#/definitions/meta"
+        },
+        "terms": {
+          "$ref": "#/definitions/terms"
+        },
         "token": {
           "$ref": "#/definitions/token"
         },
-        "meta": {
-          "description": "Arbitrary metadata that a TSP can add",
-          "type": "object"
+        "customer": {
+          "$ref": "core/customer.json"
         }
       },
       "required": [
         "id",
+        "tspId",
         "state",
-        "token"
-      ]
-    },
-    "newBooking": {
-      "type": "object",
-      "description": "A new booking, created by MaaS POST request in 'new' state",
-      "required": [
-        "id",
-        "state",
-        "leg",
+        "terms",
         "customer"
       ],
-      "properties": {
-        "state": {
-          "type": "string",
-          "description": "The state of the booking (always 'NEW' for new bookings)",
-          "enum": [
-            "NEW"
-          ]
-        },
-        "leg": {
-          "$ref": "plan.json#/definitions/leg"
-        },
-        "customer": {
-          "$ref": "#/definitions/customer"
-        }
-      }
-    },
-    "booking": {
-      "type": "object",
-      "description": "The booking information describing the state and details of the transaction",
-      "allOf": [
-        {
-          "$ref": "#/definitions/bookingCore"
-        }
-      ],
-      "properties": {
-        "leg": {
-          "$ref": "plan.json#/definitions/leg"
-        },
-        "customer": {
-          "$ref": "#/definitions/customer"
-        }
-      },
-      "required": [
-        "leg",
-        "customer"
-      ]
+      "aditionalProperties": false
     },
     "bookingState": {
       "description": "The life-cycle state of the booking",
@@ -94,6 +73,19 @@
         "REJECTED"
       ]
     },
+    "meta": {
+      "description": "Arbitrary metadata that a TSP can add",
+      "type": "object"
+    },
+    "terms": {
+      "description": "MaaS booking terms and condition for its business engine",
+      "type": "object",
+      "properties": {
+        "price": {
+          "$ref": "core/units.json#definitions/price"
+        }
+      }
+    },
     "token": {
       "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
       "properties": {
@@ -103,43 +95,17 @@
           "properties": {
             "from": {
               "description": "The starting time from which the ticket is valid",
-              "$ref": "units.json#/definitions/time"
+              "$ref": "core/units.json#/definitions/time"
             },
             "to": {
               "description": "The finishing time the ticket is valid for",
-              "$ref": "units.json#/definitions/time"
+              "$ref": "core/units.json#/definitions/time"
             }
           }
         },
         "meta": {
           "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
           "type": "object"
-        }
-      }
-    },
-    "customer": {
-      "type": "object",
-      "required": [
-        "id",
-        "firstName",
-        "lastName"
-      ],
-      "properties": {
-        "id": {
-          "description": "The identifier MaaS uses to identify the customer",
-          "type": "string"
-        },
-        "firstName": {
-          "description": "First name of the customer (e.g. John)",
-          "type": "string"
-        },
-        "lastName": {
-          "description": "Last name of the customer (e.g. Doe)",
-          "type": "string"
-        },
-        "phone": {
-          "description": "Phone number that the customer may be reached from",
-          "type": "string"
         }
       }
     }

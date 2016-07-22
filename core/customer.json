@@ -1,20 +1,24 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/v1/units",
-  "description": "MaaS Customer object",
+  "description": "MaaS Customer object schema that will be passed along with the booking",
   "type": "object",
   "required": [
-    "id",
+    "title",
     "firstName",
     "lastName",
     "phone",
-    "purchases",
-    "favouriteLocations"
+    "email"
   ],
   "properties": {
-    "identityId": {
-      "description": "The identifier MaaS uses to identify the customer",
-      "type": "string"
+    "title": {
+      "type": "string",
+      "description": "Customer title",
+      "enum": [
+        "mr",
+        "miss",
+        "mrs"
+      ]
     },
     "firstName": {
       "description": "First name of the customer (e.g. John)",
@@ -28,25 +32,9 @@
       "description": "Phone number that the customer may be reached from",
       "type": "string"
     },
-    "packages": {
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
-    },
-    "points": {
-      "type": "number"
-    },
-    "favouriteLocations": {
-      "type": "array",
-      "items": {
-        "$ref": "units.json#/definitions/place"
-      }
-    }
-  },
-  "definitions": {
-    "identityId": {
-      "$ref": "aws.json#/definitions/cognitoIdentityId"
+    "email": {
+      "description": "Phone number that the customer may be reached from",
+      "type": "string"
     }
   }
 }

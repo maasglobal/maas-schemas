@@ -72,6 +72,20 @@
           }
         }
       }
+    },
+    "price": {
+      "type": "object",
+      "required": ["amount"],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "([A-Z]{3})"
+        }
+      }
     }
   }
 }
