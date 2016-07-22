@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/tsp/request-customer",
+  "description": "MaaS TSP adapter request customer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["phone", "email", "firstName", "lastName"],
+  "properties": {
+    "phone": { "type": "string" },
+    "email": { "type": "string" },
+    "firstName": { "type": "string" },
+    "lastName": { "type": "string" },
+    "gender": { "type": "string" }
+  }
+}

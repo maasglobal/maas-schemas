@@ -12,7 +12,7 @@
       "type": "string"
     },
     "customer": {
-      "$ref": "core/customer.json#/definitions/identityId"
+      "$ref": "core/aws-units.json#/definitions/identityId"
     },
     "legs": {
       "type": "array",
@@ -44,7 +44,7 @@
           "type": "string"
         },
         "booking": {
-          "$ref": "booking.json#/definitions/bookingCore"
+          "$ref": "core/booking.json#/definitions/bookingCore"
         }
       }
     }
