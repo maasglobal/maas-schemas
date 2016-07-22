@@ -25,9 +25,8 @@
 
 Run `npm test` to test with jsonhint and mocha + chai
 
-Current tests
-
 > Schema deref test
+
 > Validation function test ( with bookings-create schemas )
 
 ### Notes
