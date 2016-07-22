@@ -29,7 +29,7 @@
   "dependencies": {
     "ajv": "^4.1.8",
     "bluebird": "^3.4.1",
-    "json-schema-deref": "^0.3.2",
+    "json-schema-deref": "git://github.com/blackevil245/json-schema-deref.git",
     "glob": "^7.0.5"
   },
   "devDependencies": {
