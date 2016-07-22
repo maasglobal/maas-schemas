@@ -35,9 +35,7 @@ describe('MaaS.fi schemas', () => {
       .catch(error => done);
   });
 
-  describe('Some other tests', () => {
-    it('[placeholder to trigger before()]', done => {
-      done();
-    });
+  it('[placeholder to trigger before()]', done => {
+    done();
   });
 });
