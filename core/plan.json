@@ -42,17 +42,7 @@
           "minItems": 0,
           "items": [
             {
-              "anyOf": [
-                {
-                  "$ref": "#/definitions/leg"
-                },
-                {
-                  "$ref": "#/definitions/waitingLeg"
-                },
-                {
-                  "$ref": "#/definitions/transferLeg"
-                }
-              ]
+              "$ref": "#/definitions/leg"
             }
           ]
         }
@@ -64,6 +54,19 @@
       ]
     },
     "leg": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/legCore"
+        },
+        {
+          "$ref": "#/definitions/waitingLeg"
+        },
+        {
+          "$ref": "#/definitions/transferLeg"
+        }
+      ]
+    },
+    "legCore": {
       "type": "object",
       "additionalProperties": true,
       "properties": {

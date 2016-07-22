@@ -39,6 +39,5 @@ module.exports = function () {
     it('[placeholder to trigger before()]', done => {
       done();
     });
-
   });
 };

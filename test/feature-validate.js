@@ -9,14 +9,14 @@ const dummyInvalidBooking = {
     title: 'mr',
     firstName: 'John',
     lastName: 'Doe',
-    phone: 123456,
+    phone: 109381023,
     email: 'john.doe@test.fi',
   },
 };
 
 const dummyValidBooking = {
   leg: {
-    mode: 'WALK',
+    mode: 'WAIT',
     startTime: Date.now(),
     endTime: Date.now(),
   },
@@ -30,7 +30,7 @@ const dummyValidBooking = {
     title: 'mr',
     firstName: 'John',
     lastName: 'Doe',
-    phone: 123456,
+    phone: '123456',
     email: 'john.doe@test.fi',
   },
 };
@@ -44,13 +44,13 @@ module.exports = function () {
       before(done => {
         index.validate('./maas-backend/bookings-create/request.json', dummyValidBooking)
           .then(_response => {
-            console.log(response);
             response = _response;
             done();
           });
       });
 
       it('should succeed without error', () => {
+        console.log(response);
         expect(response).to.be.null;
       });
     });

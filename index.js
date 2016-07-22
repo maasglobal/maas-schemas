@@ -63,10 +63,6 @@ function resolveSchemaFromPath(path) {
  */
 function validate(path, object) {
   return derefSchema(resolveSchemaFromPath(path))
-    .catch(error => {
-      console.log(error);
-      throw new Error('Runtime error: Invalid JSON schema.');
-    })
     .then(dereferenced => {
       // Validate it
       const validate = ajv.compile(dereferenced);
@@ -77,6 +73,10 @@ function validate(path, object) {
       }
 
       return Promise.resolve(validate.errors);
+    })
+    .catch(error => {
+      console.log(error);
+      throw new Error('Runtime error: Invalid JSON schema.');
     });
 }
 
