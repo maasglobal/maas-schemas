@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/maasglobal/maas-schemas#readme",
   "dependencies": {
-    "bluebird": "^3.4.1",
     "json-schema-deref": "^0.3.2"
   },
   "devDependencies": {

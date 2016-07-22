@@ -1,32 +1,25 @@
 'use strict';
 
+const path = require('path');
 const deref = require('json-schema-deref');
-const Promise = require('bluebird');
 
-const derefPromise = Promise.promisify(deref);
+const dereference = schema => (
+  new Promise((resolve, reject) => {
+    const options = {
+      failOnMissing: true,
+      baseFolder: path.resolve('./'),
+    };
 
-function derefSchema(schema) {
-
-  const options = {
-    failOnMissing: true,
-  };
-
-  return derefPromise(schema, options)
-    .then((fullSchema, error) => {
-      if (error) {
-        return Promise.reject(error);
+    deref(schema, options, (err, dereferenced) => {
+      if (err) {
+        return reject(err);
       }
 
-      return Promise.resolve(fullSchema);
+      return resolve(dereferenced);
     });
-
-}
-
-function order() {
-
-}
+  })
+);
 
 module.exports = {
-  order,
-  derefSchema,
+  dereference,
 };
