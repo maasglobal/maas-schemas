@@ -4,7 +4,8 @@
   "description": "Schemas for maas infrastructure",
   "main": "index.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "watch": "gulp watch"
   },
   "repository": {
     "type": "git",
@@ -35,10 +36,12 @@
     "eslint-plugin-import": "^1.11.1",
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^5.2.2",
+    "glob": "^7.0.5",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
     "gulp-json-lint": "^0.1.0",
     "gulp-jsonlint": "^1.1.2",
+    "gulp-mocha": "^2.2.0",
     "mocha": "^2.5.3"
   }
 }

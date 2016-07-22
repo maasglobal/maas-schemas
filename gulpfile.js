@@ -1,6 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
+const mocha = require('gulp-mocha');
 const jsonlint = require('gulp-jsonlint');
 const jsonclint = require('gulp-json-lint');
 const eslint = require('gulp-eslint');
@@ -19,6 +20,11 @@ gulp.task('jsonclint', () => {
     .pipe(jsonclint.report('verbose'));
 });
 
+gulp.task('mochaTest', ['validate'], () => {
+  return gulp.src('./test.js', { read: false })
+    .pipe(mocha());
+});
+
 gulp.task('jsonlint', () => {
   return gulp.src(jsonFiles)
     .pipe(jsonlint())
@@ -35,6 +41,10 @@ gulp.task('eslint', () => {
 
 gulp.task('validate', ['jsonclint', 'jsonlint', 'eslint']);
 
-gulp.task('test', ['validate']);
+gulp.task('test', ['mochaTest']);
+
+gulp.task('watch', () => {
+  gulp.watch([].concat(jsonFiles, jsoncFiles, jsFiles), ['test']);
+});
 
 gulp.task('default');
