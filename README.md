@@ -1,5 +1,32 @@
 # MaaS-schemas submodule
 
+### API
+
+```javascript
+/**
+ *	Validate an object using schema retrieved from input path
+ *	@param {String} path - path to the requested schema relative to root
+ *	@param {Object} object - input testing subject
+ */
+function validate(path, object)
+```
+
+```javascript
+/**
+ * Deref json schema
+ * @param {object} schema
+ */
+function derefSchema(schema)
+```
+
+```javascript
+/**
+ * Get JSON schema located with input path
+ * @param {String} path - path to the requested schema relative to root
+ */
+function resolveSchemaFromPath(path)
+```
+
 ### Contains
 
 ```
