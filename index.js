@@ -76,7 +76,7 @@ function validate(path, object) {
         return Promise.resolve(null);
       }
 
-      return Promise.resolve(validate.rrors);
+      return Promise.resolve(validate.errors);
     });
 }
 
