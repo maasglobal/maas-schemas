@@ -18,7 +18,7 @@
           "$ref": "core/units.json#definitions/time"
         },
         "from": {
-          "description": "Stating location's lat and lon pair of this request",
+          "description": "Starting location's lat and lon pair of this request",
           "$ref": "core/units.json#definitions/location"
         },
         "to": {

@@ -4,7 +4,6 @@
   "description": "MaaS Customer object schema that will be passed along with the booking",
   "type": "object",
   "required": [
-    "title",
     "firstName",
     "lastName",
     "phone",
@@ -16,8 +15,9 @@
       "description": "Customer title",
       "enum": [
         "mr",
-        "miss",
-        "mrs"
+        "ms",
+        "mrs",
+        "company"
       ]
     },
     "firstName": {
@@ -33,7 +33,7 @@
       "type": "string"
     },
     "email": {
-      "description": "Phone number that the customer may be reached from",
+      "description": "Email address that the customer may be reached from",
       "type": "string"
     }
   }

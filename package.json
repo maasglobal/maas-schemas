@@ -17,7 +17,7 @@
     "JSON"
   ],
   "author": "",
-  "contributor": [
+  "contributors": [
     "James Nguyen",
     "Klaus Dahlen"
   ],
@@ -27,6 +27,8 @@
   },
   "homepage": "https://github.com/maasglobal/maas-schemas#readme",
   "dependencies": {
+    "ajv": "^4.1.8",
+    "bluebird": "^3.4.1",
     "json-schema-deref": "^0.3.2"
   },
   "devDependencies": {
