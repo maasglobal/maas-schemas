@@ -82,7 +82,9 @@
           "minimum": 0
         },
         "currency": {
-          "type": { "enum" : [ "EUR" ] },
+          "type": {
+            "enum": [ "EUR" ]
+          }
         }
       }
     }
