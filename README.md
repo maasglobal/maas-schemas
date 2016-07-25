@@ -27,6 +27,37 @@ function derefSchema(schema)
 function resolveSchemaFromPath(path)
 ```
 
+### Example usage
+
+```javascript
+'use strict';
+const expect = require('chai').expect;
+const path = require('path');
+const schemaUtils = require(path.resolve('./schemas/index.js'));
+
+describe('Schema validation example', () => {
+  const schemaPath = path.resolve('./schemas/tsp/booking-options-list/response.json');
+  const jsonObj = {
+    options: [{
+      leg: {},
+      invalid: true,
+    }],
+  };
+
+  // This will fail with an "Invalid JSON schema" error
+  it('should return a valid object', done => {
+    return schemaUtils.validate(schemaPath, jsonObj)
+      .then(validationResult => {
+        // validationResult === null if the schema was valid
+        expect(validationResult).to.be.null;
+        done();
+      })
+      .catch(done);
+  });
+});
+
+```
+
 ### Contains
 
 ```
