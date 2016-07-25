@@ -1,1 +1,6 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/tsp/booking-read-by-id/response",
+  "description": "Response schema for getting a specific booking with a TSP ID from a TSP adapter",
+  "$ref": "tsp/booking.json"
+}

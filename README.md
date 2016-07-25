@@ -56,6 +56,16 @@ Run `npm test` to test with jsonhint and mocha + chai
 
 > Validation function test ( with bookings-create schemas )
 
+### Writing schemas
+
+```
+# Install the dependencies
+$ npm install
+
+# Watch for changes and run tests & validation automatically
+$ npm run watch
+```
+
 ### Notes
 
 Atom plugin `atom-json-schema` have a good support for JSON schemas
