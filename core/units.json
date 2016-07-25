@@ -75,15 +75,14 @@
     },
     "price": {
       "type": "object",
-      "required": ["amount"],
+      "required": ["amount", "currency"],
       "properties": {
         "amount": {
           "type": "number",
           "minimum": 0
         },
         "currency": {
-          "type": "string",
-          "pattern": "([A-Z]{3})"
+          "type": { "enum" : [ "EUR" ] },
         }
       }
     }
