@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Schemas for maas infrastructure",
   "main": "index.js",
+  "engine": {
+    "node": ">=4.3.2"
+  },
   "scripts": {
     "test": "gulp test",
     "watch": "gulp watch"
@@ -17,7 +20,7 @@
     "JSON"
   ],
   "author": "",
-  "contributor": [
+  "contributors": [
     "James Nguyen",
     "Klaus Dahlen"
   ],
@@ -27,16 +30,15 @@
   },
   "homepage": "https://github.com/maasglobal/maas-schemas#readme",
   "dependencies": {
-    "json-schema-deref": "^0.3.2"
+    "ajv": "^4.1.8",
+    "json-schema-deref": "git://github.com/blackevil245/json-schema-deref.git",
+    "glob": "^7.0.5"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.1.1",
-    "eslint-config-airbnb": "^9.0.1",
+    "eslint-config-airbnb-base": "^5.0.0",
     "eslint-plugin-import": "^1.11.1",
-    "eslint-plugin-jsx-a11y": "^2.0.1",
-    "eslint-plugin-react": "^5.2.2",
-    "glob": "^7.0.5",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
     "gulp-json-lint": "^0.1.0",

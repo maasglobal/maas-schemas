@@ -1,41 +1,6 @@
 'use strict';
 
-const path = require('path');
-const index = require('./index.js');
-const expect = require('chai').expect;
-const glob = require('glob');
-
-const globPromise = (pattern, options) => (
-  new Promise((resolve, reject) => {
-    glob(pattern, options || {}, (err, matches) => {
-      if (err) return reject(err);
-      return resolve(matches);
-    });
-  })
-);
-
-describe('MaaS.fi schemas', () => {
-  before(done => {
-    return globPromise('*(core|tsp|maas-backend)/**/*.json', { root: path.resolve('./') })
-      .then(schemaPaths => {
-        describe(`Dereferencing tests for ${schemaPaths.length} file(s)`, () => {
-          schemaPaths.forEach(schemaPath => {
-            it(`should be able to dereference ${schemaPath}`, done => {
-              return index.dereference(require(path.resolve(schemaPath)))
-                .then(fullSchema => {
-                  expect(fullSchema).to.not.be.undefined;
-                  done();
-                })
-                .catch(done);
-            });
-          });
-        });
-        done();
-      })
-      .catch(error => done);
-  });
-
-  it('[placeholder to trigger before()]', done => {
-    done();
-  });
+describe('MaaS Schemas', () => {
+  require('./test/feature-deref.js')();
+  require('./test/feature-validate.js')();
 });
