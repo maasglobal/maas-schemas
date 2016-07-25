@@ -1,9 +1,27 @@
 'use strict';
 
-const path = require('path');
 const deref = require('json-schema-deref');
 const ajvFactory = require('ajv');
 const ajv = ajvFactory({ verbose: true });
+
+/**
+ * Replacer function for errors to be used w/ JSON.stringify
+ * @param {string} key
+ * @param {string} value
+ */
+function replaceErrors(key, value) {
+  if (value instanceof Error) {
+    const error = {};
+
+    Object.getOwnPropertyNames(value).forEach(key => {
+      error[key] = value[key];
+    });
+
+    return error;
+  }
+
+  return value;
+}
 
 /**
  * A simple Promisified schema validator that can resolve nested
@@ -32,7 +50,7 @@ function derefSchema(schema) {
 
     const options = {
       failOnMissing: true,
-      baseFolder: path.resolve('./'),
+      baseFolder: __dirname,
     };
 
     deref(schema, options, (err, dereferenced) => {
@@ -56,9 +74,9 @@ function resolveSchemaFromPath(path) {
 }
 
 /**
- *	Validate an object using schema retrieved from input path
- *	@param {String} path - path to the requested schema
- *	@param {Object} object - input testing subject
+ *  Validate an object using schema retrieved from input path
+ *  @param {String} path - path to the requested schema
+ *  @param {Object} object - input testing subject
  */
 function validate(path, object) {
   return derefSchema(resolveSchemaFromPath(path))
@@ -71,10 +89,10 @@ function validate(path, object) {
         return Promise.resolve(null);
       }
 
-      return Promise.reject(validate.errors);
+      return Promise.reject(ajvValidate.errors);
     })
     .catch(error => {
-      throw new Error('Runtime error: Invalid JSON schema.');
+      throw new Error(`Runtime error: Invalid JSON schema: ${JSON.stringify(error, replaceErrors, 2)}`);
     });
 }
 
