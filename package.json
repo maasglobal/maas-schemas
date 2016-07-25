@@ -37,10 +37,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.1.1",
-    "eslint-config-airbnb": "^9.0.1",
+    "eslint-config-airbnb-base": "^5.0.0",
     "eslint-plugin-import": "^1.11.1",
-    "eslint-plugin-jsx-a11y": "^2.0.1",
-    "eslint-plugin-react": "^5.2.2",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
     "gulp-json-lint": "^0.1.0",

@@ -7,7 +7,7 @@
     "node": true,
     "mocha": true
   },
-  "extends": ["eslint:recommended", "airbnb"],
+  "extends": ["eslint:recommended", "airbnb-base"],
   "rules": {
     "no-console": 0,
 
@@ -29,7 +29,9 @@
     "camelcase": 0,
     "space-in-parens": 0,
     "no-restricted-syntax": 0,
-    "import/no-unresolved": 0, // fails in Travis
+    "import/no-unresolved": 0, // fails in Travis",
+    "import/no-extraneous-dependencies": 0,
+    "import/newline-after-import": 0,
 
     "no-unused-vars": [2, { "vars": "all", "args": "none" }],
     "max-len": [2, 256],
