@@ -81,4 +81,5 @@ function validate(path, object) {
 module.exports = {
   validate,
   derefSchema,
+  resolveSchemaFromPath,
 };
