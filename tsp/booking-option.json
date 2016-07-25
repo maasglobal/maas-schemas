@@ -48,9 +48,9 @@
             "currency": {
               "type": "string",
               "pattern": "[A-Z]{3}"
-            },
-            "required": ["amount"]
+            }
           },
+          "required": ["amount"],
           "additionalProperties": true
         },
         "validityDuration": {
@@ -131,7 +131,25 @@
         }
       },
       "additionalProperties": true,
-      "required": []
+      "oneOf": [
+        { "required": ["MODE_WALK"] },
+        { "required": ["MODE_BICYCLE"] },
+        { "required": ["MODE_CAR"] },
+        { "required": ["MODE_TRAM"] },
+        { "required": ["MODE_SUBWAY"] },
+        { "required": ["MODE_RAIL"] },
+        { "required": ["MODE_BUS"] },
+        { "required": ["MODE_FERRY"] },
+        { "required": ["MODE_CABLE_CAR"] },
+        { "required": ["MODE_GONDOLA"] },
+        { "required": ["MODE_FUNICULAR"] },
+        { "required": ["MODE_TRANSIT"] },
+        { "required": ["MODE_TRAIN"] },
+        { "required": ["MODE_TRAINISH"] },
+        { "required": ["MODE_BUSISH"] },
+        { "required": ["MODE_LEG_SWITCH"] },
+        { "required": ["MODE_TAXI"] }
+      ]
     }
   },
   "required": ["leg", "meta", "terms"],
