@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Schemas for maas infrastructure",
   "main": "index.js",
+  "engine": {
+    "node": ">=4.3.2"
+  },
   "scripts": {
     "test": "gulp test",
     "watch": "gulp watch"
@@ -28,7 +31,6 @@
   "homepage": "https://github.com/maasglobal/maas-schemas#readme",
   "dependencies": {
     "ajv": "^4.1.8",
-    "bluebird": "^3.4.1",
     "json-schema-deref": "git://github.com/blackevil245/json-schema-deref.git",
     "glob": "^7.0.5"
   },

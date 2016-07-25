@@ -2,7 +2,6 @@
 
 const path = require('path');
 const deref = require('json-schema-deref');
-const Promise = require('bluebird');
 const ajvFactory = require('ajv');
 const ajv = ajvFactory({ verbose: true });
 
@@ -65,17 +64,16 @@ function validate(path, object) {
   return derefSchema(resolveSchemaFromPath(path))
     .then(dereferenced => {
       // Validate it
-      const validate = ajv.compile(dereferenced);
-      const valid = validate(object);
+      const ajvValidate = ajv.compile(dereferenced);
+      const valid = ajvValidate(object);
 
       if (valid) {
         return Promise.resolve(null);
       }
 
-      return Promise.resolve(validate.errors);
+      return Promise.reject(validate.errors);
     })
     .catch(error => {
-      console.log(error);
       throw new Error('Runtime error: Invalid JSON schema.');
     });
 }

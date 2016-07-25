@@ -36,7 +36,9 @@ const dummyValidBooking = {
 };
 
 module.exports = function () {
+
   describe('Schema validation', () => {
+
     describe('validate valid booking-create request', () => {
 
       let response;
@@ -50,7 +52,6 @@ module.exports = function () {
       });
 
       it('should succeed without error', () => {
-        console.log(response);
         expect(response).to.be.null;
       });
     });
@@ -63,6 +64,10 @@ module.exports = function () {
         index.validate('./maas-backend/bookings-create/request.json', dummyInvalidBooking)
           .then(_response => {
             response = _response;
+            done();
+          })
+          .catch(_error => {
+            response = _error;
             done();
           });
       });
