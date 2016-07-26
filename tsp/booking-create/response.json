@@ -10,8 +10,20 @@
     "meta": {
       "type": "object",
       "description": "The original metadata from the TSP provided in options should be included"
+    },
+    "terms": {
+      "$ref": "core/booking.json#/definitions/terms"
+    },
+    "token": {
+      "$ref": "core/booking.json#/definitions/token"
+    },
+    "customer": {
+      "$ref": "core/customer.json"
+    },
+    "tspId": {
+      "type": "string"
     }
   },
-  "required": ["leg", "meta"],
+  "required": ["leg", "meta", "terms", "token", "customer", "tspId"],
   "additionalProperties": false
 }

@@ -10,8 +10,11 @@
     "meta": {
       "type": "object",
       "description": "The original metadata from the TSP provided in options should be included"
+    },
+    "customer": {
+      "$ref": "core/customer.json"
     }
   },
-  "required": ["leg", "meta"],
+  "required": ["leg", "meta", "customer"],
   "additionalProperties": false
 }

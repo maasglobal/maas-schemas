@@ -48,7 +48,8 @@ module.exports = function () {
           .then(_response => {
             response = _response;
             done();
-          });
+          })
+          .catch(done);
       });
 
       it('should succeed without error', () => {
