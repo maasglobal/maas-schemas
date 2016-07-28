@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.dev.maas.global/v1/geocoding/query",
+  "description": "MaaS geocoding query request schema.",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string", "minLength": 2, "maxLength": 128 },
+    "count": { "type": "integer", "minimum": 1, "maximum": 100, "default": 5 },
+    "lat": { "type": "number", "minimum": -90, "maximum": 90 },
+    "lon": { "type": "number", "minimum": -180, "maximum": 180 }
+  },
+  "required": ["name", "lat", "lon"],
+  "inject": {
+    "hint": "latlon"
+  }
+}

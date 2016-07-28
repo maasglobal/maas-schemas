@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/profile-webhook/response-schema.json",
+  "description": "Response schema for profile-webhook",
+  "type": "object",
+  "properties": {
+    "profile": {
+      "$ref": "v1/profile.json"
+    },
+    "maas": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

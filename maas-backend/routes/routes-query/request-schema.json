@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "v1/aws.json#definitions/cognitoIdentityId"
+    },
+    "from": {
+      "$ref": "v1/units.json#definitions/shortLocation"
+    },
+    "to": {
+      "$ref": "v1/units.json#definitions/shortLocation"
+    },
+    "leaveAt": {
+      "$ref": "v1/units.json#definitions/time"
+    },
+    "arriveBy": {
+      "$ref": "v1/units.json#definitions/time"
+    }
+  },
+  "required": [ "from", "to" ]
+}

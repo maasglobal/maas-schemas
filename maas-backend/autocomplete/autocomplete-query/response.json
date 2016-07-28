@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/autocomplete/query/response.json",
+  "description": "Response schema for autocomplete",
+  "type": "object",
+  "properties": {
+    "suggestions": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "maas": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false,
+  "required": [ "suggestions" ]
+}
