@@ -4,12 +4,9 @@
   "description": "Request schema for bookings-retrieve",
   "type": "object",
   "properties": {
-    "identityId": {
-      "type": "String"
-    },
     "bookingId": {
-      "type": "String",
-      "description": "bookingId of the requested booking"
+      "description": "bookingId of the requested booking",
+      "$ref": "core/units.json#/definitions/uuid"
     }
   }
 }

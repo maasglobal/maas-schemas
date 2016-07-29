@@ -31,8 +31,9 @@
   "homepage": "https://github.com/maasglobal/maas-schemas#readme",
   "dependencies": {
     "ajv": "^4.1.8",
+    "glob": "^7.0.5",
     "json-schema-deref": "git://github.com/blackevil245/json-schema-deref.git",
-    "glob": "^7.0.5"
+    "json-schema-ref-parser": "^3.1.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",

@@ -5,7 +5,7 @@
   "type": "object",
   "anyOf": [
     {
-      "$ref": "v1/units.json#/definitions/location"
+      "$ref": "core/units.json#/definitions/location"
     }
   ],
   "properties": {

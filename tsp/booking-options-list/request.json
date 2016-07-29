@@ -6,27 +6,27 @@
   "required": ["mode", "startTime", "from"],
   "properties": {
     "mode": {
-      "$ref": "core/plan.json#definitions/mode"
+      "$ref": "core/plan.json#/definitions/mode"
     },
     "startTime": {
-      "$ref": "core/units.json#definitions/time"
+      "$ref": "core/units.json#/definitions/time"
     },
     "endTime": {
-      "$ref": "core/units.json#definitions/time"
+      "$ref": "core/units.json#/definitions/time"
     },
     "from": {
-      "$ref": "core/units.json#definitions/location"
+      "$ref": "core/units.json#/definitions/location"
     },
     "to": {
-      "$ref": "core/units.json#definitions/location"
+      "$ref": "core/units.json#/definitions/location"
     },
     "fromRadius":{
       "description": "'from' location radius in meters",
-      "$ref": "core/units.json#definitions/distance"
+      "$ref": "core/units.json#/definitions/distance"
     },
     "toRadius":{
       "description": "'to' location radius in meters",
-      "$ref": "core/units.json#definitions/distance"
+      "$ref": "core/units.json#/definitions/distance"
     },
     "customer": {
       "$ref": "tsp/request-customer.json"

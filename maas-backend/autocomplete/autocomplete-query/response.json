@@ -11,10 +11,6 @@
           "type": "string"
         }
       ]
-    },
-    "maas": {
-      "type": "object",
-      "additionalProperties": true
     }
   },
   "additionalProperties": false,

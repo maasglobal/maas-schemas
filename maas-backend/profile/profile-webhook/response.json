@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "profile": {
-      "$ref": "v1/profile.json"
+      "$ref": "core/profile.json"
     },
     "maas": {
       "type": "object",

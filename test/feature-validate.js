@@ -16,9 +16,10 @@ const dummyInvalidBooking = {
 
 const dummyValidBooking = {
   leg: {
-    mode: 'WAIT',
+    mode: 'WALK',
     startTime: Date.now(),
     endTime: Date.now(),
+    agencyId: 'dummy',
   },
   terms: {
     price: {
@@ -33,6 +34,7 @@ const dummyValidBooking = {
     phone: '123456',
     email: 'john.doe@test.fi',
   },
+  meta: {},
 };
 
 module.exports = function () {
@@ -44,7 +46,7 @@ module.exports = function () {
       let response;
 
       before(done => {
-        index.validate('./maas-backend/bookings-create/request.json', dummyValidBooking)
+        index.validate('./maas-backend/bookings/bookings-create/request.json', dummyValidBooking)
           .then(_response => {
             response = _response;
             done();
@@ -62,7 +64,7 @@ module.exports = function () {
       let response;
 
       before(done => {
-        index.validate('./maas-backend/bookings-create/request.json', dummyInvalidBooking)
+        index.validate('./maas-backend/bookings/bookings-create/request.json', dummyInvalidBooking)
           .then(_response => {
             response = _response;
             done();

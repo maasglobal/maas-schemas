@@ -4,32 +4,28 @@
   "description": "MaaS Single agency option response",
   "type": "object",
   "properties": {
-    "id": {
-      "type": "string",
-      "description": "Id of the option among others"
-    },
     "leg": {
       "type": "object",
       "properties": {
         "startTime": {
-          "$ref": "core/units.json#definitions/time"
+          "$ref": "core/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "core/units.json#definitions/time"
+          "$ref": "core/units.json#/definitions/time"
         },
         "from": {
           "description": "Starting location's lat and lon pair of this request",
-          "$ref": "core/units.json#definitions/location"
+          "$ref": "core/units.json#/definitions/location"
         },
         "to": {
           "description": "Destinated location's lat and lon pair of this request",
-          "$ref": "core/units.json#definitions/location"
+          "$ref": "core/units.json#/definitions/location"
         },
         "agencyId": {
           "type": "string"
         },
         "mode": {
-          "$ref": "core/plan.json#definitions/mode"
+          "$ref": "core/plan.json#/definitions/mode"
         }
       },
       "required": ["agencyId"],
@@ -44,10 +40,10 @@
       "description": "Tsp terms of usage / order",
       "properties": {
         "price": {
-          "$ref": "core/units.json#definitions/price"
+          "$ref": "core/units.json#/definitions/price"
         },
         "validityDuration": {
-          "$ref": "core/units.json#definitions/time"
+          "$ref": "core/units.json#/definitions/time"
         }
       },
       "additionalProperties": false
@@ -58,7 +54,6 @@
     }
   },
   "required": [
-    "id",
     "leg",
     "meta",
     "terms"

@@ -1,1 +1,16 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/bookings/bookings-update/request.json",
+  "description": "Request schema for bookings-update",
+  "type": "object",
+  "properties": {
+    "bookingId": {
+      "description": "bookingId of the requested booking",
+      "$ref": "core/units.json#/definitions/uuid"
+    },
+    "payload": {
+      "type": "object",
+      "description": "booking update payload"
+    }
+  }
+}

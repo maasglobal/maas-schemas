@@ -5,11 +5,7 @@
   "type": "object",
   "properties": {
     "itinerary": {
-      "$ref": "v1/maas-itinerary.json"
-    },
-    "maas": {
-      "type": "object",
-      "additionalProperties": true
+      "$ref": "core/maas-itinerary.json"
     }
   },
   "required": [ "itinerary" ],

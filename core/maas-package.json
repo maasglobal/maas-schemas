@@ -31,7 +31,7 @@
       ],
       "properties": {
         "id": {
-          "type": "string"
+          "$ref": "core/units.json#/definitions/uuid"
         },
         "name": {
           "type": "string"
@@ -105,7 +105,7 @@
       ],
       "properties": {
         "id": {
-          "type": "string"
+          "$ref": "core/units.json#/definitions/uuid"
         },
         "name": {
           "type": "string"

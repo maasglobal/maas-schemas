@@ -26,7 +26,7 @@
       "properties": {
         "id": {
           "description": "The id that MaaS uses for the booking",
-          "type": "string"
+          "$ref": "core/units.json#/definitions/uuid"
         },
         "tspId": {
           "description": "The id that a TSP uses for the booking",
@@ -55,7 +55,7 @@
         "terms",
         "customer"
       ],
-      "aditionalProperties": false
+      "aditionalProperties": true
     },
     "bookingState": {
       "description": "The life-cycle state of the booking",
@@ -169,7 +169,7 @@
       "type": "object",
       "properties": {
         "price": {
-          "$ref": "core/units.json#definitions/price"
+          "$ref": "core/units.json#/definitions/price"
         }
       }
     },
