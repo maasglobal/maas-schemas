@@ -4,11 +4,11 @@
   "description": "Request schema for cancelling a booking through a TSP adapter",
   "type": "object",
   "properties": {
-    "state": {
+    "tspId": {
       "type": "string",
-      "pattern": "^CANCELLED$"
+      "description": "The TSP ID of the booking to be cancelled"
     }
   },
-  "required": ["state"],
+  "required": ["tspId"],
   "additionalProperties": false
 }
