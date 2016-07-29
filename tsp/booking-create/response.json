@@ -8,8 +8,7 @@
       "$ref": "core/plan.json#/definitions/leg"
     },
     "meta": {
-      "type": "object",
-      "description": "The original metadata from the TSP provided in options should be included"
+      "$ref": "core/booking.json#/definitions/meta"
     },
     "terms": {
       "$ref": "core/booking.json#/definitions/terms"
