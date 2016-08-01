@@ -60,16 +60,16 @@ module.exports = {
     'geocoding-reverse-response': './maas-backend/geocoding/geocoding-reverse/response.json',
 
     // Itinerary create
-    'itineraries-create-request': './maas-backend/itineraries/itinerary-create/request.json',
-    'itineraries-create-response': './maas-backend/itineraries/itinerary-create/response.json',
+    'itinerary-create-request': './maas-backend/itineraries/itinerary-create/request.json',
+    'itinerary-create-response': './maas-backend/itineraries/itinerary-create/response.json',
 
     // Itinerary retrieve
-    'itineraries-retrieve-request': './maas-backend/itineraries/itinerary-retrieve/request.json',
-    'itineraries-retrieve-response': './maas-backend/itineraries/itinerary-retrieve/response.json',
+    'itinerary-retrieve-request': './maas-backend/itineraries/itinerary-retrieve/request.json',
+    'itinerary-retrieve-response': './maas-backend/itineraries/itinerary-retrieve/response.json',
 
     // Itinerary update
-    'itineraries-update-request': './maas-backend/itineraries/itinerary-update/request.json',
-    'itineraries-update-response': './maas-backend/itineraries/itinerary-update/response.json',
+    'itinerary-update-request': './maas-backend/itineraries/itinerary-update/request.json',
+    'itinerary-update-response': './maas-backend/itineraries/itinerary-update/response.json',
 
     // Monitor query
     'monitor-query-request': './maas-backend/monitor/monitor-query/request.json',
@@ -111,7 +111,7 @@ module.exports = {
     'profile-payment-get-request': './maas-backend/profile/profile-payment-get/request.json',
     'profile-payment-get-response': './maas-backend/profile/profile-payment-get/response.json',
 
-    // Profile payment
+    // Profile payment put
     'profile-payment-put-request': './maas-backend/profile/profile-payment-put/request.json',
     'profile-payment-put-response': './maas-backend/profile/profile-payment-put/response.json',
 
@@ -131,7 +131,7 @@ module.exports = {
     'google-geocoding-request': './maas-backend/provider/google/geocoding/request.json',
     'google-geocoding-response': './maas-backend/provider/google/geocoding/response.json',
 
-    // Google geocoding
+    // Google reverse geocoding
     'google-geocoding-reverse-request': './maas-backend/provider/google/geocoding-reverse/request.json',
     'google-geocoding-reverse-response': './maas-backend/provider/google/geocoding-reverse/response.json',
 
@@ -204,8 +204,8 @@ module.exports = {
     'tracking-active-leg-set-response': './maas-backend/tracking/tracking-active-leg-set/response.json',
 
     // Tracking active itinerary cancel
-    'tracking-cancel-active-itinerary-request': './maas-backend/tracking/tracking-cancel-active-itinerary/request.json',
-    'tracking-cancel-active-itinerary-response': './maas-backend/tracking/tracking-cancel-active-itinerary/response.json',
+    'tracking-active-itinerary-cancel-request': './maas-backend/tracking/tracking-cancel-active-itinerary/request.json',
+    'tracking-active-itinerary-cancel-response': './maas-backend/tracking/tracking-cancel-active-itinerary/response.json',
 
     // Tracking update user location
     'tracking-update-user-location-request': './maas-backend/tracking/tracking-update-user-location/request.json',
