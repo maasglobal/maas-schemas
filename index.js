@@ -1,5 +1,23 @@
 'use strict';
 
+/**
+ * A simple Promisified schema validator that can resolve nested
+ * refs with absolute path based on a root URL (here project root)
+ *
+ * E.g.
+ * - create refs to schemas as $ref: '/schemas/foo.json'
+ * - call validator
+ * validator.validate(object, schema)
+ *  .then(result => {
+ *    if (result) {
+ *      // We got an error
+ *    }
+ *    else {
+ *      // Result ok, we got null
+ *    }
+ *  }
+ */
+
 const deref = require('json-schema-deref');
 const ajvFactory = require('ajv');
 const ajv = ajvFactory({ verbose: true });
@@ -26,24 +44,6 @@ function replaceErrors(key, value) {
 }
 
 /**
- * A simple Promisified schema validator that can resolve nested
- * refs with absolute path based on a root URL (here project root)
- *
- * E.g.
- * - create refs to schemas as $ref: '/schemas/foo.json'
- * - call validator
- * validator.validate(object, schema)
- *  .then(result => {
- *    if (result) {
- *      // We got an error
- *    }
- *    else {
- *      // Result ok, we got null
- *    }
- *  }
- */
-
-/**
  * Deref json schema
  * @param {object} schema
  */
@@ -67,21 +67,35 @@ function derefSchema(schema) {
 }
 
 /**
- * Get JSON schema located with input path
- * @param {String} path - path relative to repo
+ * Get JSON schema with schemaId as mapped in mapping.js
+ * @param {String} schemaId - id of requested schema
  */
-function resolveSchema(schemaName) {
-  const schema = require(schemaMapping[schemaName]);
+function resolveSchema(schemaId) {
+  let schema;
+  if (schemaId.match(/(^core-)/g)) {
+    schema = require(schemaMapping.core[schemaId.replace(/(^core-)/g, '')]);
+
+  } else if (schemaId.match(/(^maas-backend-)/g)) {
+    schema = require(schemaMapping['maas-backend'][schemaId.replace(/(^maas-backend-)/g, '')]);
+
+  } else if (schemaId.match(/(^tsp-)/g)) {
+    schema = require(schemaMapping.tsp[schemaId.replace(/(^tsp-)/g, '')]);
+
+  } else {
+    throw Error(`${schemaId} is not available!`);
+  }
+
+  // const schema = require(schemaMapping[schemaId]);
   return schema;
 }
 
 /**
- *  Validate an object using schema retrieved from input path
- *  @param {String} path - path to the requested schema
+ *  Validate an object using schema retrieved from schemaId
+ *  @param {String} schemaId - id of requested schema
  *  @param {Object} object - input testing subject
  */
-function validate(schemaName, object) {
-  return derefSchema(resolveSchema(schemaName))
+function validate(schemaId, object) {
+  return derefSchema(resolveSchema(schemaId))
     .then(dereferenced => {
       // Validate it
       const ajvValidate = ajv.compile(dereferenced);

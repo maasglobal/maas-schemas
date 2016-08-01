@@ -1,5 +1,14 @@
 'use strict';
 
+/**
+ *
+ * Usuage: Template check are done using regex
+ *
+ * Format: ${className}-${schemaId}
+ * E.g: core-agency-option -> (core > agency-option)
+ * E.g: maas-backend-autocomplete-query-request -> (maas-backend > autocomplete-query-request)
+ */
+
 /*eslint-disable quote-props*/
 module.exports = {
   core: { // Core schemas

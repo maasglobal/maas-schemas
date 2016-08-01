@@ -46,7 +46,7 @@ module.exports = function () {
       let response;
 
       before(done => {
-        index.validate('./maas-backend/bookings/bookings-create/request.json', dummyValidBooking)
+        index.validate('maas-backend-bookings-create-request', dummyValidBooking)
           .then(_response => {
             response = _response;
             done();
@@ -64,7 +64,7 @@ module.exports = function () {
       let response;
 
       before(done => {
-        index.validate('./maas-backend/bookings/bookings-create/request.json', dummyInvalidBooking)
+        index.validate('maas-backend-bookings-create-request', dummyInvalidBooking)
           .then(_response => {
             response = _response;
             done();
