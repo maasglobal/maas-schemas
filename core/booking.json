@@ -55,7 +55,7 @@
         "terms",
         "customer"
       ],
-      "aditionalProperties": true
+      "additionalProperties": true
     },
     "bookingState": {
       "description": "The life-cycle state of the booking",

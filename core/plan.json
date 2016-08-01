@@ -104,7 +104,15 @@
           "minimum": 0
         },
         "state": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "START",
+            "PLANNED",
+            "PAID",
+            "ACTIVATED",
+            "CANCELLED",
+            "FINISHED"
+          ]
         },
         "route": {
           "type": "string"

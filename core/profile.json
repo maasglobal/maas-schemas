@@ -47,7 +47,7 @@
           "$ref": "core/units.json#/definitions/latitude"
         },
         "lon":{
-          "$ref": "core/units.json#/definitions/latitude"
+          "$ref": "core/units.json#/definitions/longitude"
         }
       }
     }
