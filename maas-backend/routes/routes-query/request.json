@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "core/aws-units.json#/definitions/identityId"
+    },
+    "from": {
+      "$ref": "core/units.json#/definitions/shortLocation"
+    },
+    "to": {
+      "$ref": "core/units.json#/definitions/shortLocation"
+    },
+    "leaveAt": {
+      "$ref": "core/units.json#/definitions/time"
+    },
+    "arriveBy": {
+      "$ref": "core/units.json#/definitions/time"
+    }
+  },
+  "required": [ "from", "to" ]
+}

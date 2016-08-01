@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.dev.maas.global/geocoding/geocoding-reverse/request.json",
+  "description": "MaaS geocoding query request schema.",
+  "type": "object",
+  "properties": {
+    "query": {
+      "type": "object",
+      "properties": {
+        "lang": {"type": "string"},
+        "lat": { "type": "number", "minimum": -90, "maximum": 90 },
+        "lon": { "type": "number", "minimum": -180, "maximum": 180 }
+      },
+      "required": ["lang", "lat", "lon"],
+      "inject": {
+        "hint": "latlon"
+      }
+    }
+  },
+  "required": ["query"]
+}

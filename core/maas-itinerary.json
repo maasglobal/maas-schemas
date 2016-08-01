@@ -9,7 +9,7 @@
   ],
   "properties": {
     "id": {
-      "type": "string"
+      "$ref": "core/units.json#/definitions/uuid"
     },
     "customer": {
       "$ref": "core/aws-units.json#/definitions/identityId"
@@ -18,30 +18,16 @@
       "type": "array",
       "minItems": 0,
       "items": {
-        "anyOf": [
-          {
-            "$ref": "#/definitions/leg"
-          },
-          {
-            "$ref": "core/plan.json#/definitions/waitingLeg"
-          },
-          {
-            "$ref": "core/plan.json#/definitions/transferLeg"
-          }
-        ]
+        "$ref": "#/definitions/leg"
       }
     }
   },
   "definitions": {
     "leg": {
-      "anyOf": [
-        {
-          "$ref": "core/plan.json#/definitions/leg"
-        }
-      ],
+      "$ref": "core/plan.json#/definitions/leg",
       "properties": {
         "id": {
-          "type": "string"
+          "$ref": "core/units.json#/definitions/uuid"
         },
         "booking": {
           "$ref": "core/booking.json#/definitions/bookingCore"

@@ -3,6 +3,10 @@
   "id": "https://api.maas.global/v1/units",
   "description": "MaaS Common units",
   "definitions": {
+    "uuid": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{8}(-[A-F0-9]{4}){3}-[A-F0-9]{12}$"
+    },
     "time": {
       "type": "integer",
       "maximum": 9007199254740991,

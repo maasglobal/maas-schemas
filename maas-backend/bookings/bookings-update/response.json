@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/bookings/bookings-update/response.json",
+  "description": "Response schema for bookings update",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": true
+}

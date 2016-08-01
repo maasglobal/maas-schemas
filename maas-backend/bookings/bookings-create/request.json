@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/bookings/booking-create/request.json",
+  "description": "A new MaaS On-the-whim booking, use agency-option as the request",
+  "$ref": "core/agency-option.json"
+}

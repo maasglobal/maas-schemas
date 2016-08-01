@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/bookings/booking-list/response.json",
+  "description": "List MaaS bookings response for one customer",
+  "type": "object",
+  "properties": {
+    "bookings": {
+      "type": "array",
+      "items": {
+        "$ref": "core/booking.json#/definitions/bookingCore"
+      }
+    }
+  }
+}

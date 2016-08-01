@@ -30,6 +30,9 @@
         "endTime": {
           "$ref": "core/units.json#/definitions/time"
         },
+        "mode": {
+          "$ref": "#/definitions/mode"
+        },
         "waitingTime": {
           "type": "integer",
           "minimum": 0
@@ -100,8 +103,16 @@
           "type": "number",
           "minimum": 0
         },
-        "fare": {
-          "$ref": "#/definitions/fare"
+        "state": {
+          "type": "string",
+          "enum": [
+            "START",
+            "PLANNED",
+            "PAID",
+            "ACTIVATED",
+            "CANCELLED",
+            "FINISHED"
+          ]
         },
         "route": {
           "type": "string"
