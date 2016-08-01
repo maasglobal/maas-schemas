@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "itinerary": {
-      "$ref": "core/maas-itinerary.json"
+      "$ref": "core/itinerary.json"
     }
   },
   "required": [ "itinerary" ],

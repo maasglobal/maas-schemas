@@ -4,6 +4,8 @@ const deref = require('json-schema-deref');
 const ajvFactory = require('ajv');
 const ajv = ajvFactory({ verbose: true });
 
+const schemaMapping = require('./mapping.js');
+
 /**
  * Replacer function for errors to be used w/ JSON.stringify
  * @param {string} key
@@ -68,8 +70,8 @@ function derefSchema(schema) {
  * Get JSON schema located with input path
  * @param {String} path - path relative to repo
  */
-function resolveSchemaFromPath(path) {
-  const schema = require(path);
+function resolveSchema(schemaName) {
+  const schema = require(schemaMapping[schemaName]);
   return schema;
 }
 
@@ -78,8 +80,8 @@ function resolveSchemaFromPath(path) {
  *  @param {String} path - path to the requested schema
  *  @param {Object} object - input testing subject
  */
-function validate(path, object) {
-  return derefSchema(resolveSchemaFromPath(path))
+function validate(schemaName, object) {
+  return derefSchema(resolveSchema(schemaName))
     .then(dereferenced => {
       // Validate it
       const ajvValidate = ajv.compile(dereferenced);
@@ -99,5 +101,5 @@ function validate(path, object) {
 module.exports = {
   validate,
   derefSchema,
-  resolveSchemaFromPath,
+  resolveSchema,
 };
