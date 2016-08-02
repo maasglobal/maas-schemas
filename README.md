@@ -37,7 +37,7 @@ const path = require('path');
 const schemaUtils = require(path.resolve('./schemas/index.js'));
 
 describe('Schema validation example', () => {
-  const schemaPath = 'maas-backend-bookings-create-request';
+  const schemaId = 'maas-backend:bookings-create-request';
   const jsonObj = {
     options: [{
       leg: {},
