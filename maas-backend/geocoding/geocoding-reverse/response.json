@@ -15,7 +15,7 @@
             "type": "object",
             "properties": {
               "name": { "type": "string" },
-              "streetNumber": {"type": "integer"},
+              "streetNumber": {"type": "string"},
               "streetName": {"type": "string"},
               "city": { "type": "string" },
               "country": { "type": "string" },
