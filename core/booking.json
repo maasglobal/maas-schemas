@@ -139,6 +139,12 @@
         "MODE_LEG_SWITCH": {
           "type": "object"
         },
+        "MODE_MAAS_TRIP": {
+          "type": "object"
+        },
+        "MODE_MAAS_PERSONAL": {
+          "type": "object"
+        },
         "MODE_TAXI": {
           "type": "object"
         }
@@ -161,6 +167,8 @@
         { "required": ["MODE_TRAINISH"] },
         { "required": ["MODE_BUSISH"] },
         { "required": ["MODE_LEG_SWITCH"] },
+        { "required": ["MODE_MAAS_TRIP"] },
+        { "required": ["MODE_MAAS_PERSONAL"] },
         { "required": ["MODE_TAXI"] }
       ]
     },

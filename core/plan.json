@@ -256,6 +256,8 @@
         "TRAINISH",
         "BUSISH",
         "LEG_SWITCH",
+        "MAAS_TRIP",
+        "MAAS_PERSONAL",
         "TAXI"
       ]
     }
