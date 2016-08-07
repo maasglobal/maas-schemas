@@ -4,6 +4,9 @@
   "description": "Response schema for creating a booking through a TSP adapter",
   "type": "object",
   "properties": {
+    "state": {
+      "$ref": "core/booking.json#/definitions/bookingState"
+    },
     "leg": {
       "$ref": "core/plan.json#/definitions/leg"
     },
@@ -23,6 +26,6 @@
       "type": "string"
     }
   },
-  "required": ["leg", "meta", "terms", "token", "customer", "tspId"],
+  "required": ["state", "leg", "meta", "terms", "token", "customer", "tspId"],
   "additionalProperties": false
 }
