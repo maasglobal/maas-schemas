@@ -46,6 +46,7 @@ function replaceErrors(key, value) {
 /**
  * Deref json schema
  * @param {object} schema
+ * @return {Object} deref-ed schema
  */
 function derefSchema(schema) {
   return new Promise((resolve, reject) => {
@@ -69,6 +70,7 @@ function derefSchema(schema) {
 /**
  * Get JSON schema with schemaId as mapped in mapping.js
  * @param {String} schemaId - id of requested schema
+ * @return {object} full schemas
  */
 function resolveSchema(schemaId) {
   let schema;
@@ -86,16 +88,17 @@ function resolveSchema(schemaId) {
   }
 
   // const schema = require(schemaMapping[schemaId]);
-  return schema;
+  return derefSchema(schema);
 }
 
 /**
  *  Validate an object using schema retrieved from schemaId
  *  @param {String} schemaId - id of requested schema
  *  @param {Object} object - input testing subject
+ *  @return {promise}
  */
 function validate(schemaId, object) {
-  return derefSchema(resolveSchema(schemaId))
+  return resolveSchema(schemaId)
     .then(dereferenced => {
       // Validate it
       const ajvValidate = ajv.compile(dereferenced);
