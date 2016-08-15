@@ -39,6 +39,10 @@ module.exports = {
     'bookings-create-request': './maas-backend/bookings/bookings-create/request.json',
     'bookings-create-response': './maas-backend/bookings/bookings-create/response.json',
 
+    // Booking cancel
+    'bookings-cancel-request': './maas-backend/bookings/bookings-cancel/request.json',
+    'bookings-cancel-response': './maas-backend/bookings/bookings-cancel/response.json',
+
     // Booking list
     'bookings-list-request': './maas-backend/bookings/bookings-list/request.json',
     'bookings-list-response': './maas-backend/bookings/bookings-list/response.json',
