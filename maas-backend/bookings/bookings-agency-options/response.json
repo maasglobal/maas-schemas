@@ -9,6 +9,10 @@
       "items": {
         "$ref": "core/agency-option.json"
       }
+    },
+    "maas": {
+      "type": "object",
+      "additionalProperties": true
     }
   },
   "required": ["options"],

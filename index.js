@@ -74,17 +74,19 @@ function derefSchema(schema) {
  */
 function resolveSchema(schemaId) {
   let schema;
+
+  if (typeof schemaId !== 'string') {
+    throw new Error(`Invalid schema id \'${schemaId}\'`);
+  }
+
   if (schemaId.match(/(^core:)/g)) {
     schema = require(schemaMapping.core[schemaId.replace(/(^core:)/g, '')]);
-
   } else if (schemaId.match(/(^maas-backend:)/g)) {
     schema = require(schemaMapping['maas-backend'][schemaId.replace(/(^maas-backend:)/g, '')]);
-
   } else if (schemaId.match(/(^tsp:)/g)) {
     schema = require(schemaMapping.tsp[schemaId.replace(/(^tsp:)/g, '')]);
-
   } else {
-    throw Error(`${schemaId} is not available!`);
+    throw new Error(`${schemaId} is not available!`);
   }
 
   // const schema = require(schemaMapping[schemaId]);

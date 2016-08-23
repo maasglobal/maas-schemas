@@ -71,6 +71,10 @@ module.exports = {
     'itinerary-retrieve-request': './maas-backend/itineraries/itinerary-retrieve/request.json',
     'itinerary-retrieve-response': './maas-backend/itineraries/itinerary-retrieve/response.json',
 
+    // Itinerary list
+    'itinerary-list-request': './maas-backend/itineraries/itinerary-list/request.json',
+    'itinerary-list-response': './maas-backend/itineraries/itinerary-list/response.json',
+
     // Itinerary update
     'itinerary-update-request': './maas-backend/itineraries/itinerary-update/request.json',
     'itinerary-update-response': './maas-backend/itineraries/itinerary-update/response.json',
