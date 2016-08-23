@@ -111,6 +111,7 @@
             "PAID",
             "ACTIVATED",
             "CANCELLED",
+            "CANCELLED_WITH_ERRORS",
             "FINISHED"
           ]
         },

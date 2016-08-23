@@ -67,6 +67,7 @@
         "PAID",
         "ACTIVATED",
         "CANCELLED",
+        "CANCELLED_WITH_ERRORS",
         "EXPIRED",
         "RECONCILING",
         "RESOLVED",

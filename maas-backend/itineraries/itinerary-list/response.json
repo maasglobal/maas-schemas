@@ -1,14 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/v1/bookings-list/response-schema.json",
-  "description": "Response schema for bookings-list",
+  "id": "https://api.maas.global/v1/itinerary-list/response-schema.json",
+  "description": "Response schema for itineraries-list",
   "type": "object",
   "properties": {
-    "bookings": {
+    "itineraries": {
       "type": "array",
       "minItems": 0,
       "items": {
-        "$ref": "core/booking.json#/definitions/bookingCore"
+        "$ref": "core/itinerary.json"
       }
     },
     "maas": {
@@ -16,6 +16,6 @@
       "additionalProperties": true
     }
   },
-  "required": [ "bookings" ],
+  "required": [ "itineraries" ],
   "additionalProperties": false
 }
