@@ -1,1 +1,6 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/monitor/monitor-query/request.json",
+  "description": "Request schema for monitor-query",
+  "additionalProperties": true
+}

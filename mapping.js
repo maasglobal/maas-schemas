@@ -87,10 +87,6 @@ module.exports = {
     'profile-active-plan-put-request': './maas-backend/profile/profile-active-plan-put/request.json',
     'profile-active-plan-put-response': './maas-backend/profile/profile-active-plan-put/response.json',
 
-    // Profile active route
-    'profile-active-route-request': './maas-backend/profile/profile-active-route/request.json',
-    'profile-active-route-response': './maas-backend/profile/profile-active-route/response.json',
-
     // Profile create
     'profile-create-request': './maas-backend/profile/profile-create/request.json',
     'profile-create-response': './maas-backend/profile/profile-create/response.json',
