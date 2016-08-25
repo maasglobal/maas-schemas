@@ -1,1 +1,21 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/profile/profile-favoriteLocations-delete/request.json",
+  "description": "Request schema for profile-favoriteLocations-delete",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "core/aws-units.json#definitions/identityId"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string"
+        }
+      },
+      "required": ["identifier"]
+    }
+  },
+  "additionalProperties": false
+}
