@@ -7,7 +7,7 @@
     "profile": {
       "$ref": "core/profile.json"
     },
-    "maas": {
+    "debug": {
       "type": "object",
       "additionalProperties": true
     }

@@ -1,1 +1,40 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/monitor/monitor-query/response.json",
+  "description": "Response schema for monitor-query",
+  "type": "object",
+  "properties": {
+    "userThingShadows": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "thingName": {
+            "type": "string"
+          },
+          "shadow": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "object"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "user"
+                ]
+              }
+            },
+            "required": ["phone", "type"]
+          }
+        },
+        "required": ["thingName", "shadow"]
+      }
+    }
+  },
+  "additionalProperties": false
+}

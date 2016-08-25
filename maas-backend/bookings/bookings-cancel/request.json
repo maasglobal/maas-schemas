@@ -1,1 +1,14 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/bookings-cancel/request.json",
+  "description": "Request schema for bookings-cancel",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "core/aws-units.json#definitions/identityId"
+    },
+    "bookingId": {
+      "$ref": "core/units.json#definitions/uuid"
+    }
+  }
+}

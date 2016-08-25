@@ -1,8 +1,17 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/bookings/bookings-update/response.json",
+  "id": "https://api.maas.global/v1/bookings-update/response.json",
   "description": "Response schema for bookings update",
   "type": "object",
-  "properties": {},
-  "additionalProperties": true
+  "properties": {
+    "booking": {
+      "$ref": "core/booking.json#definitions/bookingCore"
+    },
+    "maas": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": [ "itinerary" ],
+  "additionalProperties": false
 }
