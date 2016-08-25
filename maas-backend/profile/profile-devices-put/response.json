@@ -1,1 +1,38 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/profile/profile-active-plan-put/response.json",
+  "description": "Response schema for profile-active-plan-put",
+  "type": "object",
+  "properties": {
+    "Records": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "Key": {
+              "type": "string"
+            },
+            "Value": {
+              "type": "string"
+            },
+            "SyncCount": {
+              "type": "number"
+            },
+            "LastModifiedDate": {
+              "type": "string"
+            },
+            "LastModifiedBy": {
+              "type": "string"
+            },
+            "DeviceLastModifiedDate": {
+              "type": "string"
+            }
+          },
+          "required": ["Key", "Value", "SyncCount"]
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}
