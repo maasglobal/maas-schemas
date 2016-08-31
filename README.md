@@ -1,31 +1,41 @@
 # MaaS-schemas submodule
 [![Build Status](https://travis-ci.com/maasglobal/maas-schemas.svg?token=EzGctxgsjK7P9ky3oz1p&branch=master)](https://travis-ci.com/maasglobal/maas-schemas)
 
+### Feature
+
+- Support full dereferenced schemas
+- Support getting child schemas
+- Bluebird promises for performance
+
 ### API
 
 ```javascript
 /**
- *	Validate an object using schema retrieved from input path
- *	@param {String} path - path to the requested schema relative to root
- *	@param {Object} object - input testing subject
+ *  Validate an object using schema retrieved from schemaId
+ *  @param {String} schemaId - id of requested schema
+ *  @param {Object} object - input testing subject
+ *  @return {Promise}
  */
-function validate(path, object)
+function validate(schemaId, object)
 ```
 
 ```javascript
 /**
  * Deref json schema
  * @param {object} schema
+ * @return {Promise -> Object} dereferenced schema
  */
 function derefSchema(schema)
 ```
 
 ```javascript
 /**
- * Get JSON schema located with input path
- * @param {String} path - path to the requested schema relative to root
+ *  Validate an object using schema retrieved from schemaId
+ *  @param {String} schemaId - id of requested schema
+ *  @param {Object} object - input testing subject
+ *  @return {Promise}
  */
-function resolveSchemaFromPath(path)
+function validate(schemaId, object)
 ```
 
 ### Example usage
@@ -110,8 +120,9 @@ Run `npm test` to test with jsonhint and mocha + chai
  *
  * Usage: Template check are done using regex
  *
- * Format: ${className}:${schemaId}
+ * Format: ${className}:${schemaId}#childPath1/childPath1/.../childPath(n)
  * E.g: core:agency-option -> (core > agency-option)
+ * E.g: core:agency-option#properties/leg -> (core > agency-option > properties > leg)
  * E.g: maas-backend:autocomplete-query-request -> (maas-backend > autocomplete-query-request)
  */
 ```
