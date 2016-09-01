@@ -46,7 +46,7 @@ function replaceErrors(key, value) {
 /**
  * Deref json schema
  * @param {object} schema
- * @return {Object} deref-ed schema
+ * @return {Promise -> Object} dereferenced schema
  */
 function derefSchema(schema) {
   return new Promise((resolve, reject) => {
@@ -64,40 +64,64 @@ function derefSchema(schema) {
       return resolve(dereferenced);
     });
 
+  })
+  .then(response => response)
+  .catch(error => {
+    throw new Error(error);
   });
 }
 
 /**
- * Get JSON schema with schemaId as mapped in mapping.js
+ * Get full dereferenced JSON schema with schemaId as mapped in mapping.js
+ * Support child schemas following JSON deref convention "schemaId#childA/childB/childC"
  * @param {String} schemaId - id of requested schema
- * @return {object} full schemas
+ * @return {Promise -> Object} full schemas/child schemas
  */
 function resolveSchema(schemaId) {
-  let schema;
+  let tmpSchema;
+  let fullSchema;
 
-  if (typeof schemaId !== 'string') {
-    throw new Error(`Invalid schema id \'${schemaId}\'`);
-  }
+  if (schemaId.match(/#/gi) && schemaId.match(/#/gi).length > 1) throw new Error(`Invalid schemaId ${schemaId}`);
 
-  if (schemaId.match(/(^core:)/g)) {
-    schema = require(schemaMapping.core[schemaId.replace(/(^core:)/g, '')]);
-  } else if (schemaId.match(/(^maas-backend:)/g)) {
-    schema = require(schemaMapping['maas-backend'][schemaId.replace(/(^maas-backend:)/g, '')]);
-  } else if (schemaId.match(/(^tsp:)/g)) {
-    schema = require(schemaMapping.tsp[schemaId.replace(/(^tsp:)/g, '')]);
+  const parentPath = schemaId.split('#')[0];
+  const childPath = schemaId.split('#')[1] ? schemaId.split('#')[1].split('/') : undefined;
+
+  if (typeof parentPath !== 'string') throw new Error(`Invalid schema id \'${parentPath}\'`);
+
+  if (parentPath.match(/(^core:)/g) && schemaMapping.core[parentPath.replace(/(^core:)/g, '')]) {
+    tmpSchema = require(schemaMapping.core[parentPath.replace(/(^core:)/g, '')]);
+  } else if (parentPath.match(/(^maas-backend:)/g) && schemaMapping['maas-backend'][parentPath.replace(/(^maas-backend:)/g, '')]) {
+    tmpSchema = require(schemaMapping['maas-backend'][parentPath.replace(/(^maas-backend:)/g, '')]);
+  } else if (parentPath.match(/(^tsp:)/g)  && schemaMapping.tsp[parentPath.replace(/(^tsp:)/g, '')]) {
+    tmpSchema = require(schemaMapping.tsp[parentPath.replace(/(^tsp:)/g, '')]);
   } else {
-    throw new Error(`${schemaId} is not available!`);
+    return Promise.reject(new Error(`Parent path ${parentPath} is not available!`));
   }
 
-  // const schema = require(schemaMapping[schemaId]);
-  return derefSchema(schema);
+  return derefSchema(tmpSchema)
+    .then(_fullSchema => {
+
+      fullSchema = _fullSchema;
+
+      if (childPath && childPath.length !== 0) {
+        for (let i = 0; i < childPath.length; i++) {
+          if (fullSchema[childPath[i]]) { // eslint-disable-line
+            fullSchema = fullSchema[childPath[i]];
+          } else {
+            return Promise.reject(new Error(`Child path ${childPath[i]} is unavailable in full schema ${JSON.stringify(fullSchema)}`)); // eslint-disable-line
+          }
+        }
+      }
+
+      return Promise.resolve(fullSchema);
+    });
 }
 
 /**
  *  Validate an object using schema retrieved from schemaId
  *  @param {String} schemaId - id of requested schema
  *  @param {Object} object - input testing subject
- *  @return {promise}
+ *  @return {Promise -> Object} null if valid, error if invalid
  */
 function validate(schemaId, object) {
   return resolveSchema(schemaId)
