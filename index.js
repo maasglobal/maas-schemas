@@ -21,6 +21,7 @@
 const deref = require('json-schema-deref');
 const ajvFactory = require('ajv');
 const ajv = ajvFactory({ verbose: true });
+const Promise = require('bluebird');
 
 const schemaMapping = require('./mapping.js');
 
