@@ -5,14 +5,15 @@
   "definitions": {
     "featureCollection": {
       "properties": {
-        "type": { "enum": [ "Feature" ] },
+        "type": { "enum": [ "FeatureCollection" ] },
         "features": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/feature"
           }
         }
-      }
+      },
+      "required": [ "type", "features" ]
     },
     "feature": {
       "properties": {
@@ -40,7 +41,17 @@
     },
     "properties": {
       "type": "object",
-      "additionalProperties": true
+      "properties": {
+        "name": { "type": "string" },
+        "streetNumber": {"type": "string"},
+        "streetName": {"type": "string"},
+        "city": { "type": "string" },
+        "country": { "type": "string" },
+        "countryCode": { "type": "string" },
+        "houseNumber": { "type": "integer" },
+        "zipcode": { "type": "integer" }
+      },
+      "required": [ "name", "city", "country", "countryCode" ]
     }
   }
 }
