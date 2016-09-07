@@ -1,7 +1,7 @@
 'use strict';
 
-const index = require('../index.js');
 const expect = require('chai').expect;
+const index = require('../index.js');
 
 // Missing required field [leg, customer]
 const dummyInvalidBooking = {
@@ -43,42 +43,22 @@ module.exports = function () {
 
     describe('validate valid booking-create request', () => {
 
-      let response;
-
-      before(done => {
-        index.validate('maas-backend:bookings-create-request', dummyValidBooking)
-          .then(_response => {
-            response = _response;
-            done();
-          })
-          .catch(done);
-      });
-
       it('should succeed without error', () => {
-        expect(response).to.be.null;
+        return index.validate('maas-backend:bookings-create-request', dummyValidBooking);
       });
     });
 
     describe('validate invalid booking-create request', () => {
 
-      let response;
-
-      before(done => {
-        index.validate('maas-backend:bookings-create-request', dummyInvalidBooking)
-          .then(_response => {
-            response = _response;
-            done();
-          })
-          .catch(_error => {
-            response = _error;
-            done();
-          });
-      });
-
       it('should have validation error', () => {
-        expect(response).to.not.be.null;
+        return index.validate('maas-backend:bookings-create-request', dummyInvalidBooking)
+        .then(success => {
+          expect('should.not.succeed').to.be.null;
+        })
+        .catch(error => {
+          expect(error).to.be.an('error');
+        });
       });
     });
   });
-
 };
