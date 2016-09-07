@@ -20,9 +20,7 @@
 
 const deref = require('json-schema-deref');
 const ajvFactory = require('ajv');
-const ajv = ajvFactory({ verbose: true });
 const Promise = require('bluebird');
-
 const schemaMapping = require('./mapping.js');
 
 /**
@@ -122,23 +120,24 @@ function resolveSchema(schemaId) {
  *  Validate an object using schema retrieved from schemaId
  *  @param {String} schemaId - id of requested schema
  *  @param {Object} object - input testing subject
- *  @return {Promise -> Object} null if valid, error if invalid
+ *  @return {Promise -> Object} resolve w/validated object or reject w/error if invalid
  */
-function validate(schemaId, object) {
+function validate(schemaId, object, options) {
   return resolveSchema(schemaId)
     .then(dereferenced => {
       // Validate it
+      const opts = Object.assign({ verbose: true }, options);
+      const ajv = ajvFactory(opts);
       const ajvValidate = ajv.compile(dereferenced);
       const valid = ajvValidate(object);
 
       if (valid) {
-        return Promise.resolve(null);
+        return Promise.resolve(object);
       }
 
-      return Promise.reject(ajvValidate.errors);
-    })
-    .catch(error => {
-      throw new Error(`Runtime error: Invalid JSON schema: ${JSON.stringify(error, replaceErrors, 2)}`);
+      const errors = ajvValidate.errors;
+      const message = `Runtime error: Invalid JSON schema: ${JSON.stringify(errors, replaceErrors, 2)}`;
+      return Promise.reject(new Error(message));
     });
 }
 
