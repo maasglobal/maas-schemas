@@ -8,7 +8,9 @@
   },
   "scripts": {
     "test": "gulp test",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "build": "gulp bundle-schemas",
+    "postinstall": "gulp bundle-schemas"
   },
   "repository": {
     "type": "git",
@@ -22,7 +24,8 @@
   "author": "",
   "contributors": [
     "James Nguyen",
-    "Klaus Dahlen"
+    "Klaus Dahlen",
+    "Lauri Svan"
   ],
   "license": "UNLICENSED",
   "bugs": {
@@ -32,18 +35,19 @@
   "dependencies": {
     "ajv": "^4.1.8",
     "bluebird": "^3.4.5",
-    "glob": "^7.0.5",
-    "json-schema-deref": "git://github.com/blackevil245/json-schema-deref.git"
+    "json-schema-ref-parser": "^3.1.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.1.1",
     "eslint-config-airbnb-base": "^5.0.0",
     "eslint-plugin-import": "^1.11.1",
+    "glob": "^7.0.5",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
     "gulp-json-lint": "^0.1.0",
     "gulp-jsonlint": "^1.1.2",
+    "gulp-jsonschema-bundle": "0.0.2",
     "gulp-mocha": "^2.2.0",
     "mocha": "^2.5.3"
   }

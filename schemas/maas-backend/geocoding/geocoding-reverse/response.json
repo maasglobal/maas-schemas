@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.dev.maas.global/geocoding/geocoding-query/response.json",
+  "description": "MaaS.fi geocoding (GeoJSON) response schema",
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": [ "FeatureCollection" ]
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "$ref": "../../../core/geolocation.json#/definitions/feature"
+      }
+    },
+    "debug": { "type": "object" }
+  },
+  "required": [ "type", "features" ],
+  "additionalProperties": false
+}

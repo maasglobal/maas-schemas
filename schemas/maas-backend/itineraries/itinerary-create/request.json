@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/itineraries/itinerary-create/request.json",
+  "description": "Request schema for itineraries-create",
+  "type": "object",
+  "properties": {
+    "itinerary": {
+      "$ref": "../../../core/itinerary.json"
+    }
+  },
+  "required": [ "itinerary" ],
+  "additionalProperties": false
+}

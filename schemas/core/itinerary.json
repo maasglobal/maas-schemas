@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/internal/itinerary",
+  "description": "OpenTripPlanner itinerary, augmented with leg bookings per leg",
+  "anyOf": [
+    {
+      "$ref": "./plan.json#/definitions/itinerary"
+    }
+  ],
+  "properties": {
+    "id": {
+      "$ref": "./units.json#/definitions/uuid"
+    },
+    "customer": {
+      "$ref": "./aws-units.json#/definitions/identityId"
+    },
+    "legs": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/definitions/leg"
+      }
+    }
+  },
+  "definitions": {
+    "leg": {
+      "$ref": "./plan.json#/definitions/leg",
+      "properties": {
+        "id": {
+          "$ref": "./units.json#/definitions/uuid"
+        }
+      }
+    }
+  }
+}

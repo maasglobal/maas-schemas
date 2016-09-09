@@ -1,44 +1,60 @@
 # MaaS-schemas submodule
 [![Build Status](https://travis-ci.com/maasglobal/maas-schemas.svg?token=EzGctxgsjK7P9ky3oz1p&branch=master)](https://travis-ci.com/maasglobal/maas-schemas)
 
-### Feature
+This repository contains the JSON schemas used by MaaS.
 
-- Support full dereferenced schemas
-- Support getting child schemas
-- Bluebird promises for performance
+## Features
+- Atomic and pre-referenced schemas to use in validation
+- Deprecated: Internal validation tools
 
-### API
+## Usage
+
+```javascript
+// Get the a pre-built schema object
+const schema = require('maas-schemas/prebuilt/maas-backend/geocoding/geocoding-query/request.json');
+
+// Get a raw schema (remember that resolving references might be tricky!)
+const schema = require('maas-schemas/schemas/maas-backend/geocoding/geocoding-query/request.json');
+
+// Get a file path handle, so that you can resolve the relative references
+const schemaPath = require.resolve('maas-schemas/schemas/maas-backend/geocoding/geocoding-query/request.json');
+```
+
+## JavaScript API (Deprecated)
 
 ```javascript
 /**
- *  Validate an object using schema retrieved from schemaId
+ *  Validate an object by first resolving the corresponding schema by schemaId
+ *
  *  @param {String} schemaId - id of requested schema
  *  @param {Object} object - input testing subject
- *  @return {Promise}
+ *  @return {Promise -> Object} resolve w/validated object or reject w/error if invalid
  */
-function validate(schemaId, object)
+function validate(schemaId, object, options)
 ```
 
 ```javascript
 /**
- * Deref json schema
- * @param {object} schema
+ * Deref a json schema.
+ *
+ * @param {path} full file name & path to the schema
  * @return {Promise -> Object} dereferenced schema
  */
-function derefSchema(schema)
+function derefSchema(path)
 ```
 
 ```javascript
 /**
- *  Validate an object using schema retrieved from schemaId
- *  @param {String} schemaId - id of requested schema
- *  @param {Object} object - input testing subject
- *  @return {Promise}
+ * Get a full dereferenced JSON schema with schemaId as mapped in mapping.js
+ * Support child schemas following JSON schema convention "schemaId#/path/to/value"
+ *
+ * @param {String} schemaId - id of requested schema
+ * @return {Promise -> Object} full schemas/child schemas
+ * @deprecated
  */
-function validate(schemaId, object)
 ```
 
-### Example usage
+### Sample Usage
 
 ```javascript
 'use strict';
@@ -66,7 +82,6 @@ describe('Schema validation example', () => {
       .catch(done);
   });
 });
-
 ```
 
 ### Writing schemas
@@ -78,7 +93,7 @@ describe('Schema validation example', () => {
 2) Watch for changes and run tests & validation automatically
       $ npm run watch
 
-3) Map the schema Id accordingly to mapping.js
+3) Deprecated: Map the schema Id accordingly to mapping.js
 
 4-n) Add the id to README.md for documentation
 ```
@@ -91,28 +106,28 @@ Run `npm test` to test with jsonhint and mocha + chai
 
 > Validation function test ( with bookings-create schemas )
 
-### Contains
+### Contents
 
 ```
-1) Core schemas
+1) core: Core schemas
 
 - Common schema for reusing purposes
 
-2) Maas-backend schemas
+2) maas-backend: MaaS Backend schemas
 
 - Request schemas
 
 - Response schemas
 
-3) Tsp adapter schemas
+3) tsp: TSP adapter schemas
 
-- Demanded from MaaS core repo
+- The request schemas from within MaaS Backend that TSPs receive
 
-- Formatted response to core repo
+- The expected responses schemas TSPs should return to MaaS Backend requests
 
 ```
 
-### Supported schema IDs list
+### Supported schemas by their IDs
 > Description are inside `mapping.js`, Find in there using the ID
 
 ```javascript

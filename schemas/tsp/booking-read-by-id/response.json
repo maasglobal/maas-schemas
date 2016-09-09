@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/booking-read-by-id/response",
+  "description": "Response schema for getting a specific booking with a TSP ID from a TSP adapter",
+  "properties": {
+    "tspId": {
+      "$ref": "../booking.json#/properties/tspId"
+    },
+    "state": {
+      "$ref": "../booking.json#/properties/state"
+    },
+    "leg": {
+      "$ref": "../booking.json#/properties/leg"
+    },
+    "meta": {
+      "$ref": "../booking.json#/properties/meta"
+    },
+    "terms": {
+      "$ref": "../booking.json#/properties/terms"
+    },
+    "token": {
+      "$ref": "../booking.json#/properties/token"
+    },
+    "customer": {
+      "$ref": "../booking.json#/properties/customer"
+    }
+  },
+  "required": [
+    "tspId",
+    "state",
+    "meta",
+    "terms",
+    "token"
+  ],
+  "additionalProperties": false
+}

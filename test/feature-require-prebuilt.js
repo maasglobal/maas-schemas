@@ -1,9 +1,12 @@
 'use strict';
 
 const path = require('path');
-const index = require('../index.js');
 const expect = require('chai').expect;
 const glob = require('glob');
+const Promise = require('bluebird');
+const ajvFactory = require('ajv');
+
+const ajv = ajvFactory();
 
 const globPromise = (pattern, options) => (
   new Promise((resolve, reject) => {
@@ -15,19 +18,18 @@ const globPromise = (pattern, options) => (
 );
 
 module.exports = function () {
-  describe('Schemas deref', () => {
+  describe('Pre-built schemas should be valid JSON Schemas', () => {
     before(done => {
-      return globPromise('schemas/*(core|tsp|maas-backend)/**/*.json', { root: path.resolve('.') })
+      return globPromise('prebuilt/**/*.json')
         .then(schemaPaths => {
-          describe(`Dereferencing tests for ${schemaPaths.length} file(s)`, () => {
+          describe(`Validate ${schemaPaths.length} schemas`, () => {
             schemaPaths.forEach(schemaPath => {
-              it(`should be able to dereference ${schemaPath}`, done => {
-                return index.derefSchema(path.resolve(schemaPath))
-                  .then(fullSchema => {
-                    expect(fullSchema).to.not.be.undefined;
-                    done();
-                  })
-                  .catch(done);
+              it(`should be a able to require a valid schema ${schemaPath}`, done => {
+                const filePath = path.resolve(__dirname, '..', schemaPath);
+                const schema = require(filePath);
+                const valid = ajv.validateSchema(schema);
+                expect(valid).to.be.true;
+                done();
               });
             });
           });
