@@ -15,7 +15,7 @@ module.exports = function () {
       before(done => {
         Promise.all([
           index.resolveSchema('core:agency-option'),
-          index.resolveSchema('core:agency-option#properties/leg'),
+          index.resolveSchema('core:agency-option#/properties/leg'),
         ])
         .spread((_schema, _childSchema) => {
           schema = _schema;
@@ -51,7 +51,7 @@ module.exports = function () {
       before(done => {
         Promise.all([
           index.resolveSchema('maas-backend:bookings-agency-options-request'),
-          index.resolveSchema('maas-backend:bookings-agency-options-request#properties/mode'),
+          index.resolveSchema('maas-backend:bookings-agency-options-request#/properties/mode'),
         ])
         .spread((_schema, _childSchema) => {
           schema = _schema;
@@ -87,7 +87,7 @@ module.exports = function () {
       before(done => {
         Promise.all([
           index.resolveSchema('tsp:booking-create-response'),
-          index.resolveSchema('tsp:booking-create-response#properties/leg'),
+          index.resolveSchema('tsp:booking-create-response#/properties/leg'),
         ])
         .spread((_schema, _childSchema) => {
           schema = _schema;
@@ -143,7 +143,7 @@ module.exports = function () {
     });
 
     describe('invalid child schema request', () => {
-      const unexistedId = 'core:agency-option#fake/non-existance';
+      const unexistedId = 'core:agency-option#/fake/does-not-exist';
       let error;
       let schema;
 

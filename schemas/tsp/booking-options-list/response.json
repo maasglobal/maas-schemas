@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/booking-options-list/response",
+  "description": "Response schema for getting options from a TSP adapter",
+  "type": "object",
+  "properties": {
+    "options": {
+      "type": "array",
+      "items": {
+        "$ref": "../booking-option.json"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": ["options"]
+}

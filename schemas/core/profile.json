@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/v1/profile",
+  "description": "MaaS user profiles as saved on DynamoDB",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "./aws-units.json#/definitions/identityId"
+    },
+    "plans": {
+      "type": "array",
+      "items": {
+        "$ref": "./maas-package.json#/definitions/plan"
+      }
+    },
+    "favoriteLocations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/favoriteLocation"
+      }
+    },
+    "balance": {
+      "type": "number"
+    },
+    "phone": {
+      "$ref": "./units.json#/definitions/phone"
+    },
+    "email": {
+      "$ref": "./units.json#/definitions/email"
+    }
+  },
+  "additionalProperties": false,
+  "required": [ "plans", "favoriteLocations", "balance", "phone", "email" ],
+  "definitions": {
+    "favoriteLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "address", "lat", "lon"],
+      "properties": {
+        "name":{
+          "type": "string"
+        },
+        "address":{
+          "type": "string"
+        },
+        "lat":{
+          "$ref": "./units.json#/definitions/latitude"
+        },
+        "lon":{
+          "$ref": "./units.json#/definitions/longitude"
+        }
+      }
+    }
+  }
+}

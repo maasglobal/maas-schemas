@@ -5,122 +5,98 @@
  * refs with absolute path based on a root URL (here project root)
  *
  * E.g.
- * - create refs to schemas as $ref: '/schemas/foo.json'
- * - call validator
  * validator.validate(object, schema)
- *  .then(result => {
- *    if (result) {
- *      // We got an error
- *    }
- *    else {
- *      // Result ok, we got null
- *    }
- *  }
+ *  .catch(error => // Error)
+ *  .then(result => // OK)
  */
-
-const deref = require('json-schema-deref');
+const deref = require('json-schema-ref-parser');
 const ajvFactory = require('ajv');
 const Promise = require('bluebird');
 const schemaMapping = require('./mapping.js');
 
 /**
  * Replacer function for errors to be used w/ JSON.stringify
+ *
  * @param {string} key
  * @param {string} value
  */
 function replaceErrors(key, value) {
-  if (value instanceof Error) {
-    const error = {};
-
-    Object.getOwnPropertyNames(value).forEach(key => {
-      error[key] = value[key];
-    });
-
-    return error;
+  if (!(value instanceof Error)) {
+    return value;
   }
 
-  return value;
+  const error = {};
+  Object.getOwnPropertyNames(value).forEach(key => {
+    error[key] = value[key];
+  });
+
+  return error;
 }
 
 /**
- * Deref json schema
- * @param {object} schema
+ * Deref a json schema.
+ *
+ * @param {string} path full file name & path to the schema
  * @return {Promise -> Object} dereferenced schema
  */
-function derefSchema(schema) {
-  return new Promise((resolve, reject) => {
-
-    const options = {
-      failOnMissing: true,
-      baseFolder: __dirname,
-    };
-
-    deref(schema, options, (err, dereferenced) => {
-      if (err) {
-        return reject(err);
-      }
-
-      return resolve(dereferenced);
-    });
-
-  })
-  .then(response => response)
-  .catch(error => {
-    throw new Error(error);
-  });
+function derefSchema(path) {
+  return deref.dereference(path);
 }
 
 /**
- * Get full dereferenced JSON schema with schemaId as mapped in mapping.js
- * Support child schemas following JSON deref convention "schemaId#childA/childB/childC"
- * @param {String} schemaId - id of requested schema
+ * Get a full dereferenced JSON schema with schemaId as mapped in mapping.js
+ * Support child schemas following JSON schema convention "schemaId#/path/to/value"
+ *
+ * @param {string} schemaId - id of requested schema
  * @return {Promise -> Object} full schemas/child schemas
+ * @deprecated
  */
 function resolveSchema(schemaId) {
-  let tmpSchema;
-  let fullSchema;
+  // Regex to match strings like core:agency-option#properties/leg
+  const schema = /(^[\w-]+):([\w-]+)(#(.+))?$/;
+  const match = schemaId.match(schema);
 
-  if (schemaId.match(/#/gi) && schemaId.match(/#/gi).length > 1) throw new Error(`Invalid schemaId ${schemaId}`);
-
-  const parentPath = schemaId.split('#')[0];
-  const childPath = schemaId.split('#')[1] ? schemaId.split('#')[1].split('/') : undefined;
-
-  if (typeof parentPath !== 'string') throw new Error(`Invalid schema id \'${parentPath}\'`);
-
-  if (parentPath.match(/(^core:)/g) && schemaMapping.core[parentPath.replace(/(^core:)/g, '')]) {
-    tmpSchema = require(schemaMapping.core[parentPath.replace(/(^core:)/g, '')]);
-  } else if (parentPath.match(/(^maas-backend:)/g) && schemaMapping['maas-backend'][parentPath.replace(/(^maas-backend:)/g, '')]) {
-    tmpSchema = require(schemaMapping['maas-backend'][parentPath.replace(/(^maas-backend:)/g, '')]);
-  } else if (parentPath.match(/(^tsp:)/g)  && schemaMapping.tsp[parentPath.replace(/(^tsp:)/g, '')]) {
-    tmpSchema = require(schemaMapping.tsp[parentPath.replace(/(^tsp:)/g, '')]);
-  } else {
-    return Promise.reject(new Error(`Parent path ${parentPath} is not available!`));
+  if (match === null) {
+    return Promise.reject(new Error(`Invalid schemaId ${schemaId}`));
   }
 
-  return derefSchema(tmpSchema)
-    .then(_fullSchema => {
+  const scheme = match[1];
+  const path = match[2];
+  const fragmentPart = match[4];
+  const realPath = (schemaMapping[scheme] || {})[path];
 
-      fullSchema = _fullSchema;
+  if (!realPath) {
+    return Promise.reject(new Error(`Missing schema ${schemaId}`));
+  }
 
-      if (childPath && childPath.length !== 0) {
-        for (let i = 0; i < childPath.length; i++) {
-          if (fullSchema[childPath[i]]) { // eslint-disable-line
-            fullSchema = fullSchema[childPath[i]];
-          } else {
-            return Promise.reject(new Error(`Child path ${childPath[i]} is unavailable in full schema ${JSON.stringify(fullSchema)}`)); // eslint-disable-line
-          }
+  return derefSchema(realPath)
+    .then(schema => {
+      if (!fragmentPart) {
+        return schema;
+      }
+
+      // Iterate the fragment part, or report if invalid subpath
+      let value = schema;
+      const subpaths = fragmentPart.split('/');
+      for (let i = 1; i < subpaths.length; i++) {
+        value = value[subpaths[i]];
+
+        if (typeof value === typeof undefined) {
+          return Promise.reject(new Error(`Invalid fragment part ${fragmentPart}`));
         }
       }
 
-      return Promise.resolve(fullSchema);
+      return Promise.resolve(value);
     });
 }
 
 /**
- *  Validate an object using schema retrieved from schemaId
- *  @param {String} schemaId - id of requested schema
- *  @param {Object} object - input testing subject
+ *  Validate an object by first resolving the corresponding schema by schemaId
+ *
+ *  @param {string} schemaId - id of requested schema
+ *  @param {object} object - input testing subject
  *  @return {Promise -> Object} resolve w/validated object or reject w/error if invalid
+ *  @deprecated
  */
 function validate(schemaId, object, options) {
   return resolveSchema(schemaId)
