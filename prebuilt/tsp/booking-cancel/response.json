@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/booking-cancel/response","description":"Response schema for canceling a booking through a TSP adapter","type":"object","properties":{"state":{"type":"string","pattern":"^CANCELLED$"}},"required":["state"],"additionalProperties":false}

@@ -10,7 +10,7 @@
     "test": "gulp test",
     "watch": "gulp watch",
     "build": "gulp bundle-schemas",
-    "postinstall": "gulp bundle-schemas"
+    "prepublish": "gulp bundle-schemas"
   },
   "repository": {
     "type": "git",
