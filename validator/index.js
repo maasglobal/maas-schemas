@@ -58,7 +58,12 @@ function transform(input, original, replacement) {
  * @return {Promise -> Object} resolve w/validated object or reject w/error if invalid
  */
 function validate(schema, object, options) {
-  const opts = Object.assign({ verbose: true, allErrors: true }, options);
+  const opts = Object.assign({
+    verbose: true,
+    allErrors: true,
+    missingRefs: true,
+    extendRefs: true,
+  }, options);
 
   if (typeof ajv === typeof undefined) {
     ajv = ajvFactory(opts);

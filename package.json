@@ -9,8 +9,8 @@
   "scripts": {
     "test": "gulp test",
     "watch": "gulp watch",
-    "build": "gulp bundle-schemas",
-    "prepublish": "gulp bundle-schemas"
+    "build": "gulp",
+    "prepublish": "gulp"
   },
   "repository": {
     "type": "git",
@@ -47,7 +47,7 @@
     "gulp-eslint": "^3.0.1",
     "gulp-json-lint": "^0.1.0",
     "gulp-jsonlint": "^1.1.2",
-    "gulp-jsonschema-bundle": "0.0.2",
+    "gulp-jsonschema-deref": "0.0.2",
     "gulp-mocha": "^2.2.0",
     "mocha": "^2.5.3"
   }
