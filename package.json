@@ -2,7 +2,7 @@
   "name": "maas-schemas",
   "version": "0.0.1",
   "description": "Schemas for maas infrastructure",
-  "main": "index.js",
+  "main": "validator/index.js",
   "engine": {
     "node": ">=4.3.2"
   },
