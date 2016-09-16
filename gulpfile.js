@@ -5,7 +5,7 @@ const mocha = require('gulp-mocha');
 const jsonlint = require('gulp-jsonlint');
 const jsonclint = require('gulp-json-lint');
 const eslint = require('gulp-eslint');
-const bundle = require('gulp-jsonschema-bundle');
+const deref = require('gulp-jsonschema-deref');
 
 const jsoncFiles = ['.eslintrc']; // json with comments
 const jsonFiles = ['schemas/**/*.json'];
@@ -33,9 +33,9 @@ gulp.task('eslint', () => {
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('bundle-schemas', () => {
+gulp.task('deref-schemas', () => {
   return gulp.src('./schemas/**/*.json')
-      .pipe(bundle())
+      .pipe(deref())
       .pipe(gulp.dest('prebuilt'));
 });
 
@@ -47,7 +47,7 @@ gulp.task('test', ['validate'], () => {
 gulp.task('validate', ['jsonclint', 'jsonlint', 'eslint']);
 
 gulp.task('watch', () => {
-  gulp.watch([].concat(jsonFiles, jsoncFiles, jsFiles), ['test', 'bundle-schemas']);
+  gulp.watch([].concat(jsonFiles, jsoncFiles, jsFiles), ['test', 'deref-schemas']);
 });
 
-gulp.task('default', ['test', 'bundle-schemas']);
+gulp.task('default', ['test', 'deref-schemas']);

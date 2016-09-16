@@ -2,15 +2,15 @@
   "name": "maas-schemas",
   "version": "0.0.1",
   "description": "Schemas for maas infrastructure",
-  "main": "index.js",
+  "main": "validator.js",
   "engine": {
     "node": ">=4.3.2"
   },
   "scripts": {
     "test": "gulp test",
     "watch": "gulp watch",
-    "build": "gulp bundle-schemas",
-    "prepublish": "gulp bundle-schemas"
+    "build": "gulp",
+    "prepublish": "gulp"
   },
   "repository": {
     "type": "git",
@@ -34,10 +34,10 @@
   "homepage": "https://github.com/maasglobal/maas-schemas#readme",
   "dependencies": {
     "ajv": "^4.1.8",
-    "bluebird": "^3.4.5",
     "json-schema-ref-parser": "^3.1.2"
   },
   "devDependencies": {
+    "bluebird": "^3.4.5",
     "chai": "^3.5.0",
     "eslint": "^3.1.1",
     "eslint-config-airbnb-base": "^5.0.0",
@@ -47,7 +47,7 @@
     "gulp-eslint": "^3.0.1",
     "gulp-json-lint": "^0.1.0",
     "gulp-jsonlint": "^1.1.2",
-    "gulp-jsonschema-bundle": "0.0.2",
+    "gulp-jsonschema-deref": "0.0.2",
     "gulp-mocha": "^2.2.0",
     "mocha": "^2.5.3"
   }
