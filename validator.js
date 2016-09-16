@@ -49,7 +49,7 @@ function transform(input, original, replacement) {
 }
 
 /**
- * Validate an object using schema retrieved from schemaId. This validator does
+ * Validate an object using a given schema. This validator does
  * not resolve schema references, e.g. give it a fully dereferenced input.
  *
  * @param {object} schema the schema object

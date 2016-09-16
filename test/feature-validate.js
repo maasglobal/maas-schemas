@@ -40,10 +40,8 @@ module.exports = function () {
         return utils.validate(schema, invalidBookingResponse)
         .then(
           response => {
-            console.log('success', response);
             expect('should.not.succeed').to.be.null;
           }, error => {
-            console.log('error', error);
             expect(error).to.be.an.instanceof(ValidationError);
           }
         );
