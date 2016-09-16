@@ -3,7 +3,6 @@
 const path = require('path');
 const expect = require('chai').expect;
 const glob = require('glob');
-const Promise = require('bluebird');
 const ajvFactory = require('ajv');
 
 const ajv = ajvFactory();

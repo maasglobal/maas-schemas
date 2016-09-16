@@ -1,0 +1,41 @@
+{
+  "options": [
+    {
+      "terms": {
+        "price": {
+          "amount": 16.7,
+          "currency": "EUR"
+        }
+      },
+      "meta": {
+        "MODE_TAXI": {},
+        "valopilkku": {
+          "name": "Helsingin Taksi-Data Oy",
+          "settings": {
+            "telephone": "+3581000700"
+          },
+          "capabilities": 929,
+          "id": 104,
+          "order_price": "0.00",
+          "preorder_price": "7.10"
+        }
+      },
+      "leg": {
+        "from": {
+          "name": "Töölönlahdenkatu 2, FI-00100 Helsinki, Suomi",
+          "lat": 60.17252,
+          "lon": 24.93789
+        },
+        "to": {
+          "name": "Nuuksiontie 82, FI-02820 Espoo, Suomi",
+          "lat": 60.2936405,
+          "lon": 24.5579287
+        },
+        "startTime": 1473937376382,
+        "endTime": 1474021856382,
+        "mode": "TAXI",
+        "agencyId": "TAXI-VALOPILKKU"
+      }
+    }
+  ]
+}

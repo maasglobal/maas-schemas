@@ -1,10 +1,15 @@
 'use strict';
 
 const expect = require('chai').expect;
-const index = require('../index.js');
+const utils = require('..');
+const ValidationError = require('../ValidationError');
+const bookingOptionsResponse =
+  require('./valid-booking-options-response.json');
+const validBookingResponse =
+  require('./valid-booking-response.json');
 
-// Missing required field [leg, customer]
-const dummyInvalidBooking = {
+// Missing required fields [leg, customer, token] etc...
+const invalidBookingResponse = {
   customer: {
     title: 'mr',
     firstName: 'John',
@@ -14,50 +19,43 @@ const dummyInvalidBooking = {
   },
 };
 
-const dummyValidBooking = {
-  leg: {
-    mode: 'WALK',
-    startTime: Date.now(),
-    endTime: Date.now(),
-    agencyId: 'dummy',
-  },
-  terms: {
-    price: {
-      amount: 0,
-      currency: 'EUR',
-    },
-  },
-  customer: {
-    title: 'mr',
-    firstName: 'John',
-    lastName: 'Doe',
-    phone: '123456',
-    email: 'john.doe@test.fi',
-  },
-  meta: {},
-};
-
 module.exports = function () {
 
   describe('Schema validation', () => {
-
     describe('validate valid booking-create request', () => {
+      // Missing required field [leg, customer]
+      const schema =
+        require('../prebuilt/tsp/booking-create/response.json');
 
       it('should succeed without error', () => {
-        return index.validate('maas-backend:bookings-create-request', dummyValidBooking);
+        return utils.validate(schema, validBookingResponse);
       });
     });
 
     describe('validate invalid booking-create request', () => {
+      const schema =
+        require('../prebuilt/tsp/booking-create/response.json');
 
       it('should have validation error', () => {
-        return index.validate('maas-backend:bookings-create-request', dummyInvalidBooking)
-        .then(success => {
-          expect('should.not.succeed').to.be.null;
-        })
-        .catch(error => {
-          expect(error).to.be.an('error');
-        });
+        return utils.validate(schema, invalidBookingResponse)
+        .then(
+          response => {
+            console.log('success', response);
+            expect('should.not.succeed').to.be.null;
+          }, error => {
+            console.log('error', error);
+            expect(error).to.be.an.instanceof(ValidationError);
+          }
+        );
+      });
+    });
+
+    describe('validate prebuilt booking options schema', () => {
+      const schema =
+        require('../prebuilt/tsp/booking-options-list/response.json');
+
+      it('should succeed without error', () => {
+        return utils.validate(schema, bookingOptionsResponse);
       });
     });
   });

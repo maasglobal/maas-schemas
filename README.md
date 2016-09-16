@@ -22,6 +22,27 @@ const schemaPath = require.resolve('maas-schemas/schemas/maas-backend/geocoding/
 
 ## JavaScript API (Deprecated)
 
+
+```javascript
+// Dereference a schema
+const dereferencer = require('maas-schemas/dereferencer');
+dereferencer.dereference(schema)
+  .then(referencedSchema => { // Do something fancy});
+
+// Works also as through the default entry point
+//const validator = require('maas-schemas');
+const validator = require('maas-schemas/validator');
+validator.validate(referencedSchema)
+  .then(schema => { // Do something fancy});
+
+// Handle an error (bluebird syle)
+const ValidationError = require('maas-schemas/ValidationError');
+validator.validate(referencedSchema)
+  .catch(ValidationError, (error) => { // Recover });
+
+```
+
+
 ```javascript
 /**
  *  Validate an object by first resolving the corresponding schema by schemaId

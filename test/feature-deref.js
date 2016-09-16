@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const index = require('../index.js');
+const index = require('../dereferencer');
 const expect = require('chai').expect;
 const glob = require('glob');
 
@@ -22,7 +22,7 @@ module.exports = function () {
           describe(`Dereferencing tests for ${schemaPaths.length} file(s)`, () => {
             schemaPaths.forEach(schemaPath => {
               it(`should be able to dereference ${schemaPath}`, done => {
-                return index.derefSchema(path.resolve(schemaPath))
+                return index.dereference(path.resolve(schemaPath))
                   .then(fullSchema => {
                     expect(fullSchema).to.not.be.undefined;
                     done();
