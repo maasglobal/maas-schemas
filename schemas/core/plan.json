@@ -71,7 +71,6 @@
     },
     "legCore": {
       "type": "object",
-      "additionalProperties": true,
       "properties": {
         "signature": {
           "type": "string"
@@ -125,7 +124,7 @@
           "type": "string"
         },
         "agencyId": {
-          "type": "string"
+          "$ref": "#/definitions/agencyId"
         },
         "legGeometry": {
           "$ref": "#/definitions/legGeometry"
@@ -137,7 +136,8 @@
         "mode",
         "startTime",
         "endTime"
-      ]
+      ],
+      "additionalProperties": true
     },
     "waitingLeg": {
       "type": "object",
@@ -184,6 +184,10 @@
         "startTime",
         "endTime"
       ]
+    },
+    "agencyId": {
+      "type": "string",
+      "minLength": 2
     },
     "place": {
       "type": "object",

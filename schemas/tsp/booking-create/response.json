@@ -4,8 +4,14 @@
   "description": "Response schema for creating a booking through a TSP adapter",
   "type": "object",
   "properties": {
+    "tspId": {
+      "$ref": "../../core/booking.json#/definitions/tspId"
+    },
+    "state": {
+      "enum": [ "RESERVED" ]
+    },
     "leg": {
-      "$ref": "../../core/plan.json#/definitions/leg"
+      "$ref": "../../core/booking.json#/definitions/leg"
     },
     "meta": {
       "$ref": "../../core/booking.json#/definitions/meta"
@@ -16,13 +22,13 @@
     "token": {
       "$ref": "../../core/booking.json#/definitions/token"
     },
-    "customer": {
-      "$ref": "../../core/customer.json"
+    "leg": {
+      "$ref": "../../core/booking.json#/definitions/leg"
     },
-    "tspId": {
-      "type": "string"
+    "customer": {
+      "$ref": "../../core/booking.json#/definitions/customer"
     }
   },
-  "required": ["leg", "meta", "terms", "token", "customer", "tspId"],
+  "required": ["tspId", "state", "meta", "terms", "token"],
   "additionalProperties": false
 }

@@ -2,38 +2,30 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/v1/units",
   "description": "MaaS Booking schema",
-  "definitions": {
-    "booking": {
-      "type": "object",
-      "description": "The detailed booking object contains all information of the booking, tsp, customer and plans",
-      "allOf": [
-        {
-          "$ref": "#/definitions/bookingCore"
-        }
-      ],
-      "properties": {
-        "leg": {
-          "$ref": "./plan.json#/definitions/leg"
-        }
-      },
-      "required": [
-        "leg"
-      ]
+  "allOf": [
+    {
+      "$ref": "#/definitions/bookingCore"
     },
+    {
+      "required": [ "id", "tspId", "state", "leg", "meta", "terms", "customer" ]
+    }
+  ],
+  "definitions": {
     "bookingCore": {
       "type": "object",
-      "description": "The base booking, not containing leg",
+      "description": "The base booking object with all fields, to be inherited",
       "properties": {
         "id": {
-          "description": "The id that MaaS uses for the booking",
-          "$ref": "./units.json#/definitions/uuid"
+          "$ref": "../core/units.json#/definitions/uuid"
         },
         "tspId": {
-          "description": "The id that a TSP uses for the booking",
-          "type": "string"
+          "$ref": "#/definitions/tspId"
         },
         "state": {
-          "$ref": "#/definitions/bookingState"
+          "$ref": "#/definitions/state"
+        },
+        "leg": {
+          "$ref": "#/definitions/leg"
         },
         "meta": {
           "$ref": "#/definitions/meta"
@@ -41,23 +33,45 @@
         "terms": {
           "$ref": "#/definitions/terms"
         },
-        "token": {
-          "$ref": "#/definitions/token"
-        },
         "customer": {
-          "$ref": "./customer.json"
+          "$ref": "#/definitions/customer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "customer": {
+      "type": "object",
+      "description": "Booking customer information",
+      "properties": {
+        "firstName": {
+          "description": "First name of the customer (e.g. John)",
+          "type": "string"
+        },
+        "lastName": {
+          "description": "Last name of the customer (e.g. Doe)",
+          "type": "string"
+        },
+        "phone": {
+          "description": "Phone number that the customer may be reached from",
+          "type": "string"
+        },
+        "email": {
+          "description": "Email address that the customer may be reached from",
+          "type": "string"
         }
       },
       "required": [
-        "id",
-        "tspId",
-        "state",
-        "terms",
-        "customer"
+        "firstName",
+        "lastName",
+        "phone",
+        "email"
       ],
-      "additionalProperties": true
+      "additionalProperties": false
     },
-    "bookingState": {
+    "leg": {
+      "$ref": "./plan.json#/definitions/leg"
+    },
+    "state": {
       "description": "The life-cycle state of the booking",
       "type": "string",
       "enum": [
@@ -204,6 +218,10 @@
           "type": "object"
         }
       }
+    },
+    "tspId": {
+      "type": "string",
+      "maxLength": 256
     }
   }
 }

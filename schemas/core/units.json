@@ -86,7 +86,7 @@
           "minimum": 0
         },
         "currency": {
-          "enum": [ "EUR", "POINT" ]
+          "enum": [ "EUR" ]
         }
       }
     }

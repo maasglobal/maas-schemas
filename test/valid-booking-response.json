@@ -1,100 +1,101 @@
 {
-    "terms": {
-        "price": {
-            "amount": 25428,
-            "currency": "EUR"
+  "state":"RESERVED",
+  "terms":{
+    "price":{
+      "amount":25428,
+      "currency":"EUR"
+    }
+  },
+  "token":{
+    "type":"SECURITY_CODE",
+    "value":"8b422bc40"
+  },
+  "meta":{
+    "MODE_CAR":{
+      "image":"https://www.sixt.de/php/fleet/vehicleimage?grp=XXAR&liso=FI&uci=1142",
+      "name":"Mercedes-Maybach S-Class",
+      "description":"Special Special, Automatic transmission"
+    },
+    "success":true,
+    "id":"9841002737",
+    "security_code":"8b422bc40",
+    "price":25428,
+    "reservation":{
+      "number":"9841002737",
+      "security_code":"8b422bc40",
+      "days":30,
+      "currency":"EUR",
+      "total":25428,
+      "driver":{
+        "company":false,
+        "first_name":"John",
+        "last_name":"Doe",
+        "phone":"010 2345678"
+      },
+      "car":{
+        "group":"XXAR",
+        "examples":[
+          "Mercedes-Maybach S-Class"
+        ],
+        "max_passengers":4,
+        "doors":4,
+        "image":"https://www.sixt.de/php/fleet/vehicleimage?grp=XXAR&liso=FI&uci=1142",
+        "transmission":"automatic",
+        "air_conditioning":true,
+        "restrictions":{
+          "minimum_age":28,
+          "minimum_license_age":5
+        },
+        "navigation":{
+          "available":true,
+          "included":false
+        },
+        "baggage":{
+          "big":2,
+          "small":2
         }
-    },
-    "token": {
-        "type": "SECURITY_CODE",
-        "value": "8b422bc40"
-    },
-    "meta": {
-        "MODE_CAR": {
-            "image": "https://www.sixt.de/php/fleet/vehicleimage?grp=XXAR&liso=FI&uci=1142",
-            "name": "Mercedes-Maybach S-Class",
-            "description": "Special Special, Automatic transmission"
+      },
+      "pickup":{
+        "station":1142,
+        "amadeus_code":"HELC01",
+        "date_time":"2016-09-16T13:00:00"
+      },
+      "dropoff":{
+        "station":1142,
+        "amadeus_code":"HELC01",
+        "date_time":"2016-10-16T13:00:00"
+      },
+      "out_of_hours":{
+        "pickup":{
+          "is_out_of_hours":false,
+          "details":null
         },
-        "success": true,
-        "id": "9841002737",
-        "security_code": "8b422bc40",
-        "price": 25428,
-        "reservation": {
-            "number": "9841002737",
-            "security_code": "8b422bc40",
-            "days": 30,
-            "currency": "EUR",
-            "total": 25428,
-            "driver": {
-                "company": false,
-                "first_name": "John",
-                "last_name": "Doe",
-                "phone": "010 2345678"
-            },
-            "car": {
-                "group": "XXAR",
-                "examples": [
-                    "Mercedes-Maybach S-Class"
-                ],
-                "max_passengers": 4,
-                "doors": 4,
-                "image": "https://www.sixt.de/php/fleet/vehicleimage?grp=XXAR&liso=FI&uci=1142",
-                "transmission": "automatic",
-                "air_conditioning": true,
-                "restrictions": {
-                    "minimum_age": 28,
-                    "minimum_license_age": 5
-                },
-                "navigation": {
-                    "available": true,
-                    "included": false
-                },
-                "baggage": {
-                    "big": 2,
-                    "small": 2
-                }
-            },
-            "pickup": {
-                "station": 1142,
-                "amadeus_code": "HELC01",
-                "date_time": "2016-09-16T13:00:00"
-            },
-            "dropoff": {
-                "station": 1142,
-                "amadeus_code": "HELC01",
-                "date_time": "2016-10-16T13:00:00"
-            },
-            "out_of_hours": {
-                "pickup": {
-                    "is_out_of_hours": false,
-                    "details": null
-                },
-                "dropoff": {
-                    "is_out_of_hours": true,
-                    "details": "Please park the Sixt vehicle outside of the gates in any Veho parking place. The keybox is located next to the entrance on Suuntajankatu street side."
-                }
-            }
+        "dropoff":{
+          "is_out_of_hours":true,
+          "details":"Please park the Sixt vehicle outside of the gates in any Veho parking place. The keybox is located next to the entrance on Suuntajankatu street side."
         }
+      }
+    }
+  },
+  "customer":{
+    "firstName":"John",
+    "lastName":"Doe",
+    "phone":"010 2345678",
+    "email":"john.doe@example.com"
+  },
+  "leg":{
+    "startTime":1474020000000,
+    "endTime":1476612000000,
+    "from":{
+      "lat":60.204605,
+      "lon":25.047902
     },
-    "customer": {
-        "firstName": "John",
-        "lastName": "Doe",
-        "phone": "010 2345678",
-        "email": "john.doe@example.com"
+    "to":{
+      "lat":60.204605,
+      "lon":25.047902
     },
-    "leg": {
-        "startTime": 1474020000000,
-        "endTime": 1476612000000,
-        "from": {
-            "lat": 60.204605,
-            "lon": 25.047902
-        },
-        "to": {
-            "lat": 60.204605,
-            "lon": 25.047902
-        },
-        "mode": "CAR",
-        "agencyId": "Sixt"
-    },
-    "tspId": "9841002737"
+    "mode":"CAR",
+    "agencyId":"Sixt"
+  },
+  "tspId":"9841002737"
 }

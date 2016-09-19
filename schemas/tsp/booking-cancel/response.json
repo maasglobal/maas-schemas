@@ -4,11 +4,13 @@
   "description": "Response schema for canceling a booking through a TSP adapter",
   "type": "object",
   "properties": {
+    "tspId": {
+      "$ref": "../../core/booking.json#/definitions/tspId"
+    },
     "state": {
-      "type": "string",
-      "pattern": "^CANCELLED$"
+      "enum": [ "CANCELLED" ]
     }
   },
-  "required": ["state"],
+  "required": [ "tspId", "state"],
   "additionalProperties": false
 }
