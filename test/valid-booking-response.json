@@ -77,12 +77,6 @@
       }
     }
   },
-  "customer":{
-    "firstName":"John",
-    "lastName":"Doe",
-    "phone":"010 2345678",
-    "email":"john.doe@example.com"
-  },
   "leg":{
     "startTime":1474020000000,
     "endTime":1476612000000,

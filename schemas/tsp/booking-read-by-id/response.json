@@ -20,9 +20,6 @@
     },
     "token": {
       "$ref": "../../core/booking.json#/definitions/token"
-    },
-    "customer": {
-      "$ref": "../../core/booking.json#/definitions/customer"
     }
   },
   "required": [ "tspId", "state" ],

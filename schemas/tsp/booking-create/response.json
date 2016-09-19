@@ -21,14 +21,8 @@
     },
     "token": {
       "$ref": "../../core/booking.json#/definitions/token"
-    },
-    "leg": {
-      "$ref": "../../core/booking.json#/definitions/leg"
-    },
-    "customer": {
-      "$ref": "../../core/booking.json#/definitions/customer"
     }
   },
-  "required": ["tspId", "state", "meta", "terms", "token"],
+  "required": ["tspId", "state", "meta", "terms", "token" ],
   "additionalProperties": false
 }

@@ -69,7 +69,26 @@
       "additionalProperties": false
     },
     "leg": {
-      "$ref": "./plan.json#/definitions/leg"
+      "anyOf": [
+        { "$ref": "./plan.json#/definitions/leg" },
+        {
+          "type": "object",
+          "description": "A subset of the standard leg for MAAS_PERSONAL",
+          "properties": {
+            "mode": { "type": "string", "enum": [ "MAAS_PERSONAL" ] },
+            "startTime": { "$ref": "../core/units.json#/definitions/time" },
+            "endTime": { "$ref": "../core/units.json#/definitions/time" },
+            "from": { "$ref": "../core/units.json#/definitions/location" },
+            "to": { "$ref": "../core/units.json#/definitions/location" }
+          },
+          "additionalProperties": true,
+          "required": [
+            "mode",
+            "startTime",
+            "endTime"
+          ]
+        }
+      ]
     },
     "state": {
       "description": "The life-cycle state of the booking",
@@ -164,28 +183,7 @@
           "type": "object"
         }
       },
-      "additionalProperties": true,
-      "oneOf": [
-        { "required": ["MODE_WALK"] },
-        { "required": ["MODE_BICYCLE"] },
-        { "required": ["MODE_CAR"] },
-        { "required": ["MODE_TRAM"] },
-        { "required": ["MODE_SUBWAY"] },
-        { "required": ["MODE_RAIL"] },
-        { "required": ["MODE_BUS"] },
-        { "required": ["MODE_FERRY"] },
-        { "required": ["MODE_CABLE_CAR"] },
-        { "required": ["MODE_GONDOLA"] },
-        { "required": ["MODE_FUNICULAR"] },
-        { "required": ["MODE_TRANSIT"] },
-        { "required": ["MODE_TRAIN"] },
-        { "required": ["MODE_TRAINISH"] },
-        { "required": ["MODE_BUSISH"] },
-        { "required": ["MODE_LEG_SWITCH"] },
-        { "required": ["MODE_MAAS_TRIP"] },
-        { "required": ["MODE_MAAS_PERSONAL"] },
-        { "required": ["MODE_TAXI"] }
-      ]
+      "additionalProperties": true
     },
     "terms": {
       "description": "MaaS booking terms and condition for its business engine",

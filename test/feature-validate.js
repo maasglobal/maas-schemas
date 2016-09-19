@@ -22,7 +22,6 @@ module.exports = function () {
 
   describe('Schema validation', () => {
     describe('validate valid booking-create response', () => {
-      // Missing required field [leg, customer]
       const schema =
         require('../prebuilt/tsp/booking-create/response.json');
 
