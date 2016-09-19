@@ -27,9 +27,8 @@
             "total": 25428,
             "driver": {
                 "company": false,
-                "title": "ms",
-                "first_name": "JANE",
-                "last_name": "MAAS",
+                "first_name": "John",
+                "last_name": "Doe",
                 "phone": "010 2345678"
             },
             "car": {
@@ -78,11 +77,10 @@
         }
     },
     "customer": {
-        "firstName": "Jane",
-        "lastName": "Maas",
-        "title": "ms",
+        "firstName": "John",
+        "lastName": "Doe",
         "phone": "010 2345678",
-        "email": "jane.maas@example.com"
+        "email": "john.doe@example.com"
     },
     "leg": {
         "startTime": 1474020000000,

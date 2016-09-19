@@ -17,9 +17,9 @@ const globPromise = (pattern, options) => (
 );
 
 module.exports = function () {
-  describe('Pre-built schemas should be valid JSON Schemas', () => {
+  describe('Source schemas should be valid JSON Schemas', () => {
     before(done => {
-      return globPromise('prebuilt/**/*.json')
+      return globPromise('schemas/**/*.json')
         .then(schemaPaths => {
           describe(`Validate ${schemaPaths.length} schemas`, () => {
             schemaPaths.forEach(schemaPath => {
