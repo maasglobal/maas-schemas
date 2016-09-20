@@ -10,7 +10,7 @@
       "$ref": "../../core/booking.json#/definitions/cost"
     },
     "state": {
-      "enum": [ "RESERVED", "ACTIVATED", "EXPIRED", "CANCELLED" ]
+      "enum": [ "RESERVED", "CONFIRMED", "ACTIVATED", "EXPIRED", "CANCELLED" ]
     },
     "leg": {
       "$ref": "../../core/booking.json#/definitions/leg"

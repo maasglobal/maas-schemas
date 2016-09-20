@@ -24,6 +24,9 @@
         "signature": {
           "type": "string"
         },
+        "state": {
+          "$ref": "./state.json#/definitions/itineraryState"
+        },
         "startTime": {
           "$ref": "./units.json#/definitions/time"
         },
@@ -75,6 +78,9 @@
         "signature": {
           "type": "string"
         },
+        "state": {
+          "$ref": "./state.json#/definitions/legState"
+        },
         "from": {
           "$ref": "#/definitions/place"
         },
@@ -101,18 +107,6 @@
         "distance": {
           "type": "number",
           "minimum": 0
-        },
-        "state": {
-          "type": "string",
-          "enum": [
-            "START",
-            "PLANNED",
-            "PAID",
-            "ACTIVATED",
-            "CANCELLED",
-            "CANCELLED_WITH_ERRORS",
-            "FINISHED"
-          ]
         },
         "route": {
           "type": "string",
