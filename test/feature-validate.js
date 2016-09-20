@@ -11,19 +11,17 @@ const validBookingResponse =
 // Missing required fields [leg, customer, token] etc...
 const invalidBookingResponse = {
   customer: {
-    title: 'mr',
     firstName: 'John',
     lastName: 'Doe',
     phone: 109381023,
-    email: 'john.doe@test.fi',
+    email: 'john.doe@example.com',
   },
 };
 
 module.exports = function () {
 
   describe('Schema validation', () => {
-    describe('validate valid booking-create request', () => {
-      // Missing required field [leg, customer]
+    describe('validate valid booking-create response', () => {
       const schema =
         require('../prebuilt/tsp/booking-create/response.json');
 
@@ -32,7 +30,7 @@ module.exports = function () {
       });
     });
 
-    describe('validate invalid booking-create request', () => {
+    describe('validate invalid booking-create response', () => {
       const schema =
         require('../prebuilt/tsp/booking-create/response.json');
 

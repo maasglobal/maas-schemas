@@ -2,38 +2,30 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/v1/units",
   "description": "MaaS Booking schema",
-  "definitions": {
-    "booking": {
-      "type": "object",
-      "description": "The detailed booking object contains all information of the booking, tsp, customer and plans",
-      "allOf": [
-        {
-          "$ref": "#/definitions/bookingCore"
-        }
-      ],
-      "properties": {
-        "leg": {
-          "$ref": "./plan.json#/definitions/leg"
-        }
-      },
-      "required": [
-        "leg"
-      ]
+  "allOf": [
+    {
+      "$ref": "#/definitions/bookingCore"
     },
+    {
+      "required": [ "id", "tspId", "state", "leg", "meta", "terms", "customer" ]
+    }
+  ],
+  "definitions": {
     "bookingCore": {
       "type": "object",
-      "description": "The base booking, not containing leg",
+      "description": "The base booking object with all fields, to be inherited",
       "properties": {
         "id": {
-          "description": "The id that MaaS uses for the booking",
-          "$ref": "./units.json#/definitions/uuid"
+          "$ref": "../core/units.json#/definitions/uuid"
         },
         "tspId": {
-          "description": "The id that a TSP uses for the booking",
-          "type": "string"
+          "$ref": "#/definitions/tspId"
         },
         "state": {
-          "$ref": "#/definitions/bookingState"
+          "$ref": "#/definitions/state"
+        },
+        "leg": {
+          "$ref": "#/definitions/leg"
         },
         "meta": {
           "$ref": "#/definitions/meta"
@@ -41,23 +33,64 @@
         "terms": {
           "$ref": "#/definitions/terms"
         },
-        "token": {
-          "$ref": "#/definitions/token"
-        },
         "customer": {
-          "$ref": "./customer.json"
+          "$ref": "#/definitions/customer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "customer": {
+      "type": "object",
+      "description": "Booking customer information",
+      "properties": {
+        "firstName": {
+          "description": "First name of the customer (e.g. John)",
+          "type": "string"
+        },
+        "lastName": {
+          "description": "Last name of the customer (e.g. Doe)",
+          "type": "string"
+        },
+        "phone": {
+          "description": "Phone number that the customer may be reached from",
+          "type": "string"
+        },
+        "email": {
+          "description": "Email address that the customer may be reached from",
+          "type": "string"
         }
       },
       "required": [
-        "id",
-        "tspId",
-        "state",
-        "terms",
-        "customer"
+        "firstName",
+        "lastName",
+        "phone",
+        "email"
       ],
-      "additionalProperties": true
+      "additionalProperties": false
     },
-    "bookingState": {
+    "leg": {
+      "anyOf": [
+        { "$ref": "./plan.json#/definitions/leg" },
+        {
+          "type": "object",
+          "description": "A subset of the standard leg for MAAS_PERSONAL",
+          "properties": {
+            "mode": { "type": "string", "enum": [ "MAAS_PERSONAL" ] },
+            "startTime": { "$ref": "../core/units.json#/definitions/time" },
+            "endTime": { "$ref": "../core/units.json#/definitions/time" },
+            "from": { "$ref": "../core/units.json#/definitions/location" },
+            "to": { "$ref": "../core/units.json#/definitions/location" }
+          },
+          "additionalProperties": true,
+          "required": [
+            "mode",
+            "startTime",
+            "endTime"
+          ]
+        }
+      ]
+    },
+    "state": {
       "description": "The life-cycle state of the booking",
       "type": "string",
       "enum": [
@@ -150,28 +183,7 @@
           "type": "object"
         }
       },
-      "additionalProperties": true,
-      "oneOf": [
-        { "required": ["MODE_WALK"] },
-        { "required": ["MODE_BICYCLE"] },
-        { "required": ["MODE_CAR"] },
-        { "required": ["MODE_TRAM"] },
-        { "required": ["MODE_SUBWAY"] },
-        { "required": ["MODE_RAIL"] },
-        { "required": ["MODE_BUS"] },
-        { "required": ["MODE_FERRY"] },
-        { "required": ["MODE_CABLE_CAR"] },
-        { "required": ["MODE_GONDOLA"] },
-        { "required": ["MODE_FUNICULAR"] },
-        { "required": ["MODE_TRANSIT"] },
-        { "required": ["MODE_TRAIN"] },
-        { "required": ["MODE_TRAINISH"] },
-        { "required": ["MODE_BUSISH"] },
-        { "required": ["MODE_LEG_SWITCH"] },
-        { "required": ["MODE_MAAS_TRIP"] },
-        { "required": ["MODE_MAAS_PERSONAL"] },
-        { "required": ["MODE_TAXI"] }
-      ]
+      "additionalProperties": true
     },
     "terms": {
       "description": "MaaS booking terms and condition for its business engine",
@@ -204,6 +216,10 @@
           "type": "object"
         }
       }
+    },
+    "tspId": {
+      "type": "string",
+      "maxLength": 256
     }
   }
 }

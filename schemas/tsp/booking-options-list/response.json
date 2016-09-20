@@ -11,6 +11,6 @@
       }
     }
   },
-  "additionalProperties": false,
-  "required": ["options"]
+  "required": ["options"],
+  "additionalProperties": false
 }

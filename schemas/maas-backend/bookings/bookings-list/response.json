@@ -8,7 +8,7 @@
       "type": "array",
       "minItems": 0,
       "items": {
-        "$ref": "../../../core/booking.json#/definitions/bookingCore"
+        "$ref": "../../../core/booking.json"
       }
     },
     "maas": {

@@ -4,33 +4,24 @@
   "description": "Response schema for getting a specific booking with a TSP ID from a TSP adapter",
   "properties": {
     "tspId": {
-      "$ref": "../booking.json#/properties/tspId"
+      "$ref": "../../core/booking.json#/definitions/tspId"
     },
     "state": {
-      "$ref": "../booking.json#/properties/state"
+      "enum": [ "RESERVED", "ACTIVATED", "EXPIRED", "CANCELLED" ]
     },
     "leg": {
-      "$ref": "../booking.json#/properties/leg"
+      "$ref": "../../core/booking.json#/definitions/leg"
     },
     "meta": {
-      "$ref": "../booking.json#/properties/meta"
+      "$ref": "../../core/booking.json#/definitions/meta"
     },
     "terms": {
-      "$ref": "../booking.json#/properties/terms"
+      "$ref": "../../core/booking.json#/definitions/terms"
     },
     "token": {
-      "$ref": "../booking.json#/properties/token"
-    },
-    "customer": {
-      "$ref": "../booking.json#/properties/customer"
+      "$ref": "../../core/booking.json#/definitions/token"
     }
   },
-  "required": [
-    "tspId",
-    "state",
-    "meta",
-    "terms",
-    "token"
-  ],
+  "required": [ "tspId", "state" ],
   "additionalProperties": false
 }

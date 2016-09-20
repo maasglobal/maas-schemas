@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "tspId": {
-      "$ref": "../booking.json#/properties/tspId"
+      "$ref": "../../core/booking.json#/definitions/tspId"
     }
   },
   "required": ["tspId"],

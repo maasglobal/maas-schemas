@@ -5,16 +5,18 @@
   "type": "object",
   "properties": {
     "leg": {
-      "$ref": "../../core/plan.json#/definitions/leg"
+      "$ref": "../../core/booking.json#/definitions/leg"
     },
     "meta": {
-      "type": "object",
-      "description": "The original metadata from the TSP provided in options should be included"
+      "$ref": "../../core/booking.json#/definitions/meta"
+    },
+    "terms": {
+      "$ref": "../../core/booking.json#/definitions/terms"
     },
     "customer": {
-      "$ref": "../../core/customer.json"
+      "$ref": "../../core/booking.json#/definitions/customer"
     }
   },
-  "required": ["leg", "meta", "customer"],
+  "required": ["leg", "customer"],
   "additionalProperties": false
 }

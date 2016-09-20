@@ -5,8 +5,7 @@
   "type": "object",
   "properties": {
     "tspId": {
-      "type": "string",
-      "description": "The TSP ID of the booking to be cancelled"
+      "$ref": "../../core/booking.json#/definitions/tspId"
     }
   },
   "required": ["tspId"],

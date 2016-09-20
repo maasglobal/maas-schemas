@@ -3,7 +3,6 @@
   "id": "https://api.maas.global/booking-options-list/request",
   "description": "Request schema for getting options from a TSP adapter.",
   "type": "object",
-  "required": ["mode", "startTime", "from"],
   "properties": {
     "mode": {
       "$ref": "../../core/plan.json#/definitions/mode"
@@ -15,10 +14,10 @@
       "$ref": "../../core/units.json#/definitions/time"
     },
     "from": {
-      "$ref": "../../core/units.json#/definitions/location"
+      "$ref": "../../core/units.json#/definitions/shortLocationString"
     },
     "to": {
-      "$ref": "../../core/units.json#/definitions/location"
+      "$ref": "../../core/units.json#/definitions/shortLocationString"
     },
     "fromRadius":{
       "description": "'from' location radius in meters",
@@ -29,7 +28,9 @@
       "$ref": "../../core/units.json#/definitions/distance"
     },
     "customer": {
-      "$ref": "../request-customer.json"
+      "$ref": "../../core/booking.json#/definitions/customer"
     }
-  }
+  },
+  "required": ["startTime", "from" ],
+  "additionalProperties": false
 }

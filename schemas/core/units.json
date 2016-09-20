@@ -44,6 +44,10 @@
         }
       ]
     },
+    "shortLocationString": {
+      "type": "string",
+      "pattern": "^\\d{1,3}(\\.\\d+)?,\\d{1,3}(\\.\\d+)?$"
+    },
     "distance": {
       "type": "number",
       "minimum": 0
@@ -86,7 +90,7 @@
           "minimum": 0
         },
         "currency": {
-          "enum": [ "EUR", "POINT" ]
+          "enum": [ "EUR" ]
         }
       }
     }
