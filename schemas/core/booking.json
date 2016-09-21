@@ -69,26 +69,56 @@
       "additionalProperties": false
     },
     "leg": {
-      "anyOf": [
-        { "$ref": "./plan.json#/definitions/leg" },
-        {
-          "type": "object",
-          "description": "A subset of the standard leg for MAAS_PERSONAL",
-          "properties": {
-            "mode": { "type": "string", "enum": [ "MAAS_PERSONAL" ] },
-            "startTime": { "$ref": "../core/units.json#/definitions/time" },
-            "endTime": { "$ref": "../core/units.json#/definitions/time" },
-            "from": { "$ref": "../core/units.json#/definitions/location" },
-            "to": { "$ref": "../core/units.json#/definitions/location" }
-          },
-          "additionalProperties": true,
-          "required": [
-            "mode",
-            "startTime",
-            "endTime"
-          ]
+      "type": "object",
+      "description": "MaaS response may return any subset of legCore",
+      "properties": {
+        "signature": {
+          "$ref": "./plan.json#/definitions/legCore/properties/signature"
+        },
+        "from": {
+          "$ref": "./plan.json#/definitions/legCore/properties/from"
+        },
+        "to": {
+          "$ref": "./plan.json#/definitions/legCore/properties/to"
+        },
+        "startTime": {
+          "$ref": "./plan.json#/definitions/legCore/properties/startTime"
+        },
+        "endTime": {
+          "$ref": "./plan.json#/definitions/legCore/properties/endTime"
+        },
+        "mode": {
+          "$ref": "./plan.json#/definitions/legCore/properties/mode"
+        },
+        "departureDelay": {
+          "$ref": "./plan.json#/definitions/legCore/properties/departureDelay"
+        },
+        "arrivalDelay": {
+          "$ref": "./plan.json#/definitions/legCore/properties/arrivalDelay"
+        },
+        "distance": {
+          "$ref": "./plan.json#/definitions/legCore/properties/distance"
+        },
+        "state": {
+          "$ref": "./plan.json#/definitions/legCore/properties/state"
+        },
+        "route": {
+          "$ref": "./plan.json#/definitions/legCore/properties/route"
+        },
+        "routeShortName": {
+          "$ref": "./plan.json#/definitions/legCore/properties/routeShortName"
+        },
+        "routeLongName": {
+          "$ref": "./plan.json#/definitions/legCore/properties/routeLongName"
+        },
+        "agencyId": {
+          "$ref": "./plan.json#/definitions/legCore/properties/agencyId"
+        },
+        "legGeometry": {
+          "$ref": "./plan.json#/definitions/legCore/properties/legGeometry"
         }
-      ]
+      },
+      "additionalProperties": false
     },
     "state": {
       "description": "The life-cycle state of the booking",
