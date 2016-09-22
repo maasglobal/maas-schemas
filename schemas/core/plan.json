@@ -135,7 +135,8 @@
         "to",
         "mode",
         "startTime",
-        "endTime"
+        "endTime",
+        "legGeometry"
       ],
       "additionalProperties": true
     },
