@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.dev.maas.global/business-rule-engine/request.json",
+  "description": "MaaS business rule engine request schema.",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/definitions/ruleWithIdentityId"
+    },
+    {
+      "$ref": "#/definitions/ruleWithoutIdentityId"
+    }
+  ],
+  "definitions": {
+    "ruleWithIdentityId": {
+      "properties": {
+        "identityId": {
+          "$ref": "../../core/aws-units.json#/definitions/identityId"
+        },
+        "rule": {
+          "enum": ["get-routes", "get-tsp-pricing", "get-tsp-pricing-batch", "get-point-pricing", "get-point-pricing-batch" ]
+        },
+        "parameters": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": true
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          ]
+        }
+      },
+      "required": [ "identityId", "rule", "parameters" ],
+      "additionalProperties": false
+    },
+    "ruleWithoutIdentityId": {
+      "properties": {
+        "identityId": {
+          "$ref": "../../core/aws-units.json#/definitions/identityId"
+        },
+        "rule": {
+          "enum": [ "get-provider", "get-provider-batch" ]
+        },
+        "parameters": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": true
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          ]
+        }
+      },
+      "required": [ "rule", "parameters" ],
+      "additionalProperties": false
+    }
+  }
+}
