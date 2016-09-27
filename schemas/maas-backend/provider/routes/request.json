@@ -1,2 +1,27 @@
 {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+    },
+    "from": {
+      "$ref": "../../../core/units.json#/definitions/shortLocation"
+    },
+    "to": {
+      "$ref": "../../../core/units.json#/definitions/shortLocation"
+    },
+    "leaveAt": {
+      "$ref": "../../../core/units.json#/definitions/time"
+    },
+    "arriveBy": {
+      "$ref": "../../../core/units.json#/definitions/time"
+    },
+    "modes": {
+      "type": "string",
+      "pattern": "^(:?(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI),)*(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI)$"
+    }
+  },
+  "required": [ "from", "to" ],
+  "additionalProperties": false
 }

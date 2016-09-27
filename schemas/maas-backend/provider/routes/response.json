@@ -1,1 +1,44 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.dev.maas.global/routes/routes-queryresponse.json",
+  "description": "MaaS.fi routes-query response schema",
+  "properties": {
+    "plan": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "$ref": "../../../core/units.json#/definitions/place"
+        },
+        "itineraries": {
+          "allOf": [
+            {
+              "$ref": "../../../core/plan.json#/definitions/itineraries"
+            },
+            {
+              "type": "array",
+              "description": "An additional schema to verify itineraries.legs.legGeometry always exists",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "legs": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "required": [ "legGeometry" ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "required": ["from", "itineraries" ],
+      "additionalProperties": false
+    },
+    "debug": { "type": "object" }
+  },
+  "required": [ "plan" ],
+  "additionalProperties": false
+}

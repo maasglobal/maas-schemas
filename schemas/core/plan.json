@@ -115,13 +115,16 @@
           ]
         },
         "route": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "routeShortName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "routeLongName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "agencyId": {
           "$ref": "#/definitions/agencyId"
@@ -135,7 +138,8 @@
         "to",
         "mode",
         "startTime",
-        "endTime"
+        "endTime",
+        "legGeometry"
       ],
       "additionalProperties": true
     },
@@ -199,10 +203,12 @@
       ],
       "properties": {
         "stopId": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "stopCode": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         }
       },
       "required": [
@@ -211,14 +217,7 @@
       ]
     },
     "legGeometry": {
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "points": {
-          "type": "string",
-          "minLength": 1
-        }
-      }
+      "$ref": "./units.json#/definitions/polyline"
     },
     "fare": {
       "type": "object",

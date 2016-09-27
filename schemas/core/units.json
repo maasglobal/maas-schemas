@@ -48,6 +48,18 @@
       "type": "string",
       "pattern": "^\\d{1,3}(\\.\\d+)?,\\d{1,3}(\\.\\d+)?$"
     },
+    "polyline": {
+      "type": "object",
+      "description": "Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm",
+      "properties": {
+        "points": {
+          "type": "string",
+          "minLength": 3,
+          "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
+        }
+      },
+      "required": [ "points" ]
+    },
     "distance": {
       "type": "number",
       "minimum": 0
