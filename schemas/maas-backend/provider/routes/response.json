@@ -16,7 +16,7 @@
             },
             {
               "type": "array",
-              "description": "An additional schema to verify itineraries.legs.legGeometry always exists & there is a fare for itinerary",
+              "description": "An additional schema to verify itineraries.legs.legGeometry always exists",
               "items": {
                 "type": "object",
                 "properties": {
@@ -28,8 +28,7 @@
                       }
                     ]
                   }
-                },
-                "required": [ "fare" ]
+                }
               }
             }
           ]
