@@ -1,1 +1,20 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.dev.maas.global/push-notification/push-notification-apple/response.json",
+  "description": "MaaS Apple push notification response schema.",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+    },
+    "results": {
+      "properties": {
+        "successCount": { "type": "number", "minimum": 0 },
+        "failureCount": { "type": "number", "minimum": 0 }
+      },
+      "required": ["successCount", "failureCount"]
+    }
+  },
+  "required": ["identityId", "results"],
+  "additionalProperties": false
+}
