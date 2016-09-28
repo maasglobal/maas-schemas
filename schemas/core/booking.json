@@ -210,7 +210,31 @@
           "type": "object"
         },
         "MODE_TAXI": {
-          "type": "object"
+          "type": "object",
+          "properties": {
+            "vehicleId": {
+              "description": "The taxi id (in the taxi number plate on top of the vehicle)",
+              "type": "string",
+              "minLength": 1
+            },
+            "vehicleLocation": { "$ref": "../core/units.json#/definitions/location" },
+            "vehicleType": {
+              "type": "string",
+              "minLength": 1
+            },
+            "eta": { "$ref": "../core/units.json#/definitions/time" },
+            "taxiCenter": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "phone": { "$ref": "../core/units.json#/definitions/phone" }
+              }
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": true
