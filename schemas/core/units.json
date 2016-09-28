@@ -69,7 +69,8 @@
       "minimum": 0
     },
     "phone": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^\\+(?:\\d){6,14}\\d$"
     },
     "email": {
       "type": "string"
