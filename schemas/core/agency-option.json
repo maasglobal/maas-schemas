@@ -39,14 +39,14 @@
       "type": "object",
       "description": "Tsp terms of usage / order",
       "properties": {
-        "price": {
-          "$ref": "./units.json#/definitions/price"
-        },
         "validityDuration": {
           "$ref": "./units.json#/definitions/time"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": true
+    },
+    "cost": {
+      "$ref": "./units.json#/definitions/cost"
     },
     "signature": {
       "type": "string",

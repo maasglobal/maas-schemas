@@ -35,6 +35,12 @@
         },
         "customer": {
           "$ref": "#/definitions/customer"
+        },
+        "fare": {
+          "$ref": "../core/units.json#/definitions/fare"
+        },
+        "cost": {
+          "$ref": "../core/units.json#/definitions/cost"
         }
       },
       "additionalProperties": false
@@ -243,9 +249,6 @@
       "description": "MaaS booking terms and condition for its business engine",
       "type": "object",
       "properties": {
-        "price": {
-          "$ref": "./units.json#/definitions/price"
-        }
       }
     },
     "token": {

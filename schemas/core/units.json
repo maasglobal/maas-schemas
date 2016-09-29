@@ -94,7 +94,21 @@
         }
       ]
     },
-    "price": {
+    "fare": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "enum": [ "POINTS" ]
+        }
+      },
+      "required": ["amount", "currency"],
+      "additionalProperties": false
+    },
+    "cost": {
       "type": "object",
       "required": ["amount", "currency"],
       "properties": {
@@ -105,7 +119,9 @@
         "currency": {
           "enum": [ "EUR" ]
         }
-      }
+      },
+      "required": ["amount", "currency"],
+      "additionalProperties": false
     }
   }
 }
