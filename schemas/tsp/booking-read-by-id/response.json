@@ -6,6 +6,9 @@
     "tspId": {
       "$ref": "../../core/booking.json#/definitions/tspId"
     },
+    "cost": {
+      "$ref": "../../core/booking.json#/definitions/cost"
+    },
     "state": {
       "enum": [ "RESERVED", "ACTIVATED", "EXPIRED", "CANCELLED" ]
     },

@@ -1,11 +1,11 @@
 {
   "options": [
     {
+      "cost": {
+        "amount": 16.7,
+        "currency": "EUR"
+      },
       "terms": {
-        "price": {
-          "amount": 16.7,
-          "currency": "EUR"
-        }
       },
       "meta": {
         "MODE_TAXI": {},

@@ -24,6 +24,12 @@
         "state": {
           "$ref": "#/definitions/state"
         },
+        "fare": {
+          "$ref": "#/definitions/fare"
+        },
+        "cost": {
+          "$ref": "#/definitions/cost"
+        },
         "leg": {
           "$ref": "#/definitions/leg"
         },
@@ -35,12 +41,6 @@
         },
         "customer": {
           "$ref": "#/definitions/customer"
-        },
-        "fare": {
-          "$ref": "../core/units.json#/definitions/fare"
-        },
-        "cost": {
-          "$ref": "../core/units.json#/definitions/cost"
         }
       },
       "additionalProperties": false
@@ -142,6 +142,12 @@
         "RESOLVED",
         "REJECTED"
       ]
+    },
+    "fare": {
+      "$ref": "../core/units.json#/definitions/fare"
+    },
+    "cost": {
+      "$ref": "../core/units.json#/definitions/cost"
     },
     "meta": {
       "type": "object",

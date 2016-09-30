@@ -10,6 +10,9 @@
     "state": {
       "enum": [ "CANCELLED" ]
     },
+    "cost": {
+      "$ref": "../../core/booking.json#/definitions/cost"
+    },
     "leg": {
       "$ref": "../../core/booking.json#/definitions/leg"
     },

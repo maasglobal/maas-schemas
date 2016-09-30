@@ -4,6 +4,9 @@
   "description": "Request schema for creating a booking through a TSP adapter",
   "type": "object",
   "properties": {
+    "cost": {
+      "$ref": "../../core/booking.json#/definitions/cost"
+    },
     "leg": {
       "$ref": "../../core/booking.json#/definitions/leg"
     },
