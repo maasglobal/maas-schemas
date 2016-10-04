@@ -10,7 +10,20 @@
     "features": {
       "type": "array",
       "items": {
-        "$ref": "../../../core/geolocation.json#/definitions/feature"
+        "allOf": [
+          {
+            "$ref": "../../../core/geolocation.json#/definitions/feature"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "properties": {
+                "type": "object",
+                "required": ["city", "country", "countryCode"]
+              }
+            }
+          }
+        ]
       }
     },
     "debug": { "type": "object" }
