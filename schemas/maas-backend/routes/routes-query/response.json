@@ -13,24 +13,6 @@
           "allOf": [
             {
               "$ref": "../../../core/plan.json#/definitions/itineraries"
-            },
-            {
-              "type": "array",
-              "description": "An additional schema to verify itineraries.legs.legGeometry always exists & there is a fare for itinerary",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "legs": {
-                    "type": "array",
-                    "items": [
-                      {
-                        "required": [ "legGeometry" ]
-                      }
-                    ]
-                  }
-                },
-                "required": [ "fare" ]
-              }
             }
           ]
         }
