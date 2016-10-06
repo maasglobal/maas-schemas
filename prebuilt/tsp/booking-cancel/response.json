@@ -13,6 +13,25 @@
         "CANCELLED"
       ]
     },
+    "cost": {
+      "type": "object",
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "enum": [
+            "EUR"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
     "leg": {
       "type": "object",
       "description": "MaaS response may return any subset of legCore",
@@ -349,26 +368,7 @@
     "terms": {
       "description": "MaaS booking terms and condition for its business engine",
       "type": "object",
-      "properties": {
-        "price": {
-          "type": "object",
-          "required": [
-            "amount",
-            "currency"
-          ],
-          "properties": {
-            "amount": {
-              "type": "number",
-              "minimum": 0
-            },
-            "currency": {
-              "enum": [
-                "EUR"
-              ]
-            }
-          }
-        }
-      }
+      "properties": {}
     },
     "token": {
       "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",

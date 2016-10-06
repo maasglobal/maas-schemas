@@ -12,6 +12,25 @@
         "description": "MaaS single TSP adapter option",
         "type": "object",
         "properties": {
+          "cost": {
+            "type": "object",
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "properties": {
+              "amount": {
+                "type": "number",
+                "minimum": 0
+              },
+              "currency": {
+                "enum": [
+                  "EUR"
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
           "leg": {
             "type": "object",
             "description": "A subset of the standard leg (../core/plan.json#/definitions/leg)",
@@ -98,26 +117,7 @@
           "terms": {
             "description": "MaaS booking terms and condition for its business engine",
             "type": "object",
-            "properties": {
-              "price": {
-                "type": "object",
-                "required": [
-                  "amount",
-                  "currency"
-                ],
-                "properties": {
-                  "amount": {
-                    "type": "number",
-                    "minimum": 0
-                  },
-                  "currency": {
-                    "enum": [
-                      "EUR"
-                    ]
-                  }
-                }
-              }
-            }
+            "properties": {}
           },
           "meta": {
             "type": "object",
@@ -254,6 +254,7 @@
           }
         },
         "required": [
+          "cost",
           "leg",
           "meta",
           "terms"
