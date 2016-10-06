@@ -1,1 +1,6 @@
-{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/maas-backend/profile/profile-create/response","description":"Response schema for profile-create","additionalProperties":true}
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/profile/profile-create/response",
+  "description": "Response schema for profile-create",
+  "additionalProperties": true
+}
