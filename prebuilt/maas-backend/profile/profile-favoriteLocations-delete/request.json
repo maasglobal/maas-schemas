@@ -1,1 +1,24 @@
-{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/maas-backend/profile/profile-favoriteLocations-delete/request","description":"Request schema for profile-favoriteLocations-delete","type":"object","properties":{"identityId":{"type":"string","pattern":"^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"},"payload":{"type":"object","properties":{"identifier":{"type":"string"}},"required":["identifier"]}},"additionalProperties":false}
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/profile/profile-favoriteLocations-delete/request",
+  "description": "Request schema for profile-favoriteLocations-delete",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "type": "string",
+      "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "identifier"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
