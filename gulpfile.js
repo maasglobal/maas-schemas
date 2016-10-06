@@ -1,12 +1,11 @@
 'use strict';
 
-const deref = require('gulp-jsonschema-deref');
-const eslint = require('gulp-eslint');
 const gulp = require('gulp');
-const jsonclint = require('gulp-json-lint');
-const jsonFormat = require('gulp-json-format');
-const jsonlint = require('gulp-jsonlint');
 const mocha = require('gulp-mocha');
+const jsonlint = require('gulp-jsonlint');
+const jsonclint = require('gulp-json-lint');
+const eslint = require('gulp-eslint');
+const deref = require('gulp-jsonschema-deref');
 
 const jsoncFiles = ['.eslintrc']; // json with comments
 const jsonFiles = ['schemas/**/*.json'];
@@ -37,7 +36,6 @@ gulp.task('eslint', () => {
 gulp.task('deref-schemas', () => {
   return gulp.src('./schemas/**/*.json')
       .pipe(deref())
-      .pipe(jsonFormat(2))
       .pipe(gulp.dest('prebuilt'));
 });
 

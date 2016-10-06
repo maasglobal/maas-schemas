@@ -1,16 +1,1 @@
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/tsp/booking-cancel/request",
-  "description": "Request schema for cancelling a booking through a TSP adapter",
-  "type": "object",
-  "properties": {
-    "tspId": {
-      "type": "string",
-      "maxLength": 256
-    }
-  },
-  "required": [
-    "tspId"
-  ],
-  "additionalProperties": false
-}
+{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/tsp/booking-cancel/request","description":"Request schema for cancelling a booking through a TSP adapter","type":"object","properties":{"tspId":{"type":"string","maxLength":256}},"required":["tspId"],"additionalProperties":false}

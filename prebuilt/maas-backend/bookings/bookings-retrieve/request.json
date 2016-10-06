@@ -1,13 +1,1 @@
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/bookings/bookings-retrieve/request",
-  "description": "Request schema for bookings-retrieve",
-  "type": "object",
-  "properties": {
-    "bookingId": {
-      "description": "bookingId of the requested booking",
-      "type": "string",
-      "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
-    }
-  }
-}
+{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/maas-backend/bookings/bookings-retrieve/request","description":"Request schema for bookings-retrieve","type":"object","properties":{"bookingId":{"description":"bookingId of the requested booking","type":"string","pattern":"^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"}}}
