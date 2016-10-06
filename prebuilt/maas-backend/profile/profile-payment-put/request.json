@@ -1,1 +1,1 @@
-{}
+{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/maas-backend/profile/profile-payment-put/request","description":"Request schema for profile-payment-put"}

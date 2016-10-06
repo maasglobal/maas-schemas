@@ -1,1 +1,1 @@
-{}
+{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/maas-backend/itineraries/itinerary-cancel/response","description":"Maas Itinerary cancellation response"}

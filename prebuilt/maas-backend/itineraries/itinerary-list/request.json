@@ -1,1 +1,1 @@
-{}
+{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/maas-backend/itineraries/itinerary-list/request","description":"Maas Itinerary listing request"}
