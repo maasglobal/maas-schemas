@@ -1,1 +1,20 @@
-{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/maas-backend/autocomplete/autocomplete-query/response","description":"Response schema for autocomplete","type":"object","properties":{"suggestions":{"type":"array","items":[{"type":"string"}]}},"additionalProperties":false,"required":["suggestions"]}
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/autocomplete/autocomplete-query/response",
+  "description": "Response schema for autocomplete",
+  "type": "object",
+  "properties": {
+    "suggestions": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "suggestions"
+  ]
+}
