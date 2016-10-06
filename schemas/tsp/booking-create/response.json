@@ -10,6 +10,9 @@
     "state": {
       "enum": [ "RESERVED" ]
     },
+    "cost": {
+      "$ref": "../../core/booking.json#/definitions/cost"
+    },
     "leg": {
       "$ref": "../../core/booking.json#/definitions/leg"
     },
@@ -23,6 +26,6 @@
       "$ref": "../../core/booking.json#/definitions/token"
     }
   },
-  "required": ["tspId", "state", "meta", "terms", "token" ],
+  "required": ["tspId", "state", "cost", "meta", "terms", "token" ],
   "additionalProperties": false
 }

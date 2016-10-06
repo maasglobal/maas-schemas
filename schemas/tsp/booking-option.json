@@ -4,6 +4,9 @@
   "description": "MaaS single TSP adapter option",
   "type": "object",
   "properties": {
+    "cost": {
+      "$ref": "../core/booking.json#/definitions/cost"
+    },
     "leg": {
       "$ref": "#/definitions/leg"
      },
@@ -14,7 +17,7 @@
       "$ref": "../core/booking.json#/definitions/meta"
     }
   },
-  "required": ["leg", "meta", "terms"],
+  "required": ["cost", "leg", "meta", "terms" ],
   "additionalProperties": false,
   "definitions": {
     "leg": {

@@ -4,6 +4,25 @@
   "description": "Request schema for creating a booking through a TSP adapter",
   "type": "object",
   "properties": {
+    "cost": {
+      "type": "object",
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "enum": [
+            "EUR"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
     "leg": {
       "type": "object",
       "description": "MaaS response may return any subset of legCore",
@@ -340,26 +359,7 @@
     "terms": {
       "description": "MaaS booking terms and condition for its business engine",
       "type": "object",
-      "properties": {
-        "price": {
-          "type": "object",
-          "required": [
-            "amount",
-            "currency"
-          ],
-          "properties": {
-            "amount": {
-              "type": "number",
-              "minimum": 0
-            },
-            "currency": {
-              "enum": [
-                "EUR"
-              ]
-            }
-          }
-        }
-      }
+      "properties": {}
     },
     "customer": {
       "type": "object",

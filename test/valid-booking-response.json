@@ -1,10 +1,10 @@
 {
   "state":"RESERVED",
+  "cost":{
+    "amount":25428,
+    "currency":"EUR"
+  },
   "terms":{
-    "price":{
-      "amount":25428,
-      "currency":"EUR"
-    }
   },
   "token":{
     "type":"SECURITY_CODE",

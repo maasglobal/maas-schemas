@@ -98,28 +98,29 @@
             "type": "object",
             "description": "Tsp terms of usage / order",
             "properties": {
-              "price": {
-                "type": "object",
-                "required": [
-                  "amount",
-                  "currency"
-                ],
-                "properties": {
-                  "amount": {
-                    "type": "number",
-                    "minimum": 0
-                  },
-                  "currency": {
-                    "enum": [
-                      "EUR"
-                    ]
-                  }
-                }
-              },
               "validityDuration": {
                 "type": "integer",
                 "maximum": 9007199254740991,
                 "minimum": 1451606400
+              }
+            },
+            "additionalProperties": true
+          },
+          "cost": {
+            "type": "object",
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "properties": {
+              "amount": {
+                "type": "number",
+                "minimum": 0
+              },
+              "currency": {
+                "enum": [
+                  "EUR"
+                ]
               }
             },
             "additionalProperties": false

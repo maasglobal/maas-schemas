@@ -24,6 +24,12 @@
         "state": {
           "$ref": "#/definitions/state"
         },
+        "fare": {
+          "$ref": "#/definitions/fare"
+        },
+        "cost": {
+          "$ref": "#/definitions/cost"
+        },
         "leg": {
           "$ref": "#/definitions/leg"
         },
@@ -137,6 +143,12 @@
         "REJECTED"
       ]
     },
+    "fare": {
+      "$ref": "../core/units.json#/definitions/fare"
+    },
+    "cost": {
+      "$ref": "../core/units.json#/definitions/cost"
+    },
     "meta": {
       "type": "object",
       "description": "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
@@ -243,9 +255,6 @@
       "description": "MaaS booking terms and condition for its business engine",
       "type": "object",
       "properties": {
-        "price": {
-          "$ref": "./units.json#/definitions/price"
-        }
       }
     },
     "token": {
