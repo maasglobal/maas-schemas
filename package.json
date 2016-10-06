@@ -1,7 +1,7 @@
 {
   "name": "maas-schemas",
   "version": "0.0.1",
-  "description": "Schemas for maas infrastructure",
+  "description": "Schemas for MaaS infrastructure",
   "main": "validator.js",
   "engine": {
     "node": ">=4.3.2"
@@ -45,6 +45,7 @@
     "glob": "^7.0.5",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
+    "gulp-json-format": "^1.0.0",
     "gulp-json-lint": "^0.1.0",
     "gulp-jsonlint": "^1.1.2",
     "gulp-jsonschema-deref": "0.0.2",
