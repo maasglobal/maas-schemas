@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/booking-create/response",
+  "id": "https://api.maas.global/tsp/booking-cancel/response",
   "description": "Response schema for creating a booking through a TSP adapter",
   "type": "object",
   "properties": {

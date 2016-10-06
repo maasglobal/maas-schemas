@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/v1/package",
+  "id": "https://api.maas.global/core/maas-package",
   "description": "MaaS subscription plans and addons",
   "type": "object",
   "properties": {

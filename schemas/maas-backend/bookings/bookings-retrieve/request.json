@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/bookings/bookings-retrieve/request.json",
+  "id": "https://api.maas.global/maas-backend/bookings/bookings-retrieve/request",
   "description": "Request schema for bookings-retrieve",
   "type": "object",
   "properties": {

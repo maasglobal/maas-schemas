@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/bookings/bookings-agency-options/response.json",
+  "id": "https://api.maas.global/maas-backend/bookings/bookings-agency-options/response",
   "description": "Response schema for bookings-agency-options (to mobile clients)",
   "type": "object",
   "properties": {

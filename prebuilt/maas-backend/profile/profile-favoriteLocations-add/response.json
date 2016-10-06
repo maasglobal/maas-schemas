@@ -1,1 +1,1 @@
-{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/v1/profile-favoriteLocations-add/response-schema.json","description":"Response schema for profile-favoriteLocations-add","type":"object","properties":{},"additionalProperties":false}
+{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/maas-backend/profile/profile-favoriteLocations-add/response","description":"Response schema for profile-favoriteLocations-add","type":"object","properties":{},"additionalProperties":false}

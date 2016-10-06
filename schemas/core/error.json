@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/v1/units",
+  "id": "https://api.maas.global/core/error",
   "description": "MaaS event response error objects",
   "type": "object",
   "description": "An error that the service may send",

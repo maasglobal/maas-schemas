@@ -1,1 +1,1 @@
-{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/v1/i18n","description":"MaaS internationalization schemas","definitions":{"locale":{"type":"string","pattern":"^[a-z]{2,3}(?:-[a-zA-Z]{4})?(?:-[A-Z]{2,3})?$"}}}
+{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/core/i18n","description":"MaaS internationalization schemas","definitions":{"locale":{"type":"string","pattern":"^[a-z]{2,3}(?:-[a-zA-Z]{4})?(?:-[A-Z]{2,3})?$"}}}

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.dev.maas.global/geocoding/geocoding-query/response.json",
+  "id": "https://api.maas.global/maas-backend/geocoding/geocoding-reverse/response",
   "description": "MaaS.fi geocoding (GeoJSON) response schema",
   "type": "object",
   "properties": {

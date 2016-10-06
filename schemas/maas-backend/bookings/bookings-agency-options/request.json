@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/bookings/bookings-agency-options/request.json",
+  "id": "https://api.maas.global/maas-backend/bookings/bookings-agency-options/request",
   "description": "Request schema for bookings-agency-options to send to the adapter",
   "type": "object",
   "required": [

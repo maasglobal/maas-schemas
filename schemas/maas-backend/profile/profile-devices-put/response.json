@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/profile/profile-active-plan-put/response.json",
+  "id": "https://api.maas.global/maas-backend/profile/profile-devices-put/request",
   "description": "Response schema for profile-active-plan-put",
   "type": "object",
   "properties": {

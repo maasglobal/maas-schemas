@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/booking-option",
+  "id": "https://api.maas.global/tsp/booking-option",
   "description": "MaaS single TSP adapter option",
   "type": "object",
   "properties": {

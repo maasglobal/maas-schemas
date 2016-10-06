@@ -1,1 +1,1 @@
-{}
+{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/maas-backend/provider/autocomplete/request","description":"Request schema for autocomplete providers"}

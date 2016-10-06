@@ -1,5 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/provider/routes/request",
+  "description": "Request schema for routes providers",
   "type": "object",
   "properties": {
     "identityId": {

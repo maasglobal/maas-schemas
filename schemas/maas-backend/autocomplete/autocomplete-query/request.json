@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/autocomplete/query/request.json",
+  "id": "https://api.maas.global/maas-backend/autocomplete/autocomplete-query/request",
   "description": "Request schema for autocomplete",
   "type": "object",
   "anyOf": [

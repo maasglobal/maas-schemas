@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.dev.maas.global/business-rule-engine/request.json",
+  "id": "https://api.maas.global/maas-backend/business-rule-engine/request",
   "description": "MaaS business rule engine request schema.",
   "type": "object",
   "oneOf": [

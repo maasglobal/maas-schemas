@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/bookings/booking-create/response.json",
+  "id": "https://api.maas.global/maas-backend/bookings/bookings-create/response",
   "description": "MaaS on-the-whim booking-response",
   "$ref": "../../../core/booking.json"
 }

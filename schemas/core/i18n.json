@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/v1/i18n",
+  "id": "https://api.maas.global/core/i18n",
   "description": "MaaS internationalization schemas",
   "definitions": {
     "locale": {

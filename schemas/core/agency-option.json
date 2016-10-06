@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/v1/agency-option",
+  "id": "https://api.maas.global/core/agency-option",
   "description": "MaaS Single agency option response",
   "type": "object",
   "properties": {
