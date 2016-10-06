@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/booking-read-by-id/request",
+  "id": "https://api.maas.global/tsp/booking-read-by-id/request",
   "description": "Request schema for getting a specific booking with a TSP ID from a TSP adapter",
   "type": "object",
   "properties": {

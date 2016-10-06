@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.dev.maas.global/push-notification/push-notification-apple/request.json",
+  "id": "https://api.maas.global/maas-backend/push-notification/push-notification-apple/request",
   "description": "MaaS Apple push notification request schema.",
   "type": "object",
   "properties": {

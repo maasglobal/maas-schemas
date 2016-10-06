@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/v1/bookings-cancel/request.json",
+  "id": "https://api.maas.global/maas-backend/bookings/bookings-cancel/request",
   "description": "Request schema for bookings-cancel",
   "type": "object",
   "properties": {

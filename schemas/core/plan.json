@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/v1/internal/plan",
+  "id": "https://api.maas.global/core/plan",
   "description": "OpenTripPlanner compatible format for plans, extended with id for legs and itineraries",
   "properties": {
     "from": {
@@ -198,18 +198,21 @@
       "allOf": [
         {
           "$ref": "./units.json#/definitions/place"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "stopId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "stopCode": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
         }
       ],
-      "properties": {
-        "stopId": {
-          "type": "string",
-          "minLength": 1
-        },
-        "stopCode": {
-          "type": "string",
-          "minLength": 1
-        }
-      },
       "required": [
         "lat",
         "lon"

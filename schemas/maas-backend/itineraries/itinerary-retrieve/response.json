@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/v1/itinerary-retrieve/response.json",
+  "id": "https://api.maas.global/maas-backend/itineraries/itinerary-list/response",
   "description": "Response schema for itinerary-retrieve",
   "type": "object",
   "properties": {

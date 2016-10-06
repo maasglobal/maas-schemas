@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.dev.maas.global/routes/routes-queryresponse.json",
-  "description": "MaaS.fi routes-query response schema",
+  "id": "https://api.maas.global/maas-backend/provider/routes/response",
+  "description": "Response schema for routes providers",
   "properties": {
     "plan": {
       "type": "object",

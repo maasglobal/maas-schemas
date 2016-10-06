@@ -1,5 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/routes/routes-query/request",
+  "description": "Request schema for reverse geocoding providers",
   "type": "object",
   "properties": {
     "identityId": {

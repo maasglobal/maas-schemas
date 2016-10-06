@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/profile/profile-create/request.json",
+  "id": "https://api.maas.global/maas-backend/profile/profile-create/request",
   "description": "Request schema for profile-create",
   "type": "object",
   "properties": {

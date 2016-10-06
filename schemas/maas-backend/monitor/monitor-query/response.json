@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/monitor/monitor-query/response.json",
+  "id": "https://api.maas.global/maas-backend/monitor/monitor-query/response",
   "description": "Response schema for monitor-query",
   "type": "object",
   "properties": {

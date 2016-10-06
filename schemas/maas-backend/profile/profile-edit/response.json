@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/v1/profile-edit/response-schema.json",
+  "id": "https://api.maas.global/maas-backend/profile/profile-edit/response",
   "description": "Response schema for profile-edit",
   "type": "object",
   "properties": {
