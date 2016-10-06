@@ -1,1 +1,62 @@
-{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/maas-backend/bookings/bookings-agency-options/request","description":"Request schema for bookings-agency-options to send to the adapter","type":"object","required":["mode"],"properties":{"mode":{"type":"string"},"startTime":{"type":"integer","maximum":9007199254740991,"minimum":1451606400},"endTime":{"type":"integer","maximum":9007199254740991,"minimum":1451606400},"from":{"type":"object","properties":{"lat":{"type":"number","minimum":-90,"maximum":90},"lon":{"type":"number","minimum":-180,"maximum":180}}},"to":{"type":"object","properties":{"lat":{"type":"number","minimum":-90,"maximum":90},"lon":{"type":"number","minimum":-180,"maximum":180}}},"fromRadius":{"type":"number","minimum":0},"toRadius":{"type":"number","minimum":0}}}
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/bookings/bookings-agency-options/request",
+  "description": "Request schema for bookings-agency-options to send to the adapter",
+  "type": "object",
+  "required": [
+    "mode"
+  ],
+  "properties": {
+    "mode": {
+      "type": "string"
+    },
+    "startTime": {
+      "type": "integer",
+      "maximum": 9007199254740991,
+      "minimum": 1451606400
+    },
+    "endTime": {
+      "type": "integer",
+      "maximum": 9007199254740991,
+      "minimum": 1451606400
+    },
+    "from": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "lon": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        }
+      }
+    },
+    "to": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "lon": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        }
+      }
+    },
+    "fromRadius": {
+      "type": "number",
+      "minimum": 0
+    },
+    "toRadius": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

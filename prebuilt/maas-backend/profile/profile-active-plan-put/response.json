@@ -1,1 +1,5 @@
-{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/maas-backend/profile/profile-active-plan-put/response","description":"Request schema for profile-active-plan-put"}
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/profile/profile-active-plan-put/response",
+  "description": "Request schema for profile-active-plan-put"
+}
