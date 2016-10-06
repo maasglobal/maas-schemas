@@ -1,5 +1,1 @@
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/tracking/tracking-cancel-active-itinerary/request",
-  "description": "Request schema for cancelling active itinerary"
-}
+{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/maas-backend/tracking/tracking-cancel-active-itinerary/request","description":"Request schema for cancelling active itinerary"}

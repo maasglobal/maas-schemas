@@ -1,5 +1,1 @@
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/provider/autocomplete/response",
-  "description": "Response schema for autocomplete providers"
-}
+{"$schema":"http://json-schema.org/draft-04/schema#","id":"https://api.maas.global/maas-backend/provider/autocomplete/response","description":"Response schema for autocomplete providers"}
