@@ -30,8 +30,9 @@
                 "enum": [
                   "START",
                   "PENDING",
-                  "RESERVED",
                   "PAID",
+                  "RESERVED",
+                  "CONFIRMED",
                   "ACTIVATED",
                   "CANCELLED",
                   "CANCELLED_WITH_ERRORS",
@@ -480,8 +481,9 @@
                 "enum": [
                   "START",
                   "PENDING",
-                  "RESERVED",
                   "PAID",
+                  "RESERVED",
+                  "CONFIRMED",
                   "ACTIVATED",
                   "CANCELLED",
                   "CANCELLED_WITH_ERRORS",
@@ -1127,23 +1129,6 @@
               }
             },
             "additionalProperties": false
-          },
-          "state": {
-            "description": "The life-cycle state of the booking",
-            "type": "string",
-            "enum": [
-              "START",
-              "PENDING",
-              "RESERVED",
-              "PAID",
-              "ACTIVATED",
-              "CANCELLED",
-              "CANCELLED_WITH_ERRORS",
-              "EXPIRED",
-              "RECONCILING",
-              "RESOLVED",
-              "REJECTED"
-            ]
           },
           "fare": {
             "type": "object",

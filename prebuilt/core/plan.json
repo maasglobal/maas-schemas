@@ -63,6 +63,18 @@
           "signature": {
             "type": "string"
           },
+          "state": {
+            "type": "string",
+            "enum": [
+              "START",
+              "PLANNED",
+              "PAID",
+              "ACTIVATED",
+              "CANCELLED",
+              "CANCELLED_WITH_ERRORS",
+              "FINISHED"
+            ]
+          },
           "startTime": {
             "type": "integer",
             "maximum": 9007199254740991,
@@ -134,6 +146,18 @@
                     "properties": {
                       "signature": {
                         "type": "string"
+                      },
+                      "state": {
+                        "type": "string",
+                        "enum": [
+                          "START",
+                          "PLANNED",
+                          "PAID",
+                          "ACTIVATED",
+                          "CANCELLED",
+                          "CANCELLED_WITH_ERRORS",
+                          "FINISHED"
+                        ]
                       },
                       "from": {
                         "type": "object",
@@ -282,18 +306,6 @@
                       "distance": {
                         "type": "number",
                         "minimum": 0
-                      },
-                      "state": {
-                        "type": "string",
-                        "enum": [
-                          "START",
-                          "PLANNED",
-                          "PAID",
-                          "ACTIVATED",
-                          "CANCELLED",
-                          "CANCELLED_WITH_ERRORS",
-                          "FINISHED"
-                        ]
                       },
                       "route": {
                         "type": "string",
@@ -412,6 +424,18 @@
           "signature": {
             "type": "string"
           },
+          "state": {
+            "type": "string",
+            "enum": [
+              "START",
+              "PLANNED",
+              "PAID",
+              "ACTIVATED",
+              "CANCELLED",
+              "CANCELLED_WITH_ERRORS",
+              "FINISHED"
+            ]
+          },
           "startTime": {
             "type": "integer",
             "maximum": 9007199254740991,
@@ -483,6 +507,18 @@
                     "properties": {
                       "signature": {
                         "type": "string"
+                      },
+                      "state": {
+                        "type": "string",
+                        "enum": [
+                          "START",
+                          "PLANNED",
+                          "PAID",
+                          "ACTIVATED",
+                          "CANCELLED",
+                          "CANCELLED_WITH_ERRORS",
+                          "FINISHED"
+                        ]
                       },
                       "from": {
                         "type": "object",
@@ -632,18 +668,6 @@
                         "type": "number",
                         "minimum": 0
                       },
-                      "state": {
-                        "type": "string",
-                        "enum": [
-                          "START",
-                          "PLANNED",
-                          "PAID",
-                          "ACTIVATED",
-                          "CANCELLED",
-                          "CANCELLED_WITH_ERRORS",
-                          "FINISHED"
-                        ]
-                      },
                       "route": {
                         "type": "string",
                         "minLength": 1
@@ -756,6 +780,18 @@
         "signature": {
           "type": "string"
         },
+        "state": {
+          "type": "string",
+          "enum": [
+            "START",
+            "PLANNED",
+            "PAID",
+            "ACTIVATED",
+            "CANCELLED",
+            "CANCELLED_WITH_ERRORS",
+            "FINISHED"
+          ]
+        },
         "startTime": {
           "type": "integer",
           "maximum": 9007199254740991,
@@ -827,6 +863,18 @@
                   "properties": {
                     "signature": {
                       "type": "string"
+                    },
+                    "state": {
+                      "type": "string",
+                      "enum": [
+                        "START",
+                        "PLANNED",
+                        "PAID",
+                        "ACTIVATED",
+                        "CANCELLED",
+                        "CANCELLED_WITH_ERRORS",
+                        "FINISHED"
+                      ]
                     },
                     "from": {
                       "type": "object",
@@ -976,18 +1024,6 @@
                       "type": "number",
                       "minimum": 0
                     },
-                    "state": {
-                      "type": "string",
-                      "enum": [
-                        "START",
-                        "PLANNED",
-                        "PAID",
-                        "ACTIVATED",
-                        "CANCELLED",
-                        "CANCELLED_WITH_ERRORS",
-                        "FINISHED"
-                      ]
-                    },
                     "route": {
                       "type": "string",
                       "minLength": 1
@@ -1100,6 +1136,18 @@
           "properties": {
             "signature": {
               "type": "string"
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "START",
+                "PLANNED",
+                "PAID",
+                "ACTIVATED",
+                "CANCELLED",
+                "CANCELLED_WITH_ERRORS",
+                "FINISHED"
+              ]
             },
             "from": {
               "type": "object",
@@ -1249,18 +1297,6 @@
               "type": "number",
               "minimum": 0
             },
-            "state": {
-              "type": "string",
-              "enum": [
-                "START",
-                "PLANNED",
-                "PAID",
-                "ACTIVATED",
-                "CANCELLED",
-                "CANCELLED_WITH_ERRORS",
-                "FINISHED"
-              ]
-            },
             "route": {
               "type": "string",
               "minLength": 1
@@ -1362,6 +1398,18 @@
       "properties": {
         "signature": {
           "type": "string"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "START",
+            "PLANNED",
+            "PAID",
+            "ACTIVATED",
+            "CANCELLED",
+            "CANCELLED_WITH_ERRORS",
+            "FINISHED"
+          ]
         },
         "from": {
           "type": "object",
@@ -1510,18 +1558,6 @@
         "distance": {
           "type": "number",
           "minimum": 0
-        },
-        "state": {
-          "type": "string",
-          "enum": [
-            "START",
-            "PLANNED",
-            "PAID",
-            "ACTIVATED",
-            "CANCELLED",
-            "CANCELLED_WITH_ERRORS",
-            "FINISHED"
-          ]
         },
         "route": {
           "type": "string",

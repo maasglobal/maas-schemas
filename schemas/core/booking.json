@@ -22,7 +22,7 @@
           "$ref": "#/definitions/tspId"
         },
         "state": {
-          "$ref": "#/definitions/state"
+          "$ref": "./state.json#/definitions/bookingState"
         },
         "fare": {
           "$ref": "#/definitions/fare"
@@ -125,23 +125,6 @@
         }
       },
       "additionalProperties": false
-    },
-    "state": {
-      "description": "The life-cycle state of the booking",
-      "type": "string",
-      "enum": [
-        "START",
-        "PENDING",
-        "RESERVED",
-        "PAID",
-        "ACTIVATED",
-        "CANCELLED",
-        "CANCELLED_WITH_ERRORS",
-        "EXPIRED",
-        "RECONCILING",
-        "RESOLVED",
-        "REJECTED"
-      ]
     },
     "fare": {
       "$ref": "../core/units.json#/definitions/fare"

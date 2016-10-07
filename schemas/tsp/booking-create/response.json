@@ -8,7 +8,7 @@
       "$ref": "../../core/booking.json#/definitions/tspId"
     },
     "state": {
-      "enum": [ "RESERVED" ]
+      "enum": [ "RESERVED", "CONFIRMED", "ACTIVATED" ]
     },
     "cost": {
       "$ref": "../../core/booking.json#/definitions/cost"

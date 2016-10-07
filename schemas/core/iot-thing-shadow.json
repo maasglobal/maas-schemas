@@ -38,7 +38,7 @@
               "$ref": "./units.json#/definitions/time"
             },
             "state": {
-              "type": "string"
+              "$ref": "./state.json#/definitions/legState"
             }
           }
         }

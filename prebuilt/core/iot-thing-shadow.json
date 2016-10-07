@@ -48,7 +48,16 @@
               "minimum": 1451606400
             },
             "state": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "START",
+                "PLANNED",
+                "PAID",
+                "ACTIVATED",
+                "CANCELLED",
+                "CANCELLED_WITH_ERRORS",
+                "FINISHED"
+              ]
             }
           }
         }

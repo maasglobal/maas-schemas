@@ -29,6 +29,7 @@
     "state": {
       "enum": [
         "RESERVED",
+        "CONFIRMED",
         "ACTIVATED",
         "EXPIRED",
         "CANCELLED"
