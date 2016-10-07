@@ -35,7 +35,8 @@
         "radius": {
           "type": "number",
           "minimum": 0,
-          "maximum": 20038000
+          "maximum": 20038000,
+          "default": 5000
         },
         "locale": {
           "default": "fi-FI",
