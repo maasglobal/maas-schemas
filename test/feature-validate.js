@@ -3,6 +3,8 @@
 const expect = require('chai').expect;
 const utils = require('..');
 const ValidationError = require('../ValidationError');
+const bookingOptionsRequest =
+  require('./valid-booking-options-request.json');
 const bookingOptionsResponse =
   require('./valid-booking-options-response.json');
 const validBookingResponse =
@@ -46,7 +48,16 @@ module.exports = function () {
       });
     });
 
-    describe('validate prebuilt booking options schema', () => {
+    describe('validate prebuilt booking options request schema', () => {
+      const schema =
+        require('../prebuilt/tsp/booking-options-list/request.json');
+
+      it('should succeed without error', () => {
+        return utils.validate(schema, bookingOptionsRequest);
+      });
+    });
+
+    describe('validate prebuilt booking options response schema', () => {
       const schema =
         require('../prebuilt/tsp/booking-options-list/response.json');
 
