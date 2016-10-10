@@ -37,6 +37,6 @@
       ]
     }
   },
-  "required": ["identityId", "message", "badge", "type", "data"],
+  "required": ["identityId", "badge", "type", "data"],
   "additionalProperties": false
 }
