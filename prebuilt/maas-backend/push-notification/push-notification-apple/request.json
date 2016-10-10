@@ -68,7 +68,6 @@
   },
   "required": [
     "identityId",
-    "message",
     "badge",
     "type",
     "data"
