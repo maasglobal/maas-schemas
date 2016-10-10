@@ -40,11 +40,11 @@
     },
     "from": {
       "type": "string",
-      "pattern": "^\\d{1,3}(\\.\\d+)?,\\d{1,3}(\\.\\d+)?$"
+      "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
     },
     "to": {
       "type": "string",
-      "pattern": "^\\d{1,3}(\\.\\d+)?,\\d{1,3}(\\.\\d+)?$"
+      "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
     },
     "fromRadius": {
       "description": "'from' location radius in meters",
