@@ -124,8 +124,9 @@
           "minimum": 0
         },
         "currency": {
+          "type": "string",
           "enum": [
-            "POINTS"
+            "POINT"
           ]
         }
       },
@@ -147,6 +148,7 @@
           "minimum": 0
         },
         "currency": {
+          "type": "string",
           "enum": [
             "EUR"
           ]
