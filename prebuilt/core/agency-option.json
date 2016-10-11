@@ -110,6 +110,7 @@
           "minimum": 0
         },
         "currency": {
+          "type": "string",
           "enum": [
             "EUR"
           ]

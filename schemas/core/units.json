@@ -102,7 +102,8 @@
           "minimum": 0
         },
         "currency": {
-          "enum": [ "POINTS" ]
+          "type": "string",
+          "enum": [ "POINT" ]
         }
       },
       "required": ["amount", "currency"],
@@ -117,6 +118,7 @@
           "minimum": 0
         },
         "currency": {
+          "type": "string",
           "enum": [ "EUR" ]
         }
       },
