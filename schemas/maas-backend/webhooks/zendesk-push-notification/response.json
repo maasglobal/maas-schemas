@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/webhooks/zendesk-push-notification/response",
+  "description": "MaaS Zendesk push notification forwarder response schema.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "properties": {
+        "successCount": { "type": "number", "minimum": 0 },
+        "failureCount": { "type": "number", "minimum": 0 }
+      },
+      "required": ["successCount", "failureCount"]
+    }
+  },
+  "required": ["results"],
+  "additionalProperties": false
+}
