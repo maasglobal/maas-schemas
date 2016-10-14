@@ -44,7 +44,7 @@
         "ticket_id": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 16
+          "maxLength": 256
         }
       }
     }
