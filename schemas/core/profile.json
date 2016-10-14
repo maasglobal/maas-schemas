@@ -4,17 +4,8 @@
   "description": "MaaS user profiles as saved on DynamoDB",
   "type": "object",
   "properties": {
-    "id": {
-
-    },
     "identityId": {
       "$ref": "./aws-units.json#/definitions/identityId"
-    },
-    "balance": {
-      "type": "number"
-    },
-    "planLevel": {
-      "type": "number"
     },
     "plans": {
       "type": "array",
@@ -28,30 +19,18 @@
         "$ref": "#/definitions/favoriteLocation"
       }
     },
+    "balance": {
+      "type": "number"
+    },
     "phone": {
       "$ref": "./units.json#/definitions/phone"
     },
-    "firstName": {
-      "type": "string"
-    },
-    "lastName": {
-      "type": "string"
-    },
-    "city": {
-      "type": "string"
-    },
-    "country": {
-      "type": "string"
-    },
-    "zipCode": {
-      "type": "number"
-    },
-    "profileImageUrl": {
-      "type": "string"
+    "email": {
+      "$ref": "./units.json#/definitions/email"
     }
   },
   "additionalProperties": false,
-  "required": [ "identityId", "planLevel", "balance", "phone" ],
+  "required": [ "plans", "favoriteLocations", "balance", "phone", "email" ],
   "definitions": {
     "favoriteLocation": {
       "type": "object",

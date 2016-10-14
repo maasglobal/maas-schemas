@@ -10,16 +10,9 @@
       "description": "MaaS user profiles as saved on DynamoDB",
       "type": "object",
       "properties": {
-        "id": {},
         "identityId": {
           "type": "string",
           "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
-        },
-        "balance": {
-          "type": "number"
-        },
-        "planLevel": {
-          "type": "number"
         },
         "plans": {
           "type": "array",
@@ -131,35 +124,24 @@
             }
           }
         },
+        "balance": {
+          "type": "number"
+        },
         "phone": {
           "type": "string",
           "pattern": "^\\+(?:\\d){6,14}\\d$"
         },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "city": {
-          "type": "string"
-        },
-        "country": {
-          "type": "string"
-        },
-        "zipCode": {
-          "type": "number"
-        },
-        "profileImageUrl": {
+        "email": {
           "type": "string"
         }
       },
       "additionalProperties": false,
       "required": [
-        "identityId",
-        "planLevel",
+        "plans",
+        "favoriteLocations",
         "balance",
-        "phone"
+        "phone",
+        "email"
       ],
       "definitions": {
         "favoriteLocation": {
