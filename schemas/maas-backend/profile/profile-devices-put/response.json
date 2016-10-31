@@ -17,7 +17,7 @@
               "type": "string"
             },
             "SyncCount": {
-              "type": "number"
+              "type": "integer"
             },
             "LastModifiedDate": {
               "type": "string"

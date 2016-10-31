@@ -11,10 +11,10 @@
       "type": "object",
       "properties": {
         "name": { "type": "string", "minLength": 2, "maxLength": 128 },
-        "lat": { "type": "number", "minimum": -90, "maximum": 90 },
-        "lon": { "type": "number", "minimum": -180, "maximum": 180 },
+        "lat": { "$ref": "../../../core/units.json#/definitions/latitude" },
+        "lat": { "$ref": "../../../core/units.json#/definitions/longitude" },
         "count": { "type": "integer", "minimum": 1, "maximum": 100, "default": 5 },
-        "radius": { "type": "number", "minimum": 0, "maximum": 20038000 },
+        "distance": { "$ref": "../../../core/units.json#/definitions/distance" },
         "locale": {
           "$ref": "../../../core/i18n.json#/definitions/locale",
           "default": "fi-FI"

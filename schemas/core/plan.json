@@ -214,12 +214,12 @@
       "type": "object",
       "properties": {
         "co2": {
-          "type": "number"
+          "type": "integer"
         },
         "points": {
           "anyOf" : [
             {
-              "type": "number"
+              "type": "integer"
             },
             {
               "type": "null"

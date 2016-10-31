@@ -3,48 +3,28 @@
   "id": "https://api.maas.global/maas-backend/autocomplete/autocomplete-query/request",
   "description": "Request schema for autocomplete",
   "type": "object",
-  "anyOf": [
+  "allOf": [
     {
       "$ref": "../../../core/units.json#/definitions/location"
-    }
-  ],
-  "properties": {
-    "name": {
-      "type": "string",
-      "minLength": 5,
-      "maxLength": 128
     },
-    "count": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 100,
-      "default": 5
-    },
-    "radius": { "type": "number", "minimum": 0, "maximum": 20015 }
-  },
-  "inject": {
-    "hint": "none"
-  },
-  "dependencies": {
-    "lat": {
+    {
+      "type": "object",
       "properties": {
-        "lon": {}
-      },
-      "inject": {
-        "hint": "latlon",
-        "radius": 50
-      },
-      "required": [ "lat", "lon" ]
-    },
-    "lon": {
-      "properties": {
-        "lat": {},
-        "hint": { "constant": "latlon" }
-      },
-      "inject": {
-        "radius": 50
-      },
-      "required": [ "lat", "lon" ]
+        "name": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 128
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 5
+        },
+        "radius": {
+          "$ref": "../../../core/units.json#/definitions/distance"
+        }
+      }
     }
-  }
+  ]
 }

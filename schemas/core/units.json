@@ -47,7 +47,8 @@
         "lon": {
           "$ref": "#/definitions/longitude"
         }
-      }
+      },
+      "required": [ "lat", "lon" ]
     },
     "shortLocation": {
       "description": "Geographic latitude-longitude number-pair array in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
@@ -76,7 +77,8 @@
           "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
         }
       },
-      "required": [ "points" ]
+      "required": [ "points" ],
+      "additionalProperties": false
     },
     "distance": {
       "description": "Distance in meters",
@@ -117,7 +119,7 @@
       "type": "object",
       "properties": {
         "amount": {
-          "type": "number",
+          "type": "integer",
           "minimum": 0
         },
         "currency": {
