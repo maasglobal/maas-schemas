@@ -202,27 +202,43 @@
                     "minimum": 1451606400
                   },
                   "mode": {
-                    "type": "string",
-                    "enum": [
-                      "WALK",
-                      "BICYCLE",
-                      "CAR",
-                      "TRAM",
-                      "SUBWAY",
-                      "RAIL",
-                      "BUS",
-                      "FERRY",
-                      "CABLE_CAR",
-                      "GONDOLA",
-                      "FUNICULAR",
-                      "TRANSIT",
-                      "TRAIN",
-                      "TRAINISH",
-                      "BUSISH",
-                      "LEG_SWITCH",
-                      "MAAS_TRIP",
-                      "MAAS_PERSONAL",
-                      "TAXI"
+                    "anyOf": [
+                      {
+                        "description": "A mode that involves using your personal vehicle or legs",
+                        "type": "string",
+                        "enum": [
+                          "WALK",
+                          "BICYCLE",
+                          "CAR"
+                        ]
+                      },
+                      {
+                        "description": "A mode that involves transit with fixed schedules",
+                        "type": "string",
+                        "enum": [
+                          "TRAM",
+                          "SUBWAY",
+                          "RAIL",
+                          "BUS",
+                          "FERRY",
+                          "TRANSIT",
+                          "TRAIN",
+                          "AEROPLANE"
+                        ]
+                      },
+                      {
+                        "description": "A mode that is available on-demand for your personal use",
+                        "type": "string",
+                        "enum": [
+                          "CAR",
+                          "TAXI",
+                          "CABLE_CAR",
+                          "GONDOLA",
+                          "FUNICULAR",
+                          "BUSISH",
+                          "TRAINISH"
+                        ]
+                      }
                     ]
                   },
                   "departureDelay": {
@@ -655,27 +671,43 @@
                     "minimum": 1451606400
                   },
                   "mode": {
-                    "type": "string",
-                    "enum": [
-                      "WALK",
-                      "BICYCLE",
-                      "CAR",
-                      "TRAM",
-                      "SUBWAY",
-                      "RAIL",
-                      "BUS",
-                      "FERRY",
-                      "CABLE_CAR",
-                      "GONDOLA",
-                      "FUNICULAR",
-                      "TRANSIT",
-                      "TRAIN",
-                      "TRAINISH",
-                      "BUSISH",
-                      "LEG_SWITCH",
-                      "MAAS_TRIP",
-                      "MAAS_PERSONAL",
-                      "TAXI"
+                    "anyOf": [
+                      {
+                        "description": "A mode that involves using your personal vehicle or legs",
+                        "type": "string",
+                        "enum": [
+                          "WALK",
+                          "BICYCLE",
+                          "CAR"
+                        ]
+                      },
+                      {
+                        "description": "A mode that involves transit with fixed schedules",
+                        "type": "string",
+                        "enum": [
+                          "TRAM",
+                          "SUBWAY",
+                          "RAIL",
+                          "BUS",
+                          "FERRY",
+                          "TRANSIT",
+                          "TRAIN",
+                          "AEROPLANE"
+                        ]
+                      },
+                      {
+                        "description": "A mode that is available on-demand for your personal use",
+                        "type": "string",
+                        "enum": [
+                          "CAR",
+                          "TAXI",
+                          "CABLE_CAR",
+                          "GONDOLA",
+                          "FUNICULAR",
+                          "BUSISH",
+                          "TRAINISH"
+                        ]
+                      }
                     ]
                   },
                   "departureDelay": {
@@ -1054,27 +1086,43 @@
                 "minimum": 1451606400
               },
               "mode": {
-                "type": "string",
-                "enum": [
-                  "WALK",
-                  "BICYCLE",
-                  "CAR",
-                  "TRAM",
-                  "SUBWAY",
-                  "RAIL",
-                  "BUS",
-                  "FERRY",
-                  "CABLE_CAR",
-                  "GONDOLA",
-                  "FUNICULAR",
-                  "TRANSIT",
-                  "TRAIN",
-                  "TRAINISH",
-                  "BUSISH",
-                  "LEG_SWITCH",
-                  "MAAS_TRIP",
-                  "MAAS_PERSONAL",
-                  "TAXI"
+                "anyOf": [
+                  {
+                    "description": "A mode that involves using your personal vehicle or legs",
+                    "type": "string",
+                    "enum": [
+                      "WALK",
+                      "BICYCLE",
+                      "CAR"
+                    ]
+                  },
+                  {
+                    "description": "A mode that involves transit with fixed schedules",
+                    "type": "string",
+                    "enum": [
+                      "TRAM",
+                      "SUBWAY",
+                      "RAIL",
+                      "BUS",
+                      "FERRY",
+                      "TRANSIT",
+                      "TRAIN",
+                      "AEROPLANE"
+                    ]
+                  },
+                  {
+                    "description": "A mode that is available on-demand for your personal use",
+                    "type": "string",
+                    "enum": [
+                      "CAR",
+                      "TAXI",
+                      "CABLE_CAR",
+                      "GONDOLA",
+                      "FUNICULAR",
+                      "BUSISH",
+                      "TRAINISH"
+                    ]
+                  }
                 ]
               },
               "departureDelay": {

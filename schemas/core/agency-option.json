@@ -25,7 +25,7 @@
           "type": "string"
         },
         "mode": {
-          "$ref": "./plan.json#/definitions/mode"
+          "$ref": "./mode.json"
         }
       },
       "required": ["agencyId"],
