@@ -31,34 +31,6 @@
           "maximum": 9007199254740991,
           "minimum": 1451606400
         },
-        "mode": {
-          "type": "string",
-          "enum": [
-            "WALK",
-            "BICYCLE",
-            "CAR",
-            "TRAM",
-            "SUBWAY",
-            "RAIL",
-            "BUS",
-            "FERRY",
-            "CABLE_CAR",
-            "GONDOLA",
-            "FUNICULAR",
-            "TRANSIT",
-            "TRAIN",
-            "TRAINISH",
-            "BUSISH",
-            "LEG_SWITCH",
-            "MAAS_TRIP",
-            "MAAS_PERSONAL",
-            "TAXI"
-          ]
-        },
-        "waitingTime": {
-          "type": "integer",
-          "minimum": 0
-        },
         "fare": {
           "type": "object",
           "properties": {
@@ -218,27 +190,43 @@
                       "minimum": 1451606400
                     },
                     "mode": {
-                      "type": "string",
-                      "enum": [
-                        "WALK",
-                        "BICYCLE",
-                        "CAR",
-                        "TRAM",
-                        "SUBWAY",
-                        "RAIL",
-                        "BUS",
-                        "FERRY",
-                        "CABLE_CAR",
-                        "GONDOLA",
-                        "FUNICULAR",
-                        "TRANSIT",
-                        "TRAIN",
-                        "TRAINISH",
-                        "BUSISH",
-                        "LEG_SWITCH",
-                        "MAAS_TRIP",
-                        "MAAS_PERSONAL",
-                        "TAXI"
+                      "anyOf": [
+                        {
+                          "description": "A mode that involves using your personal vehicle or legs",
+                          "type": "string",
+                          "enum": [
+                            "WALK",
+                            "BICYCLE",
+                            "CAR"
+                          ]
+                        },
+                        {
+                          "description": "A mode that involves transit with fixed schedules",
+                          "type": "string",
+                          "enum": [
+                            "TRAM",
+                            "SUBWAY",
+                            "RAIL",
+                            "BUS",
+                            "FERRY",
+                            "TRANSIT",
+                            "TRAIN",
+                            "AEROPLANE"
+                          ]
+                        },
+                        {
+                          "description": "A mode that is available on-demand for your personal use",
+                          "type": "string",
+                          "enum": [
+                            "CAR",
+                            "TAXI",
+                            "CABLE_CAR",
+                            "GONDOLA",
+                            "FUNICULAR",
+                            "BUSISH",
+                            "TRAINISH"
+                          ]
+                        }
                       ]
                     },
                     "departureDelay": {
@@ -289,7 +277,8 @@
                     "to",
                     "mode",
                     "startTime",
-                    "endTime"
+                    "endTime",
+                    "legGeometry"
                   ],
                   "additionalProperties": true
                 },
@@ -308,6 +297,7 @@
                       "minimum": 1451606400
                     },
                     "mode": {
+                      "description": "A mode that only involves waiting in the current location",
                       "type": "string",
                       "enum": [
                         "WAIT"
@@ -335,9 +325,11 @@
                       "minimum": 1451606400
                     },
                     "mode": {
+                      "description": "A mode that involves changing transports",
                       "type": "string",
                       "enum": [
-                        "TRANSFER"
+                        "TRANSFER",
+                        "LEG_SWITCH"
                       ]
                     }
                   },
@@ -510,27 +502,43 @@
                 "minimum": 1451606400
               },
               "mode": {
-                "type": "string",
-                "enum": [
-                  "WALK",
-                  "BICYCLE",
-                  "CAR",
-                  "TRAM",
-                  "SUBWAY",
-                  "RAIL",
-                  "BUS",
-                  "FERRY",
-                  "CABLE_CAR",
-                  "GONDOLA",
-                  "FUNICULAR",
-                  "TRANSIT",
-                  "TRAIN",
-                  "TRAINISH",
-                  "BUSISH",
-                  "LEG_SWITCH",
-                  "MAAS_TRIP",
-                  "MAAS_PERSONAL",
-                  "TAXI"
+                "anyOf": [
+                  {
+                    "description": "A mode that involves using your personal vehicle or legs",
+                    "type": "string",
+                    "enum": [
+                      "WALK",
+                      "BICYCLE",
+                      "CAR"
+                    ]
+                  },
+                  {
+                    "description": "A mode that involves transit with fixed schedules",
+                    "type": "string",
+                    "enum": [
+                      "TRAM",
+                      "SUBWAY",
+                      "RAIL",
+                      "BUS",
+                      "FERRY",
+                      "TRANSIT",
+                      "TRAIN",
+                      "AEROPLANE"
+                    ]
+                  },
+                  {
+                    "description": "A mode that is available on-demand for your personal use",
+                    "type": "string",
+                    "enum": [
+                      "CAR",
+                      "TAXI",
+                      "CABLE_CAR",
+                      "GONDOLA",
+                      "FUNICULAR",
+                      "BUSISH",
+                      "TRAINISH"
+                    ]
+                  }
                 ]
               },
               "departureDelay": {
@@ -581,7 +589,8 @@
               "to",
               "mode",
               "startTime",
-              "endTime"
+              "endTime",
+              "legGeometry"
             ],
             "additionalProperties": true
           },
@@ -600,6 +609,7 @@
                 "minimum": 1451606400
               },
               "mode": {
+                "description": "A mode that only involves waiting in the current location",
                 "type": "string",
                 "enum": [
                   "WAIT"
@@ -627,9 +637,11 @@
                 "minimum": 1451606400
               },
               "mode": {
+                "description": "A mode that involves changing transports",
                 "type": "string",
                 "enum": [
-                  "TRANSFER"
+                  "TRANSFER",
+                  "LEG_SWITCH"
                 ]
               }
             },
@@ -783,27 +795,43 @@
               "minimum": 1451606400
             },
             "mode": {
-              "type": "string",
-              "enum": [
-                "WALK",
-                "BICYCLE",
-                "CAR",
-                "TRAM",
-                "SUBWAY",
-                "RAIL",
-                "BUS",
-                "FERRY",
-                "CABLE_CAR",
-                "GONDOLA",
-                "FUNICULAR",
-                "TRANSIT",
-                "TRAIN",
-                "TRAINISH",
-                "BUSISH",
-                "LEG_SWITCH",
-                "MAAS_TRIP",
-                "MAAS_PERSONAL",
-                "TAXI"
+              "anyOf": [
+                {
+                  "description": "A mode that involves using your personal vehicle or legs",
+                  "type": "string",
+                  "enum": [
+                    "WALK",
+                    "BICYCLE",
+                    "CAR"
+                  ]
+                },
+                {
+                  "description": "A mode that involves transit with fixed schedules",
+                  "type": "string",
+                  "enum": [
+                    "TRAM",
+                    "SUBWAY",
+                    "RAIL",
+                    "BUS",
+                    "FERRY",
+                    "TRANSIT",
+                    "TRAIN",
+                    "AEROPLANE"
+                  ]
+                },
+                {
+                  "description": "A mode that is available on-demand for your personal use",
+                  "type": "string",
+                  "enum": [
+                    "CAR",
+                    "TAXI",
+                    "CABLE_CAR",
+                    "GONDOLA",
+                    "FUNICULAR",
+                    "BUSISH",
+                    "TRAINISH"
+                  ]
+                }
               ]
             },
             "departureDelay": {
@@ -854,7 +882,8 @@
             "to",
             "mode",
             "startTime",
-            "endTime"
+            "endTime",
+            "legGeometry"
           ],
           "additionalProperties": true
         },
@@ -873,6 +902,7 @@
               "minimum": 1451606400
             },
             "mode": {
+              "description": "A mode that only involves waiting in the current location",
               "type": "string",
               "enum": [
                 "WAIT"
@@ -900,9 +930,11 @@
               "minimum": 1451606400
             },
             "mode": {
+              "description": "A mode that involves changing transports",
               "type": "string",
               "enum": [
-                "TRANSFER"
+                "TRANSFER",
+                "LEG_SWITCH"
               ]
             }
           },

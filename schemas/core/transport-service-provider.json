@@ -23,7 +23,7 @@
       "type": "array",
       "items": [
         {
-          "$ref": "./plan.json#/definitions/mode"
+          "$ref": "./mode.json"
         }
       ]
     },

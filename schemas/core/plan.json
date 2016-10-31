@@ -33,13 +33,6 @@
         "endTime": {
           "$ref": "./units.json#/definitions/time"
         },
-        "mode": {
-          "$ref": "#/definitions/mode"
-        },
-        "waitingTime": {
-          "type": "integer",
-          "minimum": 0
-        },
         "fare": {
           "$ref": "#/definitions/fare"
         },
@@ -94,7 +87,17 @@
           "$ref": "./units.json#/definitions/time"
         },
         "mode": {
-          "$ref": "#/definitions/mode"
+          "anyOf": [
+            {
+              "$ref": "./mode.json#/definitions/personalMode"
+            },
+            {
+              "$ref": "./mode.json#/definitions/publicTransitMode"
+            },
+            {
+              "$ref": "./mode.json#/definitions/privateTransitMode"
+            }
+          ]
         },
         "departureDelay": {
           "type": "integer",
@@ -132,7 +135,8 @@
         "to",
         "mode",
         "startTime",
-        "endTime"
+        "endTime",
+        "legGeometry"
       ],
       "additionalProperties": true
     },
@@ -147,10 +151,7 @@
           "$ref": "./units.json#/definitions/time"
         },
         "mode": {
-          "type": "string",
-          "enum": [
-            "WAIT"
-          ]
+          "$ref": "./mode.json#/definitions/waitingMode"
         }
       },
       "required": [
@@ -170,10 +171,7 @@
           "$ref": "./units.json#/definitions/time"
         },
         "mode": {
-          "type": "string",
-          "enum": [
-            "TRANSFER"
-          ]
+          "$ref": "./mode.json#/definitions/transferMode"
         }
       },
       "required": [
@@ -235,30 +233,6 @@
       "required": [
         "co2",
         "points"
-      ]
-    },
-    "mode": {
-      "type": "string",
-      "enum": [
-        "WALK",
-        "BICYCLE",
-        "CAR",
-        "TRAM",
-        "SUBWAY",
-        "RAIL",
-        "BUS",
-        "FERRY",
-        "CABLE_CAR",
-        "GONDOLA",
-        "FUNICULAR",
-        "TRANSIT",
-        "TRAIN",
-        "TRAINISH",
-        "BUSISH",
-        "LEG_SWITCH",
-        "MAAS_TRIP",
-        "MAAS_PERSONAL",
-        "TAXI"
       ]
     }
   }

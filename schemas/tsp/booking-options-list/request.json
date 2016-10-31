@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "mode": {
-      "$ref": "../../core/plan.json#/definitions/mode"
+      "$ref": "../../core/mode.json"
     },
     "startTime": {
       "$ref": "../../core/units.json#/definitions/time"
