@@ -100,16 +100,13 @@
           ]
         },
         "departureDelay": {
-          "type": "integer",
-          "minimum": 0
+          "$ref": "./units.json#/definitions/duration"
         },
         "arrivalDelay": {
-          "type": "integer",
-          "minimum": 0
+          "$ref": "./units.json#/definitions/duration"
         },
         "distance": {
-          "type": "number",
-          "minimum": 0
+          "$ref": "./units.json#/definitions/distance"
         },
         "route": {
           "type": "string",

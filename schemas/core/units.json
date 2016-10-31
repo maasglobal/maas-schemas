@@ -19,6 +19,12 @@
       "maximum": 9007199254740991,
       "minimum": 1451606400
     },
+    "duration": {
+      "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
+      "type": "integer",
+      "maximum": 9007199254740991,
+      "minimum": -9007199254740991
+    },
     "latitude": {
       "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
       "type": "number",
@@ -75,7 +81,8 @@
     "distance": {
       "description": "Distance in meters",
       "type": "number",
-      "minimum": 0
+      "minimum": 0,
+      "maximum": 40075000
     },
     "phone": {
       "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
