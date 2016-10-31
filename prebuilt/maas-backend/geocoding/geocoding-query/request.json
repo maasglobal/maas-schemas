@@ -17,14 +17,11 @@
           "maxLength": 128
         },
         "lat": {
-          "type": "number",
-          "minimum": -90,
-          "maximum": 90
-        },
-        "lon": {
+          "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
           "type": "number",
           "minimum": -180,
-          "maximum": 180
+          "maximum": 180,
+          "multipleOf": 0.000001
         },
         "count": {
           "type": "integer",
@@ -32,10 +29,12 @@
           "maximum": 100,
           "default": 5
         },
-        "radius": {
+        "distance": {
+          "description": "Distance in meters",
           "type": "number",
           "minimum": 0,
-          "maximum": 20038000
+          "maximum": 40075000,
+          "multipleOf": 0.000001
         },
         "locale": {
           "default": "fi-FI",
