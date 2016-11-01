@@ -24,7 +24,6 @@
       "type": "object",
       "description": "A subset of the standard leg (../core/plan.json#/definitions/leg)",
       "properties": {
-        "agencyId": { "$ref": "../core/plan.json#/definitions/agencyId" },
         "mode": { "$ref": "../core/mode.json" },
         "startTime": { "$ref": "../core/units.json#/definitions/time" },
         "endTime": { "$ref": "../core/units.json#/definitions/time" },
@@ -33,7 +32,6 @@
       },
       "additionalProperties": false,
       "required": [
-        "agencyId",
         "mode",
         "startTime",
         "endTime",

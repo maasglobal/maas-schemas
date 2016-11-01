@@ -41,10 +41,6 @@
       "type": "object",
       "description": "A subset of the standard leg (../core/plan.json#/definitions/leg)",
       "properties": {
-        "agencyId": {
-          "type": "string",
-          "minLength": 2
-        },
         "mode": {
           "$schema": "http://json-schema.org/draft-04/schema#",
           "id": "https://api.maas.global/core/mode",
@@ -217,7 +213,6 @@
       },
       "additionalProperties": false,
       "required": [
-        "agencyId",
         "mode",
         "startTime",
         "endTime",
