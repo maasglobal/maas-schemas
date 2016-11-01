@@ -17,6 +17,13 @@
           "maxLength": 128
         },
         "lat": {
+          "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90,
+          "multipleOf": 0.000001
+        },
+        "lon": {
           "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
           "type": "number",
           "minimum": -180,
