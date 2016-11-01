@@ -63,6 +63,7 @@ function validate(schema, object, options) {
     allErrors: true,
     missingRefs: true,
     extendRefs: true,
+    multipleOfPrecision: 7,
   }, options);
 
   if (typeof ajv === typeof undefined) {
