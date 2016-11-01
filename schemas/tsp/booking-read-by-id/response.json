@@ -13,7 +13,7 @@
       "enum": [ "RESERVED", "CONFIRMED", "ACTIVATED", "EXPIRED", "CANCELLED" ]
     },
     "leg": {
-      "$ref": "../../core/booking.json#/definitions/leg"
+      "$ref": "../booking-option.json#/definitions/leg"
     },
     "meta": {
       "$ref": "../../core/booking.json#/definitions/meta"

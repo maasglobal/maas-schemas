@@ -160,22 +160,20 @@
           "minimum": 1451606400
         },
         "from": {
-          "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+          "description": "No-numeric precision version of MaaS core location",
           "type": "object",
           "properties": {
             "lat": {
-              "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+              "description": "No-numeric precision version of MaaS core latitude",
               "type": "number",
               "minimum": -90,
-              "maximum": 90,
-              "multipleOf": 0.000001
+              "maximum": 90
             },
             "lon": {
-              "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+              "description": "No-numeric precision version of MaaS core longitude",
               "type": "number",
               "minimum": -180,
-              "maximum": 180,
-              "multipleOf": 0.000001
+              "maximum": 180
             }
           },
           "required": [
@@ -184,22 +182,20 @@
           ]
         },
         "to": {
-          "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+          "description": "No-numeric precision version of MaaS core location",
           "type": "object",
           "properties": {
             "lat": {
-              "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+              "description": "No-numeric precision version of MaaS core latitude",
               "type": "number",
               "minimum": -90,
-              "maximum": 90,
-              "multipleOf": 0.000001
+              "maximum": 90
             },
             "lon": {
-              "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+              "description": "No-numeric precision version of MaaS core longitude",
               "type": "number",
               "minimum": -180,
-              "maximum": 180,
-              "multipleOf": 0.000001
+              "maximum": 180
             }
           },
           "required": [
@@ -511,22 +507,20 @@
           "minimum": 1451606400
         },
         "from": {
-          "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+          "description": "No-numeric precision version of MaaS core location",
           "type": "object",
           "properties": {
             "lat": {
-              "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+              "description": "No-numeric precision version of MaaS core latitude",
               "type": "number",
               "minimum": -90,
-              "maximum": 90,
-              "multipleOf": 0.000001
+              "maximum": 90
             },
             "lon": {
-              "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+              "description": "No-numeric precision version of MaaS core longitude",
               "type": "number",
               "minimum": -180,
-              "maximum": 180,
-              "multipleOf": 0.000001
+              "maximum": 180
             }
           },
           "required": [
@@ -535,22 +529,20 @@
           ]
         },
         "to": {
-          "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+          "description": "No-numeric precision version of MaaS core location",
           "type": "object",
           "properties": {
             "lat": {
-              "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+              "description": "No-numeric precision version of MaaS core latitude",
               "type": "number",
               "minimum": -90,
-              "maximum": 90,
-              "multipleOf": 0.000001
+              "maximum": 90
             },
             "lon": {
-              "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+              "description": "No-numeric precision version of MaaS core longitude",
               "type": "number",
               "minimum": -180,
-              "maximum": 180,
-              "multipleOf": 0.000001
+              "maximum": 180
             }
           },
           "required": [
@@ -567,6 +559,40 @@
         "endTime",
         "from",
         "to"
+      ]
+    },
+    "relaxedLatitude": {
+      "description": "No-numeric precision version of MaaS core latitude",
+      "type": "number",
+      "minimum": -90,
+      "maximum": 90
+    },
+    "relaxedLongitude": {
+      "description": "No-numeric precision version of MaaS core longitude",
+      "type": "number",
+      "minimum": -180,
+      "maximum": 180
+    },
+    "relaxedLocation": {
+      "description": "No-numeric precision version of MaaS core location",
+      "type": "object",
+      "properties": {
+        "lat": {
+          "description": "No-numeric precision version of MaaS core latitude",
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "lon": {
+          "description": "No-numeric precision version of MaaS core longitude",
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        }
+      },
+      "required": [
+        "lat",
+        "lon"
       ]
     }
   }

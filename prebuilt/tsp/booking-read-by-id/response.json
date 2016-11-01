@@ -40,150 +40,88 @@
     },
     "leg": {
       "type": "object",
-      "description": "MaaS response may return any subset of legCore",
+      "description": "A subset of the standard leg (../core/plan.json#/definitions/leg)",
       "properties": {
-        "signature": {
-          "type": "string"
-        },
-        "from": {
-          "type": "object",
-          "additionalProperties": true,
-          "allOf": [
-            {
-              "description": "A place, as a location-name pair",
-              "type": "object",
-              "allOf": [
-                {
-                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                  "type": "object",
-                  "properties": {
-                    "lat": {
-                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "number",
-                      "minimum": -90,
-                      "maximum": 90,
-                      "multipleOf": 0.000001
-                    },
-                    "lon": {
-                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "number",
-                      "minimum": -180,
-                      "maximum": 180,
-                      "multipleOf": 0.000001
-                    }
-                  },
-                  "required": [
-                    "lat",
-                    "lon"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "type": "object",
-              "properties": {
-                "stopId": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "stopCode": {
-                  "type": "string",
-                  "minLength": 1
-                }
-              }
-            }
-          ],
-          "required": [
-            "lat",
-            "lon"
-          ]
-        },
-        "to": {
-          "type": "object",
-          "additionalProperties": true,
-          "allOf": [
-            {
-              "description": "A place, as a location-name pair",
-              "type": "object",
-              "allOf": [
-                {
-                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                  "type": "object",
-                  "properties": {
-                    "lat": {
-                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "number",
-                      "minimum": -90,
-                      "maximum": 90,
-                      "multipleOf": 0.000001
-                    },
-                    "lon": {
-                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "number",
-                      "minimum": -180,
-                      "maximum": 180,
-                      "multipleOf": 0.000001
-                    }
-                  },
-                  "required": [
-                    "lat",
-                    "lon"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "type": "object",
-              "properties": {
-                "stopId": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "stopCode": {
-                  "type": "string",
-                  "minLength": 1
-                }
-              }
-            }
-          ],
-          "required": [
-            "lat",
-            "lon"
-          ]
-        },
-        "startTime": {
-          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-          "type": "integer",
-          "maximum": 9007199254740991,
-          "minimum": 1451606400
-        },
-        "endTime": {
-          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-          "type": "integer",
-          "maximum": 9007199254740991,
-          "minimum": 1451606400
+        "agencyId": {
+          "type": "string",
+          "minLength": 2
         },
         "mode": {
-          "anyOf": [
-            {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "id": "https://api.maas.global/core/mode",
+          "description": "MaaS supported leg modes",
+          "definitions": {
+            "mode": {
+              "anyOf": [
+                {
+                  "description": "A mode that only involves waiting in the current location",
+                  "type": "string",
+                  "enum": [
+                    "WAIT"
+                  ]
+                },
+                {
+                  "description": "A mode that involves changing transports",
+                  "type": "string",
+                  "enum": [
+                    "TRANSFER",
+                    "LEG_SWITCH"
+                  ]
+                },
+                {
+                  "description": "A mode that involves using your personal vehicle or legs",
+                  "type": "string",
+                  "enum": [
+                    "WALK",
+                    "BICYCLE",
+                    "CAR"
+                  ]
+                },
+                {
+                  "description": "A mode that involves transit with fixed schedules",
+                  "type": "string",
+                  "enum": [
+                    "TRAM",
+                    "SUBWAY",
+                    "RAIL",
+                    "BUS",
+                    "FERRY",
+                    "TRANSIT",
+                    "TRAIN",
+                    "AEROPLANE"
+                  ]
+                },
+                {
+                  "description": "A mode that is available on-demand for your personal use",
+                  "type": "string",
+                  "enum": [
+                    "CAR",
+                    "TAXI",
+                    "CABLE_CAR",
+                    "GONDOLA",
+                    "FUNICULAR",
+                    "BUSISH",
+                    "TRAINISH"
+                  ]
+                }
+              ]
+            },
+            "waitingMode": {
+              "description": "A mode that only involves waiting in the current location",
+              "type": "string",
+              "enum": [
+                "WAIT"
+              ]
+            },
+            "transferMode": {
+              "description": "A mode that involves changing transports",
+              "type": "string",
+              "enum": [
+                "TRANSFER",
+                "LEG_SWITCH"
+              ]
+            },
+            "personalMode": {
               "description": "A mode that involves using your personal vehicle or legs",
               "type": "string",
               "enum": [
@@ -192,7 +130,7 @@
                 "CAR"
               ]
             },
-            {
+            "publicTransitMode": {
               "description": "A mode that involves transit with fixed schedules",
               "type": "string",
               "enum": [
@@ -206,7 +144,7 @@
                 "AEROPLANE"
               ]
             },
-            {
+            "privateTransitMode": {
               "description": "A mode that is available on-demand for your personal use",
               "type": "string",
               "enum": [
@@ -219,72 +157,74 @@
                 "TRAINISH"
               ]
             }
-          ]
+          }
         },
-        "departureDelay": {
-          "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
+        "startTime": {
+          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
           "type": "integer",
           "maximum": 9007199254740991,
-          "minimum": -9007199254740991
+          "minimum": 1451606400
         },
-        "arrivalDelay": {
-          "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
+        "endTime": {
+          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
           "type": "integer",
           "maximum": 9007199254740991,
-          "minimum": -9007199254740991
+          "minimum": 1451606400
         },
-        "distance": {
-          "description": "Distance in meters",
-          "type": "number",
-          "minimum": 0,
-          "maximum": 40075000,
-          "multipleOf": 0.000001
-        },
-        "state": {
-          "type": "string",
-          "enum": [
-            "START",
-            "PLANNED",
-            "PAID",
-            "ACTIVATED",
-            "CANCELLED",
-            "CANCELLED_WITH_ERRORS",
-            "FINISHED"
-          ]
-        },
-        "route": {
-          "type": "string",
-          "minLength": 1
-        },
-        "routeShortName": {
-          "type": "string",
-          "minLength": 1
-        },
-        "routeLongName": {
-          "type": "string",
-          "minLength": 1
-        },
-        "agencyId": {
-          "type": "string",
-          "minLength": 2
-        },
-        "legGeometry": {
+        "from": {
+          "description": "No-numeric precision version of MaaS core location",
           "type": "object",
-          "description": "Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm",
           "properties": {
-            "points": {
-              "type": "string",
-              "minLength": 3,
-              "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
+            "lat": {
+              "description": "No-numeric precision version of MaaS core latitude",
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "lon": {
+              "description": "No-numeric precision version of MaaS core longitude",
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
             }
           },
           "required": [
-            "points"
-          ],
-          "additionalProperties": false
+            "lat",
+            "lon"
+          ]
+        },
+        "to": {
+          "description": "No-numeric precision version of MaaS core location",
+          "type": "object",
+          "properties": {
+            "lat": {
+              "description": "No-numeric precision version of MaaS core latitude",
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "lon": {
+              "description": "No-numeric precision version of MaaS core longitude",
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            }
+          },
+          "required": [
+            "lat",
+            "lon"
+          ]
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "required": [
+        "agencyId",
+        "mode",
+        "startTime",
+        "endTime",
+        "from",
+        "to"
+      ]
     },
     "meta": {
       "type": "object",
