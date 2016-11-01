@@ -88,8 +88,7 @@
       "lat":60.204605,
       "lon":25.047902
     },
-    "mode":"CAR",
-    "agencyId":"Sixt"
+    "mode":"CAR"
   },
   "tspId":"9841002737"
 }
