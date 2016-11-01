@@ -18,28 +18,25 @@ const globPromise = (pattern, options) => (
 
 module.exports = function () {
   describe('Pre-built schemas should be valid JSON Schemas', () => {
-    before(done => {
+    before(() => {
       return globPromise('prebuilt/**/*.json')
         .then(schemaPaths => {
           describe(`Validate ${schemaPaths.length} schemas`, () => {
             schemaPaths.forEach(schemaPath => {
-              it(`should be a able to require a valid schema ${schemaPath}`, done => {
+              it(`should be a able to require a valid schema ${schemaPath}`, () => {
                 const filePath = path.resolve(__dirname, '..', schemaPath);
                 const schema = require(filePath);
                 const valid = ajv.validateSchema(schema);
                 expect(ajv.errors || []).to.eql([]);
                 expect(valid).to.be.true;
-                done();
               });
             });
           });
-          done();
-        })
-        .catch(error => done);
+        });
     });
 
-    it('[placeholder to trigger before()]', done => {
-      done();
+    it('[placeholder to trigger before()]', () => {
+      return Promise.resolve();
     });
   });
 };

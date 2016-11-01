@@ -16,28 +16,26 @@ const globPromise = (pattern, options) => (
 
 module.exports = function () {
   describe('Schemas deref', () => {
-    before(done => {
-      return globPromise('schemas/*(core|tsp|maas-backend)/**/*.json', { root: path.resolve('.') })
-        .then(schemaPaths => {
-          describe(`Dereferencing tests for ${schemaPaths.length} file(s)`, () => {
-            schemaPaths.forEach(schemaPath => {
-              it(`should be able to dereference ${schemaPath}`, done => {
-                return index.dereference(path.resolve(schemaPath))
-                  .then(fullSchema => {
-                    expect(fullSchema).to.not.be.undefined;
-                    done();
-                  })
-                  .catch(done);
-              });
+    before(() => {
+      return globPromise('schemas/*(core|tsp|maas-backend)/**/*.json', {
+        root: path.resolve('.'),
+      })
+      .then(schemaPaths => {
+        describe(`Dereferencing tests for ${schemaPaths.length} file(s)`, () => {
+          schemaPaths.forEach(schemaPath => {
+            it(`should be able to dereference ${schemaPath}`, () => {
+              return index.dereference(path.resolve(schemaPath))
+                .then(fullSchema => {
+                  expect(fullSchema).to.not.be.undefined;
+                });
             });
           });
-          done();
-        })
-        .catch(error => done);
+        });
+      });
     });
 
-    it('[placeholder to trigger before()]', done => {
-      done();
+    it('[placeholder to trigger before()]', () => {
+      return Promise.resolve();
     });
   });
 };
