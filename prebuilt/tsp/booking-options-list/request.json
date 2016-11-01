@@ -118,32 +118,40 @@
       }
     },
     "startTime": {
+      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
       "type": "integer",
       "maximum": 9007199254740991,
       "minimum": 1451606400
     },
     "endTime": {
+      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
       "type": "integer",
       "maximum": 9007199254740991,
       "minimum": 1451606400
     },
     "from": {
+      "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
       "type": "string",
       "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
     },
     "to": {
+      "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
       "type": "string",
       "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
     },
     "fromRadius": {
       "description": "'from' location radius in meters",
       "type": "number",
-      "minimum": 0
+      "minimum": 0,
+      "maximum": 40075000,
+      "multipleOf": 0.000001
     },
     "toRadius": {
       "description": "'to' location radius in meters",
       "type": "number",
-      "minimum": 0
+      "minimum": 0,
+      "maximum": 40075000,
+      "multipleOf": 0.000001
     },
     "customer": {
       "type": "object",

@@ -147,8 +147,7 @@
             "name": { "type": "string" },
             "description": { "type": "string" },
             "image": {
-              "type": "string",
-              "format": "url"
+              "$ref": "../core/units.json#/definitions/url"
             },
             "car": {
               "type": "object",

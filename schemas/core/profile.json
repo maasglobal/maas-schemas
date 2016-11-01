@@ -20,7 +20,7 @@
       }
     },
     "balance": {
-      "type": "number"
+      "type": "integer"
     },
     "phone": {
       "$ref": "./units.json#/definitions/phone"

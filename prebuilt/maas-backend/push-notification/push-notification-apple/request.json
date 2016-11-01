@@ -14,7 +14,7 @@
       "maxLength": 256
     },
     "badge": {
-      "type": "number",
+      "type": "integer",
       "minimum": 0,
       "maximum": 9999
     },
@@ -52,6 +52,7 @@
               "minItems": 1,
               "maxItems": 99,
               "items": {
+                "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
                 "type": "string",
                 "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
               }

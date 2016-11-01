@@ -8,6 +8,7 @@
       "description": "The base booking object with all fields, to be inherited",
       "properties": {
         "id": {
+          "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
           "type": "string",
           "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
         },
@@ -34,10 +35,11 @@
           ]
         },
         "fare": {
+          "description": "A fare/price as billed from the user in POINTs",
           "type": "object",
           "properties": {
             "amount": {
-              "type": "number",
+              "type": "integer",
               "minimum": 0
             },
             "currency": {
@@ -54,6 +56,7 @@
           "additionalProperties": false
         },
         "cost": {
+          "description": "A fare/price as billed by a TSP from MaaS in EUR",
           "type": "object",
           "required": [
             "amount",
@@ -62,7 +65,8 @@
           "properties": {
             "amount": {
               "type": "number",
-              "minimum": 0
+              "minimum": 0,
+              "multipleOf": 0.01
             },
             "currency": {
               "type": "string",
@@ -85,28 +89,39 @@
               "additionalProperties": true,
               "allOf": [
                 {
+                  "description": "A place, as a location-name pair",
                   "type": "object",
                   "allOf": [
                     {
+                      "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                       "type": "object",
                       "properties": {
                         "lat": {
+                          "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                           "type": "number",
                           "minimum": -90,
-                          "maximum": 90
+                          "maximum": 90,
+                          "multipleOf": 0.000001
                         },
                         "lon": {
+                          "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                           "type": "number",
                           "minimum": -180,
-                          "maximum": 180
+                          "maximum": 180,
+                          "multipleOf": 0.000001
                         }
-                      }
+                      },
+                      "required": [
+                        "lat",
+                        "lon"
+                      ]
                     },
                     {
                       "type": "object",
                       "properties": {
                         "name": {
-                          "type": "string"
+                          "type": "string",
+                          "minLength": 1
                         }
                       }
                     }
@@ -136,28 +151,39 @@
               "additionalProperties": true,
               "allOf": [
                 {
+                  "description": "A place, as a location-name pair",
                   "type": "object",
                   "allOf": [
                     {
+                      "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                       "type": "object",
                       "properties": {
                         "lat": {
+                          "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                           "type": "number",
                           "minimum": -90,
-                          "maximum": 90
+                          "maximum": 90,
+                          "multipleOf": 0.000001
                         },
                         "lon": {
+                          "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                           "type": "number",
                           "minimum": -180,
-                          "maximum": 180
+                          "maximum": 180,
+                          "multipleOf": 0.000001
                         }
-                      }
+                      },
+                      "required": [
+                        "lat",
+                        "lon"
+                      ]
                     },
                     {
                       "type": "object",
                       "properties": {
                         "name": {
-                          "type": "string"
+                          "type": "string",
+                          "minLength": 1
                         }
                       }
                     }
@@ -183,11 +209,13 @@
               ]
             },
             "startTime": {
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
               "type": "integer",
               "maximum": 9007199254740991,
               "minimum": 1451606400
             },
             "endTime": {
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
               "type": "integer",
               "maximum": 9007199254740991,
               "minimum": 1451606400
@@ -233,16 +261,23 @@
               ]
             },
             "departureDelay": {
+              "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
               "type": "integer",
-              "minimum": 0
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991
             },
             "arrivalDelay": {
+              "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
               "type": "integer",
-              "minimum": 0
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991
             },
             "distance": {
+              "description": "Distance in meters",
               "type": "number",
-              "minimum": 0
+              "minimum": 0,
+              "maximum": 40075000,
+              "multipleOf": 0.000001
             },
             "state": {
               "type": "string",
@@ -284,7 +319,8 @@
               },
               "required": [
                 "points"
-              ]
+              ],
+              "additionalProperties": false
             }
           },
           "additionalProperties": false
@@ -308,8 +344,9 @@
                   "type": "string"
                 },
                 "image": {
+                  "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
                   "type": "string",
-                  "format": "url"
+                  "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
                 },
                 "car": {
                   "type": "object",
@@ -380,25 +417,35 @@
                   "minLength": 1
                 },
                 "vehicleLocation": {
+                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                   "type": "object",
                   "properties": {
                     "lat": {
+                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                       "type": "number",
                       "minimum": -90,
-                      "maximum": 90
+                      "maximum": 90,
+                      "multipleOf": 0.000001
                     },
                     "lon": {
+                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                       "type": "number",
                       "minimum": -180,
-                      "maximum": 180
+                      "maximum": 180,
+                      "multipleOf": 0.000001
                     }
-                  }
+                  },
+                  "required": [
+                    "lat",
+                    "lon"
+                  ]
                 },
                 "vehicleType": {
                   "type": "string",
                   "minLength": 1
                 },
                 "eta": {
+                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
                   "type": "integer",
                   "maximum": 9007199254740991,
                   "minimum": 1451606400
@@ -411,6 +458,7 @@
                       "minLength": 1
                     },
                     "phone": {
+                      "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
                       "type": "string",
                       "pattern": "^\\+(?:\\d){6,14}\\d$"
                     }
@@ -477,6 +525,7 @@
       "description": "The base booking object with all fields, to be inherited",
       "properties": {
         "id": {
+          "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
           "type": "string",
           "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
         },
@@ -503,10 +552,11 @@
           ]
         },
         "fare": {
+          "description": "A fare/price as billed from the user in POINTs",
           "type": "object",
           "properties": {
             "amount": {
-              "type": "number",
+              "type": "integer",
               "minimum": 0
             },
             "currency": {
@@ -523,6 +573,7 @@
           "additionalProperties": false
         },
         "cost": {
+          "description": "A fare/price as billed by a TSP from MaaS in EUR",
           "type": "object",
           "required": [
             "amount",
@@ -531,7 +582,8 @@
           "properties": {
             "amount": {
               "type": "number",
-              "minimum": 0
+              "minimum": 0,
+              "multipleOf": 0.01
             },
             "currency": {
               "type": "string",
@@ -554,28 +606,39 @@
               "additionalProperties": true,
               "allOf": [
                 {
+                  "description": "A place, as a location-name pair",
                   "type": "object",
                   "allOf": [
                     {
+                      "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                       "type": "object",
                       "properties": {
                         "lat": {
+                          "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                           "type": "number",
                           "minimum": -90,
-                          "maximum": 90
+                          "maximum": 90,
+                          "multipleOf": 0.000001
                         },
                         "lon": {
+                          "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                           "type": "number",
                           "minimum": -180,
-                          "maximum": 180
+                          "maximum": 180,
+                          "multipleOf": 0.000001
                         }
-                      }
+                      },
+                      "required": [
+                        "lat",
+                        "lon"
+                      ]
                     },
                     {
                       "type": "object",
                       "properties": {
                         "name": {
-                          "type": "string"
+                          "type": "string",
+                          "minLength": 1
                         }
                       }
                     }
@@ -605,28 +668,39 @@
               "additionalProperties": true,
               "allOf": [
                 {
+                  "description": "A place, as a location-name pair",
                   "type": "object",
                   "allOf": [
                     {
+                      "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                       "type": "object",
                       "properties": {
                         "lat": {
+                          "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                           "type": "number",
                           "minimum": -90,
-                          "maximum": 90
+                          "maximum": 90,
+                          "multipleOf": 0.000001
                         },
                         "lon": {
+                          "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                           "type": "number",
                           "minimum": -180,
-                          "maximum": 180
+                          "maximum": 180,
+                          "multipleOf": 0.000001
                         }
-                      }
+                      },
+                      "required": [
+                        "lat",
+                        "lon"
+                      ]
                     },
                     {
                       "type": "object",
                       "properties": {
                         "name": {
-                          "type": "string"
+                          "type": "string",
+                          "minLength": 1
                         }
                       }
                     }
@@ -652,11 +726,13 @@
               ]
             },
             "startTime": {
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
               "type": "integer",
               "maximum": 9007199254740991,
               "minimum": 1451606400
             },
             "endTime": {
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
               "type": "integer",
               "maximum": 9007199254740991,
               "minimum": 1451606400
@@ -702,16 +778,23 @@
               ]
             },
             "departureDelay": {
+              "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
               "type": "integer",
-              "minimum": 0
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991
             },
             "arrivalDelay": {
+              "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
               "type": "integer",
-              "minimum": 0
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991
             },
             "distance": {
+              "description": "Distance in meters",
               "type": "number",
-              "minimum": 0
+              "minimum": 0,
+              "maximum": 40075000,
+              "multipleOf": 0.000001
             },
             "state": {
               "type": "string",
@@ -753,7 +836,8 @@
               },
               "required": [
                 "points"
-              ]
+              ],
+              "additionalProperties": false
             }
           },
           "additionalProperties": false
@@ -777,8 +861,9 @@
                   "type": "string"
                 },
                 "image": {
+                  "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
                   "type": "string",
-                  "format": "url"
+                  "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
                 },
                 "car": {
                   "type": "object",
@@ -849,25 +934,35 @@
                   "minLength": 1
                 },
                 "vehicleLocation": {
+                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                   "type": "object",
                   "properties": {
                     "lat": {
+                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                       "type": "number",
                       "minimum": -90,
-                      "maximum": 90
+                      "maximum": 90,
+                      "multipleOf": 0.000001
                     },
                     "lon": {
+                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                       "type": "number",
                       "minimum": -180,
-                      "maximum": 180
+                      "maximum": 180,
+                      "multipleOf": 0.000001
                     }
-                  }
+                  },
+                  "required": [
+                    "lat",
+                    "lon"
+                  ]
                 },
                 "vehicleType": {
                   "type": "string",
                   "minLength": 1
                 },
                 "eta": {
+                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
                   "type": "integer",
                   "maximum": 9007199254740991,
                   "minimum": 1451606400
@@ -880,6 +975,7 @@
                       "minLength": 1
                     },
                     "phone": {
+                      "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
                       "type": "string",
                       "pattern": "^\\+(?:\\d){6,14}\\d$"
                     }
@@ -969,28 +1065,39 @@
           "additionalProperties": true,
           "allOf": [
             {
+              "description": "A place, as a location-name pair",
               "type": "object",
               "allOf": [
                 {
+                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                   "type": "object",
                   "properties": {
                     "lat": {
+                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                       "type": "number",
                       "minimum": -90,
-                      "maximum": 90
+                      "maximum": 90,
+                      "multipleOf": 0.000001
                     },
                     "lon": {
+                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                       "type": "number",
                       "minimum": -180,
-                      "maximum": 180
+                      "maximum": 180,
+                      "multipleOf": 0.000001
                     }
-                  }
+                  },
+                  "required": [
+                    "lat",
+                    "lon"
+                  ]
                 },
                 {
                   "type": "object",
                   "properties": {
                     "name": {
-                      "type": "string"
+                      "type": "string",
+                      "minLength": 1
                     }
                   }
                 }
@@ -1020,28 +1127,39 @@
           "additionalProperties": true,
           "allOf": [
             {
+              "description": "A place, as a location-name pair",
               "type": "object",
               "allOf": [
                 {
+                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                   "type": "object",
                   "properties": {
                     "lat": {
+                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                       "type": "number",
                       "minimum": -90,
-                      "maximum": 90
+                      "maximum": 90,
+                      "multipleOf": 0.000001
                     },
                     "lon": {
+                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                       "type": "number",
                       "minimum": -180,
-                      "maximum": 180
+                      "maximum": 180,
+                      "multipleOf": 0.000001
                     }
-                  }
+                  },
+                  "required": [
+                    "lat",
+                    "lon"
+                  ]
                 },
                 {
                   "type": "object",
                   "properties": {
                     "name": {
-                      "type": "string"
+                      "type": "string",
+                      "minLength": 1
                     }
                   }
                 }
@@ -1067,11 +1185,13 @@
           ]
         },
         "startTime": {
+          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
           "type": "integer",
           "maximum": 9007199254740991,
           "minimum": 1451606400
         },
         "endTime": {
+          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
           "type": "integer",
           "maximum": 9007199254740991,
           "minimum": 1451606400
@@ -1117,16 +1237,23 @@
           ]
         },
         "departureDelay": {
+          "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
           "type": "integer",
-          "minimum": 0
+          "maximum": 9007199254740991,
+          "minimum": -9007199254740991
         },
         "arrivalDelay": {
+          "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
           "type": "integer",
-          "minimum": 0
+          "maximum": 9007199254740991,
+          "minimum": -9007199254740991
         },
         "distance": {
+          "description": "Distance in meters",
           "type": "number",
-          "minimum": 0
+          "minimum": 0,
+          "maximum": 40075000,
+          "multipleOf": 0.000001
         },
         "state": {
           "type": "string",
@@ -1168,16 +1295,18 @@
           },
           "required": [
             "points"
-          ]
+          ],
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
     },
     "fare": {
+      "description": "A fare/price as billed from the user in POINTs",
       "type": "object",
       "properties": {
         "amount": {
-          "type": "number",
+          "type": "integer",
           "minimum": 0
         },
         "currency": {
@@ -1194,6 +1323,7 @@
       "additionalProperties": false
     },
     "cost": {
+      "description": "A fare/price as billed by a TSP from MaaS in EUR",
       "type": "object",
       "required": [
         "amount",
@@ -1202,7 +1332,8 @@
       "properties": {
         "amount": {
           "type": "number",
-          "minimum": 0
+          "minimum": 0,
+          "multipleOf": 0.01
         },
         "currency": {
           "type": "string",
@@ -1232,8 +1363,9 @@
               "type": "string"
             },
             "image": {
+              "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
               "type": "string",
-              "format": "url"
+              "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
             },
             "car": {
               "type": "object",
@@ -1304,25 +1436,35 @@
               "minLength": 1
             },
             "vehicleLocation": {
+              "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
               "type": "object",
               "properties": {
                 "lat": {
+                  "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                   "type": "number",
                   "minimum": -90,
-                  "maximum": 90
+                  "maximum": 90,
+                  "multipleOf": 0.000001
                 },
                 "lon": {
+                  "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                   "type": "number",
                   "minimum": -180,
-                  "maximum": 180
+                  "maximum": 180,
+                  "multipleOf": 0.000001
                 }
-              }
+              },
+              "required": [
+                "lat",
+                "lon"
+              ]
             },
             "vehicleType": {
               "type": "string",
               "minLength": 1
             },
             "eta": {
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
               "type": "integer",
               "maximum": 9007199254740991,
               "minimum": 1451606400
@@ -1335,6 +1477,7 @@
                   "minLength": 1
                 },
                 "phone": {
+                  "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
                   "type": "string",
                   "pattern": "^\\+(?:\\d){6,14}\\d$"
                 }
