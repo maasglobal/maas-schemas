@@ -12,7 +12,7 @@
       "properties": {
         "name": { "type": "string", "minLength": 2, "maxLength": 128 },
         "lat": { "$ref": "../../../core/units.json#/definitions/latitude" },
-        "lat": { "$ref": "../../../core/units.json#/definitions/longitude" },
+        "lon": { "$ref": "../../../core/units.json#/definitions/longitude" },
         "count": { "type": "integer", "minimum": 1, "maximum": 100, "default": 5 },
         "distance": { "$ref": "../../../core/units.json#/definitions/distance" },
         "locale": {
