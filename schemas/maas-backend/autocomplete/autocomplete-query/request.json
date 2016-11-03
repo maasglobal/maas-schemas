@@ -29,7 +29,8 @@
           "default": 5
         },
         "radius": {
-          "$ref": "../../../core/units.json#/definitions/distance"
+          "$ref": "../../../core/units.json#/definitions/distance",
+          "default": 5000
         }
       },
       "required": ["name"],

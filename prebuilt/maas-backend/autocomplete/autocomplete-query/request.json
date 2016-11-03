@@ -38,6 +38,7 @@
           "default": 5
         },
         "radius": {
+          "default": 5000,
           "description": "Distance in meters",
           "type": "number",
           "minimum": 0,
