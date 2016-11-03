@@ -40,7 +40,7 @@
     },
     "leg": {
       "type": "object",
-      "description": "A subset of the standard leg (../core/plan.json#/definitions/leg)",
+      "description": "A leg delta, containing any subset of the valid properties",
       "properties": {
         "mode": {
           "$schema": "http://json-schema.org/draft-04/schema#",
@@ -212,14 +212,7 @@
           ]
         }
       },
-      "additionalProperties": false,
-      "required": [
-        "mode",
-        "startTime",
-        "endTime",
-        "from",
-        "to"
-      ]
+      "additionalProperties": false
     },
     "meta": {
       "type": "object",
