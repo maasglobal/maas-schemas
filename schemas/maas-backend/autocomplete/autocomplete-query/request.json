@@ -3,17 +3,24 @@
   "id": "https://api.maas.global/maas-backend/autocomplete/autocomplete-query/request",
   "description": "Request schema for autocomplete",
   "type": "object",
-  "allOf": [
-    {
-      "$ref": "../../../core/units.json#/definitions/location"
+  "properties": {
+    "identityId": {
+      "$ref": "../../../core/aws-units.json#/definitions/identityId"
     },
-    {
+    "payload": {
       "type": "object",
       "properties": {
         "name": {
           "type": "string",
-          "minLength": 5,
+          "pattern": "([\\dA-ö]\\s?)+",
+          "minLength": 3,
           "maxLength": 128
+        },
+        "lat": {
+          "$ref": "../../../core/units.json#/definitions/latitude"
+        },
+        "lon": {
+          "$ref": "../../../core/units.json#/definitions/latitude"
         },
         "count": {
           "type": "integer",
@@ -24,7 +31,9 @@
         "radius": {
           "$ref": "../../../core/units.json#/definitions/distance"
         }
-      }
+      },
+      "required": ["name"],
+      "additionalProperties": false
     }
-  ]
+  }
 }
