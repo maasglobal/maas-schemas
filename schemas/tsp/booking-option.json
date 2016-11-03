@@ -39,6 +39,18 @@
         "to"
       ]
     },
+    "legDelta": {
+      "type": "object",
+      "description": "A leg delta, containing any subset of the valid properties",
+      "properties": {
+        "mode": { "$ref": "../core/mode.json" },
+        "startTime": { "$ref": "../core/units.json#/definitions/time" },
+        "endTime": { "$ref": "../core/units.json#/definitions/time" },
+        "from": { "$ref": "#/definitions/relaxedLocation" },
+        "to": { "$ref": "#/definitions/relaxedLocation" }
+      },
+      "additionalProperties": false
+    },
     "relaxedLatitude": {
       "description": "No-numeric precision version of MaaS core latitude",
       "type": "number",
