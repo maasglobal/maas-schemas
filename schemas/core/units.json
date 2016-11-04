@@ -52,6 +52,31 @@
       },
       "required": [ "lat", "lon" ]
     },
+    "relaxedLatitude": {
+      "description": "No-numeric precision version of MaaS core latitude",
+      "type": "number",
+      "minimum": -90,
+      "maximum": 90
+    },
+    "relaxedLongitude": {
+      "description": "No-numeric precision version of MaaS core longitude",
+      "type": "number",
+      "minimum": -180,
+      "maximum": 180
+    },
+    "relaxedLocation": {
+      "description": "No-numeric precision version of MaaS core location",
+      "type": "object",
+      "properties": {
+        "lat": {
+          "$ref": "#/definitions/relaxedLatitude"
+        },
+        "lon": {
+          "$ref": "#/definitions/relaxedLongitude"
+        }
+      },
+      "required": [ "lat", "lon" ]
+    },
     "shortLocation": {
       "description": "Geographic latitude-longitude number-pair array in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
       "type": "array",
