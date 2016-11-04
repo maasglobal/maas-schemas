@@ -17,10 +17,10 @@
           "maxLength": 128
         },
         "lat": {
-          "$ref": "../../../core/units.json#/definitions/latitude"
+          "$ref": "../../../core/units.json#/definitions/relaxedLatitude"
         },
         "lon": {
-          "$ref": "../../../core/units.json#/definitions/latitude"
+          "$ref": "../../../core/units.json#/definitions/relaxedLongitude"
         },
         "count": {
           "type": "integer",

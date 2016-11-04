@@ -27,8 +27,8 @@
         "mode": { "$ref": "../core/mode.json" },
         "startTime": { "$ref": "../core/units.json#/definitions/time" },
         "endTime": { "$ref": "../core/units.json#/definitions/time" },
-        "from": { "$ref": "#/definitions/relaxedLocation" },
-        "to": { "$ref": "#/definitions/relaxedLocation" }
+        "from": { "$ref": "../core/units.json#/definitions/relaxedLocation" },
+        "to": { "$ref": "../core/units.json#/definitions/relaxedLocation" }
       },
       "additionalProperties": false,
       "required": [
@@ -46,35 +46,10 @@
         "mode": { "$ref": "../core/mode.json" },
         "startTime": { "$ref": "../core/units.json#/definitions/time" },
         "endTime": { "$ref": "../core/units.json#/definitions/time" },
-        "from": { "$ref": "#/definitions/relaxedLocation" },
-        "to": { "$ref": "#/definitions/relaxedLocation" }
+        "from": { "$ref": "../core/units.json#/definitions/relaxedLocation" },
+        "to": { "$ref": "../core/units.json#/definitions/relaxedLocation" }
       },
       "additionalProperties": false
-    },
-    "relaxedLatitude": {
-      "description": "No-numeric precision version of MaaS core latitude",
-      "type": "number",
-      "minimum": -90,
-      "maximum": 90
-    },
-    "relaxedLongitude": {
-      "description": "No-numeric precision version of MaaS core longitude",
-      "type": "number",
-      "minimum": -180,
-      "maximum": 180
-    },
-    "relaxedLocation": {
-      "description": "No-numeric precision version of MaaS core location",
-      "type": "object",
-      "properties": {
-        "lat": {
-          "$ref": "#/definitions/relaxedLatitude"
-        },
-        "lon": {
-          "$ref": "#/definitions/relaxedLongitude"
-        }
-      },
-      "required": [ "lat", "lon" ]
     }
   }
 }
