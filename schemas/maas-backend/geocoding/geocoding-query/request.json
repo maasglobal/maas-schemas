@@ -11,8 +11,8 @@
       "type": "object",
       "properties": {
         "name": { "type": "string", "minLength": 2, "maxLength": 128 },
-        "lat": { "$ref": "../../../core/units.json#/definitions/latitude" },
-        "lon": { "$ref": "../../../core/units.json#/definitions/longitude" },
+        "lat": { "$ref": "../../../core/units.json#/definitions/relaxedLatitude" },
+        "lon": { "$ref": "../../../core/units.json#/definitions/relaxedLongitude" },
         "count": { "type": "integer", "minimum": 1, "maximum": 100, "default": 5 },
         "distance": { "$ref": "../../../core/units.json#/definitions/distance" },
         "locale": {
