@@ -237,13 +237,16 @@
       "description": "MaaS booking terms and condition for its business engine",
       "type": "object",
       "properties": {
+        "type": {
+          "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
+          "type": "string"
+        },
         "validity": {
           "description": "Booking validity conditions",
           "type": "object",
           "properties": {
             "startTime": { "$ref": "./units.json#/definitions/time" },
-            "endTime": { "$ref": "./units.json#/definitions/time" },
-            "geometry": { "$ref": "../geojson/geometry.json" }
+            "endTime": { "$ref": "./units.json#/definitions/time" }
           },
           "required": ["startTime", "endTime"]
         }
