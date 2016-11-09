@@ -313,6 +313,27 @@
                               "points"
                             ],
                             "additionalProperties": false
+                          },
+                          "fare": {
+                            "description": "A fare/price as billed from the user in POINTs",
+                            "type": "object",
+                            "properties": {
+                              "amount": {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              "currency": {
+                                "type": "string",
+                                "enum": [
+                                  "POINT"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "amount",
+                              "currency"
+                            ],
+                            "additionalProperties": false
                           }
                         },
                         "required": [
@@ -663,6 +684,27 @@
                         "points"
                       ],
                       "additionalProperties": false
+                    },
+                    "fare": {
+                      "description": "A fare/price as billed from the user in POINTs",
+                      "type": "object",
+                      "properties": {
+                        "amount": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "currency": {
+                          "type": "string",
+                          "enum": [
+                            "POINT"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "amount",
+                        "currency"
+                      ],
+                      "additionalProperties": false
                     }
                   },
                   "required": [
@@ -991,6 +1033,27 @@
                     },
                     "required": [
                       "points"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "fare": {
+                    "description": "A fare/price as billed from the user in POINTs",
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "POINT"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "amount",
+                      "currency"
                     ],
                     "additionalProperties": false
                   }
