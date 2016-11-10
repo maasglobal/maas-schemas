@@ -11,6 +11,9 @@
           "type": "string"
         }
       ]
+    },
+    "debug": {
+      "type": "object"
     }
   },
   "additionalProperties": false,

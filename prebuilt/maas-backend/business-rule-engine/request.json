@@ -50,8 +50,10 @@
         },
         "rule": {
           "enum": [
-            "get-provider",
-            "get-provider-batch"
+            "get-routes-provider",
+            "get-booking-provider",
+            "get-routes-provider-batch",
+            "get-booking-provider-batch"
           ]
         },
         "parameters": {
@@ -124,8 +126,10 @@
         },
         "rule": {
           "enum": [
-            "get-provider",
-            "get-provider-batch"
+            "get-routes-provider",
+            "get-booking-provider",
+            "get-routes-provider-batch",
+            "get-booking-provider-batch"
           ]
         },
         "parameters": {

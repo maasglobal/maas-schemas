@@ -45,7 +45,7 @@
           "$ref": "../../core/aws-units.json#/definitions/identityId"
         },
         "rule": {
-          "enum": [ "get-provider", "get-provider-batch" ]
+          "enum": [ "get-routes-provider", "get-booking-provider", "get-routes-provider-batch", "get-booking-provider-batch" ]
         },
         "parameters": {
           "oneOf": [

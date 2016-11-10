@@ -753,40 +753,6 @@
         }
       },
       "additionalProperties": false
-    },
-    "relaxedLatitude": {
-      "description": "No-numeric precision version of MaaS core latitude",
-      "type": "number",
-      "minimum": -90,
-      "maximum": 90
-    },
-    "relaxedLongitude": {
-      "description": "No-numeric precision version of MaaS core longitude",
-      "type": "number",
-      "minimum": -180,
-      "maximum": 180
-    },
-    "relaxedLocation": {
-      "description": "No-numeric precision version of MaaS core location",
-      "type": "object",
-      "properties": {
-        "lat": {
-          "description": "No-numeric precision version of MaaS core latitude",
-          "type": "number",
-          "minimum": -90,
-          "maximum": 90
-        },
-        "lon": {
-          "description": "No-numeric precision version of MaaS core longitude",
-          "type": "number",
-          "minimum": -180,
-          "maximum": 180
-        }
-      },
-      "required": [
-        "lat",
-        "lon"
-      ]
     }
   }
 }
