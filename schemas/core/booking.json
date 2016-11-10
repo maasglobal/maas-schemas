@@ -246,15 +246,19 @@
           "description": "The rules that MaaS will interpret to schedule, re-validate or cancel the booking.",
           "type": "object",
           "properties": {
-            "from": {
+            "startTime": {
               "description": "The starting time from which the ticket is valid",
               "$ref": "./units.json#/definitions/time"
             },
-            "to": {
+            "endTime": {
               "description": "The finishing time the ticket is valid for",
               "$ref": "./units.json#/definitions/time"
             }
           }
+        },
+        "data": {
+          "description": "Arbitrary ticket data for the client",
+          "type": "object"
         },
         "meta": {
           "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
