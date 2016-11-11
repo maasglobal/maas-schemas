@@ -10,7 +10,7 @@
         "$ref": "../../../core/agency-option.json"
       }
     },
-    "maas": {
+    "debug": {
       "type": "object",
       "additionalProperties": true
     }

@@ -248,7 +248,7 @@
         ]
       }
     },
-    "maas": {
+    "debug": {
       "type": "object",
       "additionalProperties": true
     }
