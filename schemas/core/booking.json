@@ -7,7 +7,7 @@
       "$ref": "#/definitions/bookingCore"
     },
     {
-      "required": [ "id", "tspId", "state", "leg", "meta", "terms", "customer" ]
+      "required": [ "id", "tspId", "state", "leg", "meta", "terms", "customer"]
     }
   ],
   "definitions": {
@@ -32,6 +32,9 @@
         },
         "leg": {
           "$ref": "#/definitions/leg"
+        },
+        "token": {
+          "$ref": "#/definitions/token"
         },
         "meta": {
           "$ref": "#/definitions/meta"
