@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/webhooks/webhooks-bookings-update/request",
-  "description": "MaaS webhook to update bookings for tsp adapter callback request schema.",
+  "id": "https://api.maas.global/tsp/booking-webhooks-bookings-update/remote-response",
+  "description": "Remote response schema, e.g. how MaaS-backend responds back to TSP",
   "type": "object",
   "properties": {
     "tspId": {
@@ -30,18 +30,9 @@
       },
       "additionalProperties": false
     },
-    "state": {
-      "enum": [
-        "RESERVED",
-        "CONFIRMED",
-        "ACTIVATED",
-        "EXPIRED",
-        "CANCELLED"
-      ]
-    },
     "leg": {
       "type": "object",
-      "description": "A leg delta, containing any subset of the valid properties",
+      "description": "A subset of the standard leg (../core/plan.json#/definitions/leg)",
       "properties": {
         "mode": {
           "$schema": "http://json-schema.org/draft-04/schema#",
@@ -213,7 +204,14 @@
           ]
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "startTime",
+        "endTime",
+        "from",
+        "to"
+      ]
     },
     "meta": {
       "type": "object",
@@ -365,37 +363,39 @@
       "type": "object",
       "properties": {}
     },
-    "token": {
-      "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
+    "customer": {
+      "type": "object",
+      "description": "Booking customer information",
       "properties": {
-        "validityDuration": {
-          "description": "The rules that MaaS will interpret to schedule, re-validate or cancel the booking.",
-          "type": "object",
-          "properties": {
-            "from": {
-              "description": "The starting time from which the ticket is valid",
-              "type": "integer",
-              "maximum": 9007199254740991,
-              "minimum": 1451606400
-            },
-            "to": {
-              "description": "The finishing time the ticket is valid for",
-              "type": "integer",
-              "maximum": 9007199254740991,
-              "minimum": 1451606400
-            }
-          }
+        "firstName": {
+          "description": "First name of the customer (e.g. John)",
+          "type": "string"
         },
-        "meta": {
-          "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
-          "type": "object"
+        "lastName": {
+          "description": "Last name of the customer (e.g. Doe)",
+          "type": "string"
+        },
+        "phone": {
+          "description": "Phone number that the customer may be reached from",
+          "type": "string"
+        },
+        "email": {
+          "description": "Email address that the customer may be reached from",
+          "type": "string"
         }
-      }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "phone",
+        "email"
+      ],
+      "additionalProperties": false
     }
   },
   "required": [
-    "tspId",
-    "state"
+    "leg",
+    "customer"
   ],
   "additionalProperties": false
 }

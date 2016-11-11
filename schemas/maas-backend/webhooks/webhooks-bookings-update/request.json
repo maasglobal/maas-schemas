@@ -2,35 +2,5 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/webhooks/webhooks-bookings-update/request",
   "description": "MaaS webhook to update bookings for tsp adapter callback request schema.",
-  "type": "object",
-  "properties": {
-    "tspId": {
-      "type": "string",
-      "maxLength": 256
-    },
-    "cost": {
-      "$ref": "../../../core/units.json#/definitions/cost"
-    },
-    "state": {
-      "$ref": "../../../core/state.json#/definitions/bookingState"
-    },
-    "terms": {
-      "$ref": "../../../core/booking.json#/definitions/terms"
-    },
-    "token": {
-      "$ref": "../../../core/booking.json#/definitions/token"
-    },
-    "meta": {
-      "$ref": "../../../core/booking.json#/definitions/meta"
-    }
-  },
-  "required": [
-    "tspId",
-    "cost",
-    "state",
-    "terms",
-    "token",
-    "meta"
-  ],
-  "additionalProperties": false
+  "$ref": "../../../tsp/webhooks-bookings-update/remote-request.json"
 }
