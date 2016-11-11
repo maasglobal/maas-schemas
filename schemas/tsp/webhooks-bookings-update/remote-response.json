@@ -10,6 +10,9 @@
     "cost": {
       "$ref": "../../core/booking.json#/definitions/cost"
     },
+    "state": {
+      "enum": [ "RESERVED", "CONFIRMED", "ACTIVATED", "EXPIRED", "CANCELLED" ]
+    },
     "leg": {
       "$ref": "../booking-option.json#/definitions/leg"
     },
@@ -19,10 +22,10 @@
     "terms": {
       "$ref": "../../core/booking.json#/definitions/terms"
     },
-    "customer": {
-      "$ref": "../../core/booking.json#/definitions/customer"
+    "token": {
+      "$ref": "../../core/booking.json#/definitions/token"
     }
   },
-  "required": ["leg", "customer"],
+  "required": ["state", "tspId"],
   "additionalProperties": false
 }

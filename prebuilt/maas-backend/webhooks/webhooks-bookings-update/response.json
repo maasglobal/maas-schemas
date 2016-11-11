@@ -30,6 +30,15 @@
       },
       "additionalProperties": false
     },
+    "state": {
+      "enum": [
+        "RESERVED",
+        "CONFIRMED",
+        "ACTIVATED",
+        "EXPIRED",
+        "CANCELLED"
+      ]
+    },
     "leg": {
       "type": "object",
       "description": "A subset of the standard leg (../core/plan.json#/definitions/leg)",
@@ -361,41 +370,70 @@
     "terms": {
       "description": "MaaS booking terms and condition for its business engine",
       "type": "object",
-      "properties": {}
-    },
-    "customer": {
-      "type": "object",
-      "description": "Booking customer information",
       "properties": {
-        "firstName": {
-          "description": "First name of the customer (e.g. John)",
+        "type": {
+          "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
           "type": "string"
         },
-        "lastName": {
-          "description": "Last name of the customer (e.g. Doe)",
-          "type": "string"
-        },
-        "phone": {
-          "description": "Phone number that the customer may be reached from",
-          "type": "string"
-        },
-        "email": {
-          "description": "Email address that the customer may be reached from",
-          "type": "string"
+        "validity": {
+          "description": "Booking validity conditions",
+          "type": "object",
+          "properties": {
+            "startTime": {
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+              "type": "integer",
+              "maximum": 9007199254740991,
+              "minimum": 1451606400
+            },
+            "endTime": {
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+              "type": "integer",
+              "maximum": 9007199254740991,
+              "minimum": 1451606400
+            }
+          },
+          "required": [
+            "startTime",
+            "endTime"
+          ]
         }
-      },
-      "required": [
-        "firstName",
-        "lastName",
-        "phone",
-        "email"
-      ],
-      "additionalProperties": false
+      }
+    },
+    "token": {
+      "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
+      "properties": {
+        "validityDuration": {
+          "description": "The rules that MaaS will interpret to schedule, re-validate or cancel the booking.",
+          "type": "object",
+          "properties": {
+            "startTime": {
+              "description": "The starting time from which the ticket is valid",
+              "type": "integer",
+              "maximum": 9007199254740991,
+              "minimum": 1451606400
+            },
+            "endTime": {
+              "description": "The finishing time the ticket is valid for",
+              "type": "integer",
+              "maximum": 9007199254740991,
+              "minimum": 1451606400
+            }
+          }
+        },
+        "data": {
+          "description": "Arbitrary ticket data for the client",
+          "type": "object"
+        },
+        "meta": {
+          "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
+          "type": "object"
+        }
+      }
     }
   },
   "required": [
-    "leg",
-    "customer"
+    "state",
+    "tspId"
   ],
   "additionalProperties": false
 }
