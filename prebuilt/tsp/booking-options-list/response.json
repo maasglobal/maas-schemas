@@ -220,7 +220,34 @@
           "terms": {
             "description": "MaaS booking terms and condition for its business engine",
             "type": "object",
-            "properties": {}
+            "properties": {
+              "type": {
+                "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
+                "type": "string"
+              },
+              "validity": {
+                "description": "Booking validity conditions",
+                "type": "object",
+                "properties": {
+                  "startTime": {
+                    "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                    "type": "integer",
+                    "maximum": 9007199254740991,
+                    "minimum": 1451606400
+                  },
+                  "endTime": {
+                    "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                    "type": "integer",
+                    "maximum": 9007199254740991,
+                    "minimum": 1451606400
+                  }
+                },
+                "required": [
+                  "startTime",
+                  "endTime"
+                ]
+              }
+            }
           },
           "meta": {
             "type": "object",
