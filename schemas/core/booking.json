@@ -16,7 +16,7 @@
       "description": "The base booking object with all fields, to be inherited",
       "properties": {
         "id": {
-          "$ref": "../core/units.json#/definitions/uuid"
+          "$ref": "./units.json#/definitions/uuid"
         },
         "tspId": {
           "$ref": "#/definitions/tspId"
@@ -127,10 +127,10 @@
       "additionalProperties": false
     },
     "fare": {
-      "$ref": "../core/units.json#/definitions/fare"
+      "$ref": "./units.json#/definitions/fare"
     },
     "cost": {
-      "$ref": "../core/units.json#/definitions/cost"
+      "$ref": "./units.json#/definitions/cost"
     },
     "meta": {
       "type": "object",
@@ -147,7 +147,7 @@
             "name": { "type": "string" },
             "description": { "type": "string" },
             "image": {
-              "$ref": "../core/units.json#/definitions/url"
+              "$ref": "./units.json#/definitions/url"
             },
             "car": {
               "type": "object",
@@ -211,12 +211,12 @@
               "type": "string",
               "minLength": 1
             },
-            "vehicleLocation": { "$ref": "../core/units.json#/definitions/location" },
+            "vehicleLocation": { "$ref": "./units.json#/definitions/location" },
             "vehicleType": {
               "type": "string",
               "minLength": 1
             },
-            "eta": { "$ref": "../core/units.json#/definitions/time" },
+            "eta": { "$ref": "./units.json#/definitions/time" },
             "taxiCenter": {
               "type": "object",
               "properties": {
@@ -224,7 +224,7 @@
                   "type": "string",
                   "minLength": 1
                 },
-                "phone": { "$ref": "../core/units.json#/definitions/phone" }
+                "phone": { "$ref": "./units.json#/definitions/phone" }
               }
             }
           },
@@ -237,6 +237,19 @@
       "description": "MaaS booking terms and condition for its business engine",
       "type": "object",
       "properties": {
+        "type": {
+          "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
+          "type": "string"
+        },
+        "validity": {
+          "description": "Booking validity conditions",
+          "type": "object",
+          "properties": {
+            "startTime": { "$ref": "./units.json#/definitions/time" },
+            "endTime": { "$ref": "./units.json#/definitions/time" }
+          },
+          "required": ["startTime", "endTime"]
+        }
       }
     },
     "token": {
