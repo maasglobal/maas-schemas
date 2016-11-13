@@ -502,6 +502,38 @@
             }
           }
         },
+        "token": {
+          "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
+          "type": "object",
+          "properties": {
+            "validityDuration": {
+              "description": "The rules that MaaS will interpret to schedule, re-validate or cancel the booking.",
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "description": "The starting time from which the ticket is valid",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                },
+                "endTime": {
+                  "description": "The finishing time the ticket is valid for",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                }
+              }
+            },
+            "data": {
+              "description": "Arbitrary ticket data for the client",
+              "type": "object"
+            },
+            "meta": {
+              "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
+              "type": "object"
+            }
+          }
+        },
         "customer": {
           "type": "object",
           "description": "Booking customer information",
@@ -542,6 +574,7 @@
         "leg",
         "meta",
         "terms",
+        "token",
         "customer"
       ]
     }
@@ -1043,6 +1076,38 @@
                 "startTime",
                 "endTime"
               ]
+            }
+          }
+        },
+        "token": {
+          "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
+          "type": "object",
+          "properties": {
+            "validityDuration": {
+              "description": "The rules that MaaS will interpret to schedule, re-validate or cancel the booking.",
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "description": "The starting time from which the ticket is valid",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                },
+                "endTime": {
+                  "description": "The finishing time the ticket is valid for",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                }
+              }
+            },
+            "data": {
+              "description": "Arbitrary ticket data for the client",
+              "type": "object"
+            },
+            "meta": {
+              "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
+              "type": "object"
             }
           }
         },
@@ -1577,6 +1642,7 @@
     },
     "token": {
       "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
+      "type": "object",
       "properties": {
         "validityDuration": {
           "description": "The rules that MaaS will interpret to schedule, re-validate or cancel the booking.",

@@ -1,487 +1,219 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/bookings/bookings-create/response",
-  "description": "MaaS on-the-whim booking-response",
-  "allOf": [
-    {
-      "type": "object",
-      "description": "The base booking object with all fields, to be inherited",
-      "properties": {
-        "id": {
-          "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
-          "type": "string",
-          "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
-        },
-        "tspId": {
-          "type": "string",
-          "maxLength": 256
-        },
-        "state": {
-          "description": "The life-cycle state of the booking",
-          "type": "string",
-          "enum": [
-            "START",
-            "PENDING",
-            "PAID",
-            "RESERVED",
-            "CONFIRMED",
-            "ACTIVATED",
-            "CANCELLED",
-            "CANCELLED_WITH_ERRORS",
-            "EXPIRED",
-            "RECONCILING",
-            "RESOLVED",
-            "REJECTED"
-          ]
-        },
-        "fare": {
-          "description": "A fare/price as billed from the user in POINTs",
+  "description": "Response schema for bookings-create",
+  "type": "object",
+  "properties": {
+    "booking": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "id": "https://api.maas.global/core/booking",
+      "description": "MaaS Booking schema",
+      "allOf": [
+        {
           "type": "object",
+          "description": "The base booking object with all fields, to be inherited",
           "properties": {
-            "amount": {
-              "type": "integer",
-              "minimum": 0
-            },
-            "currency": {
+            "id": {
+              "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
               "type": "string",
-              "enum": [
-                "POINT"
-              ]
-            }
-          },
-          "required": [
-            "amount",
-            "currency"
-          ],
-          "additionalProperties": false
-        },
-        "cost": {
-          "description": "A fare/price as billed by a TSP from MaaS in EUR",
-          "type": "object",
-          "required": [
-            "amount",
-            "currency"
-          ],
-          "properties": {
-            "amount": {
-              "type": "number",
-              "minimum": 0,
-              "multipleOf": 0.01
+              "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
             },
-            "currency": {
+            "tspId": {
               "type": "string",
-              "enum": [
-                "EUR"
-              ]
-            }
-          },
-          "additionalProperties": false
-        },
-        "leg": {
-          "type": "object",
-          "description": "MaaS response may return any subset of legCore",
-          "properties": {
-            "signature": {
-              "type": "string"
-            },
-            "from": {
-              "type": "object",
-              "additionalProperties": true,
-              "allOf": [
-                {
-                  "description": "A place, as a location-name pair",
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "object",
-                      "properties": {
-                        "lat": {
-                          "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                          "type": "number",
-                          "minimum": -90,
-                          "maximum": 90,
-                          "multipleOf": 0.000001
-                        },
-                        "lon": {
-                          "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                          "type": "number",
-                          "minimum": -180,
-                          "maximum": 180,
-                          "multipleOf": 0.000001
-                        }
-                      },
-                      "required": [
-                        "lat",
-                        "lon"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "stopId": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "stopCode": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  }
-                }
-              ],
-              "required": [
-                "lat",
-                "lon"
-              ]
-            },
-            "to": {
-              "type": "object",
-              "additionalProperties": true,
-              "allOf": [
-                {
-                  "description": "A place, as a location-name pair",
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "object",
-                      "properties": {
-                        "lat": {
-                          "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                          "type": "number",
-                          "minimum": -90,
-                          "maximum": 90,
-                          "multipleOf": 0.000001
-                        },
-                        "lon": {
-                          "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                          "type": "number",
-                          "minimum": -180,
-                          "maximum": 180,
-                          "multipleOf": 0.000001
-                        }
-                      },
-                      "required": [
-                        "lat",
-                        "lon"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "stopId": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "stopCode": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  }
-                }
-              ],
-              "required": [
-                "lat",
-                "lon"
-              ]
-            },
-            "startTime": {
-              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-              "type": "integer",
-              "maximum": 9007199254740991,
-              "minimum": 1451606400
-            },
-            "endTime": {
-              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-              "type": "integer",
-              "maximum": 9007199254740991,
-              "minimum": 1451606400
-            },
-            "mode": {
-              "anyOf": [
-                {
-                  "description": "A mode that involves using your personal vehicle or legs",
-                  "type": "string",
-                  "enum": [
-                    "WALK",
-                    "BICYCLE",
-                    "CAR"
-                  ]
-                },
-                {
-                  "description": "A mode that involves transit with fixed schedules",
-                  "type": "string",
-                  "enum": [
-                    "TRAM",
-                    "SUBWAY",
-                    "RAIL",
-                    "BUS",
-                    "FERRY",
-                    "TRANSIT",
-                    "TRAIN",
-                    "AEROPLANE"
-                  ]
-                },
-                {
-                  "description": "A mode that is available on-demand for your personal use",
-                  "type": "string",
-                  "enum": [
-                    "CAR",
-                    "TAXI",
-                    "CABLE_CAR",
-                    "GONDOLA",
-                    "FUNICULAR",
-                    "BUSISH",
-                    "TRAINISH"
-                  ]
-                }
-              ]
-            },
-            "departureDelay": {
-              "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
-              "type": "integer",
-              "maximum": 9007199254740991,
-              "minimum": -9007199254740991
-            },
-            "arrivalDelay": {
-              "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
-              "type": "integer",
-              "maximum": 9007199254740991,
-              "minimum": -9007199254740991
-            },
-            "distance": {
-              "description": "Distance in meters",
-              "type": "number",
-              "minimum": 0,
-              "maximum": 40075000,
-              "multipleOf": 0.000001
+              "maxLength": 256
             },
             "state": {
+              "description": "The life-cycle state of the booking",
               "type": "string",
               "enum": [
                 "START",
-                "PLANNED",
+                "PENDING",
                 "PAID",
+                "RESERVED",
+                "CONFIRMED",
                 "ACTIVATED",
                 "CANCELLED",
                 "CANCELLED_WITH_ERRORS",
-                "FINISHED"
+                "EXPIRED",
+                "RECONCILING",
+                "RESOLVED",
+                "REJECTED"
               ]
             },
-            "route": {
-              "type": "string",
-              "minLength": 1
-            },
-            "routeShortName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "routeLongName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "agencyId": {
-              "type": "string",
-              "minLength": 2
-            },
-            "legGeometry": {
+            "fare": {
+              "description": "A fare/price as billed from the user in POINTs",
               "type": "object",
-              "description": "Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm",
               "properties": {
-                "points": {
+                "amount": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "currency": {
                   "type": "string",
-                  "minLength": 3,
-                  "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
+                  "enum": [
+                    "POINT"
+                  ]
                 }
               },
               "required": [
-                "points"
+                "amount",
+                "currency"
               ],
               "additionalProperties": false
-            }
-          },
-          "additionalProperties": false
-        },
-        "meta": {
-          "type": "object",
-          "description": "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
-          "properties": {
-            "MODE_WALK": {
-              "type": "object"
             },
-            "MODE_BICYCLE": {
-              "type": "object"
-            },
-            "MODE_CAR": {
+            "cost": {
+              "description": "A fare/price as billed by a TSP from MaaS in EUR",
+              "type": "object",
+              "required": [
+                "amount",
+                "currency"
+              ],
               "properties": {
-                "name": {
-                  "type": "string"
+                "amount": {
+                  "type": "number",
+                  "minimum": 0,
+                  "multipleOf": 0.01
                 },
-                "description": {
-                  "type": "string"
-                },
-                "image": {
-                  "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
+                "currency": {
                   "type": "string",
-                  "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
-                },
-                "car": {
-                  "type": "object",
-                  "properties": {
-                    "passengers": {
-                      "type": "integer"
-                    }
-                  }
+                  "enum": [
+                    "EUR"
+                  ]
                 }
               },
-              "required": [
-                "name",
-                "description",
-                "image"
-              ]
+              "additionalProperties": false
             },
-            "MODE_TRAM": {
-              "type": "object"
-            },
-            "MODE_SUBWAY": {
-              "type": "object"
-            },
-            "MODE_RAIL": {
-              "type": "object"
-            },
-            "MODE_BUS": {
-              "type": "object"
-            },
-            "MODE_FERRY": {
-              "type": "object"
-            },
-            "MODE_CABLE_CAR": {
-              "type": "object"
-            },
-            "MODE_GONDOLA": {
-              "type": "object"
-            },
-            "MODE_FUNICULAR": {
-              "type": "object"
-            },
-            "MODE_TRANSIT": {
-              "type": "object"
-            },
-            "MODE_TRAIN": {
-              "type": "object"
-            },
-            "MODE_TRAINISH": {
-              "type": "object"
-            },
-            "MODE_BUSISH": {
-              "type": "object"
-            },
-            "MODE_LEG_SWITCH": {
-              "type": "object"
-            },
-            "MODE_MAAS_TRIP": {
-              "type": "object"
-            },
-            "MODE_MAAS_PERSONAL": {
-              "type": "object"
-            },
-            "MODE_TAXI": {
+            "leg": {
               "type": "object",
+              "description": "MaaS response may return any subset of legCore",
               "properties": {
-                "vehicleId": {
-                  "description": "The taxi id (in the taxi number plate on top of the vehicle)",
-                  "type": "string",
-                  "minLength": 1
+                "signature": {
+                  "type": "string"
                 },
-                "vehicleLocation": {
-                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                "from": {
                   "type": "object",
-                  "properties": {
-                    "lat": {
-                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "number",
-                      "minimum": -90,
-                      "maximum": 90,
-                      "multipleOf": 0.000001
+                  "additionalProperties": true,
+                  "allOf": [
+                    {
+                      "description": "A place, as a location-name pair",
+                      "type": "object",
+                      "allOf": [
+                        {
+                          "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                          "type": "object",
+                          "properties": {
+                            "lat": {
+                              "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                              "type": "number",
+                              "minimum": -90,
+                              "maximum": 90,
+                              "multipleOf": 0.000001
+                            },
+                            "lon": {
+                              "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                              "type": "number",
+                              "minimum": -180,
+                              "maximum": 180,
+                              "multipleOf": 0.000001
+                            }
+                          },
+                          "required": [
+                            "lat",
+                            "lon"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        }
+                      ]
                     },
-                    "lon": {
-                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "number",
-                      "minimum": -180,
-                      "maximum": 180,
-                      "multipleOf": 0.000001
+                    {
+                      "type": "object",
+                      "properties": {
+                        "stopId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "stopCode": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
                     }
-                  },
+                  ],
                   "required": [
                     "lat",
                     "lon"
                   ]
                 },
-                "vehicleType": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "eta": {
-                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-                  "type": "integer",
-                  "maximum": 9007199254740991,
-                  "minimum": 1451606400
-                },
-                "taxiCenter": {
+                "to": {
                   "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "minLength": 1
+                  "additionalProperties": true,
+                  "allOf": [
+                    {
+                      "description": "A place, as a location-name pair",
+                      "type": "object",
+                      "allOf": [
+                        {
+                          "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                          "type": "object",
+                          "properties": {
+                            "lat": {
+                              "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                              "type": "number",
+                              "minimum": -90,
+                              "maximum": 90,
+                              "multipleOf": 0.000001
+                            },
+                            "lon": {
+                              "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                              "type": "number",
+                              "minimum": -180,
+                              "maximum": 180,
+                              "multipleOf": 0.000001
+                            }
+                          },
+                          "required": [
+                            "lat",
+                            "lon"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        }
+                      ]
                     },
-                    "phone": {
-                      "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
-                      "type": "string",
-                      "pattern": "^\\+(?:\\d){6,14}\\d$"
+                    {
+                      "type": "object",
+                      "properties": {
+                        "stopId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "stopCode": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
                     }
-                  }
-                }
-              },
-              "additionalProperties": false
-            }
-          },
-          "additionalProperties": true
-        },
-        "terms": {
-          "description": "MaaS booking terms and condition for its business engine",
-          "type": "object",
-          "properties": {
-            "type": {
-              "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-              "type": "string"
-            },
-            "validity": {
-              "description": "Booking validity conditions",
-              "type": "object",
-              "properties": {
+                  ],
+                  "required": [
+                    "lat",
+                    "lon"
+                  ]
+                },
                 "startTime": {
                   "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
                   "type": "integer",
@@ -493,150 +225,204 @@
                   "type": "integer",
                   "maximum": 9007199254740991,
                   "minimum": 1451606400
+                },
+                "mode": {
+                  "anyOf": [
+                    {
+                      "description": "A mode that involves using your personal vehicle or legs",
+                      "type": "string",
+                      "enum": [
+                        "WALK",
+                        "BICYCLE",
+                        "CAR"
+                      ]
+                    },
+                    {
+                      "description": "A mode that involves transit with fixed schedules",
+                      "type": "string",
+                      "enum": [
+                        "TRAM",
+                        "SUBWAY",
+                        "RAIL",
+                        "BUS",
+                        "FERRY",
+                        "TRANSIT",
+                        "TRAIN",
+                        "AEROPLANE"
+                      ]
+                    },
+                    {
+                      "description": "A mode that is available on-demand for your personal use",
+                      "type": "string",
+                      "enum": [
+                        "CAR",
+                        "TAXI",
+                        "CABLE_CAR",
+                        "GONDOLA",
+                        "FUNICULAR",
+                        "BUSISH",
+                        "TRAINISH"
+                      ]
+                    }
+                  ]
+                },
+                "departureDelay": {
+                  "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": -9007199254740991
+                },
+                "arrivalDelay": {
+                  "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": -9007199254740991
+                },
+                "distance": {
+                  "description": "Distance in meters",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 40075000,
+                  "multipleOf": 0.000001
+                },
+                "state": {
+                  "type": "string",
+                  "enum": [
+                    "START",
+                    "PLANNED",
+                    "PAID",
+                    "ACTIVATED",
+                    "CANCELLED",
+                    "CANCELLED_WITH_ERRORS",
+                    "FINISHED"
+                  ]
+                },
+                "route": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "routeShortName": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "routeLongName": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "agencyId": {
+                  "type": "string",
+                  "minLength": 2
+                },
+                "legGeometry": {
+                  "type": "object",
+                  "description": "Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm",
+                  "properties": {
+                    "points": {
+                      "type": "string",
+                      "minLength": 3,
+                      "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
+                    }
+                  },
+                  "required": [
+                    "points"
+                  ],
+                  "additionalProperties": false
                 }
               },
-              "required": [
-                "startTime",
-                "endTime"
-              ]
-            }
-          }
-        },
-        "customer": {
-          "type": "object",
-          "description": "Booking customer information",
-          "properties": {
-            "firstName": {
-              "description": "First name of the customer (e.g. John)",
-              "type": "string"
+              "additionalProperties": false
             },
-            "lastName": {
-              "description": "Last name of the customer (e.g. Doe)",
-              "type": "string"
-            },
-            "phone": {
-              "description": "Phone number that the customer may be reached from",
-              "type": "string"
-            },
-            "email": {
-              "description": "Email address that the customer may be reached from",
-              "type": "string"
-            }
-          },
-          "required": [
-            "firstName",
-            "lastName",
-            "phone",
-            "email"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "additionalProperties": false
-    },
-    {
-      "required": [
-        "id",
-        "tspId",
-        "state",
-        "leg",
-        "meta",
-        "terms",
-        "customer"
-      ]
-    }
-  ],
-  "definitions": {
-    "bookingCore": {
-      "type": "object",
-      "description": "The base booking object with all fields, to be inherited",
-      "properties": {
-        "id": {
-          "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
-          "type": "string",
-          "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
-        },
-        "tspId": {
-          "type": "string",
-          "maxLength": 256
-        },
-        "state": {
-          "description": "The life-cycle state of the booking",
-          "type": "string",
-          "enum": [
-            "START",
-            "PENDING",
-            "PAID",
-            "RESERVED",
-            "CONFIRMED",
-            "ACTIVATED",
-            "CANCELLED",
-            "CANCELLED_WITH_ERRORS",
-            "EXPIRED",
-            "RECONCILING",
-            "RESOLVED",
-            "REJECTED"
-          ]
-        },
-        "fare": {
-          "description": "A fare/price as billed from the user in POINTs",
-          "type": "object",
-          "properties": {
-            "amount": {
-              "type": "integer",
-              "minimum": 0
-            },
-            "currency": {
-              "type": "string",
-              "enum": [
-                "POINT"
-              ]
-            }
-          },
-          "required": [
-            "amount",
-            "currency"
-          ],
-          "additionalProperties": false
-        },
-        "cost": {
-          "description": "A fare/price as billed by a TSP from MaaS in EUR",
-          "type": "object",
-          "required": [
-            "amount",
-            "currency"
-          ],
-          "properties": {
-            "amount": {
-              "type": "number",
-              "minimum": 0,
-              "multipleOf": 0.01
-            },
-            "currency": {
-              "type": "string",
-              "enum": [
-                "EUR"
-              ]
-            }
-          },
-          "additionalProperties": false
-        },
-        "leg": {
-          "type": "object",
-          "description": "MaaS response may return any subset of legCore",
-          "properties": {
-            "signature": {
-              "type": "string"
-            },
-            "from": {
+            "meta": {
               "type": "object",
-              "additionalProperties": true,
-              "allOf": [
-                {
-                  "description": "A place, as a location-name pair",
+              "description": "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
+              "properties": {
+                "MODE_WALK": {
+                  "type": "object"
+                },
+                "MODE_BICYCLE": {
+                  "type": "object"
+                },
+                "MODE_CAR": {
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
+                      "type": "string",
+                      "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
+                    },
+                    "car": {
+                      "type": "object",
+                      "properties": {
+                        "passengers": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "description",
+                    "image"
+                  ]
+                },
+                "MODE_TRAM": {
+                  "type": "object"
+                },
+                "MODE_SUBWAY": {
+                  "type": "object"
+                },
+                "MODE_RAIL": {
+                  "type": "object"
+                },
+                "MODE_BUS": {
+                  "type": "object"
+                },
+                "MODE_FERRY": {
+                  "type": "object"
+                },
+                "MODE_CABLE_CAR": {
+                  "type": "object"
+                },
+                "MODE_GONDOLA": {
+                  "type": "object"
+                },
+                "MODE_FUNICULAR": {
+                  "type": "object"
+                },
+                "MODE_TRANSIT": {
+                  "type": "object"
+                },
+                "MODE_TRAIN": {
+                  "type": "object"
+                },
+                "MODE_TRAINISH": {
+                  "type": "object"
+                },
+                "MODE_BUSISH": {
+                  "type": "object"
+                },
+                "MODE_LEG_SWITCH": {
+                  "type": "object"
+                },
+                "MODE_MAAS_TRIP": {
+                  "type": "object"
+                },
+                "MODE_MAAS_PERSONAL": {
+                  "type": "object"
+                },
+                "MODE_TAXI": {
                   "type": "object",
-                  "allOf": [
-                    {
+                  "properties": {
+                    "vehicleId": {
+                      "description": "The taxi id (in the taxi number plate on top of the vehicle)",
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "vehicleLocation": {
                       "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                       "type": "object",
                       "properties": {
@@ -660,955 +446,1251 @@
                         "lon"
                       ]
                     },
-                    {
+                    "vehicleType": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "eta": {
+                      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                      "type": "integer",
+                      "maximum": 9007199254740991,
+                      "minimum": 1451606400
+                    },
+                    "taxiCenter": {
                       "type": "object",
                       "properties": {
                         "name": {
                           "type": "string",
                           "minLength": 1
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "stopId": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "stopCode": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  }
-                }
-              ],
-              "required": [
-                "lat",
-                "lon"
-              ]
-            },
-            "to": {
-              "type": "object",
-              "additionalProperties": true,
-              "allOf": [
-                {
-                  "description": "A place, as a location-name pair",
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "object",
-                      "properties": {
-                        "lat": {
-                          "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                          "type": "number",
-                          "minimum": -90,
-                          "maximum": 90,
-                          "multipleOf": 0.000001
                         },
-                        "lon": {
-                          "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                          "type": "number",
-                          "minimum": -180,
-                          "maximum": 180,
-                          "multipleOf": 0.000001
-                        }
-                      },
-                      "required": [
-                        "lat",
-                        "lon"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "name": {
+                        "phone": {
+                          "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
                           "type": "string",
-                          "minLength": 1
+                          "pattern": "^\\+(?:\\d){6,14}\\d$"
                         }
                       }
                     }
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "stopId": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "stopCode": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  }
-                }
-              ],
-              "required": [
-                "lat",
-                "lon"
-              ]
-            },
-            "startTime": {
-              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-              "type": "integer",
-              "maximum": 9007199254740991,
-              "minimum": 1451606400
-            },
-            "endTime": {
-              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-              "type": "integer",
-              "maximum": 9007199254740991,
-              "minimum": 1451606400
-            },
-            "mode": {
-              "anyOf": [
-                {
-                  "description": "A mode that involves using your personal vehicle or legs",
-                  "type": "string",
-                  "enum": [
-                    "WALK",
-                    "BICYCLE",
-                    "CAR"
-                  ]
-                },
-                {
-                  "description": "A mode that involves transit with fixed schedules",
-                  "type": "string",
-                  "enum": [
-                    "TRAM",
-                    "SUBWAY",
-                    "RAIL",
-                    "BUS",
-                    "FERRY",
-                    "TRANSIT",
-                    "TRAIN",
-                    "AEROPLANE"
-                  ]
-                },
-                {
-                  "description": "A mode that is available on-demand for your personal use",
-                  "type": "string",
-                  "enum": [
-                    "CAR",
-                    "TAXI",
-                    "CABLE_CAR",
-                    "GONDOLA",
-                    "FUNICULAR",
-                    "BUSISH",
-                    "TRAINISH"
-                  ]
-                }
-              ]
-            },
-            "departureDelay": {
-              "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
-              "type": "integer",
-              "maximum": 9007199254740991,
-              "minimum": -9007199254740991
-            },
-            "arrivalDelay": {
-              "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
-              "type": "integer",
-              "maximum": 9007199254740991,
-              "minimum": -9007199254740991
-            },
-            "distance": {
-              "description": "Distance in meters",
-              "type": "number",
-              "minimum": 0,
-              "maximum": 40075000,
-              "multipleOf": 0.000001
-            },
-            "state": {
-              "type": "string",
-              "enum": [
-                "START",
-                "PLANNED",
-                "PAID",
-                "ACTIVATED",
-                "CANCELLED",
-                "CANCELLED_WITH_ERRORS",
-                "FINISHED"
-              ]
-            },
-            "route": {
-              "type": "string",
-              "minLength": 1
-            },
-            "routeShortName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "routeLongName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "agencyId": {
-              "type": "string",
-              "minLength": 2
-            },
-            "legGeometry": {
-              "type": "object",
-              "description": "Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm",
-              "properties": {
-                "points": {
-                  "type": "string",
-                  "minLength": 3,
-                  "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
+                  },
+                  "additionalProperties": false
                 }
               },
-              "required": [
-                "points"
-              ],
-              "additionalProperties": false
-            }
-          },
-          "additionalProperties": false
-        },
-        "meta": {
-          "type": "object",
-          "description": "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
-          "properties": {
-            "MODE_WALK": {
-              "type": "object"
+              "additionalProperties": true
             },
-            "MODE_BICYCLE": {
-              "type": "object"
-            },
-            "MODE_CAR": {
+            "terms": {
+              "description": "MaaS booking terms and condition for its business engine",
+              "type": "object",
               "properties": {
-                "name": {
+                "type": {
+                  "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
                   "type": "string"
                 },
-                "description": {
+                "validity": {
+                  "description": "Booking validity conditions",
+                  "type": "object",
+                  "properties": {
+                    "startTime": {
+                      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                      "type": "integer",
+                      "maximum": 9007199254740991,
+                      "minimum": 1451606400
+                    },
+                    "endTime": {
+                      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                      "type": "integer",
+                      "maximum": 9007199254740991,
+                      "minimum": 1451606400
+                    }
+                  },
+                  "required": [
+                    "startTime",
+                    "endTime"
+                  ]
+                }
+              }
+            },
+            "token": {
+              "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
+              "type": "object",
+              "properties": {
+                "validityDuration": {
+                  "description": "The rules that MaaS will interpret to schedule, re-validate or cancel the booking.",
+                  "type": "object",
+                  "properties": {
+                    "startTime": {
+                      "description": "The starting time from which the ticket is valid",
+                      "type": "integer",
+                      "maximum": 9007199254740991,
+                      "minimum": 1451606400
+                    },
+                    "endTime": {
+                      "description": "The finishing time the ticket is valid for",
+                      "type": "integer",
+                      "maximum": 9007199254740991,
+                      "minimum": 1451606400
+                    }
+                  }
+                },
+                "data": {
+                  "description": "Arbitrary ticket data for the client",
+                  "type": "object"
+                },
+                "meta": {
+                  "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
+                  "type": "object"
+                }
+              }
+            },
+            "customer": {
+              "type": "object",
+              "description": "Booking customer information",
+              "properties": {
+                "firstName": {
+                  "description": "First name of the customer (e.g. John)",
                   "type": "string"
                 },
-                "image": {
-                  "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
-                  "type": "string",
-                  "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
-                },
-                "car": {
-                  "type": "object",
-                  "properties": {
-                    "passengers": {
-                      "type": "integer"
-                    }
-                  }
-                }
-              },
-              "required": [
-                "name",
-                "description",
-                "image"
-              ]
-            },
-            "MODE_TRAM": {
-              "type": "object"
-            },
-            "MODE_SUBWAY": {
-              "type": "object"
-            },
-            "MODE_RAIL": {
-              "type": "object"
-            },
-            "MODE_BUS": {
-              "type": "object"
-            },
-            "MODE_FERRY": {
-              "type": "object"
-            },
-            "MODE_CABLE_CAR": {
-              "type": "object"
-            },
-            "MODE_GONDOLA": {
-              "type": "object"
-            },
-            "MODE_FUNICULAR": {
-              "type": "object"
-            },
-            "MODE_TRANSIT": {
-              "type": "object"
-            },
-            "MODE_TRAIN": {
-              "type": "object"
-            },
-            "MODE_TRAINISH": {
-              "type": "object"
-            },
-            "MODE_BUSISH": {
-              "type": "object"
-            },
-            "MODE_LEG_SWITCH": {
-              "type": "object"
-            },
-            "MODE_MAAS_TRIP": {
-              "type": "object"
-            },
-            "MODE_MAAS_PERSONAL": {
-              "type": "object"
-            },
-            "MODE_TAXI": {
-              "type": "object",
-              "properties": {
-                "vehicleId": {
-                  "description": "The taxi id (in the taxi number plate on top of the vehicle)",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "vehicleLocation": {
-                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                  "type": "object",
-                  "properties": {
-                    "lat": {
-                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "number",
-                      "minimum": -90,
-                      "maximum": 90,
-                      "multipleOf": 0.000001
-                    },
-                    "lon": {
-                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "number",
-                      "minimum": -180,
-                      "maximum": 180,
-                      "multipleOf": 0.000001
-                    }
-                  },
-                  "required": [
-                    "lat",
-                    "lon"
-                  ]
-                },
-                "vehicleType": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "eta": {
-                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-                  "type": "integer",
-                  "maximum": 9007199254740991,
-                  "minimum": 1451606400
-                },
-                "taxiCenter": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "phone": {
-                      "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
-                      "type": "string",
-                      "pattern": "^\\+(?:\\d){6,14}\\d$"
-                    }
-                  }
-                }
-              },
-              "additionalProperties": false
-            }
-          },
-          "additionalProperties": true
-        },
-        "terms": {
-          "description": "MaaS booking terms and condition for its business engine",
-          "type": "object",
-          "properties": {
-            "type": {
-              "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-              "type": "string"
-            },
-            "validity": {
-              "description": "Booking validity conditions",
-              "type": "object",
-              "properties": {
-                "startTime": {
-                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-                  "type": "integer",
-                  "maximum": 9007199254740991,
-                  "minimum": 1451606400
-                },
-                "endTime": {
-                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-                  "type": "integer",
-                  "maximum": 9007199254740991,
-                  "minimum": 1451606400
-                }
-              },
-              "required": [
-                "startTime",
-                "endTime"
-              ]
-            }
-          }
-        },
-        "customer": {
-          "type": "object",
-          "description": "Booking customer information",
-          "properties": {
-            "firstName": {
-              "description": "First name of the customer (e.g. John)",
-              "type": "string"
-            },
-            "lastName": {
-              "description": "Last name of the customer (e.g. Doe)",
-              "type": "string"
-            },
-            "phone": {
-              "description": "Phone number that the customer may be reached from",
-              "type": "string"
-            },
-            "email": {
-              "description": "Email address that the customer may be reached from",
-              "type": "string"
-            }
-          },
-          "required": [
-            "firstName",
-            "lastName",
-            "phone",
-            "email"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "additionalProperties": false
-    },
-    "customer": {
-      "type": "object",
-      "description": "Booking customer information",
-      "properties": {
-        "firstName": {
-          "description": "First name of the customer (e.g. John)",
-          "type": "string"
-        },
-        "lastName": {
-          "description": "Last name of the customer (e.g. Doe)",
-          "type": "string"
-        },
-        "phone": {
-          "description": "Phone number that the customer may be reached from",
-          "type": "string"
-        },
-        "email": {
-          "description": "Email address that the customer may be reached from",
-          "type": "string"
-        }
-      },
-      "required": [
-        "firstName",
-        "lastName",
-        "phone",
-        "email"
-      ],
-      "additionalProperties": false
-    },
-    "leg": {
-      "type": "object",
-      "description": "MaaS response may return any subset of legCore",
-      "properties": {
-        "signature": {
-          "type": "string"
-        },
-        "from": {
-          "type": "object",
-          "additionalProperties": true,
-          "allOf": [
-            {
-              "description": "A place, as a location-name pair",
-              "type": "object",
-              "allOf": [
-                {
-                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                  "type": "object",
-                  "properties": {
-                    "lat": {
-                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "number",
-                      "minimum": -90,
-                      "maximum": 90,
-                      "multipleOf": 0.000001
-                    },
-                    "lon": {
-                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "number",
-                      "minimum": -180,
-                      "maximum": 180,
-                      "multipleOf": 0.000001
-                    }
-                  },
-                  "required": [
-                    "lat",
-                    "lon"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "type": "object",
-              "properties": {
-                "stopId": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "stopCode": {
-                  "type": "string",
-                  "minLength": 1
-                }
-              }
-            }
-          ],
-          "required": [
-            "lat",
-            "lon"
-          ]
-        },
-        "to": {
-          "type": "object",
-          "additionalProperties": true,
-          "allOf": [
-            {
-              "description": "A place, as a location-name pair",
-              "type": "object",
-              "allOf": [
-                {
-                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                  "type": "object",
-                  "properties": {
-                    "lat": {
-                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "number",
-                      "minimum": -90,
-                      "maximum": 90,
-                      "multipleOf": 0.000001
-                    },
-                    "lon": {
-                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                      "type": "number",
-                      "minimum": -180,
-                      "maximum": 180,
-                      "multipleOf": 0.000001
-                    }
-                  },
-                  "required": [
-                    "lat",
-                    "lon"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "type": "object",
-              "properties": {
-                "stopId": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "stopCode": {
-                  "type": "string",
-                  "minLength": 1
-                }
-              }
-            }
-          ],
-          "required": [
-            "lat",
-            "lon"
-          ]
-        },
-        "startTime": {
-          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-          "type": "integer",
-          "maximum": 9007199254740991,
-          "minimum": 1451606400
-        },
-        "endTime": {
-          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-          "type": "integer",
-          "maximum": 9007199254740991,
-          "minimum": 1451606400
-        },
-        "mode": {
-          "anyOf": [
-            {
-              "description": "A mode that involves using your personal vehicle or legs",
-              "type": "string",
-              "enum": [
-                "WALK",
-                "BICYCLE",
-                "CAR"
-              ]
-            },
-            {
-              "description": "A mode that involves transit with fixed schedules",
-              "type": "string",
-              "enum": [
-                "TRAM",
-                "SUBWAY",
-                "RAIL",
-                "BUS",
-                "FERRY",
-                "TRANSIT",
-                "TRAIN",
-                "AEROPLANE"
-              ]
-            },
-            {
-              "description": "A mode that is available on-demand for your personal use",
-              "type": "string",
-              "enum": [
-                "CAR",
-                "TAXI",
-                "CABLE_CAR",
-                "GONDOLA",
-                "FUNICULAR",
-                "BUSISH",
-                "TRAINISH"
-              ]
-            }
-          ]
-        },
-        "departureDelay": {
-          "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
-          "type": "integer",
-          "maximum": 9007199254740991,
-          "minimum": -9007199254740991
-        },
-        "arrivalDelay": {
-          "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
-          "type": "integer",
-          "maximum": 9007199254740991,
-          "minimum": -9007199254740991
-        },
-        "distance": {
-          "description": "Distance in meters",
-          "type": "number",
-          "minimum": 0,
-          "maximum": 40075000,
-          "multipleOf": 0.000001
-        },
-        "state": {
-          "type": "string",
-          "enum": [
-            "START",
-            "PLANNED",
-            "PAID",
-            "ACTIVATED",
-            "CANCELLED",
-            "CANCELLED_WITH_ERRORS",
-            "FINISHED"
-          ]
-        },
-        "route": {
-          "type": "string",
-          "minLength": 1
-        },
-        "routeShortName": {
-          "type": "string",
-          "minLength": 1
-        },
-        "routeLongName": {
-          "type": "string",
-          "minLength": 1
-        },
-        "agencyId": {
-          "type": "string",
-          "minLength": 2
-        },
-        "legGeometry": {
-          "type": "object",
-          "description": "Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm",
-          "properties": {
-            "points": {
-              "type": "string",
-              "minLength": 3,
-              "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
-            }
-          },
-          "required": [
-            "points"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "additionalProperties": false
-    },
-    "fare": {
-      "description": "A fare/price as billed from the user in POINTs",
-      "type": "object",
-      "properties": {
-        "amount": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "currency": {
-          "type": "string",
-          "enum": [
-            "POINT"
-          ]
-        }
-      },
-      "required": [
-        "amount",
-        "currency"
-      ],
-      "additionalProperties": false
-    },
-    "cost": {
-      "description": "A fare/price as billed by a TSP from MaaS in EUR",
-      "type": "object",
-      "required": [
-        "amount",
-        "currency"
-      ],
-      "properties": {
-        "amount": {
-          "type": "number",
-          "minimum": 0,
-          "multipleOf": 0.01
-        },
-        "currency": {
-          "type": "string",
-          "enum": [
-            "EUR"
-          ]
-        }
-      },
-      "additionalProperties": false
-    },
-    "meta": {
-      "type": "object",
-      "description": "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
-      "properties": {
-        "MODE_WALK": {
-          "type": "object"
-        },
-        "MODE_BICYCLE": {
-          "type": "object"
-        },
-        "MODE_CAR": {
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "image": {
-              "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
-              "type": "string",
-              "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
-            },
-            "car": {
-              "type": "object",
-              "properties": {
-                "passengers": {
-                  "type": "integer"
-                }
-              }
-            }
-          },
-          "required": [
-            "name",
-            "description",
-            "image"
-          ]
-        },
-        "MODE_TRAM": {
-          "type": "object"
-        },
-        "MODE_SUBWAY": {
-          "type": "object"
-        },
-        "MODE_RAIL": {
-          "type": "object"
-        },
-        "MODE_BUS": {
-          "type": "object"
-        },
-        "MODE_FERRY": {
-          "type": "object"
-        },
-        "MODE_CABLE_CAR": {
-          "type": "object"
-        },
-        "MODE_GONDOLA": {
-          "type": "object"
-        },
-        "MODE_FUNICULAR": {
-          "type": "object"
-        },
-        "MODE_TRANSIT": {
-          "type": "object"
-        },
-        "MODE_TRAIN": {
-          "type": "object"
-        },
-        "MODE_TRAINISH": {
-          "type": "object"
-        },
-        "MODE_BUSISH": {
-          "type": "object"
-        },
-        "MODE_LEG_SWITCH": {
-          "type": "object"
-        },
-        "MODE_MAAS_TRIP": {
-          "type": "object"
-        },
-        "MODE_MAAS_PERSONAL": {
-          "type": "object"
-        },
-        "MODE_TAXI": {
-          "type": "object",
-          "properties": {
-            "vehicleId": {
-              "description": "The taxi id (in the taxi number plate on top of the vehicle)",
-              "type": "string",
-              "minLength": 1
-            },
-            "vehicleLocation": {
-              "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-              "type": "object",
-              "properties": {
-                "lat": {
-                  "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                  "type": "number",
-                  "minimum": -90,
-                  "maximum": 90,
-                  "multipleOf": 0.000001
-                },
-                "lon": {
-                  "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                  "type": "number",
-                  "minimum": -180,
-                  "maximum": 180,
-                  "multipleOf": 0.000001
-                }
-              },
-              "required": [
-                "lat",
-                "lon"
-              ]
-            },
-            "vehicleType": {
-              "type": "string",
-              "minLength": 1
-            },
-            "eta": {
-              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-              "type": "integer",
-              "maximum": 9007199254740991,
-              "minimum": 1451606400
-            },
-            "taxiCenter": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "minLength": 1
+                "lastName": {
+                  "description": "Last name of the customer (e.g. Doe)",
+                  "type": "string"
                 },
                 "phone": {
-                  "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
-                  "type": "string",
-                  "pattern": "^\\+(?:\\d){6,14}\\d$"
+                  "description": "Phone number that the customer may be reached from",
+                  "type": "string"
+                },
+                "email": {
+                  "description": "Email address that the customer may be reached from",
+                  "type": "string"
                 }
-              }
+              },
+              "required": [
+                "firstName",
+                "lastName",
+                "phone",
+                "email"
+              ],
+              "additionalProperties": false
             }
           },
           "additionalProperties": false
-        }
-      },
-      "additionalProperties": true
-    },
-    "terms": {
-      "description": "MaaS booking terms and condition for its business engine",
-      "type": "object",
-      "properties": {
-        "type": {
-          "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-          "type": "string"
         },
-        "validity": {
-          "description": "Booking validity conditions",
+        {
+          "required": [
+            "id",
+            "tspId",
+            "state",
+            "leg",
+            "meta",
+            "terms",
+            "token",
+            "customer"
+          ]
+        }
+      ],
+      "definitions": {
+        "bookingCore": {
           "type": "object",
+          "description": "The base booking object with all fields, to be inherited",
           "properties": {
-            "startTime": {
-              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-              "type": "integer",
-              "maximum": 9007199254740991,
-              "minimum": 1451606400
+            "id": {
+              "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
+              "type": "string",
+              "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
             },
-            "endTime": {
-              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-              "type": "integer",
-              "maximum": 9007199254740991,
-              "minimum": 1451606400
+            "tspId": {
+              "type": "string",
+              "maxLength": 256
+            },
+            "state": {
+              "description": "The life-cycle state of the booking",
+              "type": "string",
+              "enum": [
+                "START",
+                "PENDING",
+                "PAID",
+                "RESERVED",
+                "CONFIRMED",
+                "ACTIVATED",
+                "CANCELLED",
+                "CANCELLED_WITH_ERRORS",
+                "EXPIRED",
+                "RECONCILING",
+                "RESOLVED",
+                "REJECTED"
+              ]
+            },
+            "fare": {
+              "description": "A fare/price as billed from the user in POINTs",
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "currency": {
+                  "type": "string",
+                  "enum": [
+                    "POINT"
+                  ]
+                }
+              },
+              "required": [
+                "amount",
+                "currency"
+              ],
+              "additionalProperties": false
+            },
+            "cost": {
+              "description": "A fare/price as billed by a TSP from MaaS in EUR",
+              "type": "object",
+              "required": [
+                "amount",
+                "currency"
+              ],
+              "properties": {
+                "amount": {
+                  "type": "number",
+                  "minimum": 0,
+                  "multipleOf": 0.01
+                },
+                "currency": {
+                  "type": "string",
+                  "enum": [
+                    "EUR"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "leg": {
+              "type": "object",
+              "description": "MaaS response may return any subset of legCore",
+              "properties": {
+                "signature": {
+                  "type": "string"
+                },
+                "from": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "allOf": [
+                    {
+                      "description": "A place, as a location-name pair",
+                      "type": "object",
+                      "allOf": [
+                        {
+                          "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                          "type": "object",
+                          "properties": {
+                            "lat": {
+                              "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                              "type": "number",
+                              "minimum": -90,
+                              "maximum": 90,
+                              "multipleOf": 0.000001
+                            },
+                            "lon": {
+                              "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                              "type": "number",
+                              "minimum": -180,
+                              "maximum": 180,
+                              "multipleOf": 0.000001
+                            }
+                          },
+                          "required": [
+                            "lat",
+                            "lon"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "stopId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "stopCode": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  ],
+                  "required": [
+                    "lat",
+                    "lon"
+                  ]
+                },
+                "to": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "allOf": [
+                    {
+                      "description": "A place, as a location-name pair",
+                      "type": "object",
+                      "allOf": [
+                        {
+                          "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                          "type": "object",
+                          "properties": {
+                            "lat": {
+                              "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                              "type": "number",
+                              "minimum": -90,
+                              "maximum": 90,
+                              "multipleOf": 0.000001
+                            },
+                            "lon": {
+                              "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                              "type": "number",
+                              "minimum": -180,
+                              "maximum": 180,
+                              "multipleOf": 0.000001
+                            }
+                          },
+                          "required": [
+                            "lat",
+                            "lon"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "stopId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "stopCode": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  ],
+                  "required": [
+                    "lat",
+                    "lon"
+                  ]
+                },
+                "startTime": {
+                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                },
+                "endTime": {
+                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                },
+                "mode": {
+                  "anyOf": [
+                    {
+                      "description": "A mode that involves using your personal vehicle or legs",
+                      "type": "string",
+                      "enum": [
+                        "WALK",
+                        "BICYCLE",
+                        "CAR"
+                      ]
+                    },
+                    {
+                      "description": "A mode that involves transit with fixed schedules",
+                      "type": "string",
+                      "enum": [
+                        "TRAM",
+                        "SUBWAY",
+                        "RAIL",
+                        "BUS",
+                        "FERRY",
+                        "TRANSIT",
+                        "TRAIN",
+                        "AEROPLANE"
+                      ]
+                    },
+                    {
+                      "description": "A mode that is available on-demand for your personal use",
+                      "type": "string",
+                      "enum": [
+                        "CAR",
+                        "TAXI",
+                        "CABLE_CAR",
+                        "GONDOLA",
+                        "FUNICULAR",
+                        "BUSISH",
+                        "TRAINISH"
+                      ]
+                    }
+                  ]
+                },
+                "departureDelay": {
+                  "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": -9007199254740991
+                },
+                "arrivalDelay": {
+                  "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": -9007199254740991
+                },
+                "distance": {
+                  "description": "Distance in meters",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 40075000,
+                  "multipleOf": 0.000001
+                },
+                "state": {
+                  "type": "string",
+                  "enum": [
+                    "START",
+                    "PLANNED",
+                    "PAID",
+                    "ACTIVATED",
+                    "CANCELLED",
+                    "CANCELLED_WITH_ERRORS",
+                    "FINISHED"
+                  ]
+                },
+                "route": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "routeShortName": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "routeLongName": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "agencyId": {
+                  "type": "string",
+                  "minLength": 2
+                },
+                "legGeometry": {
+                  "type": "object",
+                  "description": "Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm",
+                  "properties": {
+                    "points": {
+                      "type": "string",
+                      "minLength": 3,
+                      "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
+                    }
+                  },
+                  "required": [
+                    "points"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "meta": {
+              "type": "object",
+              "description": "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
+              "properties": {
+                "MODE_WALK": {
+                  "type": "object"
+                },
+                "MODE_BICYCLE": {
+                  "type": "object"
+                },
+                "MODE_CAR": {
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
+                      "type": "string",
+                      "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
+                    },
+                    "car": {
+                      "type": "object",
+                      "properties": {
+                        "passengers": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "description",
+                    "image"
+                  ]
+                },
+                "MODE_TRAM": {
+                  "type": "object"
+                },
+                "MODE_SUBWAY": {
+                  "type": "object"
+                },
+                "MODE_RAIL": {
+                  "type": "object"
+                },
+                "MODE_BUS": {
+                  "type": "object"
+                },
+                "MODE_FERRY": {
+                  "type": "object"
+                },
+                "MODE_CABLE_CAR": {
+                  "type": "object"
+                },
+                "MODE_GONDOLA": {
+                  "type": "object"
+                },
+                "MODE_FUNICULAR": {
+                  "type": "object"
+                },
+                "MODE_TRANSIT": {
+                  "type": "object"
+                },
+                "MODE_TRAIN": {
+                  "type": "object"
+                },
+                "MODE_TRAINISH": {
+                  "type": "object"
+                },
+                "MODE_BUSISH": {
+                  "type": "object"
+                },
+                "MODE_LEG_SWITCH": {
+                  "type": "object"
+                },
+                "MODE_MAAS_TRIP": {
+                  "type": "object"
+                },
+                "MODE_MAAS_PERSONAL": {
+                  "type": "object"
+                },
+                "MODE_TAXI": {
+                  "type": "object",
+                  "properties": {
+                    "vehicleId": {
+                      "description": "The taxi id (in the taxi number plate on top of the vehicle)",
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "vehicleLocation": {
+                      "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                      "type": "object",
+                      "properties": {
+                        "lat": {
+                          "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                          "type": "number",
+                          "minimum": -90,
+                          "maximum": 90,
+                          "multipleOf": 0.000001
+                        },
+                        "lon": {
+                          "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                          "type": "number",
+                          "minimum": -180,
+                          "maximum": 180,
+                          "multipleOf": 0.000001
+                        }
+                      },
+                      "required": [
+                        "lat",
+                        "lon"
+                      ]
+                    },
+                    "vehicleType": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "eta": {
+                      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                      "type": "integer",
+                      "maximum": 9007199254740991,
+                      "minimum": 1451606400
+                    },
+                    "taxiCenter": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "phone": {
+                          "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
+                          "type": "string",
+                          "pattern": "^\\+(?:\\d){6,14}\\d$"
+                        }
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": true
+            },
+            "terms": {
+              "description": "MaaS booking terms and condition for its business engine",
+              "type": "object",
+              "properties": {
+                "type": {
+                  "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
+                  "type": "string"
+                },
+                "validity": {
+                  "description": "Booking validity conditions",
+                  "type": "object",
+                  "properties": {
+                    "startTime": {
+                      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                      "type": "integer",
+                      "maximum": 9007199254740991,
+                      "minimum": 1451606400
+                    },
+                    "endTime": {
+                      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                      "type": "integer",
+                      "maximum": 9007199254740991,
+                      "minimum": 1451606400
+                    }
+                  },
+                  "required": [
+                    "startTime",
+                    "endTime"
+                  ]
+                }
+              }
+            },
+            "token": {
+              "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
+              "type": "object",
+              "properties": {
+                "validityDuration": {
+                  "description": "The rules that MaaS will interpret to schedule, re-validate or cancel the booking.",
+                  "type": "object",
+                  "properties": {
+                    "startTime": {
+                      "description": "The starting time from which the ticket is valid",
+                      "type": "integer",
+                      "maximum": 9007199254740991,
+                      "minimum": 1451606400
+                    },
+                    "endTime": {
+                      "description": "The finishing time the ticket is valid for",
+                      "type": "integer",
+                      "maximum": 9007199254740991,
+                      "minimum": 1451606400
+                    }
+                  }
+                },
+                "data": {
+                  "description": "Arbitrary ticket data for the client",
+                  "type": "object"
+                },
+                "meta": {
+                  "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
+                  "type": "object"
+                }
+              }
+            },
+            "customer": {
+              "type": "object",
+              "description": "Booking customer information",
+              "properties": {
+                "firstName": {
+                  "description": "First name of the customer (e.g. John)",
+                  "type": "string"
+                },
+                "lastName": {
+                  "description": "Last name of the customer (e.g. Doe)",
+                  "type": "string"
+                },
+                "phone": {
+                  "description": "Phone number that the customer may be reached from",
+                  "type": "string"
+                },
+                "email": {
+                  "description": "Email address that the customer may be reached from",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "firstName",
+                "lastName",
+                "phone",
+                "email"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "customer": {
+          "type": "object",
+          "description": "Booking customer information",
+          "properties": {
+            "firstName": {
+              "description": "First name of the customer (e.g. John)",
+              "type": "string"
+            },
+            "lastName": {
+              "description": "Last name of the customer (e.g. Doe)",
+              "type": "string"
+            },
+            "phone": {
+              "description": "Phone number that the customer may be reached from",
+              "type": "string"
+            },
+            "email": {
+              "description": "Email address that the customer may be reached from",
+              "type": "string"
             }
           },
           "required": [
-            "startTime",
-            "endTime"
-          ]
-        }
-      }
-    },
-    "token": {
-      "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
-      "properties": {
-        "validityDuration": {
-          "description": "The rules that MaaS will interpret to schedule, re-validate or cancel the booking.",
+            "firstName",
+            "lastName",
+            "phone",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "leg": {
           "type": "object",
+          "description": "MaaS response may return any subset of legCore",
           "properties": {
+            "signature": {
+              "type": "string"
+            },
+            "from": {
+              "type": "object",
+              "additionalProperties": true,
+              "allOf": [
+                {
+                  "description": "A place, as a location-name pair",
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                      "type": "object",
+                      "properties": {
+                        "lat": {
+                          "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                          "type": "number",
+                          "minimum": -90,
+                          "maximum": 90,
+                          "multipleOf": 0.000001
+                        },
+                        "lon": {
+                          "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                          "type": "number",
+                          "minimum": -180,
+                          "maximum": 180,
+                          "multipleOf": 0.000001
+                        }
+                      },
+                      "required": [
+                        "lat",
+                        "lon"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "stopId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "stopCode": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              ],
+              "required": [
+                "lat",
+                "lon"
+              ]
+            },
+            "to": {
+              "type": "object",
+              "additionalProperties": true,
+              "allOf": [
+                {
+                  "description": "A place, as a location-name pair",
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                      "type": "object",
+                      "properties": {
+                        "lat": {
+                          "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                          "type": "number",
+                          "minimum": -90,
+                          "maximum": 90,
+                          "multipleOf": 0.000001
+                        },
+                        "lon": {
+                          "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                          "type": "number",
+                          "minimum": -180,
+                          "maximum": 180,
+                          "multipleOf": 0.000001
+                        }
+                      },
+                      "required": [
+                        "lat",
+                        "lon"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "stopId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "stopCode": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              ],
+              "required": [
+                "lat",
+                "lon"
+              ]
+            },
             "startTime": {
-              "description": "The starting time from which the ticket is valid",
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
               "type": "integer",
               "maximum": 9007199254740991,
               "minimum": 1451606400
             },
             "endTime": {
-              "description": "The finishing time the ticket is valid for",
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
               "type": "integer",
               "maximum": 9007199254740991,
               "minimum": 1451606400
+            },
+            "mode": {
+              "anyOf": [
+                {
+                  "description": "A mode that involves using your personal vehicle or legs",
+                  "type": "string",
+                  "enum": [
+                    "WALK",
+                    "BICYCLE",
+                    "CAR"
+                  ]
+                },
+                {
+                  "description": "A mode that involves transit with fixed schedules",
+                  "type": "string",
+                  "enum": [
+                    "TRAM",
+                    "SUBWAY",
+                    "RAIL",
+                    "BUS",
+                    "FERRY",
+                    "TRANSIT",
+                    "TRAIN",
+                    "AEROPLANE"
+                  ]
+                },
+                {
+                  "description": "A mode that is available on-demand for your personal use",
+                  "type": "string",
+                  "enum": [
+                    "CAR",
+                    "TAXI",
+                    "CABLE_CAR",
+                    "GONDOLA",
+                    "FUNICULAR",
+                    "BUSISH",
+                    "TRAINISH"
+                  ]
+                }
+              ]
+            },
+            "departureDelay": {
+              "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
+              "type": "integer",
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991
+            },
+            "arrivalDelay": {
+              "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
+              "type": "integer",
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991
+            },
+            "distance": {
+              "description": "Distance in meters",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 40075000,
+              "multipleOf": 0.000001
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "START",
+                "PLANNED",
+                "PAID",
+                "ACTIVATED",
+                "CANCELLED",
+                "CANCELLED_WITH_ERRORS",
+                "FINISHED"
+              ]
+            },
+            "route": {
+              "type": "string",
+              "minLength": 1
+            },
+            "routeShortName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "routeLongName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "agencyId": {
+              "type": "string",
+              "minLength": 2
+            },
+            "legGeometry": {
+              "type": "object",
+              "description": "Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm",
+              "properties": {
+                "points": {
+                  "type": "string",
+                  "minLength": 3,
+                  "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
+                }
+              },
+              "required": [
+                "points"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "fare": {
+          "description": "A fare/price as billed from the user in POINTs",
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "currency": {
+              "type": "string",
+              "enum": [
+                "POINT"
+              ]
+            }
+          },
+          "required": [
+            "amount",
+            "currency"
+          ],
+          "additionalProperties": false
+        },
+        "cost": {
+          "description": "A fare/price as billed by a TSP from MaaS in EUR",
+          "type": "object",
+          "required": [
+            "amount",
+            "currency"
+          ],
+          "properties": {
+            "amount": {
+              "type": "number",
+              "minimum": 0,
+              "multipleOf": 0.01
+            },
+            "currency": {
+              "type": "string",
+              "enum": [
+                "EUR"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "meta": {
+          "type": "object",
+          "description": "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
+          "properties": {
+            "MODE_WALK": {
+              "type": "object"
+            },
+            "MODE_BICYCLE": {
+              "type": "object"
+            },
+            "MODE_CAR": {
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "image": {
+                  "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
+                  "type": "string",
+                  "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
+                },
+                "car": {
+                  "type": "object",
+                  "properties": {
+                    "passengers": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "description",
+                "image"
+              ]
+            },
+            "MODE_TRAM": {
+              "type": "object"
+            },
+            "MODE_SUBWAY": {
+              "type": "object"
+            },
+            "MODE_RAIL": {
+              "type": "object"
+            },
+            "MODE_BUS": {
+              "type": "object"
+            },
+            "MODE_FERRY": {
+              "type": "object"
+            },
+            "MODE_CABLE_CAR": {
+              "type": "object"
+            },
+            "MODE_GONDOLA": {
+              "type": "object"
+            },
+            "MODE_FUNICULAR": {
+              "type": "object"
+            },
+            "MODE_TRANSIT": {
+              "type": "object"
+            },
+            "MODE_TRAIN": {
+              "type": "object"
+            },
+            "MODE_TRAINISH": {
+              "type": "object"
+            },
+            "MODE_BUSISH": {
+              "type": "object"
+            },
+            "MODE_LEG_SWITCH": {
+              "type": "object"
+            },
+            "MODE_MAAS_TRIP": {
+              "type": "object"
+            },
+            "MODE_MAAS_PERSONAL": {
+              "type": "object"
+            },
+            "MODE_TAXI": {
+              "type": "object",
+              "properties": {
+                "vehicleId": {
+                  "description": "The taxi id (in the taxi number plate on top of the vehicle)",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "vehicleLocation": {
+                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                  "type": "object",
+                  "properties": {
+                    "lat": {
+                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                      "type": "number",
+                      "minimum": -90,
+                      "maximum": 90,
+                      "multipleOf": 0.000001
+                    },
+                    "lon": {
+                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                      "type": "number",
+                      "minimum": -180,
+                      "maximum": 180,
+                      "multipleOf": 0.000001
+                    }
+                  },
+                  "required": [
+                    "lat",
+                    "lon"
+                  ]
+                },
+                "vehicleType": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "eta": {
+                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                },
+                "taxiCenter": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "phone": {
+                      "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
+                      "type": "string",
+                      "pattern": "^\\+(?:\\d){6,14}\\d$"
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": true
+        },
+        "terms": {
+          "description": "MaaS booking terms and condition for its business engine",
+          "type": "object",
+          "properties": {
+            "type": {
+              "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
+              "type": "string"
+            },
+            "validity": {
+              "description": "Booking validity conditions",
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                },
+                "endTime": {
+                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                }
+              },
+              "required": [
+                "startTime",
+                "endTime"
+              ]
             }
           }
         },
-        "data": {
-          "description": "Arbitrary ticket data for the client",
-          "type": "object"
+        "token": {
+          "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
+          "type": "object",
+          "properties": {
+            "validityDuration": {
+              "description": "The rules that MaaS will interpret to schedule, re-validate or cancel the booking.",
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "description": "The starting time from which the ticket is valid",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                },
+                "endTime": {
+                  "description": "The finishing time the ticket is valid for",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                }
+              }
+            },
+            "data": {
+              "description": "Arbitrary ticket data for the client",
+              "type": "object"
+            },
+            "meta": {
+              "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
+              "type": "object"
+            }
+          }
         },
-        "meta": {
-          "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
-          "type": "object"
+        "tspId": {
+          "type": "string",
+          "maxLength": 256
         }
       }
     },
-    "tspId": {
-      "type": "string",
-      "maxLength": 256
+    "debug": {
+      "type": "object",
+      "additionalProperties": true
     }
-  }
+  },
+  "required": [
+    "booking"
+  ],
+  "additionalProperties": false
 }

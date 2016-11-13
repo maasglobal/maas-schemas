@@ -1,14 +1,19 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/bookings/bookings-agency-options/request",
-  "description": "Request schema for bookings-agency-options to send to the adapter",
+  "description": "Request schema for bookings-agency-options",
   "type": "object",
-  "required": [
-    "mode"
-  ],
   "properties": {
+    "identityId": {
+      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+    },
+    "agencyId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 256
+    },
     "mode": {
-      "type": "string"
+      "$ref": "../../../core/mode.json"
     },
     "startTime": {
       "$ref": "../../../core/units.json#/definitions/time"
@@ -17,10 +22,10 @@
       "$ref": "../../../core/units.json#/definitions/time"
     },
     "from": {
-      "$ref": "../../../core/units.json#/definitions/location"
+      "$ref": "../../../core/units.json#/definitions/shortLocationString"
     },
     "to": {
-      "$ref": "../../../core/units.json#/definitions/location"
+      "$ref": "../../../core/units.json#/definitions/shortLocationString"
     },
     "fromRadius":{
       "$ref": "../../../core/units.json#/definitions/distance"
@@ -28,5 +33,7 @@
     "toRadius":{
       "$ref": "../../../core/units.json#/definitions/distance"
     }
-  }
+  },
+  "required": [ "startTime", "from" ],
+  "additionalProperties": false
 }
