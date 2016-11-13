@@ -1,17 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/bookings/bookings-create/response",
-  "description": "Response schema for bookings-create",
-  "type": "object",
-  "properties": {
-    "booking": {
-      "$ref": "../../../core/booking.json"
-    },
-    "debug": {
-      "type": "object",
-      "additionalProperties": true
-    }
-  },
-  "required": ["booking"],
-  "additionalProperties": false
+  "description": "MaaS on-the-whim booking-response",
+  "$ref": "../../../core/booking.json"
 }

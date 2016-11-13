@@ -11,7 +11,7 @@
         "$ref": "../../../core/booking.json"
       }
     },
-    "debug": {
+    "maas": {
       "type": "object",
       "additionalProperties": true
     }
