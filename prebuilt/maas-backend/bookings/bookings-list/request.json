@@ -1,31 +1,5 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/bookings/bookings-list/request",
-  "description": "Request schema for bookings-list",
-  "type": "object",
-  "properties": {
-    "identityId": {
-      "type": "string",
-      "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
-    },
-    "startTime": {
-      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-      "type": "integer",
-      "maximum": 9007199254740991,
-      "minimum": 1451606400
-    },
-    "endTime": {
-      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-      "type": "integer",
-      "maximum": 9007199254740991,
-      "minimum": 1451606400
-    },
-    "states": {
-      "type": "string",
-      "pattern": "^([A-Ö]+,)*[A-Ö]+$"
-    }
-  },
-  "required": [
-    "identityId"
-  ]
+  "description": "List MaaS bookings response for one customer"
 }

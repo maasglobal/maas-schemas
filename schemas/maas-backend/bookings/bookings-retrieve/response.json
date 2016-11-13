@@ -2,16 +2,5 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/bookings/bookings-retrieve/response",
   "description": "Response schema for bookings-retrieve",
-  "type": "object",
-  "properties": {
-    "booking": {
-      "$ref": "../../../core/booking.json"
-    },
-    "debug": {
-      "type": "object",
-      "additionalProperties": true
-    }
-  },
-  "required": ["booking"],
-  "additionalProperties": false
+  "$ref": "../../../core/booking.json"
 }

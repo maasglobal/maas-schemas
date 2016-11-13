@@ -1,16 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/bookings/bookings-create/request",
-  "description": "Request schema for bookings-create",
-  "type": "object",
-  "properties": {
-    "identityId": {
-      "$ref": "../../../core/aws-units.json#/definitions/identityId"
-    },
-    "payload": {
-      "$ref": "../../../core/agency-option.json"
-    }
-  },
-  "required": [ "identityId", "payload" ],
-  "additionalProperties": false
+  "description": "A new MaaS On-the-whim booking, use agency-option as the request",
+  "$ref": "../../../core/agency-option.json"
 }
