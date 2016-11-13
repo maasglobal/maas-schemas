@@ -4,13 +4,22 @@
   "description": "Request schema for bookings-update",
   "type": "object",
   "properties": {
+    "identityId": {
+      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+    },
     "bookingId": {
       "description": "bookingId of the requested booking",
       "$ref": "../../../core/units.json#/definitions/uuid"
     },
     "payload": {
-      "type": "object",
-      "description": "booking update payload"
+      "$ref": "../../../core/booking.json"
+    },
+    "headers": {
+      "Accept": {
+        "$ref": "../../api-common.json#/definitions/acceptHeader"
+      }
     }
-  }
+  },
+  "required": [ "identityId", "payload" ],
+  "additionalProperties": false
 }

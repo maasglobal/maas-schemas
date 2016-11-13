@@ -4,9 +4,24 @@
   "description": "Request schema for bookings-retrieve",
   "type": "object",
   "properties": {
+    "identityId": {
+      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+    },
     "bookingId": {
       "description": "bookingId of the requested booking",
       "$ref": "../../../core/units.json#/definitions/uuid"
+    },
+    "refresh": {
+      "description": "Whether or not to refresh the booking from the TSP end",
+      "type": "boolean",
+      "default": false
+    },
+    "headers": {
+      "Accept": {
+        "$ref": "../../api-common.json#/definitions/acceptHeader"
+      }
     }
-  }
+  },
+  "required": [ "identityId", "bookingId" ],
+  "additionalProperties": false
 }
