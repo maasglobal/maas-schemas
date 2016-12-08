@@ -44,10 +44,6 @@
     },
     {
       "properties": {
-        "identityId": {
-          "type": "string",
-          "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
-        },
         "rule": {
           "enum": [
             "get-booking-providers-by-agency-location",
@@ -71,10 +67,6 @@
     },
     {
       "properties": {
-        "identityId": {
-          "type": "string",
-          "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
-        },
         "rule": {
           "enum": [
             "get-routes-providers-by-modes"
@@ -138,12 +130,8 @@
       ],
       "additionalProperties": false
     },
-    "ruleWithoutIdentityId": {
+    "bookingProviderRuleWithoutIdentityId": {
       "properties": {
-        "identityId": {
-          "type": "string",
-          "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
-        },
         "rule": {
           "enum": [
             "get-booking-providers-by-agency-location",
@@ -167,10 +155,6 @@
     },
     "routesProviderRuleWithoutIdentityId": {
       "properties": {
-        "identityId": {
-          "type": "string",
-          "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
-        },
         "rule": {
           "enum": [
             "get-routes-providers-by-modes"

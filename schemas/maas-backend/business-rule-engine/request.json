@@ -8,7 +8,7 @@
       "$ref": "#/definitions/ruleWithIdentityId"
     },
     {
-      "$ref": "#/definitions/ruleWithoutIdentityId"
+      "$ref": "#/definitions/bookingProviderRuleWithoutIdentityId"
     },
     {
       "$ref": "#/definitions/routesProviderRuleWithoutIdentityId"
@@ -42,11 +42,8 @@
       "required": [ "identityId", "rule", "parameters" ],
       "additionalProperties": false
     },
-    "ruleWithoutIdentityId": {
+    "bookingProviderRuleWithoutIdentityId": {
       "properties": {
-        "identityId": {
-          "$ref": "../../core/aws-units.json#/definitions/identityId"
-        },
         "rule": {
           "enum": [ "get-booking-providers-by-agency-location", "get-booking-provider-by-mode-location" ]
         },
@@ -64,9 +61,6 @@
     },
     "routesProviderRuleWithoutIdentityId": {
       "properties": {
-        "identityId": {
-          "$ref": "../../core/aws-units.json#/definitions/identityId"
-        },
         "rule": {
           "enum": [ "get-routes-providers-by-modes" ]
         },
