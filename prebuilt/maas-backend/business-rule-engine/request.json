@@ -44,6 +44,10 @@
     },
     {
       "properties": {
+        "identityId": {
+          "type": "string",
+          "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+        },
         "rule": {
           "enum": [
             "get-booking-providers-by-agency-location",
@@ -51,11 +55,172 @@
           ]
         },
         "parameters": {
-          "oneOf": [
-            {
+          "type": "object",
+          "properties": {
+            "from": {
+              "description": "No-numeric precision version of MaaS core location",
               "type": "object",
-              "additionalProperties": true
+              "properties": {
+                "lat": {
+                  "description": "No-numeric precision version of MaaS core latitude",
+                  "type": "number",
+                  "minimum": -90,
+                  "maximum": 90
+                },
+                "lon": {
+                  "description": "No-numeric precision version of MaaS core longitude",
+                  "type": "number",
+                  "minimum": -180,
+                  "maximum": 180
+                }
+              },
+              "required": [
+                "lat",
+                "lon"
+              ]
+            },
+            "to": {
+              "description": "No-numeric precision version of MaaS core location",
+              "type": "object",
+              "properties": {
+                "lat": {
+                  "description": "No-numeric precision version of MaaS core latitude",
+                  "type": "number",
+                  "minimum": -90,
+                  "maximum": 90
+                },
+                "lon": {
+                  "description": "No-numeric precision version of MaaS core longitude",
+                  "type": "number",
+                  "minimum": -180,
+                  "maximum": 180
+                }
+              },
+              "required": [
+                "lat",
+                "lon"
+              ]
+            },
+            "agencyId": {
+              "type": "string"
+            },
+            "mode": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "id": "https://api.maas.global/core/mode",
+              "description": "MaaS supported leg modes",
+              "definitions": {
+                "mode": {
+                  "anyOf": [
+                    {
+                      "description": "A mode that only involves waiting in the current location",
+                      "type": "string",
+                      "enum": [
+                        "WAIT"
+                      ]
+                    },
+                    {
+                      "description": "A mode that involves changing transports",
+                      "type": "string",
+                      "enum": [
+                        "TRANSFER",
+                        "LEG_SWITCH"
+                      ]
+                    },
+                    {
+                      "description": "A mode that involves using your personal vehicle or legs",
+                      "type": "string",
+                      "enum": [
+                        "WALK",
+                        "BICYCLE",
+                        "CAR"
+                      ]
+                    },
+                    {
+                      "description": "A mode that involves transit with fixed schedules",
+                      "type": "string",
+                      "enum": [
+                        "TRAM",
+                        "SUBWAY",
+                        "RAIL",
+                        "BUS",
+                        "FERRY",
+                        "TRANSIT",
+                        "TRAIN",
+                        "AEROPLANE"
+                      ]
+                    },
+                    {
+                      "description": "A mode that is available on-demand for your personal use",
+                      "type": "string",
+                      "enum": [
+                        "CAR",
+                        "TAXI",
+                        "CABLE_CAR",
+                        "GONDOLA",
+                        "FUNICULAR",
+                        "BUSISH",
+                        "TRAINISH"
+                      ]
+                    }
+                  ]
+                },
+                "waitingMode": {
+                  "description": "A mode that only involves waiting in the current location",
+                  "type": "string",
+                  "enum": [
+                    "WAIT"
+                  ]
+                },
+                "transferMode": {
+                  "description": "A mode that involves changing transports",
+                  "type": "string",
+                  "enum": [
+                    "TRANSFER",
+                    "LEG_SWITCH"
+                  ]
+                },
+                "personalMode": {
+                  "description": "A mode that involves using your personal vehicle or legs",
+                  "type": "string",
+                  "enum": [
+                    "WALK",
+                    "BICYCLE",
+                    "CAR"
+                  ]
+                },
+                "publicTransitMode": {
+                  "description": "A mode that involves transit with fixed schedules",
+                  "type": "string",
+                  "enum": [
+                    "TRAM",
+                    "SUBWAY",
+                    "RAIL",
+                    "BUS",
+                    "FERRY",
+                    "TRANSIT",
+                    "TRAIN",
+                    "AEROPLANE"
+                  ]
+                },
+                "privateTransitMode": {
+                  "description": "A mode that is available on-demand for your personal use",
+                  "type": "string",
+                  "enum": [
+                    "CAR",
+                    "TAXI",
+                    "CABLE_CAR",
+                    "GONDOLA",
+                    "FUNICULAR",
+                    "BUSISH",
+                    "TRAINISH"
+                  ]
+                }
+              }
             }
+          },
+          "required": [
+            "from",
+            "to"
           ]
         }
       },
@@ -67,21 +232,130 @@
     },
     {
       "properties": {
+        "identityId": {
+          "type": "string",
+          "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+        },
         "rule": {
           "enum": [
             "get-routes-providers-by-modes"
           ]
         },
         "parameters": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
+          "type": "array",
+          "items": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "https://api.maas.global/core/mode",
+            "description": "MaaS supported leg modes",
+            "definitions": {
+              "mode": {
+                "anyOf": [
+                  {
+                    "description": "A mode that only involves waiting in the current location",
+                    "type": "string",
+                    "enum": [
+                      "WAIT"
+                    ]
+                  },
+                  {
+                    "description": "A mode that involves changing transports",
+                    "type": "string",
+                    "enum": [
+                      "TRANSFER",
+                      "LEG_SWITCH"
+                    ]
+                  },
+                  {
+                    "description": "A mode that involves using your personal vehicle or legs",
+                    "type": "string",
+                    "enum": [
+                      "WALK",
+                      "BICYCLE",
+                      "CAR"
+                    ]
+                  },
+                  {
+                    "description": "A mode that involves transit with fixed schedules",
+                    "type": "string",
+                    "enum": [
+                      "TRAM",
+                      "SUBWAY",
+                      "RAIL",
+                      "BUS",
+                      "FERRY",
+                      "TRANSIT",
+                      "TRAIN",
+                      "AEROPLANE"
+                    ]
+                  },
+                  {
+                    "description": "A mode that is available on-demand for your personal use",
+                    "type": "string",
+                    "enum": [
+                      "CAR",
+                      "TAXI",
+                      "CABLE_CAR",
+                      "GONDOLA",
+                      "FUNICULAR",
+                      "BUSISH",
+                      "TRAINISH"
+                    ]
+                  }
+                ]
+              },
+              "waitingMode": {
+                "description": "A mode that only involves waiting in the current location",
                 "type": "string",
-                "additionalProperties": true
+                "enum": [
+                  "WAIT"
+                ]
+              },
+              "transferMode": {
+                "description": "A mode that involves changing transports",
+                "type": "string",
+                "enum": [
+                  "TRANSFER",
+                  "LEG_SWITCH"
+                ]
+              },
+              "personalMode": {
+                "description": "A mode that involves using your personal vehicle or legs",
+                "type": "string",
+                "enum": [
+                  "WALK",
+                  "BICYCLE",
+                  "CAR"
+                ]
+              },
+              "publicTransitMode": {
+                "description": "A mode that involves transit with fixed schedules",
+                "type": "string",
+                "enum": [
+                  "TRAM",
+                  "SUBWAY",
+                  "RAIL",
+                  "BUS",
+                  "FERRY",
+                  "TRANSIT",
+                  "TRAIN",
+                  "AEROPLANE"
+                ]
+              },
+              "privateTransitMode": {
+                "description": "A mode that is available on-demand for your personal use",
+                "type": "string",
+                "enum": [
+                  "CAR",
+                  "TAXI",
+                  "CABLE_CAR",
+                  "GONDOLA",
+                  "FUNICULAR",
+                  "BUSISH",
+                  "TRAINISH"
+                ]
               }
             }
-          ]
+          }
         }
       },
       "required": [
@@ -130,8 +404,12 @@
       ],
       "additionalProperties": false
     },
-    "bookingProviderRuleWithoutIdentityId": {
+    "ruleWithoutIdentityId": {
       "properties": {
+        "identityId": {
+          "type": "string",
+          "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+        },
         "rule": {
           "enum": [
             "get-booking-providers-by-agency-location",
@@ -139,11 +417,172 @@
           ]
         },
         "parameters": {
-          "oneOf": [
-            {
+          "type": "object",
+          "properties": {
+            "from": {
+              "description": "No-numeric precision version of MaaS core location",
               "type": "object",
-              "additionalProperties": true
+              "properties": {
+                "lat": {
+                  "description": "No-numeric precision version of MaaS core latitude",
+                  "type": "number",
+                  "minimum": -90,
+                  "maximum": 90
+                },
+                "lon": {
+                  "description": "No-numeric precision version of MaaS core longitude",
+                  "type": "number",
+                  "minimum": -180,
+                  "maximum": 180
+                }
+              },
+              "required": [
+                "lat",
+                "lon"
+              ]
+            },
+            "to": {
+              "description": "No-numeric precision version of MaaS core location",
+              "type": "object",
+              "properties": {
+                "lat": {
+                  "description": "No-numeric precision version of MaaS core latitude",
+                  "type": "number",
+                  "minimum": -90,
+                  "maximum": 90
+                },
+                "lon": {
+                  "description": "No-numeric precision version of MaaS core longitude",
+                  "type": "number",
+                  "minimum": -180,
+                  "maximum": 180
+                }
+              },
+              "required": [
+                "lat",
+                "lon"
+              ]
+            },
+            "agencyId": {
+              "type": "string"
+            },
+            "mode": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "id": "https://api.maas.global/core/mode",
+              "description": "MaaS supported leg modes",
+              "definitions": {
+                "mode": {
+                  "anyOf": [
+                    {
+                      "description": "A mode that only involves waiting in the current location",
+                      "type": "string",
+                      "enum": [
+                        "WAIT"
+                      ]
+                    },
+                    {
+                      "description": "A mode that involves changing transports",
+                      "type": "string",
+                      "enum": [
+                        "TRANSFER",
+                        "LEG_SWITCH"
+                      ]
+                    },
+                    {
+                      "description": "A mode that involves using your personal vehicle or legs",
+                      "type": "string",
+                      "enum": [
+                        "WALK",
+                        "BICYCLE",
+                        "CAR"
+                      ]
+                    },
+                    {
+                      "description": "A mode that involves transit with fixed schedules",
+                      "type": "string",
+                      "enum": [
+                        "TRAM",
+                        "SUBWAY",
+                        "RAIL",
+                        "BUS",
+                        "FERRY",
+                        "TRANSIT",
+                        "TRAIN",
+                        "AEROPLANE"
+                      ]
+                    },
+                    {
+                      "description": "A mode that is available on-demand for your personal use",
+                      "type": "string",
+                      "enum": [
+                        "CAR",
+                        "TAXI",
+                        "CABLE_CAR",
+                        "GONDOLA",
+                        "FUNICULAR",
+                        "BUSISH",
+                        "TRAINISH"
+                      ]
+                    }
+                  ]
+                },
+                "waitingMode": {
+                  "description": "A mode that only involves waiting in the current location",
+                  "type": "string",
+                  "enum": [
+                    "WAIT"
+                  ]
+                },
+                "transferMode": {
+                  "description": "A mode that involves changing transports",
+                  "type": "string",
+                  "enum": [
+                    "TRANSFER",
+                    "LEG_SWITCH"
+                  ]
+                },
+                "personalMode": {
+                  "description": "A mode that involves using your personal vehicle or legs",
+                  "type": "string",
+                  "enum": [
+                    "WALK",
+                    "BICYCLE",
+                    "CAR"
+                  ]
+                },
+                "publicTransitMode": {
+                  "description": "A mode that involves transit with fixed schedules",
+                  "type": "string",
+                  "enum": [
+                    "TRAM",
+                    "SUBWAY",
+                    "RAIL",
+                    "BUS",
+                    "FERRY",
+                    "TRANSIT",
+                    "TRAIN",
+                    "AEROPLANE"
+                  ]
+                },
+                "privateTransitMode": {
+                  "description": "A mode that is available on-demand for your personal use",
+                  "type": "string",
+                  "enum": [
+                    "CAR",
+                    "TAXI",
+                    "CABLE_CAR",
+                    "GONDOLA",
+                    "FUNICULAR",
+                    "BUSISH",
+                    "TRAINISH"
+                  ]
+                }
+              }
             }
+          },
+          "required": [
+            "from",
+            "to"
           ]
         }
       },
@@ -155,21 +594,130 @@
     },
     "routesProviderRuleWithoutIdentityId": {
       "properties": {
+        "identityId": {
+          "type": "string",
+          "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+        },
         "rule": {
           "enum": [
             "get-routes-providers-by-modes"
           ]
         },
         "parameters": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
+          "type": "array",
+          "items": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "https://api.maas.global/core/mode",
+            "description": "MaaS supported leg modes",
+            "definitions": {
+              "mode": {
+                "anyOf": [
+                  {
+                    "description": "A mode that only involves waiting in the current location",
+                    "type": "string",
+                    "enum": [
+                      "WAIT"
+                    ]
+                  },
+                  {
+                    "description": "A mode that involves changing transports",
+                    "type": "string",
+                    "enum": [
+                      "TRANSFER",
+                      "LEG_SWITCH"
+                    ]
+                  },
+                  {
+                    "description": "A mode that involves using your personal vehicle or legs",
+                    "type": "string",
+                    "enum": [
+                      "WALK",
+                      "BICYCLE",
+                      "CAR"
+                    ]
+                  },
+                  {
+                    "description": "A mode that involves transit with fixed schedules",
+                    "type": "string",
+                    "enum": [
+                      "TRAM",
+                      "SUBWAY",
+                      "RAIL",
+                      "BUS",
+                      "FERRY",
+                      "TRANSIT",
+                      "TRAIN",
+                      "AEROPLANE"
+                    ]
+                  },
+                  {
+                    "description": "A mode that is available on-demand for your personal use",
+                    "type": "string",
+                    "enum": [
+                      "CAR",
+                      "TAXI",
+                      "CABLE_CAR",
+                      "GONDOLA",
+                      "FUNICULAR",
+                      "BUSISH",
+                      "TRAINISH"
+                    ]
+                  }
+                ]
+              },
+              "waitingMode": {
+                "description": "A mode that only involves waiting in the current location",
                 "type": "string",
-                "additionalProperties": true
+                "enum": [
+                  "WAIT"
+                ]
+              },
+              "transferMode": {
+                "description": "A mode that involves changing transports",
+                "type": "string",
+                "enum": [
+                  "TRANSFER",
+                  "LEG_SWITCH"
+                ]
+              },
+              "personalMode": {
+                "description": "A mode that involves using your personal vehicle or legs",
+                "type": "string",
+                "enum": [
+                  "WALK",
+                  "BICYCLE",
+                  "CAR"
+                ]
+              },
+              "publicTransitMode": {
+                "description": "A mode that involves transit with fixed schedules",
+                "type": "string",
+                "enum": [
+                  "TRAM",
+                  "SUBWAY",
+                  "RAIL",
+                  "BUS",
+                  "FERRY",
+                  "TRANSIT",
+                  "TRAIN",
+                  "AEROPLANE"
+                ]
+              },
+              "privateTransitMode": {
+                "description": "A mode that is available on-demand for your personal use",
+                "type": "string",
+                "enum": [
+                  "CAR",
+                  "TAXI",
+                  "CABLE_CAR",
+                  "GONDOLA",
+                  "FUNICULAR",
+                  "BUSISH",
+                  "TRAINISH"
+                ]
               }
             }
-          ]
+          }
         }
       },
       "required": [
