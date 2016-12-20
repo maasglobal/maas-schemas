@@ -1,3 +1,4 @@
+
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/business-rule-engine/request",
@@ -9,6 +10,9 @@
     },
     {
       "$ref": "#/definitions/ruleWithoutIdentityId"
+    },
+    {
+      "$ref": "#/definitions/routesProviderRuleWithoutIdentityId"
     }
   ],
   "definitions": {
@@ -45,22 +49,33 @@
           "$ref": "../../core/aws-units.json#/definitions/identityId"
         },
         "rule": {
-          "enum": [ "get-routes-provider", "get-booking-provider", "get-routes-provider-batch", "get-booking-provider-batch" ]
+          "enum": [ "get-booking-providers-by-agency-location", "get-booking-provider-by-mode-location" ]
         },
         "parameters": {
-          "oneOf": [
-            {
-              "type": "object",
-              "additionalProperties": true
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "additionalProperties": true
-              }
-            }
-          ]
+          "type": "object",
+          "properties": {
+            "from": { "$ref": "../../core/units.json#/definitions/relaxedLocation" },
+            "to": { "$ref": "../../core/units.json#/definitions/relaxedLocation" },
+            "agencyId": { "type": "string" },
+            "mode": { "$ref": "../../core/mode.json" }
+          },
+          "required": [ "from", "to" ]
+        }
+      },
+      "required": [ "rule", "parameters" ],
+      "additionalProperties": false
+    },
+    "routesProviderRuleWithoutIdentityId": {
+      "properties": {
+        "identityId": {
+          "$ref": "../../core/aws-units.json#/definitions/identityId"
+        },
+        "rule": {
+          "enum": [ "get-routes-providers-by-modes" ]
+        },
+        "parameters": {
+          "type": "array",
+          "items": { "$ref": "../../core/mode.json" }
         }
       },
       "required": [ "rule", "parameters" ],
