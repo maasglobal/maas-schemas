@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/bookings/bookings-agency-products/request",
+  "description": "Request schema for bookings-agency-products",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+    },
+    "agencyId": {
+      "$ref": "../../../core/plan.json#/definitions/agencyId"
+    }
+  },
+  "required": ["identityId", "agencyId"],
+  "additionalProperties": false
+}

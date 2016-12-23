@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/bookings/bookings-agency-products/response",
+  "description": "Response schema for bookings-agency-products",
+  "type": "object",
+  "properties": {
+    "agencyId": {
+      "type": "string",
+      "minLength": 2
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 100
+          },
+          "type": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 500
+          },
+          "image": {
+            "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
+            "type": "string",
+            "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
+          },
+          "fare": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "image",
+          "fare"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "agencyId",
+    "products"
+  ],
+  "additionalProperties": false
+}
