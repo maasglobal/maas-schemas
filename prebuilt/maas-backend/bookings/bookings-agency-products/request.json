@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/bookings/bookings-agency-products/request",
+  "description": "Request schema for bookings-agency-products",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "type": "string",
+      "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+    },
+    "agencyId": {
+      "type": "string",
+      "minLength": 2
+    }
+  },
+  "required": [
+    "identityId",
+    "agencyId"
+  ],
+  "additionalProperties": false
+}
