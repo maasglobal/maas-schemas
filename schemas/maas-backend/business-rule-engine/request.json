@@ -10,9 +10,6 @@
     },
     {
       "$ref": "#/definitions/ruleWithoutIdentityId"
-    },
-    {
-      "$ref": "#/definitions/routesProviderRuleWithoutIdentityId"
     }
   ],
   "definitions": {
@@ -22,7 +19,7 @@
           "$ref": "../../core/aws-units.json#/definitions/identityId"
         },
         "rule": {
-          "enum": ["get-routes", "get-tsp-pricing", "get-tsp-pricing-batch", "get-point-pricing", "get-point-pricing-batch" ]
+          "enum": [ "get-route-pricing", "get-tsp-pricing", "get-tsp-pricing-batch", "get-point-pricing", "get-point-pricing-batch" ]
         },
         "parameters": {
           "oneOf": [
@@ -60,22 +57,6 @@
             "mode": { "$ref": "../../core/mode.json" }
           },
           "required": [ "from", "to" ]
-        }
-      },
-      "required": [ "rule", "parameters" ],
-      "additionalProperties": false
-    },
-    "routesProviderRuleWithoutIdentityId": {
-      "properties": {
-        "identityId": {
-          "$ref": "../../core/aws-units.json#/definitions/identityId"
-        },
-        "rule": {
-          "enum": [ "get-routes-providers-by-modes" ]
-        },
-        "parameters": {
-          "type": "array",
-          "items": { "$ref": "../../core/mode.json" }
         }
       },
       "required": [ "rule", "parameters" ],
