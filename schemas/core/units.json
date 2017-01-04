@@ -114,6 +114,10 @@
       "maximum": 40075000,
       "multipleOf": 0.000001
     },
+    "identityId": {
+      "description": "Customer identity id - currently an AWS identityId",
+      "$ref": "./aws-units.json#/definitions/identityId"
+    },
     "phone": {
       "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
       "type": "string",
@@ -169,6 +173,7 @@
           "multipleOf": 0.01
         },
         "currency": {
+          "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
           "type": "string",
           "enum": [ "EUR" ]
         }

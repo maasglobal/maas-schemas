@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/subscriptions/subscription",
+  "description": "MaaS subscription schema",
+  "type": "object",
+  "properties": {
+    "lineItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/lineItem"
+      }
+    },
+    "discounts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/discount"
+      }
+    },
+    "total": {
+      "description": "Sum of the quantity * unitPrice - sum of discounts",
+      "$ref": "../../core/units.json#/definitions/cost"
+    }
+  },
+  "required": ["lineItems", "totals"],
+  "additionalProperties": false,
+  "definitions": {
+    "lineItem": {
+      "description": "An item that is priced with it summaries",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "./subscription.json#/definitions/subscriptionItemId"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quantity": {
+          "type": "number",
+          "minValue": 0
+        },
+        "price": {
+          "description": "Price of one unit after all taxes & discounts",
+          "$ref": "../../core/units.json#/definitions/cost"
+        }
+      },
+      "required": ["id", "description", "quantity", "unitPrice"],
+      "additionalProperties": false
+    },
+    "discount": {
+      "description": "A discount from coupon or such",
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "discount": {
+          "description": "Price of one unit after all taxes & discounts",
+          "$ref": "../../core/units.json#/definitions/cost"
+        }
+      },
+      "required": ["description", "discount"],
+      "additionalProperties": false
+    }
+  }
+}
