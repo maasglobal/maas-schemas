@@ -26,10 +26,16 @@
             "$ref": "../../../core/units.json#/definitions/url"
           },
           "fare": {
-            "type": "number"
+            "type": "number",
+            "minimum": 0
+          },
+          "description": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2000
           }
         },
-        "required": ["name", "type", "image", "fare"],
+        "required": ["name", "type", "fare"],
         "additionalProperties": false
       }
     }
