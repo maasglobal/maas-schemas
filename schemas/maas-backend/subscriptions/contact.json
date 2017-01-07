@@ -27,17 +27,17 @@
       ],
       "required": ["identityId"]
     },
-    "fullContact": {
+    "contactResponse": {
       "allOf": [
         { "$ref": "#/definitions/contactBase" },
         {
           "type": "object",
           "properties": {
-            "paymentMethod": { "$ref": "#/definitions/paymentMethod" }
+            "paymentMethod": { "$ref": "#/definitions/paymentMethodResponse" }
           }
         }
       ],
-      "required": ["identityId", "firstName", "lastName", "address", "zipCode", "countryCode", "phone", "email"]
+      "required": ["identityId", "phone" ]
     },
     "contactBase": {
       "type": "object",
@@ -75,7 +75,7 @@
     "identityId": {
       "$ref": "../../core/units.json#/definitions/identityId"
     },
-    "paymentMethod": {
+    "paymentMethodResponse": {
       "description": "The payment (gateway) method info; no credit cards here",
       "type": "object",
       "properties": {
@@ -134,7 +134,7 @@
           "pattern": "^[0-9]{3,4}$"
         }
       },
-      "required": ["type", "token"]
+      "required": ["type", "number", "expiryMonth", "expiryYear", "cvv"]
     },
     "newPaymentMethod": {
       "oneOf": [

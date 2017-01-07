@@ -109,7 +109,10 @@
                   },
                   "required": [
                     "type",
-                    "token"
+                    "number",
+                    "expiryMonth",
+                    "expiryYear",
+                    "cvv"
                   ]
                 }
               ]
@@ -228,7 +231,10 @@
                   },
                   "required": [
                     "type",
-                    "token"
+                    "number",
+                    "expiryMonth",
+                    "expiryYear",
+                    "cvv"
                   ]
                 }
               ]
@@ -240,7 +246,7 @@
         "identityId"
       ]
     },
-    "fullContact": {
+    "contactResponse": {
       "allOf": [
         {
           "type": "object",
@@ -312,13 +318,7 @@
       ],
       "required": [
         "identityId",
-        "firstName",
-        "lastName",
-        "address",
-        "zipCode",
-        "countryCode",
-        "phone",
-        "email"
+        "phone"
       ]
     },
     "contactBase": {
@@ -371,7 +371,7 @@
       "type": "string",
       "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
     },
-    "paymentMethod": {
+    "paymentMethodResponse": {
       "description": "The payment (gateway) method info; no credit cards here",
       "type": "object",
       "properties": {
@@ -442,7 +442,10 @@
       },
       "required": [
         "type",
-        "token"
+        "number",
+        "expiryMonth",
+        "expiryYear",
+        "cvv"
       ]
     },
     "newPaymentMethod": {
@@ -501,7 +504,10 @@
           },
           "required": [
             "type",
-            "token"
+            "number",
+            "expiryMonth",
+            "expiryYear",
+            "cvv"
           ]
         }
       ]

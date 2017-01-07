@@ -5,26 +5,25 @@
   "definitions": {
     "newSubscription": {
       "allOf": [ { "$ref": "#/definitions/subscriptionBase" } ],
-      "required": [ "plan", "addons", "coupons" ]
+      "required": [ "plan" ]
     },
     "subscriptionUpdate": {
-      "allOf": [ { "$ref": "#/definitions/subscriptionBase" } ],
-      "required": [ "id" ]
+      "allOf": [ { "$ref": "#/definitions/subscriptionBase" } ]
     },
-    "fullSubscription": {
+    "subscriptionResponse": {
       "allOf": [ { "$ref": "#/definitions/subscriptionBase" } ],
-      "required": [ "id", "plan", "addons", "coupons" ]
+      "required": [ "plan" ]
     },
     "subscriptionBase": {
       "type": "object",
       "properties": {
-        "id": {
-          "description": "The identifier of the subscription (equals the user identityId)",
-          "$ref": "./contact.json#/definitions/identityId"
+        "name": {
+          "type": "string",
+          "minLength": 1
         },
-        "customerId": {
-          "description": "The identifier of the customer of the subscription (equals the customer identityId)",
-          "$ref": "./contact.json#/definitions/identityId"
+        "description": {
+          "type": "string",
+          "minLength": 1
         },
         "plan": {
           "$ref": "#/definitions/plan"
@@ -54,6 +53,10 @@
           "type": "string",
           "minLength": 1
         },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
         "price": {
           "$ref": "#/definitions/price"
         }
@@ -72,12 +75,16 @@
           "type": "string",
           "minLength": 1
         },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
         "quantity": {
           "type": "integer",
           "minimum": 1,
           "maximum": 100000
         },
-        "price": {
+        "unitPrice": {
           "$ref": "#/definitions/price"
         }
       },
@@ -92,6 +99,10 @@
           "$ref": "#/definitions/subscriptionItemId"
         },
         "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
           "type": "string",
           "minLength": 1
         }
