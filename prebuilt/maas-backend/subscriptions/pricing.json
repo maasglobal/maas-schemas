@@ -40,6 +40,11 @@
                 "minimum": 0,
                 "multipleOf": 0.01
               },
+              "taxes": {
+                "type": "number",
+                "minimum": 0,
+                "multipleOf": 0.01
+              },
               "currency": {
                 "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
                 "type": "string",
@@ -84,6 +89,11 @@
                 "minimum": 0,
                 "multipleOf": 0.01
               },
+              "taxes": {
+                "type": "number",
+                "minimum": 0,
+                "multipleOf": 0.01
+              },
               "currency": {
                 "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
                 "type": "string",
@@ -111,6 +121,11 @@
       ],
       "properties": {
         "amount": {
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 0.01
+        },
+        "taxes": {
           "type": "number",
           "minimum": 0,
           "multipleOf": 0.01
@@ -166,6 +181,11 @@
               "minimum": 0,
               "multipleOf": 0.01
             },
+            "taxes": {
+              "type": "number",
+              "minimum": 0,
+              "multipleOf": 0.01
+            },
             "currency": {
               "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
               "type": "string",
@@ -203,6 +223,11 @@
           ],
           "properties": {
             "amount": {
+              "type": "number",
+              "minimum": 0,
+              "multipleOf": 0.01
+            },
+            "taxes": {
               "type": "number",
               "minimum": 0,
               "multipleOf": 0.01
