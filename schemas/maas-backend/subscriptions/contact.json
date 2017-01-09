@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/subscriptions/customer",
-  "description": "MaaS (subscription) customer schema",
+  "description": "MaaS contact (customer and user) schema",
   "definitions": {
     "newContact": {
       "allOf": [

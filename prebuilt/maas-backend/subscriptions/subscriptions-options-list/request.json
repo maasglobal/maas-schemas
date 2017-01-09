@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-options-list/request",
+  "description": "Request schema for subscriptions-options-list",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "type": "string",
+      "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+    },
+    "payload": {
+      "description": "No-numeric precision version of MaaS core location",
+      "type": "object",
+      "properties": {
+        "lat": {
+          "description": "No-numeric precision version of MaaS core latitude",
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "lon": {
+          "description": "No-numeric precision version of MaaS core longitude",
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        }
+      },
+      "required": [
+        "lat",
+        "lon"
+      ]
+    }
+  },
+  "required": [
+    "identityId",
+    "payload"
+  ],
+  "additionalProperties": false
+}

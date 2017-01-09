@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/subscriptions/subscription-put/response",
-  "description": "Response schema for subscription-put",
+  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-update/response",
+  "description": "Response schema for subscriptions-update",
   "type": "object",
   "properties": {
     "subscription": {
