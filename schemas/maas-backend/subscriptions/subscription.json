@@ -4,15 +4,18 @@
   "description": "MaaS subscription schema",
   "definitions": {
     "newSubscription": {
-      "allOf": [ { "$ref": "#/definitions/subscriptionBase" } ],
-      "required": [ "plan" ]
+      "$ref": "#/definitions/subscriptionBase",
+      "required": [ "plan" ],
+      "additionalProperties": false
     },
     "subscriptionUpdate": {
-      "allOf": [ { "$ref": "#/definitions/subscriptionBase" } ]
+      "$ref": "#/definitions/subscriptionBase",
+      "additionalProperties": false
     },
     "subscriptionResponse": {
-      "allOf": [ { "$ref": "#/definitions/subscriptionBase" } ],
-      "required": [ "plan" ]
+      "$ref": "#/definitions/subscriptionBase",
+      "required": [ "plan" ],
+      "additionalProperties": false
     },
     "subscriptionBase": {
       "type": "object",

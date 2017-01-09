@@ -4,10 +4,29 @@
   "description": "MaaS subscription schema",
   "definitions": {
     "newSubscription": {
-      "allOf": [
-        {
+      "required": [
+        "plan"
+      ],
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "plan": {
+          "description": "Customer subscription plan",
           "type": "object",
           "properties": {
+            "id": {
+              "description": "Identifier for matching the plans (Chargebee compat.)",
+              "type": "string",
+              "pattern": "^[^\\s\\/]{1,50}$"
+            },
             "name": {
               "type": "string",
               "minLength": 1
@@ -16,154 +35,148 @@
               "type": "string",
               "minLength": 1
             },
-            "plan": {
-              "description": "Customer subscription plan",
+            "price": {
+              "description": "A fare/price as billed by a TSP from MaaS in EUR",
               "type": "object",
+              "required": [
+                "amount",
+                "currency"
+              ],
               "properties": {
-                "id": {
-                  "description": "Identifier for matching the plans (Chargebee compat.)",
-                  "type": "string",
-                  "pattern": "^[^\\s\\/]{1,50}$"
+                "amount": {
+                  "type": "number",
+                  "minimum": 0,
+                  "multipleOf": 0.01
                 },
-                "name": {
-                  "type": "string",
-                  "minLength": 1
+                "taxes": {
+                  "type": "number",
+                  "minimum": 0,
+                  "multipleOf": 0.01
                 },
-                "description": {
+                "currency": {
+                  "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
                   "type": "string",
-                  "minLength": 1
-                },
-                "price": {
-                  "description": "A fare/price as billed by a TSP from MaaS in EUR",
-                  "type": "object",
-                  "required": [
-                    "amount",
-                    "currency"
-                  ],
-                  "properties": {
-                    "amount": {
-                      "type": "number",
-                      "minimum": 0,
-                      "multipleOf": 0.01
-                    },
-                    "taxes": {
-                      "type": "number",
-                      "minimum": 0,
-                      "multipleOf": 0.01
-                    },
-                    "currency": {
-                      "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                      "type": "string",
-                      "enum": [
-                        "EUR"
-                      ]
-                    }
-                  },
-                  "additionalProperties": false
+                  "enum": [
+                    "EUR"
+                  ]
                 }
               },
-              "required": [
-                "id"
-              ],
-              "additionalProperties": true
-            },
-            "addons": {
-              "type": "array",
-              "items": {
-                "description": "Customer subscription add-ons",
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "Identifier for matching the plans (Chargebee compat.)",
-                    "type": "string",
-                    "pattern": "^[^\\s\\/]{1,50}$"
-                  },
-                  "name": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "description": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "quantity": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 100000
-                  },
-                  "unitPrice": {
-                    "description": "A fare/price as billed by a TSP from MaaS in EUR",
-                    "type": "object",
-                    "required": [
-                      "amount",
-                      "currency"
-                    ],
-                    "properties": {
-                      "amount": {
-                        "type": "number",
-                        "minimum": 0,
-                        "multipleOf": 0.01
-                      },
-                      "taxes": {
-                        "type": "number",
-                        "minimum": 0,
-                        "multipleOf": 0.01
-                      },
-                      "currency": {
-                        "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                        "type": "string",
-                        "enum": [
-                          "EUR"
-                        ]
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "id",
-                  "quantity"
-                ],
-                "additionalProperties": true
-              }
-            },
-            "coupons": {
-              "type": "array",
-              "items": {
-                "description": "Additional coupon that may provide discounts",
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "Identifier for matching the plans (Chargebee compat.)",
-                    "type": "string",
-                    "pattern": "^[^\\s\\/]{1,50}$"
-                  },
-                  "name": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "description": {
-                    "type": "string",
-                    "minLength": 1
-                  }
-                },
-                "required": [
-                  "id"
-                ]
-              }
+              "additionalProperties": false
             }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": true
+        },
+        "addons": {
+          "type": "array",
+          "items": {
+            "description": "Customer subscription add-ons",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identifier for matching the plans (Chargebee compat.)",
+                "type": "string",
+                "pattern": "^[^\\s\\/]{1,50}$"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100000
+              },
+              "unitPrice": {
+                "description": "A fare/price as billed by a TSP from MaaS in EUR",
+                "type": "object",
+                "required": [
+                  "amount",
+                  "currency"
+                ],
+                "properties": {
+                  "amount": {
+                    "type": "number",
+                    "minimum": 0,
+                    "multipleOf": 0.01
+                  },
+                  "taxes": {
+                    "type": "number",
+                    "minimum": 0,
+                    "multipleOf": 0.01
+                  },
+                  "currency": {
+                    "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                    "type": "string",
+                    "enum": [
+                      "EUR"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "quantity"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "coupons": {
+          "type": "array",
+          "items": {
+            "description": "Additional coupon that may provide discounts",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identifier for matching the plans (Chargebee compat.)",
+                "type": "string",
+                "pattern": "^[^\\s\\/]{1,50}$"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id"
+            ]
           }
         }
-      ],
-      "required": [
-        "plan"
-      ]
+      }
     },
     "subscriptionUpdate": {
-      "allOf": [
-        {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "plan": {
+          "description": "Customer subscription plan",
           "type": "object",
           "properties": {
+            "id": {
+              "description": "Identifier for matching the plans (Chargebee compat.)",
+              "type": "string",
+              "pattern": "^[^\\s\\/]{1,50}$"
+            },
             "name": {
               "type": "string",
               "minLength": 1
@@ -172,151 +185,151 @@
               "type": "string",
               "minLength": 1
             },
-            "plan": {
-              "description": "Customer subscription plan",
+            "price": {
+              "description": "A fare/price as billed by a TSP from MaaS in EUR",
               "type": "object",
+              "required": [
+                "amount",
+                "currency"
+              ],
               "properties": {
-                "id": {
-                  "description": "Identifier for matching the plans (Chargebee compat.)",
-                  "type": "string",
-                  "pattern": "^[^\\s\\/]{1,50}$"
+                "amount": {
+                  "type": "number",
+                  "minimum": 0,
+                  "multipleOf": 0.01
                 },
-                "name": {
-                  "type": "string",
-                  "minLength": 1
+                "taxes": {
+                  "type": "number",
+                  "minimum": 0,
+                  "multipleOf": 0.01
                 },
-                "description": {
+                "currency": {
+                  "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
                   "type": "string",
-                  "minLength": 1
-                },
-                "price": {
-                  "description": "A fare/price as billed by a TSP from MaaS in EUR",
-                  "type": "object",
-                  "required": [
-                    "amount",
-                    "currency"
-                  ],
-                  "properties": {
-                    "amount": {
-                      "type": "number",
-                      "minimum": 0,
-                      "multipleOf": 0.01
-                    },
-                    "taxes": {
-                      "type": "number",
-                      "minimum": 0,
-                      "multipleOf": 0.01
-                    },
-                    "currency": {
-                      "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                      "type": "string",
-                      "enum": [
-                        "EUR"
-                      ]
-                    }
-                  },
-                  "additionalProperties": false
+                  "enum": [
+                    "EUR"
+                  ]
                 }
               },
-              "required": [
-                "id"
-              ],
-              "additionalProperties": true
-            },
-            "addons": {
-              "type": "array",
-              "items": {
-                "description": "Customer subscription add-ons",
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "Identifier for matching the plans (Chargebee compat.)",
-                    "type": "string",
-                    "pattern": "^[^\\s\\/]{1,50}$"
-                  },
-                  "name": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "description": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "quantity": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 100000
-                  },
-                  "unitPrice": {
-                    "description": "A fare/price as billed by a TSP from MaaS in EUR",
-                    "type": "object",
-                    "required": [
-                      "amount",
-                      "currency"
-                    ],
-                    "properties": {
-                      "amount": {
-                        "type": "number",
-                        "minimum": 0,
-                        "multipleOf": 0.01
-                      },
-                      "taxes": {
-                        "type": "number",
-                        "minimum": 0,
-                        "multipleOf": 0.01
-                      },
-                      "currency": {
-                        "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                        "type": "string",
-                        "enum": [
-                          "EUR"
-                        ]
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "id",
-                  "quantity"
-                ],
-                "additionalProperties": true
-              }
-            },
-            "coupons": {
-              "type": "array",
-              "items": {
-                "description": "Additional coupon that may provide discounts",
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "Identifier for matching the plans (Chargebee compat.)",
-                    "type": "string",
-                    "pattern": "^[^\\s\\/]{1,50}$"
-                  },
-                  "name": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "description": {
-                    "type": "string",
-                    "minLength": 1
-                  }
-                },
-                "required": [
-                  "id"
-                ]
-              }
+              "additionalProperties": false
             }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": true
+        },
+        "addons": {
+          "type": "array",
+          "items": {
+            "description": "Customer subscription add-ons",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identifier for matching the plans (Chargebee compat.)",
+                "type": "string",
+                "pattern": "^[^\\s\\/]{1,50}$"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100000
+              },
+              "unitPrice": {
+                "description": "A fare/price as billed by a TSP from MaaS in EUR",
+                "type": "object",
+                "required": [
+                  "amount",
+                  "currency"
+                ],
+                "properties": {
+                  "amount": {
+                    "type": "number",
+                    "minimum": 0,
+                    "multipleOf": 0.01
+                  },
+                  "taxes": {
+                    "type": "number",
+                    "minimum": 0,
+                    "multipleOf": 0.01
+                  },
+                  "currency": {
+                    "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                    "type": "string",
+                    "enum": [
+                      "EUR"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "quantity"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "coupons": {
+          "type": "array",
+          "items": {
+            "description": "Additional coupon that may provide discounts",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identifier for matching the plans (Chargebee compat.)",
+                "type": "string",
+                "pattern": "^[^\\s\\/]{1,50}$"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id"
+            ]
           }
         }
-      ]
+      }
     },
     "subscriptionResponse": {
-      "allOf": [
-        {
+      "required": [
+        "plan"
+      ],
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "plan": {
+          "description": "Customer subscription plan",
           "type": "object",
           "properties": {
+            "id": {
+              "description": "Identifier for matching the plans (Chargebee compat.)",
+              "type": "string",
+              "pattern": "^[^\\s\\/]{1,50}$"
+            },
             "name": {
               "type": "string",
               "minLength": 1
@@ -325,148 +338,126 @@
               "type": "string",
               "minLength": 1
             },
-            "plan": {
-              "description": "Customer subscription plan",
+            "price": {
+              "description": "A fare/price as billed by a TSP from MaaS in EUR",
               "type": "object",
+              "required": [
+                "amount",
+                "currency"
+              ],
               "properties": {
-                "id": {
-                  "description": "Identifier for matching the plans (Chargebee compat.)",
-                  "type": "string",
-                  "pattern": "^[^\\s\\/]{1,50}$"
+                "amount": {
+                  "type": "number",
+                  "minimum": 0,
+                  "multipleOf": 0.01
                 },
-                "name": {
-                  "type": "string",
-                  "minLength": 1
+                "taxes": {
+                  "type": "number",
+                  "minimum": 0,
+                  "multipleOf": 0.01
                 },
-                "description": {
+                "currency": {
+                  "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
                   "type": "string",
-                  "minLength": 1
-                },
-                "price": {
-                  "description": "A fare/price as billed by a TSP from MaaS in EUR",
-                  "type": "object",
-                  "required": [
-                    "amount",
-                    "currency"
-                  ],
-                  "properties": {
-                    "amount": {
-                      "type": "number",
-                      "minimum": 0,
-                      "multipleOf": 0.01
-                    },
-                    "taxes": {
-                      "type": "number",
-                      "minimum": 0,
-                      "multipleOf": 0.01
-                    },
-                    "currency": {
-                      "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                      "type": "string",
-                      "enum": [
-                        "EUR"
-                      ]
-                    }
-                  },
-                  "additionalProperties": false
+                  "enum": [
+                    "EUR"
+                  ]
                 }
               },
-              "required": [
-                "id"
-              ],
-              "additionalProperties": true
-            },
-            "addons": {
-              "type": "array",
-              "items": {
-                "description": "Customer subscription add-ons",
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "Identifier for matching the plans (Chargebee compat.)",
-                    "type": "string",
-                    "pattern": "^[^\\s\\/]{1,50}$"
-                  },
-                  "name": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "description": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "quantity": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 100000
-                  },
-                  "unitPrice": {
-                    "description": "A fare/price as billed by a TSP from MaaS in EUR",
-                    "type": "object",
-                    "required": [
-                      "amount",
-                      "currency"
-                    ],
-                    "properties": {
-                      "amount": {
-                        "type": "number",
-                        "minimum": 0,
-                        "multipleOf": 0.01
-                      },
-                      "taxes": {
-                        "type": "number",
-                        "minimum": 0,
-                        "multipleOf": 0.01
-                      },
-                      "currency": {
-                        "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                        "type": "string",
-                        "enum": [
-                          "EUR"
-                        ]
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "id",
-                  "quantity"
-                ],
-                "additionalProperties": true
-              }
-            },
-            "coupons": {
-              "type": "array",
-              "items": {
-                "description": "Additional coupon that may provide discounts",
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "Identifier for matching the plans (Chargebee compat.)",
-                    "type": "string",
-                    "pattern": "^[^\\s\\/]{1,50}$"
-                  },
-                  "name": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "description": {
-                    "type": "string",
-                    "minLength": 1
-                  }
-                },
-                "required": [
-                  "id"
-                ]
-              }
+              "additionalProperties": false
             }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": true
+        },
+        "addons": {
+          "type": "array",
+          "items": {
+            "description": "Customer subscription add-ons",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identifier for matching the plans (Chargebee compat.)",
+                "type": "string",
+                "pattern": "^[^\\s\\/]{1,50}$"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100000
+              },
+              "unitPrice": {
+                "description": "A fare/price as billed by a TSP from MaaS in EUR",
+                "type": "object",
+                "required": [
+                  "amount",
+                  "currency"
+                ],
+                "properties": {
+                  "amount": {
+                    "type": "number",
+                    "minimum": 0,
+                    "multipleOf": 0.01
+                  },
+                  "taxes": {
+                    "type": "number",
+                    "minimum": 0,
+                    "multipleOf": 0.01
+                  },
+                  "currency": {
+                    "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                    "type": "string",
+                    "enum": [
+                      "EUR"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "quantity"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "coupons": {
+          "type": "array",
+          "items": {
+            "description": "Additional coupon that may provide discounts",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identifier for matching the plans (Chargebee compat.)",
+                "type": "string",
+                "pattern": "^[^\\s\\/]{1,50}$"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id"
+            ]
           }
         }
-      ],
-      "required": [
-        "plan"
-      ]
+      }
     },
     "subscriptionBase": {
       "type": "object",

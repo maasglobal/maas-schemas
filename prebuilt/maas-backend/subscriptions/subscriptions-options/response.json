@@ -7,6 +7,9 @@
     "options": {
       "type": "array",
       "items": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "id": "https://api.maas.global/maas-backend/subscriptions/subscriptionOption",
+        "description": "MaaS subscription option schema",
         "allOf": [
           {
             "type": "object",
@@ -156,11 +159,82 @@
                 }
               }
             }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "plan": {
+                "type": "object"
+              },
+              "addons": {
+                "type": "array"
+              },
+              "coupons": {
+                "type": "array"
+              },
+              "discounts": {
+                "type": "array"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "availability": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            },
+            "required": [
+              "plan",
+              "availability",
+              "name",
+              "description"
+            ],
+            "additionalProperties": false
           }
         ],
-        "required": [
-          "plan"
-        ]
+        "definitions": {
+          "subscriptionAdditions": {
+            "type": "object",
+            "properties": {
+              "plan": {
+                "type": "object"
+              },
+              "addons": {
+                "type": "array"
+              },
+              "coupons": {
+                "type": "array"
+              },
+              "discounts": {
+                "type": "array"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "availability": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            },
+            "required": [
+              "plan",
+              "availability",
+              "name",
+              "description"
+            ],
+            "additionalProperties": false
+          }
+        }
       }
     },
     "debug": {
