@@ -70,6 +70,14 @@
         "lon"
       ]
     },
+    "fromName": {
+      "description": "The human understandable name for 'from'",
+      "type": "string"
+    },
+    "toName": {
+      "description": "The human understandable name for 'to'",
+      "type": "string"
+    },
     "fromRadius": {
       "description": "Distance in meters",
       "type": "number",
