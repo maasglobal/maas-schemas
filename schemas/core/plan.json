@@ -128,6 +128,9 @@
         },
         "fare": {
           "$ref": "../core/units.json#/definitions/fare"
+        },
+        "product": {
+          "$ref": "#/definitions/product"
         }
       },
       "required": [
@@ -234,6 +237,17 @@
         "co2",
         "points"
       ]
+    },
+    "product": {
+      "description": "Temporary way to define what kind of product has been purchased to get a ticket/booking. Will be replaced something more sophisticated once proper product system will be development.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     }
   }
 }

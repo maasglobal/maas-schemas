@@ -44,6 +44,9 @@
         },
         "customer": {
           "$ref": "#/definitions/customer"
+        },
+        "product": {
+          "$ref": "#/definitions/product"
         }
       },
       "additionalProperties": false
@@ -286,6 +289,9 @@
     "tspId": {
       "type": "string",
       "maxLength": 256
+    },
+    "product": {
+      "$ref": "./plan.json#/definitions/legCore/properties/product"
     }
   }
 }
