@@ -183,6 +183,10 @@
                 "type": "string",
                 "minLength": 1
               },
+              "points": {
+                "type": "integer",
+                "minValue": 0
+              },
               "availability": {
                 "type": "object",
                 "additionalProperties": true
@@ -220,6 +224,10 @@
               "description": {
                 "type": "string",
                 "minLength": 1
+              },
+              "points": {
+                "type": "integer",
+                "minValue": 0
               },
               "availability": {
                 "type": "object",
