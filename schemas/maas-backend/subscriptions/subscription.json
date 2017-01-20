@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/subscriptions/subscription",
+  "description": "MaaS subscription schema",
+  "definitions": {
+    "newSubscription": {
+      "$ref": "#/definitions/subscriptionBase",
+      "required": [ "plan" ],
+      "additionalProperties": false
+    },
+    "subscriptionUpdate": {
+      "$ref": "#/definitions/subscriptionBase",
+      "additionalProperties": false
+    },
+    "subscriptionResponse": {
+      "$ref": "#/definitions/subscriptionBase",
+      "required": [ "plan" ],
+      "additionalProperties": false
+    },
+    "subscriptionBase": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "plan": {
+          "$ref": "#/definitions/plan"
+        },
+        "addons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/addon"
+          }
+        },
+        "coupons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/coupon"
+          }
+        }
+      }
+    },
+    "plan": {
+      "description": "Customer subscription plan",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/subscriptionItemId"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "price": {
+          "$ref": "#/definitions/price"
+        }
+      },
+      "required": ["id"],
+      "additionalProperties": true
+    },
+    "addon": {
+      "description": "Customer subscription add-ons",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/subscriptionItemId"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quantity": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "unitPrice": {
+          "$ref": "#/definitions/price"
+        }
+      },
+      "required": ["id", "quantity"],
+      "additionalProperties": true
+    },
+    "coupon": {
+      "description": "Additional coupon that may provide discounts",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/subscriptionItemId"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": ["id"]
+    },
+    "subscriptionItemId": {
+      "description": "Identifier for matching the plans (Chargebee compat.)",
+      "type": "string",
+      "pattern": "^[^\\s\\/]{1,50}$"
+    },
+    "price": {
+      "$ref": "../../core/units.json#/definitions/cost"
+    }
+  }
+}

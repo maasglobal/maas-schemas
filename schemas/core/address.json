@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/core/address",
+  "description": "MaaS schema for address related information",
+  "definitions": {
+    "address": {
+      "description": "Street address and number, see http://www.bitboost.com/ref/international-address-formats.html",
+      "type": "string",
+      "pattern": "^((\\d+\\s[A-ö\\d]+[\\-/,\\.]?\\s?)+|([A-ö]+[\\-/,\\.]?\\s?)+\\d+([A-ö\\d]+[\\-/,\\.]?\\s?)*)$"
+    },
+    "zipCode": {
+      "description": "Numeric zip code, see https://en.wikipedia.org/wiki/Postal_code",
+      "type": "string",
+      "pattern": "^(\\d{3,10}|[A-Z\\d]{2,4}(\\s[A-Z\\d]{2,4}){1,2})$"
+    },
+    "country": {
+      "description": "Alphabetic country name",
+      "type": "string",
+      "pattern": "^[A-ö\\s]+$"
+    },
+    "countryCode": {
+      "description": "ISO 3166-1 alpha-2 country code, see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2",
+      "type": "string",
+      "pattern": "^[A-Z]{2,2}$$"
+    },
+    "city": {
+      "description": "Alphabetic city name",
+      "type": "string",
+      "pattern": "^[A-ö\\s]+$"
+    }
+  }
+}
