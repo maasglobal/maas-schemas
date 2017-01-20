@@ -16,6 +16,13 @@
         },
         "deviceIdentifier": {
           "type": "string"
+        },
+        "deviceType": {
+          "type": "string",
+          "enum": [
+            "iOS",
+            "Android"
+          ]
         }
       },
       "required": [

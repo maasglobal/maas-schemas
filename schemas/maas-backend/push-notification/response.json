@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+      "$ref": "../../core/aws-units.json#/definitions/identityId"
     },
     "results": {
       "properties": {
