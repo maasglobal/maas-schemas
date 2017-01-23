@@ -4,39 +4,70 @@
   "description": "Response schema for profile-devices-put",
   "type": "object",
   "properties": {
-    "Records": {
-      "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "properties": {
-            "Key": {
-              "type": "string"
-            },
-            "Value": {
-              "type": "string"
-            },
-            "SyncCount": {
-              "type": "integer"
-            },
-            "LastModifiedDate": {
-              "type": "string"
-            },
-            "LastModifiedBy": {
-              "type": "string"
-            },
-            "DeviceLastModifiedDate": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "Key",
-            "Value",
-            "SyncCount"
+    "device": {
+      "type": "object",
+      "properties": {
+        "devicePushToken": {
+          "description": "Push token - 32 chars in iOS, up to 255 in Android",
+          "type": "string",
+          "pattern": "^.{32, 255}$"
+        },
+        "deviceIdentifier": {
+          "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
+          "type": "string",
+          "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
+        },
+        "deviceType": {
+          "type": "string",
+          "enum": [
+            "iOS",
+            "Android"
           ]
         }
-      ]
+      },
+      "required": [
+        "devicePushToken",
+        "deviceIdentifier",
+        "deviceType"
+      ],
+      "additionalProperties": false
+    },
+    "debug": {
+      "type": "object"
     }
   },
-  "additionalProperties": false
+  "required": [
+    "device"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "device": {
+      "type": "object",
+      "properties": {
+        "devicePushToken": {
+          "description": "Push token - 32 chars in iOS, up to 255 in Android",
+          "type": "string",
+          "pattern": "^.{32, 255}$"
+        },
+        "deviceIdentifier": {
+          "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
+          "type": "string",
+          "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
+        },
+        "deviceType": {
+          "type": "string",
+          "enum": [
+            "iOS",
+            "Android"
+          ]
+        }
+      },
+      "required": [
+        "devicePushToken",
+        "deviceIdentifier",
+        "deviceType"
+      ],
+      "additionalProperties": false
+    }
+  }
 }

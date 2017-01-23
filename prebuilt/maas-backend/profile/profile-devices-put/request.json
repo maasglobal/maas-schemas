@@ -12,10 +12,14 @@
       "type": "object",
       "properties": {
         "devicePushToken": {
-          "type": "string"
+          "description": "Push token - 32 chars in iOS, up to 255 in Android",
+          "type": "string",
+          "pattern": "^.{32, 255}$"
         },
         "deviceIdentifier": {
-          "type": "string"
+          "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
+          "type": "string",
+          "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
         },
         "deviceType": {
           "type": "string",
@@ -27,8 +31,10 @@
       },
       "required": [
         "devicePushToken",
-        "deviceIdentifier"
-      ]
+        "deviceIdentifier",
+        "deviceType"
+      ],
+      "additionalProperties": false
     }
   },
   "additionalProperties": false
