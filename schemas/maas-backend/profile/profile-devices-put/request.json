@@ -11,10 +11,12 @@
       "type": "object",
       "properties": {
         "devicePushToken": {
-          "type": "string"
+          "description": "Push token - 32 chars in iOS, up to 255 in Android",
+          "type": "string",
+          "pattern": "^.{32, 255}$"
         },
         "deviceIdentifier": {
-          "type": "string"
+          "$ref": "../../../core/units.json#/definitions/uuid"
         },
         "deviceType": {
           "type": "string",
@@ -22,7 +24,8 @@
 
         }
       },
-      "required": ["devicePushToken", "deviceIdentifier"]
+      "required": ["devicePushToken", "deviceIdentifier", "deviceType"],
+      "additionalProperties": false
     }
   },
   "additionalProperties": false
