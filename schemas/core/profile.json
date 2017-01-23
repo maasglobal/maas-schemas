@@ -7,11 +7,41 @@
     "identityId": {
       "$ref": "./aws-units.json#/definitions/identityId"
     },
+    "phone": {
+      "$ref": "./units.json#/definitions/phone"
+    },
+    "email": {
+      "$ref": "./units.json#/definitions/email"
+    },
+    "firstName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lastName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "city": {
+      "type": "string",
+      "minLength": 1
+    },
+    "country": {
+      "type": "string",
+      "minLength": 1
+    },
+    "zipCode": {
+      "type": "string",
+      "minLength": 1
+    },
     "plans": {
       "type": "array",
       "items": {
         "$ref": "./maas-package.json#/definitions/plan"
       }
+    },
+    "profileImageUrl": {
+      "type": "string",
+      "minLength": 1
     },
     "favoriteLocations": {
       "type": "array",
@@ -21,16 +51,10 @@
     },
     "balance": {
       "type": "integer"
-    },
-    "phone": {
-      "$ref": "./units.json#/definitions/phone"
-    },
-    "email": {
-      "$ref": "./units.json#/definitions/email"
     }
   },
   "additionalProperties": false,
-  "required": [ "plans", "favoriteLocations", "balance", "phone", "email" ],
+  "required": [ "identityId", "phone", "email", "plans", "balance" ],
   "definitions": {
     "favoriteLocation": {
       "type": "object",

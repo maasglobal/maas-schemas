@@ -144,6 +144,11 @@
       "maximum": 40075000,
       "multipleOf": 0.000001
     },
+    "identityId": {
+      "description": "Customer identity id - currently an AWS identityId",
+      "type": "string",
+      "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+    },
     "phone": {
       "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
       "type": "string",
@@ -227,7 +232,13 @@
           "minimum": 0,
           "multipleOf": 0.01
         },
+        "taxes": {
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 0.01
+        },
         "currency": {
+          "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
           "type": "string",
           "enum": [
             "EUR"
