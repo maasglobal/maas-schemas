@@ -139,6 +139,14 @@
       "type": "string",
       "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
     },
+    "fromName": {
+      "description": "The human understandable name for 'from'",
+      "type": "string"
+    },
+    "toName": {
+      "description": "The human understandable name for 'to'",
+      "type": "string"
+    },
     "fromRadius": {
       "description": "'from' location radius in meters",
       "type": "number",
