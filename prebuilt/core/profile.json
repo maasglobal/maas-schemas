@@ -8,6 +8,36 @@
       "type": "string",
       "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
     },
+    "phone": {
+      "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
+      "type": "string",
+      "pattern": "^\\+(?:\\d){6,14}\\d$"
+    },
+    "email": {
+      "description": "Rough validation of a valid e-mail address, see https://davidcel.is/posts/stop-validating-email-addresses-with-regex/",
+      "type": "string",
+      "pattern": "^.+@.+\\..+$"
+    },
+    "firstName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lastName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "city": {
+      "type": "string",
+      "minLength": 1
+    },
+    "country": {
+      "type": "string",
+      "minLength": 1
+    },
+    "zipCode": {
+      "type": "string",
+      "minLength": 1
+    },
     "plans": {
       "type": "array",
       "items": {
@@ -87,6 +117,10 @@
         }
       }
     },
+    "profileImageUrl": {
+      "type": "string",
+      "minLength": 1
+    },
     "favoriteLocations": {
       "type": "array",
       "items": {
@@ -124,25 +158,15 @@
     },
     "balance": {
       "type": "integer"
-    },
-    "phone": {
-      "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
-      "type": "string",
-      "pattern": "^\\+(?:\\d){6,14}\\d$"
-    },
-    "email": {
-      "description": "Rough validation of a valid e-mail address, see https://davidcel.is/posts/stop-validating-email-addresses-with-regex/",
-      "type": "string",
-      "pattern": "^.+@.+\\..+$"
     }
   },
   "additionalProperties": false,
   "required": [
-    "plans",
-    "favoriteLocations",
-    "balance",
+    "identityId",
     "phone",
-    "email"
+    "email",
+    "plans",
+    "balance"
   ],
   "definitions": {
     "favoriteLocation": {

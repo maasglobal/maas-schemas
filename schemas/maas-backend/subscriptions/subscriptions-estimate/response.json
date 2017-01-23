@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-estimate/response",
+  "description": "Response schema for subscriptions-estimate",
+  "type": "object",
+  "properties": {
+    "estimate": {
+      "$ref": "../pricing.json"
+    },
+    "debug": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": [ "estimate" ],
+  "additionalProperties": false
+}
