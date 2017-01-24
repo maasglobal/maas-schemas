@@ -179,6 +179,11 @@
           "type": "integer",
           "minValue": 0
         },
+        "image": {
+          "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
+          "type": "string",
+          "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
+        },
         "availability": {
           "type": "object",
           "additionalProperties": true
@@ -190,7 +195,7 @@
         "name",
         "description"
       ],
-      "additionalProperties": false
+      "additionalProperties": true
     }
   ],
   "definitions": {
@@ -221,6 +226,11 @@
           "type": "integer",
           "minValue": 0
         },
+        "image": {
+          "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
+          "type": "string",
+          "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
+        },
         "availability": {
           "type": "object",
           "additionalProperties": true
@@ -232,7 +242,7 @@
         "name",
         "description"
       ],
-      "additionalProperties": false
+      "additionalProperties": true
     }
   }
 }

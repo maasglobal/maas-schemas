@@ -34,13 +34,16 @@
           "type": "integer",
           "minValue": 0
         },
+        "image": {
+          "$ref": "../../core/units.json#/definitions/url"
+        },
         "availability": {
           "type": "object",
           "additionalProperties": true
         }
       },
       "required": [ "plan", "availability", "name", "description" ],
-      "additionalProperties": false
+      "additionalProperties": true
     }
   }
 }
