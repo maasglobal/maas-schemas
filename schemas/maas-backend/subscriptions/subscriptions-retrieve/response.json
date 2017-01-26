@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "subscription": {
-      "$ref": "../subscription.json#/definitions/subscriptionResponse"
+      "$ref": "../subscriptionOption.json"
     },
     "debug": {
       "type": "object",

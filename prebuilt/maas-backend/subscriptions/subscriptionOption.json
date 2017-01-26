@@ -167,13 +167,10 @@
         "discounts": {
           "type": "array"
         },
-        "name": {
-          "type": "string",
-          "minLength": 1
-        },
-        "description": {
-          "type": "string",
-          "minLength": 1
+        "meta": {
+          "description": "Arbitrary metadata on whatever app might need to display",
+          "type": "object",
+          "additionalProperties": true
         },
         "points": {
           "type": "integer",
@@ -186,11 +183,10 @@
       },
       "required": [
         "plan",
-        "availability",
-        "name",
-        "description"
+        "points",
+        "availability"
       ],
-      "additionalProperties": false
+      "additionalProperties": true
     }
   ],
   "definitions": {
@@ -209,13 +205,10 @@
         "discounts": {
           "type": "array"
         },
-        "name": {
-          "type": "string",
-          "minLength": 1
-        },
-        "description": {
-          "type": "string",
-          "minLength": 1
+        "meta": {
+          "description": "Arbitrary metadata on whatever app might need to display",
+          "type": "object",
+          "additionalProperties": true
         },
         "points": {
           "type": "integer",
@@ -228,11 +221,10 @@
       },
       "required": [
         "plan",
-        "availability",
-        "name",
-        "description"
+        "points",
+        "availability"
       ],
-      "additionalProperties": false
+      "additionalProperties": true
     }
   }
 }
