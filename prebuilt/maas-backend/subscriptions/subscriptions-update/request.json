@@ -17,7 +17,6 @@
       "default": false
     },
     "payload": {
-      "additionalProperties": false,
       "type": "object",
       "properties": {
         "name": {

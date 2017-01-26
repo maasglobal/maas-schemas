@@ -189,8 +189,7 @@
           },
           "required": [
             "plan",
-            "points",
-            "availability"
+            "points"
           ],
           "additionalProperties": true
         }
@@ -227,8 +226,7 @@
           },
           "required": [
             "plan",
-            "points",
-            "availability"
+            "points"
           ],
           "additionalProperties": true
         }
