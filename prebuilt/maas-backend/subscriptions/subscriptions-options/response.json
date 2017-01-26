@@ -175,22 +175,14 @@
               "discounts": {
                 "type": "array"
               },
-              "name": {
-                "type": "string",
-                "minLength": 1
-              },
-              "description": {
-                "type": "string",
-                "minLength": 1
+              "meta": {
+                "description": "Arbitrary metadata on whatever app might need to display",
+                "type": "object",
+                "additionalProperties": true
               },
               "points": {
                 "type": "integer",
                 "minValue": 0
-              },
-              "image": {
-                "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
-                "type": "string",
-                "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
               },
               "availability": {
                 "type": "object",
@@ -199,9 +191,8 @@
             },
             "required": [
               "plan",
-              "availability",
-              "name",
-              "description"
+              "points",
+              "availability"
             ],
             "additionalProperties": true
           }
@@ -222,22 +213,14 @@
               "discounts": {
                 "type": "array"
               },
-              "name": {
-                "type": "string",
-                "minLength": 1
-              },
-              "description": {
-                "type": "string",
-                "minLength": 1
+              "meta": {
+                "description": "Arbitrary metadata on whatever app might need to display",
+                "type": "object",
+                "additionalProperties": true
               },
               "points": {
                 "type": "integer",
                 "minValue": 0
-              },
-              "image": {
-                "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
-                "type": "string",
-                "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
               },
               "availability": {
                 "type": "object",
@@ -246,9 +229,8 @@
             },
             "required": [
               "plan",
-              "availability",
-              "name",
-              "description"
+              "points",
+              "availability"
             ],
             "additionalProperties": true
           }
