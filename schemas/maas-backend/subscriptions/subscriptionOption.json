@@ -36,7 +36,7 @@
           "additionalProperties": true
         }
       },
-      "required": [ "plan", "points", "availability" ],
+      "required": [ "plan", "points" ],
       "additionalProperties": true
     }
   }
