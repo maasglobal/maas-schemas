@@ -20,7 +20,7 @@
         "devicePushToken": {
           "description": "Push token - 32 chars in iOS, up to 255 in Android",
           "type": "string",
-          "pattern": "^.{32, 255}$"
+          "pattern": "^.{32,255}$"
         },
         "deviceIdentifier": {
           "$ref": "../../../core/units.json#/definitions/uuid"
