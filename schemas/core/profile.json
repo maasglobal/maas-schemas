@@ -51,6 +51,10 @@
     },
     "balance": {
       "type": "integer"
+    },
+    "paymentMethodStatus": {
+      "type": "string",
+      "enum": ["valid", "valid_expiring", "invalid", "unknown"]
     }
   },
   "additionalProperties": false,
