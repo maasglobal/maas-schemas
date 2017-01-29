@@ -165,7 +165,6 @@
     "cost": {
       "description": "A fare/price as billed by a TSP from MaaS in EUR",
       "type": "object",
-      "required": ["amount", "currency"],
       "properties": {
         "amount": {
           "type": "number",
@@ -185,6 +184,22 @@
       },
       "required": ["amount", "currency"],
       "additionalProperties": false
+    },
+    "classification": {
+      "description": "Machine Learning classification of the route option",
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 99999,
+          "multipleOf": 0.01
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": ["score"]
     }
   }
 }

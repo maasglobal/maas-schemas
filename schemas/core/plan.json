@@ -36,6 +36,9 @@
         "fare": {
           "$ref": "#/definitions/fare"
         },
+        "classification": {
+          "$ref": "./units.json#/definitions/classification"
+        },
         "legs": {
           "type": "array",
           "minItems": 0,
