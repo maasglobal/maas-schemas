@@ -10,14 +10,6 @@
       "additionalProperties": false,
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string",
-          "minLength": 1
-        },
-        "description": {
-          "type": "string",
-          "minLength": 1
-        },
         "plan": {
           "description": "Customer subscription plan",
           "type": "object",
@@ -160,14 +152,6 @@
       "additionalProperties": false,
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string",
-          "minLength": 1
-        },
-        "description": {
-          "type": "string",
-          "minLength": 1
-        },
         "plan": {
           "description": "Customer subscription plan",
           "type": "object",
@@ -313,14 +297,6 @@
       "additionalProperties": false,
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string",
-          "minLength": 1
-        },
-        "description": {
-          "type": "string",
-          "minLength": 1
-        },
         "plan": {
           "description": "Customer subscription plan",
           "type": "object",
@@ -462,14 +438,6 @@
     "subscriptionBase": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string",
-          "minLength": 1
-        },
-        "description": {
-          "type": "string",
-          "minLength": 1
-        },
         "plan": {
           "description": "Customer subscription plan",
           "type": "object",
@@ -606,7 +574,8 @@
             ]
           }
         }
-      }
+      },
+      "additionalProperties": true
     },
     "plan": {
       "description": "Customer subscription plan",
