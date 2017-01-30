@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-retrieve/response",
+  "description": "Response schema for subscriptions-retrieve",
+  "type": "object",
+  "properties": {
+    "customer": {
+      "type": "object"
+    },
+    "debug": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "customer"
+  ],
+  "additionalProperties": false
+}
