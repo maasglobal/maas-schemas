@@ -158,6 +158,29 @@
     },
     "balance": {
       "type": "integer"
+    },
+    "paymentMethod": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "valid",
+            "valid_expiring",
+            "invalid",
+            "unknown"
+          ]
+        },
+        "expiry": {
+          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 1451606400
+        },
+        "maskedNumber": {
+          "type": "string"
+        }
+      }
     }
   },
   "additionalProperties": false,

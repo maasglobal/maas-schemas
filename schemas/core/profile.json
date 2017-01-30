@@ -51,6 +51,21 @@
     },
     "balance": {
       "type": "integer"
+    },
+    "paymentMethod": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["valid", "valid_expiring", "invalid", "unknown"]
+        },
+        "expiry": {
+          "$ref": "./units.json#/definitions/time"
+        },
+        "maskedNumber": {
+          "type": "string"
+        }
+      }
     }
   },
   "additionalProperties": false,
