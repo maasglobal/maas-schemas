@@ -55,17 +55,28 @@
     "paymentMethod": {
       "type": "object",
       "properties": {
-        "status": {
+        "type": {
           "type": "string",
-          "enum": ["valid", "valid_expiring", "invalid", "unknown"]
+          "enum": ["unknown", "card", "stripe"]
         },
-        "expiry": {
-          "$ref": "./units.json#/definitions/time"
+        "valid": {
+          "description": "Whether the payment method is valid and working",
+          "type": "boolean"
         },
         "maskedNumber": {
+          "description": "Typically the credit card number with all but the last four digits obfuscated",
           "type": "string"
+        },
+        "issuer": {
+          "description": "The card issuer, e.g. 'Visa'",
+          "type": "string"
+        },
+        "expiry": {
+          "description": "When this payment method expires",
+          "$ref": "./units.json#/definitions/time"
         }
-      }
+      },
+      "required": ["type", "valid"]
     }
   },
   "additionalProperties": false,

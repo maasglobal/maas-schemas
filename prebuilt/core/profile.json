@@ -162,25 +162,37 @@
     "paymentMethod": {
       "type": "object",
       "properties": {
-        "status": {
+        "type": {
           "type": "string",
           "enum": [
-            "valid",
-            "valid_expiring",
-            "invalid",
-            "unknown"
+            "unknown",
+            "card",
+            "stripe"
           ]
         },
+        "valid": {
+          "description": "Whether the payment method is valid and working",
+          "type": "boolean"
+        },
+        "maskedNumber": {
+          "description": "Typically the credit card number with all but the last four digits obfuscated",
+          "type": "string"
+        },
+        "issuer": {
+          "description": "The card issuer, e.g. 'Visa'",
+          "type": "string"
+        },
         "expiry": {
-          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+          "description": "When this payment method expires",
           "type": "integer",
           "maximum": 9007199254740991,
           "minimum": 1451606400
-        },
-        "maskedNumber": {
-          "type": "string"
         }
-      }
+      },
+      "required": [
+        "type",
+        "valid"
+      ]
     }
   },
   "additionalProperties": false,
