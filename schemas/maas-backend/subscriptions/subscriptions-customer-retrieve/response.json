@@ -1,11 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-retrieve/response",
-  "description": "Response schema for subscriptions-retrieve",
+  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-customer-retrieve/response",
+  "description": "Response schema for subscriptions-customer-retrieve",
   "type": "object",
   "properties": {
     "customer": {
-       "$ref": "../contact.json#/definitions/contactResponse"
+      "$ref": "../contact.json#/definitions/contactResponse"
     },
     "debug": {
       "type": "object",

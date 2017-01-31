@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-retrieve/request",
-  "description": "Request schema for subscriptions-retrieve",
+  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-customer-retrieve/request",
+  "description": "Request schema for subscriptions-customer-retrieve",
   "type": "object",
   "properties": {
     "customerId": {
