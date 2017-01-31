@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "customer": {
-      "type": "object"
+       "$ref": "../contact.json#/definitions/contactResponse"
     },
     "debug": {
       "type": "object",
