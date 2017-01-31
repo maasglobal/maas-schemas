@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-customer-retrieve/response",
+  "description": "Response schema for subscriptions-customer-retrieve",
+  "type": "object",
+  "properties": {
+    "customer": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "identityId": {
+              "description": "Customer identity id - currently an AWS identityId",
+              "type": "string",
+              "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+            },
+            "firstName": {
+              "type": "string",
+              "pattern": "^[A-Ö][a-ö]*([\\s'\\-]?[A-Ö][a-ö]*)+$",
+              "maxLength": 255
+            },
+            "lastName": {
+              "type": "string",
+              "pattern": "^[A-Ö][a-ö]*([\\s'\\-]?[A-Ö][a-ö]*)+$",
+              "maxLength": 255
+            },
+            "address": {
+              "description": "Street address and number, see http://www.bitboost.com/ref/international-address-formats.html",
+              "type": "string",
+              "pattern": "^((\\d+\\s[A-ö\\d]+[\\-/,\\.]?\\s?)+|([A-ö]+[\\-/,\\.]?\\s?)+\\d+([A-ö\\d]+[\\-/,\\.]?\\s?)*)$"
+            },
+            "zipCode": {
+              "description": "Numeric zip code, see https://en.wikipedia.org/wiki/Postal_code",
+              "type": "string",
+              "pattern": "^(\\d{3,10}|[A-Z\\d]{2,4}(\\s[A-Z\\d]{2,4}){1,2})$"
+            },
+            "countryCode": {
+              "description": "Alphabetic country name",
+              "type": "string",
+              "pattern": "^[A-ö\\s]+$"
+            },
+            "phone": {
+              "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
+              "type": "string",
+              "pattern": "^\\+(?:\\d){6,14}\\d$"
+            },
+            "email": {
+              "description": "Rough validation of a valid e-mail address, see https://davidcel.is/posts/stop-validating-email-addresses-with-regex/",
+              "type": "string",
+              "pattern": "^.+@.+\\..+$"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "paymentMethod": {
+              "description": "The payment (gateway) method info; no credit cards here",
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "valid": {
+                  "description": "Whether the payment method is valid and working",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "type",
+                "valid"
+              ]
+            }
+          }
+        }
+      ],
+      "required": [
+        "identityId",
+        "phone"
+      ]
+    },
+    "debug": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "customer"
+  ],
+  "additionalProperties": false
+}
