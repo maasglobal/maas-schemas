@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-customer-update/response",
+  "description": "Response schema for subscriptions-customer-update",
+  "type": "object",
+  "properties": {
+    "customer": {
+      "$ref": "../contact.json#/definitions/contactResponse"
+    },
+    "debug": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": [ "customer" ],
+  "additionalProperties": false
+}
