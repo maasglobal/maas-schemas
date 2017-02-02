@@ -25,7 +25,7 @@
           }
         }
       ],
-      "required": ["identityId"]
+      "required": ["identityId", "city", "countryCode", "zipCode"]
     },
     "contactResponse": {
       "allOf": [
@@ -57,6 +57,9 @@
         },
         "address": {
           "$ref": "../../core/address.json#/definitions/address"
+        },
+        "city": {
+          "$ref": "../../core/address.json#/definitions/city"
         },
         "zipCode": {
           "$ref": "../../core/address.json#/definitions/zipCode"
