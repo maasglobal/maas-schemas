@@ -14,11 +14,6 @@
       "pattern": "^(\\d{3,10}|[A-Z\\d]{2,4}(\\s[A-Z\\d]{2,4}){1,2})$"
     },
     "country": {
-      "description": "Alphabetic country name",
-      "type": "string",
-      "pattern": "^[A-ö\\s]+$"
-    },
-    "countryCode": {
       "description": "ISO 3166-1 alpha-2 country code, see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2",
       "type": "string",
       "pattern": "^[A-Z]{2,2}$$"
