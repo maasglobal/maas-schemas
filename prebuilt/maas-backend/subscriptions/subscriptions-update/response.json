@@ -147,6 +147,51 @@
                   "id"
                 ]
               }
+            },
+            "terms": {
+              "description": "Terms related to this subscription",
+              "type": "object",
+              "properties": {
+                "activated": {
+                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                },
+                "modified": {
+                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                },
+                "validity": {
+                  "description": "Subscription validity conditions",
+                  "type": "object",
+                  "properties": {
+                    "startTime": {
+                      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                      "type": "integer",
+                      "maximum": 9007199254740991,
+                      "minimum": 1451606400
+                    },
+                    "endTime": {
+                      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                      "type": "integer",
+                      "maximum": 9007199254740991,
+                      "minimum": 1451606400
+                    }
+                  },
+                  "required": [
+                    "startTime",
+                    "endTime"
+                  ]
+                }
+              },
+              "required": [
+                "activated",
+                "modified",
+                "validity"
+              ]
             }
           },
           "additionalProperties": true

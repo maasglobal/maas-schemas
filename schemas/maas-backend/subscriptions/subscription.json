@@ -14,7 +14,7 @@
     },
     "subscriptionResponse": {
       "$ref": "#/definitions/subscriptionBase",
-      "required": [ "plan" ],
+      "required": [ "plan", "terms" ],
       "additionalProperties": false
     },
     "subscriptionBase": {
@@ -34,6 +34,9 @@
           "items": {
             "$ref": "#/definitions/coupon"
           }
+        },
+        "terms": {
+          "$ref": "#/definitions/terms"
         }
       },
       "additionalProperties": true
@@ -112,6 +115,28 @@
     },
     "price": {
       "$ref": "../../core/units.json#/definitions/cost"
+    },
+    "terms": {
+      "description": "Terms related to this subscription",
+      "type": "object",
+      "properties": {
+        "activated": {
+          "$ref": "../../core/units.json#/definitions/time"
+        },
+        "modified": {
+          "$ref": "../../core/units.json#/definitions/time"
+        },
+        "validity": {
+          "description": "Subscription validity conditions",
+          "type": "object",
+          "properties": {
+            "startTime": { "$ref": "../../core/units.json#/definitions/time" },
+            "endTime": { "$ref": "../../core/units.json#/definitions/time" }
+          },
+          "required": ["startTime", "endTime"]
+        }
+      },
+      "required": ["activated", "modified", "validity"]
     }
   }
 }
