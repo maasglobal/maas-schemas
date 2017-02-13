@@ -30,8 +30,10 @@
                 "minLength": 1
               },
               "quantity": {
-                "type": "number",
-                "minValue": 0
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100000,
+                "default": 0
               },
               "unitPrice": {
                 "description": "Price of one unit after all taxes & discounts",
@@ -171,8 +173,10 @@
               "minLength": 1
             },
             "quantity": {
-              "type": "number",
-              "minValue": 0
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0
             },
             "unitPrice": {
               "description": "Price of one unit after all taxes & discounts",
