@@ -80,8 +80,9 @@
         },
         "quantity": {
           "type": "integer",
-          "minimum": 1,
-          "maximum": 100000
+          "minimum": 0,
+          "maximum": 100000,
+          "default": 0
         },
         "unitPrice": {
           "$ref": "#/definitions/price"

@@ -82,8 +82,9 @@
               },
               "quantity": {
                 "type": "integer",
-                "minimum": 1,
-                "maximum": 100000
+                "minimum": 0,
+                "maximum": 100000,
+                "default": 0
               },
               "unitPrice": {
                 "description": "A fare/price as billed by a TSP from MaaS in EUR",
@@ -269,8 +270,9 @@
               },
               "quantity": {
                 "type": "integer",
-                "minimum": 1,
-                "maximum": 100000
+                "minimum": 0,
+                "maximum": 100000,
+                "default": 0
               },
               "unitPrice": {
                 "description": "A fare/price as billed by a TSP from MaaS in EUR",
@@ -460,8 +462,9 @@
               },
               "quantity": {
                 "type": "integer",
-                "minimum": 1,
-                "maximum": 100000
+                "minimum": 0,
+                "maximum": 100000,
+                "default": 0
               },
               "unitPrice": {
                 "description": "A fare/price as billed by a TSP from MaaS in EUR",
@@ -646,8 +649,9 @@
               },
               "quantity": {
                 "type": "integer",
-                "minimum": 1,
-                "maximum": 100000
+                "minimum": 0,
+                "maximum": 100000,
+                "default": 0
               },
               "unitPrice": {
                 "description": "A fare/price as billed by a TSP from MaaS in EUR",
@@ -828,8 +832,9 @@
         },
         "quantity": {
           "type": "integer",
-          "minimum": 1,
-          "maximum": 100000
+          "minimum": 0,
+          "maximum": 100000,
+          "default": 0
         },
         "unitPrice": {
           "description": "A fare/price as billed by a TSP from MaaS in EUR",
