@@ -184,6 +184,10 @@
                 "startTime",
                 "endTime"
               ]
+            },
+            "scheduledChanges": {
+              "type": "boolean",
+              "default": false
             }
           },
           "required": [
@@ -372,6 +376,10 @@
                 "startTime",
                 "endTime"
               ]
+            },
+            "scheduledChanges": {
+              "type": "boolean",
+              "default": false
             }
           },
           "required": [
@@ -564,6 +572,10 @@
                 "startTime",
                 "endTime"
               ]
+            },
+            "scheduledChanges": {
+              "type": "boolean",
+              "default": false
             }
           },
           "required": [
@@ -751,6 +763,10 @@
                 "startTime",
                 "endTime"
               ]
+            },
+            "scheduledChanges": {
+              "type": "boolean",
+              "default": false
             }
           },
           "required": [
@@ -963,6 +979,10 @@
             "startTime",
             "endTime"
           ]
+        },
+        "scheduledChanges": {
+          "type": "boolean",
+          "default": false
         }
       },
       "required": [

@@ -135,6 +135,10 @@
             "endTime": { "$ref": "../../core/units.json#/definitions/time" }
           },
           "required": ["startTime", "endTime"]
+        },
+        "scheduledChanges": {
+          "type": "boolean",
+          "default": false
         }
       },
       "required": ["activated", "modified", "validity"]

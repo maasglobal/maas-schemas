@@ -9,6 +9,10 @@
     },
     "userId": {
       "$ref": "../../../core/aws-units.json#/definitions/identityId"
+    },
+    "nextPeriod": {
+      "type": "boolean",
+      "default": false
     }
   },
   "required": ["customerId", "userId" ],
