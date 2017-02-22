@@ -147,6 +147,37 @@
             }
           },
           "additionalProperties": false
+        },
+        "terms": {
+          "description": "Terms related to this subscription",
+          "type": "object",
+          "properties": {
+            "validity": {
+              "description": "Subscription validity conditions",
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                },
+                "endTime": {
+                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                }
+              },
+              "required": [
+                "startTime",
+                "endTime"
+              ]
+            }
+          },
+          "required": [
+            "validity"
+          ]
         }
       },
       "required": [
@@ -258,6 +289,37 @@
             "discount"
           ],
           "additionalProperties": false
+        },
+        "terms": {
+          "description": "Terms related to this subscription",
+          "type": "object",
+          "properties": {
+            "validity": {
+              "description": "Subscription validity conditions",
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                },
+                "endTime": {
+                  "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                  "type": "integer",
+                  "maximum": 9007199254740991,
+                  "minimum": 1451606400
+                }
+              },
+              "required": [
+                "startTime",
+                "endTime"
+              ]
+            }
+          },
+          "required": [
+            "validity"
+          ]
         }
       }
     },

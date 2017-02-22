@@ -19,6 +19,9 @@
     "total": {
       "description": "Sum of the quantity * unitPrice - sum of discounts",
       "$ref": "../../core/units.json#/definitions/cost"
+    },
+    "terms": {
+      "$ref": "#/definitions/terms"
     }
   },
   "required": ["lineItems", "total"],
@@ -68,6 +71,22 @@
       },
       "required": ["description", "discount"],
       "additionalProperties": false
+    },
+    "terms": {
+      "description": "Terms related to this subscription",
+      "type": "object",
+      "properties": {
+        "validity": {
+          "description": "Subscription validity conditions",
+          "type": "object",
+          "properties": {
+            "startTime": { "$ref": "../../core/units.json#/definitions/time" },
+            "endTime": { "$ref": "../../core/units.json#/definitions/time" }
+          },
+          "required": ["startTime", "endTime"]
+        }
+      },
+      "required": ["validity"]
     }
   }
 }
