@@ -49,7 +49,8 @@
                   "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
                   "type": "string",
                   "enum": [
-                    "EUR"
+                    "EUR",
+                    "GBP"
                   ]
                 }
               },
@@ -108,7 +109,8 @@
                     "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
                     "type": "string",
                     "enum": [
-                      "EUR"
+                      "EUR",
+                      "GBP"
                     ]
                   }
                 },
@@ -241,7 +243,8 @@
                   "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
                   "type": "string",
                   "enum": [
-                    "EUR"
+                    "EUR",
+                    "GBP"
                   ]
                 }
               },
@@ -300,7 +303,8 @@
                     "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
                     "type": "string",
                     "enum": [
-                      "EUR"
+                      "EUR",
+                      "GBP"
                     ]
                   }
                 },
@@ -437,7 +441,8 @@
                   "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
                   "type": "string",
                   "enum": [
-                    "EUR"
+                    "EUR",
+                    "GBP"
                   ]
                 }
               },
@@ -496,7 +501,8 @@
                     "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
                     "type": "string",
                     "enum": [
-                      "EUR"
+                      "EUR",
+                      "GBP"
                     ]
                   }
                 },
@@ -628,7 +634,8 @@
                   "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
                   "type": "string",
                   "enum": [
-                    "EUR"
+                    "EUR",
+                    "GBP"
                   ]
                 }
               },
@@ -687,7 +694,8 @@
                     "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
                     "type": "string",
                     "enum": [
-                      "EUR"
+                      "EUR",
+                      "GBP"
                     ]
                   }
                 },
@@ -817,7 +825,8 @@
               "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
               "type": "string",
               "enum": [
-                "EUR"
+                "EUR",
+                "GBP"
               ]
             }
           },
@@ -874,7 +883,8 @@
               "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
               "type": "string",
               "enum": [
-                "EUR"
+                "EUR",
+                "GBP"
               ]
             }
           },
@@ -936,7 +946,8 @@
           "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
           "type": "string",
           "enum": [
-            "EUR"
+            "EUR",
+            "GBP"
           ]
         }
       },
