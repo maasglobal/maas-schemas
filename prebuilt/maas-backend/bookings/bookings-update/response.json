@@ -435,7 +435,35 @@
                   "type": "object"
                 },
                 "MODE_TRAIN": {
-                  "type": "object"
+                  "type": "object",
+                  "properties": {
+                    "trainId": {
+                      "description": "The train id / designator",
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "trainType": {
+                      "description": "The train type, e.g. Inter-City",
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "coach": {
+                      "description": "The coach, e.g. B",
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "seatNumber": {
+                      "description": "Seat number, e.g. 42",
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "carrierName": {
+                      "description": "Carrier name, e.g. LonUnderground",
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false
                 },
                 "MODE_TRAINISH": {
                   "type": "object"
@@ -1028,7 +1056,35 @@
                   "type": "object"
                 },
                 "MODE_TRAIN": {
-                  "type": "object"
+                  "type": "object",
+                  "properties": {
+                    "trainId": {
+                      "description": "The train id / designator",
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "trainType": {
+                      "description": "The train type, e.g. Inter-City",
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "coach": {
+                      "description": "The coach, e.g. B",
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "seatNumber": {
+                      "description": "Seat number, e.g. 42",
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "carrierName": {
+                      "description": "Carrier name, e.g. LonUnderground",
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false
                 },
                 "MODE_TRAINISH": {
                   "type": "object"
@@ -1574,7 +1630,35 @@
               "type": "object"
             },
             "MODE_TRAIN": {
-              "type": "object"
+              "type": "object",
+              "properties": {
+                "trainId": {
+                  "description": "The train id / designator",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "trainType": {
+                  "description": "The train type, e.g. Inter-City",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "coach": {
+                  "description": "The coach, e.g. B",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "seatNumber": {
+                  "description": "Seat number, e.g. 42",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "carrierName": {
+                  "description": "Carrier name, e.g. LonUnderground",
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
             },
             "MODE_TRAINISH": {
               "type": "object"
