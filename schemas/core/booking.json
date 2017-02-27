@@ -220,7 +220,8 @@
               "minLength": 1
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "required": ["trainId"]
         },
         "MODE_TRAINISH": {
           "type": "object"
