@@ -49,6 +49,11 @@
                   "minimum": 0,
                   "multipleOf": 0.01
                 },
+                "discount": {
+                  "type": "number",
+                  "minimum": 0,
+                  "multipleOf": 0.01
+                },
                 "taxes": {
                   "type": "number",
                   "minimum": 0,
@@ -105,6 +110,11 @@
                 ],
                 "properties": {
                   "amount": {
+                    "type": "number",
+                    "minimum": 0,
+                    "multipleOf": 0.01
+                  },
+                  "discount": {
                     "type": "number",
                     "minimum": 0,
                     "multipleOf": 0.01
