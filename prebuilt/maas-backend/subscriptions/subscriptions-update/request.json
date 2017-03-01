@@ -209,12 +209,19 @@
         }
       },
       "additionalProperties": true
+    },
+    "headers": {
+      "Accept": {
+        "type": "string",
+        "pattern": "\\bapplication/json; \\s+version=((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?(?:\\+[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?)\\b"
+      }
     }
   },
   "required": [
     "customerId",
     "userId",
-    "payload"
+    "payload",
+    "headers"
   ],
   "additionalProperties": false
 }
