@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/core/version",
+  "description": "SemVer versioning schemas for versioning our resources",
+  "definitions": {
+    "acceptHeader": {
+      "type": "string",
+      "pattern": "\\bapplication/json; \\s+version=((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?(?:\\+[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?)\\b"
+    }
+  }
+}
