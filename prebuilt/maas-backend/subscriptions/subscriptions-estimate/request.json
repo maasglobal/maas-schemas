@@ -99,7 +99,7 @@
                 "type": "integer",
                 "minimum": 0,
                 "maximum": 100000,
-                "default": 0
+                "default": 1
               },
               "unitPrice": {
                 "description": "A fare/price as billed by a TSP from MaaS in EUR",
