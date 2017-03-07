@@ -10,7 +10,7 @@
     "leg": {
       "$ref": "#/definitions/leg"
      },
-     "terms": {
+    "terms": {
        "$ref": "../core/booking.json#/definitions/terms"
     },
     "meta": {
