@@ -44,6 +44,13 @@
               "$ref": "#/definitions/leg"
             }
           ]
+        },
+        "bookingOptions": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "./bookingOption.json"
+          }
         }
       },
       "required": [
@@ -131,6 +138,10 @@
         },
         "product": {
           "$ref": "#/definitions/product"
+        },
+        "bookingOption": {
+          "type": "number",
+          "minValue": 0
         }
       },
       "required": [
@@ -245,6 +256,10 @@
         "type": {
           "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
           "type": "string"
+        },
+        "id": {
+          "description": "Id of the product retrived from Database",
+          "type": "integer"
         }
       },
       "additionalProperties": false

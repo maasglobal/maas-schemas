@@ -333,9 +333,17 @@
                         "type": {
                           "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
                           "type": "string"
+                        },
+                        "id": {
+                          "description": "Id of the product retrived from Database",
+                          "type": "integer"
                         }
                       },
                       "additionalProperties": false
+                    },
+                    "bookingOption": {
+                      "type": "number",
+                      "minValue": 0
                     }
                   },
                   "required": [
@@ -412,6 +420,24 @@
               ]
             }
           ]
+        },
+        "bookingOptions": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "https://api.maas.global/core/itinerary",
+            "description": "Booking option for an itinerary, is either an existing booking pointer or a new booking instruction",
+            "type": "object",
+            "properties": {
+              "productId": {},
+              "name": {},
+              "fare": {},
+              "ref": {},
+              "identityId": {},
+              "bookingId": {}
+            }
+          }
         }
       },
       "required": [
@@ -715,9 +741,17 @@
                   "type": {
                     "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
                     "type": "string"
+                  },
+                  "id": {
+                    "description": "Id of the product retrived from Database",
+                    "type": "integer"
                   }
                 },
                 "additionalProperties": false
+              },
+              "bookingOption": {
+                "type": "number",
+                "minValue": 0
               }
             },
             "required": [
@@ -1077,9 +1111,17 @@
                 "type": {
                   "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
                   "type": "string"
+                },
+                "id": {
+                  "description": "Id of the product retrived from Database",
+                  "type": "integer"
                 }
               },
               "additionalProperties": false
+            },
+            "bookingOption": {
+              "type": "number",
+              "minValue": 0
             }
           },
           "required": [
@@ -1154,6 +1196,20 @@
           ]
         }
       ]
+    },
+    "bookingOption": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "id": "https://api.maas.global/core/itinerary",
+      "description": "Booking option for an itinerary, is either an existing booking pointer or a new booking instruction",
+      "type": "object",
+      "properties": {
+        "productId": {},
+        "name": {},
+        "fare": {},
+        "ref": {},
+        "identityId": {},
+        "bookingId": {}
+      }
     }
   }
 }
