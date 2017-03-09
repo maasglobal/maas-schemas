@@ -14,7 +14,7 @@
       "enum": ["Alert", "Warning", "Information"]
     },
     "type": {
-      "enum": ["ObjectChange", "TripActivate"]
+      "enum": ["ObjectChange", "TripActivate",  "InfoMessage"]
     },
     "data": {
       "oneOf": [
@@ -33,10 +33,29 @@
           },
           "required": ["objectType", "ids"],
           "additionalProperties": false
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "objectType": { "enum": ["Profile"] },
+            "ids": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "items": {
+                "$ref": "../../core/units.json#/definitions/identityId"
+              }
+            }
+          },
+          "required": ["objectType", "ids"],
+          "additionalProperties": false
         }
       ]
     }
   },
-  "required": ["identityId", "badge", "type", "data"],
+  "required": ["identityId", "badge", "type"],
   "additionalProperties": false
 }
