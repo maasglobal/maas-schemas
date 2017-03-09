@@ -12,7 +12,7 @@
     },
     "replace": {
       "type": "boolean",
-      "default": false
+      "default": true
     },
     "payload": {
       "$ref": "../subscription.json#/definitions/subscriptionBase"

@@ -14,7 +14,7 @@
     },
     "replace": {
       "type": "boolean",
-      "default": false
+      "default": true
     },
     "payload": {
       "type": "object",
