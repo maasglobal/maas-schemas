@@ -8,10 +8,18 @@
       "$ref": "../../../core/aws-units.json#/definitions/identityId"
     },
     "from": {
-      "$ref": "../../../core/units.json#/definitions/shortLocation"
+      "$ref": "../../../core/units.json#/definitions/shortLocationString"
+    },
+    "fromName": {
+      "type": "string",
+      "minLength": 1
     },
     "to": {
-      "$ref": "../../../core/units.json#/definitions/shortLocation"
+      "$ref": "../../../core/units.json#/definitions/shortLocationString"
+    },
+    "toName": {
+      "type": "string",
+      "minLength": 1
     },
     "leaveAt": {
       "$ref": "../../../core/units.json#/definitions/time"
