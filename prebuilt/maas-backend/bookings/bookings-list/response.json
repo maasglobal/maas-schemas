@@ -48,8 +48,17 @@
                 "type": "object",
                 "properties": {
                   "amount": {
-                    "type": "integer",
-                    "minimum": 0
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      {
+                        "enum": [
+                          null
+                        ]
+                      }
+                    ]
                   },
                   "currency": {
                     "type": "string",
@@ -651,8 +660,17 @@
                 "type": "object",
                 "properties": {
                   "amount": {
-                    "type": "integer",
-                    "minimum": 0
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      {
+                        "enum": [
+                          null
+                        ]
+                      }
+                    ]
                   },
                   "currency": {
                     "type": "string",
@@ -1487,8 +1505,17 @@
             "type": "object",
             "properties": {
               "amount": {
-                "type": "integer",
-                "minimum": 0
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "enum": [
+                      null
+                    ]
+                  }
+                ]
               },
               "currency": {
                 "type": "string",
