@@ -27,6 +27,12 @@
       "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
       "type": "string",
       "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
+    },
+    "validFrom": {
+      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+      "type": "integer",
+      "maximum": 9007199254740991,
+      "minimum": 1451606400
     }
   },
   "required": [
