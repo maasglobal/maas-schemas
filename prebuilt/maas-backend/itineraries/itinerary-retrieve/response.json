@@ -436,13 +436,39 @@
                 "description": "Booking option for an itinerary, is either an existing booking pointer or a new booking instruction",
                 "type": "object",
                 "properties": {
-                  "productId": {},
-                  "name": {},
-                  "fare": {},
-                  "ref": {},
-                  "identityId": {},
-                  "bookingId": {}
-                }
+                  "productId": {
+                    "type": "integer",
+                    "minValue": 0
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "fare": {
+                    "type": "integer",
+                    "minValue": 0
+                  },
+                  "ref": {
+                    "type": "integer",
+                    "minValue": 0
+                  },
+                  "identityId": {
+                    "type": "string",
+                    "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+                  },
+                  "bookingId": {
+                    "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
+                    "type": "string",
+                    "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
+                  }
+                },
+                "required": [
+                  "productId",
+                  "name",
+                  "fare",
+                  "ref",
+                  "identityId"
+                ],
+                "additionalProperties": false
               }
             }
           },
@@ -1209,13 +1235,39 @@
           "description": "Booking option for an itinerary, is either an existing booking pointer or a new booking instruction",
           "type": "object",
           "properties": {
-            "productId": {},
-            "name": {},
-            "fare": {},
-            "ref": {},
-            "identityId": {},
-            "bookingId": {}
-          }
+            "productId": {
+              "type": "integer",
+              "minValue": 0
+            },
+            "name": {
+              "type": "string"
+            },
+            "fare": {
+              "type": "integer",
+              "minValue": 0
+            },
+            "ref": {
+              "type": "integer",
+              "minValue": 0
+            },
+            "identityId": {
+              "type": "string",
+              "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+            },
+            "bookingId": {
+              "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
+              "type": "string",
+              "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
+            }
+          },
+          "required": [
+            "productId",
+            "name",
+            "fare",
+            "ref",
+            "identityId"
+          ],
+          "additionalProperties": false
         }
       }
     },

@@ -5,22 +5,33 @@
   "type": "object",
   "properties": {
     "productId": {
-
+      "type": "integer",
+      "minValue": 0
     },
     "name": {
-
+      "type": "string"
     },
     "fare": {
-
+      "type": "integer",
+      "minValue": 0
     },
     "ref": {
-
+      "type": "integer",
+      "minValue": 0
     },
     "identityId": {
-
+      "$ref": "./aws-units.json#/definitions/identityId"
     },
     "bookingId": {
-
+      "$ref": "./units.json#/definitions/uuid"
     }
-  }
+  },
+  "required": [
+    "productId",
+    "name",
+    "fare",
+    "ref",
+    "identityId"
+  ],
+  "additionalProperties": false
 }
