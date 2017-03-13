@@ -72,11 +72,13 @@
     },
     "fromName": {
       "description": "The human understandable name for 'from'",
-      "type": "string"
+      "type": "string",
+      "pattern": "^((\\d*\\s[A-ö`'´\\d]+[\\-/,\\.]?\\s?)+|([A-ö`'´]+[\\-/,\\.]?\\s?)+\\d*([A-ö\\d]+[\\-/,\\.]?\\s?)*)$"
     },
     "toName": {
       "description": "The human understandable name for 'to'",
-      "type": "string"
+      "type": "string",
+      "pattern": "^((\\d*\\s[A-ö`'´\\d]+[\\-/,\\.]?\\s?)+|([A-ö`'´]+[\\-/,\\.]?\\s?)+\\d*([A-ö\\d]+[\\-/,\\.]?\\s?)*)$"
     },
     "fromRadius": {
       "description": "Distance in meters",

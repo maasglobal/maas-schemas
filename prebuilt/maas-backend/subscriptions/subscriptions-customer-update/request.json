@@ -35,12 +35,12 @@
             "address": {
               "description": "Street address and number, see http://www.bitboost.com/ref/international-address-formats.html",
               "type": "string",
-              "pattern": "^((\\d+\\s[A-ö\\d]+[\\-/,\\.]?\\s?)+|([A-ö]+[\\-/,\\.]?\\s?)+\\d+([A-ö\\d]+[\\-/,\\.]?\\s?)*)$"
+              "pattern": "^((\\d+\\s[A-ö\\d`'´]+[\\-/,\\.]?\\s?)+|([A-ö`'´]+[\\-/,\\.]?\\s?)+\\d+([A-ö\\d`'´]+[\\-/,\\.]?\\s?)*)$"
             },
             "city": {
               "description": "Alphabetic city name",
               "type": "string",
-              "pattern": "^[A-ö\\s]+$"
+              "pattern": "^[A-ö\\s`'´]+$"
             },
             "zipCode": {
               "description": "Numeric zip code, see https://en.wikipedia.org/wiki/Postal_code",
