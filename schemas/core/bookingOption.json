@@ -25,9 +25,9 @@
     "bookingId": {
       "$ref": "./units.json#/definitions/uuid"
     },
-		"validFrom": {
-			"$ref": "./units.json#/definitions/time"
-		}
+    "validFrom": {
+      "$ref": "./units.json#/definitions/time"
+    }
   },
   "required": [
     "productId",
