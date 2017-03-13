@@ -3,49 +3,120 @@
   "id": "https://api.maas.global/maas-backend/routes/routes-query/request",
   "description": "Request schema for reverse geocoding providers",
   "type": "object",
-  "properties": {
-    "identityId": {
-      "type": "string",
-      "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "identityId": {
+          "type": "string",
+          "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+        },
+        "from": {
+          "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+          "type": "string",
+          "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
+        },
+        "fromName": {
+          "description": "Street address and number, see http://www.bitboost.com/ref/international-address-formats.html",
+          "type": "string",
+          "pattern": "^((\\d*\\s[A-ö`'´\\d]+[\\-/,\\.]?\\s?)+|([A-ö`'´]+[\\-/,\\.]?\\s?)+\\d*([A-ö\\d]+[\\-/,\\.]?\\s?)*)$"
+        },
+        "to": {
+          "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+          "type": "string",
+          "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
+        },
+        "toName": {
+          "description": "Street address and number, see http://www.bitboost.com/ref/international-address-formats.html",
+          "type": "string",
+          "pattern": "^((\\d*\\s[A-ö`'´\\d]+[\\-/,\\.]?\\s?)+|([A-ö`'´]+[\\-/,\\.]?\\s?)+\\d*([A-ö\\d]+[\\-/,\\.]?\\s?)*)$"
+        },
+        "leaveAt": {
+          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 1451606400
+        },
+        "arriveBy": {
+          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 1451606400
+        },
+        "modes": {
+          "type": "string",
+          "pattern": "^(:?(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI),)*(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI)$"
+        }
+      },
+      "additionalProperties": false
     },
-    "from": {
-      "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-      "type": "string",
-      "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
-    },
-    "fromName": {
-      "type": "string",
-      "minLength": 1
-    },
-    "to": {
-      "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-      "type": "string",
-      "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
-    },
-    "toName": {
-      "type": "string",
-      "minLength": 1
-    },
-    "leaveAt": {
-      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-      "type": "integer",
-      "maximum": 9007199254740991,
-      "minimum": 1451606400
-    },
-    "arriveBy": {
-      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-      "type": "integer",
-      "maximum": 9007199254740991,
-      "minimum": 1451606400
-    },
-    "modes": {
-      "type": "string",
-      "pattern": "^(:?(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI),)*(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI)$"
+    {
+      "oneOf": [
+        {
+          "description": "Permit leaveAt",
+          "required": [
+            "from",
+            "to",
+            "leaveAt"
+          ]
+        },
+        {
+          "description": "Permit arriveBy",
+          "required": [
+            "from",
+            "to",
+            "arriveBy"
+          ]
+        }
+      ]
     }
-  },
-  "required": [
-    "from",
-    "to"
   ],
-  "additionalProperties": false
+  "definitions": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "identityId": {
+          "type": "string",
+          "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+        },
+        "from": {
+          "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+          "type": "string",
+          "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
+        },
+        "fromName": {
+          "description": "Street address and number, see http://www.bitboost.com/ref/international-address-formats.html",
+          "type": "string",
+          "pattern": "^((\\d*\\s[A-ö`'´\\d]+[\\-/,\\.]?\\s?)+|([A-ö`'´]+[\\-/,\\.]?\\s?)+\\d*([A-ö\\d]+[\\-/,\\.]?\\s?)*)$"
+        },
+        "to": {
+          "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+          "type": "string",
+          "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
+        },
+        "toName": {
+          "description": "Street address and number, see http://www.bitboost.com/ref/international-address-formats.html",
+          "type": "string",
+          "pattern": "^((\\d*\\s[A-ö`'´\\d]+[\\-/,\\.]?\\s?)+|([A-ö`'´]+[\\-/,\\.]?\\s?)+\\d*([A-ö\\d]+[\\-/,\\.]?\\s?)*)$"
+        },
+        "leaveAt": {
+          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 1451606400
+        },
+        "arriveBy": {
+          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 1451606400
+        },
+        "modes": {
+          "type": "string",
+          "pattern": "^(:?(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI),)*(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI)$"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
 }

@@ -3,35 +3,54 @@
   "id": "https://api.maas.global/maas-backend/routes/routes-query/request",
   "description": "Request schema for reverse geocoding providers",
   "type": "object",
-  "properties": {
-    "identityId": {
-      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+  "allOf": [
+    {
+      "$ref": "#/definitions/payload"
     },
-    "from": {
-      "$ref": "../../../core/units.json#/definitions/shortLocationString"
-    },
-    "fromName": {
-      "type": "string",
-      "minLength": 1
-    },
-    "to": {
-      "$ref": "../../../core/units.json#/definitions/shortLocationString"
-    },
-    "toName": {
-      "type": "string",
-      "minLength": 1
-    },
-    "leaveAt": {
-      "$ref": "../../../core/units.json#/definitions/time"
-    },
-    "arriveBy": {
-      "$ref": "../../../core/units.json#/definitions/time"
-    },
-    "modes": {
-      "type": "string",
-      "pattern": "^(:?(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI),)*(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI)$"
+    {
+      "oneOf": [
+        {
+          "description": "Permit leaveAt",
+          "required": ["from", "to", "leaveAt"]
+        },
+        {
+          "description": "Permit arriveBy",
+          "required": ["from", "to", "arriveBy"]
+        }
+      ]
     }
-  },
-  "required": [ "from", "to" ],
-  "additionalProperties": false
+  ],
+  "definitions": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "identityId": {
+          "$ref": "../../../core/aws-units.json#/definitions/identityId"
+        },
+        "from": {
+          "$ref": "../../../core/units.json#/definitions/shortLocationString"
+        },
+        "fromName": {
+          "$ref": "../../../core/address.json#/definitions/addressOptionalNumber"
+        },
+        "to": {
+          "$ref": "../../../core/units.json#/definitions/shortLocationString"
+        },
+        "toName": {
+          "$ref": "../../../core/address.json#/definitions/addressOptionalNumber"
+        },
+        "leaveAt": {
+          "$ref": "../../../core/units.json#/definitions/time"
+        },
+        "arriveBy": {
+          "$ref": "../../../core/units.json#/definitions/time"
+        },
+        "modes": {
+          "type": "string",
+          "pattern": "^(:?(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI),)*(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI)$"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
 }

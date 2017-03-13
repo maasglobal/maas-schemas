@@ -24,11 +24,11 @@
     },
     "fromName": {
       "description": "The human understandable name for 'from'",
-      "type": "string"
+      "$ref": "../../../core/address.json#/definitions/addressOptionalNumber"
     },
     "toName": {
       "description": "The human understandable name for 'to'",
-      "type": "string"
+      "$ref": "../../../core/address.json#/definitions/addressOptionalNumber"
     },
     "fromRadius":{
       "$ref": "../../../core/units.json#/definitions/distance"
