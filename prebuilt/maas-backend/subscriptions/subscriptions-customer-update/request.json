@@ -35,7 +35,7 @@
             "address": {
               "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
               "type": "string",
-              "pattern": "^([A-ö`'´\\(\\)\\-/,\\.\\d]+(\\s[A-ö`'´\\(\\)\\-/,\\.\\d])?)+$"
+              "pattern": "^([A-ö\\d]+[`'´\\(\\)\\-/,\\.]?)+(\\s?[A-ö\\d`'´\\(\\)\\-/,\\.]?)*$"
             },
             "city": {
               "description": "Alphabetic city name",
