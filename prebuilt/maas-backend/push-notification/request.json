@@ -33,7 +33,8 @@
     "type": {
       "enum": [
         "ObjectChange",
-        "TripActivate"
+        "TripActivate",
+        "InfoMessage"
       ]
     },
     "data": {
@@ -63,6 +64,34 @@
             "ids"
           ],
           "additionalProperties": false
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "objectType": {
+              "enum": [
+                "Profile"
+              ]
+            },
+            "ids": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "items": {
+                "description": "Customer identity id - currently an AWS identityId",
+                "type": "string",
+                "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+              }
+            }
+          },
+          "required": [
+            "objectType",
+            "ids"
+          ],
+          "additionalProperties": false
         }
       ]
     }
@@ -70,8 +99,7 @@
   "required": [
     "identityId",
     "badge",
-    "type",
-    "data"
+    "type"
   ],
   "additionalProperties": false
 }
