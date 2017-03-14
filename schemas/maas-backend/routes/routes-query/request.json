@@ -31,13 +31,13 @@
           "$ref": "../../../core/units.json#/definitions/shortLocationString"
         },
         "fromName": {
-          "$ref": "../../../core/address.json#/definitions/addressOptionalNumber"
+          "$ref": "../../../core/address.json#/definitions/address"
         },
         "to": {
           "$ref": "../../../core/units.json#/definitions/shortLocationString"
         },
         "toName": {
-          "$ref": "../../../core/address.json#/definitions/addressOptionalNumber"
+          "$ref": "../../../core/address.json#/definitions/address"
         },
         "leaveAt": {
           "$ref": "../../../core/units.json#/definitions/time"

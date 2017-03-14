@@ -17,9 +17,9 @@
           "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
         },
         "fromName": {
-          "description": "Street address and number, see http://www.bitboost.com/ref/international-address-formats.html",
+          "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
           "type": "string",
-          "pattern": "^((\\d*\\s[A-ö`'´\\d]+[\\-/,\\.]?\\s?)+|([A-ö`'´]+[\\-/,\\.]?\\s?)+\\d*([A-ö\\d]+[\\-/,\\.]?\\s?)*)$"
+          "pattern": "^([A-ö`'´\\(\\)\\-/,\\.\\d]+(\\s[A-ö`'´\\(\\)\\-/,\\.\\d])?)+$"
         },
         "to": {
           "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
@@ -27,9 +27,9 @@
           "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
         },
         "toName": {
-          "description": "Street address and number, see http://www.bitboost.com/ref/international-address-formats.html",
+          "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
           "type": "string",
-          "pattern": "^((\\d*\\s[A-ö`'´\\d]+[\\-/,\\.]?\\s?)+|([A-ö`'´]+[\\-/,\\.]?\\s?)+\\d*([A-ö\\d]+[\\-/,\\.]?\\s?)*)$"
+          "pattern": "^([A-ö`'´\\(\\)\\-/,\\.\\d]+(\\s[A-ö`'´\\(\\)\\-/,\\.\\d])?)+$"
         },
         "leaveAt": {
           "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
@@ -85,9 +85,9 @@
           "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
         },
         "fromName": {
-          "description": "Street address and number, see http://www.bitboost.com/ref/international-address-formats.html",
+          "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
           "type": "string",
-          "pattern": "^((\\d*\\s[A-ö`'´\\d]+[\\-/,\\.]?\\s?)+|([A-ö`'´]+[\\-/,\\.]?\\s?)+\\d*([A-ö\\d]+[\\-/,\\.]?\\s?)*)$"
+          "pattern": "^([A-ö`'´\\(\\)\\-/,\\.\\d]+(\\s[A-ö`'´\\(\\)\\-/,\\.\\d])?)+$"
         },
         "to": {
           "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
@@ -95,9 +95,9 @@
           "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
         },
         "toName": {
-          "description": "Street address and number, see http://www.bitboost.com/ref/international-address-formats.html",
+          "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
           "type": "string",
-          "pattern": "^((\\d*\\s[A-ö`'´\\d]+[\\-/,\\.]?\\s?)+|([A-ö`'´]+[\\-/,\\.]?\\s?)+\\d*([A-ö\\d]+[\\-/,\\.]?\\s?)*)$"
+          "pattern": "^([A-ö`'´\\(\\)\\-/,\\.\\d]+(\\s[A-ö`'´\\(\\)\\-/,\\.\\d])?)+$"
         },
         "leaveAt": {
           "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",

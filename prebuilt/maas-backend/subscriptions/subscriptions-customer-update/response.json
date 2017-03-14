@@ -25,9 +25,9 @@
               "maxLength": 255
             },
             "address": {
-              "description": "Street address and number, see http://www.bitboost.com/ref/international-address-formats.html",
+              "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
               "type": "string",
-              "pattern": "^((\\d+\\s[A-ö\\d`'´]+[\\-/,\\.]?\\s?)+|([A-ö`'´]+[\\-/,\\.]?\\s?)+\\d+([A-ö\\d`'´]+[\\-/,\\.]?\\s?)*)$"
+              "pattern": "^([A-ö`'´\\(\\)\\-/,\\.\\d]+(\\s[A-ö`'´\\(\\)\\-/,\\.\\d])?)+$"
             },
             "city": {
               "description": "Alphabetic city name",
