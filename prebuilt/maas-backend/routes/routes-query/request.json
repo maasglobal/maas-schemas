@@ -19,7 +19,7 @@
         "fromName": {
           "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
           "type": "string",
-          "pattern": "^([A-ö`'´\\(\\)\\-/,\\.\\d]+(\\s[A-ö`'´\\(\\)\\-/,\\.\\d])?)+$"
+          "pattern": "^([A-ö\\d]+[`'´\\(\\)\\-/,\\.]?)+(\\s?[A-ö\\d`'´\\(\\)\\-/,\\.]?)*$"
         },
         "to": {
           "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
@@ -29,7 +29,7 @@
         "toName": {
           "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
           "type": "string",
-          "pattern": "^([A-ö`'´\\(\\)\\-/,\\.\\d]+(\\s[A-ö`'´\\(\\)\\-/,\\.\\d])?)+$"
+          "pattern": "^([A-ö\\d]+[`'´\\(\\)\\-/,\\.]?)+(\\s?[A-ö\\d`'´\\(\\)\\-/,\\.]?)*$"
         },
         "leaveAt": {
           "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
@@ -87,7 +87,7 @@
         "fromName": {
           "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
           "type": "string",
-          "pattern": "^([A-ö`'´\\(\\)\\-/,\\.\\d]+(\\s[A-ö`'´\\(\\)\\-/,\\.\\d])?)+$"
+          "pattern": "^([A-ö\\d]+[`'´\\(\\)\\-/,\\.]?)+(\\s?[A-ö\\d`'´\\(\\)\\-/,\\.]?)*$"
         },
         "to": {
           "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
@@ -97,7 +97,7 @@
         "toName": {
           "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
           "type": "string",
-          "pattern": "^([A-ö`'´\\(\\)\\-/,\\.\\d]+(\\s[A-ö`'´\\(\\)\\-/,\\.\\d])?)+$"
+          "pattern": "^([A-ö\\d]+[`'´\\(\\)\\-/,\\.]?)+(\\s?[A-ö\\d`'´\\(\\)\\-/,\\.]?)*$"
         },
         "leaveAt": {
           "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
