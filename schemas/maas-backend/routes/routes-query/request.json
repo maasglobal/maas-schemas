@@ -9,21 +9,16 @@
     },
     "payload": {
       "type": "object",
-      "allOf": [
+      "oneOf": [
         {
-          "$ref": "#/definitions/payload"
+          "$ref": "#/definitions/payload",
+          "description": "Permit leaveAt",
+          "required": ["from", "to", "leaveAt"]
         },
         {
-          "oneOf": [
-            {
-              "description": "Permit leaveAt",
-              "required": ["from", "to", "leaveAt"]
-            },
-            {
-              "description": "Permit arriveBy",
-              "required": ["from", "to", "arriveBy"]
-            }
-          ]
+          "$ref": "#/definitions/payload",
+          "description": "Permit arriveBy",
+          "required": ["from", "to", "arriveBy"]
         }
       ],
       "headers": {
