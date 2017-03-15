@@ -3,54 +3,26 @@
   "id": "https://api.maas.global/maas-backend/routes/routes-query/request",
   "description": "Request schema for reverse geocoding providers",
   "type": "object",
-  "oneOf": [
+  "allOf": [
     {
-      "type": "object",
-      "$ref": "#/definitions/payload1"
+      "$ref": "#/definitions/payload"
     },
     {
-      "type": "object",
-      "$ref": "#/definitions/payload2"
+      "oneOf": [
+        {
+          "description": "Permit leaveAt",
+          "required": ["from", "to", "leaveAt"]
+        },
+        {
+          "description": "Permit arriveBy",
+          "required": ["from", "to", "arriveBy"]
+        }
+      ]
     }
   ],
   "definitions": {
-    "payload1": {
+    "payload": {
       "type": "object",
-      "description": "Permit leaveAt",
-      "required": ["from", "to", "leaveAt"],
-      "properties": {
-        "identityId": {
-          "$ref": "../../../core/aws-units.json#/definitions/identityId"
-        },
-        "from": {
-          "$ref": "../../../core/units.json#/definitions/shortLocationString"
-        },
-        "fromName": {
-          "$ref": "../../../core/address.json#/definitions/address"
-        },
-        "to": {
-          "$ref": "../../../core/units.json#/definitions/shortLocationString"
-        },
-        "toName": {
-          "$ref": "../../../core/address.json#/definitions/address"
-        },
-        "leaveAt": {
-          "$ref": "../../../core/units.json#/definitions/time"
-        },
-        "arriveBy": {
-          "$ref": "../../../core/units.json#/definitions/time"
-        },
-        "modes": {
-          "type": "string",
-          "pattern": "^(:?(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI),)*(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI)$"
-        }
-      },
-      "additionalProperties": false
-    },
-    "payload2": {
-      "type": "object",
-      "description": "Permit arriveBy",
-      "required": ["from", "to", "arriveBy"],
       "properties": {
         "identityId": {
           "$ref": "../../../core/aws-units.json#/definitions/identityId"
