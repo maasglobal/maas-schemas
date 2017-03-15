@@ -1,25 +1,32 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/routes/routes-query/request",
-  "description": "Request schema for reverse geocoding providers",
+  "description": "Request schema for routes query",
   "type": "object",
-  "allOf": [
-    {
-      "$ref": "#/definitions/payload"
+  "properties": {
+    "identityId": {
+      "$ref": "../../../core/aws-units.json#/definitions/identityId"
     },
-    {
+    "payload": {
+      "type": "object",
       "oneOf": [
         {
+          "$ref": "#/definitions/payload",
           "description": "Permit leaveAt",
           "required": ["from", "to", "leaveAt"]
         },
         {
+          "$ref": "#/definitions/payload",
           "description": "Permit arriveBy",
           "required": ["from", "to", "arriveBy"]
         }
-      ]
+      ],
+      "headers": {
+        "type": "object"
+      }
     }
-  ],
+  },
+  "required": [ "identityId", "payload" ],
   "definitions": {
     "payload": {
       "type": "object",
