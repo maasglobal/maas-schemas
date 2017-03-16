@@ -39,8 +39,17 @@
           "type": "object",
           "properties": {
             "amount": {
-              "type": "integer",
-              "minimum": 0
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "enum": [
+                    null
+                  ]
+                }
+              ]
             },
             "currency": {
               "type": "string",
@@ -582,6 +591,10 @@
             "type": {
               "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
               "type": "string"
+            },
+            "id": {
+              "description": "Id of the product retrived from Database",
+              "type": "integer"
             }
           },
           "additionalProperties": false
@@ -638,8 +651,17 @@
           "type": "object",
           "properties": {
             "amount": {
-              "type": "integer",
-              "minimum": 0
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "enum": [
+                    null
+                  ]
+                }
+              ]
             },
             "currency": {
               "type": "string",
@@ -1181,6 +1203,10 @@
             "type": {
               "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
               "type": "string"
+            },
+            "id": {
+              "description": "Id of the product retrived from Database",
+              "type": "integer"
             }
           },
           "additionalProperties": false
@@ -1470,8 +1496,17 @@
       "type": "object",
       "properties": {
         "amount": {
-          "type": "integer",
-          "minimum": 0
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "enum": [
+                null
+              ]
+            }
+          ]
         },
         "currency": {
           "type": "string",
@@ -1740,6 +1775,10 @@
         "type": {
           "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
           "type": "string"
+        },
+        "id": {
+          "description": "Id of the product retrived from Database",
+          "type": "integer"
         }
       },
       "additionalProperties": false

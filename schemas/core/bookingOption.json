@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/core/itinerary",
+  "description": "Booking option for an itinerary, is either an existing booking pointer or a new booking instruction",
+  "type": "object",
+  "properties": {
+    "productId": {
+      "type": "integer",
+      "minValue": 0
+    },
+    "name": {
+      "type": "string"
+    },
+    "fare": {
+      "type": "integer",
+      "minValue": 0
+    },
+    "ref": {
+      "type": "integer",
+      "minValue": 0
+    },
+    "identityId": {
+      "$ref": "./aws-units.json#/definitions/identityId"
+    },
+    "bookingId": {
+      "$ref": "./units.json#/definitions/uuid"
+    },
+		"validFrom": {
+			"$ref": "./units.json#/definitions/time"
+		}
+  },
+  "required": [
+    "productId",
+    "name",
+    "fare",
+    "ref",
+    "identityId"
+  ],
+  "additionalProperties": false
+}
