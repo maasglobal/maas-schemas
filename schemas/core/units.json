@@ -118,16 +118,6 @@
       "description": "Customer identity id - currently an AWS identityId",
       "$ref": "./aws-units.json#/definitions/identityId"
     },
-    "phone": {
-      "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
-      "type": "string",
-      "pattern": "^\\+(?:\\d){6,14}\\d$"
-    },
-    "email": {
-      "description": "Rough validation of a valid e-mail address, see https://davidcel.is/posts/stop-validating-email-addresses-with-regex/",
-      "type": "string",
-      "pattern": "^.+@.+\\..+$"
-    },
     "place": {
       "description": "A place, as a location-name pair",
       "type": "object",
@@ -140,7 +130,8 @@
           "properties": {
             "name": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 256
             }
           }
         }

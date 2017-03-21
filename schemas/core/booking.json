@@ -56,20 +56,16 @@
       "description": "Booking customer information",
       "properties": {
         "firstName": {
-          "description": "First name of the customer (e.g. John)",
-          "type": "string"
+          "$ref": "./customer.json#/definitions/firstName"
         },
         "lastName": {
-          "description": "Last name of the customer (e.g. Doe)",
-          "type": "string"
+          "$ref": "./customer.json#/definitions/lastName"
         },
         "phone": {
-          "description": "Phone number that the customer may be reached from",
-          "type": "string"
+          "$ref": "./customer.json#/definitions/phone"
         },
         "email": {
-          "description": "Email address that the customer may be reached from",
-          "type": "string"
+          "$ref": "./customer.json#/definitions/email"
         }
       },
       "required": [
@@ -230,7 +226,7 @@
                   "type": "string",
                   "minLength": 1
                 },
-                "phone": { "$ref": "./units.json#/definitions/phone" }
+                "phone": { "$ref": "./customer.json#/definitions/phone" }
               }
             }
           },

@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/core/customer",
+  "description": "MaaS customer schema",
+  "definitions": {
+    "firstName": {
+      "description": "First name of the customer (e.g. John)",
+      "type": "string",
+      "pattern": "^(:?\\p{L})+(:?[\\s`'´\\-]?(:?\\p{L}))*$",
+      "maxLength": 255
+    },
+    "lastName": {
+      "description": "Last name of the customer (e.g. Doe)",
+      "type": "string",
+      "pattern": "^(:?\\p{L})+(:?[\\s`'´\\-]?(:?\\p{L}))*$",
+      "maxLength": 255
+    },
+    "phone": {
+      "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
+      "type": "string",
+      "pattern": "^\\+(?:\\d){6,14}\\d$"
+    },
+    "email": {
+      "description": "Rough validation of a valid e-mail address, see https://davidcel.is/posts/stop-validating-email-addresses-with-regex/",
+      "type": "string",
+      "pattern": "^.+@.+\\..+$",
+      "maxLength": 64
+    }
+  }
+}

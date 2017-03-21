@@ -8,30 +8,25 @@
       "$ref": "./aws-units.json#/definitions/identityId"
     },
     "phone": {
-      "$ref": "./units.json#/definitions/phone"
+      "$ref": "./customer.json#/definitions/phone"
     },
     "email": {
-      "$ref": "./units.json#/definitions/email"
+      "$ref": "./customer.json#/definitions/email"
     },
     "firstName": {
-      "type": "string",
-      "minLength": 1
+      "$ref": "./customer.json#/definitions/firstName"
     },
     "lastName": {
-      "type": "string",
-      "minLength": 1
+      "$ref": "./customer.json#/definitions/lastName"
     },
     "city": {
-      "type": "string",
-      "minLength": 1
+      "$ref": "./address.json#/definitions/city"
     },
     "country": {
-      "type": "string",
-      "minLength": 1
+      "$ref": "./address.json#/definitions/country"
     },
     "zipCode": {
-      "type": "string",
-      "minLength": 1
+      "$ref": "./address.json#/definitions/zipCode"
     },
     "plans": {
       "type": "array",

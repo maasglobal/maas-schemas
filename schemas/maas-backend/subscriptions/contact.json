@@ -46,14 +46,10 @@
           "$ref": "#/definitions/identityId"
         },
         "firstName": {
-          "type": "string",
-          "pattern": "^[A-Ö][a-ö]*([\\s'\\-]?[A-Ö][a-ö]*)+$",
-          "maxLength": 255
+          "$ref": "../../core/customer.json#/definitions/firstName"
         },
         "lastName": {
-          "type": "string",
-          "pattern": "^[A-Ö][a-ö]*([\\s'\\-]?[A-Ö][a-ö]*)+$",
-          "maxLength": 255
+          "$ref": "../../core/customer.json#/definitions/lastName"
         },
         "address": {
           "$ref": "../../core/address.json#/definitions/address"
@@ -68,10 +64,10 @@
           "$ref": "../../core/address.json#/definitions/country"
         },
         "phone": {
-          "$ref": "../../core/units.json#/definitions/phone"
+          "$ref": "../../core/customer.json#/definitions/phone"
         },
         "email": {
-          "$ref": "../../core/units.json#/definitions/email"
+          "$ref": "../../core/customer.json#/definitions/email"
         }
       }
     },
