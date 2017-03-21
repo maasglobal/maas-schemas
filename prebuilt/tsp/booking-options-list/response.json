@@ -218,6 +218,12 @@
                   "lat",
                   "lon"
                 ]
+              },
+              "departureDelay": {
+                "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991
               }
             },
             "additionalProperties": false,
@@ -587,6 +593,12 @@
                   "lat",
                   "lon"
                 ]
+              },
+              "departureDelay": {
+                "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991
               }
             },
             "additionalProperties": false,
