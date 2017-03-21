@@ -28,12 +28,6 @@
     "zipCode": {
       "$ref": "./address.json#/definitions/zipCode"
     },
-    "plans": {
-      "type": "array",
-      "items": {
-        "$ref": "./maas-package.json#/definitions/plan"
-      }
-    },
     "profileImageUrl": {
       "type": "string",
       "minLength": 1
@@ -75,7 +69,7 @@
     }
   },
   "additionalProperties": false,
-  "required": [ "identityId", "phone", "email", "plans", "balance" ],
+  "required": [ "identityId", "phone", "email", "balance" ],
   "definitions": {
     "favoriteLocation": {
       "type": "object",
