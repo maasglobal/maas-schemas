@@ -83,5 +83,8 @@ describe('address.city', () => {
   generateTestCases(schema.definitions.city, false, [
     '💩',
     '',
+    // Too long
+    // eslint-disable-next-line max-len
+    'LRuwGi4XRMVgImvVm7OEsw58YBDsUsApuKGXrjAcQi9QDEWwFYUp2yrzspe2WHu5rGuFoSU6TKeFIf73QjEnzv5Lq6Wu1YTJAbN2bZws8SfwhEoDInr6K3zTgmFQEQnzaDheGZtO4IMzAGoDSUx2zw1Lv4inpE4uq6NBYELaSusrlxGM0pJEiUrYZwIlzGAS4MgRrOKfZIyuZLH9gARtzyKvstQZw9bMmnRE8yWPTNGKlWmYBHLjMTluZp5AcpbU',
   ]);
 });
