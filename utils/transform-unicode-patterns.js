@@ -7,7 +7,7 @@ const UNICODE_REGEX_OPTS = {
   unicodePropertyEscape: true,
   useUnicodeFlag: false,
 };
-const UNICODE_REGEX_FLAGS = 's';
+const UNICODE_REGEX_FLAGS = 'us';
 
 /**
  * Compiles JSON schema into a function that can be used as-is without AJV
