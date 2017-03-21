@@ -13,7 +13,9 @@
           "type": "object",
           "properties": {
             "signature": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1024
             },
             "state": {
               "type": "string",
@@ -71,7 +73,9 @@
                       "type": "object",
                       "properties": {
                         "signature": {
-                          "type": "string"
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 1024
                         },
                         "state": {
                           "type": "string",
@@ -122,7 +126,8 @@
                                   "properties": {
                                     "name": {
                                       "type": "string",
-                                      "minLength": 1
+                                      "minLength": 1,
+                                      "maxLength": 256
                                     }
                                   }
                                 }
@@ -133,11 +138,13 @@
                               "properties": {
                                 "stopId": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "minLength": 1,
+                                  "maxLength": 64
                                 },
                                 "stopCode": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "minLength": 1,
+                                  "maxLength": 64
                                 }
                               }
                             }
@@ -184,7 +191,8 @@
                                   "properties": {
                                     "name": {
                                       "type": "string",
-                                      "minLength": 1
+                                      "minLength": 1,
+                                      "maxLength": 256
                                     }
                                   }
                                 }
@@ -195,11 +203,13 @@
                               "properties": {
                                 "stopId": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "minLength": 1,
+                                  "maxLength": 64
                                 },
                                 "stopCode": {
                                   "type": "string",
-                                  "minLength": 1
+                                  "minLength": 1,
+                                  "maxLength": 64
                                 }
                               }
                             }
@@ -282,19 +292,23 @@
                         },
                         "route": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "maxLength": 256
                         },
                         "routeShortName": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "maxLength": 64
                         },
                         "routeLongName": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "maxLength": 256
                         },
                         "agencyId": {
                           "type": "string",
-                          "minLength": 2
+                          "minLength": 2,
+                          "maxLength": 64
                         },
                         "legGeometry": {
                           "type": "object",
@@ -303,7 +317,8 @@
                             "points": {
                               "type": "string",
                               "minLength": 3,
-                              "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
+                              "maxLength": 65535,
+                              "pattern": "^([_-~]*[\\?-\\^])+$"
                             }
                           },
                           "required": [
@@ -345,15 +360,21 @@
                           "description": "Temporary way to define what kind of product has been purchased to get a ticket/booking. Will be replaced something more sophisticated once proper product system will be development.",
                           "type": "object",
                           "properties": {
+                            "id": {
+                              "description": "Unique identifier for the product",
+                              "type": "integer"
+                            },
                             "type": {
                               "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                              "type": "string"
-                            },
-                            "id": {
-                              "description": "Id of the product retrived from Database",
-                              "type": "integer"
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 256
                             }
                           },
+                          "required": [
+                            "id",
+                            "type"
+                          ],
                           "additionalProperties": false
                         },
                         "bookingOption": {
@@ -462,12 +483,12 @@
                   },
                   "identityId": {
                     "type": "string",
-                    "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+                    "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
                   },
                   "bookingId": {
                     "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
                     "type": "string",
-                    "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
+                    "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
                   },
                   "validFrom": {
                     "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
@@ -498,11 +519,11 @@
         "id": {
           "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
           "type": "string",
-          "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
+          "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
         },
         "customer": {
           "type": "string",
-          "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+          "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
         },
         "legs": {
           "type": "array",
@@ -512,7 +533,7 @@
               "id": {
                 "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
                 "type": "string",
-                "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
+                "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
               }
             },
             "anyOf": [
@@ -520,7 +541,9 @@
                 "type": "object",
                 "properties": {
                   "signature": {
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1024
                   },
                   "state": {
                     "type": "string",
@@ -571,7 +594,8 @@
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "minLength": 1
+                                "minLength": 1,
+                                "maxLength": 256
                               }
                             }
                           }
@@ -582,11 +606,13 @@
                         "properties": {
                           "stopId": {
                             "type": "string",
-                            "minLength": 1
+                            "minLength": 1,
+                            "maxLength": 64
                           },
                           "stopCode": {
                             "type": "string",
-                            "minLength": 1
+                            "minLength": 1,
+                            "maxLength": 64
                           }
                         }
                       }
@@ -633,7 +659,8 @@
                             "properties": {
                               "name": {
                                 "type": "string",
-                                "minLength": 1
+                                "minLength": 1,
+                                "maxLength": 256
                               }
                             }
                           }
@@ -644,11 +671,13 @@
                         "properties": {
                           "stopId": {
                             "type": "string",
-                            "minLength": 1
+                            "minLength": 1,
+                            "maxLength": 64
                           },
                           "stopCode": {
                             "type": "string",
-                            "minLength": 1
+                            "minLength": 1,
+                            "maxLength": 64
                           }
                         }
                       }
@@ -731,19 +760,23 @@
                   },
                   "route": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "maxLength": 256
                   },
                   "routeShortName": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "maxLength": 64
                   },
                   "routeLongName": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "maxLength": 256
                   },
                   "agencyId": {
                     "type": "string",
-                    "minLength": 2
+                    "minLength": 2,
+                    "maxLength": 64
                   },
                   "legGeometry": {
                     "type": "object",
@@ -752,7 +785,8 @@
                       "points": {
                         "type": "string",
                         "minLength": 3,
-                        "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
+                        "maxLength": 65535,
+                        "pattern": "^([_-~]*[\\?-\\^])+$"
                       }
                     },
                     "required": [
@@ -794,15 +828,21 @@
                     "description": "Temporary way to define what kind of product has been purchased to get a ticket/booking. Will be replaced something more sophisticated once proper product system will be development.",
                     "type": "object",
                     "properties": {
+                      "id": {
+                        "description": "Unique identifier for the product",
+                        "type": "integer"
+                      },
                       "type": {
                         "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                        "type": "string"
-                      },
-                      "id": {
-                        "description": "Id of the product retrived from Database",
-                        "type": "integer"
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256
                       }
                     },
+                    "required": [
+                      "id",
+                      "type"
+                    ],
                     "additionalProperties": false
                   },
                   "bookingOption": {
@@ -891,7 +931,7 @@
             "id": {
               "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
               "type": "string",
-              "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
+              "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
             }
           },
           "anyOf": [
@@ -899,7 +939,9 @@
               "type": "object",
               "properties": {
                 "signature": {
-                  "type": "string"
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1024
                 },
                 "state": {
                   "type": "string",
@@ -950,7 +992,8 @@
                           "properties": {
                             "name": {
                               "type": "string",
-                              "minLength": 1
+                              "minLength": 1,
+                              "maxLength": 256
                             }
                           }
                         }
@@ -961,11 +1004,13 @@
                       "properties": {
                         "stopId": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "maxLength": 64
                         },
                         "stopCode": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "maxLength": 64
                         }
                       }
                     }
@@ -1012,7 +1057,8 @@
                           "properties": {
                             "name": {
                               "type": "string",
-                              "minLength": 1
+                              "minLength": 1,
+                              "maxLength": 256
                             }
                           }
                         }
@@ -1023,11 +1069,13 @@
                       "properties": {
                         "stopId": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "maxLength": 64
                         },
                         "stopCode": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "maxLength": 64
                         }
                       }
                     }
@@ -1110,19 +1158,23 @@
                 },
                 "route": {
                   "type": "string",
-                  "minLength": 1
+                  "minLength": 1,
+                  "maxLength": 256
                 },
                 "routeShortName": {
                   "type": "string",
-                  "minLength": 1
+                  "minLength": 1,
+                  "maxLength": 64
                 },
                 "routeLongName": {
                   "type": "string",
-                  "minLength": 1
+                  "minLength": 1,
+                  "maxLength": 256
                 },
                 "agencyId": {
                   "type": "string",
-                  "minLength": 2
+                  "minLength": 2,
+                  "maxLength": 64
                 },
                 "legGeometry": {
                   "type": "object",
@@ -1131,7 +1183,8 @@
                     "points": {
                       "type": "string",
                       "minLength": 3,
-                      "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
+                      "maxLength": 65535,
+                      "pattern": "^([_-~]*[\\?-\\^])+$"
                     }
                   },
                   "required": [
@@ -1173,15 +1226,21 @@
                   "description": "Temporary way to define what kind of product has been purchased to get a ticket/booking. Will be replaced something more sophisticated once proper product system will be development.",
                   "type": "object",
                   "properties": {
+                    "id": {
+                      "description": "Unique identifier for the product",
+                      "type": "integer"
+                    },
                     "type": {
                       "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                      "type": "string"
-                    },
-                    "id": {
-                      "description": "Id of the product retrived from Database",
-                      "type": "integer"
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 256
                     }
                   },
+                  "required": [
+                    "id",
+                    "type"
+                  ],
                   "additionalProperties": false
                 },
                 "bookingOption": {
@@ -1285,12 +1344,12 @@
             },
             "identityId": {
               "type": "string",
-              "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+              "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
             },
             "bookingId": {
               "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
               "type": "string",
-              "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
+              "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
             },
             "validFrom": {
               "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",

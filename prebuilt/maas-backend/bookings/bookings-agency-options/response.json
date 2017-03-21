@@ -76,7 +76,9 @@
                 ]
               },
               "agencyId": {
-                "type": "string"
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
               },
               "mode": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
@@ -250,7 +252,9 @@
           },
           "signature": {
             "type": "string",
-            "description": "This object's signature"
+            "description": "This object's signature",
+            "minLength": 1,
+            "maxLength": 1024
           }
         },
         "required": [

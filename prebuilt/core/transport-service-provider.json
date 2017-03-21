@@ -12,11 +12,15 @@
   "properties": {
     "agencyId": {
       "description": "The id of the TSP, as identified by route provider",
-      "type": "string"
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
     },
     "name": {
       "description": "The human readable name of the TSP",
-      "type": "string"
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
     },
     "modes": {
       "description": "The OTP modes this TSP serves",
@@ -178,13 +182,21 @@
     },
     "adapter": {
       "description": "The schema version for the adapter",
-      "hostname": "string",
+      "hostname": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      },
       "port": {
         "type": "integer",
         "minimum": 1,
         "maximum": 65535
       },
-      "basepath": "string"
+      "basepath": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      }
     }
   }
 }
