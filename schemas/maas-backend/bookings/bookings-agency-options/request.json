@@ -8,7 +8,7 @@
   ],
   "properties": {
     "mode": {
-      "type": "string"
+      "$ref": "../../../core/mode.json#/definitions/mode"
     },
     "startTime": {
       "$ref": "../../../core/units.json#/definitions/time"

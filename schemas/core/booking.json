@@ -146,8 +146,16 @@
         },
         "MODE_CAR": {
           "properties": {
-            "name": { "type": "string" },
-            "description": { "type": "string" },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
             "image": {
               "$ref": "./units.json#/definitions/url"
             },
@@ -211,12 +219,14 @@
             "vehicleId": {
               "description": "The taxi id (in the taxi number plate on top of the vehicle)",
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 256
             },
             "vehicleLocation": { "$ref": "./units.json#/definitions/location" },
             "vehicleType": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 256
             },
             "eta": { "$ref": "./units.json#/definitions/time" },
             "taxiCenter": {
@@ -224,7 +234,8 @@
               "properties": {
                 "name": {
                   "type": "string",
-                  "minLength": 1
+                  "minLength": 1,
+                  "maxLength": 64
                 },
                 "phone": { "$ref": "./customer.json#/definitions/phone" }
               }
@@ -241,7 +252,9 @@
       "properties": {
         "type": {
           "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
         },
         "validity": {
           "description": "Booking validity conditions",
@@ -284,6 +297,7 @@
     },
     "tspId": {
       "type": "string",
+      "minLength": 1,
       "maxLength": 256
     },
     "product": {

@@ -92,7 +92,9 @@
     "shortLocationString": {
       "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
       "type": "string",
-      "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
+      "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$",
+      "minLength": 1,
+      "maxLength": 64
     },
     "polyline": {
       "type": "object",
@@ -101,6 +103,7 @@
         "points": {
           "type": "string",
           "minLength": 3,
+          "maxLength": 65535,
           "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
         }
       },

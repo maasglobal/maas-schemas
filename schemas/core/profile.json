@@ -30,7 +30,8 @@
     },
     "profileImageUrl": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "maxLength": 256
     },
     "favoriteLocations": {
       "type": "array",
@@ -54,11 +55,15 @@
         },
         "maskedNumber": {
           "description": "Typically the credit card number with all but the last four digits obfuscated",
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
         },
         "issuer": {
           "description": "The card issuer, e.g. 'Visa'",
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
         },
         "expiry": {
           "description": "When this payment method expires",
@@ -77,10 +82,14 @@
       "required": ["name", "address", "lat", "lon"],
       "properties": {
         "name":{
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
         },
         "address":{
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
         },
         "lat":{
           "$ref": "./units.json#/definitions/latitude"

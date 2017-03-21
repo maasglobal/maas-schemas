@@ -11,10 +11,7 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "string",
-          "pattern": "([\\dA-ö]\\s?)+",
-          "minLength": 3,
-          "maxLength": 128
+          "$ref": "../../../core/address.json#/definitions/address"
         },
         "lat": {
           "$ref": "../../../core/units.json#/definitions/relaxedLatitude"
