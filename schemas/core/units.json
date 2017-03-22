@@ -132,9 +132,7 @@
           "type": "object",
           "properties": {
             "name": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 256
+              "$ref": "./address.json#/definitions/placeName"
             }
           }
         }

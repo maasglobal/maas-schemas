@@ -3,6 +3,12 @@
   "id": "https://api.maas.global/core/address",
   "description": "MaaS schema for address related information",
   "definitions": {
+    "placeName": {
+      "description": "Place name (given in autocomplete)",
+      "type": "string",
+      "pattern": "^(:?(:?\\p{L}|\\d)+[,:\\.\\-\\(\\)\\/]?\\s?)((:?\\p{L}|[\\d,:\\.\\-\\(\\)\\/])+\\s?)*$",
+      "maxLength": 255
+    },
     "address": {
       "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
       "type": "string",

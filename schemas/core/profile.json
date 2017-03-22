@@ -86,10 +86,8 @@
           "minLength": 1,
           "maxLength": 256
         },
-        "address":{
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 256
+        "address": {
+          "$ref": "./address.json#/definitions/placeName"
         },
         "lat":{
           "$ref": "./units.json#/definitions/latitude"

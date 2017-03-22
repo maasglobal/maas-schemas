@@ -11,7 +11,7 @@
       "type": "object",
       "properties": {
         "name": {
-          "$ref": "../../../core/address.json#/definitions/address"
+          "$ref": "../../../core/address.json#/definitions/placeName"
         },
         "lat": {
           "$ref": "../../../core/units.json#/definitions/relaxedLatitude"

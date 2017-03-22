@@ -25,6 +25,20 @@ function generateTestCases(schema, positive, cases) {
   }
 }
 
+describe('address.placeName', () => {
+  generateTestCases(schema.definitions.placeName, true, [
+    'Erenköy Mahallesi, Çoban Yıldızı Sk. No:4, 34738 Kadıköy/İstanbul, Turkki',
+    '5-2 4-2 タイムズスクエアビル Takashimaya Shinjuku', // Tokyu Hands Shinjuku
+    '武侯区通祠路39号-江城花2楼 (春江花月夜对面)', // Some sample address on Baidu
+  ]);
+
+  generateTestCases(schema.definitions.address, false, [
+    '💩',
+    // '00100', Does not work, but relaxed the schema
+    '',
+  ]);
+});
+
 describe('address.address', () => {
   generateTestCases(schema.definitions.address, true, [
     'Pohjoiskaari 29 A 2',

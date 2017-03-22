@@ -20,10 +20,10 @@
       "$ref": "../../core/units.json#/definitions/shortLocationString"
     },
     "fromName": {
-      "$ref": "../../core/address.json#/definitions/address"
+      "$ref": "../../core/address.json#/definitions/placeName"
     },
     "toName": {
-      "$ref": "../../core/address.json#/definitions/address"
+      "$ref": "../../core/address.json#/definitions/placeName"
     },
     "fromRadius":{
       "description": "'from' location radius in meters",
