@@ -7,7 +7,7 @@
     "itineraryId": {
       "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
       "type": "string",
-      "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
+      "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
     }
   },
   "required": [

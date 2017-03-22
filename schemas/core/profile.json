@@ -8,40 +8,30 @@
       "$ref": "./aws-units.json#/definitions/identityId"
     },
     "phone": {
-      "$ref": "./units.json#/definitions/phone"
+      "$ref": "./customer.json#/definitions/phone"
     },
     "email": {
-      "$ref": "./units.json#/definitions/email"
+      "$ref": "./customer.json#/definitions/email"
     },
     "firstName": {
-      "type": "string",
-      "minLength": 1
+      "$ref": "./customer.json#/definitions/firstName"
     },
     "lastName": {
-      "type": "string",
-      "minLength": 1
+      "$ref": "./customer.json#/definitions/lastName"
     },
     "city": {
-      "type": "string",
-      "minLength": 1
+      "$ref": "./address.json#/definitions/city"
     },
     "country": {
-      "type": "string",
-      "minLength": 1
+      "$ref": "./address.json#/definitions/country"
     },
     "zipCode": {
-      "type": "string",
-      "minLength": 1
-    },
-    "plans": {
-      "type": "array",
-      "items": {
-        "$ref": "./maas-package.json#/definitions/plan"
-      }
+      "$ref": "./address.json#/definitions/zipCode"
     },
     "profileImageUrl": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "maxLength": 256
     },
     "favoriteLocations": {
       "type": "array",
@@ -65,11 +55,15 @@
         },
         "maskedNumber": {
           "description": "Typically the credit card number with all but the last four digits obfuscated",
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
         },
         "issuer": {
           "description": "The card issuer, e.g. 'Visa'",
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
         },
         "expiry": {
           "description": "When this payment method expires",
@@ -80,7 +74,7 @@
     }
   },
   "additionalProperties": false,
-  "required": [ "identityId", "phone", "email", "plans", "balance" ],
+  "required": [ "identityId", "phone", "email", "balance" ],
   "definitions": {
     "favoriteLocation": {
       "type": "object",
@@ -88,10 +82,12 @@
       "required": ["name", "address", "lat", "lon"],
       "properties": {
         "name":{
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
         },
-        "address":{
-          "type": "string"
+        "address": {
+          "$ref": "./address.json#/definitions/placeName"
         },
         "lat":{
           "$ref": "./units.json#/definitions/latitude"

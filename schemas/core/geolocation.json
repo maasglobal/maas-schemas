@@ -42,13 +42,41 @@
     "properties": {
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
-        "streetNumber": {"type": "string"},
-        "streetName": {"type": "string"},
-        "city": { "type": "string" },
-        "country": { "type": "string" },
-        "countryCode": { "type": "string" },
-        "houseNumber": { "type": "integer" },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "streetNumber": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 16
+        },
+        "streetName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "city": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "country": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "countryCode": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "houseNumber": {
+          "type": "integer",
+          "minLength": 1,
+          "maxLength": 16
+        },
         "zipcode": { "type": "integer" }
       },
       "required": [ "name" ]

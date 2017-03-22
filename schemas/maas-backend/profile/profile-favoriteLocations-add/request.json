@@ -3,20 +3,10 @@
   "id": "https://api.maas.global/maas-backend/profile/profile-favoriteLocations-add/request",
   "description": "Request schema for profile-favoriteLocations-add",
   "type": "object",
-  "properties": {
-    "name": {
-      "type": "string"
-    },
-    "address": {
-      "type": "string"
-    },
-    "lat": {
-      "$ref": "../../../core/units.json#/definitions/latitude"
-    },
-    "lon": {
-      "$ref": "../../../core/units.json#/definitions/longitude"
+  "allOf": [
+    {
+      "$ref": "../../../core/profile.json#/definitions/favoriteLocation"
     }
-  },
-  "required": ["name", "address", "lat", "lon"],
+  ],
   "additionalProperties": false
 }

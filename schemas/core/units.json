@@ -92,7 +92,9 @@
     "shortLocationString": {
       "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
       "type": "string",
-      "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$"
+      "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$",
+      "minLength": 1,
+      "maxLength": 64
     },
     "polyline": {
       "type": "object",
@@ -101,6 +103,7 @@
         "points": {
           "type": "string",
           "minLength": 3,
+          "maxLength": 65535,
           "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
         }
       },
@@ -118,16 +121,6 @@
       "description": "Customer identity id - currently an AWS identityId",
       "$ref": "./aws-units.json#/definitions/identityId"
     },
-    "phone": {
-      "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
-      "type": "string",
-      "pattern": "^\\+(?:\\d){6,14}\\d$"
-    },
-    "email": {
-      "description": "Rough validation of a valid e-mail address, see https://davidcel.is/posts/stop-validating-email-addresses-with-regex/",
-      "type": "string",
-      "pattern": "^.+@.+\\..+$"
-    },
     "place": {
       "description": "A place, as a location-name pair",
       "type": "object",
@@ -139,8 +132,7 @@
           "type": "object",
           "properties": {
             "name": {
-              "type": "string",
-              "minLength": 1
+              "$ref": "./address.json#/definitions/placeName"
             }
           }
         }

@@ -6,7 +6,7 @@
   "properties": {
     "identityId": {
       "type": "string",
-      "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+      "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
     },
     "payload": {
       "type": "object",
@@ -14,12 +14,12 @@
         "devicePushToken": {
           "description": "Push token - 32 chars in iOS, up to 255 in Android",
           "type": "string",
-          "pattern": "^.{32,255}$"
+          "pattern": "^(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){32,255}$"
         },
         "deviceIdentifier": {
           "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
           "type": "string",
-          "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
+          "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
         },
         "deviceType": {
           "type": "string",

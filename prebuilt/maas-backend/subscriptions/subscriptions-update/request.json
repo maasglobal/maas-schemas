@@ -6,11 +6,11 @@
   "properties": {
     "customerId": {
       "type": "string",
-      "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+      "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
     },
     "userId": {
       "type": "string",
-      "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+      "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
     },
     "replace": {
       "type": "boolean",
@@ -26,7 +26,7 @@
             "id": {
               "description": "Identifier for matching the plans (Chargebee compat.)",
               "type": "string",
-              "pattern": "^[^\\s\\/]{1,50}$"
+              "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
             },
             "name": {
               "type": "string",
@@ -85,7 +85,7 @@
               "id": {
                 "description": "Identifier for matching the plans (Chargebee compat.)",
                 "type": "string",
-                "pattern": "^[^\\s\\/]{1,50}$"
+                "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
               },
               "name": {
                 "type": "string",
@@ -152,7 +152,7 @@
               "id": {
                 "description": "Identifier for matching the plans (Chargebee compat.)",
                 "type": "string",
-                "pattern": "^[^\\s\\/]{1,50}$"
+                "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
               },
               "name": {
                 "type": "string",
@@ -223,7 +223,7 @@
     "headers": {
       "Accept": {
         "type": "string",
-        "pattern": "\\bapplication/json; \\s+version=((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?(?:\\+[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?)\\b"
+        "pattern": "\\bapplication/json; [\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]+version=((0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\-[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?(?:\\+[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?)\\b"
       }
     }
   },

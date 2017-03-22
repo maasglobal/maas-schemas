@@ -22,7 +22,9 @@
       "type": "object",
       "properties": {
         "signature": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
         },
         "state": {
           "$ref": "./state.json#/definitions/itineraryState"
@@ -76,7 +78,9 @@
       "type": "object",
       "properties": {
         "signature": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
         },
         "state": {
           "$ref": "./state.json#/definitions/legState"
@@ -117,15 +121,18 @@
         },
         "route": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "maxLength": 256
         },
         "routeShortName": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "maxLength": 64
         },
         "routeLongName": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "maxLength": 256
         },
         "agencyId": {
           "$ref": "#/definitions/agencyId"
@@ -196,7 +203,8 @@
     },
     "agencyId": {
       "type": "string",
-      "minLength": 2
+      "minLength": 2,
+      "maxLength": 64
     },
     "place": {
       "type": "object",
@@ -210,11 +218,13 @@
           "properties": {
             "stopId": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 64
             },
             "stopCode": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 64
             }
           }
         }
@@ -253,15 +263,18 @@
       "description": "Temporary way to define what kind of product has been purchased to get a ticket/booking. Will be replaced something more sophisticated once proper product system will be development.",
       "type": "object",
       "properties": {
+        "id": {
+          "description": "Unique identifier for the product",
+          "type": "integer"
+        },
         "type": {
           "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-          "type": "string"
-        },
-        "id": {
-          "description": "Id of the product retrived from Database",
-          "type": "integer"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
         }
       },
+      "required": [ "id", "type" ],
       "additionalProperties": false
     }
   }

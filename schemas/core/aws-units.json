@@ -5,7 +5,9 @@
   "definitions": {
     "arn": {
       "type": "string",
-      "pattern": "^arn:aws:[a-z]+:[\\w\\-]*:\\d{12}:[ \\w\\-]+(\\/[\\w\\- \\/]+)*"
+      "pattern": "^arn:aws:[a-z]+:[\\w\\-]*:\\d{12}:[ \\w\\-]+(\\/[\\w\\- \\/]+)*",
+      "minLength": 1,
+      "maxLength": 256
     },
     "identityId": {
       "type": "string",

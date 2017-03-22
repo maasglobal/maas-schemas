@@ -10,12 +10,12 @@
         "devicePushToken": {
           "description": "Push token - 32 chars in iOS, up to 255 in Android",
           "type": "string",
-          "pattern": "^.{32,255}$"
+          "pattern": "^(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){32,255}$"
         },
         "deviceIdentifier": {
           "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
           "type": "string",
-          "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
+          "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
         },
         "deviceType": {
           "type": "string",
@@ -47,12 +47,12 @@
         "devicePushToken": {
           "description": "Push token - 32 chars in iOS, up to 255 in Android",
           "type": "string",
-          "pattern": "^.{32,255}$"
+          "pattern": "^(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){32,255}$"
         },
         "deviceIdentifier": {
           "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
           "type": "string",
-          "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
+          "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
         },
         "deviceType": {
           "type": "string",

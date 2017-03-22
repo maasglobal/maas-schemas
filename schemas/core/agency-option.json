@@ -22,7 +22,9 @@
           "$ref": "./units.json#/definitions/location"
         },
         "agencyId": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
         },
         "mode": {
           "$ref": "./mode.json"
@@ -50,7 +52,9 @@
     },
     "signature": {
       "type": "string",
-      "description": "This object's signature"
+      "description": "This object's signature",
+      "minLength": 1,
+      "maxLength": 1024
     }
   },
   "required": [

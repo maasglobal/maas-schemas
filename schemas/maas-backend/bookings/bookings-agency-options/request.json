@@ -8,7 +8,7 @@
   ],
   "properties": {
     "mode": {
-      "type": "string"
+      "$ref": "../../../core/mode.json#/definitions/mode"
     },
     "startTime": {
       "$ref": "../../../core/units.json#/definitions/time"
@@ -24,11 +24,11 @@
     },
     "fromName": {
       "description": "The human understandable name for 'from'",
-      "$ref": "../../../core/address.json#/definitions/address"
+      "$ref": "../../../core/address.json#/definitions/placeName"
     },
     "toName": {
       "description": "The human understandable name for 'to'",
-      "$ref": "../../../core/address.json#/definitions/address"
+      "$ref": "../../../core/address.json#/definitions/placeName"
     },
     "fromRadius":{
       "$ref": "../../../core/units.json#/definitions/distance"

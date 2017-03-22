@@ -17,7 +17,7 @@
             "id": {
               "description": "Identifier for matching the plans (Chargebee compat.)",
               "type": "string",
-              "pattern": "^[^\\s\\/]{1,50}$"
+              "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
             },
             "name": {
               "type": "string",
@@ -76,7 +76,7 @@
               "id": {
                 "description": "Identifier for matching the plans (Chargebee compat.)",
                 "type": "string",
-                "pattern": "^[^\\s\\/]{1,50}$"
+                "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
               },
               "name": {
                 "type": "string",
@@ -143,7 +143,7 @@
               "id": {
                 "description": "Identifier for matching the plans (Chargebee compat.)",
                 "type": "string",
-                "pattern": "^[^\\s\\/]{1,50}$"
+                "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
               },
               "name": {
                 "type": "string",
@@ -221,7 +221,7 @@
             "id": {
               "description": "Identifier for matching the plans (Chargebee compat.)",
               "type": "string",
-              "pattern": "^[^\\s\\/]{1,50}$"
+              "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
             },
             "name": {
               "type": "string",
@@ -280,7 +280,7 @@
               "id": {
                 "description": "Identifier for matching the plans (Chargebee compat.)",
                 "type": "string",
-                "pattern": "^[^\\s\\/]{1,50}$"
+                "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
               },
               "name": {
                 "type": "string",
@@ -347,7 +347,7 @@
               "id": {
                 "description": "Identifier for matching the plans (Chargebee compat.)",
                 "type": "string",
-                "pattern": "^[^\\s\\/]{1,50}$"
+                "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
               },
               "name": {
                 "type": "string",
@@ -429,7 +429,7 @@
             "id": {
               "description": "Identifier for matching the plans (Chargebee compat.)",
               "type": "string",
-              "pattern": "^[^\\s\\/]{1,50}$"
+              "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
             },
             "name": {
               "type": "string",
@@ -488,7 +488,7 @@
               "id": {
                 "description": "Identifier for matching the plans (Chargebee compat.)",
                 "type": "string",
-                "pattern": "^[^\\s\\/]{1,50}$"
+                "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
               },
               "name": {
                 "type": "string",
@@ -555,7 +555,7 @@
               "id": {
                 "description": "Identifier for matching the plans (Chargebee compat.)",
                 "type": "string",
-                "pattern": "^[^\\s\\/]{1,50}$"
+                "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
               },
               "name": {
                 "type": "string",
@@ -632,7 +632,7 @@
             "id": {
               "description": "Identifier for matching the plans (Chargebee compat.)",
               "type": "string",
-              "pattern": "^[^\\s\\/]{1,50}$"
+              "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
             },
             "name": {
               "type": "string",
@@ -691,7 +691,7 @@
               "id": {
                 "description": "Identifier for matching the plans (Chargebee compat.)",
                 "type": "string",
-                "pattern": "^[^\\s\\/]{1,50}$"
+                "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
               },
               "name": {
                 "type": "string",
@@ -758,7 +758,7 @@
               "id": {
                 "description": "Identifier for matching the plans (Chargebee compat.)",
                 "type": "string",
-                "pattern": "^[^\\s\\/]{1,50}$"
+                "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
               },
               "name": {
                 "type": "string",
@@ -833,7 +833,7 @@
         "id": {
           "description": "Identifier for matching the plans (Chargebee compat.)",
           "type": "string",
-          "pattern": "^[^\\s\\/]{1,50}$"
+          "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
         },
         "name": {
           "type": "string",
@@ -890,7 +890,7 @@
         "id": {
           "description": "Identifier for matching the plans (Chargebee compat.)",
           "type": "string",
-          "pattern": "^[^\\s\\/]{1,50}$"
+          "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
         },
         "name": {
           "type": "string",
@@ -954,7 +954,7 @@
         "id": {
           "description": "Identifier for matching the plans (Chargebee compat.)",
           "type": "string",
-          "pattern": "^[^\\s\\/]{1,50}$"
+          "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
         },
         "name": {
           "type": "string",
@@ -972,7 +972,7 @@
     "subscriptionItemId": {
       "description": "Identifier for matching the plans (Chargebee compat.)",
       "type": "string",
-      "pattern": "^[^\\s\\/]{1,50}$"
+      "pattern": "^(?:[\\0-\\x08\\x0E-\\x1F!-\\.0-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF]){1,50}$"
     },
     "price": {
       "description": "A fare/price as billed by a TSP from MaaS in EUR",
