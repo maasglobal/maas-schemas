@@ -32,6 +32,7 @@
     "import/no-unresolved": 0, // fails in Travis",
     "import/no-extraneous-dependencies": 0,
     "import/newline-after-import": 0,
+    "no-continue": 0,
 
     "no-unused-vars": [2, { "vars": "all", "args": "none" }],
     "max-len": [2, 256],
