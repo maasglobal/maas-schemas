@@ -6,7 +6,7 @@
     "placeName": {
       "description": "Place name (given in autocomplete)",
       "type": "string",
-      "pattern": "^(:?(:?\\p{L}|\\d)+[,:\\.\\-\\(\\)\\/]?\\s?)((:?\\p{L}|[\\d,:\\.\\-\\(\\)\\/])+\\s?)*$",
+      "pattern": "^(:?(:?\\p{L}|\\d)+[,::`'´\\.\\-\\(\\)\\/]?\\s?)((:?\\p{L}|[\\d,:\\.\\-\\(\\)\\/])+\\s?)*$",
       "maxLength": 255
     },
     "address": {
