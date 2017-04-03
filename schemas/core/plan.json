@@ -274,8 +274,7 @@
           "maxLength": 256
         }
       },
-      "required": [ "id", "type" ],
-      "additionalProperties": false
+      "required": [ "id", "type" ]
     }
   }
 }

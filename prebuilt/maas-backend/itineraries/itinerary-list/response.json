@@ -379,8 +379,7 @@
                             "required": [
                               "id",
                               "type"
-                            ],
-                            "additionalProperties": false
+                            ]
                           },
                           "bookingOption": {
                             "type": "number",
@@ -849,8 +848,7 @@
                       "required": [
                         "id",
                         "type"
-                      ],
-                      "additionalProperties": false
+                      ]
                     },
                     "bookingOption": {
                       "type": "number",
@@ -1249,8 +1247,7 @@
                     "required": [
                       "id",
                       "type"
-                    ],
-                    "additionalProperties": false
+                    ]
                   },
                   "bookingOption": {
                     "type": "number",
