@@ -53,12 +53,18 @@
           "items": {
             "$ref": "./bookingOption.json"
           }
+        },
+        "provider": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The provider who provided this itinerary"
         }
       },
       "required": [
         "startTime",
         "endTime",
-        "legs"
+        "legs",
+        "provider"
       ]
     },
     "leg": {
