@@ -45,6 +45,12 @@ describe('address.componentAddress', () => {
     'country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
     // Interchangeable fields
     'city:Helsinki|state:Uusimaa|country:Finland|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
+    // State not mandatory
+    'city:Helsinki|country:Finland|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
+    // Spaces in-between
+    'country:New Zealand|state:Bay of Plenty|city:White Pine Bush|zipCode:3191|streetName:White Pine Bush Road|streetNumber:479',
+    // Other interesting special characters
+    'country:Aäöم武кв.-`\'\'´`|state:Aäöم武кв.-`\'\'´`|city:Aäöم武кв.-`\'\'´`|zipCode:3191|streetName:Aäöم武кв.-`\'\'´`|streetNumber:479',
   ]);
 
   generateTestCases(schema.definitions.componentAddress, false, [
