@@ -26,12 +26,20 @@
       "description": "The human understandable name for 'from'",
       "$ref": "../../../core/address.json#/definitions/placeName"
     },
+    "fromAddress": {
+      "description": "Componentized from address",
+      "$ref": "../../../core/address.json#/definitions/componentAddress"
+    },
+    "fromRadius":{
+      "$ref": "../../../core/units.json#/definitions/distance"
+    },
     "toName": {
       "description": "The human understandable name for 'to'",
       "$ref": "../../../core/address.json#/definitions/placeName"
     },
-    "fromRadius":{
-      "$ref": "../../../core/units.json#/definitions/distance"
+    "toAddress": {
+      "description": "Componentized to address",
+      "$ref": "../../../core/address.json#/definitions/componentAddress"
     },
     "toRadius":{
       "$ref": "../../../core/units.json#/definitions/distance"

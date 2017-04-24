@@ -32,9 +32,25 @@ describe('address.placeName', () => {
     '武侯区通祠路39号-江城花2楼 (春江花月夜对面)', // Some sample address on Baidu
   ]);
 
-  generateTestCases(schema.definitions.address, false, [
+  generateTestCases(schema.definitions.placeName, false, [
     '💩',
     // '00100', Does not work, but relaxed the schema
+    '',
+  ]);
+});
+
+describe('address.componentAddress', () => {
+  generateTestCases(schema.definitions.componentAddress, true, [
+    // Ludviginkatu 6, Helsinki, Uusimaa, Finland
+    'country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
+    // Interchangeable fields
+    'city:Helsinki|state:Uusimaa|country:Finland|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
+  ]);
+
+  generateTestCases(schema.definitions.componentAddress, false, [
+    '💩',
+    // TODO The parser does not yet support limiting to one occurrence of each field
+    //'country:Finland|country:Finland|country:Finland|country:Finland|country:Finland|country:Finland',
     '',
   ]);
 });
