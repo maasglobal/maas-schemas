@@ -17,9 +17,21 @@
           "description": "Starting location's lat and lon pair of this request",
           "$ref": "./units.json#/definitions/location"
         },
+        "fromName": {
+          "$ref": "./address.json#/definitions/placeName"
+        },
+        "fromAddress": {
+          "$ref": "./address.json#/definitions/componentAddress"
+        },
         "to": {
           "description": "Destinated location's lat and lon pair of this request",
           "$ref": "./units.json#/definitions/location"
+        },
+        "toName": {
+          "$ref": "./address.json#/definitions/placeName"
+        },
+        "toAddress": {
+          "$ref": "./address.json#/definitions/componentAddress"
         },
         "agencyId": {
           "type": "string",

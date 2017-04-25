@@ -86,8 +86,20 @@
         "from": {
           "$ref": "./plan.json#/definitions/legCore/properties/from"
         },
+        "fromName": {
+          "$ref": "./address.json#/definitions/placeName"
+        },
+        "fromAddress": {
+          "$ref": "./address.json#/definitions/componentAddress"
+        },
         "to": {
           "$ref": "./plan.json#/definitions/legCore/properties/to"
+        },
+        "toName": {
+          "$ref": "./address.json#/definitions/placeName"
+        },
+        "toAddress": {
+          "$ref": "./address.json#/definitions/componentAddress"
         },
         "startTime": {
           "$ref": "./plan.json#/definitions/legCore/properties/startTime"
