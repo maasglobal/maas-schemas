@@ -11,7 +11,7 @@
     "placeName": {
       "description": "Place name (given in autocomplete)",
       "type": "string",
-      "pattern": "^(:?(:?\\p{L}|\\d)+[,::`'´\\.\\-\\(\\)\\/]?\\s?)((:?\\p{L}|[\\d,:\\.\\-\\(\\)\\/])+\\s?)*$",
+      "pattern": "^(:?(:?\\p{L}|\\d)+[\\x21-\\x7EF]?\\s?)((:?\\p{L}|[\\x21-\\x7EF])+\\s?)*$",
       "maxLength": 255
     },
     "address": {
