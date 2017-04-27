@@ -16,18 +16,25 @@
     "from": {
       "$ref": "../../core/units.json#/definitions/shortLocationString"
     },
-    "to": {
-      "$ref": "../../core/units.json#/definitions/shortLocationString"
-    },
     "fromName": {
       "$ref": "../../core/address.json#/definitions/placeName"
     },
-    "toName": {
-      "$ref": "../../core/address.json#/definitions/placeName"
+    "fromAddress": {
+      "description": "Componentized from address",
+      "$ref": "../../core/address.json#/definitions/componentAddress"
     },
     "fromRadius":{
       "description": "'from' location radius in meters",
       "$ref": "../../core/units.json#/definitions/distance"
+    },
+    "to": {
+      "$ref": "../../core/units.json#/definitions/shortLocationString"
+    },
+    "toName": {
+      "$ref": "../../core/address.json#/definitions/placeName"
+    },
+    "toAddress": {
+      "$ref": "../../core/address.json#/definitions/componentAddress"
     },
     "toRadius":{
       "description": "'to' location radius in meters",

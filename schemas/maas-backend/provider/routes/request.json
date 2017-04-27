@@ -10,8 +10,20 @@
     "from": {
       "$ref": "../../../core/units.json#/definitions/shortLocation"
     },
+    "fromName": {
+      "$ref": "../../../core/address.json#/definitions/placeName"
+    },
+    "fromAddress": {
+      "$ref": "../../../core/address.json#/definitions/componentAddress"
+    },
     "to": {
       "$ref": "../../../core/units.json#/definitions/shortLocation"
+    },
+    "toName": {
+      "$ref": "../../../core/address.json#/definitions/placeName"
+    },
+    "toAddress": {
+      "$ref": "../../../core/address.json#/definitions/componentAddress"
     },
     "leaveAt": {
       "$ref": "../../../core/units.json#/definitions/time"
@@ -24,6 +36,6 @@
       "pattern": "^(:?(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI),)*(:?WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI)$"
     }
   },
-  "required": [ "from", "to" ],
+  "required": ["from", "to"],
   "additionalProperties": false
 }
