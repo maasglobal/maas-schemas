@@ -21,10 +21,14 @@
     "itinerary": {
       "type": "object",
       "properties": {
+        "id": {
+          "$ref": "./units.json#/definitions/uuid"
+        },
+        "identityId": {
+          "$ref": "./aws-units.json#/definitions/identityId"
+        },
         "signature": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 1024
+          "$ref": "#/definitions/signature"
         },
         "state": {
           "$ref": "./state.json#/definitions/itineraryState"
@@ -47,11 +51,11 @@
             }
           ]
         },
-        "bookingOptions": {
+        "productOptions": {
           "type": "array",
           "minItems": 0,
           "items": {
-            "$ref": "./bookingOption.json"
+            "$ref": "./productOption.json"
           }
         }
       },
@@ -62,26 +66,47 @@
       ]
     },
     "leg": {
-      "anyOf": [
+      "allOf": [
         {
-          "$ref": "#/definitions/legCore"
+          "$ref": "#/definitions/legExtensions"
         },
         {
-          "$ref": "#/definitions/waitingLeg"
-        },
-        {
-          "$ref": "#/definitions/transferLeg"
+          "anyOf": [
+            {
+              "$ref": "#/definitions/legCore"
+            },
+            {
+              "$ref": "#/definitions/waitingLeg"
+            },
+            {
+              "$ref": "#/definitions/transferLeg"
+            }
+          ]
         }
       ]
+    },
+    "legExtensions": {
+      "type": "object",
+      "description": "MaaS specific leg extensions",
+      "properties": {
+        "id": {
+          "$ref": "./units.json#/definitions/uuid"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature"
+        },
+        "product": {
+          "$ref": "#/definitions/product"
+        },
+        "productOption": {
+          "type": "integer",
+          "minValue": 0
+        }
+      }
     },
     "legCore": {
       "type": "object",
       "properties": {
-        "signature": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 1024
-        },
         "state": {
           "$ref": "./state.json#/definitions/legState"
         },
@@ -122,7 +147,7 @@
         "route": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 256
+          "maxLength": 255
         },
         "routeShortName": {
           "type": "string",
@@ -132,7 +157,7 @@
         "routeLongName": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 256
+          "maxLength": 255
         },
         "agencyId": {
           "$ref": "#/definitions/agencyId"
@@ -142,13 +167,6 @@
         },
         "fare": {
           "$ref": "../core/units.json#/definitions/fare"
-        },
-        "product": {
-          "$ref": "#/definitions/product"
-        },
-        "bookingOption": {
-          "type": "number",
-          "minValue": 0
         }
       },
       "required": [
@@ -267,14 +285,25 @@
           "description": "Unique identifier for the product",
           "type": "integer"
         },
+        "name": {
+          "type": "string",
+          "description": "Name of the booking option (as displayed n the UI)",
+          "minLength": 1,
+          "maxLength": 255
+        },
         "type": {
           "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
           "type": "string",
           "minLength": 1,
-          "maxLength": 256
+          "maxLength": 255
         }
       },
-      "required": [ "id", "type" ]
+      "required": [ "id", "name", "type" ]
+    },
+    "signature": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
     }
   }
 }

@@ -81,7 +81,7 @@
       "description": "MaaS response may return any subset of legCore",
       "properties": {
         "signature": {
-          "$ref": "./plan.json#/definitions/legCore/properties/signature"
+          "$ref": "./plan.json#/definitions/signature"
         },
         "from": {
           "$ref": "./plan.json#/definitions/legCore/properties/from"
@@ -313,7 +313,7 @@
       "maxLength": 256
     },
     "product": {
-      "$ref": "./plan.json#/definitions/legCore/properties/product"
+      "$ref": "./plan.json#/definitions/product"
     }
   }
 }
