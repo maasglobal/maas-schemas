@@ -31,12 +31,12 @@ describe('customer.firstName', () => {
     //'Влади́мир', // Cyrillic: Vladimir -> Not supported
     '明', // Chinese: Ming
     'ADÉLAÏDE', // French form of Adelaide
+    'Hans V.',
   ]);
 
   generateTestCases(schema.definitions.firstName, false, [
     '💩',
     //'lauri svan', // --> Should fail but doesn't - hard to define as regexp
-    '',
   ]);
 });
 
@@ -48,6 +48,7 @@ describe('customer.lastName', () => {
     'O\'Neill',
     'Sören-sön',
     // 'महात्मा', // Hindi: Gandhi -> not supported
+    'Dot. d`Tester',
   ]);
 
   generateTestCases(schema.definitions.lastName, false, [

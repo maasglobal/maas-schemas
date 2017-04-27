@@ -3,10 +3,15 @@
   "id": "https://api.maas.global/core/address",
   "description": "MaaS schema for address related information",
   "definitions": {
+    "componentAddress": {
+      "description": "Encoded address components in form country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|streetNumber:6",
+      "type": "string",
+      "pattern": "(:?(:?(:?country:\\p{L}+)|(:?state:\\p{L}+)|(:?city:\\p{L}+)|(:?zipCode:(:?\\d{3,10}|(:?\\p{L}|\\d){2,4}(\\s(:?\\p{L}|\\d){2,4}){1,2})+)|(:?streetName:[^|]+)|(:?streetNumber:\\d+))\\|?){6}"
+    },
     "placeName": {
       "description": "Place name (given in autocomplete)",
       "type": "string",
-      "pattern": "^(:?(:?\\p{L}|\\d)+[,::`'´\\.\\-\\(\\)\\/]?\\s?)((:?\\p{L}|[\\d,:\\.\\-\\(\\)\\/])+\\s?)*$",
+      "pattern": "^(:?(:?\\p{L}|\\d)+[\\x21-\\x7EF]?\\s?)((:?\\p{L}|[\\x21-\\x7EF])+\\s?)*$",
       "maxLength": 255
     },
     "address": {
