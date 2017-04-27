@@ -133,6 +133,9 @@
           "properties": {
             "name": {
               "$ref": "./address.json#/definitions/placeName"
+            },
+            "address": {
+              "$ref": "./address.json#/definitions/componentAddress"
             }
           }
         }
