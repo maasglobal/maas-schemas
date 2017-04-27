@@ -485,8 +485,34 @@
                     "type": "string"
                   },
                   "fare": {
-                    "type": "integer",
-                    "minValue": 0
+                    "description": "A fare/price as billed from the user in POINTs",
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          {
+                            "enum": [
+                              null
+                            ]
+                          }
+                        ]
+                      },
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "POINT"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "amount",
+                      "currency"
+                    ],
+                    "additionalProperties": false
                   },
                   "ref": {
                     "type": "integer",
@@ -1368,8 +1394,34 @@
               "type": "string"
             },
             "fare": {
-              "type": "integer",
-              "minValue": 0
+              "description": "A fare/price as billed from the user in POINTs",
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
+                    }
+                  ]
+                },
+                "currency": {
+                  "type": "string",
+                  "enum": [
+                    "POINT"
+                  ]
+                }
+              },
+              "required": [
+                "amount",
+                "currency"
+              ],
+              "additionalProperties": false
             },
             "ref": {
               "type": "integer",
