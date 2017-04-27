@@ -31,8 +31,8 @@
         }
       }
     },
-    "bookingOption": {
-      "$ref": "./bookingOption.json"
+    "productOption": {
+      "$ref": "./productOption.json"
     }
   }
 }

@@ -388,7 +388,7 @@
                             "type"
                           ]
                         },
-                        "bookingOption": {
+                        "productOption": {
                           "type": "number",
                           "minValue": 0
                         }
@@ -468,13 +468,13 @@
                 }
               ]
             },
-            "bookingOptions": {
+            "productOptions": {
               "type": "array",
               "minItems": 0,
               "items": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
                 "id": "https://api.maas.global/core/itinerary",
-                "description": "Booking option for an itinerary, is either an existing booking pointer or a new booking instruction",
+                "description": "Product option for an itinerary, is either an existing booking pointer or a new booking instruction",
                 "type": "object",
                 "properties": {
                   "productId": {
@@ -500,6 +500,9 @@
                     "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
                     "type": "string",
                     "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
+                  },
+                  "tspParams": {
+                    "type": "object"
                   },
                   "validFrom": {
                     "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
@@ -867,7 +870,7 @@
                       "type"
                     ]
                   },
-                  "bookingOption": {
+                  "productOption": {
                     "type": "number",
                     "minValue": 0
                   }
@@ -1276,7 +1279,7 @@
                     "type"
                   ]
                 },
-                "bookingOption": {
+                "productOption": {
                   "type": "number",
                   "minValue": 0
                 }
@@ -1354,10 +1357,10 @@
             }
           ]
         },
-        "bookingOption": {
+        "productOption": {
           "$schema": "http://json-schema.org/draft-04/schema#",
           "id": "https://api.maas.global/core/itinerary",
-          "description": "Booking option for an itinerary, is either an existing booking pointer or a new booking instruction",
+          "description": "Product option for an itinerary, is either an existing booking pointer or a new booking instruction",
           "type": "object",
           "properties": {
             "productId": {
@@ -1383,6 +1386,9 @@
               "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
               "type": "string",
               "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
+            },
+            "tspParams": {
+              "type": "object"
             },
             "validFrom": {
               "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",

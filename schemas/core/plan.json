@@ -47,11 +47,11 @@
             }
           ]
         },
-        "bookingOptions": {
+        "productOptions": {
           "type": "array",
           "minItems": 0,
           "items": {
-            "$ref": "./bookingOption.json"
+            "$ref": "./productOption.json"
           }
         }
       },
@@ -146,7 +146,7 @@
         "product": {
           "$ref": "#/definitions/product"
         },
-        "bookingOption": {
+        "productOption": {
           "type": "number",
           "minValue": 0
         }
