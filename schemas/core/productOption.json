@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/core/itinerary",
+  "description": "Product option for an itinerary, is either an existing booking pointer or a new booking instruction",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "./aws-units.json#/definitions/identityId"
+    },
+    "bookingId": {
+      "$ref": "./units.json#/definitions/uuid"
+    },
+    "ref": {
+      "type": "integer",
+      "minValue": 0
+    },
+    "product": {
+      "$ref": "#/definitions/product"
+    },
+    "fare": {
+      "$ref": "./units.json#/definitions/fare"
+    },
+    "terms": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "identityId",
+    "ref",
+    "product",
+    "fare",
+    "terms"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "minValue": 0
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "priority": {
+          "type": "number"
+        },
+        "agencyId": {
+          "$ref": "plan.json#/definitions/agencyId"
+        },
+        "tspParams": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "priority",
+        "agencyId"
+      ]
+    }
+  }
+}
