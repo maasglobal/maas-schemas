@@ -28,7 +28,9 @@
         "startTime": { "$ref": "../core/units.json#/definitions/time" },
         "endTime": { "$ref": "../core/units.json#/definitions/time" },
         "from": { "$ref": "../core/units.json#/definitions/relaxedLocation" },
+        "fromAddress": { "$ref": "../core/address.json#/definitions/componentAddress" },
         "to": { "$ref": "../core/units.json#/definitions/relaxedLocation" },
+        "toAddress": { "$ref": "../core/address.json#/definitions/componentAddress" },
         "departureDelay": { "$ref": "../core//units.json#/definitions/duration" }
       },
       "additionalProperties": false,
@@ -48,7 +50,9 @@
         "startTime": { "$ref": "../core/units.json#/definitions/time" },
         "endTime": { "$ref": "../core/units.json#/definitions/time" },
         "from": { "$ref": "../core/units.json#/definitions/relaxedLocation" },
-        "to": { "$ref": "../core/units.json#/definitions/relaxedLocation" }
+        "fromAddress": { "$ref": "../core/address.json#/definitions/componentAddress" },
+        "to": { "$ref": "../core/units.json#/definitions/relaxedLocation" },
+        "toAddress": { "$ref": "../core/address.json#/definitions/componentAddress" }
       },
       "additionalProperties": false
     }
