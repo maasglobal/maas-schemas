@@ -10,13 +10,18 @@
     "payload": {
       "type": "object",
       "properties": {
-        "identifier": {
+        "name": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 255          
+          "maxLength": 255
         }
       },
-      "required": ["identifier"]
+      "required": ["name"]
+    },
+    "headers": {
+      "Accept": {
+        "$ref": "../../api-common.json#/definitions/acceptHeader"
+      }
     }
   },
   "additionalProperties": false
