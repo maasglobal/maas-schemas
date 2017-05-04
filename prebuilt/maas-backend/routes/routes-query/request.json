@@ -153,10 +153,10 @@
           },
           "additionalProperties": false
         }
-      ],
-      "headers": {
-        "type": "object"
-      }
+      ]
+    },
+    "headers": {
+      "type": "object"
     }
   },
   "required": [
