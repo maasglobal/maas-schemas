@@ -11,15 +11,21 @@
     "payload": {
       "type": "object",
       "properties": {
-        "identifier": {
+        "name": {
           "type": "string",
           "minLength": 1,
           "maxLength": 255
         }
       },
       "required": [
-        "identifier"
+        "name"
       ]
+    },
+    "headers": {
+      "Accept": {
+        "type": "string",
+        "pattern": "\\bapplication/json; [\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]+version=((0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\-[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?(?:\\+[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?)\\b"
+      }
     }
   },
   "additionalProperties": false

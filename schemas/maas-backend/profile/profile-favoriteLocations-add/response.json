@@ -3,6 +3,14 @@
   "id": "https://api.maas.global/maas-backend/profile/profile-favoriteLocations-add/response",
   "description": "Response schema for profile-favoriteLocations-add",
   "type": "object",
-  "properties": {},
+  "properties": {
+    "profile": {
+      "$ref": "../../../core/profile.json"
+    },
+    "debug": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
   "additionalProperties": false
 }
