@@ -122,11 +122,11 @@
       "$ref": "./aws-units.json#/definitions/identityId"
     },
     "place": {
-      "description": "A place, as a location-name pair",
+      "description": "A place, as a location-name pair with name and address",
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/location"
+          "$ref": "#/definitions/relaxedLocation"
         },
         {
           "type": "object",
