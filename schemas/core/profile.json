@@ -4,6 +4,10 @@
   "description": "MaaS user profiles as saved on DynamoDB",
   "type": "object",
   "properties": {
+    "id": {
+      "type": "integer",
+      "minValue": 0
+    },
     "identityId": {
       "$ref": "./aws-units.json#/definitions/identityId"
     },
@@ -36,7 +40,7 @@
     "favoriteLocations": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/favoriteLocation"
+        "$ref": "./units.json#/definitions/place"
       }
     },
     "balance": {
@@ -71,31 +75,77 @@
         }
       },
       "required": ["type", "valid"]
+    },
+    "subscription": {
+      "type": "object",
+      "description": "TODO Delete this legacy version of subscription (replaced by subscriptionInstance)"
+    },
+    "subscriptionInstance": {
+      "$ref": "#/definitions/subscriptionInstance"
+    },
+    "created": {
+      "$ref": "./units.json#/definitions/time"
+    },
+    "modified": {
+      "$ref": "./units.json#/definitions/time"
     }
   },
   "additionalProperties": false,
-  "required": [ "identityId", "phone", "email", "balance" ],
+  "required": [ "identityId", "phone", "favoriteLocations",  "balance", "paymentMethod", "subscriptionInstance" ],
   "definitions": {
-    "favoriteLocation": {
+    "subscriptionInstance": {
       "type": "object",
-      "additionalProperties": false,
-      "required": ["name", "address", "lat", "lon"],
       "properties": {
-        "name":{
+        "id": {
+          "type": "integer",
+          "minValue": 0
+        },
+        "name": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 256
+          "maxLength": 255
         },
-        "address": {
-          "$ref": "./address.json#/definitions/placeName"
+        "plan": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255
+            }
+          },
+          "required": [ "id" ],
+          "additionalProperties": false
         },
-        "lat":{
-          "$ref": "./units.json#/definitions/latitude"
+        "addons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          }
         },
-        "lon":{
-          "$ref": "./units.json#/definitions/longitude"
+        "coupons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          }
+        },
+        "points": {
+          "type": "integer",
+          "minValue": 0
+        },
+        "level": {
+          "type": "integer",
+          "minValue": 0
+        },
+        "active": {
+          "type": "boolean"
         }
-      }
+      },
+      "required": ["plan", "addons", "coupons"]
     }
   }
 }
