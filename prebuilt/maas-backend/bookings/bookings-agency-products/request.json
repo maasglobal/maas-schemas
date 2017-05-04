@@ -8,15 +8,41 @@
       "type": "string",
       "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
     },
-    "agencyId": {
-      "type": "string",
-      "minLength": 2,
-      "maxLength": 64
+    "payload": {
+      "type": "object",
+      "required": [
+        "agencyId"
+      ],
+      "properties": {
+        "agencyId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
+        }
+      }
+    },
+    "headers": {
+      "type": "object"
     }
   },
   "required": [
     "identityId",
-    "agencyId"
+    "payload"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "definitions": {
+    "payload": {
+      "type": "object",
+      "required": [
+        "agencyId"
+      ],
+      "properties": {
+        "agencyId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
+        }
+      }
+    }
+  }
 }
