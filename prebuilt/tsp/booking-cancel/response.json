@@ -406,6 +406,39 @@
               "minLength": 1,
               "maxLength": 256
             },
+            "vehicleDescription": {
+              "description": "An arbitrary description of the vehicle, e.g. 'Black Jaguar'",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            "driver": {
+              "description": "Driver information",
+              "type": "object",
+              "properties": {
+                "phone": {
+                  "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
+                  "type": "string",
+                  "pattern": "^\\+(?:[0-9]){6,14}[0-9]$"
+                },
+                "name": {
+                  "description": "Driver name, e.g. 'Sergey' or 'Jane S.'",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+                "image": {
+                  "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
+                  "type": "string",
+                  "pattern": "^(https?|ftp)://(?:[\\0-\\x08\\x0E-\\x1F!\"%-\\-0->@-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\x08\\x0E-\\x1F!-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*$"
+                }
+              }
+            },
+            "dispatchOrderId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
             "eta": {
               "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
               "type": "integer",
