@@ -56,6 +56,6 @@
       ]
     }
   },
-  "required": ["identityId", "badge", "type"],
+  "required": ["identityId", "severity", "badge", "type"],
   "additionalProperties": false
 }
