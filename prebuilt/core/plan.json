@@ -8,26 +8,24 @@
       "additionalProperties": true,
       "allOf": [
         {
-          "description": "A place, as a location-name pair",
+          "description": "A place, as a location-name pair with name and address",
           "type": "object",
           "allOf": [
             {
-              "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+              "description": "No-numeric precision version of MaaS core location",
               "type": "object",
               "properties": {
                 "lat": {
-                  "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                  "description": "No-numeric precision version of MaaS core latitude",
                   "type": "number",
                   "minimum": -90,
-                  "maximum": 90,
-                  "multipleOf": 0.000001
+                  "maximum": 90
                 },
                 "lon": {
-                  "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                  "description": "No-numeric precision version of MaaS core longitude",
                   "type": "number",
                   "minimum": -180,
-                  "maximum": 180,
-                  "multipleOf": 0.000001
+                  "maximum": 180
                 }
               },
               "required": [
@@ -215,26 +213,24 @@
                             "additionalProperties": true,
                             "allOf": [
                               {
-                                "description": "A place, as a location-name pair",
+                                "description": "A place, as a location-name pair with name and address",
                                 "type": "object",
                                 "allOf": [
                                   {
-                                    "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                    "description": "No-numeric precision version of MaaS core location",
                                     "type": "object",
                                     "properties": {
                                       "lat": {
-                                        "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                        "description": "No-numeric precision version of MaaS core latitude",
                                         "type": "number",
                                         "minimum": -90,
-                                        "maximum": 90,
-                                        "multipleOf": 0.000001
+                                        "maximum": 90
                                       },
                                       "lon": {
-                                        "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                        "description": "No-numeric precision version of MaaS core longitude",
                                         "type": "number",
                                         "minimum": -180,
-                                        "maximum": 180,
-                                        "multipleOf": 0.000001
+                                        "maximum": 180
                                       }
                                     },
                                     "required": [
@@ -286,26 +282,24 @@
                             "additionalProperties": true,
                             "allOf": [
                               {
-                                "description": "A place, as a location-name pair",
+                                "description": "A place, as a location-name pair with name and address",
                                 "type": "object",
                                 "allOf": [
                                   {
-                                    "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                    "description": "No-numeric precision version of MaaS core location",
                                     "type": "object",
                                     "properties": {
                                       "lat": {
-                                        "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                        "description": "No-numeric precision version of MaaS core latitude",
                                         "type": "number",
                                         "minimum": -90,
-                                        "maximum": 90,
-                                        "multipleOf": 0.000001
+                                        "maximum": 90
                                       },
                                       "lon": {
-                                        "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                        "description": "No-numeric precision version of MaaS core longitude",
                                         "type": "number",
                                         "minimum": -180,
-                                        "maximum": 180,
-                                        "multipleOf": 0.000001
+                                        "maximum": 180
                                       }
                                     },
                                     "required": [
@@ -848,26 +842,24 @@
                             "additionalProperties": true,
                             "allOf": [
                               {
-                                "description": "A place, as a location-name pair",
+                                "description": "A place, as a location-name pair with name and address",
                                 "type": "object",
                                 "allOf": [
                                   {
-                                    "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                    "description": "No-numeric precision version of MaaS core location",
                                     "type": "object",
                                     "properties": {
                                       "lat": {
-                                        "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                        "description": "No-numeric precision version of MaaS core latitude",
                                         "type": "number",
                                         "minimum": -90,
-                                        "maximum": 90,
-                                        "multipleOf": 0.000001
+                                        "maximum": 90
                                       },
                                       "lon": {
-                                        "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                        "description": "No-numeric precision version of MaaS core longitude",
                                         "type": "number",
                                         "minimum": -180,
-                                        "maximum": 180,
-                                        "multipleOf": 0.000001
+                                        "maximum": 180
                                       }
                                     },
                                     "required": [
@@ -919,26 +911,24 @@
                             "additionalProperties": true,
                             "allOf": [
                               {
-                                "description": "A place, as a location-name pair",
+                                "description": "A place, as a location-name pair with name and address",
                                 "type": "object",
                                 "allOf": [
                                   {
-                                    "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                    "description": "No-numeric precision version of MaaS core location",
                                     "type": "object",
                                     "properties": {
                                       "lat": {
-                                        "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                        "description": "No-numeric precision version of MaaS core latitude",
                                         "type": "number",
                                         "minimum": -90,
-                                        "maximum": 90,
-                                        "multipleOf": 0.000001
+                                        "maximum": 90
                                       },
                                       "lon": {
-                                        "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                        "description": "No-numeric precision version of MaaS core longitude",
                                         "type": "number",
                                         "minimum": -180,
-                                        "maximum": 180,
-                                        "multipleOf": 0.000001
+                                        "maximum": 180
                                       }
                                     },
                                     "required": [
@@ -1476,26 +1466,24 @@
                           "additionalProperties": true,
                           "allOf": [
                             {
-                              "description": "A place, as a location-name pair",
+                              "description": "A place, as a location-name pair with name and address",
                               "type": "object",
                               "allOf": [
                                 {
-                                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                  "description": "No-numeric precision version of MaaS core location",
                                   "type": "object",
                                   "properties": {
                                     "lat": {
-                                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                      "description": "No-numeric precision version of MaaS core latitude",
                                       "type": "number",
                                       "minimum": -90,
-                                      "maximum": 90,
-                                      "multipleOf": 0.000001
+                                      "maximum": 90
                                     },
                                     "lon": {
-                                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                      "description": "No-numeric precision version of MaaS core longitude",
                                       "type": "number",
                                       "minimum": -180,
-                                      "maximum": 180,
-                                      "multipleOf": 0.000001
+                                      "maximum": 180
                                     }
                                   },
                                   "required": [
@@ -1547,26 +1535,24 @@
                           "additionalProperties": true,
                           "allOf": [
                             {
-                              "description": "A place, as a location-name pair",
+                              "description": "A place, as a location-name pair with name and address",
                               "type": "object",
                               "allOf": [
                                 {
-                                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                  "description": "No-numeric precision version of MaaS core location",
                                   "type": "object",
                                   "properties": {
                                     "lat": {
-                                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                      "description": "No-numeric precision version of MaaS core latitude",
                                       "type": "number",
                                       "minimum": -90,
-                                      "maximum": 90,
-                                      "multipleOf": 0.000001
+                                      "maximum": 90
                                     },
                                     "lon": {
-                                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                                      "description": "No-numeric precision version of MaaS core longitude",
                                       "type": "number",
                                       "minimum": -180,
-                                      "maximum": 180,
-                                      "multipleOf": 0.000001
+                                      "maximum": 180
                                     }
                                   },
                                   "required": [
@@ -2036,26 +2022,24 @@
                   "additionalProperties": true,
                   "allOf": [
                     {
-                      "description": "A place, as a location-name pair",
+                      "description": "A place, as a location-name pair with name and address",
                       "type": "object",
                       "allOf": [
                         {
-                          "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                          "description": "No-numeric precision version of MaaS core location",
                           "type": "object",
                           "properties": {
                             "lat": {
-                              "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                              "description": "No-numeric precision version of MaaS core latitude",
                               "type": "number",
                               "minimum": -90,
-                              "maximum": 90,
-                              "multipleOf": 0.000001
+                              "maximum": 90
                             },
                             "lon": {
-                              "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                              "description": "No-numeric precision version of MaaS core longitude",
                               "type": "number",
                               "minimum": -180,
-                              "maximum": 180,
-                              "multipleOf": 0.000001
+                              "maximum": 180
                             }
                           },
                           "required": [
@@ -2107,26 +2091,24 @@
                   "additionalProperties": true,
                   "allOf": [
                     {
-                      "description": "A place, as a location-name pair",
+                      "description": "A place, as a location-name pair with name and address",
                       "type": "object",
                       "allOf": [
                         {
-                          "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                          "description": "No-numeric precision version of MaaS core location",
                           "type": "object",
                           "properties": {
                             "lat": {
-                              "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                              "description": "No-numeric precision version of MaaS core latitude",
                               "type": "number",
                               "minimum": -90,
-                              "maximum": 90,
-                              "multipleOf": 0.000001
+                              "maximum": 90
                             },
                             "lon": {
-                              "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                              "description": "No-numeric precision version of MaaS core longitude",
                               "type": "number",
                               "minimum": -180,
-                              "maximum": 180,
-                              "multipleOf": 0.000001
+                              "maximum": 180
                             }
                           },
                           "required": [
@@ -2453,26 +2435,24 @@
           "additionalProperties": true,
           "allOf": [
             {
-              "description": "A place, as a location-name pair",
+              "description": "A place, as a location-name pair with name and address",
               "type": "object",
               "allOf": [
                 {
-                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                  "description": "No-numeric precision version of MaaS core location",
                   "type": "object",
                   "properties": {
                     "lat": {
-                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                      "description": "No-numeric precision version of MaaS core latitude",
                       "type": "number",
                       "minimum": -90,
-                      "maximum": 90,
-                      "multipleOf": 0.000001
+                      "maximum": 90
                     },
                     "lon": {
-                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                      "description": "No-numeric precision version of MaaS core longitude",
                       "type": "number",
                       "minimum": -180,
-                      "maximum": 180,
-                      "multipleOf": 0.000001
+                      "maximum": 180
                     }
                   },
                   "required": [
@@ -2524,26 +2504,24 @@
           "additionalProperties": true,
           "allOf": [
             {
-              "description": "A place, as a location-name pair",
+              "description": "A place, as a location-name pair with name and address",
               "type": "object",
               "allOf": [
                 {
-                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                  "description": "No-numeric precision version of MaaS core location",
                   "type": "object",
                   "properties": {
                     "lat": {
-                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                      "description": "No-numeric precision version of MaaS core latitude",
                       "type": "number",
                       "minimum": -90,
-                      "maximum": 90,
-                      "multipleOf": 0.000001
+                      "maximum": 90
                     },
                     "lon": {
-                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                      "description": "No-numeric precision version of MaaS core longitude",
                       "type": "number",
                       "minimum": -180,
-                      "maximum": 180,
-                      "multipleOf": 0.000001
+                      "maximum": 180
                     }
                   },
                   "required": [
@@ -2809,26 +2787,24 @@
       "additionalProperties": true,
       "allOf": [
         {
-          "description": "A place, as a location-name pair",
+          "description": "A place, as a location-name pair with name and address",
           "type": "object",
           "allOf": [
             {
-              "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+              "description": "No-numeric precision version of MaaS core location",
               "type": "object",
               "properties": {
                 "lat": {
-                  "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                  "description": "No-numeric precision version of MaaS core latitude",
                   "type": "number",
                   "minimum": -90,
-                  "maximum": 90,
-                  "multipleOf": 0.000001
+                  "maximum": 90
                 },
                 "lon": {
-                  "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                  "description": "No-numeric precision version of MaaS core longitude",
                   "type": "number",
                   "minimum": -180,
-                  "maximum": 180,
-                  "multipleOf": 0.000001
+                  "maximum": 180
                 }
               },
               "required": [
