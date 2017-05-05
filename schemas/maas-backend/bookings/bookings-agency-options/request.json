@@ -3,68 +3,46 @@
   "id": "https://api.maas.global/maas-backend/bookings/bookings-agency-options/request",
   "description": "Request schema for bookings-agency-options to send to the adapter",
   "type": "object",
-  "additionalProperties": false,
   "required": [
-    "identityId",
-    "payload",
-    "headers"
+    "mode"
   ],
   "properties": {
-    "identityId": {
-      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+    "mode": {
+      "$ref": "../../../core/mode.json#/definitions/mode"
     },
-    "payload": {
-      "$ref": "#/definitions/payload"
+    "startTime": {
+      "$ref": "../../../core/units.json#/definitions/time"
     },
-    "headers": {
-      "type": "object"
-    }
-  },
-  "definitions": {
-    "payload": {
-      "type": "object",
-      "required": [
-        "mode"
-      ],
-      "properties": {
-        "mode": {
-          "$ref": "../../../core/mode.json#/definitions/mode"
-        },
-        "startTime": {
-          "$ref": "../../../core/units.json#/definitions/time"
-        },
-        "endTime": {
-          "$ref": "../../../core/units.json#/definitions/time"
-        },
-        "from": {
-          "$ref": "../../../core/units.json#/definitions/location"
-        },
-        "to": {
-          "$ref": "../../../core/units.json#/definitions/location"
-        },
-        "fromName": {
-          "description": "The human understandable name for 'from'",
-          "$ref": "../../../core/address.json#/definitions/placeName"
-        },
-        "fromAddress": {
-          "description": "Componentized from address",
-          "$ref": "../../../core/address.json#/definitions/componentAddress"
-        },
-        "fromRadius":{
-          "$ref": "../../../core/units.json#/definitions/distance"
-        },
-        "toName": {
-          "description": "The human understandable name for 'to'",
-          "$ref": "../../../core/address.json#/definitions/placeName"
-        },
-        "toAddress": {
-          "description": "Componentized to address",
-          "$ref": "../../../core/address.json#/definitions/componentAddress"
-        },
-        "toRadius":{
-          "$ref": "../../../core/units.json#/definitions/distance"
-        }
-      }
+    "endTime": {
+      "$ref": "../../../core/units.json#/definitions/time"
+    },
+    "from": {
+      "$ref": "../../../core/units.json#/definitions/location"
+    },
+    "to": {
+      "$ref": "../../../core/units.json#/definitions/location"
+    },
+    "fromName": {
+      "description": "The human understandable name for 'from'",
+      "$ref": "../../../core/address.json#/definitions/placeName"
+    },
+    "fromAddress": {
+      "description": "Componentized from address",
+      "$ref": "../../../core/address.json#/definitions/componentAddress"
+    },
+    "fromRadius":{
+      "$ref": "../../../core/units.json#/definitions/distance"
+    },
+    "toName": {
+      "description": "The human understandable name for 'to'",
+      "$ref": "../../../core/address.json#/definitions/placeName"
+    },
+    "toAddress": {
+      "description": "Componentized to address",
+      "$ref": "../../../core/address.json#/definitions/componentAddress"
+    },
+    "toRadius":{
+      "$ref": "../../../core/units.json#/definitions/distance"
     }
   }
 }
