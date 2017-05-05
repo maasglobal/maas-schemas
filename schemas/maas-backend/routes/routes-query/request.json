@@ -20,10 +20,10 @@
           "description": "Permit arriveBy",
           "required": ["from", "to", "arriveBy"]
         }
-      ],
-      "headers": {
-        "type": "object"
-      }
+      ]
+    },
+    "headers": {
+      "type": "object"
     }
   },
   "required": [ "identityId", "payload" ],
