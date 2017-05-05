@@ -7,24 +7,10 @@
     "identityId": {
       "$ref": "../../../core/aws-units.json#/definitions/identityId"
     },
-    "payload": {
-      "$ref": "#/definitions/payload"
-    },
-    "headers": {
-      "type": "object"
+    "agencyId": {
+      "$ref": "../../../core/plan.json#/definitions/agencyId"
     }
   },
-  "required": ["identityId", "payload"],
-  "additionalProperties": false,
-  "definitions": {
-    "payload": {
-      "type": "object",
-      "required": ["agencyId"],
-      "properties": {
-        "agencyId": {
-          "$ref": "../../../core/plan.json#/definitions/agencyId"
-        }
-      }
-    }
-  }
+  "required": ["identityId", "agencyId"],
+  "additionalProperties": false
 }
