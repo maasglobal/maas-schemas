@@ -6,7 +6,7 @@
     "componentAddress": {
       "description": "Encoded address components in form country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|streetNumber:6",
       "type": "string",
-      "pattern": "^(:?(:?(:?country:(:?\\p{L}|[,\\.:\\-`'´\\s])+)|(:?state:(:?\\p{L}|[,\\.:\\-`'´\\s])+)|(:?city:(:?\\p{L}|[,\\.:\\-`'´\\s])+)|(:?zipCode:(:?\\d{3,10}|(:?\\p{L}|\\d){2,4}(\\s(:?\\p{L}|\\d){2,4}){1,2})+)|(:?streetName:[^|]+)|(:?streetNumber:\\d+))\\|?){4,6}$"
+      "pattern": "^(:?(:?(:?country:(:?\\p{L}|[,\\.:\\-`'´\\s])+)|(:?state:(:?\\p{L}|[,\\.:\\-`'´\\s])+)|(:?city:(:?\\p{L}|[,\\.:\\-`'´\\s])+)|(:?zipCode:(:?\\d{3,10}|(:?\\p{L}|\\d){2,4}(\\s(:?\\p{L}|\\d){2,4})?))|(:?streetName:[^|]+)|(:?streetNumber:\\d+))\\|?){4,6}$"
     },
     "placeName": {
       "description": "Place name (given in autocomplete)",
@@ -23,7 +23,7 @@
     "zipCode": {
       "description": "Numeric zip code, see https://en.wikipedia.org/wiki/Postal_code",
       "type": "string",
-      "pattern": "^(:?\\d{3,10}|(:?\\p{L}|\\d){2,4}(\\s(:?\\p{L}|\\d){2,4}){1,2})$"
+      "pattern": "^(:?\\d{3,10}|(:?\\p{L}|\\d){2,4}(\\s(:?\\p{L}|\\d){2,4})?)$"
     },
     "country": {
       "description": "Alphabetic country name",
