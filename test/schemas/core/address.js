@@ -52,6 +52,8 @@ describe('address.componentAddress', () => {
     'country:New Zealand|state:Bay of Plenty|city:White Pine Bush|zipCode:3191|streetName:White Pine Bush Road|streetNumber:479',
     // Other interesting special characters
     'country:Aäöم武кв.-`\'\'´`|state:Aäöم武кв.-`\'\'´`|city:Aäöم武кв.-`\'\'´`|zipCode:3191|streetName:Aäöم武кв.-`\'\'´`|streetNumber:479',
+    // King's Cross, UK, London
+    'city:Lontoo|streetNumber:2|streetName:Charrington Street|zipCode:NW1|country:Yhdistynyt kuningaskunta',
   ]);
 
   generateTestCases(schema.definitions.componentAddress, false, [
@@ -85,6 +87,7 @@ describe('address.zipCode', () => {
     'K1A 0B1', // Ontario, Canada
     '102600', // China Daxing District
     '90210', // USA Beverly Hills
+    'N1C', // What Google gives for King's Cross
   ]);
 
   generateTestCases(schema.definitions.address, false, [
