@@ -13,12 +13,12 @@
         {
           "$ref": "#/definitions/payload",
           "description": "Permit leaveAt",
-          "required": ["from", "fromAddress", "toAddress", "fromName", "toName", "to", "leaveAt"]
+          "required": ["from", "to", "leaveAt"]
         },
         {
           "$ref": "#/definitions/payload",
           "description": "Permit arriveBy",
-          "required": ["from", "fromAddress", "toAddress", "fromName", "toName", "to", "arriveBy"]
+          "required": ["from", "to", "arriveBy"]
         }
       ]
     },
