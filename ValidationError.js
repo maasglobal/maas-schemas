@@ -1,41 +1,70 @@
 'use strict';
 
-class ValidationError extends Error {
+const MAXIMUM_REPORTED_RESPONSE_LENGTH = 80;
 
-  constructor(message) {
-    super(`Validation error: ${message}`);
+function trim(message) {
+  if (message.length <= MAXIMUM_REPORTED_RESPONSE_LENGTH) {
+    return message;
   }
 
+  return `${message.substr(0, MAXIMUM_REPORTED_RESPONSE_LENGTH)}...`;
+}
+
+class ValidationError extends Error {
+
+  /**
+   * Constructor that is inteded to be private constructor - use the Factory
+   * methods, instead.
+   *
+   * @param {string} message The error message to show to end users
+   * @param {object} object The object that failed to validate
+   * @param {array} errors The validation errors
+   * @param {string} fileName The JS file causing the error (optional)
+   * @param {number} lineNumber The line number in the file (optional)
+   */
+  constructor(message, errors, object, fileName, lineNumber) {
+    super(message, fileName, lineNumber);
+
+    this.object = object;
+    this.errors = errors;
+  }
   /**
    * Factory to instantiate a ValidationError from AJV validation error array
    *
-   * @param {array} errors The AJV validation errors
+   * @param {array} errors the AJV validation errors
+   * @param {object} object the object that failed to validate
    * @return {ValidationError} the new error
    */
-  static fromValidatorErrors(errors) {
+  static fromValidatorErrors(errors, object) {
     const messages = errors.map(error => {
-      return `'${error.dataPath}' ${error.message}, got '${JSON.stringify(error.data)}'`;
+      return `'${error.dataPath}' ${trim(error.message)}, got '${trim(JSON.stringify(error.data))}'`;
     });
 
     if (messages.length > 1) {
-      return new ValidationError(`Multiple errors: \n${messages.join('\n')}`);
+      return new ValidationError(`Multiple validation errors: \n${messages.join('\n')}`, errors, object);
     }
 
-    return new ValidationError(messages.join(''));
+    return new ValidationError(messages.join(', '), errors, object);
   }
 
   /**
-   * Factory to instantiate ValidationERrorr from a raw value
+   * Factory to instantiate ValidationError from a raw value
    *
-   * @param path the data path of the parameter (use . to denote paths, e.g. .payload)
-   * @param value the value to use
-   * @param message the description of the validation error
+   * @param dataPath {string} the data path of the parameter (use . to denote paths, e.g. .payload)
+   * @param data {any} the value to use
+   * @param message {string} the description of the validation error
+   * @param object {object} the object that failed to validate
    * @return ValidationError with the given parameters
    */
-  static fromValue(path, value, message) {
-    const msg = `'${path}' ${message}, got '${JSON.stringify(value)}'`;
+  static fromValue(dataPath, data, message, object) {
+    const msg = `Validation error: '${dataPath}' ${trim(message)}, got '${trim(JSON.stringify(data))}'`;
+    const error = {
+      dataPath,
+      message,
+      data,
+    };
 
-    return new ValidationError(msg);
+    return new ValidationError(msg, [error], object);
   }
 }
 
