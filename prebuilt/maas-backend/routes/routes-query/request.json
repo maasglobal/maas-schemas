@@ -15,10 +15,6 @@
           "description": "Permit leaveAt",
           "required": [
             "from",
-            "fromAddress",
-            "toAddress",
-            "fromName",
-            "toName",
             "to",
             "leaveAt"
           ],
@@ -90,10 +86,6 @@
           "description": "Permit arriveBy",
           "required": [
             "from",
-            "fromAddress",
-            "toAddress",
-            "fromName",
-            "toName",
             "to",
             "arriveBy"
           ],
