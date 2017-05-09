@@ -31,6 +31,8 @@ describe('address.placeName', () => {
     'Erenköy Mahallesi, Çoban Yıldızı Sk. No:4, 34738 Kadıköy/İstanbul, Turkki',
     '5-2 4-2 タイムズスクエアビル Takashimaya Shinjuku', // Tokyu Hands Shinjuku
     '武侯区通祠路39号-江城花2楼 (春江花月夜对面)', // Some sample address on Baidu
+    '28 St John\'s Wood Road, London',
+    'Shakespeare\'s Globe',
   ]);
 
   generateTestCases(schema.definitions.placeName, false, [
@@ -54,6 +56,8 @@ describe('address.componentAddress', () => {
     'country:Aäöم武кв.-`\'\'´`|state:Aäöم武кв.-`\'\'´`|city:Aäöم武кв.-`\'\'´`|zipCode:3191|streetName:Aäöم武кв.-`\'\'´`|streetNumber:479',
     // King's Cross, UK, London
     'city:Lontoo|streetNumber:2|streetName:Charrington Street|zipCode:NW1|country:Yhdistynyt kuningaskunta',
+    'country:UK|city:London|zipCode:NW8 7HA|streetName:St John\'s Wood Road|streetNumber:28',
+    'country:UK|city:London|zipCode:SE1 9DT|streetName:New Globe Walk|streetNumber:21',
   ]);
 
   generateTestCases(schema.definitions.componentAddress, false, [
