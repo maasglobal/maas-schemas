@@ -670,7 +670,9 @@
                 "properties": {
                   "id": {
                     "description": "Unique identifier for the product",
-                    "type": "integer"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
                   },
                   "name": {
                     "type": "string",
@@ -1365,7 +1367,9 @@
                 "properties": {
                   "id": {
                     "description": "Unique identifier for the product",
-                    "type": "integer"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
                   },
                   "name": {
                     "type": "string",
@@ -2020,7 +2024,9 @@
             "properties": {
               "id": {
                 "description": "Unique identifier for the product",
-                "type": "integer"
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 255
               },
               "name": {
                 "type": "string",
