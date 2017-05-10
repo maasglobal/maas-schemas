@@ -101,7 +101,9 @@
                             "properties": {
                               "id": {
                                 "description": "Unique identifier for the product",
-                                "type": "integer"
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 255
                               },
                               "name": {
                                 "type": "string",
@@ -524,8 +526,9 @@
                       "type": "object",
                       "properties": {
                         "id": {
-                          "type": "integer",
-                          "minValue": 0
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 255
                         },
                         "name": {
                           "type": "string",
@@ -598,8 +601,9 @@
                       "type": "object",
                       "properties": {
                         "id": {
-                          "type": "integer",
-                          "minValue": 0
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 255
                         },
                         "name": {
                           "type": "string",
@@ -679,7 +683,9 @@
                           "properties": {
                             "id": {
                               "description": "Unique identifier for the product",
-                              "type": "integer"
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 255
                             },
                             "name": {
                               "type": "string",
@@ -1108,7 +1114,9 @@
                     "properties": {
                       "id": {
                         "description": "Unique identifier for the product",
-                        "type": "integer"
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
                       },
                       "name": {
                         "type": "string",
