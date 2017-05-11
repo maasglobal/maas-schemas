@@ -27,6 +27,9 @@
           "type": "object",
           "additionalProperties": true
         },
+        "pointCost": {
+          "$ref": "../../core/pointCost.json"
+        },
         "wmpGrant": {
           "type": "integer",
           "minValue": 0
@@ -36,7 +39,7 @@
           "additionalProperties": true
         }
       },
-      "required": [ "plan", "wmpGrant" ],
+      "required": [ "plan", "wmpGrant", "pointCost", "addons", "coupons" ],
       "additionalProperties": true
     }
   }

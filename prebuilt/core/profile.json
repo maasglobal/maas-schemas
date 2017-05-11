@@ -201,12 +201,39 @@
         },
         "active": {
           "type": "boolean"
+        },
+        "pointCost": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "id": "https://api.maas.global/core/point-cost",
+          "description": "Subscription option's point cost",
+          "type": "object",
+          "properties": {
+            "EUR": {
+              "type": "number"
+            },
+            "GBP": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "EUR",
+            "GBP"
+          ],
+          "additionalProperties": false
+        },
+        "description": {
+          "type": "string"
+        },
+        "availability": {
+          "type": "integer",
+          "minValue": 0
         }
       },
       "required": [
         "plan",
         "addons",
-        "coupons"
+        "coupons",
+        "pointCost"
       ]
     },
     "created": {
@@ -284,12 +311,39 @@
         },
         "active": {
           "type": "boolean"
+        },
+        "pointCost": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "id": "https://api.maas.global/core/point-cost",
+          "description": "Subscription option's point cost",
+          "type": "object",
+          "properties": {
+            "EUR": {
+              "type": "number"
+            },
+            "GBP": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "EUR",
+            "GBP"
+          ],
+          "additionalProperties": false
+        },
+        "description": {
+          "type": "string"
+        },
+        "availability": {
+          "type": "integer",
+          "minValue": 0
         }
       },
       "required": [
         "plan",
         "addons",
-        "coupons"
+        "coupons",
+        "pointCost"
       ]
     }
   }

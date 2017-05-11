@@ -143,9 +143,19 @@
         },
         "active": {
           "type": "boolean"
+        },
+        "pointCost": {
+          "$ref": "./pointCost.json"
+        },
+        "description": {
+          "type": "string"
+        },
+        "availability": {
+          "type": "integer",
+          "minValue": 0
         }
       },
-      "required": ["plan", "addons", "coupons"]
+      "required": ["plan", "addons", "coupons", "pointCost"]
     }
   }
 }

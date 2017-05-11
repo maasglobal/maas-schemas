@@ -233,6 +233,25 @@
               "type": "object",
               "additionalProperties": true
             },
+            "pointCost": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "id": "https://api.maas.global/core/point-cost",
+              "description": "Subscription option's point cost",
+              "type": "object",
+              "properties": {
+                "EUR": {
+                  "type": "number"
+                },
+                "GBP": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "EUR",
+                "GBP"
+              ],
+              "additionalProperties": false
+            },
             "wmpGrant": {
               "type": "integer",
               "minValue": 0
@@ -244,7 +263,10 @@
           },
           "required": [
             "plan",
-            "wmpGrant"
+            "wmpGrant",
+            "pointCost",
+            "addons",
+            "coupons"
           ],
           "additionalProperties": true
         }
@@ -270,6 +292,25 @@
               "type": "object",
               "additionalProperties": true
             },
+            "pointCost": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "id": "https://api.maas.global/core/point-cost",
+              "description": "Subscription option's point cost",
+              "type": "object",
+              "properties": {
+                "EUR": {
+                  "type": "number"
+                },
+                "GBP": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "EUR",
+                "GBP"
+              ],
+              "additionalProperties": false
+            },
             "wmpGrant": {
               "type": "integer",
               "minValue": 0
@@ -281,7 +322,10 @@
           },
           "required": [
             "plan",
-            "wmpGrant"
+            "wmpGrant",
+            "pointCost",
+            "addons",
+            "coupons"
           ],
           "additionalProperties": true
         }
