@@ -52,15 +52,18 @@
         "agencyId": {
           "$ref": "plan.json#/definitions/agencyId"
         },
-        "tspParams": {
-          "type": "object"
+        "tspProductId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
         }
       },
       "required": [
         "id",
         "name",
         "priority",
-        "agencyId"
+        "agencyId",
+        "tspProductId"
       ]
     }
   }

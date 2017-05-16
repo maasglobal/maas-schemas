@@ -45,8 +45,8 @@
         "customer": {
           "$ref": "#/definitions/customer"
         },
-        "product": {
-          "$ref": "#/definitions/product"
+        "tspProduct": {
+          "$ref": "#/definitions/tspProduct"
         }
       },
       "additionalProperties": false
@@ -327,8 +327,8 @@
       "minLength": 1,
       "maxLength": 256
     },
-    "product": {
-      "$ref": "./plan.json#/definitions/product"
+    "tspProduct": {
+      "$ref": "../tsp/booking-option.json#/definitions/tspProduct"
     }
   }
 }

@@ -540,6 +540,22 @@
           "type": "object"
         }
       }
+    },
+    "tspProduct": {
+      "description": "Defines what kind of TSP product the booking option represents.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique identifier for the product",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
     }
   },
   "required": [
@@ -548,7 +564,8 @@
     "cost",
     "meta",
     "terms",
-    "token"
+    "token",
+    "tspProduct"
   ],
   "additionalProperties": false
 }

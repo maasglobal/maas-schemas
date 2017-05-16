@@ -95,8 +95,8 @@
         "signature": {
           "$ref": "#/definitions/signature"
         },
-        "product": {
-          "$ref": "#/definitions/product"
+        "tspProduct": {
+          "$ref": "../tsp/booking-option.json#/definitions/tspProduct"
         },
         "productOption": {
           "type": "integer",
@@ -260,31 +260,6 @@
     },
     "fare": {
       "$ref": "./units.json#/definitions/fare"
-    },
-    "product": {
-      "description": "Temporary way to define what kind of product has been purchased to get a ticket/booking. Will be replaced something more sophisticated once proper product system will be development.",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "Unique identifier for the product",
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 255
-        },
-        "name": {
-          "type": "string",
-          "description": "Name of the booking option (as displayed n the UI)",
-          "minLength": 1,
-          "maxLength": 255
-        },
-        "type": {
-          "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 255
-        }
-      },
-      "required": [ "id", "name", "type" ]
     },
     "signature": {
       "type": "string",
