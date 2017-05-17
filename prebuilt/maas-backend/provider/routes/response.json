@@ -97,7 +97,7 @@
                     "minimum": 1451606400
                   },
                   "fare": {
-                    "description": "A fare/price as billed from the user in POINTs",
+                    "description": "A fare/price as billed from the user in WMPs",
                     "type": "object",
                     "properties": {
                       "amount": {
@@ -444,7 +444,7 @@
                                     "additionalProperties": false
                                   },
                                   "fare": {
-                                    "description": "A fare/price as billed from the user in POINTs",
+                                    "description": "A fare/price as billed from the user in WMPs",
                                     "type": "object",
                                     "properties": {
                                       "amount": {
@@ -606,7 +606,7 @@
                           ]
                         },
                         "fare": {
-                          "description": "A fare/price as billed from the user in POINTs",
+                          "description": "A fare/price as billed from the user in WMPs",
                           "type": "object",
                           "properties": {
                             "amount": {
