@@ -256,26 +256,7 @@
       "$ref": "./units.json#/definitions/polyline"
     },
     "fare": {
-      "type": "object",
-      "properties": {
-        "co2": {
-          "type": "integer"
-        },
-        "points": {
-          "anyOf" : [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        }
-      },
-      "required": [
-        "co2",
-        "points"
-      ]
+      "$ref": "./units.json#/definitions/fare" 
     },
     "product": {
       "description": "Temporary way to define what kind of product has been purchased to get a ticket/booking. Will be replaced something more sophisticated once proper product system will be development.",

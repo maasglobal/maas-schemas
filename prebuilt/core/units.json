@@ -216,7 +216,7 @@
         "currency": {
           "type": "string",
           "enum": [
-            "POINT"
+            "WMP"
           ]
         }
       },

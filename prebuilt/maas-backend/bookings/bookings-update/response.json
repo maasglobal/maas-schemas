@@ -61,7 +61,7 @@
                 "currency": {
                   "type": "string",
                   "enum": [
-                    "POINT"
+                    "WMP"
                   ]
                 }
               },
@@ -758,7 +758,7 @@
                 "currency": {
                   "type": "string",
                   "enum": [
-                    "POINT"
+                    "WMP"
                   ]
                 }
               },
@@ -1715,7 +1715,7 @@
             "currency": {
               "type": "string",
               "enum": [
-                "POINT"
+                "WMP"
               ]
             }
           },
