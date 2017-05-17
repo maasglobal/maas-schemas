@@ -197,7 +197,7 @@
                 "maxLength": 255
               }
             },
-            "points": {
+            "wmpGrant": {
               "type": "integer",
               "minValue": 0
             },
@@ -280,7 +280,7 @@
                 "maxLength": 255
               }
             },
-            "points": {
+            "wmpGrant": {
               "type": "integer",
               "minValue": 0
             },

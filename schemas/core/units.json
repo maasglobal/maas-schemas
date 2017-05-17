@@ -158,7 +158,7 @@
         },
         "currency": {
           "type": "string",
-          "enum": [ "POINT" ]
+          "enum": [ "WMP" ]
         }
       },
       "required": ["amount", "currency"],
