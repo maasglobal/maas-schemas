@@ -37,6 +37,9 @@
         },
         "terms": {
           "$ref": "#/definitions/terms"
+        },
+        "pointCost": {
+          "$ref": "../../core/pointCost.json"
         }
       },
       "additionalProperties": true

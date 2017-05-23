@@ -64,9 +64,7 @@
                         "minimum": 0
                       },
                       {
-                        "enum": [
-                          null
-                        ]
+                        "type": "null"
                       }
                     ]
                   },
