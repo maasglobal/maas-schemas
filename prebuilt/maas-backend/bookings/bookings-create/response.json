@@ -46,9 +46,7 @@
                   "minimum": 0
                 },
                 {
-                  "enum": [
-                    null
-                  ]
+                  "type": "null"
                 }
               ]
             },
@@ -74,9 +72,16 @@
           ],
           "properties": {
             "amount": {
-              "type": "number",
-              "minimum": 0,
-              "multipleOf": 0.01
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "multipleOf": 0.01
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "discount": {
               "type": "number",
@@ -743,9 +748,7 @@
                   "minimum": 0
                 },
                 {
-                  "enum": [
-                    null
-                  ]
+                  "type": "null"
                 }
               ]
             },
@@ -771,9 +774,16 @@
           ],
           "properties": {
             "amount": {
-              "type": "number",
-              "minimum": 0,
-              "multipleOf": 0.01
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "multipleOf": 0.01
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "discount": {
               "type": "number",
@@ -1700,9 +1710,7 @@
               "minimum": 0
             },
             {
-              "enum": [
-                null
-              ]
+              "type": "null"
             }
           ]
         },
@@ -1728,9 +1736,16 @@
       ],
       "properties": {
         "amount": {
-          "type": "number",
-          "minimum": 0,
-          "multipleOf": 0.01
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "multipleOf": 0.01
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "discount": {
           "type": "number",
