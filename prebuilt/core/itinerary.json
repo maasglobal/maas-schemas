@@ -45,26 +45,34 @@
           "minimum": 1451606400
         },
         "fare": {
+          "description": "A fare/price as billed from the user in POINTs",
           "type": "object",
           "properties": {
-            "co2": {
-              "type": "integer"
-            },
-            "points": {
+            "amount": {
               "anyOf": [
                 {
-                  "type": "integer"
+                  "type": "integer",
+                  "minimum": 0
                 },
                 {
-                  "type": "null"
+                  "enum": [
+                    null
+                  ]
                 }
+              ]
+            },
+            "currency": {
+              "type": "string",
+              "enum": [
+                "WMP"
               ]
             }
           },
           "required": [
-            "co2",
-            "points"
-          ]
+            "amount",
+            "currency"
+          ],
+          "additionalProperties": false
         },
         "legs": {
           "type": "array",
@@ -401,7 +409,7 @@
                             "currency": {
                               "type": "string",
                               "enum": [
-                                "POINT"
+                                "WMP"
                               ]
                             }
                           },
@@ -561,7 +569,7 @@
                   "currency": {
                     "type": "string",
                     "enum": [
-                      "POINT"
+                      "WMP"
                     ]
                   }
                 },
@@ -979,7 +987,7 @@
                           "currency": {
                             "type": "string",
                             "enum": [
-                              "POINT"
+                              "WMP"
                             ]
                           }
                         },
@@ -1408,7 +1416,7 @@
                     "currency": {
                       "type": "string",
                       "enum": [
-                        "POINT"
+                        "WMP"
                       ]
                     }
                   },

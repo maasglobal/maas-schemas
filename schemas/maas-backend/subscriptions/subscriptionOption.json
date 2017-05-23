@@ -27,7 +27,7 @@
           "type": "object",
           "additionalProperties": true
         },
-        "points": {
+        "wmpGrant": {
           "type": "integer",
           "minValue": 0
         },
@@ -36,7 +36,7 @@
           "additionalProperties": true
         }
       },
-      "required": [ "plan", "points" ],
+      "required": [ "plan", "wmpGrant" ],
       "additionalProperties": true
     }
   }
