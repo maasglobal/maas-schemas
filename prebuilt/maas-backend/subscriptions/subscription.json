@@ -221,6 +221,13 @@
             "modified",
             "validity"
           ]
+        },
+        "pointCost": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "id": "https://api.maas.global/core/point-cost",
+          "description": "Subscription option's point cost",
+          "type": "number",
+          "minimum": 0
         }
       }
     },
@@ -439,6 +446,13 @@
             "modified",
             "validity"
           ]
+        },
+        "pointCost": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "id": "https://api.maas.global/core/point-cost",
+          "description": "Subscription option's point cost",
+          "type": "number",
+          "minimum": 0
         }
       }
     },
@@ -661,6 +675,13 @@
             "modified",
             "validity"
           ]
+        },
+        "pointCost": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "id": "https://api.maas.global/core/point-cost",
+          "description": "Subscription option's point cost",
+          "type": "number",
+          "minimum": 0
         }
       }
     },
@@ -878,6 +899,13 @@
             "modified",
             "validity"
           ]
+        },
+        "pointCost": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "id": "https://api.maas.global/core/point-cost",
+          "description": "Subscription option's point cost",
+          "type": "number",
+          "minimum": 0
         }
       },
       "additionalProperties": true

@@ -142,7 +142,7 @@
       ]
     },
     "fare": {
-      "description": "A fare/price as billed from the user in POINTs",
+      "description": "A fare/price as billed from the user in WMPs",
       "type": "object",
       "properties": {
         "amount": {
@@ -158,7 +158,7 @@
         },
         "currency": {
           "type": "string",
-          "enum": [ "POINT" ]
+          "enum": [ "WMP" ]
         }
       },
       "required": ["amount", "currency"],

@@ -191,7 +191,7 @@
             "maxLength": 255
           }
         },
-        "points": {
+        "wmpGrant": {
           "type": "integer",
           "minValue": 0
         },
@@ -201,12 +201,27 @@
         },
         "active": {
           "type": "boolean"
+        },
+        "pointCost": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "id": "https://api.maas.global/core/point-cost",
+          "description": "Subscription option's point cost",
+          "type": "number",
+          "minimum": 0
+        },
+        "description": {
+          "type": "string"
+        },
+        "availability": {
+          "type": "integer",
+          "minValue": 0
         }
       },
       "required": [
         "plan",
         "addons",
-        "coupons"
+        "coupons",
+        "pointCost"
       ]
     },
     "created": {
@@ -274,7 +289,7 @@
             "maxLength": 255
           }
         },
-        "points": {
+        "wmpGrant": {
           "type": "integer",
           "minValue": 0
         },
@@ -284,12 +299,27 @@
         },
         "active": {
           "type": "boolean"
+        },
+        "pointCost": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "id": "https://api.maas.global/core/point-cost",
+          "description": "Subscription option's point cost",
+          "type": "number",
+          "minimum": 0
+        },
+        "description": {
+          "type": "string"
+        },
+        "availability": {
+          "type": "integer",
+          "minValue": 0
         }
       },
       "required": [
         "plan",
         "addons",
-        "coupons"
+        "coupons",
+        "pointCost"
       ]
     }
   }
