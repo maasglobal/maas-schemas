@@ -55,7 +55,9 @@
                   "minimum": 0
                 },
                 {
-                  "type": "null"
+                  "enum": [
+                    null
+                  ]
                 }
               ]
             },

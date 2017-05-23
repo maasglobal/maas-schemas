@@ -127,7 +127,9 @@
                     "minimum": 0
                   },
                   {
-                    "type": "null"
+                    "enum": [
+                      null
+                    ]
                   }
                 ]
               },
@@ -762,7 +764,9 @@
                     "minimum": 0
                   },
                   {
-                    "type": "null"
+                    "enum": [
+                      null
+                    ]
                   }
                 ]
               },
@@ -1392,7 +1396,9 @@
                   "minimum": 0
                 },
                 {
-                  "type": "null"
+                  "enum": [
+                    null
+                  ]
                 }
               ]
             },
@@ -2899,7 +2905,9 @@
               "minimum": 0
             },
             {
-              "type": "null"
+              "enum": [
+                null
+              ]
             }
           ]
         },
