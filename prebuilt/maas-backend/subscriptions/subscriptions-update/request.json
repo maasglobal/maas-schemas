@@ -251,8 +251,7 @@
   "required": [
     "customerId",
     "userId",
-    "payload",
-    "headers"
+    "payload"
   ],
   "additionalProperties": false
 }
