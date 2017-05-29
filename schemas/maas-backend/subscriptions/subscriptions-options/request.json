@@ -9,8 +9,13 @@
     },
     "payload": {
       "$ref": "../../../core/units.json#/definitions/relaxedLocation"
+    },
+    "headers": {
+      "Accept": {
+        "$ref": "../../api-common.json#/definitions/acceptHeader"
+      }
     }
   },
-  "required": ["identityId", "payload" ],
+  "required": ["identityId", "payload"],
   "additionalProperties": false
 }

@@ -23,6 +23,6 @@
       }
     }
   },
-  "required": ["customerId", "userId", "payload", "headers"],
+  "required": ["customerId", "userId", "payload"],
   "additionalProperties": false
 }

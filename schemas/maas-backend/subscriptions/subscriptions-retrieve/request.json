@@ -13,8 +13,13 @@
     "nextPeriod": {
       "type": "boolean",
       "default": false
+    },
+    "headers": {
+      "Accept": {
+        "$ref": "../../api-common.json#/definitions/acceptHeader"
+      }
     }
   },
-  "required": ["customerId", "userId" ],
+  "required": ["customerId", "userId"],
   "additionalProperties": false
 }

@@ -16,8 +16,13 @@
     },
     "payload": {
       "$ref": "../subscription.json#/definitions/subscriptionBase"
+    },
+    "headers": {
+      "Accept": {
+        "$ref": "../../api-common.json#/definitions/acceptHeader"
+      }
     }
   },
-  "required": ["customerId", "userId", "payload" ],
+  "required": ["customerId", "userId", "payload"],
   "additionalProperties": false
 }
