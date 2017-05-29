@@ -6,13 +6,13 @@
     "firstName": {
       "description": "First name of the customer (e.g. John)",
       "type": "string",
-      "pattern": "^(:?\\p{L})+(:?[`'´\\-\\.,]?\\s?(:?\\p{L})*)*$",
+      "pattern": "^(?:\\p{L})+(?:[`'´\\-\\.,]?\\s?(?:\\p{L})*)*$",
       "maxLength": 255
     },
     "lastName": {
       "description": "Last name of the customer (e.g. Doe)",
       "type": "string",
-      "pattern": "^(:?\\p{L})+(:?[`'´\\-\\.,]?\\s?(:?\\p{L})*)*$",
+      "pattern": "^(?:\\p{L})+(?:[`'´\\-\\.,]?\\s?(?:\\p{L})*)*$",
       "maxLength": 255
     },
     "phone": {
