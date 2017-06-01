@@ -37,10 +37,10 @@
           "$ref": "../../../core/units.json#/definitions/time"
         },
         "from": {
-          "$ref": "../../../core/units.json#/definitions/location"
+          "$ref": "../../../core/units.json#/definitions/shortLocationString"
         },
         "to": {
-          "$ref": "../../../core/units.json#/definitions/location"
+          "$ref": "../../../core/units.json#/definitions/shortLocationString"
         },
         "fromName": {
           "description": "The human understandable name for 'from'",
