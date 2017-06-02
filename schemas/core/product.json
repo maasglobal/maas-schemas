@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/core/itinerary",
+  "description": "Product in core which encapsulates at least an id and a tspProductId",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "agencyId": {
+      "$ref": "plan.json#/definitions/agencyId"
+    },
+    "tspProductId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    }
+  },
+  "required": [
+    "id",
+    "tspProductId",
+    "name"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+  }
+}

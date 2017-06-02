@@ -46,7 +46,7 @@
           "$ref": "#/definitions/customer"
         },
         "product": {
-          "$ref": "#/definitions/product"
+          "$ref": "./product.json"
         }
       },
       "additionalProperties": false
@@ -326,9 +326,6 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 256
-    },
-    "product": {
-      "$ref": "./plan.json#/definitions/product"
     }
   }
 }

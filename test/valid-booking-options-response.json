@@ -20,6 +20,9 @@
           "preorder_price": "7.10"
         }
       },
+      "tspProduct": {
+        "id": "HTD-any"
+      },
       "leg": {
         "from": {
           "name": "Töölönlahdenkatu 2, FI-00100 Helsinki, Suomi",

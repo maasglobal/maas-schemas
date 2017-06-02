@@ -496,13 +496,30 @@
         }
       },
       "additionalProperties": true
+    },
+    "tspProduct": {
+      "description": "Defines what kind of TSP product the booking option represents.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique identifier for the product",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
     }
   },
   "required": [
     "cost",
     "leg",
     "meta",
-    "terms"
+    "terms",
+    "tspProduct"
   ],
   "additionalProperties": false,
   "definitions": {
@@ -957,6 +974,22 @@
           ]
         }
       },
+      "additionalProperties": false
+    },
+    "tspProduct": {
+      "description": "Defines what kind of TSP product the booking option represents.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique identifier for the product",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        }
+      },
+      "required": [
+        "id"
+      ],
       "additionalProperties": false
     }
   }

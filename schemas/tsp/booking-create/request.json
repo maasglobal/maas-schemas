@@ -18,8 +18,11 @@
     },
     "customer": {
       "$ref": "../../core/booking.json#/definitions/customer"
+    },
+    "tspProduct": {
+      "$ref": "../booking-option.json#/definitions/tspProduct"
     }
   },
-  "required": ["leg", "customer"],
+  "required": ["leg", "customer", "tspProduct"],
   "additionalProperties": false
 }

@@ -23,6 +23,9 @@
     },
     "token": {
       "$ref": "../../core/booking.json#/definitions/token"
+    },
+    "tspProduct": {
+      "$ref": "../booking-option.json#/definitions/tspProduct"
     }
   },
   "required": [ "tspId", "state" ],
