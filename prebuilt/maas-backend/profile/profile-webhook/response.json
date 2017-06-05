@@ -112,6 +112,10 @@
         "balance": {
           "type": "integer"
         },
+        "tokens": {
+          "type": "object",
+          "description": "Amount of various tokens user can have"
+        },
         "paymentMethod": {
           "type": "object",
           "properties": {
