@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/tsp/vehicle-status/request",
+  "description": "Request schema for retrieving vehicle status of TSP ID from a TSP adapter",
+  "type": "object",
+  "properties": {
+    "tspId": {
+      "$ref": "../../core/booking.json#/definitions/tspId"
+    }
+  },
+  "required": [
+    "tspId"
+  ],
+  "additionalProperties": false
+}

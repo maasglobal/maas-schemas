@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/tsp/vehicle-lock-switch/response",
+  "description": "Response schema for applying vehicle lock/unlock action to a TSP ID from a TSP adapter",
+  "type": "object",
+  "properties": {
+    "tspId": {
+      "$ref": "../../core/booking.json#/definitions/tspId"
+    },
+    "lockState": {
+      "description": "Confirmed state. If lock or unlock action was confirmed corresponding state is returned, otherwise UNKNOWN",
+      "enum": [
+        "LOCKED",
+        "UNLOCKED",
+        "UNKNOWN"
+      ]
+    }
+  },
+  "required": [
+    "tspId",
+    "lockState"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/tsp/vehicle-lock-switch/response",
+  "description": "Response schema for retrieving a vehicle status of a TSP ID from a TSP adapter",
+  "type": "object",
+  "properties": {
+    "tspId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "lockState": {
+      "description": "Whether vehicle is locked or not",
+      "enum": [
+        "LOCKED",
+        "UNLOCKED"
+      ]
+    },
+    "meta": {
+      "description": "Arbitrary metadata from TSP",
+      "type": "object"
+    }
+  },
+  "required": [
+    "tspId"
+  ],
+  "additionalProperties": false
+}
