@@ -5,9 +5,7 @@
   "type": "object",
   "properties": {
     "tspId": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 256
+      "$ref": "../../core/booking.json#/definitions/tspId"
     },
     "lockState": {
       "description": "Confirmed state. If lock or unlock action was confirmed corresponding state is returned, otherwise UNKNOWN",
