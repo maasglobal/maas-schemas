@@ -33,6 +33,7 @@ describe('address.placeName', () => {
     '武侯区通祠路39号-江城花2楼 (春江花月夜对面)', // Some sample address on Baidu
     '28 St John\'s Wood Road, London',
     'Shakespeare\'s Globe',
+    'Tarkk´ampujankatu', // Common known validation failure
   ]);
 
   generateTestCases(schema.definitions.placeName, false, [
