@@ -11,14 +11,24 @@
       "type": "object",
       "oneOf": [
         {
-          "$ref": "#/definitions/payload",
-          "description": "Permit leaveAt",
-          "required": ["from", "to", "leaveAt"]
+          "$ref": "#/definitions/payloadTaxi",
+          "description": "Permit leaveAt TAXI",
+          "required": ["leaveAt"]
         },
         {
-          "$ref": "#/definitions/payload",
-          "description": "Permit arriveBy",
-          "required": ["from", "to", "arriveBy"]
+          "$ref": "#/definitions/payloadOthers",
+          "description": "Permit leaveAt other modes",
+          "required": ["leaveAt"]
+        },
+        {
+          "$ref": "#/definitions/payloadTaxi",
+          "description": "Permit arriveBy TAXI",
+          "required": ["arriveBy"]
+        },
+        {
+          "$ref": "#/definitions/payloadOthers",
+          "description": "Permit arriveBy other modes",
+          "required": ["arriveBy"]
         }
       ]
     },
@@ -28,7 +38,7 @@
   },
   "required": [ "identityId", "payload" ],
   "definitions": {
-    "payload": {
+    "payloadOthers": {
       "type": "object",
       "properties": {
         "identityId": {
@@ -62,7 +72,50 @@
         },
         "modes": {
           "type": "string",
-          "pattern": "^(?:(?:WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI),)*(?:WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|TAXI|PUBLIC_TRANSIT)$"
+          "pattern": "^(?:(?:WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL),)*(?:WALK|BICYCLE|CAR|TRAM|SUBWAY|RAIL|BUS|FERRY|CABLE_CAR|GONDOLA|FUNICULAR|TRANSIT|TRAIN|TRAINISH|BUSISH|LEG_SWITCH|MAAS_TRIP|MAAS_PERSONAL|PUBLIC_TRANSIT)$"
+        },
+        "options": {
+          "type": "object"
+        }
+      },
+      "required": ["from", "to", "fromName", "toName"],
+      "additionalProperties": false
+    },
+    "payloadTaxi": {
+      "type": "object",
+      "properties": {
+        "identityId": {
+          "$ref": "../../../core/aws-units.json#/definitions/identityId"
+        },
+        "from": {
+          "$ref": "../../../core/units.json#/definitions/shortLocationString"
+        },
+        "fromName": {
+          "$ref": "../../../core/address.json#/definitions/placeName"
+        },
+        "fromAddress": {
+          "description": "Componentized from address",
+          "$ref": "../../../core/address.json#/definitions/componentAddress"
+        },
+        "to": {
+          "$ref": "../../../core/units.json#/definitions/shortLocationString"
+        },
+        "toName": {
+          "$ref": "../../../core/address.json#/definitions/placeName"
+        },
+        "toAddress": {
+          "description": "Componentized to address",
+          "$ref": "../../../core/address.json#/definitions/componentAddress"
+        },
+        "leaveAt": {
+          "$ref": "../../../core/units.json#/definitions/time"
+        },
+        "arriveBy": {
+          "$ref": "../../../core/units.json#/definitions/time"
+        },
+        "modes": {
+          "type": "string",
+          "pattern": "TAXI"
         },
         "options": {
           "type": "object"
