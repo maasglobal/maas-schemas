@@ -36,7 +36,7 @@
           ]
         },
         "fare": {
-          "description": "A fare/price as billed from the user in WMPs",
+          "description": "A fare/price as billed from the user in WMPs or in tokens",
           "type": "object",
           "properties": {
             "amount": {
@@ -53,8 +53,12 @@
             "currency": {
               "type": "string",
               "enum": [
-                "WMP"
+                "WMP",
+                "TOKEN"
               ]
+            },
+            "tokenId": {
+              "type": "string"
             }
           },
           "required": [
@@ -744,7 +748,7 @@
           ]
         },
         "fare": {
-          "description": "A fare/price as billed from the user in WMPs",
+          "description": "A fare/price as billed from the user in WMPs or in tokens",
           "type": "object",
           "properties": {
             "amount": {
@@ -761,8 +765,12 @@
             "currency": {
               "type": "string",
               "enum": [
-                "WMP"
+                "WMP",
+                "TOKEN"
               ]
+            },
+            "tokenId": {
+              "type": "string"
             }
           },
           "required": [
@@ -1712,7 +1720,7 @@
       "additionalProperties": false
     },
     "fare": {
-      "description": "A fare/price as billed from the user in WMPs",
+      "description": "A fare/price as billed from the user in WMPs or in tokens",
       "type": "object",
       "properties": {
         "amount": {
@@ -1729,8 +1737,12 @@
         "currency": {
           "type": "string",
           "enum": [
-            "WMP"
+            "WMP",
+            "TOKEN"
           ]
+        },
+        "tokenId": {
+          "type": "string"
         }
       },
       "required": [
