@@ -284,6 +284,11 @@
               "type": "integer",
               "maximum": 9007199254740991,
               "minimum": -9007199254740991
+            },
+            "agencyId": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 64
             }
           },
           "additionalProperties": false,
@@ -840,6 +845,11 @@
               "type": "integer",
               "maximum": 9007199254740991,
               "minimum": -9007199254740991
+            },
+            "agencyId": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 64
             }
           },
           "additionalProperties": false,
