@@ -225,41 +225,6 @@
             "type": "object",
             "description": "Details and specs of the vehicle"
           },
-          "product": {
-            "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "https://api.maas.global/core/itinerary",
-            "description": "Product in core which encapsulates at least an id and a tspProductId",
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 255
-              },
-              "name": {
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 255
-              },
-              "agencyId": {
-                "type": "string",
-                "minLength": 2,
-                "maxLength": 64
-              },
-              "tspProductId": {
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 255
-              }
-            },
-            "required": [
-              "id",
-              "tspProductId",
-              "name"
-            ],
-            "additionalProperties": false,
-            "definitions": {}
-          },
           "terms": {
             "type": "object",
             "description": "Tsp terms of usage / order",
@@ -324,8 +289,7 @@
         "required": [
           "leg",
           "meta",
-          "terms",
-          "product"
+          "terms"
         ]
       }
     },
