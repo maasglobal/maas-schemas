@@ -32,8 +32,7 @@
         "endTime": { "$ref": "../core/units.json#/definitions/time" },
         "from": { "$ref": "../core/units.json#/definitions/place" },
         "to": { "$ref": "../core/units.json#/definitions/place" },
-        "departureDelay": { "$ref": "../core/units.json#/definitions/duration" },
-        "agencyId": { "$ref": "../core/plan.json#/definitions/legCore/properties/agencyId" }
+        "departureDelay": { "$ref": "../core//units.json#/definitions/duration" }
       },
       "additionalProperties": false,
       "required": [

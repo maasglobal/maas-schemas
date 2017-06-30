@@ -49,6 +49,9 @@
       "type": "object",
       "description": "Details and specs of the vehicle"
     },
+    "product": {
+      "$ref": "./product.json"
+    },
     "terms": {
       "type": "object",
       "description": "Tsp terms of usage / order",
@@ -72,6 +75,7 @@
   "required": [
     "leg",
     "meta",
-    "terms"
+    "terms",
+    "product"
   ]
 }

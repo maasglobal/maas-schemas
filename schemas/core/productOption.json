@@ -22,9 +22,6 @@
     },
     "terms": {
       "type": "object"
-    },
-    "meta": {
-      "$ref": "./booking.json#/definitions/meta"
     }
   },
   "required": [
@@ -32,8 +29,7 @@
     "ref",
     "product",
     "fare",
-    "terms",
-    "meta"
+    "terms"
   ],
   "additionalProperties": false,
   "definitions": {
