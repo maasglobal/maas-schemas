@@ -62,16 +62,14 @@
     "cost": {
       "$ref": "./units.json#/definitions/cost"
     },
-    "signature": {
-      "type": "string",
-      "description": "This object's signature",
-      "minLength": 1,
-      "maxLength": 1024
+    "product": {
+      "$ref": "./productOption.json#/definitions/product"
     }
   },
   "required": [
     "leg",
     "meta",
-    "terms"
+    "terms",
+    "product"
   ]
 }
