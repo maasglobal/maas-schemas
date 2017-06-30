@@ -4,6 +4,47 @@
   "description": "Request schema for creating a booking through a TSP adapter",
   "type": "object",
   "properties": {
+    "cost": {
+      "description": "A fare/price as billed by a TSP from MaaS in EUR",
+      "type": "object",
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "properties": {
+        "amount": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "multipleOf": 0.01
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "discount": {
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 0.01
+        },
+        "taxes": {
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 0.01
+        },
+        "currency": {
+          "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+          "type": "string",
+          "enum": [
+            "EUR",
+            "GBP"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
     "leg": {
       "type": "object",
       "description": "A subset of the standard leg (../core/plan.json#/definitions/leg)",
@@ -226,11 +267,6 @@
           "type": "integer",
           "maximum": 9007199254740991,
           "minimum": -9007199254740991
-        },
-        "agencyId": {
-          "type": "string",
-          "minLength": 2,
-          "maxLength": 64
         }
       },
       "additionalProperties": false,
@@ -519,5 +555,5 @@
     "customer",
     "tspProduct"
   ],
-  "additionalProperties": true
+  "additionalProperties": false
 }

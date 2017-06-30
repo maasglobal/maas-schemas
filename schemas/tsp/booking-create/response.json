@@ -29,6 +29,6 @@
       "$ref": "../booking-option.json#/definitions/tspProduct"
     }
   },
-  "required": ["tspId", "state", "meta", "terms", "token", "tspProduct" ],
+  "required": ["tspId", "state", "cost", "meta", "terms", "token", "tspProduct" ],
   "additionalProperties": false
 }
