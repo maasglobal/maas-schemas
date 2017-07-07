@@ -49,9 +49,6 @@
       "type": "object",
       "description": "Details and specs of the vehicle"
     },
-    "product": {
-      "$ref": "./product.json"
-    },
     "terms": {
       "type": "object",
       "description": "Tsp terms of usage / order",
@@ -65,11 +62,8 @@
     "cost": {
       "$ref": "./units.json#/definitions/cost"
     },
-    "signature": {
-      "type": "string",
-      "description": "This object's signature",
-      "minLength": 1,
-      "maxLength": 1024
+    "product": {
+      "$ref": "./productOption.json#/definitions/product"
     }
   },
   "required": [

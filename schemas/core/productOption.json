@@ -22,6 +22,9 @@
     },
     "terms": {
       "type": "object"
+    },
+    "meta": {
+      "$ref": "./booking.json#/definitions/meta"
     }
   },
   "required": [
@@ -29,7 +32,8 @@
     "ref",
     "product",
     "fare",
-    "terms"
+    "terms",
+    "meta"
   ],
   "additionalProperties": false,
   "definitions": {
@@ -56,6 +60,14 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 255
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "icon": {
+          "type": "string",
+          "minLength": 1
         }
       },
       "required": [
@@ -63,7 +75,9 @@
         "name",
         "priority",
         "agencyId",
-        "tspProductId"
+        "tspProductId",
+        "description",
+        "icon"
       ]
     }
   }
