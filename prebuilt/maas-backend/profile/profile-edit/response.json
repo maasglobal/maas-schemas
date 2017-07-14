@@ -112,42 +112,6 @@
         "balance": {
           "type": "integer"
         },
-        "tokens": {
-          "type": "array",
-          "description": "Amount of various tokens user can have",
-          "items": {
-            "description": "A fare/price as billed from the user in WMPs or in tokens",
-            "type": "object",
-            "properties": {
-              "amount": {
-                "anyOf": [
-                  {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
-              "currency": {
-                "type": "string",
-                "enum": [
-                  "WMP",
-                  "TOKEN"
-                ]
-              },
-              "tokenId": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "amount",
-              "currency"
-            ],
-            "additionalProperties": false
-          }
-        },
         "paymentMethod": {
           "type": "object",
           "properties": {
@@ -266,6 +230,9 @@
             "pointCost"
           ]
         },
+        "balances": {
+          "type": "object"
+        },
         "created": {
           "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
           "type": "integer",
@@ -286,9 +253,13 @@
         "favoriteLocations",
         "balance",
         "paymentMethod",
-        "subscriptionInstance"
+        "subscriptionInstance",
+        "balances"
       ],
       "definitions": {
+        "balances": {
+          "type": "object"
+        },
         "subscriptionInstance": {
           "type": "object",
           "properties": {

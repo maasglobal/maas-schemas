@@ -46,13 +46,6 @@
     "balance": {
       "type": "integer"
     },
-    "tokens": {
-      "type": "array",
-      "description": "Amount of various tokens user can have",
-      "items": {
-        "$ref": "./units.json#/definitions/fare"
-      }
-    },
     "paymentMethod": {
       "type": "object",
       "properties": {
@@ -90,6 +83,9 @@
     "subscriptionInstance": {
       "$ref": "#/definitions/subscriptionInstance"
     },
+    "balances": {
+      "$ref": "#/definitions/balances"
+    },
     "created": {
       "$ref": "./units.json#/definitions/time"
     },
@@ -98,8 +94,11 @@
     }
   },
   "additionalProperties": false,
-  "required": [ "identityId", "phone", "favoriteLocations",  "balance", "paymentMethod", "subscriptionInstance" ],
+  "required": [ "identityId", "phone", "favoriteLocations",  "balance", "paymentMethod", "subscriptionInstance", "balances" ],
   "definitions": {
+    "balances": {
+      "type": "object"
+    },
     "subscriptionInstance": {
       "type": "object",
       "properties": {
