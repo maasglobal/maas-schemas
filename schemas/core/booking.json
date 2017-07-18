@@ -291,6 +291,9 @@
             "endTime": { "$ref": "./units.json#/definitions/time" }
           },
           "required": ["startTime", "endTime"]
+        },
+        "reusable": {
+          "type": "boolean"
         }
       }
     },

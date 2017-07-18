@@ -27,7 +27,7 @@
       }
     },
     "terms": {
-      "type": "object"
+      "ref": "./booking.json#/definitions/terms"
     },
     "meta": {
       "$ref": "./booking.json#/definitions/meta"

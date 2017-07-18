@@ -511,6 +511,9 @@
             "startTime",
             "endTime"
           ]
+        },
+        "reusable": {
+          "type": "boolean"
         }
       }
     },

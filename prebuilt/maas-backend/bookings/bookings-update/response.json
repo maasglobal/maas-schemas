@@ -632,6 +632,9 @@
                     "startTime",
                     "endTime"
                   ]
+                },
+                "reusable": {
+                  "type": "boolean"
                 }
               }
             },
@@ -1345,6 +1348,9 @@
                     "startTime",
                     "endTime"
                   ]
+                },
+                "reusable": {
+                  "type": "boolean"
                 }
               }
             },
@@ -2016,6 +2022,9 @@
                 "startTime",
                 "endTime"
               ]
+            },
+            "reusable": {
+              "type": "boolean"
             }
           }
         },

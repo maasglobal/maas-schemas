@@ -631,7 +631,7 @@
                     }
                   },
                   "terms": {
-                    "type": "object"
+                    "ref": "./booking.json#/definitions/terms"
                   },
                   "meta": {
                     "type": "object",
