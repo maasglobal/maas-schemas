@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-update/request",
-  "description": "Request schema for subscriptions-update",
+  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-create/request",
+  "description": "Request schema for subscriptions-create",
   "type": "object",
   "properties": {
     "customerId": {
@@ -11,14 +11,6 @@
     "userId": {
       "type": "string",
       "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
-    },
-    "replace": {
-      "type": "boolean",
-      "default": true
-    },
-    "immediate": {
-      "type": "boolean",
-      "default": false
     },
     "payload": {
       "type": "object",
@@ -298,7 +290,7 @@
     "headers": {
       "Accept": {
         "type": "string",
-        "pattern": "\\bapplication\\/json; [\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]+version=((0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\-[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?(?:\\+[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?)\\b"
+        "pattern": "\\bapplication/json; [\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]+version=((0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\-[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?(?:\\+[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?)\\b"
       }
     }
   },

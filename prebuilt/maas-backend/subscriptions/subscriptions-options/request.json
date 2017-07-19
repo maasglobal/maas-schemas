@@ -9,26 +9,11 @@
       "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
     },
     "payload": {
-      "description": "No-numeric precision version of MaaS core location",
-      "type": "object",
-      "properties": {
-        "lat": {
-          "description": "No-numeric precision version of MaaS core latitude",
-          "type": "number",
-          "minimum": -90,
-          "maximum": 90
-        },
-        "lon": {
-          "description": "No-numeric precision version of MaaS core longitude",
-          "type": "number",
-          "minimum": -180,
-          "maximum": 180
-        }
-      },
-      "required": [
-        "lat",
-        "lon"
-      ]
+      "regionId": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 255
+      }
     },
     "headers": {
       "Accept": {

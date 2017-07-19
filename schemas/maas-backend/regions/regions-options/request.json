@@ -1,18 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-options/request",
-  "description": "Request schema for subscriptions-options",
+  "id": "https://api.maas.global/maas-backend/regions/regions-options/request",
+  "description": "Request schema for regions-options",
   "type": "object",
   "properties": {
     "identityId": {
       "$ref": "../../../core/aws-units.json#/definitions/identityId"
-    },
-    "payload": {
-      "regionId": {
-        "type": "string",
-        "minLength": 3,
-        "maxLength": 255
-      }
     },
     "headers": {
       "Accept": {
@@ -20,6 +13,6 @@
       }
     }
   },
-  "required": ["identityId", "payload"],
+  "required": ["identityId"],
   "additionalProperties": false
 }
