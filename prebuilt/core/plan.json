@@ -889,7 +889,6 @@
                 "identityId",
                 "ref",
                 "product",
-                "fare",
                 "terms",
                 "meta"
               ],
@@ -1770,7 +1769,6 @@
                 "identityId",
                 "ref",
                 "product",
-                "fare",
                 "terms",
                 "meta"
               ],
@@ -2646,7 +2644,6 @@
               "identityId",
               "ref",
               "product",
-              "fare",
               "terms",
               "meta"
             ],
