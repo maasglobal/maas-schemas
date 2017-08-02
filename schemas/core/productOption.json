@@ -20,6 +20,12 @@
     "fare": {
       "$ref": "./units.json#/definitions/fare"
     },
+    "fares": {
+      "type": "array",
+      "items": {
+        "$ref": "./units.json#/definitions/fare"
+      }
+    },
     "terms": {
       "type": "object"
     },
@@ -31,7 +37,6 @@
     "identityId",
     "ref",
     "product",
-    "fare",
     "terms",
     "meta"
   ],
