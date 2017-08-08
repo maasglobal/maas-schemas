@@ -46,6 +46,13 @@
     "balance": {
       "type": "integer"
     },
+    "tokens": {
+      "type": "array",
+      "description": "Amount of various tokens user can have",
+      "items": {
+        "$ref": "./units.json#/definitions/fare"
+      }
+    },
     "paymentMethod": {
       "type": "object",
       "properties": {
