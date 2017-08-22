@@ -1,0 +1,33 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "https://api.maas.global/tsp/booking-read-by-id/response",
+	"description": "Response schema for updating state of a specific booking with a TSP ID from a TSP adapter",
+	"properties": {
+		"tspId": {
+			"$ref": "../../core/booking.json#/definitions/tspId"
+		},
+		"cost": {
+			"$ref": "../../core/booking.json#/definitions/cost"
+		},
+		"state": {
+			"enum": ["RESERVED", "CONFIRMED", "ACTIVATED", "ON_HOLD", "EXPIRED", "CANCELLED"]
+		},
+		"leg": {
+			"$ref": "../booking-option.json#/definitions/legDelta"
+		},
+		"meta": {
+			"$ref": "../../core/booking.json#/definitions/meta"
+		},
+		"terms": {
+			"$ref": "../../core/booking.json#/definitions/terms"
+		},
+		"token": {
+			"$ref": "../../core/booking.json#/definitions/token"
+		},
+		"tspProduct": {
+			"$ref": "../booking-option.json#/definitions/tspProduct"
+		}
+	},
+	"required": ["tspId", "state"],
+	"additionalProperties": false
+}
