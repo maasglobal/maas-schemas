@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/tsp/booking-read-by-id/response",
-  "description": "Response schema for getting a specific booking with a TSP ID from a TSP adapter",
+  "description": "Response schema for updating state of a specific booking with a TSP ID from a TSP adapter",
   "properties": {
     "tspId": {
       "type": "string",

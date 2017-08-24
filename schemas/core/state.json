@@ -15,6 +15,7 @@
         "ACTIVATED",
         "CANCELLED",
         "CANCELLED_WITH_ERRORS",
+        "ON_HOLD",
         "EXPIRED",
         "RECONCILING",
         "RESOLVED",
