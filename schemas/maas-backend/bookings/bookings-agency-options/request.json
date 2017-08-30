@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/bookings/bookings-agency-options/request",
-  "description": "Request schema for bookings-agency-options to send to the adapter",
+  "description": "Request schema for bookings-agency-options",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -17,7 +17,9 @@
       "$ref": "#/definitions/payload"
     },
     "headers": {
-      "type": "object"
+      "Accept": {
+        "$ref": "../../api-common.json#/definitions/acceptHeader"
+      }
     }
   },
   "definitions": {

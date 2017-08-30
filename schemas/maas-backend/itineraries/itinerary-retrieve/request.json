@@ -6,6 +6,11 @@
   "properties": {
     "itineraryId": {
       "$ref": "../../../core/units.json#/definitions/uuid"
+    },
+    "headers": {
+      "Accept": {
+        "$ref": "../../api-common.json#/definitions/acceptHeader"
+      }
     }
   },
   "required": [ "itineraryId" ],

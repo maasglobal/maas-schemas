@@ -2,5 +2,28 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/bookings/bookings-cancel/response",
   "description": "Response schema for bookings-retrieve",
-  "$ref": "../../../core/booking.json"
+  "properties": {
+    "booking": {
+      "allOf": [
+        {
+          "$ref": "../../../core/booking.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "enum": ["CANCELLED", "CANCELLED_WITH_ERRORS"]
+            }
+          }
+        }
+      ]
+    },
+    "debug": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": ["booking"],
+  "additionalProperties": false
 }

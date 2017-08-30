@@ -720,6 +720,7 @@
               "leg",
               "meta",
               "terms",
+              "token",
               "customer"
             ]
           }
@@ -2062,7 +2063,7 @@
         }
       }
     },
-    "maas": {
+    "debug": {
       "type": "object",
       "additionalProperties": true
     }

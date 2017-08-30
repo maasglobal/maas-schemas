@@ -6,6 +6,11 @@
   "properties": {
     "itinerary": {
       "$ref": "../../../core/itinerary.json"
+    },
+    "headers": {
+      "Accept": {
+        "$ref": "../../api-common.json#/definitions/acceptHeader"
+      }
     }
   },
   "required": [ "itinerary" ],

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/bookings/bookings-update/response",
-  "description": "Response schema for bookings update",
+  "description": "Response schema for bookings-update",
   "type": "object",
   "properties": {
     "booking": {
@@ -717,6 +717,7 @@
             "leg",
             "meta",
             "terms",
+            "token",
             "customer"
           ]
         }
@@ -2058,13 +2059,13 @@
         }
       }
     },
-    "maas": {
+    "debug": {
       "type": "object",
       "additionalProperties": true
     }
   },
   "required": [
-    "itinerary"
+    "booking"
   ],
   "additionalProperties": false
 }
