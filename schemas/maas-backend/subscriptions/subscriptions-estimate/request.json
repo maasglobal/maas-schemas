@@ -10,6 +10,10 @@
     "userId": {
       "$ref": "../../../core/aws-units.json#/definitions/identityId"
     },
+    "immediate": {
+      "type": "boolean",
+      "default": false
+    },
     "replace": {
       "type": "boolean",
       "default": true

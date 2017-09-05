@@ -14,6 +14,10 @@
       "type": "boolean",
       "default": true
     },
+    "immediate": {
+      "type": "boolean",
+      "default": false
+    },
     "payload": {
       "$ref": "../subscription.json#/definitions/subscriptionBase"
     },
