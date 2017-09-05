@@ -20,6 +20,11 @@
       "type": "string",
       "pattern": "^\\+(?:[0-9]){6,14}[0-9]$"
     },
+    "rawPhone": {
+      "description": "Slightly looser defnintion of phone number",
+      "type": "string",
+      "pattern": "^\\+?(?:[0-9]){6,14}[0-9]$"
+    },
     "email": {
       "description": "Rough validation of a valid e-mail address, see https://davidcel.is/posts/stop-validating-email-addresses-with-regex/",
       "type": "string",
