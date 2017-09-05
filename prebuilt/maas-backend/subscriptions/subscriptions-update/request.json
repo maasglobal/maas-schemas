@@ -16,6 +16,10 @@
       "type": "boolean",
       "default": true
     },
+    "immediate": {
+      "type": "boolean",
+      "default": false
+    },
     "payload": {
       "type": "object",
       "properties": {
