@@ -77,6 +77,41 @@
                 ],
                 "additionalProperties": false
               },
+              "fares": {
+                "type": "array",
+                "items": {
+                  "description": "A fare/price as billed from the user in WMPs or in tokens",
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "anyOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "currency": {
+                      "type": "string",
+                      "enum": [
+                        "WMP",
+                        "TOKEN"
+                      ]
+                    },
+                    "tokenId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
+                  "additionalProperties": false
+                }
+              },
               "cost": {
                 "description": "A fare/price as billed by a TSP from MaaS in EUR",
                 "type": "object",
@@ -676,8 +711,8 @@
               },
               "product": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
-                "id": "https://api.maas.global/core/itinerary",
-                "description": "Product in core which encapsulates at least an id and a tspProductId",
+                "id": "https://api.maas.global/core/product",
+                "description": "Product in core which encapsulates at least an id, name and a tspProductId",
                 "type": "object",
                 "properties": {
                   "id": {
@@ -689,6 +724,20 @@
                     "type": "string",
                     "minLength": 1,
                     "maxLength": 255
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                  },
+                  "icon": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                  },
+                  "priority": {
+                    "type": "integer",
+                    "minimum": 0
                   },
                   "agencyId": {
                     "type": "string",
@@ -706,11 +755,14 @@
                   "tspProductId",
                   "name"
                 ],
-                "additionalProperties": false,
-                "definitions": {}
+                "additionalProperties": false
+              },
+              "signature": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
               }
-            },
-            "additionalProperties": false
+            }
           },
           {
             "required": [

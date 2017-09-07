@@ -27,6 +27,12 @@
         "fare": {
           "$ref": "#/definitions/fare"
         },
+        "fares": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/fare"
+          }
+        },
         "cost": {
           "$ref": "#/definitions/cost"
         },
@@ -42,17 +48,16 @@
         "terms": {
           "$ref": "#/definitions/terms"
         },
-        "token": {
-          "$ref": "#/definitions/token"
-        },
         "customer": {
           "$ref": "#/definitions/customer"
         },
         "product": {
           "$ref": "./product.json"
+        },
+        "signature": {
+          "$ref": "./plan.json#/definitions/signature"
         }
-      },
-      "additionalProperties": false
+      }
     },
     "customer": {
       "type": "object",
