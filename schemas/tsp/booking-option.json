@@ -30,7 +30,10 @@
         "mode": { "$ref": "../core/mode.json" },
         "startTime": { "$ref": "../core/units.json#/definitions/time" },
         "endTime": { "$ref": "../core/units.json#/definitions/time" },
-        "from": { "$ref": "../core/units.json#/definitions/place" },
+        "from": {
+          "description": "Starting location's lat and lon pair of this request",
+          "$ref": "../core/units.json#/definitions/place"
+        },
         "to": { "$ref": "../core/units.json#/definitions/place" },
         "departureDelay": { "$ref": "../core/units.json#/definitions/duration" },
         "agencyId": { "$ref": "../core/plan.json#/definitions/legCore/properties/agencyId" }
@@ -51,6 +54,7 @@
         "mode": { "$ref": "../core/mode.json" },
         "startTime": { "$ref": "../core/units.json#/definitions/time" },
         "endTime": { "$ref": "../core/units.json#/definitions/time" },
+        "departureDelay": { "$ref": "../core/units.json#/definitions/duration" },
         "from": { "$ref": "../core/units.json#/definitions/place" },
         "to": { "$ref": "../core/units.json#/definitions/place" }
       },

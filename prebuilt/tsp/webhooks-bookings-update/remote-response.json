@@ -192,7 +192,7 @@
               "minimum": 1451606400
             },
             "from": {
-              "description": "A place, as a location-name pair with name and address",
+              "description": "Starting location's lat and lon pair of this request",
               "type": "object",
               "allOf": [
                 {
@@ -753,7 +753,7 @@
               "minimum": 1451606400
             },
             "from": {
-              "description": "A place, as a location-name pair with name and address",
+              "description": "Starting location's lat and lon pair of this request",
               "type": "object",
               "allOf": [
                 {

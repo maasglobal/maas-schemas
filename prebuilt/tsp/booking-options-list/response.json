@@ -183,7 +183,7 @@
                 "minimum": 1451606400
               },
               "from": {
-                "description": "A place, as a location-name pair with name and address",
+                "description": "Starting location's lat and lon pair of this request",
                 "type": "object",
                 "allOf": [
                   {
@@ -666,7 +666,7 @@
                 "minimum": 1451606400
               },
               "from": {
-                "description": "A place, as a location-name pair with name and address",
+                "description": "Starting location's lat and lon pair of this request",
                 "type": "object",
                 "allOf": [
                   {
@@ -902,6 +902,12 @@
                 "type": "integer",
                 "maximum": 9007199254740991,
                 "minimum": 1451606400
+              },
+              "departureDelay": {
+                "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991
               },
               "from": {
                 "description": "A place, as a location-name pair with name and address",
