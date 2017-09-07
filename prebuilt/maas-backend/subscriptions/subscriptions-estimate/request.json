@@ -12,6 +12,10 @@
       "type": "string",
       "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
     },
+    "immediate": {
+      "type": "boolean",
+      "default": false
+    },
     "replace": {
       "type": "boolean",
       "default": true
