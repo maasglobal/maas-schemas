@@ -7,10 +7,10 @@
     "options": {
       "type": "array",
       "items": {
-        "$ref": "../../../core/agency-option.json"
+        "$ref": "../../../core/booking-option.json"
       }
     },
-    "maas": {
+    "debug": {
       "type": "object",
       "additionalProperties": true
     }
