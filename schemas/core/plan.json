@@ -6,6 +6,9 @@
     "from": {
       "$ref": "#/definitions/place"
     },
+    "planId": {
+      "$ref": "./units.json#/definitions/uuid"
+    },
     "itineraries": {
       "$ref": "#/definitions/itineraries"
     }
@@ -22,6 +25,9 @@
       "type": "object",
       "properties": {
         "id": {
+          "$ref": "./units.json#/definitions/uuid"
+        },
+        "sourcePlanId": {
           "$ref": "./units.json#/definitions/uuid"
         },
         "identityId": {
@@ -62,7 +68,8 @@
       "required": [
         "startTime",
         "endTime",
-        "legs"
+        "legs",
+        "sourcePlanId"
       ]
     },
     "leg": {

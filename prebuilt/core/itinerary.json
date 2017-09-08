@@ -11,6 +11,11 @@
           "type": "string",
           "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
         },
+        "sourcePlanId": {
+          "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
+          "type": "string",
+          "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
+        },
         "identityId": {
           "type": "string",
           "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
@@ -949,7 +954,8 @@
       "required": [
         "startTime",
         "endTime",
-        "legs"
+        "legs",
+        "sourcePlanId"
       ]
     },
     {
