@@ -41,6 +41,5 @@
     "id",
     "tspProductId",
     "name"
-  ],
-  "additionalProperties": false
+  ]
 }
