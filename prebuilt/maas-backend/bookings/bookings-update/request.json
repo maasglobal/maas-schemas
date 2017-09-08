@@ -760,8 +760,7 @@
                 "id",
                 "tspProductId",
                 "name"
-              ],
-              "additionalProperties": false
+              ]
             },
             "signature": {
               "type": "string",
@@ -1526,8 +1525,7 @@
                 "id",
                 "tspProductId",
                 "name"
-              ],
-              "additionalProperties": false
+              ]
             },
             "signature": {
               "type": "string",
