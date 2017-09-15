@@ -93,6 +93,7 @@ describe('address.zipCode', () => {
     '102600', // China Daxing District
     '90210', // USA Beverly Hills
     'N1C', // What Google gives for King's Cross
+    '3137BH', // Somewhere in Netherlands
   ]);
 
   generateTestCases(schema.definitions.address, false, [
