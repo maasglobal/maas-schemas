@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/tsp/booking-receipt/response",
+  "description": "Response schema for getting a receipt for specific booking",
+  "properties": {
+    "tspId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "cost": {
+      "description": "A fare/price as billed by a TSP from MaaS in EUR",
+      "type": "object",
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "properties": {
+        "amount": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "multipleOf": 0.01
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "discount": {
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 0.01
+        },
+        "taxes": {
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 0.01
+        },
+        "currency": {
+          "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+          "type": "string",
+          "enum": [
+            "EUR",
+            "GBP"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "receipt": {
+      "type": "object",
+      "description": "Receipt as received from TSP, could be stored for future reference."
+    }
+  },
+  "required": [
+    "tspId",
+    "cost"
+  ],
+  "additionalProperties": false
+}
