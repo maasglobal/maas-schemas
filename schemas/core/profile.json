@@ -32,6 +32,11 @@
     "zipCode": {
       "$ref": "./address.json#/definitions/zipCode"
     },
+    "regionId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
     "region": {
       "$ref": "./region.json"
     },
