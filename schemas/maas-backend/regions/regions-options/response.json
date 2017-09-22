@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/regions/regions-options/response",
+  "description": "Response schema for regions-options",
+  "type": "object",
+  "properties": {
+    "options": {
+      "type": "array",
+      "items": {
+        "$ref": "../../../core/region.json"
+      }
+    },
+    "debug": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": [ "options" ],
+  "additionalProperties": false
+}

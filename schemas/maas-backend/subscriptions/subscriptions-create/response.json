@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-create/response",
+  "description": "Response schema for subscriptions-create",
+  "type": "object",
+  "properties": {
+    "subscription": {
+      "$ref": "../subscriptionOption.json"
+    },
+    "debug": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": [ "subscription" ],
+  "additionalProperties": false
+}

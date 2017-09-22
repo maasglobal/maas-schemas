@@ -25,7 +25,7 @@
       "type": "string",
       "pattern": "^(?:\\d{3,10}|(?:\\p{L}|\\d){2,4}(\\s?(?:\\p{L}|\\d){2,4})?)$"
     },
-    "country": {
+    "countryName": {
       "description": "Alphabetic country name",
       "type": "string",
       "pattern": "^(?:\\p{L}|\\s)+$",
