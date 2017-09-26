@@ -254,7 +254,7 @@
           "properties": {
             "id": {
               "type": "string",
-              "minLength": 1,
+              "minLength": 2,
               "maxLength": 255
             },
             "name": {
