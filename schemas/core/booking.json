@@ -150,7 +150,47 @@
           "type": "object"
         },
         "MODE_BICYCLE": {
-          "type": "object"
+          "type": "object",
+          "properties": {
+            "station": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "location": {
+                  "$ref": "./units.json#/definitions/location"
+                },
+                "slots": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number"
+                    },
+                    "empty": {
+                      "type": "number"
+                    },
+                    "bikes": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "total",
+                    "empty",
+                    "bikes"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "location"
+              ]
+            }
+          }
         },
         "MODE_CAR": {
           "properties": {
