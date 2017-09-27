@@ -767,6 +767,20 @@
                             "name",
                             "location"
                           ]
+                        },
+                        "bike": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ]
                         }
                       }
                     },
@@ -1708,6 +1722,20 @@
                             "name",
                             "location"
                           ]
+                        },
+                        "bike": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ]
                         }
                       }
                     },
@@ -2643,6 +2671,20 @@
                           "id",
                           "name",
                           "location"
+                        ]
+                      },
+                      "bike": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id"
                         ]
                       }
                     }
