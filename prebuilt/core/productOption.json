@@ -140,7 +140,82 @@
           "type": "object"
         },
         "MODE_BICYCLE": {
-          "type": "object"
+          "type": "object",
+          "properties": {
+            "station": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "location": {
+                  "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                  "type": "object",
+                  "properties": {
+                    "lat": {
+                      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                      "type": "number",
+                      "minimum": -90,
+                      "maximum": 90,
+                      "multipleOf": 0.000001
+                    },
+                    "lon": {
+                      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                      "type": "number",
+                      "minimum": -180,
+                      "maximum": 180,
+                      "multipleOf": 0.000001
+                    }
+                  },
+                  "required": [
+                    "lat",
+                    "lon"
+                  ]
+                },
+                "slots": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number"
+                    },
+                    "empty": {
+                      "type": "number"
+                    },
+                    "bikes": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "total",
+                    "empty",
+                    "bikes"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "location"
+              ]
+            },
+            "bike": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ]
+            }
+          }
         },
         "MODE_CAR": {
           "properties": {
