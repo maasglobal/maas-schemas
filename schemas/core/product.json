@@ -9,6 +9,18 @@
       "minLength": 1,
       "maxLength": 255
     },
+    "agencyId": {
+      "$ref": "plan.json#/definitions/agencyId"
+    },
+    "tspProductId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "priority": {
+      "type": "integer",
+      "minimum": 0
+    },
     "name": {
       "type": "string",
       "minLength": 1,
@@ -19,22 +31,38 @@
       "minLength": 1,
       "maxLength": 255
     },
-    "icon": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 255
-    },
-    "priority": {
-      "type": "integer",
-      "minimum": 0
-    },
-    "agencyId": {
-      "$ref": "plan.json#/definitions/agencyId"
-    },
-    "tspProductId": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 255
+    "branding": {
+      "primaryColor": {
+        "description": "Primary brand color, used in backgrounds etc.",
+        "type": "string",
+        "pattern": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+      },
+      "secondaryColor": {
+        "description": "Secondary brand color, used in accent parts of the app.",
+        "type": "string",
+        "pattern": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+      },
+      "darkIcon": {
+        "description": "Icon that can be shown against dark background, url to 240x240 png",
+        "type": "string",
+        "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "lightIcon": {
+        "description": "Icon that can be shown against light background, url to 240x240 png",
+        "type": "string",
+        "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "bwIcon": {
+        "description": "Icon that can be shown as black & white line graphics, url to 240x240 png",
+        "type": "string",
+        "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$",
+        "minLength": 1,
+        "maxLength": 255
+      }
     }
   },
   "required": [
