@@ -21,6 +21,9 @@
       },
       "required": ["lat", "lon"],
       "additionalProperties": false
+    },
+    "headers": {
+      "$ref": "../../api-common.json#/definitions/headers"
     }
   },
   "required": ["payload"],
