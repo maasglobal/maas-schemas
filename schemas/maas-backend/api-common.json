@@ -6,7 +6,7 @@
     "acceptHeader": {
       "description": "SemVer versioning schemas for versioning our resources",
       "type": "string",
-      "pattern": "\\bapplication/json; \\s+version=((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?(?:\\+[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?)\\b"
+      "pattern": "\\bapplication/json;\\s*version=((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?(?:\\+[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?)\\b"
     },
     "userAgentHeader": {
       "type": "string",
