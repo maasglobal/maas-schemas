@@ -22,9 +22,7 @@
       "$ref": "../subscription.json#/definitions/subscriptionBase"
     },
     "headers": {
-      "Accept": {
-        "$ref": "../../api-common.json#/definitions/acceptHeader"
-      }
+      "$ref": "../../api-common.json#/definitions/headers"
     }
   },
   "required": ["customerId", "userId", "payload"],

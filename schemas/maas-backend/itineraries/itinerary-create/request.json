@@ -8,9 +8,7 @@
       "$ref": "../../../core/itinerary.json"
     },
     "headers": {
-      "Accept": {
-        "$ref": "../../api-common.json#/definitions/acceptHeader"
-      }
+      "$ref": "../../api-common.json#/definitions/headers"
     }
   },
   "required": [ "itinerary" ],

@@ -15,9 +15,7 @@
       "$ref": "../../../core/booking.json"
     },
     "headers": {
-      "Accept": {
-        "$ref": "../../api-common.json#/definitions/acceptHeader"
-      }
+      "$ref": "../../api-common.json#/definitions/headers"
     }
   },
   "required": [ "identityId", "payload" ],
