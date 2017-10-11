@@ -626,7 +626,6 @@
                             "hydrogen",
                             "lpg",
                             "multifuel",
-                            "petrol",
                             null
                           ]
                         },
@@ -1558,7 +1557,6 @@
                             "hydrogen",
                             "lpg",
                             "multifuel",
-                            "petrol",
                             null
                           ]
                         },
@@ -2412,7 +2410,6 @@
                         "hydrogen",
                         "lpg",
                         "multifuel",
-                        "petrol",
                         null
                       ]
                     },
