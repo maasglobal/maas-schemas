@@ -3,6 +3,9 @@
   "id": "https://api.maas.global/tsp/booking-receipt/response",
   "description": "Response schema for getting a receipt for specific booking",
   "properties": {
+    "tspId": {
+      "$ref": "../../core/booking.json#/definitions/tspId"
+    },
     "cost": {
       "$ref": "../../core/booking.json#/definitions/cost"
     },
