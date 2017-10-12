@@ -21,6 +21,13 @@
       ],
       "properties": {
         "mode": {
+          "not": {
+            "description": "Blacklisted modes for direct agency options call",
+            "type": "string",
+            "enum": [
+              "TAXI"
+            ]
+          },
           "anyOf": [
             {
               "description": "A mode that only involves waiting in the current location",
@@ -163,6 +170,13 @@
       ],
       "properties": {
         "mode": {
+          "not": {
+            "description": "Blacklisted modes for direct agency options call",
+            "type": "string",
+            "enum": [
+              "TAXI"
+            ]
+          },
           "anyOf": [
             {
               "description": "A mode that only involves waiting in the current location",
