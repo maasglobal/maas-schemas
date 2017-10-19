@@ -17,24 +17,64 @@
       "$ref": "../../core/units.json#/definitions/shortLocationString"
     },
     "fromName": {
-      "$ref": "../../core/address.json#/definitions/placeName"
+      "anyOf": [
+        {
+          "$ref": "../../core/address.json#/definitions/placeName"
+        },
+        {
+          "type": "string",
+          "maxLength": 0
+        }
+      ]
     },
     "fromAddress": {
-      "description": "Componentized from address",
-      "$ref": "../../core/address.json#/definitions/componentAddress"
+      "anyOf": [
+        {
+          "description": "Componentized from address",
+          "$ref": "../../core/address.json#/definitions/componentAddress"
+        },
+        {
+          "type": "string",
+          "maxLength": 0
+        }
+      ]
     },
     "fromRadius":{
       "description": "'from' location radius in meters",
       "$ref": "../../core/units.json#/definitions/distance"
     },
     "to": {
-      "$ref": "../../core/units.json#/definitions/shortLocationString"
+      "anyOf": [
+        {
+          "$ref": "../../core/units.json#/definitions/shortLocationString"
+        },
+        {
+          "type": "string",
+          "maxLength": 0
+        }
+      ]
     },
     "toName": {
-      "$ref": "../../core/address.json#/definitions/placeName"
+      "anyOf": [
+        {
+          "$ref": "../../core/address.json#/definitions/placeName"
+        },
+        {
+          "type": "string",
+          "maxLength": 0
+        }
+      ]
     },
     "toAddress": {
-      "$ref": "../../core/address.json#/definitions/componentAddress"
+      "anyOf": [
+        {
+          "$ref": "../../core/address.json#/definitions/componentAddress"
+        },
+        {
+          "type": "string",
+          "maxLength": 0
+        }
+      ]
     },
     "toRadius":{
       "description": "'to' location radius in meters",
@@ -44,6 +84,6 @@
       "$ref": "../../core/booking.json#/definitions/customer"
     }
   },
-  "required": ["startTime", "from" ],
+  "required": ["startTime", "from"],
   "additionalProperties": false
 }
