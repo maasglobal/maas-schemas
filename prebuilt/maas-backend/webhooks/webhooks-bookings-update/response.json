@@ -658,7 +658,7 @@
             "type": {
               "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
               "type": "string",
-              "minLength": 1,
+              "minLength": 0,
               "maxLength": 64
             },
             "validity": {
@@ -1385,7 +1385,7 @@
             "type": {
               "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
               "type": "string",
-              "minLength": 1,
+              "minLength": 0,
               "maxLength": 64
             },
             "validity": {
