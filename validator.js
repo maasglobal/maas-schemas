@@ -159,7 +159,7 @@ function validateSync(schema, object, options) {
     sourceCode: false,
     errorDataPath: 'property',
     multipleOfPrecision: 6,
-    sanitize: true,
+    sanitize: false,
   }, options);
 
   if (opts.sanitize === true) {
