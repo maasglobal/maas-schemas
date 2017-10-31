@@ -16,27 +16,25 @@ const globPromise = (pattern, options) => (
   })
 );
 
-module.exports = function () {
-  describe('Pre-built schemas should be valid JSON Schemas', () => {
-    before(() => {
-      return globPromise('prebuilt/**/*.json')
-        .then(schemaPaths => {
-          describe(`Validate ${schemaPaths.length} schemas`, () => {
-            schemaPaths.forEach(schemaPath => {
-              it(`should be a able to require a valid schema ${schemaPath}`, () => {
-                const filePath = path.resolve(__dirname, '..', schemaPath);
-                const schema = require(filePath);
-                const valid = ajv.validateSchema(schema);
-                expect(ajv.errors || []).to.eql([]);
-                expect(valid).to.be.true;
-              });
+describe('Pre-built schemas should be valid JSON Schemas', () => {
+  before(() => {
+    return globPromise('prebuilt/**/*.json')
+      .then(schemaPaths => {
+        describe(`Validate ${schemaPaths.length} schemas`, () => {
+          schemaPaths.forEach(schemaPath => {
+            it(`should be a able to require a valid schema ${schemaPath}`, () => {
+              const filePath = path.resolve(__dirname, '..', schemaPath);
+              const schema = require(filePath);
+              const valid = ajv.validateSchema(schema);
+              expect(ajv.errors || []).to.eql([]);
+              expect(valid).to.be.true;
             });
           });
         });
-    });
-
-    it('[placeholder to trigger before()]', () => {
-      return Promise.resolve();
-    });
+      });
   });
-};
+
+  it('[placeholder to trigger before()]', () => {
+    return Promise.resolve();
+  });
+});
