@@ -416,7 +416,7 @@
                     "passengers": {
                       "description": "The number of passengers this vehicle will be able to transport",
                       "type": "integer",
-                      "minimum": 1,
+                      "minimum": 0,
                       "maximum": 200
                     },
                     "doors": {
@@ -1143,7 +1143,7 @@
                     "passengers": {
                       "description": "The number of passengers this vehicle will be able to transport",
                       "type": "integer",
-                      "minimum": 1,
+                      "minimum": 0,
                       "maximum": 200
                     },
                     "doors": {
