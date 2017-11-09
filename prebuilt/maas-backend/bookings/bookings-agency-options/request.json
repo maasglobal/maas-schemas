@@ -73,6 +73,11 @@
             }
           ]
         },
+        "agencyId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
+        },
         "startTime": {
           "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
           "type": "integer",
@@ -212,6 +217,11 @@
               ]
             }
           ]
+        },
+        "agencyId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
         },
         "startTime": {
           "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
