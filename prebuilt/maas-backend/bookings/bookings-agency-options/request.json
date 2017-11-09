@@ -16,9 +16,7 @@
     },
     "payload": {
       "type": "object",
-      "required": [
-        "mode"
-      ],
+      "additionalProperties": false,
       "properties": {
         "mode": {
           "anyOf": [
@@ -158,9 +156,7 @@
   "definitions": {
     "payload": {
       "type": "object",
-      "required": [
-        "mode"
-      ],
+      "additionalProperties": false,
       "properties": {
         "mode": {
           "anyOf": [
