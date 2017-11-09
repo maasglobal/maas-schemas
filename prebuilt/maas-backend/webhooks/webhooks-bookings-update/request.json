@@ -438,10 +438,6 @@
                       "maxItems": 2
                     },
                     "transmission": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
                       "enum": [
                         "manual",
                         "automatic",
@@ -449,10 +445,6 @@
                       ]
                     },
                     "fuel": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
                       "enum": [
                         "diesel",
                         "electric",
@@ -489,11 +481,6 @@
                     }
                   },
                   "required": [
-                    "passengers",
-                    "doors",
-                    "luggage",
-                    "transmission",
-                    "fuel",
                     "classification"
                   ]
                 }
