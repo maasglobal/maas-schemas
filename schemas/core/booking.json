@@ -221,11 +221,80 @@
             "image": {
               "$ref": "./units.json#/definitions/url"
             },
+            "terms": {
+
+            },
             "car": {
               "type": "object",
               "properties": {
-                "passengers": { "type": "integer" }
-              }
+                "passengers": {
+                  "description": "The number of passengers this vehicle will be able to transport",
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 200
+                },
+                "doors": {
+                  "description": "The number of doors this car model may have - an array of min & max",
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10
+                  },
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "luggage": {
+                  "description": "The number of luggage this vehicle will be able to transport - an array of [big, small] luggage",
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 200
+                  },
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "transmission": {
+                  "enum": ["manual", "automatic", null]
+                },
+                "fuel": {
+                  "enum": [
+                    "diesel",
+                    "electric",
+                    "ethanol",
+                    "gasoline",
+                    "hybrid",
+                    "hydrogen",
+                    "lpg",
+                    "multifuel",
+                    null
+                  ]
+                },
+                "classification": {
+                  "description": "ACRISS classification of the car, see https://en.wikipedia.org/wiki/ACRISS_Car_Classification_Code",
+                  "type": "string",
+                  "pattern": "[MNEHCDIJSRFGPULWOX][BCDWVLSTFJXPQZEMRHYNGK][MNCABD][RNDQHIECLSABMFVZUX]"
+                },
+                "registrationPlate": {
+                  "description": "Registration plate (e.g. if we know the actual car already)",
+                  "type": "string",
+                  "pattern": "[A-Z\\-0-9]"
+                },
+                "damage": {
+                  "description": "Any reported damages to the car (if available)",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 255
+                },
+                "fuelLevel": {
+                  "description": "The percentage of fuel the car has at the moment",
+                  "type": "number",
+                  "minLength": 0,
+                  "maxLength": 100
+                }
+              },
+              "required": ["classification"]
             }
           },
           "required": ["name", "description", "image"]
@@ -342,7 +411,7 @@
         "type": {
           "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
           "type": "string",
-          "minLength": 1,
+          "minLength": 0,
           "maxLength": 64
         },
         "validity": {

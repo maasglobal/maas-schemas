@@ -22,9 +22,7 @@
       "additionalProperties": false
     },
     "headers": {
-      "Accept": {
-        "$ref": "../../api-common.json#/definitions/acceptHeader"
-      }
+      "$ref": "../../api-common.json#/definitions/headers"
     }
   },
   "required": ["payload"],

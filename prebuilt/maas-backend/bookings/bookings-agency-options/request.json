@@ -16,9 +16,7 @@
     },
     "payload": {
       "type": "object",
-      "required": [
-        "mode"
-      ],
+      "additionalProperties": false,
       "properties": {
         "mode": {
           "anyOf": [
@@ -74,6 +72,11 @@
               ]
             }
           ]
+        },
+        "agencyId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
         },
         "startTime": {
           "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
@@ -140,18 +143,25 @@
       }
     },
     "headers": {
-      "Accept": {
-        "type": "string",
-        "pattern": "\\bapplication\\/json; [\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]+version=((0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\-[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?(?:\\+[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?)\\b"
-      }
+      "type": "object",
+      "properties": {
+        "Accept": {
+          "description": "SemVer versioning schemas for versioning our resources",
+          "type": "string",
+          "pattern": "\\bapplication\\/json[,;][\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*version=((0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\-[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?(?:\\+[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?)\\b"
+        },
+        "X-Whim-User-Agent": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
     }
   },
   "definitions": {
     "payload": {
       "type": "object",
-      "required": [
-        "mode"
-      ],
+      "additionalProperties": false,
       "properties": {
         "mode": {
           "anyOf": [
@@ -207,6 +217,11 @@
               ]
             }
           ]
+        },
+        "agencyId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
         },
         "startTime": {
           "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",

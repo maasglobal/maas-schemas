@@ -17,20 +17,19 @@
       "$ref": "#/definitions/payload"
     },
     "headers": {
-      "Accept": {
-        "$ref": "../../api-common.json#/definitions/acceptHeader"
-      }
+      "$ref": "../../api-common.json#/definitions/headers"
     }
   },
   "definitions": {
     "payload": {
       "type": "object",
-      "required": [
-        "mode"
-      ],
+      "additionalProperties": false,
       "properties": {
         "mode": {
           "$ref": "../../../core/mode.json#/definitions/mode"
+        },
+        "agencyId": {
+          "$ref": "../../../core/plan.json#/definitions/agencyId"
         },
         "startTime": {
           "$ref": "../../../core/units.json#/definitions/time"

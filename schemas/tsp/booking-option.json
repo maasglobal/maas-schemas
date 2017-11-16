@@ -21,7 +21,6 @@
     }
   },
   "required": ["cost", "leg", "meta", "terms", "tspProduct" ],
-  "additionalProperties": false,
   "definitions": {
     "leg": {
       "type": "object",

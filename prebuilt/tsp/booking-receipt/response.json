@@ -3,6 +3,11 @@
   "id": "https://api.maas.global/tsp/booking-receipt/response",
   "description": "Response schema for getting a receipt for specific booking",
   "properties": {
+    "tspId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
     "cost": {
       "description": "A fare/price as billed by a TSP from MaaS in EUR",
       "type": "object",

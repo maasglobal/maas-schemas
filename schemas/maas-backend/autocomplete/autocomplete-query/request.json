@@ -32,6 +32,9 @@
       },
       "required": ["name"],
       "additionalProperties": false
+    },
+    "headers": {
+      "$ref": "../../api-common.json#/definitions/headers"
     }
   }
 }

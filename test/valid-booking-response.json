@@ -14,7 +14,15 @@
     "MODE_CAR":{
       "image":"https://www.sixt.de/php/fleet/vehicleimage?grp=XXAR&liso=FI&uci=1142",
       "name":"Mercedes-Maybach S-Class",
-      "description":"Special Special, Automatic transmission"
+      "description":"Special Special, Automatic transmission",
+      "car": {
+        "passengers": 4,
+        "doors": [2, 3],
+        "luggage": [2, 2],
+        "transmission": "manual",
+        "fuel": null,
+        "classification": "MBMN"
+      }
     },
     "success":true,
     "id":"9841002737",

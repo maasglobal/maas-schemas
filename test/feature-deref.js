@@ -14,28 +14,26 @@ const globPromise = (pattern, options) => (
   })
 );
 
-module.exports = function () {
-  describe('Schemas deref', () => {
-    before(() => {
-      return globPromise('schemas/*(core|tsp|maas-backend)/**/*.json', {
-        root: path.resolve('.'),
-      })
-      .then(schemaPaths => {
-        describe(`Dereferencing tests for ${schemaPaths.length} file(s)`, () => {
-          schemaPaths.forEach(schemaPath => {
-            it(`should be able to dereference ${schemaPath}`, () => {
-              return index.dereference(path.resolve(schemaPath))
-                .then(fullSchema => {
-                  expect(fullSchema).to.not.be.undefined;
-                });
-            });
+describe('Schemas deref', () => {
+  before(() => {
+    return globPromise('schemas/*(core|tsp|maas-backend)/**/*.json', {
+      root: path.resolve('.'),
+    })
+    .then(schemaPaths => {
+      describe(`Dereferencing tests for ${schemaPaths.length} file(s)`, () => {
+        schemaPaths.forEach(schemaPath => {
+          it(`should be able to dereference ${schemaPath}`, () => {
+            return index.dereference(path.resolve(schemaPath))
+              .then(fullSchema => {
+                expect(fullSchema).to.not.be.undefined;
+              });
           });
         });
       });
     });
-
-    it('[placeholder to trigger before()]', () => {
-      return Promise.resolve();
-    });
   });
-};
+
+  it('[placeholder to trigger before()]', () => {
+    return Promise.resolve();
+  });
+});

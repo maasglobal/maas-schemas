@@ -6,7 +6,7 @@ const gulp = require('gulp');
 const jsonclint = require('gulp-json-lint');
 const jsonFormat = require('gulp-json-format');
 const jsonlint = require('gulp-jsonlint');
-const mocha = require('gulp-mocha');
+const jest = require('gulp-jest').default;
 const transformUnicode = require('./utils/transform-unicode-patterns');
 
 const jsoncFiles = ['.eslintrc']; // json with comments
@@ -43,12 +43,20 @@ gulp.task('deref-schemas', () => {
       .pipe(gulp.dest('prebuilt'));
 });
 
-gulp.task('test', ['validate'], () => {
-  return gulp.src('./test/test.js', { read: false })
-    .pipe(mocha());
-});
-
 gulp.task('validate', ['jsonclint', 'jsonlint', 'eslint']);
+
+gulp.task('test', ['validate'], () => {
+  return gulp.src('./test')
+    .pipe(jest({
+      verbose: true,
+      bail: false,
+      testEnvironment: 'node',
+      testMatch: [
+        '**/test/**/*.js',
+      ],
+      setupTestFrameworkScriptFile: './jest.setupEnvironment.js',
+    }));
+});
 
 gulp.task('watch', () => {
   gulp.watch([].concat(jsonFiles, jsoncFiles, jsFiles), ['test', 'deref-schemas']);

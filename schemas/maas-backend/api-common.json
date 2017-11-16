@@ -1,11 +1,28 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/core/version",
-  "description": "SemVer versioning schemas for versioning our resources",
+  "description": "Common definitions for API schemas",
   "definitions": {
     "acceptHeader": {
+      "description": "SemVer versioning schemas for versioning our resources",
       "type": "string",
-      "pattern": "\\bapplication/json; \\s+version=((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?(?:\\+[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?)\\b"
+      "pattern": "\\bapplication/json[;,]\\s*version=((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?(?:\\+[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?)\\b"
+    },
+    "userAgentHeader": {
+      "type": "string",
+      "minLength": 1
+    },
+    "headers": {
+      "type": "object",
+      "properties": {
+        "Accept": {
+          "$ref": "#/definitions/acceptHeader"
+        },
+        "X-Whim-User-Agent": {
+          "$ref": "#/definitions/userAgentHeader"
+        }
+      },
+      "additionalProperties": true
     }
   }
 }
