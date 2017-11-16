@@ -136,6 +136,10 @@
             },
             "address": {
               "$ref": "./address.json#/definitions/componentAddress"
+            },
+            "localeAddress": {
+              "type": "string",
+              "description": "Country specific formatted address"
             }
           }
         }
