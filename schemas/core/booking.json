@@ -230,7 +230,7 @@
                 "passengers": {
                   "description": "The number of passengers this vehicle will be able to transport",
                   "type": "integer",
-                  "minimum": 1,
+                  "minimum": 0,
                   "maximum": 200
                 },
                 "doors": {
@@ -256,11 +256,9 @@
                   "maxItems": 2
                 },
                 "transmission": {
-                  "type": ["string", "null"],
                   "enum": ["manual", "automatic", null]
                 },
                 "fuel": {
-                  "type": ["string", "null"],
                   "enum": [
                     "diesel",
                     "electric",
@@ -296,7 +294,7 @@
                   "maxLength": 100
                 }
               },
-              "required": ["passengers", "doors", "luggage", "transmission", "fuel", "classification"]
+              "required": ["classification"]
             }
           },
           "required": ["name", "description", "image"]
