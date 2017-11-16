@@ -1,5 +1,33 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/itineraries/itinerary-list/request",
-  "description": "Maas Itinerary listing request"
+  "description": "Request schema for itinerary-list",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "startTime": {
+          "$ref": "../../../core/units.json#/definitions/time"
+        },
+        "endTime": {
+          "$ref": "../../../core/units.json#/definitions/time"
+        },
+        "states": {
+          "type": "string",
+          "pattern": "^([A-Ö]+,)*[A-Ö]+$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "headers": {
+      "$ref": "../../api-common.json#/definitions/headers"
+    }
+  },
+  "required": [ "identityId" ],
+  "additionalProperties": false
+
 }

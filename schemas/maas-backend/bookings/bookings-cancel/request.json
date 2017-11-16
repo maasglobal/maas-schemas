@@ -9,6 +9,9 @@
     },
     "bookingId": {
       "$ref": "../../../core/units.json#/definitions/uuid"
+    },
+    "headers": {
+      "$ref": "../../api-common.json#/definitions/headers"
     }
   }
 }

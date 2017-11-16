@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/core/profile",
-  "description": "MaaS user profiles as saved on DynamoDB",
+  "description": "MaaS user profiles as returned by our API",
   "type": "object",
   "properties": {
     "id": {
@@ -31,6 +31,14 @@
     },
     "zipCode": {
       "$ref": "./address.json#/definitions/zipCode"
+    },
+    "regionId": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 256
+    },
+    "region": {
+      "$ref": "./region.json"
     },
     "profileImageUrl": {
       "type": "string",
@@ -83,6 +91,11 @@
     "subscriptionInstance": {
       "$ref": "#/definitions/subscriptionInstance"
     },
+    "balances": {
+      "type": "array",
+      "items": {
+        "$ref": "./units.json#/definitions/fare"      }
+    },
     "created": {
       "$ref": "./units.json#/definitions/time"
     },
@@ -91,7 +104,7 @@
     }
   },
   "additionalProperties": false,
-  "required": [ "identityId", "phone", "favoriteLocations",  "balance", "paymentMethod", "subscriptionInstance" ],
+  "required": [ "identityId", "phone", "favoriteLocations",  "balance", "paymentMethod", "subscriptionInstance", "balances" ],
   "definitions": {
     "subscriptionInstance": {
       "type": "object",

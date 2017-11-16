@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/tsp/booking-receipt/request",
+  "description": "Request schema for getting a receipt for a specific booking",
+  "type": "object",
+  "properties": {
+    "tspId": {
+      "$ref": "../../core/booking.json#/definitions/tspId"
+    }
+  },
+  "required": ["tspId"],
+  "additionalProperties": false
+}

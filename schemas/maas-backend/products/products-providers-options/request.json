@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/products/products-providers-options/request",
+  "description": "Request schema for products-providers-options",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+    },
+    "payload": {
+      "$ref": "#/definitions/payload"
+    },
+    "headers": {
+      "Accept": {
+        "$ref": "../../api-common.json#/definitions/acceptHeader"
+      },
+      "X-Whim-User-Agent": {
+        "$ref": "../../api-common.json#/definitions/userAgentHeader"
+      }
+    }
+  },
+  "required": ["identityId", "payload"],
+  "additionalProperties": false,
+  "definitions": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "lat": { "$ref": "../../../core/units.json#/definitions/relaxedLatitude" },
+        "lon": { "$ref": "../../../core/units.json#/definitions/relaxedLongitude" }
+      },
+      "required": [ "lat", "lon" ]
+    }
+  }
+}

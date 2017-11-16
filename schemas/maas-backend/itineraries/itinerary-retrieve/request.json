@@ -6,6 +6,14 @@
   "properties": {
     "itineraryId": {
       "$ref": "../../../core/units.json#/definitions/uuid"
+    },
+    "headers": {
+      "Accept": {
+        "$ref": "../../api-common.json#/definitions/acceptHeader"
+      },
+      "X-Whim-User-Agent": {
+        "$ref": "../../api-common.json#/definitions/userAgentHeader"
+      }
     }
   },
   "required": [ "itineraryId" ],

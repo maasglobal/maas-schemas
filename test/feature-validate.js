@@ -20,24 +20,20 @@ const invalidBookingResponse = {
   },
 };
 
-module.exports = function () {
+describe('Schema validation', () => {
+  describe('validate valid booking-create response', () => {
+    const schema = require('../prebuilt/tsp/booking-create/response.json');
 
-  describe('Schema validation', () => {
-    describe('validate valid booking-create response', () => {
-      const schema =
-        require('../prebuilt/tsp/booking-create/response.json');
-
-      it('should succeed without error', () => {
-        return utils.validate(schema, validBookingResponse);
-      });
+    it('should succeed without error', () => {
+      return utils.validate(schema, validBookingResponse);
     });
+  });
 
-    describe('validate invalid booking-create response', () => {
-      const schema =
-        require('../prebuilt/tsp/booking-create/response.json');
+  describe('validate invalid booking-create response', () => {
+    const schema = require('../prebuilt/tsp/booking-create/response.json');
 
-      it('should have validation error', () => {
-        return utils.validate(schema, invalidBookingResponse)
+    it('should have validation error', () => {
+      return utils.validate(schema, invalidBookingResponse)
         .then(
           response => {
             expect('should.not.succeed').to.be.null;
@@ -45,25 +41,22 @@ module.exports = function () {
             expect(error).to.be.an.instanceof(ValidationError);
           }
         );
-      });
-    });
-
-    describe('validate prebuilt booking options request schema', () => {
-      const schema =
-        require('../prebuilt/tsp/booking-options-list/request.json');
-
-      it('should succeed without error', () => {
-        return utils.validate(schema, bookingOptionsRequest);
-      });
-    });
-
-    describe('validate prebuilt booking options response schema', () => {
-      const schema =
-        require('../prebuilt/tsp/booking-options-list/response.json');
-
-      it('should succeed without error', () => {
-        return utils.validate(schema, bookingOptionsResponse);
-      });
     });
   });
-};
+
+  describe('validate prebuilt booking options request schema', () => {
+    const schema = require('../prebuilt/tsp/booking-options-list/request.json');
+
+    it('should succeed without error', () => {
+      return utils.validate(schema, bookingOptionsRequest);
+    });
+  });
+
+  describe('validate prebuilt booking options response schema', () => {
+    const schema = require('../prebuilt/tsp/booking-options-list/response.json');
+
+    it('should succeed without error', () => {
+      return utils.validate(schema, bookingOptionsResponse);
+    });
+  });
+});

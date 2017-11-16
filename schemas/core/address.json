@@ -23,9 +23,10 @@
     "zipCode": {
       "description": "Numeric zip code, see https://en.wikipedia.org/wiki/Postal_code",
       "type": "string",
-      "pattern": "^(?:\\d{3,10}|(?:\\p{L}|\\d){2,4}(\\s(?:\\p{L}|\\d){2,4})?)$"
+      "minLength": 2,
+      "maxLength": 64
     },
-    "country": {
+    "countryName": {
       "description": "Alphabetic country name",
       "type": "string",
       "pattern": "^(?:\\p{L}|\\s)+$",

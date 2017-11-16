@@ -10,34 +10,64 @@
     "products": {
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "minLength": 2,
-            "maxLength": 100
-          },
-          "type": {
-            "type": "string",
-            "minLength": 2,
-            "maxLength": 500
-          },
-          "image": {
-            "$ref": "../../../core/units.json#/definitions/url"
-          },
-          "fare": {
-            "type": "number",
-            "minimum": 0
-          },
-          "description": {
-            "type": "string",
-            "minLength": 2,
-            "maxLength": 2000
+        "$ref": "#/definitions/product"
+      }
+    }
+  },
+  "definitions": {
+    "product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "agencyId": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "tspProductId": {
+          "type": "string",
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "name": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "description": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "meta": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "icon": {
+          "$ref": "../../../core/units.json#/definitions/url"
+        },
+        "fare": {
+          "$ref": "../../../core/units.json#/definitions/fare"
+        },
+        "fares": {
+          "type": "array",
+          "items": {
+            "$ref": "../../../core/units.json#/definitions/fare"
           }
         },
-        "required": ["name", "type", "fare"],
-        "additionalProperties": false
-      }
+        "description": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 2000
+        }
+      },
+      "required": ["id", "agencyId", "tspProductId", "name", "description", "icon", "fare", "fares"],
+      "additionalProperties": true
     }
   },
   "required": ["agencyId", "products"],

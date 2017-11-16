@@ -37,7 +37,7 @@ class ValidationError extends Error {
    */
   static fromValidatorErrors(errors, object) {
     const messages = errors.map(error => {
-      return `'${error.dataPath}' ${trim(error.message)}, got '${trim(JSON.stringify(error.data))}'`;
+      return `'${error.dataPath}' ${trim(error.message)}, got '${error.data == null ? String(error.data) : trim(JSON.stringify(error.data))}'`;
     });
 
     if (messages.length > 1) {

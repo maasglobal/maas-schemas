@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/tsp/booking-read-by-id/request",
+  "description": "Request schema for update a state of a specific booking with a TSP ID from a TSP adapter",
+  "type": "object",
+  "properties": {
+    "tspId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "state": {
+      "enum": [
+        "ACTIVATED",
+        "ON_HOLD",
+        "EXPIRED"
+      ]
+    }
+  },
+  "required": [
+    "tspId",
+    "state"
+  ],
+  "additionalProperties": false
+}

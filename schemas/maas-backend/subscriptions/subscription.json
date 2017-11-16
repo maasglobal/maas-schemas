@@ -40,6 +40,9 @@
         },
         "pointCost": {
           "$ref": "../../core/pointCost.json"
+        },
+        "region": {
+          "$ref": "../../core/region.json"
         }
       },
       "additionalProperties": true
@@ -144,7 +147,7 @@
           "default": false
         }
       },
-      "required": ["activated", "modified", "validity"]
+      "required": ["validity"]
     }
   }
 }

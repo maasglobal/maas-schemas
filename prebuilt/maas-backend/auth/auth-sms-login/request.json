@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/auth/auth-sms-login/request",
+  "description": "Request schema for auth-sms-login",
+  "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "description": "Slightly looser defnintion of phone number",
+          "type": "string",
+          "pattern": "^\\+?(?:[0-9]){6,14}[0-9]$"
+        },
+        "code": {
+          "description": "TOPT login verification code",
+          "type": "string",
+          "pattern": "^[0-9]+$",
+          "minLength": 4,
+          "maxLength": 7
+        }
+      },
+      "required": [
+        "phone",
+        "code"
+      ],
+      "additionalProperties": false
+    },
+    "headers": {
+      "type": "object",
+      "properties": {
+        "Accept": {
+          "description": "SemVer versioning schemas for versioning our resources",
+          "type": "string",
+          "pattern": "\\bapplication\\/json[,;][\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*version=((0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\-[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?(?:\\+[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?)\\b"
+        },
+        "X-Whim-User-Agent": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "payload"
+  ],
+  "additionalProperties": false
+}

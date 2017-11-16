@@ -14,38 +14,239 @@
       "items": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "agencyId": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "tspProductId": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
           "name": {
             "type": "string",
-            "minLength": 2,
-            "maxLength": 100
-          },
-          "type": {
-            "type": "string",
-            "minLength": 2,
-            "maxLength": 500
-          },
-          "image": {
-            "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
-            "type": "string",
-            "pattern": "^(https?|ftp)://(?:[\\0-\\x08\\x0E-\\x1F!\"%-\\-0->@-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\x08\\x0E-\\x1F!-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*$"
-          },
-          "fare": {
-            "type": "number",
-            "minimum": 0
+            "minLength": 0,
+            "maxLength": 255
           },
           "description": {
             "type": "string",
             "minLength": 2,
             "maxLength": 2000
+          },
+          "meta": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "icon": {
+            "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
+            "type": "string",
+            "pattern": "^(https?|ftp):\\/\\/(?:[\\0-\\x08\\x0E-\\x1F!\"%-\\-0->@-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\x08\\x0E-\\x1F!-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*$"
+          },
+          "fare": {
+            "description": "A fare/price as billed from the user in WMPs or in tokens",
+            "type": "object",
+            "properties": {
+              "amount": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "currency": {
+                "type": "string",
+                "enum": [
+                  "WMP",
+                  "TOKEN"
+                ]
+              },
+              "tokenId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "additionalProperties": false
+          },
+          "fares": {
+            "type": "array",
+            "items": {
+              "description": "A fare/price as billed from the user in WMPs or in tokens",
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "currency": {
+                  "type": "string",
+                  "enum": [
+                    "WMP",
+                    "TOKEN"
+                  ]
+                },
+                "tokenId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "amount",
+                "currency"
+              ],
+              "additionalProperties": false
+            }
           }
         },
         "required": [
+          "id",
+          "agencyId",
+          "tspProductId",
           "name",
-          "type",
-          "fare"
+          "description",
+          "icon",
+          "fare",
+          "fares"
         ],
-        "additionalProperties": false
+        "additionalProperties": true
       }
+    }
+  },
+  "definitions": {
+    "product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "agencyId": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "tspProductId": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "name": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "description": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 2000
+        },
+        "meta": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "icon": {
+          "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
+          "type": "string",
+          "pattern": "^(https?|ftp):\\/\\/(?:[\\0-\\x08\\x0E-\\x1F!\"%-\\-0->@-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\x08\\x0E-\\x1F!-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*$"
+        },
+        "fare": {
+          "description": "A fare/price as billed from the user in WMPs or in tokens",
+          "type": "object",
+          "properties": {
+            "amount": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "currency": {
+              "type": "string",
+              "enum": [
+                "WMP",
+                "TOKEN"
+              ]
+            },
+            "tokenId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount",
+            "currency"
+          ],
+          "additionalProperties": false
+        },
+        "fares": {
+          "type": "array",
+          "items": {
+            "description": "A fare/price as billed from the user in WMPs or in tokens",
+            "type": "object",
+            "properties": {
+              "amount": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "currency": {
+                "type": "string",
+                "enum": [
+                  "WMP",
+                  "TOKEN"
+                ]
+              },
+              "tokenId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "id",
+        "agencyId",
+        "tspProductId",
+        "name",
+        "description",
+        "icon",
+        "fare",
+        "fares"
+      ],
+      "additionalProperties": true
     }
   },
   "required": [

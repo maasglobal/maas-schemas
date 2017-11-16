@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/bookings/bookings-agency-options/request",
-  "description": "Request schema for bookings-agency-options to send to the adapter",
+  "description": "Request schema for bookings-agency-options",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -17,18 +17,19 @@
       "$ref": "#/definitions/payload"
     },
     "headers": {
-      "type": "object"
+      "$ref": "../../api-common.json#/definitions/headers"
     }
   },
   "definitions": {
     "payload": {
       "type": "object",
-      "required": [
-        "mode"
-      ],
+      "additionalProperties": false,
       "properties": {
         "mode": {
           "$ref": "../../../core/mode.json#/definitions/mode"
+        },
+        "agencyId": {
+          "$ref": "../../../core/plan.json#/definitions/agencyId"
         },
         "startTime": {
           "$ref": "../../../core/units.json#/definitions/time"

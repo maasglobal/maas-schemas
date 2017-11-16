@@ -26,6 +26,14 @@
       },
       "required": ["devicePushToken", "deviceIdentifier", "deviceType"],
       "additionalProperties": false
+    },
+    "headers": {
+      "Accept": {
+        "$ref": "../../api-common.json#/definitions/acceptHeader"
+      },
+      "X-Whim-User-Agent": {
+        "$ref": "../../api-common.json#/definitions/userAgentHeader"
+      }
     }
   },
   "additionalProperties": false

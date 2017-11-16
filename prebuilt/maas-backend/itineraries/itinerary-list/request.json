@@ -1,5 +1,53 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/itineraries/itinerary-list/request",
-  "description": "Maas Itinerary listing request"
+  "description": "Request schema for itinerary-list",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "type": "string",
+      "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "startTime": {
+          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 1451606400
+        },
+        "endTime": {
+          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 1451606400
+        },
+        "states": {
+          "type": "string",
+          "pattern": "^([A-\\xD6]+,)*[A-\\xD6]+$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "headers": {
+      "type": "object",
+      "properties": {
+        "Accept": {
+          "description": "SemVer versioning schemas for versioning our resources",
+          "type": "string",
+          "pattern": "\\bapplication\\/json[,;][\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*version=((0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\-[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?(?:\\+[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?)\\b"
+        },
+        "X-Whim-User-Agent": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "identityId"
+  ],
+  "additionalProperties": false
 }

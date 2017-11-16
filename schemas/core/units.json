@@ -142,7 +142,7 @@
       ]
     },
     "fare": {
-      "description": "A fare/price as billed from the user in WMPs",
+      "description": "A fare/price as billed from the user in WMPs or in tokens",
       "type": "object",
       "properties": {
         "amount": {
@@ -158,7 +158,10 @@
         },
         "currency": {
           "type": "string",
-          "enum": [ "WMP" ]
+          "enum": [ "WMP", "TOKEN" ]
+        },
+        "tokenId": {
+          "type": "string"
         }
       },
       "required": ["amount", "currency"],
@@ -192,9 +195,16 @@
           "multipleOf": 0.01
         },
         "currency": {
-          "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-          "type": "string",
-          "enum": [ "EUR", "GBP" ]
+          "anyOf": [
+            {
+              "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+              "type": "string",
+              "enum": [ "EUR", "GBP" ]
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       },
       "required": ["amount", "currency"],
