@@ -266,7 +266,6 @@
       ],
       "required": [
         "identityId",
-        "city",
         "country",
         "zipCode"
       ]
