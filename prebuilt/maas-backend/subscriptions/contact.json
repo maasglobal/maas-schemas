@@ -265,9 +265,7 @@
         }
       ],
       "required": [
-        "identityId",
-        "country",
-        "zipCode"
+        "identityId"
       ]
     },
     "contactResponse": {

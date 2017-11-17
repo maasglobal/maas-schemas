@@ -25,7 +25,7 @@
           }
         }
       ],
-      "required": ["identityId", "country", "zipCode"]
+      "required": ["identityId"]
     },
     "contactResponse": {
       "allOf": [

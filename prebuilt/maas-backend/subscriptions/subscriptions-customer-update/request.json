@@ -141,9 +141,7 @@
         }
       ],
       "required": [
-        "identityId",
-        "country",
-        "zipCode"
+        "identityId"
       ]
     },
     "headers": {
