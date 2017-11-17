@@ -79,9 +79,6 @@
     "toRadius":{
       "description": "'to' location radius in meters",
       "$ref": "../../core/units.json#/definitions/distance"
-    },
-    "customer": {
-      "$ref": "../../core/booking.json#/definitions/customer"
     }
   },
   "required": ["startTime", "from"],
