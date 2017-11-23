@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/products/products-providers-retrieve/response",
+  "description": "Response schema for products-providers-retrieve",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "id": "https://api.maas.global/maas-backend/products/provider",
+      "description": "MaaS product provider schema",
+      "definitions": {
+        "provider": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255
+            },
+            "agencyId": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 64
+            },
+            "groupId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255
+            },
+            "branding": {
+              "type": "object",
+              "properties": {
+                "primaryColor": {
+                  "description": "Primary brand color, used in backgrounds etc.",
+                  "type": "string",
+                  "pattern": "^#(?:[0-9A-Fa-f]{3}){1,2}$"
+                },
+                "secondaryColor": {
+                  "description": "Secondary brand color, used in accent parts of the app.",
+                  "type": "string",
+                  "pattern": "^#(?:[0-9A-Fa-f]{3}){1,2}$"
+                },
+                "icon": {
+                  "description": "Icon shown in whim wheel, url to 240x240 png",
+                  "type": "string",
+                  "pattern": "^(https?|ftp):\\/\\/(?:[\\0-\\x08\\x0E-\\x1F!\"%-\\-0->@-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\x08\\x0E-\\x1F!-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*$"
+                },
+                "logoSolidColor": {
+                  "description": "Icon that can be shown against dark or light background, url to ???x105 png",
+                  "type": "string",
+                  "pattern": "^(https?|ftp):\\/\\/(?:[\\0-\\x08\\x0E-\\x1F!\"%-\\-0->@-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\x08\\x0E-\\x1F!-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*$"
+                },
+                "logoFullColor": {
+                  "description": "Icon that retains the providers brand identity, url to ???x105 png",
+                  "type": "string",
+                  "pattern": "^(https?|ftp):\\/\\/(?:[\\0-\\x08\\x0E-\\x1F!\"%-\\-0->@-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\x08\\x0E-\\x1F!-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*$"
+                }
+              }
+            }
+          },
+          "required": [
+            "name",
+            "agencyId",
+            "groupId",
+            "branding"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "required": [
+    "provider"
+  ],
+  "additionalProperties": false
+}
