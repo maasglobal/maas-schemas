@@ -30,6 +30,41 @@
       "type": "string",
       "pattern": "^.+@.+\\..+$",
       "maxLength": 64
+    },
+    "subscription": {
+      "description": "Subset of customer subscription information to be stored e.g. in every booking",
+      "type": "object",
+      "properties": {
+        "plan": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255
+            }
+          },
+          "required": [ "id" ],
+          "additionalProperties": false
+        },
+        "addons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          }
+        },
+        "coupons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          }
+        }
+      },
+      "required": ["plan", "addons", "coupons"]
     }
   }
 }

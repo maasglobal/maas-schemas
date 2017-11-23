@@ -862,12 +862,9 @@
                     "maxLength": 64
                   },
                   "subscription": {
+                    "description": "Subset of customer subscription information to be stored e.g. in every booking",
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer",
-                        "minValue": 0
-                      },
                       "plan": {
                         "type": "object",
                         "properties": {
@@ -1832,12 +1829,9 @@
                     "maxLength": 64
                   },
                   "subscription": {
+                    "description": "Subset of customer subscription information to be stored e.g. in every booking",
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "integer",
-                        "minValue": 0
-                      },
                       "plan": {
                         "type": "object",
                         "properties": {
@@ -1966,12 +1960,9 @@
                 "maxLength": 64
               },
               "subscription": {
+                "description": "Subset of customer subscription information to be stored e.g. in every booking",
                 "type": "object",
                 "properties": {
-                  "id": {
-                    "type": "integer",
-                    "minValue": 0
-                  },
                   "plan": {
                     "type": "object",
                     "properties": {
