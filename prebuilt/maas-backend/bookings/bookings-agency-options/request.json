@@ -16,9 +16,7 @@
     },
     "payload": {
       "type": "object",
-      "required": [
-        "mode"
-      ],
+      "additionalProperties": false,
       "properties": {
         "mode": {
           "anyOf": [
@@ -74,6 +72,11 @@
               ]
             }
           ]
+        },
+        "agencyId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
         },
         "startTime": {
           "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
@@ -158,9 +161,7 @@
   "definitions": {
     "payload": {
       "type": "object",
-      "required": [
-        "mode"
-      ],
+      "additionalProperties": false,
       "properties": {
         "mode": {
           "anyOf": [
@@ -216,6 +217,11 @@
               ]
             }
           ]
+        },
+        "agencyId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
         },
         "startTime": {
           "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
