@@ -9,7 +9,10 @@ const bookingOptionsResponse =
   require('./valid-booking-options-response.json');
 const validBookingResponse =
   require('./valid-booking-response.json');
-
+const bookingTicketRequestRequest =
+  require('./valid-booking-ticket-request.json');
+const bookingTicketRequestResponse =
+  require('./valid-booking-ticket-response.json');
 // Missing required fields [leg, customer, token] etc...
 const invalidBookingResponse = {
   customer: {
@@ -57,6 +60,22 @@ describe('Schema validation', () => {
 
     it('should succeed without error', () => {
       return utils.validate(schema, bookingOptionsResponse);
+    });
+  });
+
+  describe('validate prebuild booking ticket request schema', () => {
+    const schema = require('../prebuilt/tsp/booking-ticket/request.json');
+
+    it('should succeed without error', () => {
+      return utils.validate(schema, bookingTicketRequestRequest);
+    });
+  });
+
+  describe('validate prebuild booking ticket response schema', () => {
+    const schema = require('../prebuilt/tsp/booking-ticket/response.json');
+
+    it('should succeed without error', () => {
+      return utils.validate(schema, bookingTicketRequestResponse);
     });
   });
 });
