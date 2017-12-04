@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/products/products-providers-retrieve/request",
+  "description": "Request schema for products-providers-retrieve",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+    },
+    "payload": {
+      "$ref": "#/definitions/payload"
+    },
+    "headers": {
+      "Accept": {
+        "$ref": "../../api-common.json#/definitions/acceptHeader"
+      },
+      "X-Whim-User-Agent": {
+        "$ref": "../../api-common.json#/definitions/userAgentHeader"
+      }
+    }
+  },
+  "required": ["identityId", "payload"],
+  "additionalProperties": false,
+  "definitions": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "agencyId": { "$ref": "../../../core/plan.json#/definitions/agencyId" }
+      },
+      "required": [ "agencyId" ]
+    }
+  }
+}

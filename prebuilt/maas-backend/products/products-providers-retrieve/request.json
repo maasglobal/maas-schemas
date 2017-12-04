@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/products/products-providers-retrieve/request",
+  "description": "Request schema for products-providers-retrieve",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "type": "string",
+      "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "agencyId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
+        }
+      },
+      "required": [
+        "agencyId"
+      ]
+    },
+    "headers": {
+      "Accept": {
+        "description": "SemVer versioning schemas for versioning our resources",
+        "type": "string",
+        "pattern": "\\bapplication\\/json[,;][\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*version=((0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\-[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?(?:\\+[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?)\\b"
+      },
+      "X-Whim-User-Agent": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "required": [
+    "identityId",
+    "payload"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "agencyId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
+        }
+      },
+      "required": [
+        "agencyId"
+      ]
+    }
+  }
+}

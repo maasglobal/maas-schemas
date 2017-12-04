@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/products/provider",
+  "description": "MaaS product provider schema",
+  "definitions": {
+    "provider": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "agencyId": {
+          "$ref": "../../core/plan.json#/definitions/agencyId"
+        },
+        "groupId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "branding": {
+          "type": "object",
+          "properties": {
+            "primaryColor": {
+              "description": "Primary brand color, used in backgrounds etc.",
+              "type": "string",
+              "pattern": "^#(?:[0-9A-Fa-f]{3}){1,2}$"
+            },
+            "secondaryColor": {
+              "description": "Secondary brand color, used in accent parts of the app.",
+              "type": "string",
+              "pattern": "^#(?:[0-9A-Fa-f]{3}){1,2}$"
+            },
+            "icon": {
+              "description": "Icon shown in whim wheel, url to 240x240 png",
+              "$ref": "../../core/units.json#/definitions/url"
+            },
+            "logoSolidColor": {
+              "description": "Icon that can be shown against dark or light background, url to ???x105 png",
+              "$ref": "../../core/units.json#/definitions/url"
+            },
+            "logoFullColor": {
+              "description": "Icon that retains the providers brand identity, url to ???x105 png",
+              "$ref": "../../core/units.json#/definitions/url"
+            }
+          }
+        }
+      },
+      "required": [
+        "name",
+        "agencyId",
+        "groupId",
+        "branding"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
+
