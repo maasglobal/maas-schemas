@@ -34,6 +34,7 @@ describe('address.placeName', () => {
     '28 St John\'s Wood Road, London',
     'Shakespeare\'s Globe',
     'Tarkk´ampujankatu', // Common known validation failure
+    'Levintie   259,  Kittilä', // Known validation failure
   ]);
 
   generateTestCases(schema.definitions.placeName, false, [
