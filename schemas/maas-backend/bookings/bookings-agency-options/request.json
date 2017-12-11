@@ -26,7 +26,12 @@
       "additionalProperties": false,
       "properties": {
         "mode": {
-          "$ref": "../../../core/mode.json#/definitions/mode"
+          "$ref": "../../../core/mode.json#/definitions/mode",
+          "not": {
+            "description": "These modes are not allowed for direct agency options call",
+            "type": "string",
+            "enum": ["TAXI"]
+          }
         },
         "agencyId": {
           "$ref": "../../../core/plan.json#/definitions/agencyId"
