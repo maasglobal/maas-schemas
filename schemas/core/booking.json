@@ -74,6 +74,9 @@
         },
         "email": {
           "$ref": "./customer.json#/definitions/email"
+        },
+        "subscription": {
+          "$ref": "./customer.json#/definitions/subscription"
         }
       },
       "required": [
