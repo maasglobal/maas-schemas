@@ -63,7 +63,8 @@
         "ACTIVATED",
         "ON_HOLD",
         "EXPIRED",
-        "CANCELLED"
+        "CANCELLED",
+        "REJECTED"
       ]
     },
     "leg": {
