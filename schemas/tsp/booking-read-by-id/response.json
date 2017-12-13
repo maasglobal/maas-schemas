@@ -10,7 +10,7 @@
       "$ref": "../../core/booking.json#/definitions/cost"
     },
     "state": {
-      "enum": [ "RESERVED", "CONFIRMED", "ACTIVATED", "ON_HOLD", "EXPIRED", "CANCELLED" ]
+      "enum": [ "RESERVED", "CONFIRMED", "ACTIVATED", "ON_HOLD", "EXPIRED", "CANCELLED", "REJECTED" ]
     },
     "leg": {
       "$ref": "../booking-option.json#/definitions/legDelta"
