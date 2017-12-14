@@ -39,7 +39,7 @@
         }
       ]
     },
-    "fromRadius":{
+    "fromRadius": {
       "description": "'from' location radius in meters",
       "$ref": "../../core/units.json#/definitions/distance"
     },
@@ -76,7 +76,7 @@
         }
       ]
     },
-    "toRadius":{
+    "toRadius": {
       "description": "'to' location radius in meters",
       "$ref": "../../core/units.json#/definitions/distance"
     }
