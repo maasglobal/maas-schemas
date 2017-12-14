@@ -79,6 +79,9 @@
     "toRadius": {
       "description": "'to' location radius in meters",
       "$ref": "../../core/units.json#/definitions/distance"
+    },
+    "legGeometry": {
+      "$ref": "../../core/units.json#/definitions/polyline"
     }
   },
   "required": ["startTime", "from"],
