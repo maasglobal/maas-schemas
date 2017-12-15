@@ -81,7 +81,7 @@
       "$ref": "../../core/units.json#/definitions/distance"
     },
     "legGeometry": {
-      "$ref": "../../core/units.json#/definitions/polyline"
+      "$ref": "../../core/units.json#/definitions/polyline/properties/points"
     }
   },
   "required": ["startTime", "from"],
