@@ -220,20 +220,10 @@
       "multipleOf": 0.000001
     },
     "legGeometry": {
-      "type": "object",
-      "description": "Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm",
-      "properties": {
-        "points": {
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 65535,
-          "pattern": "^([_-~]*[\\?-\\^])+$"
-        }
-      },
-      "required": [
-        "points"
-      ],
-      "additionalProperties": false
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 65535,
+      "pattern": "^([_-~]*[\\?-\\^])+$"
     }
   },
   "required": [
