@@ -218,6 +218,12 @@
       "minimum": 0,
       "maximum": 40075000,
       "multipleOf": 0.000001
+    },
+    "legGeometry": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 65535,
+      "pattern": "^([_-~]*[\\?-\\^])+$"
     }
   },
   "required": [
