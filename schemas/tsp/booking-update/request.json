@@ -9,11 +9,8 @@
 		},
 		"state": {
 			"enum": ["ACTIVATED", "ON_HOLD", "EXPIRED"]
-		},
-		"meta": {
-			"$ref": "../../core/booking.json#/definitions/meta"
 		}
 	},
 	"required": ["tspId", "state"],
-	"additionalProperties": false
+	"additionalProperties": true
 }
