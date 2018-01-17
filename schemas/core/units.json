@@ -50,7 +50,7 @@
           "$ref": "#/definitions/longitude"
         }
       },
-      "required": [ "lat", "lon" ]
+      "required": ["lat", "lon"]
     },
     "relaxedLatitude": {
       "description": "No-numeric precision version of MaaS core latitude",
@@ -75,7 +75,7 @@
           "$ref": "#/definitions/relaxedLongitude"
         }
       },
-      "required": [ "lat", "lon" ]
+      "required": ["lat", "lon"]
     },
     "shortLocation": {
       "description": "Geographic latitude-longitude number-pair array in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
@@ -107,7 +107,7 @@
           "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
         }
       },
-      "required": [ "points" ],
+      "required": ["points"],
       "additionalProperties": false
     },
     "distance": {
@@ -162,7 +162,7 @@
         },
         "currency": {
           "type": "string",
-          "enum": [ "WMP", "TOKEN" ]
+          "enum": ["WMP", "TOKEN"]
         },
         "tokenId": {
           "type": "string"
@@ -203,7 +203,7 @@
             {
               "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
               "type": "string",
-              "enum": [ "EUR", "GBP" ]
+              "enum": ["EUR", "GBP"]
             },
             {
               "type": "null"
