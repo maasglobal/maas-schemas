@@ -213,6 +213,36 @@
       },
       "required": ["amount", "currency"],
       "additionalProperties": false
+    },
+    "bikeStation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "location": {
+          "$ref": "#/definitions/location"
+        },
+        "slots": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "number"
+            },
+            "empty": {
+              "type": "number"
+            },
+            "bikes": {
+              "type": "number"
+            }
+          },
+          "required": ["total", "empty", "bikes"]
+        }
+      },
+      "required": ["id", "name", "location"]
     }
   }
 }
