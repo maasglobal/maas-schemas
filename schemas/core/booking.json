@@ -7,7 +7,7 @@
       "$ref": "#/definitions/bookingCore"
     },
     {
-      "required": [ "id", "tspId", "state", "leg", "meta", "terms", "token", "customer" ]
+      "required": ["id", "tspId", "state", "leg", "meta", "terms", "token", "customer"]
     }
   ],
   "definitions": {
@@ -79,12 +79,7 @@
           "$ref": "./customer.json#/definitions/subscription"
         }
       },
-      "required": [
-        "firstName",
-        "lastName",
-        "phone",
-        "email"
-      ],
+      "required": ["firstName", "lastName", "phone", "email"],
       "additionalProperties": false
     },
     "leg": {
@@ -203,9 +198,7 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "id"
-              ]
+              "required": ["id"]
             }
           }
         },
