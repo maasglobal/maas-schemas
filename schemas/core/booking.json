@@ -7,7 +7,7 @@
       "$ref": "#/definitions/bookingCore"
     },
     {
-      "required": [ "id", "tspId", "state", "leg", "meta", "terms", "token", "customer" ]
+      "required": ["id", "tspId", "state", "leg", "meta", "terms", "token", "customer"]
     }
   ],
   "definitions": {
@@ -79,12 +79,7 @@
           "$ref": "./customer.json#/definitions/subscription"
         }
       },
-      "required": [
-        "firstName",
-        "lastName",
-        "phone",
-        "email"
-      ],
+      "required": ["firstName", "lastName", "phone", "email"],
       "additionalProperties": false
     },
     "leg": {
@@ -155,43 +150,11 @@
         "MODE_BICYCLE": {
           "type": "object",
           "properties": {
-            "station": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "location": {
-                  "$ref": "./units.json#/definitions/location"
-                },
-                "slots": {
-                  "type": "object",
-                  "properties": {
-                    "total": {
-                      "type": "number"
-                    },
-                    "empty": {
-                      "type": "number"
-                    },
-                    "bikes": {
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "total",
-                    "empty",
-                    "bikes"
-                  ]
-                }
-              },
-              "required": [
-                "id",
-                "name",
-                "location"
-              ]
+            "pickupStation": {
+              "$ref": "./units.json#/definitions/bikeStation"
+            },
+            "returnStation": {
+              "$ref": "./units.json#/definitions/bikeStation"
             },
             "bike": {
               "type": "object",
@@ -203,9 +166,7 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "id"
-              ]
+              "required": ["id"]
             }
           }
         },
@@ -224,9 +185,7 @@
             "image": {
               "$ref": "./units.json#/definitions/url"
             },
-            "terms": {
-
-            },
+            "terms": {},
             "car": {
               "type": "object",
               "properties": {
@@ -262,17 +221,7 @@
                   "enum": ["manual", "automatic", null]
                 },
                 "fuel": {
-                  "enum": [
-                    "diesel",
-                    "electric",
-                    "ethanol",
-                    "gasoline",
-                    "hybrid",
-                    "hydrogen",
-                    "lpg",
-                    "multifuel",
-                    null
-                  ]
+                  "enum": ["diesel", "electric", "ethanol", "gasoline", "hybrid", "hydrogen", "lpg", "multifuel", null]
                 },
                 "classification": {
                   "description": "ACRISS classification of the car, see https://en.wikipedia.org/wiki/ACRISS_Car_Classification_Code",
