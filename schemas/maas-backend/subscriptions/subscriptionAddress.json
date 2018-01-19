@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/subscriptions/subscription",
+  "description": "MaaS subscription address schema",
+  "definitions": {
+    "subscriptionAddress": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "$ref": "../../core/customer.json#/definitions/firstName"
+        },
+        "lastName": {
+          "$ref": "../../core/customer.json#/definitions/lastName"
+        },
+        "city": {
+          "$ref": "../../core/address.json#/definitions/city"
+        },
+        "zipCode": {
+          "$ref": "../../core/address.json#/definitions/zipCode"
+        },
+        "country": {
+          "$ref": "../../core/address.json#/definitions/country"
+        },
+        "phone": {
+          "$ref": "../../core/customer.json#/definitions/phone"
+        },
+        "email": {
+          "$ref": "../../core/customer.json#/definitions/email"
+        }
+      },
+      "required": ["zipCode", "country"],
+      "additionalProperties": false
+    }
+  }
+}
