@@ -738,15 +738,13 @@
                                   "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                                   "type": "number",
                                   "minimum": -90,
-                                  "maximum": 90,
-                                  "multipleOf": 0.000001
+                                  "maximum": 90
                                 },
                                 "lon": {
                                   "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                                   "type": "number",
                                   "minimum": -180,
-                                  "maximum": 180,
-                                  "multipleOf": 0.000001
+                                  "maximum": 180
                                 }
                               },
                               "required": [
@@ -797,15 +795,13 @@
                                   "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                                   "type": "number",
                                   "minimum": -90,
-                                  "maximum": 90,
-                                  "multipleOf": 0.000001
+                                  "maximum": 90
                                 },
                                 "lon": {
                                   "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                                   "type": "number",
                                   "minimum": -180,
-                                  "maximum": 180,
-                                  "multipleOf": 0.000001
+                                  "maximum": 180
                                 }
                               },
                               "required": [
@@ -1020,15 +1016,13 @@
                               "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                               "type": "number",
                               "minimum": -90,
-                              "maximum": 90,
-                              "multipleOf": 0.000001
+                              "maximum": 90
                             },
                             "lon": {
                               "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                               "type": "number",
                               "minimum": -180,
-                              "maximum": 180,
-                              "multipleOf": 0.000001
+                              "maximum": 180
                             }
                           },
                           "required": [
@@ -1831,15 +1825,13 @@
                                   "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                                   "type": "number",
                                   "minimum": -90,
-                                  "maximum": 90,
-                                  "multipleOf": 0.000001
+                                  "maximum": 90
                                 },
                                 "lon": {
                                   "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                                   "type": "number",
                                   "minimum": -180,
-                                  "maximum": 180,
-                                  "multipleOf": 0.000001
+                                  "maximum": 180
                                 }
                               },
                               "required": [
@@ -1890,15 +1882,13 @@
                                   "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                                   "type": "number",
                                   "minimum": -90,
-                                  "maximum": 90,
-                                  "multipleOf": 0.000001
+                                  "maximum": 90
                                 },
                                 "lon": {
                                   "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                                   "type": "number",
                                   "minimum": -180,
-                                  "maximum": 180,
-                                  "multipleOf": 0.000001
+                                  "maximum": 180
                                 }
                               },
                               "required": [
@@ -2113,15 +2103,13 @@
                               "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                               "type": "number",
                               "minimum": -90,
-                              "maximum": 90,
-                              "multipleOf": 0.000001
+                              "maximum": 90
                             },
                             "lon": {
                               "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                               "type": "number",
                               "minimum": -180,
-                              "maximum": 180,
-                              "multipleOf": 0.000001
+                              "maximum": 180
                             }
                           },
                           "required": [
@@ -2919,15 +2907,13 @@
                                 "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                                 "type": "number",
                                 "minimum": -90,
-                                "maximum": 90,
-                                "multipleOf": 0.000001
+                                "maximum": 90
                               },
                               "lon": {
                                 "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                                 "type": "number",
                                 "minimum": -180,
-                                "maximum": 180,
-                                "multipleOf": 0.000001
+                                "maximum": 180
                               }
                             },
                             "required": [
@@ -2978,15 +2964,13 @@
                                 "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                                 "type": "number",
                                 "minimum": -90,
-                                "maximum": 90,
-                                "multipleOf": 0.000001
+                                "maximum": 90
                               },
                               "lon": {
                                 "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                                 "type": "number",
                                 "minimum": -180,
-                                "maximum": 180,
-                                "multipleOf": 0.000001
+                                "maximum": 180
                               }
                             },
                             "required": [
@@ -3201,15 +3185,13 @@
                             "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                             "type": "number",
                             "minimum": -90,
-                            "maximum": 90,
-                            "multipleOf": 0.000001
+                            "maximum": 90
                           },
                           "lon": {
                             "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
                             "type": "number",
                             "minimum": -180,
-                            "maximum": 180,
-                            "multipleOf": 0.000001
+                            "maximum": 180
                           }
                         },
                         "required": [
