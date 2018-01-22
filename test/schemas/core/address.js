@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const schema = require('../../../prebuilt/core/address.json');
+const schema = require('../../../prebuilt/core/components/address.json');
 const validator = require('../../../validator');
 const ValidationError = require('../../../ValidationError');
 
