@@ -40,7 +40,7 @@
           "$ref": "../../../core/components/units.json#/definitions/identityId"
         },
         "from": {
-          "$ref": "../../../core/components/units_geo.json#/definitions/shortLocationString"
+          "$ref": "../../../core/components/units-geo.json#/definitions/shortLocationString"
         },
         "fromName": {
           "$ref": "../../../core/components/address.json#/definitions/placeName"
@@ -50,7 +50,7 @@
           "$ref": "../../../core/components/address.json#/definitions/componentAddress"
         },
         "to": {
-          "$ref": "../../../core/components/units_geo.json#/definitions/shortLocationString"
+          "$ref": "../../../core/components/units-geo.json#/definitions/shortLocationString"
         },
         "toName": {
           "$ref": "../../../core/components/address.json#/definitions/placeName"

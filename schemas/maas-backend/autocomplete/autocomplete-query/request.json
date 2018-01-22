@@ -14,10 +14,10 @@
           "$ref": "../../../core/components/address.json#/definitions/placeName"
         },
         "lat": {
-          "$ref": "../../../core/components/units_geo.json#/definitions/relaxedLatitude"
+          "$ref": "../../../core/components/units-geo.json#/definitions/relaxedLatitude"
         },
         "lon": {
-          "$ref": "../../../core/components/units_geo.json#/definitions/relaxedLongitude"
+          "$ref": "../../../core/components/units-geo.json#/definitions/relaxedLongitude"
         },
         "count": {
           "type": "integer",
@@ -26,7 +26,7 @@
           "default": 5
         },
         "radius": {
-          "$ref": "../../../core/components/units_geo.json#/definitions/distance",
+          "$ref": "../../../core/components/units-geo.json#/definitions/distance",
           "default": 5000
         }
       },

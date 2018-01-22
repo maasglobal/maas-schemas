@@ -8,7 +8,7 @@
       "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "$ref": "../../../core/components/units_geo.json#/definitions/place"
+      "$ref": "../../../core/components/units-geo.json#/definitions/place"
     },
     "headers": {
       "Accept": {

@@ -39,7 +39,7 @@
           "$ref": "#/definitions/terms"
         },
         "pointCost": {
-          "$ref": "../../core/components/pointCost.json"
+          "$ref": "../../core/components/point-cost.json"
         },
         "region": {
           "$ref": "../../core/region.json"

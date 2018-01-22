@@ -27,7 +27,7 @@
       "description": "A subset of the standard leg (../core/leg.json)",
       "properties": {
         "mode": {
-          "$ref": "../core/components/travel_mode.json"
+          "$ref": "../core/components/travel-mode.json"
         },
         "startTime": {
           "$ref": "../core/components/units.json#/definitions/time"
@@ -37,10 +37,10 @@
         },
         "from": {
           "description": "Starting location's lat and lon pair of this request",
-          "$ref": "../core/components/units_geo.json#/definitions/place"
+          "$ref": "../core/components/units-geo.json#/definitions/place"
         },
         "to": {
-          "$ref": "../core/components/units_geo.json#/definitions/place"
+          "$ref": "../core/components/units-geo.json#/definitions/place"
         },
         "departureDelay": {
           "$ref": "../core/components/units.json#/definitions/duration"
@@ -63,7 +63,7 @@
       "description": "A leg delta, containing any subset of the valid properties",
       "properties": {
         "mode": {
-          "$ref": "../core/components/travel_mode.json"
+          "$ref": "../core/components/travel-mode.json"
         },
         "startTime": {
           "$ref": "../core/components/units.json#/definitions/time"
@@ -75,10 +75,10 @@
           "$ref": "../core/components/units.json#/definitions/duration"
         },
         "from": {
-          "$ref": "../core/components/units_geo.json#/definitions/place"
+          "$ref": "../core/components/units-geo.json#/definitions/place"
         },
         "to": {
-          "$ref": "../core/components/units_geo.json#/definitions/place"
+          "$ref": "../core/components/units-geo.json#/definitions/place"
         }
       },
       "additionalProperties": false

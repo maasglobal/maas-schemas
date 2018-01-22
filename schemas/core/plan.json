@@ -3,7 +3,7 @@
   "description": "OpenTripPlanner compatible format for plans, extended with id for legs and itineraries",
   "properties": {
     "from": {
-      "$ref": "./components/units_geo.json#/definitions/place"
+      "$ref": "./components/units-geo.json#/definitions/place"
     },
     "itineraries": {
       "type": "array",

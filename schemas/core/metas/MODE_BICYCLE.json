@@ -32,7 +32,7 @@
           "type": "string"
         },
         "location": {
-          "$ref": "../components/units_geo.json#/definitions/location"
+          "$ref": "../components/units-geo.json#/definitions/location"
         },
         "slots": {
           "type": "object",

@@ -9,7 +9,7 @@
       "minLength": 1,
       "maxLength": 256
     },
-    "vehicleLocation": { "$ref": "../components/units_geo.json#/definitions/location" },
+    "vehicleLocation": { "$ref": "../components/units-geo.json#/definitions/location" },
     "vehicleType": {
       "type": "string",
       "minLength": 1,

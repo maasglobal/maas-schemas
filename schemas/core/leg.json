@@ -50,10 +50,10 @@
           "$ref": "./components/state.json#/definitions/legState"
         },
         "from": {
-          "$ref": "./components/units_geo.json#/definitions/place"
+          "$ref": "./components/units-geo.json#/definitions/place"
         },
         "to": {
-          "$ref": "./components/units_geo.json#/definitions/place"
+          "$ref": "./components/units-geo.json#/definitions/place"
         },
         "startTime": {
           "$ref": "./components/units.json#/definitions/time"
@@ -64,13 +64,13 @@
         "mode": {
           "anyOf": [
             {
-              "$ref": "./components/travel_mode.json#/definitions/personalMode"
+              "$ref": "./components/travel-mode.json#/definitions/personalMode"
             },
             {
-              "$ref": "./components/travel_mode.json#/definitions/publicTransitMode"
+              "$ref": "./components/travel-mode.json#/definitions/publicTransitMode"
             },
             {
-              "$ref": "./components/travel_mode.json#/definitions/privateTransitMode"
+              "$ref": "./components/travel-mode.json#/definitions/privateTransitMode"
             }
           ]
         },
@@ -81,7 +81,7 @@
           "$ref": "./components/units.json#/definitions/duration"
         },
         "distance": {
-          "$ref": "./components/units_geo.json#/definitions/distance"
+          "$ref": "./components/units-geo.json#/definitions/distance"
         },
         "route": {
           "type": "string",
@@ -102,7 +102,7 @@
           "$ref": "./components/agencyId.json"
         },
         "legGeometry": {
-          "$ref": "./components/units_geo.json#/definitions/polyline"
+          "$ref": "./components/units-geo.json#/definitions/polyline"
         },
         "fare": {
           "$ref": "./components/fare.json"
@@ -129,7 +129,7 @@
           "$ref": "./components/units.json#/definitions/time"
         },
         "mode": {
-          "$ref": "./components/travel_mode.json#/definitions/waitingMode"
+          "$ref": "./components/travel-mode.json#/definitions/waitingMode"
         }
       },
       "required": [
@@ -149,7 +149,7 @@
           "$ref": "./components/units.json#/definitions/time"
         },
         "mode": {
-          "$ref": "./components/travel_mode.json#/definitions/transferMode"
+          "$ref": "./components/travel-mode.json#/definitions/transferMode"
         }
       },
       "required": [

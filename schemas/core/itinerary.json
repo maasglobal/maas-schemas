@@ -37,7 +37,7 @@
       "type": "array",
       "minItems": 0,
       "items": {
-        "$ref": "./productOption.json"
+        "$ref": "./product-option.json"
       }
     }
   },

@@ -66,7 +66,7 @@
           ]
         },
         "classification": {
-          "$ref": "../components/ACRISS.json"
+          "$ref": "../components/acriss.json"
         },
         "registrationPlate": {
           "description": "Registration plate (e.g. if we know the actual car already)",

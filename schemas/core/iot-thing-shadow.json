@@ -15,10 +15,10 @@
           "type": "object",
           "properties": {
             "lat": {
-              "$ref": "./components/units_geo.json#/definitions/latitude"
+              "$ref": "./components/units-geo.json#/definitions/latitude"
             },
             "lon": {
-              "$ref": "./components/units_geo.json#/definitions/longitude"
+              "$ref": "./components/units-geo.json#/definitions/longitude"
             },
             "timestamp": {
               "$ref": "./components/units.json#/definitions/time"

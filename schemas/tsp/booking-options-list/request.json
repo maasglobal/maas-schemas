@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "mode": {
-      "$ref": "../../core/components/travel_mode.json"
+      "$ref": "../../core/components/travel-mode.json"
     },
     "startTime": {
       "$ref": "../../core/components/units.json#/definitions/time"
@@ -14,7 +14,7 @@
       "$ref": "../../core/components/units.json#/definitions/time"
     },
     "from": {
-      "$ref": "../../core/components/units_geo.json#/definitions/shortLocationString"
+      "$ref": "../../core/components/units-geo.json#/definitions/shortLocationString"
     },
     "fromName": {
       "anyOf": [
@@ -41,12 +41,12 @@
     },
     "fromRadius": {
       "description": "'from' location radius in meters",
-      "$ref": "../../core/components/units_geo.json#/definitions/distance"
+      "$ref": "../../core/components/units-geo.json#/definitions/distance"
     },
     "to": {
       "anyOf": [
         {
-          "$ref": "../../core/components/units_geo.json#/definitions/shortLocationString"
+          "$ref": "../../core/components/units-geo.json#/definitions/shortLocationString"
         },
         {
           "type": "string",
@@ -78,10 +78,10 @@
     },
     "toRadius": {
       "description": "'to' location radius in meters",
-      "$ref": "../../core/components/units_geo.json#/definitions/distance"
+      "$ref": "../../core/components/units-geo.json#/definitions/distance"
     },
     "legGeometry": {
-      "$ref": "../../core/components/units_geo.json#/definitions/polyline"
+      "$ref": "../../core/components/units-geo.json#/definitions/polyline"
     }
   },
   "required": ["startTime", "from"],

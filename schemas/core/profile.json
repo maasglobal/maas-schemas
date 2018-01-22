@@ -48,7 +48,7 @@
     "favoriteLocations": {
       "type": "array",
       "items": {
-        "$ref": "./components/units_geo.json#/definitions/place"
+        "$ref": "./components/units-geo.json#/definitions/place"
       }
     },
     "paymentMethod": {
@@ -161,7 +161,7 @@
           "type": "boolean"
         },
         "pointCost": {
-          "$ref": "./components/pointCost.json"
+          "$ref": "./components/point-cost.json"
         },
         "description": {
           "type": "string"
