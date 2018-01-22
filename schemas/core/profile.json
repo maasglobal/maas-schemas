@@ -9,28 +9,28 @@
       "minValue": 0
     },
     "identityId": {
-      "$ref": "./aws-units.json#/definitions/identityId"
+      "$ref": "./components/units.json#/definitions/identityId"
     },
     "phone": {
-      "$ref": "./customer.json#/definitions/phone"
+      "$ref": "./components/customer.json#/properties/phone"
     },
     "email": {
-      "$ref": "./customer.json#/definitions/email"
+      "$ref": "./components/customer.json#/properties/email"
     },
     "firstName": {
-      "$ref": "./customer.json#/definitions/firstName"
+      "$ref": "./components/customer.json#/properties/firstName"
     },
     "lastName": {
-      "$ref": "./customer.json#/definitions/lastName"
+      "$ref": "./components/customer.json#/properties/lastName"
     },
     "city": {
-      "$ref": "./address.json#/definitions/city"
+      "$ref": "./components/address.json#/definitions/city"
     },
     "country": {
-      "$ref": "./address.json#/definitions/country"
+      "$ref": "./components/address.json#/definitions/country"
     },
     "zipCode": {
-      "$ref": "./address.json#/definitions/zipCode"
+      "$ref": "./components/address.json#/definitions/zipCode"
     },
     "regionId": {
       "type": "string",
@@ -48,11 +48,8 @@
     "favoriteLocations": {
       "type": "array",
       "items": {
-        "$ref": "./units.json#/definitions/place"
+        "$ref": "./components/units_geo.json#/definitions/place"
       }
-    },
-    "balance": {
-      "type": "integer"
     },
     "paymentMethod": {
       "type": "object",
@@ -79,7 +76,7 @@
         },
         "expiry": {
           "description": "When this payment method expires",
-          "$ref": "./units.json#/definitions/time"
+          "$ref": "./components/units.json#/definitions/time"
         }
       },
       "required": ["type", "valid"]
@@ -91,16 +88,22 @@
     "subscriptionInstance": {
       "$ref": "#/definitions/subscriptionInstance"
     },
+    "balance": {
+      "type": "integer",
+      "minimum": 0,
+      "multipleOf": 1
+    },
     "balances": {
       "type": "array",
       "items": {
-        "$ref": "./units.json#/definitions/fare"      }
+        "$ref": "./components/fare.json"
+      }
     },
     "created": {
-      "$ref": "./units.json#/definitions/time"
+      "$ref": "./components/units.json#/definitions/time"
     },
     "modified": {
-      "$ref": "./units.json#/definitions/time"
+      "$ref": "./components/units.json#/definitions/time"
     }
   },
   "additionalProperties": false,
@@ -158,7 +161,7 @@
           "type": "boolean"
         },
         "pointCost": {
-          "$ref": "./pointCost.json"
+          "$ref": "./components/pointCost.json"
         },
         "description": {
           "type": "string"

@@ -1,381 +1,149 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/core/booking",
-  "description": "MaaS Booking schema",
-  "allOf": [
-    {
-      "$ref": "#/definitions/bookingCore"
+  "type": "object",
+  "description": "The base booking object with all fields, to be inherited",
+  "properties": {
+    "id": {
+      "$ref": "./components/units.json#/definitions/uuid"
     },
-    {
-      "required": ["id", "tspId", "state", "leg", "meta", "terms", "token", "customer"]
-    }
-  ],
-  "definitions": {
-    "bookingCore": {
-      "type": "object",
-      "description": "The base booking object with all fields, to be inherited",
-      "properties": {
-        "id": {
-          "$ref": "./units.json#/definitions/uuid"
-        },
-        "tspId": {
-          "$ref": "#/definitions/tspId"
-        },
-        "state": {
-          "$ref": "./state.json#/definitions/bookingState"
-        },
-        "fare": {
-          "$ref": "#/definitions/fare"
-        },
-        "fares": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/fare"
-          }
-        },
-        "cost": {
-          "$ref": "#/definitions/cost"
-        },
-        "leg": {
-          "$ref": "#/definitions/leg"
-        },
-        "token": {
-          "$ref": "#/definitions/token"
-        },
-        "meta": {
-          "$ref": "#/definitions/meta"
-        },
-        "terms": {
-          "$ref": "#/definitions/terms"
-        },
-        "customer": {
-          "$ref": "#/definitions/customer"
-        },
-        "product": {
-          "$ref": "./product.json"
-        },
-        "signature": {
-          "$ref": "./plan.json#/definitions/signature"
-        }
+    "tspId": {
+      "$ref": "#/definitions/tspId"
+    },
+    "state": {
+      "$ref": "./components/state.json#/definitions/bookingState"
+    },
+    "fare": {
+      "$ref": "./components/fare.json"
+    },
+    "fares": {
+      "type": "array",
+      "items": {
+        "$ref": "./components/fare.json"
       }
     },
+    "cost": {
+      "$ref": "./components/cost.json"
+    },
+    "leg": {
+      "$ref": "#/definitions/leg"
+    },
+    "token": {
+      "$ref": "#/definitions/token"
+    },
+    "meta": {
+      "$ref": "#/definitions/meta"
+    },
+    "terms": {
+      "$ref": "#/definitions/terms"
+    },
     "customer": {
-      "type": "object",
-      "description": "Booking customer information",
-      "properties": {
-        "firstName": {
-          "$ref": "./customer.json#/definitions/firstName"
-        },
-        "lastName": {
-          "$ref": "./customer.json#/definitions/lastName"
-        },
-        "phone": {
-          "$ref": "./customer.json#/definitions/phone"
-        },
-        "email": {
-          "$ref": "./customer.json#/definitions/email"
-        },
-        "subscription": {
-          "$ref": "./customer.json#/definitions/subscription"
-        }
-      },
-      "required": ["firstName", "lastName", "phone", "email"],
-      "additionalProperties": false
+      "$ref": "./components/customer.json",
+      "required": [
+        "firstName",
+        "lastName",
+        "phone",
+        "email"
+      ]
+    },
+    "product": {
+      "$ref": "./product.json"
+    },
+    "signature": {
+      "$ref": "./components/units.json#/definitions/signature"
+    }
+  },
+  "required": [
+    "tspId",
+    "state",
+    "leg",
+    "meta",
+    "terms",
+    "token",
+    "customer"
+  ],
+  "definitions": {
+    "tspId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
     },
     "leg": {
       "type": "object",
       "description": "MaaS response may return any subset of legCore",
+      "type": "object",
       "properties": {
         "signature": {
-          "$ref": "./plan.json#/definitions/signature"
+          "$ref": "./components/units.json#/definitions/signature"
         },
         "from": {
-          "$ref": "./plan.json#/definitions/legCore/properties/from"
+          "$ref": "./leg.json#/definitions/legCore/properties/from"
         },
         "to": {
-          "$ref": "./plan.json#/definitions/legCore/properties/to"
+          "$ref": "./leg.json#/definitions/legCore/properties/to"
         },
         "startTime": {
-          "$ref": "./plan.json#/definitions/legCore/properties/startTime"
+          "$ref": "./leg.json#/definitions/legCore/properties/startTime"
         },
         "endTime": {
-          "$ref": "./plan.json#/definitions/legCore/properties/endTime"
+          "$ref": "./leg.json#/definitions/legCore/properties/endTime"
         },
         "mode": {
-          "$ref": "./plan.json#/definitions/legCore/properties/mode"
+          "$ref": "./leg.json#/definitions/legCore/properties/mode"
         },
         "departureDelay": {
-          "$ref": "./plan.json#/definitions/legCore/properties/departureDelay"
+          "$ref": "./leg.json#/definitions/legCore/properties/departureDelay"
         },
         "arrivalDelay": {
-          "$ref": "./plan.json#/definitions/legCore/properties/arrivalDelay"
+          "$ref": "./leg.json#/definitions/legCore/properties/arrivalDelay"
         },
         "distance": {
-          "$ref": "./plan.json#/definitions/legCore/properties/distance"
+          "$ref": "./leg.json#/definitions/legCore/properties/distance"
         },
         "state": {
-          "$ref": "./plan.json#/definitions/legCore/properties/state"
+          "$ref": "./leg.json#/definitions/legCore/properties/state"
         },
         "route": {
-          "$ref": "./plan.json#/definitions/legCore/properties/route"
+          "$ref": "./leg.json#/definitions/legCore/properties/route"
         },
         "routeShortName": {
-          "$ref": "./plan.json#/definitions/legCore/properties/routeShortName"
+          "$ref": "./leg.json#/definitions/legCore/properties/routeShortName"
         },
         "routeLongName": {
-          "$ref": "./plan.json#/definitions/legCore/properties/routeLongName"
+          "$ref": "./leg.json#/definitions/legCore/properties/routeLongName"
         },
         "agencyId": {
-          "$ref": "./plan.json#/definitions/legCore/properties/agencyId"
+          "$ref": "./leg.json#/definitions/legCore/properties/agencyId"
         },
         "legGeometry": {
-          "$ref": "./plan.json#/definitions/legCore/properties/legGeometry"
+          "$ref": "./leg.json#/definitions/legCore/properties/legGeometry"
         }
       },
       "additionalProperties": false
-    },
-    "fare": {
-      "$ref": "./units.json#/definitions/fare"
-    },
-    "cost": {
-      "$ref": "./units.json#/definitions/cost"
     },
     "meta": {
       "type": "object",
       "description": "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
       "properties": {
-        "MODE_WALK": {
-          "type": "object"
-        },
-        "MODE_BICYCLE": {
-          "type": "object",
-          "properties": {
-            "pickupStation": {
-              "$ref": "./units.json#/definitions/bikeStation"
-            },
-            "returnStation": {
-              "$ref": "./units.json#/definitions/bikeStation"
-            },
-            "bike": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "type": {
-                  "type": "string"
-                }
-              },
-              "required": ["id"]
-            }
-          }
-        },
-        "MODE_CAR": {
-          "properties": {
-            "name": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 256
-            },
-            "description": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 256
-            },
-            "image": {
-              "$ref": "./units.json#/definitions/url"
-            },
-            "terms": {},
-            "car": {
-              "type": "object",
-              "properties": {
-                "passengers": {
-                  "description": "The number of passengers this vehicle will be able to transport",
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 200
-                },
-                "doors": {
-                  "description": "The number of doors this car model may have - an array of min & max",
-                  "type": "array",
-                  "items": {
-                    "type": "integer",
-                    "minimum": 0,
-                    "maximum": 10
-                  },
-                  "minItems": 2,
-                  "maxItems": 2
-                },
-                "luggage": {
-                  "description": "The number of luggage this vehicle will be able to transport - an array of [big, small] luggage",
-                  "type": "array",
-                  "items": {
-                    "type": "integer",
-                    "minimum": 0,
-                    "maximum": 200
-                  },
-                  "minItems": 2,
-                  "maxItems": 2
-                },
-                "transmission": {
-                  "enum": ["manual", "automatic", null]
-                },
-                "fuel": {
-                  "enum": ["diesel", "electric", "ethanol", "gasoline", "hybrid", "hydrogen", "lpg", "multifuel", null]
-                },
-                "classification": {
-                  "description": "ACRISS classification of the car, see https://en.wikipedia.org/wiki/ACRISS_Car_Classification_Code",
-                  "type": "string",
-                  "pattern": "[MNEHCDIJSRFGPULWOX][BCDWVLSTFJXPQZEMRHYNGK][MNCABD][RNDQHIECLSABMFVZUX]"
-                },
-                "registrationPlate": {
-                  "description": "Registration plate (e.g. if we know the actual car already)",
-                  "type": "string",
-                  "pattern": "[A-Z\\-0-9]"
-                },
-                "damage": {
-                  "description": "Any reported damages to the car (if available)",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 255
-                },
-                "fuelLevel": {
-                  "description": "The percentage of fuel the car has at the moment",
-                  "type": "number",
-                  "minLength": 0,
-                  "maxLength": 100
-                }
-              },
-              "required": ["classification"]
-            }
-          },
-          "required": ["name", "description", "image"]
-        },
-        "MODE_TRAM": {
-          "type": "object"
-        },
-        "MODE_SUBWAY": {
-          "type": "object"
-        },
-        "MODE_RAIL": {
-          "type": "object"
-        },
-        "MODE_BUS": {
-          "type": "object"
-        },
-        "MODE_FERRY": {
-          "type": "object"
-        },
-        "MODE_CABLE_CAR": {
-          "type": "object"
-        },
-        "MODE_GONDOLA": {
-          "type": "object"
-        },
-        "MODE_FUNICULAR": {
-          "type": "object"
-        },
-        "MODE_TRANSIT": {
-          "type": "object"
-        },
-        "MODE_TRAIN": {
-          "type": "object"
-        },
-        "MODE_TRAINISH": {
-          "type": "object"
-        },
-        "MODE_BUSISH": {
-          "type": "object"
-        },
-        "MODE_LEG_SWITCH": {
-          "type": "object"
-        },
-        "MODE_MAAS_TRIP": {
-          "type": "object"
-        },
-        "MODE_MAAS_PERSONAL": {
-          "type": "object"
-        },
-        "MODE_TAXI": {
-          "type": "object",
-          "properties": {
-            "vehicleId": {
-              "description": "The taxi id (in the taxi number plate on top of the vehicle)",
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 256
-            },
-            "vehicleLocation": { "$ref": "./units.json#/definitions/location" },
-            "vehicleType": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 256
-            },
-            "vehicleDescription": {
-              "description": "An arbitrary description of the vehicle, e.g. 'Black Jaguar'",
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 256
-            },
-            "driver": {
-              "description": "Driver information",
-              "type": "object",
-              "properties": {
-                "phone": { "$ref": "./customer.json#/definitions/phone" },
-                "name": {
-                  "description": "Driver name, e.g. 'Sergey' or 'Jane S.'",
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 128
-                },
-                "image": {
-                  "$ref": "./units.json#/definitions/url"
-                }
-              }
-            },
-            "dispatchOrderId": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 128
-            },
-            "eta": { "$ref": "./units.json#/definitions/time" },
-            "taxiCenter": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 64
-                },
-                "phone": { "$ref": "./customer.json#/definitions/phone" }
-              }
-            }
-          },
-          "additionalProperties": false
-        }
-      },
-      "additionalProperties": true
+        "MODE_WALK": "./metas/MODE_WALK.json",
+        "MODE_BICYCLE": "./metas/MODE_BICYCLE.json",
+        "MODE_CAR": "./metas/MODE_CAR.json",
+        "MODE_TRAM": "./metas/MODE_TRAM.json",
+        "MODE_SUBWAY": "./metas/MODE_SUBWAY.json",
+        "MODE_RAIL": "./metas/MODE_RAIL.json",
+        "MODE_BUS": "./metas/MODE_BUS.json",
+        "MODE_FERRY": "./metas/MODE_FERRY.json",
+        "MODE_CABLE_CAR": "./metas/MODE_CABLE_CAR.json",
+        "MODE_GONDOLA": "./metas/MODE_GONDOLA.json",
+        "MODE_FURNICULAR": "./metas/MODE_FURNICULAR.json",
+        "MODE_TRANSIT": "./metas/MODE_TRANSIT.json",
+        "MODE_TRAIN": "./metas/MODE_TRAIN.json",
+        "MODE_TRAINISH": "./metas/MODE_TRAINISH.json",
+        "MODE_BUSISH": "./metas/MODE_BUSISH.json",
+        "MODE_TAXI": "./metas/MODE_TAXI.json"
+      }
     },
     "terms": {
-      "description": "MaaS booking terms and condition for its business engine",
-      "type": "object",
-      "properties": {
-        "type": {
-          "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 64
-        },
-        "validity": {
-          "description": "Booking validity conditions",
-          "type": "object",
-          "properties": {
-            "startTime": { "$ref": "./units.json#/definitions/time" },
-            "endTime": { "$ref": "./units.json#/definitions/time" }
-          },
-          "required": ["startTime", "endTime"]
-        }
-      }
+      "$ref": "./components/terms.json"
     },
     "token": {
       "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
@@ -387,11 +155,11 @@
           "properties": {
             "startTime": {
               "description": "The starting time from which the ticket is valid",
-              "$ref": "./units.json#/definitions/time"
+              "$ref": "./components/units.json#/definitions/time"
             },
             "endTime": {
               "description": "The finishing time the ticket is valid for",
-              "$ref": "./units.json#/definitions/time"
+              "$ref": "./components/units.json#/definitions/time"
             }
           }
         },
@@ -404,11 +172,6 @@
           "type": "object"
         }
       }
-    },
-    "tspId": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 256
     }
   }
 }

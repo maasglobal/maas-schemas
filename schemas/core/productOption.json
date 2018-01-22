@@ -5,29 +5,29 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "./aws-units.json#/definitions/identityId"
+      "$ref": "./components/units.json#/definitions/identityId"
     },
     "bookingId": {
-      "$ref": "./units.json#/definitions/uuid"
+      "$ref": "./components/units.json#/definitions/uuid"
     },
     "ref": {
       "type": "integer",
       "minValue": 0
     },
     "product": {
-      "$ref": "#/definitions/product"
+      "$ref": "./product.json"
     },
     "fare": {
-      "$ref": "./units.json#/definitions/fare"
+      "$ref": "./components/fare.json"
     },
     "fares": {
       "type": "array",
       "items": {
-        "$ref": "./units.json#/definitions/fare"
+        "$ref": "./components/fare.json"
       }
     },
     "terms": {
-      "type": "object"
+      "$ref": "./components/terms.json"
     },
     "meta": {
       "$ref": "./booking.json#/definitions/meta"
@@ -40,50 +40,5 @@
     "terms",
     "meta"
   ],
-  "additionalProperties": false,
-  "definitions": {
-    "product": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 255
-        },
-        "name": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 255
-        },
-        "priority": {
-          "type": "number"
-        },
-        "agencyId": {
-          "$ref": "plan.json#/definitions/agencyId"
-        },
-        "tspProductId": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 255
-        },
-        "description": {
-          "type": "string",
-          "minLength": 1
-        },
-        "icon": {
-          "type": "string",
-          "minLength": 1
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "priority",
-        "agencyId",
-        "tspProductId",
-        "description",
-        "icon"
-      ]
-    }
-  }
+  "additionalProperties": false
 }

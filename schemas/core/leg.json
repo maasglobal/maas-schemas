@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "The base leg object with all fields, to be inherited",
+  "leg": {
+    "allOf": [
+      {
+        "$ref": "#/definitions/legExtensions"
+      },
+      {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/legCore"
+          },
+          {
+            "$ref": "#/definitions/waitingLeg"
+          },
+          {
+            "$ref": "#/definitions/transferLeg"
+          }
+        ]
+      }
+    ]
+  },
+  "definitions": {
+    "legExtensions": {
+      "type": "object",
+      "description": "MaaS specific leg extensions",
+      "properties": {
+        "id": {
+          "$ref": "./components/units.json#/definitions/uuid"
+        },
+        "signature": {
+          "$ref": "./components/units.json#/definitions/signature"
+        },
+        "tspProduct": {
+          "$ref": "../tsp/booking-option.json#/definitions/tspProduct"
+        },
+        "productOption": {
+          "description": "Index of the productOption used in the itinerary's productOptions",
+          "type": "integer",
+          "minValue": 0
+        }
+      }
+    },
+    "legCore": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "$ref": "./components/state.json#/definitions/legState"
+        },
+        "from": {
+          "$ref": "./components/units_geo.json#/definitions/place"
+        },
+        "to": {
+          "$ref": "./components/units_geo.json#/definitions/place"
+        },
+        "startTime": {
+          "$ref": "./components/units.json#/definitions/time"
+        },
+        "endTime": {
+          "$ref": "./components/units.json#/definitions/time"
+        },
+        "mode": {
+          "anyOf": [
+            {
+              "$ref": "./components/travel_mode.json#/definitions/personalMode"
+            },
+            {
+              "$ref": "./components/travel_mode.json#/definitions/publicTransitMode"
+            },
+            {
+              "$ref": "./components/travel_mode.json#/definitions/privateTransitMode"
+            }
+          ]
+        },
+        "departureDelay": {
+          "$ref": "./components/units.json#/definitions/duration"
+        },
+        "arrivalDelay": {
+          "$ref": "./components/units.json#/definitions/duration"
+        },
+        "distance": {
+          "$ref": "./components/units_geo.json#/definitions/distance"
+        },
+        "route": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "routeShortName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "routeLongName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "agencyId": {
+          "$ref": "./components/agencyId.json"
+        },
+        "legGeometry": {
+          "$ref": "./components/units_geo.json#/definitions/polyline"
+        },
+        "fare": {
+          "$ref": "./components/fare.json"
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "mode",
+        "startTime",
+        "endTime",
+        "legGeometry"
+      ],
+      "additionalProperties": true
+    },
+    "waitingLeg": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "startTime": {
+          "$ref": "./components/units.json#/definitions/time"
+        },
+        "endTime": {
+          "$ref": "./components/units.json#/definitions/time"
+        },
+        "mode": {
+          "$ref": "./components/travel_mode.json#/definitions/waitingMode"
+        }
+      },
+      "required": [
+        "mode",
+        "startTime",
+        "endTime"
+      ]
+    },
+    "transferLeg": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "startTime": {
+          "$ref": "./components/units.json#/definitions/time"
+        },
+        "endTime": {
+          "$ref": "./components/units.json#/definitions/time"
+        },
+        "mode": {
+          "$ref": "./components/travel_mode.json#/definitions/transferMode"
+        }
+      },
+      "required": [
+        "mode",
+        "startTime",
+        "endTime"
+      ]
+    }
+  }
+}

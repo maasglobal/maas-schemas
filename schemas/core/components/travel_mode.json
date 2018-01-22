@@ -1,27 +1,24 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/core/mode",
-  "description": "MaaS supported leg modes",
-  "definitions": {
-    "mode": {
-      "anyOf": [
-        {
-          "$ref": "#/definitions/waitingMode"
-        },
-        {
-          "$ref": "#/definitions/transferMode"
-        },
-        {
-          "$ref": "#/definitions/personalMode"
-        },
-        {
-          "$ref": "#/definitions/publicTransitMode"
-        },
-        {
-          "$ref": "#/definitions/privateTransitMode"
-        }
-      ]
+  "description": "Transfer modes used for MaaS internal services",
+  "anyOf": [
+    {
+      "$ref": "#/definitions/waitingMode"
     },
+    {
+      "$ref": "#/definitions/transferMode"
+    },
+    {
+      "$ref": "#/definitions/personalMode"
+    },
+    {
+      "$ref": "#/definitions/publicTransitMode"
+    },
+    {
+      "$ref": "#/definitions/privateTransitMode"
+    }
+  ],
+  "definitions": {
     "waitingMode": {
       "description": "A mode that only involves waiting in the current location",
       "type": "string",

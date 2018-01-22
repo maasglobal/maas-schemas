@@ -15,16 +15,16 @@
           "type": "object",
           "properties": {
             "lat": {
-              "$ref": "./units.json#/definitions/latitude"
+              "$ref": "./components/units_geo.json#/definitions/latitude"
             },
             "lon": {
-              "$ref": "./units.json#/definitions/longitude"
+              "$ref": "./components/units_geo.json#/definitions/longitude"
             },
             "timestamp": {
-              "$ref": "./units.json#/definitions/time"
+              "$ref": "./components/units.json#/definitions/time"
             },
             "legId": {
-              "$ref": "./units.json#/definitions/uuid"
+              "$ref": "./components/units.json#/definitions/uuid"
             }
           }
         },
@@ -32,13 +32,13 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "./units.json#/definitions/uuid"
+              "$ref": "./components/units.json#/definitions/uuid"
             },
             "timestamp": {
-              "$ref": "./units.json#/definitions/time"
+              "$ref": "./components/units.json#/definitions/time"
             },
             "state": {
-              "$ref": "./state.json#/definitions/legState"
+              "$ref": "./components/state.json#/definitions/legState"
             }
           }
         }

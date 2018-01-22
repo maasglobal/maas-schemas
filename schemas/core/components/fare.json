@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "A fare/price as billed to the user in WMPs or in tokens",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "currency": {
+      "type": "string",
+      "enum": [ "WMP", "TOKEN" ]
+    },
+    "tokenId": {
+      "type": "string"
+    }
+  },
+  "required": ["amount", "currency"],
+  "additionalProperties": false
+}
