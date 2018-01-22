@@ -14,7 +14,7 @@
       "$ref": "../../core/booking.json#/definitions/terms"
     },
     "customer": {
-      "$ref": "../../core/booking.json#/definitions/customer"
+      "$ref": "../../core/booking.json#/properties/customer"
     },
     "tspProduct": {
       "$ref": "../booking-option.json#/definitions/tspProduct"

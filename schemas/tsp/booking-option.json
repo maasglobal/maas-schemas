@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "cost": {
-      "$ref": "../core/booking.json#/definitions/cost"
+      "$ref": "../core/components/cost.json"
     },
     "leg": {
       "$ref": "#/definitions/leg"
@@ -24,18 +24,30 @@
   "definitions": {
     "leg": {
       "type": "object",
-      "description": "A subset of the standard leg (../core/plan.json#/definitions/leg)",
+      "description": "A subset of the standard leg (../core/leg.json)",
       "properties": {
-        "mode": { "$ref": "../core/mode.json" },
-        "startTime": { "$ref": "../core/units.json#/definitions/time" },
-        "endTime": { "$ref": "../core/units.json#/definitions/time" },
+        "mode": {
+          "$ref": "../core/components/travel_mode.json"
+        },
+        "startTime": {
+          "$ref": "../core/components/units.json#/definitions/time"
+        },
+        "endTime": {
+          "$ref": "../core/components/units.json#/definitions/time"
+        },
         "from": {
           "description": "Starting location's lat and lon pair of this request",
-          "$ref": "../core/units.json#/definitions/place"
+          "$ref": "../core/components/units_geo.json#/definitions/place"
         },
-        "to": { "$ref": "../core/units.json#/definitions/place" },
-        "departureDelay": { "$ref": "../core/units.json#/definitions/duration" },
-        "agencyId": { "$ref": "../core/plan.json#/definitions/legCore/properties/agencyId" }
+        "to": {
+          "$ref": "../core/components/units_geo.json#/definitions/place"
+        },
+        "departureDelay": {
+          "$ref": "../core/components/units.json#/definitions/duration"
+        },
+        "agencyId": {
+          "$ref": "../core/components/agencyId.json"
+        }
       },
       "additionalProperties": false,
       "required": [
@@ -50,12 +62,24 @@
       "type": "object",
       "description": "A leg delta, containing any subset of the valid properties",
       "properties": {
-        "mode": { "$ref": "../core/mode.json" },
-        "startTime": { "$ref": "../core/units.json#/definitions/time" },
-        "endTime": { "$ref": "../core/units.json#/definitions/time" },
-        "departureDelay": { "$ref": "../core/units.json#/definitions/duration" },
-        "from": { "$ref": "../core/units.json#/definitions/place" },
-        "to": { "$ref": "../core/units.json#/definitions/place" }
+        "mode": {
+          "$ref": "../core/components/travel_mode.json"
+        },
+        "startTime": {
+          "$ref": "../core/components/units.json#/definitions/time"
+        },
+        "endTime": {
+          "$ref": "../core/components/units.json#/definitions/time"
+        },
+        "departureDelay": {
+          "$ref": "../core/components/units.json#/definitions/duration"
+        },
+        "from": {
+          "$ref": "../core/components/units_geo.json#/definitions/place"
+        },
+        "to": {
+          "$ref": "../core/components/units_geo.json#/definitions/place"
+        }
       },
       "additionalProperties": false
     },
