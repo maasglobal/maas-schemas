@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "MaaS push notification response schema.",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "../../core/components/units.json#/definitions/identityId"
+    },
+    "results": {
+      "properties": {
+        "successCount": { "type": "integer", "minimum": 0 },
+        "failureCount": { "type": "integer", "minimum": 0 }
+      },
+      "required": ["successCount", "failureCount"]
+    }
+  },
+  "required": ["identityId", "results"],
+  "additionalProperties": false
+}
