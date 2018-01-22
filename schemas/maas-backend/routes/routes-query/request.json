@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
@@ -24,10 +24,10 @@
     },
     "headers": {
       "Accept": {
-        "$ref": "../../api-common.json#/definitions/acceptHeader"
+        "$ref": "../../../core/components/api-common.json#/definitions/acceptHeader"
       },
       "X-Whim-User-Agent": {
-        "$ref": "../../api-common.json#/definitions/userAgentHeader"
+        "$ref": "../../../core/components/api-common.json#/definitions/userAgentHeader"
       }
     }
   },
@@ -37,33 +37,33 @@
       "type": "object",
       "properties": {
         "identityId": {
-          "$ref": "../../../core/aws-units.json#/definitions/identityId"
+          "$ref": "../../../core/components/units.json#/definitions/identityId"
         },
         "from": {
-          "$ref": "../../../core/units.json#/definitions/shortLocationString"
+          "$ref": "../../../core/components/units_geo.json#/definitions/shortLocationString"
         },
         "fromName": {
-          "$ref": "../../../core/address.json#/definitions/placeName"
+          "$ref": "../../../core/components/address.json#/definitions/placeName"
         },
         "fromAddress": {
           "description": "Componentized from address",
-          "$ref": "../../../core/address.json#/definitions/componentAddress"
+          "$ref": "../../../core/components/address.json#/definitions/componentAddress"
         },
         "to": {
-          "$ref": "../../../core/units.json#/definitions/shortLocationString"
+          "$ref": "../../../core/components/units_geo.json#/definitions/shortLocationString"
         },
         "toName": {
-          "$ref": "../../../core/address.json#/definitions/placeName"
+          "$ref": "../../../core/components/address.json#/definitions/placeName"
         },
         "toAddress": {
           "description": "Componentized to address",
-          "$ref": "../../../core/address.json#/definitions/componentAddress"
+          "$ref": "../../../core/components/address.json#/definitions/componentAddress"
         },
         "leaveAt": {
-          "$ref": "../../../core/units.json#/definitions/time"
+          "$ref": "../../../core/components/units.json#/definitions/time"
         },
         "arriveBy": {
-          "$ref": "../../../core/units.json#/definitions/time"
+          "$ref": "../../../core/components/units.json#/definitions/time"
         },
         "modes": {
           "type": "string",

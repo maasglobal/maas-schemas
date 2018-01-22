@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
@@ -16,7 +16,7 @@
           "pattern": "^.{32,255}$"
         },
         "deviceIdentifier": {
-          "$ref": "../../../core/units.json#/definitions/uuid"
+          "$ref": "../../../core/components/units.json#/definitions/uuid"
         },
         "deviceType": {
           "type": "string",
@@ -29,10 +29,10 @@
     },
     "headers": {
       "Accept": {
-        "$ref": "../../api-common.json#/definitions/acceptHeader"
+        "$ref": "../../../core/components/api-common.json#/definitions/acceptHeader"
       },
       "X-Whim-User-Agent": {
-        "$ref": "../../api-common.json#/definitions/userAgentHeader"
+        "$ref": "../../../core/components/api-common.json#/definitions/userAgentHeader"
       }
     }
   },

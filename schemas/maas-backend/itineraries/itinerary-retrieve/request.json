@@ -5,14 +5,14 @@
   "type": "object",
   "properties": {
     "itineraryId": {
-      "$ref": "../../../core/units.json#/definitions/uuid"
+      "$ref": "../../../core/components/units.json#/definitions/uuid"
     },
     "headers": {
       "Accept": {
-        "$ref": "../../api-common.json#/definitions/acceptHeader"
+        "$ref": "../../../core/components/api-common.json#/definitions/acceptHeader"
       },
       "X-Whim-User-Agent": {
-        "$ref": "../../api-common.json#/definitions/userAgentHeader"
+        "$ref": "../../../core/components/api-common.json#/definitions/userAgentHeader"
       }
     }
   },

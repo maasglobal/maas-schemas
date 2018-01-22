@@ -5,19 +5,19 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
       "properties": {
         "name": {
-          "$ref": "../../../core/address.json#/definitions/placeName"
+          "$ref": "../../../core/components/address.json#/definitions/placeName"
         },
         "lat": {
-          "$ref": "../../../core/units.json#/definitions/relaxedLatitude"
+          "$ref": "../../../core/components/units_geo.json#/definitions/relaxedLatitude"
         },
         "lon": {
-          "$ref": "../../../core/units.json#/definitions/relaxedLongitude"
+          "$ref": "../../../core/components/units_geo.json#/definitions/relaxedLongitude"
         },
         "count": {
           "type": "integer",
@@ -26,7 +26,7 @@
           "default": 5
         },
         "radius": {
-          "$ref": "../../../core/units.json#/definitions/distance",
+          "$ref": "../../../core/components/units_geo.json#/definitions/distance",
           "default": 5000
         }
       },
@@ -34,7 +34,7 @@
       "additionalProperties": false
     },
     "headers": {
-      "$ref": "../../api-common.json#/definitions/headers"
+      "$ref": "../../../core/components/api-common.json#/definitions/headers"
     }
   }
 }

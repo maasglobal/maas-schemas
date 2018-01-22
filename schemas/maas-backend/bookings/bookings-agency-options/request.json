@@ -11,13 +11,13 @@
   ],
   "properties": {
     "identityId": {
-      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "$ref": "#/definitions/payload"
     },
     "headers": {
-      "$ref": "../../api-common.json#/definitions/headers"
+      "$ref": "../../../core/components/api-common.json#/definitions/headers"
     }
   },
   "definitions": {
@@ -26,44 +26,44 @@
       "additionalProperties": false,
       "properties": {
         "mode": {
-          "$ref": "../../../core/mode.json#/definitions/mode"
+          "$ref": "../../../core/components/travel_mode.json"
         },
         "agencyId": {
-          "$ref": "../../../core/plan.json#/definitions/agencyId"
+          "$ref": "../../../core/components/agencyId.json"
         },
         "startTime": {
-          "$ref": "../../../core/units.json#/definitions/time"
+          "$ref": "../../../core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "../../../core/units.json#/definitions/time"
+          "$ref": "../../../core/components/units.json#/definitions/time"
         },
         "from": {
-          "$ref": "../../../core/units.json#/definitions/shortLocationString"
+          "$ref": "../../../core/components/units_geo.json#/definitions/shortLocationString"
         },
         "to": {
-          "$ref": "../../../core/units.json#/definitions/shortLocationString"
+          "$ref": "../../../core/components/units_geo.json#/definitions/shortLocationString"
         },
         "fromName": {
           "description": "The human understandable name for 'from'",
-          "$ref": "../../../core/address.json#/definitions/placeName"
+          "$ref": "../../../core/components/address.json#/definitions/placeName"
         },
         "fromAddress": {
           "description": "Componentized from address",
-          "$ref": "../../../core/address.json#/definitions/componentAddress"
+          "$ref": "../../../core/components/address.json#/definitions/componentAddress"
         },
         "fromRadius":{
-          "$ref": "../../../core/units.json#/definitions/distance"
+          "$ref": "../../../core/components/units_geo.json#/definitions/distance"
         },
         "toName": {
           "description": "The human understandable name for 'to'",
-          "$ref": "../../../core/address.json#/definitions/placeName"
+          "$ref": "../../../core/components/address.json#/definitions/placeName"
         },
         "toAddress": {
           "description": "Componentized to address",
-          "$ref": "../../../core/address.json#/definitions/componentAddress"
+          "$ref": "../../../core/components/address.json#/definitions/componentAddress"
         },
         "toRadius":{
-          "$ref": "../../../core/units.json#/definitions/distance"
+          "$ref": "../../../core/components/units_geo.json#/definitions/distance"
         }
       }
     }

@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "agencyId": {
-      "$ref": "../../../core/plan.json#/definitions/agencyId"
+      "$ref": "../../../core/components/agencyId.json"
     },
     "products": {
       "type": "array",
@@ -49,15 +49,15 @@
           "additionalProperties": true
         },
         "icon": {
-          "$ref": "../../../core/units.json#/definitions/url"
+          "$ref": "../../../core/components/units.json#/definitions/url"
         },
         "fare": {
-          "$ref": "../../../core/units.json#/definitions/fare"
+          "$ref": "../../../core/components/fare.json"
         },
         "fares": {
           "type": "array",
           "items": {
-            "$ref": "../../../core/units.json#/definitions/fare"
+            "$ref": "../../../core/components/fare.json"
           }
         },
         "description": {

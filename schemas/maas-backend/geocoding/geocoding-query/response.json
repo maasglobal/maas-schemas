@@ -10,7 +10,7 @@
     "features": {
       "type": "array",
       "items": {
-        "$ref": "../../../core/geolocation.json#/definitions/feature"
+        "$ref": "../../../core/components/geolocation.json#/definitions/feature"
       }
     },
     "debug": { "type": "object" }

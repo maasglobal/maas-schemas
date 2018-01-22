@@ -7,12 +7,12 @@
       "type": "object",
       "properties": {
         "from": {
-          "$ref": "../../../core/units.json#/definitions/place"
+          "$ref": "../../../core/components/units_geo.json#/definitions/place"
         },
         "itineraries": {
           "allOf": [
             {
-              "$ref": "../../../core/plan.json#/definitions/itineraries"
+              "$ref": "../../../core/plan.json#/properties/itineraries"
             }
           ]
         }

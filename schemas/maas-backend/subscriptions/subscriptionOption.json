@@ -28,7 +28,7 @@
           "additionalProperties": true
         },
         "pointCost": {
-          "$ref": "../../core/pointCost.json"
+          "$ref": "../../core/components/pointCost.json"
         },
         "wmpGrant": {
           "type": "integer",

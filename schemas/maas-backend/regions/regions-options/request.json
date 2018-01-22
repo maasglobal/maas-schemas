@@ -5,14 +5,14 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "headers": {
       "Accept": {
-        "$ref": "../../api-common.json#/definitions/acceptHeader"
+        "$ref": "../../../core/components/api-common.json#/definitions/acceptHeader"
       },
       "X-Whim-User-Agent": {
-        "$ref": "../../api-common.json#/definitions/userAgentHeader"
+        "$ref": "../../../core/components/api-common.json#/definitions/userAgentHeader"
       }
     }
   },
