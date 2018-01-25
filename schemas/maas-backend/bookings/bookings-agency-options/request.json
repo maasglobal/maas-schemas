@@ -29,7 +29,7 @@
           "$ref": "../../../core/components/travel-mode.json"
         },
         "agencyId": {
-          "$ref": "../../../core/components/agencyId.json"
+          "$ref": "../../../core/components/units.json#/definitions/agencyId"
         },
         "startTime": {
           "$ref": "../../../core/components/units.json#/definitions/time"

@@ -12,7 +12,7 @@
           "maxLength": 255
         },
         "agencyId": {
-          "$ref": "../../core/components/agencyId.json"
+          "$ref": "../../core/components/units.json#/definitions/agencyId"
         },
         "groupId": {
           "type": "string",

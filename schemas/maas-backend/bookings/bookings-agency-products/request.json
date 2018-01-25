@@ -22,7 +22,7 @@
       "required": ["agencyId"],
       "properties": {
         "agencyId": {
-          "$ref": "../../../core/components/agencyId.json"
+          "$ref": "../../../core/components/units.json#/definitions/agencyId"
         }
       }
     }

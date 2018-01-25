@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "agencyId": {
-      "$ref": "../../../core/components/agencyId.json"
+      "$ref": "../../../core/components/units.json#/definitions/agencyId"
     },
     "products": {
       "type": "array",

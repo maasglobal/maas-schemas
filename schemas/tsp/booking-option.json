@@ -46,7 +46,7 @@
           "$ref": "../core/components/units.json#/definitions/duration"
         },
         "agencyId": {
-          "$ref": "../core/components/agencyId.json"
+          "$ref": "../core/components/units.json#/definitions/agencyId"
         }
       },
       "additionalProperties": false,

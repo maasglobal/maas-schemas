@@ -31,7 +31,7 @@
       "type": "number",
       "minimum": 0,
       "maximum": 40075000,
-      "multipleOf": 0.000001
+      "multipleOf": 1
     },
     "polyline": {
       "type": "string",

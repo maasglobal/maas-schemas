@@ -99,10 +99,15 @@
           "maxLength": 255
         },
         "agencyId": {
-          "$ref": "./components/agencyId.json"
+          "$ref": "./components/units.json#/definitions/agencyId"
         },
         "legGeometry": {
-          "$ref": "./components/units-geo.json#/definitions/polyline"
+          "type": "object",
+          "properties": {
+            "points": {
+              "$ref": "./components/units-geo.json#/definitions/polyline"
+            }
+          }
         },
         "fare": {
           "$ref": "./components/fare.json"

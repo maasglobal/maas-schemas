@@ -25,7 +25,7 @@
     "payload": {
       "type": "object",
       "properties": {
-        "agencyId": { "$ref": "../../../core/components/agencyId.json" }
+        "agencyId": { "$ref": "../../../core/components/units.json#/definitions/agencyId" }
       },
       "required": [ "agencyId" ]
     }
