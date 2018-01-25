@@ -39,7 +39,7 @@
           "$ref": "#/definitions/terms"
         },
         "pointCost": {
-          "$ref": "../../core/pointCost.json"
+          "$ref": "../../core/components/point-cost.json"
         },
         "region": {
           "$ref": "../../core/region.json"
@@ -121,24 +121,24 @@
       "pattern": "^[^\\s\\/]{1,50}$"
     },
     "price": {
-      "$ref": "../../core/units.json#/definitions/cost"
+      "$ref": "../../core/components/cost.json"
     },
     "terms": {
       "description": "Terms related to this subscription",
       "type": "object",
       "properties": {
         "activated": {
-          "$ref": "../../core/units.json#/definitions/time"
+          "$ref": "../../core/components/units.json#/definitions/time"
         },
         "modified": {
-          "$ref": "../../core/units.json#/definitions/time"
+          "$ref": "../../core/components/units.json#/definitions/time"
         },
         "validity": {
           "description": "Subscription validity conditions",
           "type": "object",
           "properties": {
-            "startTime": { "$ref": "../../core/units.json#/definitions/time" },
-            "endTime": { "$ref": "../../core/units.json#/definitions/time" }
+            "startTime": { "$ref": "../../core/components/units.json#/definitions/time" },
+            "endTime": { "$ref": "../../core/components/units.json#/definitions/time" }
           },
           "required": ["startTime", "endTime"]
         },

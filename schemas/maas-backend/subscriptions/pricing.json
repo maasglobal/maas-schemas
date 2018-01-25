@@ -18,7 +18,7 @@
     },
     "total": {
       "description": "Sum of the quantity * unitPrice - sum of discounts",
-      "$ref": "../../core/units.json#/definitions/cost"
+      "$ref": "../../core/components/cost.json"
     },
     "terms": {
       "$ref": "#/definitions/terms"
@@ -50,7 +50,7 @@
         },
         "unitPrice": {
           "description": "Price of one unit after all taxes & discounts",
-          "$ref": "../../core/units.json#/definitions/cost"
+          "$ref": "../../core/components/cost.json"
         }
       },
       "required": ["id", "type", "description", "quantity", "unitPrice"],
@@ -66,7 +66,7 @@
         },
         "discount": {
           "description": "Price of one unit after all taxes & discounts",
-          "$ref": "../../core/units.json#/definitions/cost"
+          "$ref": "../../core/components/cost.json"
         }
       },
       "required": ["description", "discount"],
@@ -80,8 +80,8 @@
           "description": "Subscription validity conditions",
           "type": "object",
           "properties": {
-            "startTime": { "$ref": "../../core/units.json#/definitions/time" },
-            "endTime": { "$ref": "../../core/units.json#/definitions/time" }
+            "startTime": { "$ref": "../../core/components/units.json#/definitions/time" },
+            "endTime": { "$ref": "../../core/components/units.json#/definitions/time" }
           },
           "required": ["startTime", "endTime"]
         }

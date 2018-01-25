@@ -5,17 +5,17 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "$ref": "#/definitions/payload"
     },
     "headers": {
       "Accept": {
-        "$ref": "../../api-common.json#/definitions/acceptHeader"
+        "$ref": "../../../core/components/api-common.json#/definitions/acceptHeader"
       },
       "X-Whim-User-Agent": {
-        "$ref": "../../api-common.json#/definitions/userAgentHeader"
+        "$ref": "../../../core/components/api-common.json#/definitions/userAgentHeader"
       }
     }
   },
@@ -25,8 +25,8 @@
     "payload": {
       "type": "object",
       "properties": {
-        "lat": { "$ref": "../../../core/units.json#/definitions/relaxedLatitude" },
-        "lon": { "$ref": "../../../core/units.json#/definitions/relaxedLongitude" }
+        "lat": { "$ref": "../../../core/components/units-geo.json#/definitions/relaxedLatitude" },
+        "lon": { "$ref": "../../../core/components/units-geo.json#/definitions/relaxedLongitude" }
       },
       "required": [ "lat", "lon" ]
     }

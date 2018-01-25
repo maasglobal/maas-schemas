@@ -5,10 +5,10 @@
   "type": "object",
   "properties": {
     "customerId": {
-      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "userId": {
-      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "replace": {
       "type": "boolean",
@@ -22,7 +22,7 @@
       "$ref": "../subscription.json#/definitions/subscriptionBase"
     },
     "headers": {
-      "$ref": "../../api-common.json#/definitions/headers"
+      "$ref": "../../../core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["customerId", "userId", "payload"],

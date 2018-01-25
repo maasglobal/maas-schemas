@@ -15,10 +15,10 @@
       "maxLength": 255
     },
     "countryCode": {
-      "$ref": "./address.json#/definitions/country"
+      "$ref": "./components/address.json#/definitions/country"
     },
     "zipCode": {
-      "$ref": "./address.json#/definitions/zipCode"
+      "$ref": "./components/address.json#/definitions/zipCode"
     },
     "availability": {
       "type": "object",

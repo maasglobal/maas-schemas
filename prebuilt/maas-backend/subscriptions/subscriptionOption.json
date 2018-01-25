@@ -24,12 +24,9 @@
               "minLength": 1
             },
             "price": {
-              "description": "A fare/price as billed by a TSP from MaaS in EUR",
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "Price billled to MaaS by TSP",
               "type": "object",
-              "required": [
-                "amount",
-                "currency"
-              ],
               "properties": {
                 "amount": {
                   "anyOf": [
@@ -69,6 +66,10 @@
                   ]
                 }
               },
+              "required": [
+                "amount",
+                "currency"
+              ],
               "additionalProperties": false
             }
           },
@@ -103,12 +104,9 @@
                 "default": 1
               },
               "unitPrice": {
-                "description": "A fare/price as billed by a TSP from MaaS in EUR",
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "description": "Price billled to MaaS by TSP",
                 "type": "object",
-                "required": [
-                  "amount",
-                  "currency"
-                ],
                 "properties": {
                   "amount": {
                     "anyOf": [
@@ -148,6 +146,10 @@
                     ]
                   }
                 },
+                "required": [
+                  "amount",
+                  "currency"
+                ],
                 "additionalProperties": false
               }
             },

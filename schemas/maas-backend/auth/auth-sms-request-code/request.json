@@ -8,14 +8,14 @@
       "type": "object",
       "properties": {
         "phone": {
-          "$ref": "../../../core/customer.json#/definitions/rawPhone"
+          "$ref": "../../../core/components/customer.json#/properties/rawPhone"
         }
       },
       "required": ["phone"],
       "additionalProperties": false
     },
     "headers": {
-      "$ref": "../../api-common.json#/definitions/headers"
+      "$ref": "../../../core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["payload"],

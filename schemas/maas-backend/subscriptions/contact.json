@@ -46,33 +46,33 @@
           "$ref": "#/definitions/identityId"
         },
         "firstName": {
-          "$ref": "../../core/customer.json#/definitions/firstName"
+          "$ref": "../../core/components/customer.json#/properties/firstName"
         },
         "lastName": {
-          "$ref": "../../core/customer.json#/definitions/lastName"
+          "$ref": "../../core/components/customer.json#/properties/lastName"
         },
         "address": {
-          "$ref": "../../core/address.json#/definitions/address"
+          "$ref": "../../core/components/address.json#/definitions/address"
         },
         "city": {
-          "$ref": "../../core/address.json#/definitions/city"
+          "$ref": "../../core/components/address.json#/definitions/city"
         },
         "zipCode": {
-          "$ref": "../../core/address.json#/definitions/zipCode"
+          "$ref": "../../core/components/address.json#/definitions/zipCode"
         },
         "country": {
-          "$ref": "../../core/address.json#/definitions/country"
+          "$ref": "../../core/components/address.json#/definitions/country"
         },
         "phone": {
-          "$ref": "../../core/customer.json#/definitions/phone"
+          "$ref": "../../core/components/customer.json#/properties/phone"
         },
         "email": {
-          "$ref": "../../core/customer.json#/definitions/email"
+          "$ref": "../../core/components/customer.json#/properties/email"
         }
       }
     },
     "identityId": {
-      "$ref": "../../core/units.json#/definitions/identityId"
+      "$ref": "../../core/components/units.json#/definitions/identityId"
     },
     "paymentMethodResponse": {
       "description": "The payment (gateway) method info; no credit cards here",

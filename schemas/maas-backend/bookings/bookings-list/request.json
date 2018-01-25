@@ -5,16 +5,16 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/aws-units.json#/definitions/identityId"
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
       "properties": {
         "startTime": {
-          "$ref": "../../../core/units.json#/definitions/time"
+          "$ref": "../../../core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "../../../core/units.json#/definitions/time"
+          "$ref": "../../../core/components/units.json#/definitions/time"
         },
         "states": {
           "type": "string",
@@ -24,7 +24,7 @@
       "additionalProperties": false
     },
     "headers": {
-      "$ref": "../../api-common.json#/definitions/headers"
+      "$ref": "../../../core/components/api-common.json#/definitions/headers"
     }
   },
   "required": [ "identityId" ],

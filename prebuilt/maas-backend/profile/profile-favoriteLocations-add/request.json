@@ -9,8 +9,9 @@
       "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
     },
     "payload": {
-      "description": "A place, as a location-name pair with name and address",
       "type": "object",
+      "additionalProperties": true,
+      "description": "A place, as a location-name pair with name and address",
       "allOf": [
         {
           "description": "No-numeric precision version of MaaS core location",
@@ -36,6 +37,7 @@
         },
         {
           "type": "object",
+          "additionalProperties": true,
           "properties": {
             "name": {
               "description": "Place name (given in autocomplete)",
@@ -51,9 +53,23 @@
             "localeAddress": {
               "type": "string",
               "description": "Country specific formatted address"
+            },
+            "stopId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "stopCode": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
             }
           }
         }
+      ],
+      "required": [
+        "lat",
+        "lon"
       ]
     },
     "headers": {

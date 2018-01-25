@@ -12,7 +12,7 @@
       "items": {
         "allOf": [
           {
-            "$ref": "../../../core/geolocation.json#/definitions/feature"
+            "$ref": "../../../core/components/geolocation.json#/definitions/feature"
           },
           {
             "type": "object",

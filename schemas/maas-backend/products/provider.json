@@ -12,7 +12,7 @@
           "maxLength": 255
         },
         "agencyId": {
-          "$ref": "../../core/plan.json#/definitions/agencyId"
+          "$ref": "../../core/components/units.json#/definitions/agencyId"
         },
         "groupId": {
           "type": "string",
@@ -34,15 +34,15 @@
             },
             "icon": {
               "description": "Icon shown in whim wheel, url to 240x240 png",
-              "$ref": "../../core/units.json#/definitions/url"
+              "$ref": "../../core/components/units.json#/definitions/url"
             },
             "logoSolidColor": {
               "description": "Icon that can be shown against dark or light background, url to ???x105 png",
-              "$ref": "../../core/units.json#/definitions/url"
+              "$ref": "../../core/components/units.json#/definitions/url"
             },
             "logoFullColor": {
               "description": "Icon that retains the providers brand identity, url to ???x105 png",
-              "$ref": "../../core/units.json#/definitions/url"
+              "$ref": "../../core/components/units.json#/definitions/url"
             }
           }
         }
@@ -57,4 +57,3 @@
     }
   }
 }
-

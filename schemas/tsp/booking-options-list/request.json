@@ -5,21 +5,21 @@
   "type": "object",
   "properties": {
     "mode": {
-      "$ref": "../../core/mode.json"
+      "$ref": "../../core/components/travel-mode.json"
     },
     "startTime": {
-      "$ref": "../../core/units.json#/definitions/time"
+      "$ref": "../../core/components/units.json#/definitions/time"
     },
     "endTime": {
-      "$ref": "../../core/units.json#/definitions/time"
+      "$ref": "../../core/components/units.json#/definitions/time"
     },
     "from": {
-      "$ref": "../../core/units.json#/definitions/shortLocationString"
+      "$ref": "../../core/components/units-geo.json#/definitions/shortLocationString"
     },
     "fromName": {
       "anyOf": [
         {
-          "$ref": "../../core/address.json#/definitions/placeName"
+          "$ref": "../../core/components/address.json#/definitions/placeName"
         },
         {
           "type": "string",
@@ -31,7 +31,7 @@
       "anyOf": [
         {
           "description": "Componentized from address",
-          "$ref": "../../core/address.json#/definitions/componentAddress"
+          "$ref": "../../core/components/address.json#/definitions/componentAddress"
         },
         {
           "type": "string",
@@ -41,12 +41,12 @@
     },
     "fromRadius": {
       "description": "'from' location radius in meters",
-      "$ref": "../../core/units.json#/definitions/distance"
+      "$ref": "../../core/components/units-geo.json#/definitions/distance"
     },
     "to": {
       "anyOf": [
         {
-          "$ref": "../../core/units.json#/definitions/shortLocationString"
+          "$ref": "../../core/components/units-geo.json#/definitions/shortLocationString"
         },
         {
           "type": "string",
@@ -57,7 +57,7 @@
     "toName": {
       "anyOf": [
         {
-          "$ref": "../../core/address.json#/definitions/placeName"
+          "$ref": "../../core/components/address.json#/definitions/placeName"
         },
         {
           "type": "string",
@@ -68,7 +68,7 @@
     "toAddress": {
       "anyOf": [
         {
-          "$ref": "../../core/address.json#/definitions/componentAddress"
+          "$ref": "../../core/components/address.json#/definitions/componentAddress"
         },
         {
           "type": "string",
@@ -78,10 +78,10 @@
     },
     "toRadius": {
       "description": "'to' location radius in meters",
-      "$ref": "../../core/units.json#/definitions/distance"
+      "$ref": "../../core/components/units-geo.json#/definitions/distance"
     },
     "legGeometry": {
-      "$ref": "../../core/units.json#/definitions/polyline/properties/points"
+      "$ref": "../../core/components/units-geo.json#/definitions/polyline"
     }
   },
   "required": ["startTime", "from"],

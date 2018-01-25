@@ -8,7 +8,7 @@
       "$ref": "../../../core/itinerary.json"
     },
     "headers": {
-      "$ref": "../../api-common.json#/definitions/headers"
+      "$ref": "../../../core/components/api-common.json#/definitions/headers"
     }
   },
   "required": [ "itinerary" ],
