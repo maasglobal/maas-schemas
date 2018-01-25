@@ -1,0 +1,201 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/core/itinerary",
+  "description": "Product option for an itinerary, is either an existing booking pointer or a new booking instruction",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "type": "string",
+      "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
+    },
+    "bookingId": {
+      "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
+      "type": "string",
+      "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
+    },
+    "ref": {
+      "type": "integer",
+      "minValue": 0
+    },
+    "product": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "Product in core which encapsulates at least an id, name and a tspProductId",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "icon": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "agencyId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64
+        },
+        "tspProductId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        }
+      },
+      "required": [
+        "id",
+        "tspProductId",
+        "name"
+      ]
+    },
+    "fare": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "A fare/price as billed to the user in WMPs or in tokens",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "currency": {
+          "type": "string",
+          "enum": [
+            "WMP",
+            "TOKEN"
+          ]
+        },
+        "tokenId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "additionalProperties": false
+    },
+    "fares": {
+      "type": "array",
+      "items": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "description": "A fare/price as billed to the user in WMPs or in tokens",
+        "type": "object",
+        "properties": {
+          "amount": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "currency": {
+            "type": "string",
+            "enum": [
+              "WMP",
+              "TOKEN"
+            ]
+          },
+          "tokenId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount",
+          "currency"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "terms": {
+      "description": "MaaS booking terms and condition for its business engine",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 64
+        },
+        "validity": {
+          "description": "Booking validity conditions",
+          "type": "object",
+          "properties": {
+            "startTime": {
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+              "type": "integer",
+              "maximum": 9007199254740991,
+              "minimum": 1451606400
+            },
+            "endTime": {
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+              "type": "integer",
+              "maximum": 9007199254740991,
+              "minimum": 1451606400
+            }
+          },
+          "required": [
+            "startTime",
+            "endTime"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "meta": {
+      "type": "object",
+      "description": "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
+      "properties": {
+        "MODE_WALK": "./modes/MODE_WALK.json",
+        "MODE_BICYCLE": "./modes/MODE_BICYCLE.json",
+        "MODE_CAR": "./modes/MODE_CAR.json",
+        "MODE_TRAM": "./modes/MODE_TRAM.json",
+        "MODE_SUBWAY": "./modes/MODE_SUBWAY.json",
+        "MODE_RAIL": "./modes/MODE_RAIL.json",
+        "MODE_BUS": "./modes/MODE_BUS.json",
+        "MODE_FERRY": "./modes/MODE_FERRY.json",
+        "MODE_CABLE_CAR": "./modes/MODE_CABLE_CAR.json",
+        "MODE_GONDOLA": "./modes/MODE_GONDOLA.json",
+        "MODE_FURNICULAR": "./modes/MODE_FURNICULAR.json",
+        "MODE_TRANSIT": "./modes/MODE_TRANSIT.json",
+        "MODE_TRAIN": "./modes/MODE_TRAIN.json",
+        "MODE_TRAINISH": "./modes/MODE_TRAINISH.json",
+        "MODE_BUSISH": "./modes/MODE_BUSISH.json",
+        "MODE_TAXI": "./modes/MODE_TAXI.json"
+      }
+    }
+  },
+  "required": [
+    "identityId",
+    "ref",
+    "product",
+    "terms",
+    "meta"
+  ],
+  "additionalProperties": false
+}

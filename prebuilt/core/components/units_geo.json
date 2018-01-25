@@ -1,30 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/core/units",
-  "description": "MaaS common units that are used consistently within our own objects",
+  "description": "MaaS common geolocaion units that are used consistently within our own objects",
   "definitions": {
-    "uuid": {
-      "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
-      "type": "string",
-      "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
-    },
-    "url": {
-      "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
-      "type": "string",
-      "pattern": "^(https?|ftp):\\/\\/(?:[\\0-\\x08\\x0E-\\x1F!\"%-\\-0->@-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\x08\\x0E-\\x1F!-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*$"
-    },
-    "time": {
-      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
-      "type": "integer",
-      "maximum": 9007199254740991,
-      "minimum": 1451606400
-    },
-    "duration": {
-      "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
-      "type": "integer",
-      "maximum": 9007199254740991,
-      "minimum": -9007199254740991
-    },
     "latitude": {
       "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
       "type": "number",
@@ -36,6 +13,32 @@
       "type": "number",
       "minimum": -180,
       "maximum": 180
+    },
+    "relaxedLatitude": {
+      "description": "No-numeric precision version of MaaS core latitude",
+      "type": "number",
+      "minimum": -90,
+      "maximum": 90
+    },
+    "relaxedLongitude": {
+      "description": "No-numeric precision version of MaaS core longitude",
+      "type": "number",
+      "minimum": -180,
+      "maximum": 180
+    },
+    "distance": {
+      "description": "Distance in meters",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 40075000,
+      "multipleOf": 0.000001
+    },
+    "polyline": {
+      "type": "string",
+      "description": "Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm",
+      "minLength": 3,
+      "maxLength": 65535,
+      "pattern": "^([_-~]*[\\?-\\^])+$"
     },
     "location": {
       "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
@@ -58,18 +61,6 @@
         "lat",
         "lon"
       ]
-    },
-    "relaxedLatitude": {
-      "description": "No-numeric precision version of MaaS core latitude",
-      "type": "number",
-      "minimum": -90,
-      "maximum": 90
-    },
-    "relaxedLongitude": {
-      "description": "No-numeric precision version of MaaS core longitude",
-      "type": "number",
-      "minimum": -180,
-      "maximum": 180
     },
     "relaxedLocation": {
       "description": "No-numeric precision version of MaaS core location",
@@ -118,37 +109,10 @@
       "minLength": 1,
       "maxLength": 64
     },
-    "polyline": {
-      "type": "object",
-      "description": "Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm",
-      "properties": {
-        "points": {
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 65535,
-          "pattern": "^([_-~]*[\\?-\\^])+$"
-        }
-      },
-      "required": [
-        "points"
-      ],
-      "additionalProperties": false
-    },
-    "distance": {
-      "description": "Distance in meters",
-      "type": "number",
-      "minimum": 0,
-      "maximum": 40075000,
-      "multipleOf": 0.000001
-    },
-    "identityId": {
-      "description": "Customer identity id - currently an AWS identityId",
-      "type": "string",
-      "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
-    },
     "place": {
-      "description": "A place, as a location-name pair with name and address",
       "type": "object",
+      "additionalProperties": true,
+      "description": "A place, as a location-name pair with name and address",
       "allOf": [
         {
           "description": "No-numeric precision version of MaaS core location",
@@ -174,6 +138,7 @@
         },
         {
           "type": "object",
+          "additionalProperties": true,
           "properties": {
             "name": {
               "description": "Place name (given in autocomplete)",
@@ -189,146 +154,23 @@
             "localeAddress": {
               "type": "string",
               "description": "Country specific formatted address"
+            },
+            "stopId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "stopCode": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
             }
           }
         }
-      ]
-    },
-    "fare": {
-      "description": "A fare/price as billed from the user in WMPs or in tokens",
-      "type": "object",
-      "properties": {
-        "amount": {
-          "anyOf": [
-            {
-              "type": "integer",
-              "minimum": 0
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "currency": {
-          "type": "string",
-          "enum": [
-            "WMP",
-            "TOKEN"
-          ]
-        },
-        "tokenId": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "amount",
-        "currency"
       ],
-      "additionalProperties": false
-    },
-    "cost": {
-      "description": "A fare/price as billed by a TSP from MaaS in EUR",
-      "type": "object",
       "required": [
-        "amount",
-        "currency"
-      ],
-      "properties": {
-        "amount": {
-          "anyOf": [
-            {
-              "type": "number",
-              "minimum": 0,
-              "multipleOf": 0.01
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "discount": {
-          "type": "number",
-          "minimum": 0,
-          "multipleOf": 0.01
-        },
-        "taxes": {
-          "type": "number",
-          "minimum": 0,
-          "multipleOf": 0.01
-        },
-        "currency": {
-          "anyOf": [
-            {
-              "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-              "type": "string",
-              "enum": [
-                "EUR",
-                "GBP"
-              ]
-            },
-            {
-              "type": "null"
-            }
-          ]
-        }
-      },
-      "additionalProperties": false
-    },
-    "bikeStation": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "location": {
-          "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-          "type": "object",
-          "properties": {
-            "lat": {
-              "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-              "type": "number",
-              "minimum": -90,
-              "maximum": 90
-            },
-            "lon": {
-              "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-              "type": "number",
-              "minimum": -180,
-              "maximum": 180
-            }
-          },
-          "required": [
-            "lat",
-            "lon"
-          ]
-        },
-        "slots": {
-          "type": "object",
-          "properties": {
-            "total": {
-              "type": "number"
-            },
-            "empty": {
-              "type": "number"
-            },
-            "bikes": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "total",
-            "empty",
-            "bikes"
-          ]
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "location"
+        "lat",
+        "lon"
       ]
     }
   }

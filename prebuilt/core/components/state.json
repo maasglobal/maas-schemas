@@ -1,10 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/v1/state",
-  "description": "MaaS schema for defining states",
+  "description": "MaaS state schemas",
   "definitions": {
     "bookingState": {
-      "description": "The life-cycle state of the booking",
+      "description": "The life-cycle state of a booking",
       "type": "string",
       "enum": [
         "START",
@@ -13,16 +12,15 @@
         "RESERVED",
         "CONFIRMED",
         "ACTIVATED",
-        "CANCELLED",
-        "CANCELLED_WITH_ERRORS",
         "ON_HOLD",
+        "CANCELLED",
         "EXPIRED",
-        "RECONCILING",
-        "RESOLVED",
-        "REJECTED"
+        "REJECTED",
+        "FINISHED"
       ]
     },
     "legState": {
+      "description": "The life-cycle state of a leg",
       "type": "string",
       "enum": [
         "START",
@@ -30,11 +28,11 @@
         "PAID",
         "ACTIVATED",
         "CANCELLED",
-        "CANCELLED_WITH_ERRORS",
         "FINISHED"
       ]
     },
     "itineraryState": {
+      "description": "The life-cycle state of an itinerary",
       "type": "string",
       "enum": [
         "START",

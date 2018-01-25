@@ -31,11 +31,8 @@
           },
           "unitPrice": {
             "description": "Price of one unit after all taxes & discounts",
+            "$schema": "http://json-schema.org/draft-04/schema#",
             "type": "object",
-            "required": [
-              "amount",
-              "currency"
-            ],
             "properties": {
               "amount": {
                 "anyOf": [
@@ -75,6 +72,10 @@
                 ]
               }
             },
+            "required": [
+              "amount",
+              "currency"
+            ],
             "additionalProperties": false
           }
         },
@@ -100,11 +101,8 @@
           },
           "discount": {
             "description": "Price of one unit after all taxes & discounts",
+            "$schema": "http://json-schema.org/draft-04/schema#",
             "type": "object",
-            "required": [
-              "amount",
-              "currency"
-            ],
             "properties": {
               "amount": {
                 "anyOf": [
@@ -144,6 +142,10 @@
                 ]
               }
             },
+            "required": [
+              "amount",
+              "currency"
+            ],
             "additionalProperties": false
           }
         },
@@ -156,11 +158,8 @@
     },
     "total": {
       "description": "Sum of the quantity * unitPrice - sum of discounts",
+      "$schema": "http://json-schema.org/draft-04/schema#",
       "type": "object",
-      "required": [
-        "amount",
-        "currency"
-      ],
       "properties": {
         "amount": {
           "anyOf": [
@@ -200,6 +199,10 @@
           ]
         }
       },
+      "required": [
+        "amount",
+        "currency"
+      ],
       "additionalProperties": false
     },
     "terms": {
@@ -265,11 +268,8 @@
         },
         "unitPrice": {
           "description": "Price of one unit after all taxes & discounts",
+          "$schema": "http://json-schema.org/draft-04/schema#",
           "type": "object",
-          "required": [
-            "amount",
-            "currency"
-          ],
           "properties": {
             "amount": {
               "anyOf": [
@@ -309,6 +309,10 @@
               ]
             }
           },
+          "required": [
+            "amount",
+            "currency"
+          ],
           "additionalProperties": false
         }
       },
@@ -331,11 +335,8 @@
         },
         "discount": {
           "description": "Price of one unit after all taxes & discounts",
+          "$schema": "http://json-schema.org/draft-04/schema#",
           "type": "object",
-          "required": [
-            "amount",
-            "currency"
-          ],
           "properties": {
             "amount": {
               "anyOf": [
@@ -375,6 +376,10 @@
               ]
             }
           },
+          "required": [
+            "amount",
+            "currency"
+          ],
           "additionalProperties": false
         }
       },

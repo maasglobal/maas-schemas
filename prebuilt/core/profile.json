@@ -104,8 +104,9 @@
     "favoriteLocations": {
       "type": "array",
       "items": {
-        "description": "A place, as a location-name pair with name and address",
         "type": "object",
+        "additionalProperties": true,
+        "description": "A place, as a location-name pair with name and address",
         "allOf": [
           {
             "description": "No-numeric precision version of MaaS core location",
@@ -131,6 +132,7 @@
           },
           {
             "type": "object",
+            "additionalProperties": true,
             "properties": {
               "name": {
                 "description": "Place name (given in autocomplete)",
@@ -146,14 +148,25 @@
               "localeAddress": {
                 "type": "string",
                 "description": "Country specific formatted address"
+              },
+              "stopId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "stopCode": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
               }
             }
           }
+        ],
+        "required": [
+          "lat",
+          "lon"
         ]
       }
-    },
-    "balance": {
-      "type": "integer"
     },
     "paymentMethod": {
       "type": "object",
@@ -273,10 +286,16 @@
         "pointCost"
       ]
     },
+    "balance": {
+      "type": "integer",
+      "minimum": 0,
+      "multipleOf": 1
+    },
     "balances": {
       "type": "array",
       "items": {
-        "description": "A fare/price as billed from the user in WMPs or in tokens",
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "description": "A fare/price as billed to the user in WMPs or in tokens",
         "type": "object",
         "properties": {
           "amount": {

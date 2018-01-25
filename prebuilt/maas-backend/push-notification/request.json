@@ -1,7 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/push-notification/push-notification-apple/request",
-  "description": "MaaS Apple push notification request schema.",
+  "description": "MaaS push notification request schema.",
   "type": "object",
   "properties": {
     "identityId": {
@@ -81,7 +80,6 @@
               "minItems": 1,
               "maxItems": 1,
               "items": {
-                "description": "Customer identity id - currently an AWS identityId",
                 "type": "string",
                 "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
               }

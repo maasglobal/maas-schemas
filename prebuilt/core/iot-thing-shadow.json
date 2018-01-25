@@ -54,6 +54,7 @@
               "minimum": 1451606400
             },
             "state": {
+              "description": "The life-cycle state of a leg",
               "type": "string",
               "enum": [
                 "START",
@@ -61,7 +62,6 @@
                 "PAID",
                 "ACTIVATED",
                 "CANCELLED",
-                "CANCELLED_WITH_ERRORS",
                 "FINISHED"
               ]
             }

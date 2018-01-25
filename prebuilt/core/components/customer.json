@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/core/customer",
   "description": "MaaS customer schema",
-  "definitions": {
+  "type": "object",
+  "properties": {
     "firstName": {
       "description": "First name of the customer (e.g. John)",
       "type": "string",
@@ -72,5 +72,6 @@
         "coupons"
       ]
     }
-  }
+  },
+  "additionalProperties": false
 }
