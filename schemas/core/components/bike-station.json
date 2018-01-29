@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "Maas bike station schema",
+  "description": "MaaS bike station schema",
   "type": "object",
   "properties": {
     "id": {
