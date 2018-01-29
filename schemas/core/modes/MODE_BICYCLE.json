@@ -2,11 +2,11 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "pickupStation": {
-      "$ref": "../components/bike-station.json"
+    "pickupStationId": {
+      "type": "string"
     },
-    "returnStation": {
-      "$ref": "../components/bike-station.json"
+    "returnStationId": {
+      "type": "string"
     },
     "bike": {
       "type": "object",
