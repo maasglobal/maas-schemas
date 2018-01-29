@@ -3,20 +3,10 @@
   "type": "object",
   "properties": {
     "pickupStation": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        }
-      }
+      "$ref": "../components/bike-station.json"
     },
     "returnStation": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        }
-      }
+      "$ref": "../components/bike-station.json"
     },
     "pickupStationId": {
       "type": "string"
