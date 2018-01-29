@@ -3,10 +3,10 @@
   "type": "object",
   "properties": {
     "pickupStation": {
-      "$ref": "#/definitions/bikeStation"
+      "$ref": "../components/bike-station.json"
     },
     "returnStation": {
-      "$ref": "#/definitions/bikeStation"
+      "$ref": "../components/bike-station.json"
     },
     "bike": {
       "type": "object",
@@ -19,41 +19,6 @@
         }
       },
       "required": ["id"]
-    }
-  },
-  "definitions": {
-    "bikeStation": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "location": {
-          "$ref": "../components/units-geo.json#/definitions/location"
-        },
-        "slots": {
-          "type": "object",
-          "properties": {
-            "total": {
-              "type": "number",
-              "minimum": 0
-            },
-            "empty": {
-              "type": "number",
-              "minimum": 0
-            },
-            "bikes": {
-              "type": "number",
-              "minimum": 0
-            }
-          },
-          "required": ["total", "empty", "bikes"]
-        }
-      },
-      "required": ["id", "name", "location"]
     }
   }
 }
