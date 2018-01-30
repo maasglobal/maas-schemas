@@ -667,6 +667,11 @@
               "description": "Schemas for MODE_CAR meta field",
               "type": "object",
               "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
                 "name": {
                   "type": "string",
                   "minLength": 1,
@@ -1585,6 +1590,11 @@
               "description": "Schemas for MODE_CAR meta field",
               "type": "object",
               "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
                 "name": {
                   "type": "string",
                   "minLength": 1,
