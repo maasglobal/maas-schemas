@@ -16,8 +16,7 @@
     "image": {
       "$ref": "../components/units.json#/definitions/url"
     },
-    "terms": {
-    },
+    "terms": {},
     "car": {
       "type": "object",
       "properties": {
@@ -53,17 +52,7 @@
           "enum": ["manual", "automatic", null]
         },
         "fuel": {
-          "enum": [
-            "diesel",
-            "electric",
-            "ethanol",
-            "gasoline",
-            "hybrid",
-            "hydrogen",
-            "lpg",
-            "multifuel",
-            null
-          ]
+          "enum": ["diesel", "electric", "ethanol", "gasoline", "hybrid", "hydrogen", "lpg", "multifuel", null]
         },
         "classification": {
           "$ref": "../components/acriss.json"
