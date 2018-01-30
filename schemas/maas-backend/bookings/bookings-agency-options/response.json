@@ -11,6 +11,17 @@
         "required": ["leg", "terms", "product"]
       }
     },
+    "additional": {
+      "type": "object",
+      "properties": {
+        "bikeStations": {
+          "type": "array",
+          "items": {
+            "$ref": "../../../core/components/bike-station.json"
+          }
+        }
+      }
+    },
     "debug": {
       "type": "object",
       "additionalProperties": true
