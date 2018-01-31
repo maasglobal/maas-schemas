@@ -28,13 +28,13 @@
       "enum": ["credit", "debit", "prepaid", "not_known", "not_applicable"]
     },
     "billingCity": {
-      "$ref": "./address.json#/definitions/city"
+      "$ref": "./components/address.json#/definitions/city"
     },
     "billingCountry": {
-      "$ref": "./address.json#/definitions/country"
+      "$ref": "./components/address.json#/definitions/country"
     },
     "billingZip": {
-      "$ref": "./address.json#/definitions/zipCode"
+      "$ref": "./components/address.json#/definitions/zipCode"
     }
   },
   "required": [ "id", "customerId", "status", "valid" ],

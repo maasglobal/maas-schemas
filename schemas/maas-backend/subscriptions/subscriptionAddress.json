@@ -7,25 +7,25 @@
       "type": "object",
       "properties": {
         "firstName": {
-          "$ref": "../../core/customer.json#/definitions/firstName"
+          "$ref": "../../core/components/address.json#/definitions/firstName"
         },
         "lastName": {
-          "$ref": "../../core/customer.json#/definitions/lastName"
+          "$ref": "../../core/components/address.json#/definitions/lastName"
         },
         "city": {
-          "$ref": "../../core/address.json#/definitions/city"
+          "$ref": "../../core/components/address.json#/definitions/city"
         },
         "zipCode": {
-          "$ref": "../../core/address.json#/definitions/zipCode"
+          "$ref": "../../core/components/address.json#/definitions/zipCode"
         },
         "country": {
-          "$ref": "../../core/address.json#/definitions/country"
+          "$ref": "../../core/components/address.json#/definitions/country"
         },
         "phone": {
-          "$ref": "../../core/customer.json#/definitions/phone"
+          "$ref": "../../core/components/address.json#/definitions/phone"
         },
         "email": {
-          "$ref": "../../core/customer.json#/definitions/email"
+          "$ref": "../../core/components/address.json#/definitions/email"
         }
       },
       "required": ["zipCode", "country"],
