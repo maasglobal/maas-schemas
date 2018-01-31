@@ -25,7 +25,9 @@
       "description": "Driver information",
       "type": "object",
       "properties": {
-        "phone": { "$ref": "../components/customer.json#/properties/phone" },
+        "phone": {
+          "type": "string"
+        },
         "name": {
           "description": "Driver name, e.g. 'Sergey' or 'Jane S.'",
           "type": "string",
