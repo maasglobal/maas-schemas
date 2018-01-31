@@ -712,9 +712,7 @@
               "type": "object",
               "properties": {
                 "phone": {
-                  "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
-                  "type": "string",
-                  "pattern": "^\\+(?:[0-9]){6,14}[0-9]$"
+                  "type": "string"
                 },
                 "name": {
                   "description": "Driver name, e.g. 'Sergey' or 'Jane S.'",
