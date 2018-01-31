@@ -385,6 +385,8 @@
                 "type": "object",
                 "properties": {
                   "pickupStation": {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "description": "MaaS bike station schema",
                     "type": "object",
                     "properties": {
                       "id": {
@@ -445,6 +447,8 @@
                     ]
                   },
                   "returnStation": {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "description": "MaaS bike station schema",
                     "type": "object",
                     "properties": {
                       "id": {
@@ -504,6 +508,12 @@
                       "location"
                     ]
                   },
+                  "pickupStationId": {
+                    "type": "string"
+                  },
+                  "returnStationId": {
+                    "type": "string"
+                  },
                   "bike": {
                     "type": "object",
                     "properties": {
@@ -516,68 +526,6 @@
                     },
                     "required": [
                       "id"
-                    ]
-                  }
-                },
-                "definitions": {
-                  "bikeStation": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "location": {
-                        "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                        "type": "object",
-                        "properties": {
-                          "lat": {
-                            "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                            "type": "number",
-                            "minimum": -90,
-                            "maximum": 90
-                          },
-                          "lon": {
-                            "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
-                            "type": "number",
-                            "minimum": -180,
-                            "maximum": 180
-                          }
-                        },
-                        "required": [
-                          "lat",
-                          "lon"
-                        ]
-                      },
-                      "slots": {
-                        "type": "object",
-                        "properties": {
-                          "total": {
-                            "type": "number",
-                            "minimum": 0
-                          },
-                          "empty": {
-                            "type": "number",
-                            "minimum": 0
-                          },
-                          "bikes": {
-                            "type": "number",
-                            "minimum": 0
-                          }
-                        },
-                        "required": [
-                          "total",
-                          "empty",
-                          "bikes"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "id",
-                      "name",
-                      "location"
                     ]
                   }
                 }
@@ -804,9 +752,7 @@
                     "type": "object",
                     "properties": {
                       "phone": {
-                        "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
-                        "type": "string",
-                        "pattern": "^\\+(?:[0-9]){6,14}[0-9]$"
+                        "type": "string"
                       },
                       "name": {
                         "description": "Driver name, e.g. 'Sergey' or 'Jane S.'",
@@ -1430,6 +1376,76 @@
               "id"
             ],
             "additionalProperties": false
+          }
+        }
+      }
+    },
+    "additional": {
+      "type": "object",
+      "properties": {
+        "bikeStations": {
+          "type": "array",
+          "items": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "description": "MaaS bike station schema",
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "location": {
+                "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                "type": "object",
+                "properties": {
+                  "lat": {
+                    "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                    "type": "number",
+                    "minimum": -90,
+                    "maximum": 90
+                  },
+                  "lon": {
+                    "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+                    "type": "number",
+                    "minimum": -180,
+                    "maximum": 180
+                  }
+                },
+                "required": [
+                  "lat",
+                  "lon"
+                ]
+              },
+              "slots": {
+                "type": "object",
+                "properties": {
+                  "total": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "empty": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "bikes": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "total",
+                  "empty",
+                  "bikes"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "location"
+            ]
           }
         }
       }
