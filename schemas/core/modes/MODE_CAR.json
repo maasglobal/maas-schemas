@@ -81,6 +81,10 @@
         }
       },
       "required": ["classification"]
+    },
+    "startEndGeoRegionUrl": {
+      "description": "Region in which car can be rented and returned. Url to GeoJSON file",
+      "$ref": "../components/units.json#/definitions/url"
     }
   },
   "required": ["name", "description", "image"],
