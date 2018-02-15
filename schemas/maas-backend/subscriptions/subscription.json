@@ -5,11 +5,12 @@
   "definitions": {
     "newSubscription": {
       "$ref": "#/definitions/subscriptionBase",
-      "required": [ "plan" ],
+      "required": [ "id", "plan" ],
       "additionalProperties": false
     },
     "subscriptionUpdate": {
       "$ref": "#/definitions/subscriptionBase",
+      "required": [ ],
       "additionalProperties": false
     },
     "subscriptionResponse": {

@@ -21,6 +21,8 @@
       "default": false
     },
     "payload": {
+      "required": [],
+      "additionalProperties": false,
       "type": "object",
       "properties": {
         "id": {
@@ -395,8 +397,7 @@
           "type": "string",
           "minLength": 2
         }
-      },
-      "additionalProperties": true
+      }
     },
     "headers": {
       "type": "object",

@@ -5,6 +5,7 @@
   "definitions": {
     "newSubscription": {
       "required": [
+        "id",
         "plan"
       ],
       "additionalProperties": false,
@@ -385,6 +386,7 @@
       }
     },
     "subscriptionUpdate": {
+      "required": [],
       "additionalProperties": false,
       "type": "object",
       "properties": {
