@@ -5,6 +5,9 @@
     "from": {
       "$ref": "./components/units-geo.json#/definitions/place"
     },
+    "planId": {
+        "$ref": "./components/units.json#/definitions/uuid"
+    },
     "itineraries": {
       "type": "array",
       "minItems": 0,
