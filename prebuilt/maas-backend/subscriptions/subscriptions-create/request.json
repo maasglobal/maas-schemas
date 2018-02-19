@@ -17,7 +17,7 @@
         "id",
         "plan"
       ],
-      "additionalProperties": false,
+      "additionalProperties": true,
       "type": "object",
       "properties": {
         "id": {
