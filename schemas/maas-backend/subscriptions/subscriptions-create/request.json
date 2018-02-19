@@ -11,7 +11,7 @@
       "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "$ref": "../subscription.json#/definitions/subscriptionBase"
+      "$ref": "../subscription.json#/definitions/newSubscription"
     },
     "headers": {
       "$ref": "../../../core/components/api-common.json#/definitions/headers"

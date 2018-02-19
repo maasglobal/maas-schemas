@@ -5,21 +5,28 @@
   "definitions": {
     "newSubscription": {
       "$ref": "#/definitions/subscriptionBase",
-      "required": [ "plan" ],
-      "additionalProperties": false
+      "required": [ "id", "plan" ],
+      "additionalProperties": true
     },
     "subscriptionUpdate": {
       "$ref": "#/definitions/subscriptionBase",
-      "additionalProperties": false
+      "required": [ ],
+      "additionalProperties": true
     },
     "subscriptionResponse": {
       "$ref": "#/definitions/subscriptionBase",
       "required": [ "plan", "terms" ],
-      "additionalProperties": false
+      "additionalProperties": true
     },
     "subscriptionBase": {
       "type": "object",
       "properties": {
+        "id": {
+          "$ref": "./contact.json#/definitions/identityId"
+        },
+        "customerId": {
+          "$ref": "./contact.json#/definitions/identityId"
+        },
         "plan": {
           "$ref": "#/definitions/plan"
         },
@@ -43,6 +50,44 @@
         },
         "region": {
           "$ref": "../../core/region.json"
+        },
+        "shippingAddress": {
+          "$ref": "./subscriptionAddress.json"
+        },
+        "updateParams": {
+          "type": "object"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 2
+        },
+        "description": {
+          "type": "string",
+          "minLength": 2
+        },
+        "meta": {
+          "type": "object"
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "wmpGrant": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "selectable": {
+          "type": "boolean"
+        },
+        "topUpId": {
+          "type": "string",
+          "minLength": 2
         }
       },
       "additionalProperties": true
