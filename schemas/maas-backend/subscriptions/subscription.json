@@ -5,7 +5,7 @@
   "definitions": {
     "newSubscription": {
       "$ref": "#/definitions/subscriptionBase",
-      "required": [ "id", "plan" ],
+      "required": [ "plan" ],
       "additionalProperties": true
     },
     "subscriptionUpdate": {
