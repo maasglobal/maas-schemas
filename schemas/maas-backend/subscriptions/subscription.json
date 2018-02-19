@@ -6,17 +6,17 @@
     "newSubscription": {
       "$ref": "#/definitions/subscriptionBase",
       "required": [ "id", "plan" ],
-      "additionalProperties": false
+      "additionalProperties": true
     },
     "subscriptionUpdate": {
       "$ref": "#/definitions/subscriptionBase",
       "required": [ ],
-      "additionalProperties": false
+      "additionalProperties": true
     },
     "subscriptionResponse": {
       "$ref": "#/definitions/subscriptionBase",
       "required": [ "plan", "terms" ],
-      "additionalProperties": false
+      "additionalProperties": true
     },
     "subscriptionBase": {
       "type": "object",
