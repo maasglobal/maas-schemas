@@ -31,21 +31,6 @@
         "userId": {
           "$ref": "../../core/components/units.json#/definitions/identityId"
         },
-        "total": {
-          "type": "number",
-          "minimum": 0,
-          "multipleOf": 0.01
-        },
-        "currency": {
-          "$ref": "#/definitions/Currency"
-        },
-        "status": {
-          "type": "string",
-          "enum": [ "paid", "posted", "payment_due", "not_paid", "voided", "pending" ]
-        },
-        "dateDue": {
-          "$ref": "../../core/components/units.json#/definitions/time"
-        },
         "lineItems": {
           "type": "array",
           "items": {
@@ -63,47 +48,45 @@
       "properties": {
         "id": {
           "type": "string",
-          "minLength": 2
+          "minLength": 4
         },
-        "dateFrom": {
-          "$ref": "../../core/components/units.json#/definitions/time"
-        },
-        "dateTo": {
-          "$ref": "../../core/components/units.json#/definitions/time"
-        },
-        "entityType": {
+        "invoiceId": {
           "type": "string",
-          "minLength": 1
+          "minLength": 4
         },
-        "entityId": {
+        "gatewayId": {
           "type": "string",
-          "minLength": 1
+          "minLength": 4
+        },
+        "paymentSourceId": {
+          "type": "string",
+          "minLength": 4
+        },
+        "date": {
+          "$ref": "../../core/components/units.json#/definitions/time"
         },
         "description": {
           "type": "string",
           "minLength": 1
-        },
-        "quantity": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 100000,
-          "default": 1
         },
         "amount": {
           "type": "number",
           "minimum": 0,
           "multipleOf": 0.01
         },
-        "taxes": {
-          "type": "number",
-          "minimum": 0,
-          "multipleOf": 0.01
-        },
         "currency": {
           "$ref": "#/definitions/Currency"
+        },
+        "referenceInvoiceLineItemId": {
+          "type": "string",
+          "minLength": 4
+        },
+        "type": {
+          "type": "string",
+          "minLength": 4
         }
        },
-      "required": [ "dateFrom", "entityType", "description", "quantity", "amount", "currency", "taxes" ],
+      "required": [ "id", "gatewayId", "description", "amount", "currency", "type" ],
       "additionalProperties": false
     },
     "Currency": {
