@@ -14,7 +14,6 @@
     },
     "payload": {
       "required": [
-        "id",
         "plan"
       ],
       "additionalProperties": true,
