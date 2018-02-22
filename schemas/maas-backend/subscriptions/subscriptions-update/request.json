@@ -19,7 +19,7 @@
       "default": false
     },
     "payload": {
-      "$ref": "../subscription.json#/definitions/subscriptionBase"
+      "$ref": "../subscription.json#/definitions/subscriptionUpdate"
     },
     "headers": {
       "$ref": "../../../core/components/api-common.json#/definitions/headers"
