@@ -1576,8 +1576,7 @@
                 "required": [
                   "startTime",
                   "endTime",
-                  "legs",
-                  "sourcePlanId"
+                  "legs"
                 ]
               }
             }
