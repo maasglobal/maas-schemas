@@ -70,6 +70,15 @@
             "lon"
           ]
         },
+        "planId": {
+          "allOf": [
+            {
+              "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
+              "type": "string",
+              "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
+            }
+          ]
+        },
         "itineraries": {
           "allOf": [
             {

@@ -9,6 +9,13 @@
         "from": {
           "$ref": "../../../core/components/units-geo.json#/definitions/place"
         },
+        "planId": {
+          "allOf": [
+            {
+              "$ref": "../../../core/plan.json#/properties/planId"
+            }
+          ]
+        },
         "itineraries": {
           "allOf": [
             {
