@@ -6,6 +6,9 @@
     "id": {
       "$ref": "./components/units.json#/definitions/uuid"
     },
+    "sourcePlanId": {
+      "$ref": "./components/units.json#/definitions/uuid"
+    },
     "identityId": {
       "$ref": "./components/units.json#/definitions/identityId"
     },
@@ -44,6 +47,7 @@
   "required": [
     "startTime",
     "endTime",
-    "legs"
+    "legs",
+    "sourcePlanId"
   ]
 }
