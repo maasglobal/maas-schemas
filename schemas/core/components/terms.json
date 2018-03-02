@@ -33,7 +33,7 @@
         },
         "timeUnit": {
           "type": "string",
-          "enum": ["1min", "15min", "30min", "1hr", "whole"]
+          "enum": ["1min", "15min", "30min", "1hr", "total"]
         }
       },
       "required": ["amount", "currency", "timeUnit"]
