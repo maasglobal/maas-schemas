@@ -1125,6 +1125,40 @@
                                 "startTime",
                                 "endTime"
                               ]
+                            },
+                            "fareRate": {
+                              "description": "Booking fare rate",
+                              "type": "object",
+                              "properties": {
+                                "amount": {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "multipleOf": 0.01
+                                },
+                                "currency": {
+                                  "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                                  "type": "string",
+                                  "enum": [
+                                    "EUR",
+                                    "GBP"
+                                  ]
+                                },
+                                "timeUnit": {
+                                  "type": "string",
+                                  "enum": [
+                                    "1min",
+                                    "15min",
+                                    "30min",
+                                    "1hr",
+                                    "total"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "amount",
+                                "currency",
+                                "timeUnit"
+                              ]
                             }
                           },
                           "additionalProperties": true
