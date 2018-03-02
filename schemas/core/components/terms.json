@@ -17,7 +17,7 @@
       },
       "required": ["startTime", "endTime"]
     },
-    "fare": {
+    "fareRate": {
       "description": "Booking fare rate",
       "type": "object",
       "properties": {
