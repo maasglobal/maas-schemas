@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/bookings/bookings-create/request",
+  "description": "Request schema for bookings-create",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "allOf": [
+        { "$ref": "../../../core/booking.json" },
+        { "required": [ "leg", "terms", "product" ] }
+      ]
+    },
+    "headers": {
+      "$ref": "../../../core/components/api-common.json#/definitions/headers"
+    }
+  },
+  "required": [ "identityId", "payload" ],
+  "additionalProperties": false
+}

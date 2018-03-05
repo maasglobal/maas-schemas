@@ -14,11 +14,11 @@
           "$ref": "#/definitions/InvoiceId"
         },
         "customerId": {
-          "$ref": "../../core/components/units.json#/definitions/identityId"
+          "$ref": "./components/units.json#/definitions/identityId"
         },
         "bookingId": {
           "description": "bookingId of the requested booking",
-          "$ref": "../../core/components/units.json#/definitions/uuid"
+          "$ref": "./components/units.json#/definitions/uuid"
         },
         "lineItems": {
           "type": "array",
