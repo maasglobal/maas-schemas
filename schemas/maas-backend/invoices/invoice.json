@@ -7,92 +7,29 @@
       "type": "string",
       "minLength": 2
     },
-    "NewInvoice": {
-      "$ref": "#/definitions/InvoiceBase",
-      "required": [ "currency", "status", "lineItems" ]
-    },
-    "InvoiceUpdate": {
-      "$ref": "#/definitions/InvoiceBase",
-      "required": [ "customerId", "userId", "currency", "lineItems" ]
-    },
-    "InvoiceResponse": {
-      "$ref": "#/definitions/InvoiceBase",
-      "required": [ "customerId", "userId", "currency", "status", "lineItems" ]
-    },
-    "InvoiceBase": {
+    "Invoice": {
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#definitions/InvoiceId"
+          "$ref": "#/definitions/InvoiceId"
         },
         "customerId": {
           "$ref": "../../core/components/units.json#/definitions/identityId"
         },
-        "userId": {
-          "$ref": "../../core/components/units.json#/definitions/identityId"
+        "bookingId": {
+          "description": "bookingId of the requested booking",
+          "$ref": "../../core/components/units.json#/definitions/uuid"
         },
         "lineItems": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/InvoiceLineItem"
+            "$ref": "./invoiceLineItem.json#/definitions/InvoiceLineItem"
           },
           "minLength": 1
         }
       },
-      "required": [ "id", "customerId", "total", "status", "lineItems" ],
+      "required": [ "id", "customerId", "bookingId", "lineItems" ],
       "additionalProperties": false
-    },
-    "InvoiceLineItem": {
-      "description": "Invoice line item",
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "minLength": 4
-        },
-        "invoiceId": {
-          "type": "string",
-          "minLength": 4
-        },
-        "gatewayId": {
-          "type": "string",
-          "minLength": 4
-        },
-        "paymentSourceId": {
-          "type": "string",
-          "minLength": 4
-        },
-        "date": {
-          "$ref": "../../core/components/units.json#/definitions/time"
-        },
-        "description": {
-          "type": "string",
-          "minLength": 1
-        },
-        "amount": {
-          "type": "number",
-          "minimum": 0,
-          "multipleOf": 0.01
-        },
-        "currency": {
-          "$ref": "#/definitions/Currency"
-        },
-        "referenceInvoiceLineItemId": {
-          "type": "string",
-          "minLength": 4
-        },
-        "type": {
-          "type": "string",
-          "minLength": 4
-        }
-       },
-      "required": [ "id", "gatewayId", "description", "amount", "currency", "type" ],
-      "additionalProperties": false
-    },
-    "Currency": {
-      "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-      "type": "string",
-      "enum": ["EUR", "GBP"]
     }
   }
 }
