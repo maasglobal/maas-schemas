@@ -31,8 +31,8 @@ describe('address.placeName', () => {
     'Erenköy Mahallesi, Çoban Yıldızı Sk. No:4, 34738 Kadıköy/İstanbul, Turkki',
     '5-2 4-2 タイムズスクエアビル Takashimaya Shinjuku', // Tokyu Hands Shinjuku
     '武侯区通祠路39号-江城花2楼 (春江花月夜对面)', // Some sample address on Baidu
-    '28 St John\'s Wood Road, London',
-    'Shakespeare\'s Globe',
+    "28 St John's Wood Road, London",
+    "Shakespeare's Globe",
     'Tarkk´ampujankatu', // Common known validation failure
   ]);
 
@@ -54,10 +54,10 @@ describe('address.componentAddress', () => {
     // Spaces in-between
     'country:New Zealand|state:Bay of Plenty|city:White Pine Bush|zipCode:3191|streetName:White Pine Bush Road|streetNumber:479',
     // Other interesting special characters
-    'country:Aäöم武кв.-`\'\'´`|state:Aäöم武кв.-`\'\'´`|city:Aäöم武кв.-`\'\'´`|zipCode:3191|streetName:Aäöم武кв.-`\'\'´`|streetNumber:479',
+    "country:Aäöم武кв.-`''´`|state:Aäöم武кв.-`''´`|city:Aäöم武кв.-`''´`|zipCode:3191|streetName:Aäöم武кв.-`''´`|streetNumber:479",
     // King's Cross, UK, London
     'city:Lontoo|streetNumber:2|streetName:Charrington Street|zipCode:NW1|country:Yhdistynyt kuningaskunta',
-    'country:UK|city:London|zipCode:NW8 7HA|streetName:St John\'s Wood Road|streetNumber:28',
+    "country:UK|city:London|zipCode:NW8 7HA|streetName:St John's Wood Road|streetNumber:28",
     'country:UK|city:London|zipCode:SE1 9DT|streetName:New Globe Walk|streetNumber:21',
   ]);
 
@@ -96,30 +96,22 @@ describe('address.zipCode', () => {
     '3137BH', // Somewhere in Netherlands
   ]);
 
-  generateTestCases(schema.definitions.address, false, [
-    '💩',
-    '',
-  ]);
+  generateTestCases(schema.definitions.address, false, ['💩', '']);
 });
 
 describe('address.country', () => {
   generateTestCases(schema.definitions.country, true, [
     'FI', // Finland
-    'GB',  // UK (Great britain)
+    'GB', // UK (Great britain)
   ]);
 
-  generateTestCases(schema.definitions.country, false, [
-    '💩',
-    '',
-    'fi',
-    'FIN',
-  ]);
+  generateTestCases(schema.definitions.country, false, ['💩', '', 'fi', 'FIN']);
 });
 
 describe('address.city', () => {
   generateTestCases(schema.definitions.city, true, [
     'Helsinki',
-    '北京',  // Simplified Chinese: Beijing
+    '北京', // Simplified Chinese: Beijing
     'あきる野市', // Hiragana/Kanji: Akiruno,
     //'กรุงเทพมหานคร', // Thai: Krung Thep (=Bangkok) -> not supported
     // 'दिल्ली', // Hindi: Delhi -> no supported
