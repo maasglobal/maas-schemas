@@ -45,7 +45,7 @@ describe('customer.lastName', () => {
     'Svan',
     //'Пу́тин', // Cyrillic: Putin -> Not supported
     '姚', // Chinese: Yao
-    'O\'Neill',
+    "O'Neill",
     'Sören-sön',
     // 'महात्मा', // Hindi: Gandhi -> not supported
     'Dot. d`Tester',
@@ -59,10 +59,7 @@ describe('customer.lastName', () => {
 });
 
 describe('customer.phone', () => {
-  generateTestCases(schema.properties.phone, true, [
-    '+35850123456',
-    '+855979301811',
-  ]);
+  generateTestCases(schema.properties.phone, true, ['+35850123456', '+855979301811']);
 
   generateTestCases(schema.properties.phone, false, [
     '💩',
@@ -76,7 +73,7 @@ describe('customer.phone', () => {
 describe('customer.email', () => {
   generateTestCases(schema.properties.email, true, [
     'info@maas.global',
-    // See https://hackernoon.com/the-100-correct-way-to-validate-email-addresses-7c4818f24643#.3w69zak2b
+    // See https://hackernoon.com/the-100-correct-way-to-validate-email-addresses-7c4818f24643
     //'user@tt', // -> not supported
     '#"€"€#"@gmail.com',
     'very@very@unsual.com',
