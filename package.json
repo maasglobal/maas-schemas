@@ -15,17 +15,9 @@
     "type": "git",
     "url": "git+https://github.com/maasglobal/maas-schemas.git"
   },
-  "keywords": [
-    "schemas",
-    "maas",
-    "JSON"
-  ],
+  "keywords": ["schemas", "maas", "JSON"],
   "author": "",
-  "contributors": [
-    "James Nguyen",
-    "Klaus Dahlen",
-    "Lauri Svan"
-  ],
+  "contributors": ["James Nguyen", "Klaus Dahlen", "Lauri Svan"],
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/maasglobal/maas-schemas/issues"
