@@ -19,7 +19,7 @@
   "keywords": ["schemas", "maas", "JSON"],
   "author": "",
   "contributors": ["James Nguyen", "Klaus Dahlen", "Lauri Svan"],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/maasglobal/maas-schemas/issues"
   },
