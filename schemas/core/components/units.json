@@ -51,6 +51,12 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 1024
+    },
+    "htmlBlock": {
+      "description": "HTML string of block level content",
+      "type": "string",
+      "pattern":
+        "^\\s*<(?:address|arcticle|aside|blockquote|div|dl|figcaption|figure|h1|h2|h3|h4|h5|h6|header|hgroup|main|nav|ol|output|p|pre|section|table|ul|video)>.*>\\s*$"
     }
   }
 }
