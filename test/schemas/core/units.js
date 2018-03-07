@@ -14,7 +14,7 @@ describe('units', () => {
     ]);
 
     generateTestCases(schema.htmlBlock, false, [
-      'Plain text',,
+      'Plain text',
       '',
       '# Markdown',
       '<a href="https://example.com">Some link</a>', // Inline content
