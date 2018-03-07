@@ -43,7 +43,8 @@
           "maxItems": 2
         },
         "luggage": {
-          "description": "The number of luggage this vehicle will be able to transport - an array of [big, small] luggage",
+          "description":
+            "The number of luggage this vehicle will be able to transport - an array of [big, small] luggage",
           "type": "array",
           "items": {
             "type": "integer",
@@ -57,7 +58,17 @@
           "enum": ["manual", "automatic", null]
         },
         "fuel": {
-          "enum": ["diesel", "electric", "ethanol", "gasoline", "hybrid", "hydrogen", "lpg", "multifuel", null]
+          "enum": [
+            "diesel",
+            "electric",
+            "ethanol",
+            "gasoline",
+            "hybrid",
+            "hydrogen",
+            "lpg",
+            "multifuel",
+            null
+          ]
         },
         "classification": {
           "$ref": "../components/ACRISS.json"
