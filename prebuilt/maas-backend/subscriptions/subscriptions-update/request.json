@@ -50,7 +50,7 @@
             },
             "price": {
               "$schema": "http://json-schema.org/draft-04/schema#",
-              "description": "Price billled to MaaS by TSP",
+              "description": "MaaS common units that are used consistently within our own objects",
               "type": "object",
               "properties": {
                 "amount": {
@@ -130,7 +130,7 @@
               },
               "unitPrice": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
-                "description": "Price billled to MaaS by TSP",
+                "description": "MaaS common units that are used consistently within our own objects",
                 "type": "object",
                 "properties": {
                   "amount": {

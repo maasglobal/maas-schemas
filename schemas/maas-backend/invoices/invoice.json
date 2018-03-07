@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/invoices/invoice",
+  "description": "MaaS Invoice schema",
+  "definitions": {
+    "InvoiceId": {
+      "type": "string",
+      "minLength": 2
+    },
+    "Invoice": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/InvoiceId"
+        },
+        "customerId": {
+          "$ref": "../../core/components/units.json#/definitions/identityId"
+        },
+        "bookingId": {
+          "description": "bookingId of the requested booking",
+          "$ref": "../../core/components/units.json#/definitions/uuid"
+        },
+        "lineItems": {
+          "type": "array",
+          "items": {
+            "$ref": "./invoiceLineItem.json#/definitions/InvoiceLineItem"
+          },
+          "minLength": 1
+        }
+      },
+      "required": [ "id", "customerId", "bookingId", "lineItems" ],
+      "additionalProperties": false
+    }
+  }
+}

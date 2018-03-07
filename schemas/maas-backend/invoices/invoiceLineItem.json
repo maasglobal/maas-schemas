@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/invoices/invoice",
+  "description": "MaaS InvoiceLineItem schema",
+  "definitions": {
+    "InvoiceLineItemId": {
+      "type": "string",
+      "minLength": 2
+    },
+    "InvoiceLineItem": {
+      "description": "Invoice line item",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/InvoiceLineItemId"
+        },
+        "gatewayId": {
+          "type": "string",
+          "minLength": 4
+        },
+        "invoiceId": {
+          "$ref": "./invoice.json#/definitions/InvoiceId"
+        },
+        "type": {
+          "type": "string",
+          "enum": [ "authorization", "capture", "charge", "refund" ]
+        },
+        "paymentSourceId": {
+          "type": "string",
+          "minLength": 4
+        },
+        "date": {
+          "$ref": "../../core/components/units.json#/definitions/time"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "amount": {
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 0.01
+        },
+        "currency": {
+          "$ref": "../../core/components/units.json#/definitions/currency"
+        },
+        "referenceInvoiceLineItemId": {
+          "$ref": "#/definitions/InvoiceLineItemId"
+        }
+       },
+      "required": [ "id", "gatewayId", "description", "amount", "currency", "type" ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -22,6 +22,14 @@
       "type": "string",
       "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
     },
+    "currency": {
+      "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+      "type": "string",
+      "enum": [
+        "EUR",
+        "GBP"
+      ]
+    },
     "agencyId": {
       "type": "string",
       "minLength": 2,
