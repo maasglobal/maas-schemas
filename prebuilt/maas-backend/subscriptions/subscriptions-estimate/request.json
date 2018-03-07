@@ -13,12 +13,10 @@
       "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
     },
     "immediate": {
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     },
     "replace": {
-      "type": "boolean",
-      "default": true
+      "type": "boolean"
     },
     "payload": {
       "type": "object",
@@ -50,7 +48,7 @@
             },
             "price": {
               "$schema": "http://json-schema.org/draft-04/schema#",
-              "description": "Price billled to MaaS by TSP",
+              "description": "MaaS common units that are used consistently within our own objects",
               "type": "object",
               "properties": {
                 "amount": {
@@ -130,7 +128,7 @@
               },
               "unitPrice": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
-                "description": "Price billled to MaaS by TSP",
+                "description": "MaaS common units that are used consistently within our own objects",
                 "type": "object",
                 "properties": {
                   "amount": {

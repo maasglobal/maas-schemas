@@ -1,4 +1,15 @@
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
-.git
-.DS_Store
 package-lock.json
+
+# IDE Stuff
+**/.idea
+.vscode/launch.json
+*.swp
+
+# OS STUFF
+.DS_Store
+.tmp
+
+
