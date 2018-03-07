@@ -46,17 +46,22 @@ describe('address.placeName', () => {
 describe('address.componentAddress', () => {
   generateTestCases(schema.definitions.componentAddress, true, [
     // Ludviginkatu 6, Helsinki, Uusimaa, Finland
-    'country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
+    'country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|' +
+      'streetNumber:6',
     // Interchangeable fields
-    'city:Helsinki|state:Uusimaa|country:Finland|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
+    'city:Helsinki|state:Uusimaa|country:Finland|zipCode:00100|streetName:Ludviginkatu|' +
+      'streetNumber:6',
     // State not mandatory
     'city:Helsinki|country:Finland|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
     // Spaces in-between
-    'country:New Zealand|state:Bay of Plenty|city:White Pine Bush|zipCode:3191|streetName:White Pine Bush Road|streetNumber:479',
+    'country:New Zealand|state:Bay of Plenty|city:White Pine Bush|zipCode:3191|' +
+      'streetName:White Pine Bush Road|streetNumber:479',
     // Other interesting special characters
-    "country:Aäöم武кв.-`''´`|state:Aäöم武кв.-`''´`|city:Aäöم武кв.-`''´`|zipCode:3191|streetName:Aäöم武кв.-`''´`|streetNumber:479",
+    "country:Aäöم武кв.-`''´`|state:Aäöم武кв.-`''´`|city:Aäöم武кв.-`''´`|zipCode:3191|" +
+      "streetName:Aäöم武кв.-`''´`|streetNumber:479",
     // King's Cross, UK, London
-    'city:Lontoo|streetNumber:2|streetName:Charrington Street|zipCode:NW1|country:Yhdistynyt kuningaskunta',
+    'city:Lontoo|streetNumber:2|streetName:Charrington Street|zipCode:NW1|' +
+      'country:Yhdistynyt kuningaskunta',
     "country:UK|city:London|zipCode:NW8 7HA|streetName:St John's Wood Road|streetNumber:28",
     'country:UK|city:London|zipCode:SE1 9DT|streetName:New Globe Walk|streetNumber:21',
   ]);
@@ -64,7 +69,8 @@ describe('address.componentAddress', () => {
   generateTestCases(schema.definitions.componentAddress, false, [
     '💩',
     // TODO The parser does not yet support limiting to one occurrence of each field
-    //'country:Finland|country:Finland|country:Finland|country:Finland|country:Finland|country:Finland',
+    //'country:Finland|country:Finland|country:Finland|country:Finland|country:Finland|
+    //   country:Finland',
     '',
   ]);
 });
@@ -122,7 +128,8 @@ describe('address.city', () => {
     '💩',
     '',
     // Too long
-    // eslint-disable-next-line max-len
-    'LRuwGi4XRMVgImvVm7OEsw58YBDsUsApuKGXrjAcQi9QDEWwFYUp2yrzspe2WHu5rGuFoSU6TKeFIf73QjEnzv5Lq6Wu1YTJAbN2bZws8SfwhEoDInr6K3zTgmFQEQnzaDheGZtO4IMzAGoDSUx2zw1Lv4inpE4uq6NBYELaSusrlxGM0pJEiUrYZwIlzGAS4MgRrOKfZIyuZLH9gARtzyKvstQZw9bMmnRE8yWPTNGKlWmYBHLjMTluZp5AcpbU',
+    'LRuwGi4XRMVgImvVm7OEsw58YBDsUsApuKGXrjAcQi9QDEWwFYUp2yrzspe2WHu5rGuFoSU6TKeFIf73QjEnzv5Lq6' +
+      'Wu1YTJAbN2bZws8SfwhEoDInr6K3zTgmFQEQnzaDheGZtO4IMzAGoDSUx2zw1Lv4inpE4uq6NBYELaSusrlxGM0p' +
+      'JEiUrYZwIlzGAS4MgRrOKfZIyuZLH9gARtzyKvstQZw9bMmnRE8yWPTNGKlWmYBHLjMTluZp5AcpbU',
   ]);
 });
