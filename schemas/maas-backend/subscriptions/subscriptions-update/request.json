@@ -11,12 +11,10 @@
       "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "replace": {
-      "type": "boolean",
-      "default": true
+      "type": "boolean"
     },
     "immediate": {
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     },
     "payload": {
       "$ref": "../subscription.json#/definitions/subscriptionUpdate"
