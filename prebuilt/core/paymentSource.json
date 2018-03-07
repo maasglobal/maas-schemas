@@ -31,6 +31,11 @@
       "minLength": 2,
       "maxLength": 255
     },
+    "gatewayId": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 255
+    },
     "temporaryToken": {
       "type": "string",
       "minLength": 2,
