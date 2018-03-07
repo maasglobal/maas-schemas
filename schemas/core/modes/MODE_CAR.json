@@ -93,6 +93,10 @@
       },
       "required": ["classification"]
     },
+    "pickupReturnInfo": {
+      "description": "Pickup & return Instructions in HTML format",
+      "$ref": "../components/units.json#/definitions/htmlBlock"
+    },
     "startEndGeoRegionUrl": {
       "description": "Region in which car can be rented and returned. Url to GeoJSON file",
       "$ref": "../components/units.json#/definitions/url"
