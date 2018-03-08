@@ -501,8 +501,8 @@
               }
             },
             "MODE_CAR": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
               "description": "Schemas for MODE_CAR meta field",
+              "$schema": "http://json-schema.org/draft-04/schema#",
               "type": "object",
               "properties": {
                 "id": {
@@ -605,6 +605,11 @@
                     "classification"
                   ]
                 },
+                "pickupReturnInfo": {
+                  "description": "Pickup & return Instructions in HTML format",
+                  "type": "string",
+                  "pattern": "^[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*<(?:address|arcticle|aside|blockquote|div|dl|figcaption|figure|h1|h2|h3|h4|h5|h6|header|hgroup|main|nav|ol|output|p|pre|section|table|ul|video)>(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*>[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*$"
+                },
                 "startEndGeoRegionUrl": {
                   "description": "Region in which car can be rented and returned. Url to GeoJSON file",
                   "type": "string",
@@ -657,6 +662,129 @@
               "$schema": "http://json-schema.org/draft-04/schema#",
               "description": "Schema for MODE_FUNICULAR meta field",
               "type": "object"
+            },
+            "MODE_SHARED_CAR": {
+              "description": "Schemas for MODE_SHARED_CAR meta field",
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+                "image": {
+                  "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
+                  "type": "string",
+                  "pattern": "^(https?|ftp):\\/\\/(?:[\\0-\\x08\\x0E-\\x1F!\"%-\\-0->@-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\x08\\x0E-\\x1F!-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*$"
+                },
+                "terms": {},
+                "car": {
+                  "type": "object",
+                  "properties": {
+                    "passengers": {
+                      "description": "The number of passengers this vehicle will be able to transport",
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 200
+                    },
+                    "doors": {
+                      "description": "The number of doors this car model may have - an array of min & max",
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 10
+                      },
+                      "minItems": 2,
+                      "maxItems": 2
+                    },
+                    "luggage": {
+                      "description": "The number of luggage this vehicle will be able to transport - an array of [big, small] luggage",
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 200
+                      },
+                      "minItems": 2,
+                      "maxItems": 2
+                    },
+                    "transmission": {
+                      "enum": [
+                        "manual",
+                        "automatic",
+                        null
+                      ]
+                    },
+                    "fuel": {
+                      "enum": [
+                        "diesel",
+                        "electric",
+                        "ethanol",
+                        "gasoline",
+                        "hybrid",
+                        "hydrogen",
+                        "lpg",
+                        "multifuel",
+                        null
+                      ]
+                    },
+                    "classification": {
+                      "$schema": "http://json-schema.org/draft-04/schema#",
+                      "description": "ACRISS classification of the car, see https://en.wikipedia.org/wiki/ACRISS_Car_Classification_Code",
+                      "type": "string",
+                      "pattern": "[C-JL-PRSUWX][B-HJ-NP-TV-Z][A-DMN][A-FHIL-NQ-SUVXZ]"
+                    },
+                    "registrationPlate": {
+                      "description": "Registration plate (e.g. if we know the actual car already)",
+                      "type": "string",
+                      "pattern": "[\\-0-9A-Z]"
+                    },
+                    "damage": {
+                      "description": "Any reported damages to the car (if available)",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 255
+                    },
+                    "fuelLevel": {
+                      "description": "The percentage of fuel the car has at the moment",
+                      "type": "number",
+                      "minLength": 0,
+                      "maxLength": 100
+                    }
+                  },
+                  "required": [
+                    "classification"
+                  ]
+                },
+                "pickupReturnInfo": {
+                  "description": "Pickup & return Instructions in HTML format",
+                  "type": "string",
+                  "pattern": "^[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*<(?:address|arcticle|aside|blockquote|div|dl|figcaption|figure|h1|h2|h3|h4|h5|h6|header|hgroup|main|nav|ol|output|p|pre|section|table|ul|video)>(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*>[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*$"
+                },
+                "startEndGeoRegionUrl": {
+                  "description": "Region in which car can be rented and returned. Url to GeoJSON file",
+                  "type": "string",
+                  "pattern": "^(https?|ftp):\\/\\/(?:[\\0-\\x08\\x0E-\\x1F!\"%-\\-0->@-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])(?:[\\0-\\x08\\x0E-\\x1F!-\\x9F\\xA1-\\u167F\\u1681-\\u1FFF\\u200B-\\u2027\\u202A-\\u202E\\u2030-\\u205E\\u2060-\\u2FFF\\u3001-\\uD7FF\\uE000-\\uFEFE\\uFF00-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*$"
+                }
+              },
+              "required": [
+                "name",
+                "description",
+                "image"
+              ],
+              "additionalProperties": false
             },
             "MODE_TRANSIT": {
               "$schema": "http://json-schema.org/draft-04/schema#",
