@@ -49,12 +49,12 @@ gulp.task('deref-schemas', () => {
 
 gulp.task('validate', ['jsonclint', 'jsonlint', 'eslint']);
 
-gulp.task('test', ['validate'], () => {
+gulp.task('test', () => {
   return gulp.src('./test').pipe(jest(require('./jest.config')));
 });
 
 gulp.task('watch', () => {
-  gulp.watch([].concat(jsonFiles, jsoncFiles, jsFiles), ['test', 'deref-schemas']);
+  gulp.watch([].concat(jsonFiles, jsoncFiles, jsFiles), ['test', 'validate', 'deref-schemas']);
 });
 
-gulp.task('default', ['test', 'deref-schemas']);
+gulp.task('default', ['test', 'validate', 'deref-schemas']);
