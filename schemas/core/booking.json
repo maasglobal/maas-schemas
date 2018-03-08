@@ -122,6 +122,7 @@
         "MODE_CABLE_CAR": { "$ref": "./modes/MODE_CABLE_CAR.json" },
         "MODE_GONDOLA": { "$ref": "./modes/MODE_GONDOLA.json" },
         "MODE_FURNICULAR": { "$ref": "./modes/MODE_FURNICULAR.json" },
+        "MODE_SHARED_CAR": { "$ref": "./modes/MODE_SHARED_CAR.json" },
         "MODE_TRANSIT": { "$ref": "./modes/MODE_TRANSIT.json" },
         "MODE_TRAIN": { "$ref": "./modes/MODE_TRAIN.json" },
         "MODE_TRAINISH": { "$ref": "./modes/MODE_TRAINISH.json" },

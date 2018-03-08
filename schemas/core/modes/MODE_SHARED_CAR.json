@@ -1,0 +1,4 @@
+{
+  "description": "Schemas for MODE_SHARED_CAR meta field",
+  "$ref": "../components/car-rental.json"
+}
