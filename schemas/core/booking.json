@@ -38,12 +38,7 @@
     },
     "customer": {
       "$ref": "./components/customer.json",
-      "required": [
-        "firstName",
-        "lastName",
-        "phone",
-        "email"
-      ]
+      "required": ["firstName", "lastName", "phone", "email"]
     },
     "product": {
       "$ref": "./product.json"
@@ -52,15 +47,7 @@
       "$ref": "./components/units.json#/definitions/signature"
     }
   },
-  "required": [
-    "tspId",
-    "state",
-    "leg",
-    "meta",
-    "terms",
-    "token",
-    "customer"
-  ],
+  "required": ["tspId", "state", "leg", "meta", "terms", "token", "customer"],
   "definitions": {
     "tspId": {
       "type": "string",
