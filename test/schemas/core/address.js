@@ -1,29 +1,7 @@
 'use strict';
 
-const expect = require('chai').expect;
 const schema = require('../../../prebuilt/core/components/address.json');
-const validator = require('../../../validator');
-const ValidationError = require('../../../ValidationError');
-
-function generateTestCases(schema, positive, cases) {
-  if (positive) {
-    it('positive cases', () => {
-      cases.forEach(value => {
-        expect(validator.validateSync(schema, value)).to.be.an.object;
-      });
-    });
-  } else {
-    it('negative cases', () => {
-      cases.forEach(value => {
-        const func = () => {
-          validator.validateSync(schema, value);
-          console.warn(`We should not get here. Input: ${value}`);
-        };
-        expect(func).to.throw(ValidationError);
-      });
-    });
-  }
-}
+const { generateTestCases } = require('../../../test-lib');
 
 describe('address.placeName', () => {
   generateTestCases(schema.definitions.placeName, true, [
@@ -31,8 +9,8 @@ describe('address.placeName', () => {
     'Erenköy Mahallesi, Çoban Yıldızı Sk. No:4, 34738 Kadıköy/İstanbul, Turkki',
     '5-2 4-2 タイムズスクエアビル Takashimaya Shinjuku', // Tokyu Hands Shinjuku
     '武侯区通祠路39号-江城花2楼 (春江花月夜对面)', // Some sample address on Baidu
-    '28 St John\'s Wood Road, London',
-    'Shakespeare\'s Globe',
+    "28 St John's Wood Road, London",
+    "Shakespeare's Globe",
     'Tarkk´ampujankatu', // Common known validation failure
   ]);
 
@@ -46,25 +24,31 @@ describe('address.placeName', () => {
 describe('address.componentAddress', () => {
   generateTestCases(schema.definitions.componentAddress, true, [
     // Ludviginkatu 6, Helsinki, Uusimaa, Finland
-    'country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
+    'country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|' +
+      'streetNumber:6',
     // Interchangeable fields
-    'city:Helsinki|state:Uusimaa|country:Finland|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
+    'city:Helsinki|state:Uusimaa|country:Finland|zipCode:00100|streetName:Ludviginkatu|' +
+      'streetNumber:6',
     // State not mandatory
     'city:Helsinki|country:Finland|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
     // Spaces in-between
-    'country:New Zealand|state:Bay of Plenty|city:White Pine Bush|zipCode:3191|streetName:White Pine Bush Road|streetNumber:479',
+    'country:New Zealand|state:Bay of Plenty|city:White Pine Bush|zipCode:3191|' +
+      'streetName:White Pine Bush Road|streetNumber:479',
     // Other interesting special characters
-    'country:Aäöم武кв.-`\'\'´`|state:Aäöم武кв.-`\'\'´`|city:Aäöم武кв.-`\'\'´`|zipCode:3191|streetName:Aäöم武кв.-`\'\'´`|streetNumber:479',
+    "country:Aäöم武кв.-`''´`|state:Aäöم武кв.-`''´`|city:Aäöم武кв.-`''´`|zipCode:3191|" +
+      "streetName:Aäöم武кв.-`''´`|streetNumber:479",
     // King's Cross, UK, London
-    'city:Lontoo|streetNumber:2|streetName:Charrington Street|zipCode:NW1|country:Yhdistynyt kuningaskunta',
-    'country:UK|city:London|zipCode:NW8 7HA|streetName:St John\'s Wood Road|streetNumber:28',
+    'city:Lontoo|streetNumber:2|streetName:Charrington Street|zipCode:NW1|' +
+      'country:Yhdistynyt kuningaskunta',
+    "country:UK|city:London|zipCode:NW8 7HA|streetName:St John's Wood Road|streetNumber:28",
     'country:UK|city:London|zipCode:SE1 9DT|streetName:New Globe Walk|streetNumber:21',
   ]);
 
   generateTestCases(schema.definitions.componentAddress, false, [
     '💩',
     // TODO The parser does not yet support limiting to one occurrence of each field
-    //'country:Finland|country:Finland|country:Finland|country:Finland|country:Finland|country:Finland',
+    //'country:Finland|country:Finland|country:Finland|country:Finland|country:Finland|
+    //   country:Finland',
     '',
   ]);
 });
@@ -96,30 +80,22 @@ describe('address.zipCode', () => {
     '3137BH', // Somewhere in Netherlands
   ]);
 
-  generateTestCases(schema.definitions.address, false, [
-    '💩',
-    '',
-  ]);
+  generateTestCases(schema.definitions.address, false, ['💩', '']);
 });
 
 describe('address.country', () => {
   generateTestCases(schema.definitions.country, true, [
     'FI', // Finland
-    'GB',  // UK (Great britain)
+    'GB', // UK (Great britain)
   ]);
 
-  generateTestCases(schema.definitions.country, false, [
-    '💩',
-    '',
-    'fi',
-    'FIN',
-  ]);
+  generateTestCases(schema.definitions.country, false, ['💩', '', 'fi', 'FIN']);
 });
 
 describe('address.city', () => {
   generateTestCases(schema.definitions.city, true, [
     'Helsinki',
-    '北京',  // Simplified Chinese: Beijing
+    '北京', // Simplified Chinese: Beijing
     'あきる野市', // Hiragana/Kanji: Akiruno,
     //'กรุงเทพมหานคร', // Thai: Krung Thep (=Bangkok) -> not supported
     // 'दिल्ली', // Hindi: Delhi -> no supported
@@ -130,7 +106,8 @@ describe('address.city', () => {
     '💩',
     '',
     // Too long
-    // eslint-disable-next-line max-len
-    'LRuwGi4XRMVgImvVm7OEsw58YBDsUsApuKGXrjAcQi9QDEWwFYUp2yrzspe2WHu5rGuFoSU6TKeFIf73QjEnzv5Lq6Wu1YTJAbN2bZws8SfwhEoDInr6K3zTgmFQEQnzaDheGZtO4IMzAGoDSUx2zw1Lv4inpE4uq6NBYELaSusrlxGM0pJEiUrYZwIlzGAS4MgRrOKfZIyuZLH9gARtzyKvstQZw9bMmnRE8yWPTNGKlWmYBHLjMTluZp5AcpbU',
+    'LRuwGi4XRMVgImvVm7OEsw58YBDsUsApuKGXrjAcQi9QDEWwFYUp2yrzspe2WHu5rGuFoSU6TKeFIf73QjEnzv5Lq6' +
+      'Wu1YTJAbN2bZws8SfwhEoDInr6K3zTgmFQEQnzaDheGZtO4IMzAGoDSUx2zw1Lv4inpE4uq6NBYELaSusrlxGM0p' +
+      'JEiUrYZwIlzGAS4MgRrOKfZIyuZLH9gARtzyKvstQZw9bMmnRE8yWPTNGKlWmYBHLjMTluZp5AcpbU',
   ]);
 });

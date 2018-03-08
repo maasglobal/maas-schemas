@@ -3,12 +3,14 @@
   "description": "MaaS common units that are used consistently within our own objects",
   "definitions": {
     "uuid": {
-      "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
+      "description":
+        "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
       "type": "string",
       "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$"
     },
     "url": {
-      "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
+      "description":
+        "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
       "type": "string",
       "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
     },
@@ -43,7 +45,8 @@
       "minimum": 1451606400
     },
     "duration": {
-      "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
+      "description":
+        "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
       "type": "integer",
       "maximum": 9007199254740991,
       "minimum": -9007199254740991
@@ -53,6 +56,12 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 1024
+    },
+    "htmlBlock": {
+      "description": "HTML string of block level content",
+      "type": "string",
+      "pattern":
+        "^\\s*<(?:address|arcticle|aside|blockquote|div|dl|figcaption|figure|h1|h2|h3|h4|h5|h6|header|hgroup|main|nav|ol|output|p|pre|section|table|ul|video)>.*>\\s*$"
     }
   }
 }
