@@ -1,5 +1,5 @@
 {
-  "description": "Schemas for MODE_CAR meta field",
+  "description": "Schemas for MODE_SHARED_CAR meta field",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {

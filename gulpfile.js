@@ -50,15 +50,7 @@ gulp.task('deref-schemas', () => {
 gulp.task('validate', ['jsonclint', 'jsonlint', 'eslint']);
 
 gulp.task('test', () => {
-  return gulp.src('./test').pipe(
-    jest({
-      verbose: true,
-      bail: false,
-      testEnvironment: 'node',
-      testMatch: ['**/test/**/*.js'],
-      setupTestFrameworkScriptFile: './jest.setupEnvironment.js',
-    })
-  );
+  return gulp.src('./test').pipe(jest(require('./jest.config')));
 });
 
 gulp.task('watch', () => {

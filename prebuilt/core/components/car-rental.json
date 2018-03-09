@@ -1,6 +1,6 @@
 {
-  "description": "Schemas for MODE_CAR meta field",
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Base schema for MODE_CAR* metas",
   "type": "object",
   "properties": {
     "id": {
