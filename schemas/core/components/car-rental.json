@@ -81,7 +81,7 @@
         },
         "location": {
           "description": "Current geo location",
-          "$ref": "./units-geo.json#/definitions/location"
+          "$ref": "../components/units-geo.json#/definitions/location"
         }
       },
       "required": ["classification"]
