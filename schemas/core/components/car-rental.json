@@ -78,6 +78,10 @@
           "type": "number",
           "minLength": 0,
           "maxLength": 100
+        },
+        "location": {
+          "description": "Current geo location",
+          "$ref": "../components/units-geo.json#/definitions/location"
         }
       },
       "required": ["classification"]
