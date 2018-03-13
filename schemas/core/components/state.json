@@ -43,6 +43,14 @@
         "CANCELLED_WITH_ERRORS",
         "FINISHED"
       ]
+    },
+    "paymentState": {
+      "description": "The life-cycle state of a payment",
+      "type": "string",
+      "enum": [
+        "STARTED",
+        "STOPPED"
+      ]
     }
   }
 }
