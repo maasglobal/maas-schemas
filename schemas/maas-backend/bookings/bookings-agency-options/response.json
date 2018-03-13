@@ -7,8 +7,21 @@
     "options": {
       "type": "array",
       "items": {
-        "$ref": "../../../core/booking.json",
-        "required": ["leg", "terms", "product"]
+        "allOf": [
+          {
+            "$ref": "../../../core/booking.json"
+          },
+          {
+            "oneOf": [
+              {
+                "required": ["leg", "terms", "product", "fares"]
+              },
+              {
+                "required": ["leg", "terms", "product", "configurator"]
+              }
+            ]
+          }
+        ]
       }
     },
     "additional": {

@@ -45,6 +45,12 @@
     },
     "signature": {
       "$ref": "./components/units.json#/definitions/signature"
+    },
+    "configurator": {
+      "$ref": "./components/configurator.json"
+    },
+    "customerSelection": {
+      "$ref": "./components/configurator.json#/definitions/customerSelection"
     }
   },
   "required": ["tspId", "state", "leg", "meta", "terms", "token", "customer"],
