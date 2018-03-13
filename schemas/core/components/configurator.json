@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Configurator schema to customize a booking option",
+  "type": "object",
+  "description": "Wrapper schema, with each of its properties a config that the user can customize",
+  "allOf": [
+    {
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "Single ticket choices",
+          "properties": {
+            "single": { "$ref": "#/definitions/config" }
+          },
+          "required": ["single"]
+        },
+        {
+          "type": "object",
+          "description": "Two way ticket choices",
+          "properties": {
+            "openReturn": { "$ref": "#/definitions/config" }
+          },
+          "required": ["openReturn"]
+        }
+      ]
+    },
+    { "$ref": "#/definitions/commonConfigurations" }
+  ],
+  "definitions": {
+    "commonConfigurations": {
+      "type": "object",
+      "description": "Common ticket preferences",
+      "properties": {
+        "seatDirection": { "$ref": "#/definitions/config" },
+        "seatPosition": { "$ref": "#/definitions/config" },
+        "seatType": { "$ref": "#/definitions/config" },
+        "seatFeatures": { "$ref": "#/definitions/config" }
+      }
+    },
+    "config": {
+      "type": "object",
+      "description": "A customization to the booking option",
+      "properties": {
+        "type": {
+          "description": "Describe the possible combination of choices user can make",
+          "enum": ["oneOf", "someOf", "allOf", "oneOrNoneOf", "someOrNoneOf"]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "description": {
+          "type": "string"
+        },
+        "choices": {
+          "type": "array",
+          "uniqueItems": true,
+          "description": "Set of choices for one customization",
+          "items": {
+            "$ref": "#/definitions/choice"
+          },
+          "contains": {
+            "allOf": [
+              { "$ref": "#/definitions/choice" },
+              { "required": ["default"] }
+            ]
+          }
+        }
+      },
+      "required": ["type", "name", "choices"]
+    },
+    "choice": {
+      "type": "object",
+      "description": "A choice for one customization",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "asd",
+          "maxLength": 255
+        },
+        "name": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "description": {
+          "type": "string"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "cost": {
+          "$ref": "./cost.json"
+        },
+        "fares": {
+          "type": "array",
+          "items": [
+            {
+              "ref": "./fare.json"
+            }
+          ]
+        },
+        "terms": {
+          "$ref": "./terms.json"
+        },
+        "meta": {
+          "type": "object"
+        }
+      },
+      "required": ["id", "name", "default", "terms", "meta"]
+    },
+    "customerSelection": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z0-9\\-]+$": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

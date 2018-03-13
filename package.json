@@ -31,6 +31,7 @@
   "devDependencies": {
     "bluebird": "^3.4.5",
     "chai": "^3.5.0",
+    "chalk": "^2.3.0",
     "eslint": "^3.1.1",
     "eslint-config-airbnb-base": "^5.0.0",
     "eslint-plugin-import": "^1.11.1",

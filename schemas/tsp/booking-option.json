@@ -4,23 +4,26 @@
   "description": "MaaS single TSP adapter option",
   "type": "object",
   "properties": {
-    "cost": {
-      "$ref": "../core/components/cost.json"
-    },
     "leg": {
       "$ref": "#/definitions/leg"
-     },
-     "terms": {
-       "$ref": "../core/booking.json#/definitions/terms"
+    },
+    "terms": {
+      "$ref": "../core/booking.json#/definitions/terms"
     },
     "meta": {
       "$ref": "../core/booking.json#/definitions/meta"
     },
     "tspProduct": {
       "$ref": "#/definitions/tspProduct"
+    },
+    "configurator": {
+      "$ref": "../core/components/configurator.json"
+    },
+    "customerSelection": {
+      "$ref": "../core/components/configurator.json#/definitions/customerSelection"
     }
   },
-  "required": ["cost", "leg", "meta", "terms", "tspProduct" ],
+  "required": ["leg", "meta", "terms", "tspProduct"],
   "definitions": {
     "leg": {
       "type": "object",
