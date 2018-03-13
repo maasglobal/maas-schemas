@@ -40,7 +40,8 @@
       "enum": [
         "WALK",
         "BICYCLE",
-        "CAR"
+        "CAR",
+        "CAR_PARK"
       ]
     },
     "publicTransitMode": {
@@ -54,7 +55,8 @@
         "FERRY",
         "TRANSIT",
         "TRAIN",
-        "AEROPLANE"
+        "AEROPLANE",
+        "CAR_PARK"
       ]
     },
     "privateTransitMode": {
@@ -67,7 +69,8 @@
         "GONDOLA",
         "FUNICULAR",
         "BUSISH",
-        "TRAINISH"
+        "TRAINISH",
+        "CAR_PARK"
       ]
     }
   }
