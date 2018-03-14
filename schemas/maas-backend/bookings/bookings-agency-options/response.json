@@ -7,49 +7,7 @@
     "options": {
       "type": "array",
       "items": {
-        "allOf": [
-          {
-            "type": "object",
-            "properties": {
-              "fares": {
-                "$ref": "../../../core/booking.json#/properties/fares"
-              },
-              "cost": {
-                "$ref": "../../../core/booking.json#/properties/cost"
-              },
-              "leg": {
-                "$ref": "../../../core/booking.json#/properties/leg"
-              },
-              "meta": {
-                "$ref": "../../../core/booking.json#/properties/meta"
-              },
-              "terms": {
-                "$ref": "../../../core/booking.json#/properties/terms"
-              },
-              "tspProduct": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  }
-                }
-              },
-              "configurator": {
-                "$ref": "../../../core/booking.json#/properties/configurator"
-              }
-            }
-          },
-          {
-            "oneOf": [
-              {
-                "required": ["leg", "terms", "product", "fares"]
-              },
-              {
-                "required": ["leg", "terms", "product", "configurator"]
-              }
-            ]
-          }
-        ]
+        "$ref": "#/definitions/option"
       }
     },
     "additional": {
@@ -69,5 +27,52 @@
     }
   },
   "required": ["options"],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "definitions": {
+    "option": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "fares": {
+              "$ref": "../../../core/booking.json#/properties/fares"
+            },
+            "cost": {
+              "$ref": "../../../core/booking.json#/properties/cost"
+            },
+            "leg": {
+              "$ref": "../../../core/booking.json#/properties/leg"
+            },
+            "meta": {
+              "$ref": "../../../core/booking.json#/properties/meta"
+            },
+            "terms": {
+              "$ref": "../../../core/booking.json#/properties/terms"
+            },
+            "tspProduct": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                }
+              }
+            },
+            "configurator": {
+              "$ref": "../../../core/booking.json#/properties/configurator"
+            }
+          }
+        },
+        {
+          "oneOf": [
+            {
+              "required": ["leg", "terms", "product", "fares"]
+            },
+            {
+              "required": ["leg", "terms", "product", "configurator"]
+            }
+          ]
+        }
+      ]
+    }
+  }
 }
