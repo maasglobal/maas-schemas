@@ -3,6 +3,9 @@
   "description": "MaaS customer schema",
   "type": "object",
   "properties": {
+    "identityId": {
+      "$ref": "./units.json#/definitions/identityId"
+    },
     "firstName": {
       "description": "First name of the customer (e.g. John)",
       "type": "string",

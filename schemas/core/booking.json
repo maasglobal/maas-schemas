@@ -37,8 +37,14 @@
       "$ref": "#/definitions/terms"
     },
     "customer": {
-      "$ref": "./components/customer.json",
-      "required": ["firstName", "lastName", "phone", "email"]
+      "allOf": [
+        {
+          "$ref": "./components/customer.json"
+        },
+        {
+          "required": ["firstName", "lastName", "phone", "email"]
+        }
+      ]
     },
     "product": {
       "$ref": "./product.json"
@@ -53,7 +59,7 @@
       "$ref": "./components/configurator.json#/definitions/customerSelection"
     }
   },
-  "required": ["tspId", "state", "leg", "meta", "terms", "token", "customer"],
+  "required": ["id", "state", "leg", "meta", "terms", "token", "customer"],
   "definitions": {
     "tspId": {
       "type": "string",
