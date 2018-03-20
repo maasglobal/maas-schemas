@@ -13,7 +13,9 @@
       "type": "object",
       "properties": {
         "startTime": { "$ref": "./units.json#/definitions/time" },
-        "endTime": { "$ref": "./units.json#/definitions/time" }
+        "endTime": { "$ref": "./units.json#/definitions/time" },
+        "startTimeReturn": { "$ref": "./units.json#/definitions/time" },
+        "endTimeReturn": { "$ref": "./units.json#/definitions/time" }
       },
       "required": ["startTime", "endTime"]
     },
