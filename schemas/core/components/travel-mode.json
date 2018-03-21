@@ -32,7 +32,16 @@
     "privateTransitMode": {
       "description": "A mode that is available on-demand for your personal use",
       "type": "string",
-      "enum": ["BUSISH", "CABLE_CAR", "CAR", "FUNICULAR", "GONDOLA", "TAXI", "TRAINISH"]
+      "enum": [
+        "BUSISH",
+        "CABLE_CAR",
+        "CAR",
+        "FUNICULAR",
+        "GONDOLA",
+        "SHARED_CAR",
+        "TAXI",
+        "TRAINISH"
+      ]
     }
   }
 }
