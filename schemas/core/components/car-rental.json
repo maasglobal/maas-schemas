@@ -86,8 +86,12 @@
       },
       "required": ["classification"]
     },
-    "pickupReturnInfo": {
-      "description": "Pickup & return Instructions in HTML format",
+    "pickupInfo": {
+      "description": "Pickup instructions in HTML format",
+      "$ref": "../components/units.json#/definitions/htmlBlock"
+    },
+    "returnInfo": {
+      "description": "Return Instructions in HTML format",
       "$ref": "../components/units.json#/definitions/htmlBlock"
     },
     "startEndGeoRegionUrl": {
