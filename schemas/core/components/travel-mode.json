@@ -27,22 +27,22 @@
     "transferMode": {
       "description": "A mode that involves changing transports",
       "type": "string",
-      "enum": ["TRANSFER", "LEG_SWITCH"]
+      "enum": ["LEG_SWITCH", "TRANSFER"]
     },
     "personalMode": {
       "description": "A mode that involves using your personal vehicle or legs",
       "type": "string",
-      "enum": ["WALK", "BICYCLE", "CAR"]
+      "enum": ["BICYCLE", "CAR", "WALK"]
     },
     "publicTransitMode": {
       "description": "A mode that involves transit with fixed schedules",
       "type": "string",
-      "enum": ["TRAM", "SUBWAY", "RAIL", "BUS", "FERRY", "TRANSIT", "TRAIN", "AEROPLANE"]
+      "enum": ["AEROPLANE", "BUS", "FERRY", "RAIL", "SUBWAY", "TRAIN", "TRAM", "TRANSIT"]
     },
     "privateTransitMode": {
       "description": "A mode that is available on-demand for your personal use",
       "type": "string",
-      "enum": ["CAR", "TAXI", "CABLE_CAR", "GONDOLA", "FUNICULAR", "BUSISH", "TRAINISH"]
+      "enum": ["BUSISH", "CABLE_CAR", "CAR", "FUNICULAR", "GONDOLA", "TAXI", "TRAINISH"]
     }
   }
 }
