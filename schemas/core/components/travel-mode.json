@@ -22,53 +22,27 @@
     "waitingMode": {
       "description": "A mode that only involves waiting in the current location",
       "type": "string",
-      "enum": [
-        "WAIT"
-      ]
+      "enum": ["WAIT"]
     },
     "transferMode": {
       "description": "A mode that involves changing transports",
       "type": "string",
-      "enum": [
-        "TRANSFER",
-        "LEG_SWITCH"
-      ]
+      "enum": ["TRANSFER", "LEG_SWITCH"]
     },
     "personalMode": {
       "description": "A mode that involves using your personal vehicle or legs",
       "type": "string",
-      "enum": [
-        "WALK",
-        "BICYCLE",
-        "CAR"
-      ]
+      "enum": ["WALK", "BICYCLE", "CAR"]
     },
     "publicTransitMode": {
       "description": "A mode that involves transit with fixed schedules",
       "type": "string",
-      "enum": [
-        "TRAM",
-        "SUBWAY",
-        "RAIL",
-        "BUS",
-        "FERRY",
-        "TRANSIT",
-        "TRAIN",
-        "AEROPLANE"
-      ]
+      "enum": ["TRAM", "SUBWAY", "RAIL", "BUS", "FERRY", "TRANSIT", "TRAIN", "AEROPLANE"]
     },
     "privateTransitMode": {
       "description": "A mode that is available on-demand for your personal use",
       "type": "string",
-      "enum": [
-        "CAR",
-        "TAXI",
-        "CABLE_CAR",
-        "GONDOLA",
-        "FUNICULAR",
-        "BUSISH",
-        "TRAINISH"
-      ]
+      "enum": ["CAR", "TAXI", "CABLE_CAR", "GONDOLA", "FUNICULAR", "BUSISH", "TRAINISH"]
     }
   }
 }
