@@ -317,35 +317,36 @@
                     "description": "A mode that involves using your personal vehicle or legs",
                     "type": "string",
                     "enum": [
-                      "WALK",
                       "BICYCLE",
-                      "CAR"
+                      "CAR",
+                      "WALK"
                     ]
                   },
                   {
                     "description": "A mode that involves transit with fixed schedules",
                     "type": "string",
                     "enum": [
-                      "TRAM",
-                      "SUBWAY",
-                      "RAIL",
+                      "AEROPLANE",
                       "BUS",
                       "FERRY",
-                      "TRANSIT",
+                      "RAIL",
+                      "SUBWAY",
                       "TRAIN",
-                      "AEROPLANE"
+                      "TRAM",
+                      "TRANSIT"
                     ]
                   },
                   {
                     "description": "A mode that is available on-demand for your personal use",
                     "type": "string",
                     "enum": [
-                      "CAR",
-                      "TAXI",
-                      "CABLE_CAR",
-                      "GONDOLA",
-                      "FUNICULAR",
                       "BUSISH",
+                      "CABLE_CAR",
+                      "CAR",
+                      "FUNICULAR",
+                      "GONDOLA",
+                      "SHARED_CAR",
+                      "TAXI",
                       "TRAINISH"
                     ]
                   }
@@ -1420,35 +1421,36 @@
                     "description": "A mode that involves using your personal vehicle or legs",
                     "type": "string",
                     "enum": [
-                      "WALK",
                       "BICYCLE",
-                      "CAR"
+                      "CAR",
+                      "WALK"
                     ]
                   },
                   {
                     "description": "A mode that involves transit with fixed schedules",
                     "type": "string",
                     "enum": [
-                      "TRAM",
-                      "SUBWAY",
-                      "RAIL",
+                      "AEROPLANE",
                       "BUS",
                       "FERRY",
-                      "TRANSIT",
+                      "RAIL",
+                      "SUBWAY",
                       "TRAIN",
-                      "AEROPLANE"
+                      "TRAM",
+                      "TRANSIT"
                     ]
                   },
                   {
                     "description": "A mode that is available on-demand for your personal use",
                     "type": "string",
                     "enum": [
-                      "CAR",
-                      "TAXI",
-                      "CABLE_CAR",
-                      "GONDOLA",
-                      "FUNICULAR",
                       "BUSISH",
+                      "CABLE_CAR",
+                      "CAR",
+                      "FUNICULAR",
+                      "GONDOLA",
+                      "SHARED_CAR",
+                      "TAXI",
                       "TRAINISH"
                     ]
                   }
