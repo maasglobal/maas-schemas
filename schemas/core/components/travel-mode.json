@@ -2,21 +2,11 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Transfer modes used for MaaS internal services",
   "anyOf": [
-    {
-      "$ref": "#/definitions/waitingMode"
-    },
-    {
-      "$ref": "#/definitions/transferMode"
-    },
-    {
-      "$ref": "#/definitions/personalMode"
-    },
-    {
-      "$ref": "#/definitions/publicTransitMode"
-    },
-    {
-      "$ref": "#/definitions/privateTransitMode"
-    }
+    { "$ref": "#/definitions/waitingMode" },
+    { "$ref": "#/definitions/transferMode" },
+    { "$ref": "#/definitions/personalMode" },
+    { "$ref": "#/definitions/publicTransitMode" },
+    { "$ref": "#/definitions/privateTransitMode" }
   ],
   "definitions": {
     "waitingMode": {
