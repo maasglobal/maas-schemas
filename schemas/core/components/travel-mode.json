@@ -2,71 +2,44 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Transfer modes used for MaaS internal services",
   "anyOf": [
-    {
-      "$ref": "#/definitions/waitingMode"
-    },
-    {
-      "$ref": "#/definitions/transferMode"
-    },
-    {
-      "$ref": "#/definitions/personalMode"
-    },
-    {
-      "$ref": "#/definitions/publicTransitMode"
-    },
-    {
-      "$ref": "#/definitions/privateTransitMode"
-    }
+    { "$ref": "#/definitions/waitingMode" },
+    { "$ref": "#/definitions/transferMode" },
+    { "$ref": "#/definitions/personalMode" },
+    { "$ref": "#/definitions/publicTransitMode" },
+    { "$ref": "#/definitions/privateTransitMode" }
   ],
   "definitions": {
     "waitingMode": {
       "description": "A mode that only involves waiting in the current location",
       "type": "string",
-      "enum": [
-        "WAIT"
-      ]
+      "enum": ["WAIT"]
     },
     "transferMode": {
       "description": "A mode that involves changing transports",
       "type": "string",
-      "enum": [
-        "TRANSFER",
-        "LEG_SWITCH"
-      ]
+      "enum": ["LEG_SWITCH", "TRANSFER"]
     },
     "personalMode": {
       "description": "A mode that involves using your personal vehicle or legs",
       "type": "string",
-      "enum": [
-        "WALK",
-        "BICYCLE",
-        "CAR"
-      ]
+      "enum": ["BICYCLE", "CAR", "WALK"]
     },
     "publicTransitMode": {
       "description": "A mode that involves transit with fixed schedules",
       "type": "string",
-      "enum": [
-        "TRAM",
-        "SUBWAY",
-        "RAIL",
-        "BUS",
-        "FERRY",
-        "TRANSIT",
-        "TRAIN",
-        "AEROPLANE"
-      ]
+      "enum": ["AEROPLANE", "BUS", "FERRY", "RAIL", "SUBWAY", "TRAIN", "TRAM", "TRANSIT"]
     },
     "privateTransitMode": {
       "description": "A mode that is available on-demand for your personal use",
       "type": "string",
       "enum": [
-        "CAR",
-        "TAXI",
-        "CABLE_CAR",
-        "GONDOLA",
-        "FUNICULAR",
         "BUSISH",
+        "CABLE_CAR",
+        "CAR",
+        "FUNICULAR",
+        "GONDOLA",
+        "SHARED_CAR",
+        "TAXI",
         "TRAINISH"
       ]
     }
