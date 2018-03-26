@@ -736,8 +736,13 @@
                       "classification"
                     ]
                   },
-                  "pickupReturnInfo": {
-                    "description": "Pickup & return Instructions in HTML format",
+                  "pickupInfo": {
+                    "description": "Pickup instructions in HTML format",
+                    "type": "string",
+                    "pattern": "^[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*<(?:address|arcticle|aside|blockquote|div|dl|figcaption|figure|h1|h2|h3|h4|h5|h6|header|hgroup|main|nav|ol|output|p|pre|section|table|ul|video)>(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*>[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*$"
+                  },
+                  "returnInfo": {
+                    "description": "Return Instructions in HTML format",
                     "type": "string",
                     "pattern": "^[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*<(?:address|arcticle|aside|blockquote|div|dl|figcaption|figure|h1|h2|h3|h4|h5|h6|header|hgroup|main|nav|ol|output|p|pre|section|table|ul|video)>(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*>[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*$"
                   },
@@ -921,8 +926,13 @@
                       "classification"
                     ]
                   },
-                  "pickupReturnInfo": {
-                    "description": "Pickup & return Instructions in HTML format",
+                  "pickupInfo": {
+                    "description": "Pickup instructions in HTML format",
+                    "type": "string",
+                    "pattern": "^[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*<(?:address|arcticle|aside|blockquote|div|dl|figcaption|figure|h1|h2|h3|h4|h5|h6|header|hgroup|main|nav|ol|output|p|pre|section|table|ul|video)>(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*>[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*$"
+                  },
+                  "returnInfo": {
+                    "description": "Return Instructions in HTML format",
                     "type": "string",
                     "pattern": "^[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*<(?:address|arcticle|aside|blockquote|div|dl|figcaption|figure|h1|h2|h3|h4|h5|h6|header|hgroup|main|nav|ol|output|p|pre|section|table|ul|video)>(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*>[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*$"
                   },
@@ -1808,8 +1818,13 @@
                       "classification"
                     ]
                   },
-                  "pickupReturnInfo": {
-                    "description": "Pickup & return Instructions in HTML format",
+                  "pickupInfo": {
+                    "description": "Pickup instructions in HTML format",
+                    "type": "string",
+                    "pattern": "^[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*<(?:address|arcticle|aside|blockquote|div|dl|figcaption|figure|h1|h2|h3|h4|h5|h6|header|hgroup|main|nav|ol|output|p|pre|section|table|ul|video)>(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*>[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*$"
+                  },
+                  "returnInfo": {
+                    "description": "Return Instructions in HTML format",
                     "type": "string",
                     "pattern": "^[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*<(?:address|arcticle|aside|blockquote|div|dl|figcaption|figure|h1|h2|h3|h4|h5|h6|header|hgroup|main|nav|ol|output|p|pre|section|table|ul|video)>(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*>[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*$"
                   },
@@ -1993,8 +2008,13 @@
                       "classification"
                     ]
                   },
-                  "pickupReturnInfo": {
-                    "description": "Pickup & return Instructions in HTML format",
+                  "pickupInfo": {
+                    "description": "Pickup instructions in HTML format",
+                    "type": "string",
+                    "pattern": "^[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*<(?:address|arcticle|aside|blockquote|div|dl|figcaption|figure|h1|h2|h3|h4|h5|h6|header|hgroup|main|nav|ol|output|p|pre|section|table|ul|video)>(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*>[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*$"
+                  },
+                  "returnInfo": {
+                    "description": "Return Instructions in HTML format",
                     "type": "string",
                     "pattern": "^[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*<(?:address|arcticle|aside|blockquote|div|dl|figcaption|figure|h1|h2|h3|h4|h5|h6|header|hgroup|main|nav|ol|output|p|pre|section|table|ul|video)>(?:[\\0-\\uD7FF\\uE000-\\uFFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[\\uD800-\\uDBFF](?![\\uDC00-\\uDFFF])|(?:[^\\uD800-\\uDBFF]|^)[\\uDC00-\\uDFFF])*>[\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*$"
                   },
