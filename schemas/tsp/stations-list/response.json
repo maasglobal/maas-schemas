@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "MaaS stations query response schema",
+  "type": "object",
+  "properties": {
+    "stations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Simplified station schema, coming as part of stations-list response",
+        "properties": {
+          "id": {
+            "$ref": "../../core/components/station.json#/definitions/id"
+          },
+          "name": {
+            "$ref": "../../core/components/station.json#/definitions/name"
+          },
+          "location": {
+            "$ref": "../../core/components/station.json#/definitions/location"
+          },
+          "agencyId": {
+            "$ref": "../../core/components/station.json#/definitions/agencyId"
+          },
+          "address": {
+            "$ref": "../../core/components/station.json#/definitions/address"
+          },
+          "city": {
+            "$ref": "../../core/components/station.json#/definitions/city"
+          },
+          "country": {
+            "$ref": "../../core/components/station.json#/definitions/country"
+          }
+        },
+        "required": ["location", "agencyId"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

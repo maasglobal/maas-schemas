@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "MaaS stations query request schema",
+  "type": "object",
+  "properties": {
+    "location": {
+      "$ref": "../../core/components/units-geo.json#/definitions/shortLocationString"
+    },
+    "radius": {
+      "$ref": "../../core/components/units-geo.json#/definitions/distance"
+    },
+    "limit": {
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}
