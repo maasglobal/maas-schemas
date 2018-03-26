@@ -31,7 +31,7 @@
             "$ref": "../../core/components/station.json#/definitions/country"
           }
         },
-        "required": ["location", "agencyId"],
+        "required": ["id", "location", "agencyId"],
         "additionalProperties": false
       }
     }
