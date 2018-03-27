@@ -6,6 +6,9 @@
     "id": {
       "type": "string"
     },
+    "code": {
+      "type": "string"
+    },
     "name": {
       "type": "string"
     },
@@ -30,7 +33,17 @@
     },
     "facilities": {
       "description": "Station facilities, including services and features",
-      "type": "array"
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "services": {
+      "description": "What agency and mode of transport will occupy this station",
+      "type": "array",
+      "items": {
+        "$ref": "./travel-mode.json"
+      }
     },
     "timetables": {
       "description": "Timetable for passing by / originating transports",
@@ -47,8 +60,14 @@
           "name": {
             "type": "string"
           },
-          "leaveAt": {
-            "type": "number"
+          "longName": {
+            "type": "string"
+          },
+          "schedule": {
+            "$ref": "./units.json#/definitions/time"
+          },
+          "realtime": {
+            "$ref": "./units.json#/definitions/time"
           }
         }
       }
