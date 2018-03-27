@@ -986,39 +986,44 @@
             "endTime"
           ]
         },
-        "fareRate": {
-          "description": "Booking fare rate",
-          "type": "object",
-          "properties": {
-            "amount": {
-              "type": "number",
-              "minimum": 0,
-              "multipleOf": 0.01
+        "fareRates": {
+          "type": "array",
+          "items": {
+            "description": "Booking fare rate",
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "number",
+                "minimum": 0,
+                "multipleOf": 0.01
+              },
+              "currency": {
+                "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                "type": "string",
+                "enum": [
+                  "EUR",
+                  "GBP"
+                ]
+              },
+              "timeInterval": {
+                "description": "Amount of seconds that fare rate is applied to",
+                "type": "number",
+                "minimum": 1,
+                "multipleOf": 1
+              },
+              "startAt": {
+                "description": "Amount of seconds after this fare rate should be applied to",
+                "type": "number",
+                "minimum": 0,
+                "multipleOf": 1
+              }
             },
-            "currency": {
-              "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-              "type": "string",
-              "enum": [
-                "EUR",
-                "GBP"
-              ]
-            },
-            "timeUnit": {
-              "type": "string",
-              "enum": [
-                "1min",
-                "15min",
-                "30min",
-                "1hr",
-                "total"
-              ]
-            }
-          },
-          "required": [
-            "amount",
-            "currency",
-            "timeUnit"
-          ]
+            "required": [
+              "amount",
+              "currency",
+              "timeInterval"
+            ]
+          }
         }
       },
       "additionalProperties": true
