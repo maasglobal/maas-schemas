@@ -10,6 +10,9 @@
         "id": {
           "$ref": "../../core/components/station.json#/definitions/id"
         },
+        "code": {
+          "$ref": "../../core/components/station.json#/definitions/code"
+        },
         "name": {
           "$ref": "../../core/components/station.json#/definitions/name"
         },
@@ -29,13 +32,13 @@
           "$ref": "../../core/components/station.json#/definitions/country"
         },
         "openingHours": {
-          "$ref": "../../core/components/station.json#/definitions/country"
+          "$ref": "../../core/components/station.json#/definitions/openingHours"
         },
         "facilities": {
-          "$ref": "../../core/components/station.json#/definitions/country"
+          "$ref": "../../core/components/station.json#/definitions/facilities"
         },
         "timetables": {
-          "$ref": "../../core/components/station.json#/definitions/country"
+          "$ref": "../../core/components/station.json#/definitions/timetables"
         }
       },
       "required": ["id", "location", "agencyId"],

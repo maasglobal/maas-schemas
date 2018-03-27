@@ -12,6 +12,9 @@
           "id": {
             "$ref": "../../core/components/station.json#/definitions/id"
           },
+          "code": {
+            "$ref": "../../core/components/station.json#/definitions/code"
+          },
           "name": {
             "$ref": "../../core/components/station.json#/definitions/name"
           },
@@ -20,6 +23,9 @@
           },
           "agencyId": {
             "$ref": "../../core/components/station.json#/definitions/agencyId"
+          },
+          "services": {
+            "$ref": "../../core/components/station.json#/definitions/services"
           },
           "address": {
             "$ref": "../../core/components/station.json#/definitions/address"
@@ -31,7 +37,7 @@
             "$ref": "../../core/components/station.json#/definitions/country"
           }
         },
-        "required": ["id", "location", "agencyId"],
+        "required": ["id", "location", "agencyId", "services"],
         "additionalProperties": false
       }
     }
