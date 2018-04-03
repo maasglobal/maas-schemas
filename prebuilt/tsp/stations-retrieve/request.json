@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "MaaS stations retrieve request schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "agencyId": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 64
+    }
+  },
+  "additionalProperties": false
+}
