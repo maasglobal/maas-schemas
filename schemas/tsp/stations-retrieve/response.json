@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "MaaS stations query response schema",
+  "type": "object",
+  "properties": {
+    "station": {
+      "type": "object",
+      "description": "Detailed station schema, coming as stations-retrieve response",
+      "properties": {
+        "id": {
+          "$ref": "../../core/components/station.json#/definitions/id"
+        },
+        "code": {
+          "$ref": "../../core/components/station.json#/definitions/code"
+        },
+        "name": {
+          "$ref": "../../core/components/station.json#/definitions/name"
+        },
+        "location": {
+          "$ref": "../../core/components/station.json#/definitions/location"
+        },
+        "agencyId": {
+          "$ref": "../../core/components/station.json#/definitions/agencyId"
+        },
+        "address": {
+          "$ref": "../../core/components/station.json#/definitions/address"
+        },
+        "city": {
+          "$ref": "../../core/components/station.json#/definitions/city"
+        },
+        "country": {
+          "$ref": "../../core/components/station.json#/definitions/country"
+        },
+        "openingHours": {
+          "$ref": "../../core/components/station.json#/definitions/openingHours"
+        },
+        "facilities": {
+          "$ref": "../../core/components/station.json#/definitions/facilities"
+        },
+        "timetables": {
+          "$ref": "../../core/components/station.json#/definitions/timetables"
+        }
+      },
+      "required": ["id", "location", "agencyId"],
+      "additionalProperties": false
+    }
+  }
+}

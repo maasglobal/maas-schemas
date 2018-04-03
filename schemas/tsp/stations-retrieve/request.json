@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "MaaS stations retrieve request schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "../../core/components/station.json#/definitions/id"
+    },
+    "agencyId": {
+      "$ref": "../../core/components/station.json#/definitions/agencyId"
+    }
+  },
+  "additionalProperties": false
+}

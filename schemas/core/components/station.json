@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "MaaS station schemas",
+  "type": "object",
+  "definitions": {
+    "id": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "location": {
+      "$ref": "./units-geo.json#/definitions/shortLocationString"
+    },
+    "address": {
+      "$ref": "./address.json#/definitions/address"
+    },
+    "city": {
+      "$ref": "./address.json#/definitions/city"
+    },
+    "country": {
+      "$ref": "./address.json#/definitions/country"
+    },
+    "agencyId": {
+      "$ref": "./agencyId.json"
+    },
+    "openingHours": {
+      "description": "Opening hour of the station, object format is left for TSP to decide",
+      "type": "object"
+    },
+    "facilities": {
+      "description": "Station facilities, including services and features",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "services": {
+      "description": "What agency and mode of transport will occupy this station",
+      "type": "array",
+      "items": {
+        "$ref": "./travel-mode.json"
+      }
+    },
+    "timetables": {
+      "description": "Timetable for passing by / originating transports",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "mode": {
+            "$ref": "./travel-mode.json"
+          },
+          "name": {
+            "type": "string"
+          },
+          "longName": {
+            "type": "string"
+          },
+          "schedule": {
+            "$ref": "./units.json#/definitions/time"
+          },
+          "realtime": {
+            "$ref": "./units.json#/definitions/time"
+          }
+        }
+      }
+    }
+  }
+}
