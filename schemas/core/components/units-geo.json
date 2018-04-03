@@ -88,7 +88,7 @@
     "place": {
       "type": "object",
       "additionalProperties": true,
-      "description": "A place, as a location-name pair with name and address",
+      "description": "A place, could be a stop or a station",
       "allOf": [
         {
           "$ref": "#/definitions/relaxedLocation"
@@ -124,6 +124,9 @@
                 "minLength": 1,
                 "maxLength": 80
               }
+            },
+            "openingHours": {
+              "type": "object"
             }
           }
         }
