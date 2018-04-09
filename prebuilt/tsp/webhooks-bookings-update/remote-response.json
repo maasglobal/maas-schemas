@@ -67,7 +67,8 @@
             "CONFIRMED",
             "ACTIVATED",
             "EXPIRED",
-            "CANCELLED"
+            "CANCELLED",
+            "REJECTED"
           ]
         },
         "leg": {
@@ -1144,7 +1145,8 @@
             "CONFIRMED",
             "ACTIVATED",
             "EXPIRED",
-            "CANCELLED"
+            "CANCELLED",
+            "REJECTED"
           ]
         },
         "leg": {
