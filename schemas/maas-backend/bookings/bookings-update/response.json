@@ -5,13 +5,13 @@
   "type": "object",
   "properties": {
     "booking": {
-      "$ref": "../../../core/booking.json"
+      "$ref": "../../../core/booking.json#/definitions/booking"
     },
     "debug": {
       "type": "object",
       "additionalProperties": true
     }
   },
-  "required": ["booking"],
+  "required": [ "booking" ],
   "additionalProperties": false
 }

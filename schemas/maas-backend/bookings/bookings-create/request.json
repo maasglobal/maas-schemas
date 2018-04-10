@@ -8,10 +8,7 @@
       "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "allOf": [
-        { "$ref": "../../../core/booking.json" },
-        { "required": [ "leg", "terms", "product" ] }
-      ]
+      "$ref": "../../../core/booking.json#/definitions/bookingEstimateWithPaymentSource"
     },
     "headers": {
       "$ref": "../../../core/components/api-common.json#/definitions/headers"

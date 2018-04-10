@@ -50,71 +50,349 @@
           },
           "fare": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "description": "A fare/price as billed to the user in WMPs or in tokens",
-            "type": "object",
-            "properties": {
-              "amount": {
-                "anyOf": [
-                  {
+            "description": "A fare/price as billed to the user",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "description": "amount of the fare in the given currency",
                     "type": "integer",
+                    "multipleOf": 0.01,
                     "minimum": 0
                   },
-                  {
-                    "type": "null"
+                  "currency": {
+                    "description": "currency of the fare amount",
+                    "type": "string",
+                    "enum": [
+                      "EUR",
+                      "GBP"
+                    ]
+                  },
+                  "wmp": {
+                    "description": "The fare amount in the WMP internal currency",
+                    "type": "integer",
+                    "multipleOf": 1,
+                    "minimum": 0
+                  },
+                  "region": {
+                    "description": "The fare in the home currency associated with the region of the user's subscription",
+                    "type": "Object",
+                    "properties": {
+                      "amount": {
+                        "description": "amount of the fare in the given currency",
+                        "type": "integer",
+                        "multipleOf": 0.01,
+                        "minimum": 0
+                      },
+                      "currency": {
+                        "description": "currency of the fare amount",
+                        "type": "string",
+                        "enum": [
+                          "EUR",
+                          "GBP"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "amount",
+                      "currency"
+                    ],
+                    "additionalProperties": false
                   }
-                ]
+                },
+                "required": [
+                  "amount",
+                  "currency",
+                  "wmps",
+                  "region"
+                ],
+                "additionalProperties": false
               },
-              "currency": {
-                "type": "string",
-                "enum": [
-                  "WMP",
-                  "TOKEN"
-                ]
-              },
-              "tokenId": {
-                "type": "string"
+              {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "description": "number of tokens",
+                    "type": "integer",
+                    "multipleOf": 1,
+                    "minimum": 0
+                  },
+                  "currency": {
+                    "description": "TOKEN internal currency",
+                    "value": "TOKEN"
+                  },
+                  "tokenId": {
+                    "description": "Token id field used if the currency is TOKEN",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency",
+                  "tokenId"
+                ],
+                "additionalProperties": false
               }
-            },
-            "required": [
-              "amount",
-              "currency"
             ],
-            "additionalProperties": false
+            "definitions": {
+              "currencyFare": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "description": "amount of the fare in the given currency",
+                    "type": "integer",
+                    "multipleOf": 0.01,
+                    "minimum": 0
+                  },
+                  "currency": {
+                    "description": "currency of the fare amount",
+                    "type": "string",
+                    "enum": [
+                      "EUR",
+                      "GBP"
+                    ]
+                  },
+                  "wmp": {
+                    "description": "The fare amount in the WMP internal currency",
+                    "type": "integer",
+                    "multipleOf": 1,
+                    "minimum": 0
+                  },
+                  "region": {
+                    "description": "The fare in the home currency associated with the region of the user's subscription",
+                    "type": "Object",
+                    "properties": {
+                      "amount": {
+                        "description": "amount of the fare in the given currency",
+                        "type": "integer",
+                        "multipleOf": 0.01,
+                        "minimum": 0
+                      },
+                      "currency": {
+                        "description": "currency of the fare amount",
+                        "type": "string",
+                        "enum": [
+                          "EUR",
+                          "GBP"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "amount",
+                      "currency"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency",
+                  "wmps",
+                  "region"
+                ],
+                "additionalProperties": false
+              },
+              "tokenFare": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "description": "number of tokens",
+                    "type": "integer",
+                    "multipleOf": 1,
+                    "minimum": 0
+                  },
+                  "currency": {
+                    "description": "TOKEN internal currency",
+                    "value": "TOKEN"
+                  },
+                  "tokenId": {
+                    "description": "Token id field used if the currency is TOKEN",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency",
+                  "tokenId"
+                ],
+                "additionalProperties": false
+              }
+            }
           },
           "fares": {
             "type": "array",
             "items": {
               "$schema": "http://json-schema.org/draft-04/schema#",
-              "description": "A fare/price as billed to the user in WMPs or in tokens",
-              "type": "object",
-              "properties": {
-                "amount": {
-                  "anyOf": [
-                    {
+              "description": "A fare/price as billed to the user",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "description": "amount of the fare in the given currency",
                       "type": "integer",
+                      "multipleOf": 0.01,
                       "minimum": 0
                     },
-                    {
-                      "type": "null"
+                    "currency": {
+                      "description": "currency of the fare amount",
+                      "type": "string",
+                      "enum": [
+                        "EUR",
+                        "GBP"
+                      ]
+                    },
+                    "wmp": {
+                      "description": "The fare amount in the WMP internal currency",
+                      "type": "integer",
+                      "multipleOf": 1,
+                      "minimum": 0
+                    },
+                    "region": {
+                      "description": "The fare in the home currency associated with the region of the user's subscription",
+                      "type": "Object",
+                      "properties": {
+                        "amount": {
+                          "description": "amount of the fare in the given currency",
+                          "type": "integer",
+                          "multipleOf": 0.01,
+                          "minimum": 0
+                        },
+                        "currency": {
+                          "description": "currency of the fare amount",
+                          "type": "string",
+                          "enum": [
+                            "EUR",
+                            "GBP"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "amount",
+                        "currency"
+                      ],
+                      "additionalProperties": false
                     }
-                  ]
+                  },
+                  "required": [
+                    "amount",
+                    "currency",
+                    "wmps",
+                    "region"
+                  ],
+                  "additionalProperties": false
                 },
-                "currency": {
-                  "type": "string",
-                  "enum": [
-                    "WMP",
-                    "TOKEN"
-                  ]
-                },
-                "tokenId": {
-                  "type": "string"
+                {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "description": "number of tokens",
+                      "type": "integer",
+                      "multipleOf": 1,
+                      "minimum": 0
+                    },
+                    "currency": {
+                      "description": "TOKEN internal currency",
+                      "value": "TOKEN"
+                    },
+                    "tokenId": {
+                      "description": "Token id field used if the currency is TOKEN",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency",
+                    "tokenId"
+                  ],
+                  "additionalProperties": false
                 }
-              },
-              "required": [
-                "amount",
-                "currency"
               ],
-              "additionalProperties": false
+              "definitions": {
+                "currencyFare": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "description": "amount of the fare in the given currency",
+                      "type": "integer",
+                      "multipleOf": 0.01,
+                      "minimum": 0
+                    },
+                    "currency": {
+                      "description": "currency of the fare amount",
+                      "type": "string",
+                      "enum": [
+                        "EUR",
+                        "GBP"
+                      ]
+                    },
+                    "wmp": {
+                      "description": "The fare amount in the WMP internal currency",
+                      "type": "integer",
+                      "multipleOf": 1,
+                      "minimum": 0
+                    },
+                    "region": {
+                      "description": "The fare in the home currency associated with the region of the user's subscription",
+                      "type": "Object",
+                      "properties": {
+                        "amount": {
+                          "description": "amount of the fare in the given currency",
+                          "type": "integer",
+                          "multipleOf": 0.01,
+                          "minimum": 0
+                        },
+                        "currency": {
+                          "description": "currency of the fare amount",
+                          "type": "string",
+                          "enum": [
+                            "EUR",
+                            "GBP"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "amount",
+                        "currency"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency",
+                    "wmps",
+                    "region"
+                  ],
+                  "additionalProperties": false
+                },
+                "tokenFare": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "description": "number of tokens",
+                      "type": "integer",
+                      "multipleOf": 1,
+                      "minimum": 0
+                    },
+                    "currency": {
+                      "description": "TOKEN internal currency",
+                      "value": "TOKEN"
+                    },
+                    "tokenId": {
+                      "description": "Token id field used if the currency is TOKEN",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency",
+                    "tokenId"
+                  ],
+                  "additionalProperties": false
+                }
+              }
             }
           }
         },
@@ -172,71 +450,349 @@
         },
         "fare": {
           "$schema": "http://json-schema.org/draft-04/schema#",
-          "description": "A fare/price as billed to the user in WMPs or in tokens",
-          "type": "object",
-          "properties": {
-            "amount": {
-              "anyOf": [
-                {
+          "description": "A fare/price as billed to the user",
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "description": "amount of the fare in the given currency",
                   "type": "integer",
+                  "multipleOf": 0.01,
                   "minimum": 0
                 },
-                {
-                  "type": "null"
+                "currency": {
+                  "description": "currency of the fare amount",
+                  "type": "string",
+                  "enum": [
+                    "EUR",
+                    "GBP"
+                  ]
+                },
+                "wmp": {
+                  "description": "The fare amount in the WMP internal currency",
+                  "type": "integer",
+                  "multipleOf": 1,
+                  "minimum": 0
+                },
+                "region": {
+                  "description": "The fare in the home currency associated with the region of the user's subscription",
+                  "type": "Object",
+                  "properties": {
+                    "amount": {
+                      "description": "amount of the fare in the given currency",
+                      "type": "integer",
+                      "multipleOf": 0.01,
+                      "minimum": 0
+                    },
+                    "currency": {
+                      "description": "currency of the fare amount",
+                      "type": "string",
+                      "enum": [
+                        "EUR",
+                        "GBP"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
+                  "additionalProperties": false
                 }
-              ]
+              },
+              "required": [
+                "amount",
+                "currency",
+                "wmps",
+                "region"
+              ],
+              "additionalProperties": false
             },
-            "currency": {
-              "type": "string",
-              "enum": [
-                "WMP",
-                "TOKEN"
-              ]
-            },
-            "tokenId": {
-              "type": "string"
+            {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "description": "number of tokens",
+                  "type": "integer",
+                  "multipleOf": 1,
+                  "minimum": 0
+                },
+                "currency": {
+                  "description": "TOKEN internal currency",
+                  "value": "TOKEN"
+                },
+                "tokenId": {
+                  "description": "Token id field used if the currency is TOKEN",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "amount",
+                "currency",
+                "tokenId"
+              ],
+              "additionalProperties": false
             }
-          },
-          "required": [
-            "amount",
-            "currency"
           ],
-          "additionalProperties": false
+          "definitions": {
+            "currencyFare": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "description": "amount of the fare in the given currency",
+                  "type": "integer",
+                  "multipleOf": 0.01,
+                  "minimum": 0
+                },
+                "currency": {
+                  "description": "currency of the fare amount",
+                  "type": "string",
+                  "enum": [
+                    "EUR",
+                    "GBP"
+                  ]
+                },
+                "wmp": {
+                  "description": "The fare amount in the WMP internal currency",
+                  "type": "integer",
+                  "multipleOf": 1,
+                  "minimum": 0
+                },
+                "region": {
+                  "description": "The fare in the home currency associated with the region of the user's subscription",
+                  "type": "Object",
+                  "properties": {
+                    "amount": {
+                      "description": "amount of the fare in the given currency",
+                      "type": "integer",
+                      "multipleOf": 0.01,
+                      "minimum": 0
+                    },
+                    "currency": {
+                      "description": "currency of the fare amount",
+                      "type": "string",
+                      "enum": [
+                        "EUR",
+                        "GBP"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "amount",
+                "currency",
+                "wmps",
+                "region"
+              ],
+              "additionalProperties": false
+            },
+            "tokenFare": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "description": "number of tokens",
+                  "type": "integer",
+                  "multipleOf": 1,
+                  "minimum": 0
+                },
+                "currency": {
+                  "description": "TOKEN internal currency",
+                  "value": "TOKEN"
+                },
+                "tokenId": {
+                  "description": "Token id field used if the currency is TOKEN",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "amount",
+                "currency",
+                "tokenId"
+              ],
+              "additionalProperties": false
+            }
+          }
         },
         "fares": {
           "type": "array",
           "items": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "description": "A fare/price as billed to the user in WMPs or in tokens",
-            "type": "object",
-            "properties": {
-              "amount": {
-                "anyOf": [
-                  {
+            "description": "A fare/price as billed to the user",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "description": "amount of the fare in the given currency",
                     "type": "integer",
+                    "multipleOf": 0.01,
                     "minimum": 0
                   },
-                  {
-                    "type": "null"
+                  "currency": {
+                    "description": "currency of the fare amount",
+                    "type": "string",
+                    "enum": [
+                      "EUR",
+                      "GBP"
+                    ]
+                  },
+                  "wmp": {
+                    "description": "The fare amount in the WMP internal currency",
+                    "type": "integer",
+                    "multipleOf": 1,
+                    "minimum": 0
+                  },
+                  "region": {
+                    "description": "The fare in the home currency associated with the region of the user's subscription",
+                    "type": "Object",
+                    "properties": {
+                      "amount": {
+                        "description": "amount of the fare in the given currency",
+                        "type": "integer",
+                        "multipleOf": 0.01,
+                        "minimum": 0
+                      },
+                      "currency": {
+                        "description": "currency of the fare amount",
+                        "type": "string",
+                        "enum": [
+                          "EUR",
+                          "GBP"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "amount",
+                      "currency"
+                    ],
+                    "additionalProperties": false
                   }
-                ]
+                },
+                "required": [
+                  "amount",
+                  "currency",
+                  "wmps",
+                  "region"
+                ],
+                "additionalProperties": false
               },
-              "currency": {
-                "type": "string",
-                "enum": [
-                  "WMP",
-                  "TOKEN"
-                ]
-              },
-              "tokenId": {
-                "type": "string"
+              {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "description": "number of tokens",
+                    "type": "integer",
+                    "multipleOf": 1,
+                    "minimum": 0
+                  },
+                  "currency": {
+                    "description": "TOKEN internal currency",
+                    "value": "TOKEN"
+                  },
+                  "tokenId": {
+                    "description": "Token id field used if the currency is TOKEN",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency",
+                  "tokenId"
+                ],
+                "additionalProperties": false
               }
-            },
-            "required": [
-              "amount",
-              "currency"
             ],
-            "additionalProperties": false
+            "definitions": {
+              "currencyFare": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "description": "amount of the fare in the given currency",
+                    "type": "integer",
+                    "multipleOf": 0.01,
+                    "minimum": 0
+                  },
+                  "currency": {
+                    "description": "currency of the fare amount",
+                    "type": "string",
+                    "enum": [
+                      "EUR",
+                      "GBP"
+                    ]
+                  },
+                  "wmp": {
+                    "description": "The fare amount in the WMP internal currency",
+                    "type": "integer",
+                    "multipleOf": 1,
+                    "minimum": 0
+                  },
+                  "region": {
+                    "description": "The fare in the home currency associated with the region of the user's subscription",
+                    "type": "Object",
+                    "properties": {
+                      "amount": {
+                        "description": "amount of the fare in the given currency",
+                        "type": "integer",
+                        "multipleOf": 0.01,
+                        "minimum": 0
+                      },
+                      "currency": {
+                        "description": "currency of the fare amount",
+                        "type": "string",
+                        "enum": [
+                          "EUR",
+                          "GBP"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "amount",
+                      "currency"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency",
+                  "wmps",
+                  "region"
+                ],
+                "additionalProperties": false
+              },
+              "tokenFare": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "description": "number of tokens",
+                    "type": "integer",
+                    "multipleOf": 1,
+                    "minimum": 0
+                  },
+                  "currency": {
+                    "description": "TOKEN internal currency",
+                    "value": "TOKEN"
+                  },
+                  "tokenId": {
+                    "description": "Token id field used if the currency is TOKEN",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency",
+                  "tokenId"
+                ],
+                "additionalProperties": false
+              }
+            }
           }
         }
       },

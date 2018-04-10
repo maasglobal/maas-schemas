@@ -12,7 +12,7 @@
       "$ref": "../../../core/components/units.json#/definitions/uuid"
     },
     "payload": {
-      "$ref": "../../../core/booking.json"
+      "$ref": "../../../core/booking.json#/definitions/booking"
     },
     "headers": {
       "$ref": "../../../core/components/api-common.json#/definitions/headers"

@@ -7,7 +7,7 @@
       "$ref": "../../core/booking.json#/definitions/tspId"
     },
     "cost": {
-      "$ref": "../../core/booking.json#/properties/cost"
+      "$ref": "../../core/components/cost.json"
     },
     "receipt": {
       "type": "object",

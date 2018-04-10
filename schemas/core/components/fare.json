@@ -1,27 +1,84 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "A fare/price as billed to the user in WMPs or in tokens",
-  "type": "object",
-  "properties": {
-    "amount": {
-      "anyOf": [
-        {
+  "description": "A fare/price as billed to the user",
+  "oneOf": [
+    {
+      "$ref": "#/definitions/currencyFare"
+    },
+    {
+      "$ref": "#/definitions/tokenFare"
+    }
+  ],
+  "definitions": {
+    "currencyFare": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "description": "amount of the fare in the given currency",
           "type": "integer",
+          "multipleOf": 0.01,
           "minimum": 0
         },
-        {
-          "type": "null"
+        "currency": {
+          "description": "currency of the fare amount",
+          "$ref": "./units.json#/definitions/actualCurrency"
+        },
+        "wmp": {
+          "description": "The fare amount in the WMP internal currency",
+          "type": "integer",
+          "multipleOf": 1,
+          "minimum": 0
+        },
+        "region": {
+          "description": "The fare in the home currency associated with the region of the user's subscription",
+          "type": "Object",
+          "properties": {
+            "amount": {
+              "$ref": "#/definitions/currencyFare/properties/amount"
+            },
+            "currency": {
+              "$ref": "#/definitions/currencyFare/properties/currency"
+            }
+          },
+          "required": [
+            "amount",
+            "currency"
+          ],
+          "additionalProperties": false
         }
-      ]
+      },
+      "required": [
+        "amount",
+        "currency",
+        "wmps",
+        "region"
+      ],
+      "additionalProperties": false
     },
-    "currency": {
-      "type": "string",
-      "enum": [ "WMP", "TOKEN" ]
-    },
-    "tokenId": {
-      "type": "string"
+    "tokenFare": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "description": "number of tokens",
+          "type": "integer",
+          "multipleOf": 1,
+          "minimum": 0
+        },
+        "currency": {
+          "description": "TOKEN internal currency",
+          "value": "TOKEN"
+        },
+        "tokenId": {
+          "description": "Token id field used if the currency is TOKEN",
+          "type": "string"
+        }
+      },
+      "required": [
+        "amount",
+        "currency",
+        "tokenId"
+      ],
+      "additionalProperties": false
     }
-  },
-  "required": ["amount", "currency"],
-  "additionalProperties": false
+  }
 }

@@ -42,7 +42,7 @@
           "multipleOf": 0.01
         },
         "currency": {
-          "$ref": "./components/units.json#/definitions/currency"
+          "$ref": "./components/units.json#/definitions/actualCurrency"
         },
         "referenceInvoiceLineItemId": {
           "$ref": "#/definitions/InvoiceLineItemId"

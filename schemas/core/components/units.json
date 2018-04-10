@@ -24,7 +24,12 @@
       "type": "string",
       "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
     },
-    "currency": {
+    "internalCurrency": {
+      "description": "Internal monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+      "type": "string",
+      "enum": [ "WMP", "TOKEN" ]
+    },
+    "actualCurrency": {
       "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
       "type": "string",
       "enum": [ "EUR", "GBP" ]
