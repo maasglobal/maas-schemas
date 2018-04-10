@@ -1076,6 +1076,10 @@
               "minLength": 0,
               "maxLength": 64
             },
+            "validityOverride": {
+              "description": "Text which should override the display of the validity on tickets",
+              "type": "string"
+            },
             "validity": {
               "description": "Booking validity conditions",
               "type": "object",
@@ -2171,6 +2175,10 @@
               "type": "string",
               "minLength": 0,
               "maxLength": 64
+            },
+            "validityOverride": {
+              "description": "Text which should override the display of the validity on tickets",
+              "type": "string"
             },
             "validity": {
               "description": "Booking validity conditions",
