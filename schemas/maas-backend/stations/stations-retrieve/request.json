@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/regions/regions-options/request",
+  "description": "Request schema for regions-options",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "agencyId": {
+          "$ref": "../../../core/components/agencyId.json"
+        },
+        "stationId": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "headers": {
+      "Accept": {
+        "$ref": "../../../core/components/api-common.json#/definitions/acceptHeader"
+      },
+      "X-Whim-User-Agent": {
+        "$ref": "../../../core/components/api-common.json#/definitions/userAgentHeader"
+      }
+    }
+  },
+  "required": ["identityId", "payload"],
+  "additionalProperties": false
+}

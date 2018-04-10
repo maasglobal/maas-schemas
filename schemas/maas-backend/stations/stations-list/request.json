@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/stations/stations-list/request",
+  "description": "Request schema for stations list",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "agencyId": {
+          "$ref": "../../../core/components/agencyId.json"
+        },
+        "lat": {
+          "$ref": "../../../core/components/units-geo.json#/definitions/relaxedLatitude"
+        },
+        "lon": {
+          "$ref": "../../../core/components/units-geo.json#/definitions/relaxedLatitude"
+        },
+        "radius": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": ["agencyId", "lat", "lon"]
+    },
+    "headers": {
+      "Accept": {
+        "$ref": "../../../core/components/api-common.json#/definitions/acceptHeader"
+      },
+      "X-Whim-User-Agent": {
+        "$ref": "../../../core/components/api-common.json#/definitions/userAgentHeader"
+      }
+    }
+  },
+  "required": ["identityId", "payload"],
+  "additionalProperties": false
+}
