@@ -4,6 +4,9 @@
   "description": "Remote request schema, e.g. how TSP should call MaaS-backend",
   "type": "object",
   "properties": {
+    "id": {
+      "$ref": "../../core/components/units.json#/definitions/uuid"
+    },
     "tspId": {
       "$ref": "../../core/booking.json#/definitions/tspId"
     },
@@ -24,6 +27,10 @@
     },
     "token": {
       "$ref": "../../core/booking.json#/definitions/token"
+    },
+    "customer": {
+      "$ref": "../../core/components/customer.json",
+      "required": ["firstName", "lastName", "phone", "email"]
     }
   },
   "required": [ "tspId", "state" ],
