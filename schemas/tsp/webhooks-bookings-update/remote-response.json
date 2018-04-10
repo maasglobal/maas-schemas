@@ -17,6 +17,9 @@
     "bookingDelta": {
       "type:": "object",
       "properties": {
+        "id": {
+          "$ref": "../../core/components/units.json#/definitions/uuid"
+        },
         "tspId": {
           "$ref": "../../core/booking.json#/definitions/tspId"
         },
@@ -24,7 +27,7 @@
           "$ref": "../../core/booking.json#/properties/cost"
         },
         "state": {
-          "enum": [ "RESERVED", "CONFIRMED", "ACTIVATED", "EXPIRED", "CANCELLED" ]
+          "enum": [ "RESERVED", "CONFIRMED", "ACTIVATED", "EXPIRED", "CANCELLED", "REJECTED" ]
         },
         "leg": {
           "$ref": "../booking-option.json#/definitions/leg"
@@ -37,6 +40,10 @@
         },
         "token": {
           "$ref": "../../core/booking.json#/definitions/token"
+        },
+        "customer": {
+          "$ref": "../../core/components/customer.json",
+          "required": ["firstName", "lastName", "phone", "email"]
         }
       },
       "required": [ "tspId", "state" ],
