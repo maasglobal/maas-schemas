@@ -12,25 +12,35 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/definitions/InvoiceLineItemId"
+          "type": "string",
+          "minLength": 2
         },
         "gatewayId": {
           "type": "string",
           "minLength": 4
         },
         "invoiceId": {
-          "$ref": "./invoice.json#/definitions/InvoiceId"
+          "type": "string",
+          "minLength": 2
         },
         "type": {
           "type": "string",
-          "enum": [ "authorization", "capture", "charge", "refund" ]
+          "enum": [
+            "authorization",
+            "capture",
+            "charge",
+            "refund"
+          ]
         },
         "paymentSourceId": {
           "type": "string",
           "minLength": 4
         },
         "date": {
-          "$ref": "../../core/components/units.json#/definitions/time"
+          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 1451606400
         },
         "description": {
           "type": "string",
@@ -42,13 +52,26 @@
           "multipleOf": 0.01
         },
         "currency": {
-          "$ref": "../../core/components/units.json#/definitions/currency"
+          "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+          "type": "string",
+          "enum": [
+            "EUR",
+            "GBP"
+          ]
         },
         "referenceInvoiceLineItemId": {
-          "$ref": "#/definitions/InvoiceLineItemId"
+          "type": "string",
+          "minLength": 2
         }
-       },
-      "required": [ "id", "gatewayId", "description", "amount", "currency", "type" ],
+      },
+      "required": [
+        "id",
+        "gatewayId",
+        "description",
+        "amount",
+        "currency",
+        "type"
+      ],
       "additionalProperties": false
     }
   }

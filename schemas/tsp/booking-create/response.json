@@ -11,7 +11,7 @@
       "enum": [ "RESERVED", "CONFIRMED", "ACTIVATED" ]
     },
     "cost": {
-      "$ref": "../../core/booking.json#/properties/cost"
+      "$ref": "../../core/components/cost.json"
     },
     "leg": {
       "$ref": "../booking-option.json#/definitions/leg"

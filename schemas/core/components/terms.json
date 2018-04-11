@@ -29,7 +29,7 @@
             "multipleOf": 0.01
           },
           "currency": {
-            "$ref": "./units.json#/definitions/currency"
+            "$ref": "./units.json#/definitions/actualCurrency"
           },
           "timeInterval": {
             "description": "Amount of seconds that fare rate is applied to",

@@ -6,7 +6,7 @@
     "booking": {
       "allOf": [
         {
-          "$ref": "../../../core/booking.json"
+          "$ref": "../../../core/booking.json#/definitions/booking"
         },
         {
           "type": "object",
@@ -24,6 +24,6 @@
       "additionalProperties": true
     }
   },
-  "required": ["booking"],
+  "required": [ "booking" ],
   "additionalProperties": false
 }

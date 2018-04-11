@@ -1,10 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/bookings/bookings-update/response",
-  "description": "Response schema for bookings-update",
+  "id": "https://api.maas.global/maas-backend/bookings/bookings-estimate/request",
+  "description": "Request schema for bookings-estimate",
   "type": "object",
   "properties": {
-    "booking": {
+    "identityId": {
+      "type": "string",
+      "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
+    },
+    "payload": {
       "allOf": [
         {
           "type": "object",
@@ -1549,26 +1553,34 @@
         },
         {
           "required": [
-            "tspId",
-            "state",
             "leg",
             "meta",
             "terms",
-            "token",
-            "customer",
-            "signature",
-            "fares"
+            "fares",
+            "signature"
           ]
         }
       ]
     },
-    "debug": {
+    "headers": {
       "type": "object",
+      "properties": {
+        "Accept": {
+          "description": "SemVer versioning schemas for versioning our resources",
+          "type": "string",
+          "pattern": "\\bapplication\\/json[,;][\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*version=((0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\-[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?(?:\\+[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?)\\b"
+        },
+        "X-Whim-User-Agent": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
       "additionalProperties": true
     }
   },
   "required": [
-    "booking"
+    "identityId",
+    "payload"
   ],
   "additionalProperties": false
 }

@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/bookings/bookings-estimate/response",
+  "description": "Response schema for bookings-estimate",
+  "type": "object",
+  "properties": {
+    "bookingEstimate": {
+      "$ref": "../../../core/booking.json#/definitions/bookingEstimate"
+    },
+    "debug": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": [ "bookingEstimate" ],
+  "additionalProperties": false
+}

@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/maas-backend/invoices/invoice",
+  "description": "MaaS Invoice schema",
+  "definitions": {
+    "InvoiceId": {
+      "type": "string",
+      "minLength": 2
+    },
+    "Invoice": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 2
+        },
+        "customerId": {
+          "type": "string",
+          "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
+        },
+        "bookingId": {
+          "description": "bookingId of the requested booking",
+          "type": "string",
+          "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
+        },
+        "lineItems": {
+          "type": "array",
+          "items": {
+            "description": "Invoice line item",
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 2
+              },
+              "gatewayId": {
+                "type": "string",
+                "minLength": 4
+              },
+              "invoiceId": {
+                "type": "string",
+                "minLength": 2
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "authorization",
+                  "capture",
+                  "charge",
+                  "refund"
+                ]
+              },
+              "paymentSourceId": {
+                "type": "string",
+                "minLength": 4
+              },
+              "date": {
+                "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "minimum": 1451606400
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "amount": {
+                "type": "number",
+                "minimum": 0,
+                "multipleOf": 0.01
+              },
+              "currency": {
+                "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                "type": "string",
+                "enum": [
+                  "EUR",
+                  "GBP"
+                ]
+              },
+              "referenceInvoiceLineItemId": {
+                "type": "string",
+                "minLength": 2
+              }
+            },
+            "required": [
+              "id",
+              "gatewayId",
+              "description",
+              "amount",
+              "currency",
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "customerId",
+        "bookingId",
+        "lineItems"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

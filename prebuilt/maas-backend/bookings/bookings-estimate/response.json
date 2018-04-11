@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/bookings/bookings-update/response",
-  "description": "Response schema for bookings-update",
+  "id": "https://api.maas.global/maas-backend/bookings/bookings-estimate/response",
+  "description": "Response schema for bookings-estimate",
   "type": "object",
   "properties": {
-    "booking": {
+    "bookingEstimate": {
       "allOf": [
         {
           "type": "object",
@@ -1549,15 +1549,12 @@
         },
         {
           "required": [
-            "tspId",
-            "state",
             "leg",
             "meta",
             "terms",
-            "token",
-            "customer",
-            "signature",
-            "fares"
+            "fares",
+            "charges",
+            "signature"
           ]
         }
       ]
@@ -1568,7 +1565,7 @@
     }
   },
   "required": [
-    "booking"
+    "bookingEstimate"
   ],
   "additionalProperties": false
 }

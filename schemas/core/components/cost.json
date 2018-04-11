@@ -28,7 +28,7 @@
     "currency": {
       "anyOf": [
         {
-          "$ref": "./units.json#/definitions/currency"
+          "$ref": "./units.json#/definitions/actualCurrency"
         },
         {
           "type": "null"

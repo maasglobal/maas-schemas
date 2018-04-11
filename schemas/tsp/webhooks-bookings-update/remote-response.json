@@ -24,7 +24,7 @@
           "$ref": "../../core/booking.json#/definitions/tspId"
         },
         "cost": {
-          "$ref": "../../core/booking.json#/properties/cost"
+          "$ref": "../../core/components/cost.json"
         },
         "state": {
           "enum": [ "RESERVED", "CONFIRMED", "ACTIVATED", "EXPIRED", "CANCELLED", "REJECTED" ]
