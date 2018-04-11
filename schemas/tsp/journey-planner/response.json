@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.maas.global/tsp/journey-planner/response",
+  "description": "Response schema for getting journey options from a TSP adapter.",
+  "type": "object"
+}
