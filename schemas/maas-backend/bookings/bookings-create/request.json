@@ -8,10 +8,15 @@
       "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "allOf": [
-        { "$ref": "../../../core/booking.json" },
-        { "required": [ "leg", "terms", "product" ] }
-      ]
+      "type": "object",
+      "properties": {
+        "booking": {
+          "$ref": "../bookings-agency-options/response.json#/definitions/option"
+        },
+        "customerSelection": {
+          "$ref": "../../../core/components/configurator.json#/definitions/customerSelection"
+        }
+      }
     },
     "headers": {
       "$ref": "../../../core/components/api-common.json#/definitions/headers"

@@ -1,16 +1,38 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "OpenTripPlanner compatible format for plans, extended with id for legs and itineraries",
-  "properties": {
-    "from": {
-      "$ref": "./components/units-geo.json#/definitions/place"
-    },
-    "planId": {
-        "$ref": "./components/units.json#/definitions/uuid"
+  "allOf": [
+    { "$ref": "#/definitions/plan" },
+    {
+      "oneOf": [
+        { "required": ["from", "planId", "itineraries"] },
+        { "required": ["from", "planId", "outwards", "returns"] }
+      ]
+    }
+  ],
+  "definitions": {
+    "plan": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "$ref": "./components/units-geo.json#/definitions/place"
+        },
+        "planId": {
+          "$ref": "./components/units.json#/definitions/uuid"
+        },
+        "itineraries": {
+          "$ref": "#/definitions/itineraries"
+        },
+        "outwards": {
+          "$ref": "#/definitions/itineraries"
+        },
+        "returns": {
+          "$ref": "#/definitions/itineraries"
+        }
+      }
     },
     "itineraries": {
       "type": "array",
-      "minItems": 0,
       "items": {
         "$ref": "./itinerary.json"
       }

@@ -13,6 +13,12 @@
     "endTime": {
       "$ref": "../../core/components/units.json#/definitions/time"
     },
+    "startTimeReturn": {
+      "$ref": "../../core/components/units.json#/definitions/time"
+    },
+    "endTimeReturn": {
+      "$ref": "../../core/components/units.json#/definitions/time"
+    },
     "from": {
       "$ref": "../../core/components/units-geo.json#/definitions/shortLocationString"
     },
