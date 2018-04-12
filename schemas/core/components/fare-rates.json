@@ -1,0 +1,87 @@
+{
+  "description": "Booking fare rate, describes pricing schema for given product type",
+  "type": "object",
+  "definitions": {
+    "time": {
+      "type": "object",
+      "properties": {
+        "startAt": {
+          "description": "Amount of seconds after this fare rate should be applied to",
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 1
+        },
+        "timeInterval": {
+          "description": "Amount of seconds that fare rate is applied to",
+          "type": "number",
+          "minimum": 1,
+          "multipleOf": 1
+        }
+      },
+      "required": ["timeInterval"]
+    },
+    "amount": {
+      "type": "number",
+      "minimum": 0,
+      "multipleOf": 0.01
+    },
+    "rates": {
+      "description": "List of consequent fare rates to be applied in specified time frames",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "allOf": [
+            { "$ref": "#/definitions/time" },
+            {
+              "type": "object",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "maxAmount": {
+                      "description": "Maximum cost that should be charged for given time interval",
+                      "type": "number",
+                      "minimum": 1,
+                      "multipleOf": 0.01
+                    },
+                    "rates": { "$ref": "#/definitions/rates" },
+                    "required": ["rates"]
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "amount": { "$ref": "#/definitions/amount" },
+                    "required": ["amount"]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "properties": {
+    "type": "object",
+    "properties": {
+      "currency": { "$ref": "./units.json#/definitions/currency" },
+      "maxTime": {
+        "description": "Maximum allowed time of rental",
+        "type": "number",
+        "minimum": 1,
+        "multipleOf": 1
+      },
+      "maxTimePenaltyAmount": {
+        "description": "Amount of penalty cost if rental will exceed maximum allowed time",
+        "type": "number",
+        "minimum": 0,
+        "multipleOf": 0.01
+      },
+      "rates": { "$ref": "#/definitions/rates" }
+    },
+    "required": ["currency", "rates"]
+  }
+}
