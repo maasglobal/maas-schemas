@@ -37,17 +37,29 @@
       "$ref": "#/definitions/terms"
     },
     "customer": {
-      "$ref": "./components/customer.json",
-      "required": ["firstName", "lastName", "phone", "email"]
+      "allOf": [
+        {
+          "$ref": "./components/customer.json"
+        },
+        {
+          "required": ["firstName", "lastName", "phone", "email"]
+        }
+      ]
     },
     "product": {
       "$ref": "./product.json"
     },
     "signature": {
       "$ref": "./components/units.json#/definitions/signature"
+    },
+    "configurator": {
+      "$ref": "./components/configurator.json"
+    },
+    "customerSelection": {
+      "$ref": "./components/configurator.json#/definitions/customerSelection"
     }
   },
-  "required": ["tspId", "state", "leg", "meta", "terms", "token", "customer"],
+  "required": ["id", "state", "leg", "meta", "terms", "token", "customer"],
   "definitions": {
     "tspId": {
       "type": "string",
@@ -109,7 +121,8 @@
     },
     "meta": {
       "type": "object",
-      "description": "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
+      "description":
+        "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
       "properties": {
         "MODE_WALK": { "$ref": "./modes/MODE_WALK.json" },
         "MODE_BICYCLE": { "$ref": "./modes/MODE_BICYCLE.json" },
@@ -134,7 +147,8 @@
       "$ref": "./components/terms.json"
     },
     "token": {
-      "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
+      "description":
+        "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
       "type": "object",
       "properties": {
         "validityDuration": {
@@ -156,7 +170,8 @@
           "type": "object"
         },
         "meta": {
-          "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
+          "description":
+            "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
           "type": "object"
         }
       }

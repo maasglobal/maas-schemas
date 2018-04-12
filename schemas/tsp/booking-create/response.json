@@ -8,7 +8,7 @@
       "$ref": "../../core/booking.json#/definitions/tspId"
     },
     "state": {
-      "enum": [ "RESERVED", "CONFIRMED", "ACTIVATED" ]
+      "$ref": "../../core/components/state.json#/definitions/bookingState"
     },
     "cost": {
       "$ref": "../../core/booking.json#/properties/cost"
@@ -27,6 +27,12 @@
     },
     "tspProduct": {
       "$ref": "../booking-option.json#/definitions/tspProduct"
+    },
+    "configurator": {
+      "$ref": "../../core/components/configurator.json"
+    },
+    "customerSelection": {
+      "$ref": "../../core/components/configurator.json#/definitions/customerSelection"
     }
   },
   "required": ["tspId", "state", "meta", "terms", "token", "tspProduct" ],
