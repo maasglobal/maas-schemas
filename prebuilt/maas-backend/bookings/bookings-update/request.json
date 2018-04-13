@@ -444,7 +444,13 @@
             },
             "data": {
               "description": "Arbitrary ticket data for the client",
-              "type": "object"
+              "type": "object",
+              "properties": {
+                "ticket": {
+                  "type": "string",
+                  "description": "Ticket path used by client to fetch ticket body (e.g ticket.html)"
+                }
+              }
             },
             "meta": {
               "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
@@ -2260,7 +2266,13 @@
             },
             "data": {
               "description": "Arbitrary ticket data for the client",
-              "type": "object"
+              "type": "object",
+              "properties": {
+                "ticket": {
+                  "type": "string",
+                  "description": "Ticket path used by client to fetch ticket body (e.g ticket.html)"
+                }
+              }
             },
             "meta": {
               "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
