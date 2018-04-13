@@ -2245,17 +2245,10 @@
         },
         "data": {
           "description": "Arbitrary ticket data for the client",
-          "type": "object",
-          "properties": {
-            "ticket": {
-              "type": "string",
-              "description": "Ticket path used by client to fetch ticket body (e.g ticket.html)"
-            }
-          },
-          "additionalProperties": false
+          "type": "object"
         },
         "meta": {
-          "description": "Arbitrary metadata the TSP may pass along with the ticket to the client (e.g. a booking code, base64 encoded binary)",
+          "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
           "type": "object"
         }
       }
