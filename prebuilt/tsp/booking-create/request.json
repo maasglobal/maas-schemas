@@ -187,6 +187,17 @@
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 64
+                },
+                "facilities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80
+                  }
+                },
+                "openingHours": {
+                  "type": "object"
                 }
               }
             }
@@ -251,6 +262,17 @@
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 64
+                },
+                "facilities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80
+                  }
+                },
+                "openingHours": {
+                  "type": "object"
                 }
               }
             }
