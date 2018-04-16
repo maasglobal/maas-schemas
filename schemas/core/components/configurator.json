@@ -10,17 +10,10 @@
           "type": "object",
           "description": "Single ticket choices",
           "properties": {
-            "single": { "$ref": "#/definitions/config" }
+            "outboundSingle": { "$ref": "#/definitions/config" },
+            "inboundSingle": { "$ref": "#/definitions/config" }
           },
-          "required": ["outboundSingle"]
-        },
-        {
-          "type": "object",
-          "description": "Single ticket choices",
-          "properties": {
-            "single": { "$ref": "#/definitions/config" }
-          },
-          "required": ["inboundSingle"]
+          "required": ["outboundSingle", "inboundSingle"]
         },
         {
           "type": "object",
