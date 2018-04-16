@@ -12,8 +12,22 @@
       "description": "Booking validity conditions",
       "type": "object",
       "properties": {
-        "startTime": { "$ref": "./units.json#/definitions/time" },
-        "endTime": { "$ref": "./units.json#/definitions/time" }
+        "startTime": {
+          "$ref": "./units.json#/definitions/time",
+          "description": "Epoch when the outbound ticket will be valid"
+        },
+        "endTime": {
+          "$ref": "./units.json#/definitions/time",
+          "description": "Epoch when the outbound ticket will be invalid"
+        },
+        "startTimeReturn": {
+          "$ref": "./units.json#/definitions/time",
+          "description": "Epoch when the return ticket will be valid"
+        },
+        "endTimeReturn": {
+          "$ref": "./units.json#/definitions/time",
+          "description": "Epoch when the return ticket will be invalid"
+        }
       },
       "required": ["startTime", "endTime"]
     },
