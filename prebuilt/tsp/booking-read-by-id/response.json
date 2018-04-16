@@ -984,13 +984,25 @@
           "type": "object",
           "properties": {
             "startTime": {
-              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+              "description": "Epoch when the outbound ticket will be valid",
               "type": "integer",
               "maximum": 9007199254740991,
               "minimum": 1451606400
             },
             "endTime": {
-              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+              "description": "Epoch when the outbound ticket will be invalid",
+              "type": "integer",
+              "maximum": 9007199254740991,
+              "minimum": 1451606400
+            },
+            "startTimeReturn": {
+              "description": "Epoch when the return ticket will be valid",
+              "type": "integer",
+              "maximum": 9007199254740991,
+              "minimum": 1451606400
+            },
+            "endTimeReturn": {
+              "description": "Epoch when the return ticket will be invalid",
               "type": "integer",
               "maximum": 9007199254740991,
               "minimum": 1451606400
