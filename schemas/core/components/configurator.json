@@ -12,7 +12,15 @@
           "properties": {
             "single": { "$ref": "#/definitions/config" }
           },
-          "required": ["single"]
+          "required": ["outboundSingle"]
+        },
+        {
+          "type": "object",
+          "description": "Single ticket choices",
+          "properties": {
+            "single": { "$ref": "#/definitions/config" }
+          },
+          "required": ["inboundSingle"]
         },
         {
           "type": "object",
