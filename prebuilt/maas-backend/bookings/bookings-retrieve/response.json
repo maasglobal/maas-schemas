@@ -1119,12 +1119,17 @@
                     "type": "number",
                     "minimum": 0,
                     "multipleOf": 1
+                  },
+                  "type": {
+                    "enum": [
+                      "maxRate",
+                      "missedReturnPenalty"
+                    ]
                   }
                 },
                 "required": [
                   "amount",
-                  "currency",
-                  "timeInterval"
+                  "currency"
                 ]
               }
             }
@@ -2215,12 +2220,17 @@
                     "type": "number",
                     "minimum": 0,
                     "multipleOf": 1
+                  },
+                  "type": {
+                    "enum": [
+                      "maxRate",
+                      "missedReturnPenalty"
+                    ]
                   }
                 },
                 "required": [
                   "amount",
-                  "currency",
-                  "timeInterval"
+                  "currency"
                 ]
               }
             }
