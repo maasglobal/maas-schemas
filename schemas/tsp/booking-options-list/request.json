@@ -90,5 +90,5 @@
     }
   },
   "required": ["startTime", "from"],
-  "additionalProperties": false
+  "additionalProperties": true
 }
