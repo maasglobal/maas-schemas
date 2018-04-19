@@ -224,11 +224,16 @@
       "minLength": 3,
       "maxLength": 65535,
       "pattern": "^([_-~]*[\\?-\\^])+$"
+    },
+    "extraOptions": {
+      "description": "An arbitrary string passed on a per-TSP basis, e.g. user's subscription period",
+      "type": "string",
+      "minLength": 0
     }
   },
   "required": [
     "startTime",
     "from"
   ],
-  "additionalProperties": false
+  "additionalProperties": true
 }
