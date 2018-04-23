@@ -18,8 +18,20 @@
     },
     "tspProduct": {
       "$ref": "../booking-option.json#/definitions/tspProduct"
+    },
+    "configurator": {
+      "$ref": "../../core/components/configurator.json"
+    },
+    "customerSelection": {
+      "$ref": "../../core/components/configurator.json#/definitions/customerSelection"
     }
   },
-  "required": ["leg", "customer", "tspProduct"],
+  "required": [
+    "leg",
+    "meta",
+    "terms",
+    "customer",
+    "tspProduct"
+  ],
   "additionalProperties": true
 }

@@ -2,43 +2,71 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/core/itinerary",
   "description": "Product option for an itinerary, is either an existing booking pointer or a new booking instruction",
-  "type": "object",
-  "properties": {
-    "identityId": {
-      "$ref": "./components/units.json#/definitions/identityId"
+  "oneOf": [
+    {
+      "allOf": [
+        { "$ref": "#/definitions/content" },
+        {
+          "required": [
+            "identityId",
+            "ref",
+            "product",
+            "terms",
+            "meta",
+            "configurator"
+          ]
+        }
+      ]
     },
-    "bookingId": {
-      "$ref": "./components/units.json#/definitions/uuid"
-    },
-    "ref": {
-      "type": "integer",
-      "minValue": 0
-    },
-    "product": {
-      "$ref": "./product.json"
-    },
-    "fare": {
-      "$ref": "./components/fare.json"
-    },
-    "fares": {
-      "type": "array",
-      "items": {
-        "$ref": "./components/fare.json"
-      }
-    },
-    "terms": {
-      "$ref": "./components/terms.json"
-    },
-    "meta": {
-      "$ref": "./booking.json#/definitions/meta"
+    {
+      "allOf": [
+        { "$ref": "#/definitions/content" },
+        {
+          "required": [
+            "identityId",
+            "ref",
+            "product",
+            "terms",
+            "meta",
+            "fares"
+          ]
+        }
+      ]
     }
-  },
-  "required": [
-    "identityId",
-    "ref",
-    "product",
-    "terms",
-    "meta"
   ],
-  "additionalProperties": false
+  "definitions": {
+    "content": {
+      "identityId": {
+        "$ref": "./components/units.json#/definitions/identityId"
+      },
+      "bookingId": {
+        "$ref": "./components/units.json#/definitions/uuid"
+      },
+      "ref": {
+        "type": "integer",
+        "minValue": 0
+      },
+      "product": {
+        "$ref": "./product.json"
+      },
+      "fare": {
+        "$ref": "./components/fare.json"
+      },
+      "fares": {
+        "type": "array",
+        "items": {
+          "$ref": "./components/fare.json"
+        }
+      },
+      "terms": {
+        "$ref": "./components/terms.json"
+      },
+      "meta": {
+        "$ref": "./booking.json#/definitions/meta"
+      },
+      "configurator": {
+        "$ref": "./components/configurator.json"
+      }
+    }
+  }
 }

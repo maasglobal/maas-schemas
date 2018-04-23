@@ -3,25 +3,42 @@
   "id": "https://api.maas.global/tsp/booking-option",
   "description": "MaaS single TSP adapter option",
   "type": "object",
-  "properties": {
-    "cost": {
-      "$ref": "../core/components/cost.json"
+  "allOf": [
+    {
+      "$ref": "#/definitions/content"
     },
-    "leg": {
-      "$ref": "#/definitions/leg"
-     },
-     "terms": {
-       "$ref": "../core/booking.json#/definitions/terms"
-    },
-    "meta": {
-      "$ref": "../core/booking.json#/definitions/meta"
-    },
-    "tspProduct": {
-      "$ref": "#/definitions/tspProduct"
+    {
+      "oneOf": [
+        {
+          "required": ["leg", "meta", "terms", "tspProduct", "cost"]
+        },
+        {
+          "required": ["leg", "meta", "terms", "tspProduct", "configurator"]
+        }
+      ]
     }
-  },
-  "required": ["cost", "leg", "meta", "terms", "tspProduct" ],
+  ],
   "definitions": {
+    "content": {
+      "leg": {
+        "$ref": "#/definitions/leg"
+      },
+      "terms": {
+        "$ref": "../core/booking.json#/definitions/terms"
+      },
+      "meta": {
+        "$ref": "../core/booking.json#/definitions/meta"
+      },
+      "tspProduct": {
+        "$ref": "#/definitions/tspProduct"
+      },
+      "configurator": {
+        "$ref": "../core/components/configurator.json"
+      },
+      "cost": {
+        "$ref": "../core/components/cost.json"
+      }
+    },
     "leg": {
       "type": "object",
       "description": "A subset of the standard leg (../core/leg.json)",
@@ -50,13 +67,7 @@
         }
       },
       "additionalProperties": false,
-      "required": [
-        "mode",
-        "startTime",
-        "endTime",
-        "from",
-        "to"
-      ]
+      "required": ["mode", "startTime", "endTime", "from", "to"]
     },
     "legDelta": {
       "type": "object",
