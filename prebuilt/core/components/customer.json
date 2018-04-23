@@ -3,6 +3,10 @@
   "description": "MaaS customer schema",
   "type": "object",
   "properties": {
+    "identityId": {
+      "type": "string",
+      "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
+    },
     "firstName": {
       "description": "First name of the customer (e.g. John)",
       "type": "string",

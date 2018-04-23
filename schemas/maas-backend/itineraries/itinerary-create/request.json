@@ -4,6 +4,9 @@
   "description": "Request schema for itineraries-create",
   "type": "object",
   "properties": {
+    "identityId": {
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
+    },
     "itinerary": {
       "$ref": "../../../core/itinerary.json"
     },
