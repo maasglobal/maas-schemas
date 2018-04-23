@@ -77,7 +77,6 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "asd",
           "maxLength": 255
         },
         "name": {
