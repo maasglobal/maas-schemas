@@ -1230,7 +1230,7 @@
         {
           "type": "object",
           "properties": {},
-          "additionalProperties": false
+          "maxProperties": 0
         }
       ]
     },
