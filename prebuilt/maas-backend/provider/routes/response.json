@@ -3090,7 +3090,7 @@
                                       {
                                         "type": "object",
                                         "properties": {},
-                                        "additionalProperties": false
+                                        "maxProperties": 0
                                       }
                                     ]
                                   },
@@ -8990,7 +8990,7 @@
                                       {
                                         "type": "object",
                                         "properties": {},
-                                        "additionalProperties": false
+                                        "maxProperties": 0
                                       }
                                     ]
                                   },
@@ -14890,7 +14890,7 @@
                                   {
                                     "type": "object",
                                     "properties": {},
-                                    "additionalProperties": false
+                                    "maxProperties": 0
                                   }
                                 ]
                               },
