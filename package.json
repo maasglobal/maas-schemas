@@ -4,7 +4,7 @@
   "description": "Schemas for MaaS infrastructure",
   "main": "validator.js",
   "engine": {
-    "node": ">=4.3.2"
+    "node": ">=6"
   },
   "scripts": {
     "lint": "gulp validate",
@@ -16,9 +16,17 @@
     "type": "git",
     "url": "git+https://github.com/maasglobal/maas-schemas.git"
   },
-  "keywords": ["schemas", "maas", "JSON"],
+  "keywords": [
+    "schemas",
+    "maas",
+    "JSON"
+  ],
   "author": "",
-  "contributors": ["James Nguyen", "Klaus Dahlen", "Lauri Svan"],
+  "contributors": [
+    "James Nguyen",
+    "Klaus Dahlen",
+    "Lauri Svan"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/maasglobal/maas-schemas/issues"
