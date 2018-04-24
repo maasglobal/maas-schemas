@@ -22,6 +22,11 @@
             "openReturn": { "$ref": "#/definitions/config" }
           },
           "required": ["openReturn"]
+        },
+        {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
         }
       ]
     },
