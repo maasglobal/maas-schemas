@@ -3004,6 +3004,11 @@
                               "required": [
                                 "openReturn"
                               ]
+                            },
+                            {
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": false
                             }
                           ]
                         },
@@ -8899,6 +8904,11 @@
                               "required": [
                                 "openReturn"
                               ]
+                            },
+                            {
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": false
                             }
                           ]
                         },
@@ -14794,6 +14804,11 @@
                           "required": [
                             "openReturn"
                           ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {},
+                          "additionalProperties": false
                         }
                       ]
                     },

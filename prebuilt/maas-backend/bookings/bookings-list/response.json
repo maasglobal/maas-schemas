@@ -2546,6 +2546,11 @@
                     "required": [
                       "openReturn"
                     ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false
                   }
                 ]
               },
