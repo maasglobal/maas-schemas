@@ -4,11 +4,11 @@
   "description": "Schemas for MaaS infrastructure",
   "main": "validator.js",
   "engine": {
-    "node": ">=4.3.2"
+    "node": ">=6"
   },
   "scripts": {
     "lint": "gulp validate",
-    "test": "gulp test",
+    "test": "jest",
     "watch": "gulp watch",
     "build": "gulp"
   },
@@ -16,9 +16,17 @@
     "type": "git",
     "url": "git+https://github.com/maasglobal/maas-schemas.git"
   },
-  "keywords": ["schemas", "maas", "JSON"],
+  "keywords": [
+    "schemas",
+    "maas",
+    "JSON"
+  ],
   "author": "",
-  "contributors": ["James Nguyen", "Klaus Dahlen", "Lauri Svan"],
+  "contributors": [
+    "James Nguyen",
+    "Klaus Dahlen",
+    "Lauri Svan"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/maasglobal/maas-schemas/issues"
@@ -44,8 +52,8 @@
     "gulp-jsonschema-deref": "0.0.2",
     "gulp-mocha": "^3.0.1",
     "gulp-transform": "^1.1.0",
-    "jest": "^21.2.1",
-    "jest-cli": "^21.2.1",
+    "jest": "^22.4.3",
+    "jest-cli": "^22.4.3",
     "jsonpath": "^0.2.11",
     "mocha": "^2.5.3",
     "regexpu-core": "^4.1.3"
