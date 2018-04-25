@@ -2,5 +2,29 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/tsp/journey-planner/response",
   "description": "Response schema for getting journey options from a TSP adapter.",
-  "type": "object"
+  "properties": {
+    "plan": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "$ref": "../../core/components/units-geo.json#/definitions/place"
+        },
+        "planId": {
+          "allOf": [
+            {
+              "$ref": "../../core/plan.json#/properties/planId"
+            }
+          ]
+        },
+        "itineraries": {
+          "$ref": "../../core/plan.json#/properties/itineraries"
+        }
+      },
+      "required": ["from", "itineraries" ],
+      "additionalProperties": false
+    },
+    "debug": { "type": "object" }
+  },
+  "required": [ "plan" ],
+  "additionalProperties": false
 }

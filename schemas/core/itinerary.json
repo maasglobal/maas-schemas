@@ -1,52 +1,90 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "OpenTripPlanner itinerary, augmented with leg bookings per leg",
-  "type": "object",
-  "properties": {
-    "id": {
-      "$ref": "./components/units.json#/definitions/uuid"
-    },
-    "sourcePlanId": {
-      "$ref": "./components/units.json#/definitions/uuid"
-    },
-    "identityId": {
-      "$ref": "./components/units.json#/definitions/identityId"
-    },
-    "signature": {
-      "$ref": "./components/units.json#/definitions/signature"
-    },
-    "state": {
-      "$ref": "./components/state.json#/definitions/itineraryState"
-    },
-    "startTime": {
-      "$ref": "./components/units.json#/definitions/time"
-    },
-    "endTime": {
-      "$ref": "./components/units.json#/definitions/time"
-    },
-    "fare": {
-      "$ref": "./components/fare.json"
-    },
-    "legs": {
-      "type": "array",
-      "minItems": 0,
-      "items": [
+  "allOf": [
+    {
+      "oneOf": [
         {
-          "$ref": "./leg.json"
+          "required": [
+            "startTime",
+            "endTime",
+            "outbound",
+            "inbound"
+          ]
+        },
+        {
+          "required": [
+            "startTime",
+            "endTime",
+            "legs"
+          ]
         }
       ]
     },
-    "productOptions": {
-      "type": "array",
-      "minItems": 0,
-      "items": {
-        "$ref": "./product-option.json"
+    {
+      "$ref": "#/definitions/content"
+    }
+  ],
+  "definitions": {
+    "content": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "./components/units.json#/definitions/uuid"
+        },
+        "sourcePlanId": {
+          "$ref": "./components/units.json#/definitions/uuid"
+        },
+        "identityId": {
+          "$ref": "./components/units.json#/definitions/identityId"
+        },
+        "signature": {
+          "$ref": "./components/units.json#/definitions/signature"
+        },
+        "state": {
+          "$ref": "./components/state.json#/definitions/itineraryState"
+        },
+        "startTime": {
+          "$ref": "./components/units.json#/definitions/time"
+        },
+        "endTime": {
+          "$ref": "./components/units.json#/definitions/time"
+        },
+        "fare": {
+          "$ref": "./components/fare.json"
+        },
+        "legs": {
+          "type": "array",
+          "minItems": 0,
+          "items": [
+            {
+              "$ref": "./leg.json"
+            }
+          ]
+        },
+        "outbound": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "To reference recurrsive set of legs, that is needed for mobile clients to display distinct set of legs on another view",
+              "type": "string"
+            },
+            "legs": {
+              "$ref": "#/definitions/content/properties/legs"
+            }
+          }
+        },
+        "inbound": {
+          "$ref": "#/definitions/content/properties/outbound"
+        },
+        "productOptions": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "./product-option.json"
+          }
+        }
       }
     }
-  },
-  "required": [
-    "startTime",
-    "endTime",
-    "legs"
-  ]
+  }
 }
