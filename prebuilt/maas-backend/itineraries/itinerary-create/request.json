@@ -83,6 +83,24 @@
             },
             "tokenId": {
               "type": "string"
+            },
+            "originalAmount": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "charge",
+                "refund"
+              ]
             }
           },
           "required": [
@@ -435,6 +453,24 @@
                               },
                               "tokenId": {
                                 "type": "string"
+                              },
+                              "originalAmount": {
+                                "anyOf": [
+                                  {
+                                    "type": "integer",
+                                    "minimum": 0
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "charge",
+                                  "refund"
+                                ]
                               }
                             },
                             "required": [
@@ -852,6 +888,24 @@
                         },
                         "tokenId": {
                           "type": "string"
+                        },
+                        "originalAmount": {
+                          "anyOf": [
+                            {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "charge",
+                            "refund"
+                          ]
                         }
                       },
                       "required": [
@@ -1031,6 +1085,24 @@
                         },
                         "tokenId": {
                           "type": "string"
+                        },
+                        "originalAmount": {
+                          "anyOf": [
+                            {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "charge",
+                            "refund"
+                          ]
                         }
                       },
                       "required": [
@@ -1066,6 +1138,24 @@
                           },
                           "tokenId": {
                             "type": "string"
+                          },
+                          "originalAmount": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "charge",
+                              "refund"
+                            ]
                           }
                         },
                         "required": [
@@ -6931,6 +7021,24 @@
                         },
                         "tokenId": {
                           "type": "string"
+                        },
+                        "originalAmount": {
+                          "anyOf": [
+                            {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "charge",
+                            "refund"
+                          ]
                         }
                       },
                       "required": [
@@ -6966,6 +7074,24 @@
                           },
                           "tokenId": {
                             "type": "string"
+                          },
+                          "originalAmount": {
+                            "anyOf": [
+                              {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "charge",
+                              "refund"
+                            ]
                           }
                         },
                         "required": [
@@ -12831,6 +12957,24 @@
                     },
                     "tokenId": {
                       "type": "string"
+                    },
+                    "originalAmount": {
+                      "anyOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "charge",
+                        "refund"
+                      ]
                     }
                   },
                   "required": [
@@ -12866,6 +13010,24 @@
                       },
                       "tokenId": {
                         "type": "string"
+                      },
+                      "originalAmount": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "charge",
+                          "refund"
+                        ]
                       }
                     },
                     "required": [
