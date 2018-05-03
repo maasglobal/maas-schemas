@@ -229,6 +229,11 @@
       "description": "An arbitrary string passed on a per-TSP basis, e.g. user's subscription period",
       "type": "string",
       "minLength": 0
+    },
+    "tspProductIds": {
+      "description": "Comma-separated list of tspProductIds that the user has access to",
+      "type": "string",
+      "minLength": 0
     }
   },
   "required": [
