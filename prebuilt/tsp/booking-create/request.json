@@ -1126,7 +1126,7 @@
           "oneOf": [
             {
               "type": "object",
-              "description": "Single ticket choices",
+              "description": "Outbound single ticket choices",
               "properties": {
                 "outboundSingle": {
                   "type": "object",
@@ -1528,7 +1528,16 @@
                     "name",
                     "choices"
                   ]
-                },
+                }
+              },
+              "required": [
+                "outboundSingle"
+              ]
+            },
+            {
+              "type": "object",
+              "description": "Inbound single ticket choices",
+              "properties": {
                 "inboundSingle": {
                   "type": "object",
                   "description": "A customization to the booking option",
@@ -1932,7 +1941,6 @@
                 }
               },
               "required": [
-                "outboundSingle",
                 "inboundSingle"
               ]
             },
