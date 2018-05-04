@@ -8,9 +8,7 @@
         { "$ref": "#/definitions/content" },
         {
           "required": [
-            "identityId",
             "ref",
-            "product",
             "terms",
             "meta",
             "configurator"
@@ -23,12 +21,23 @@
         { "$ref": "#/definitions/content" },
         {
           "required": [
-            "identityId",
             "ref",
-            "product",
             "terms",
             "meta",
             "fares"
+          ]
+        }
+      ]
+    },
+    {
+      "allOf": [
+        { "$ref": "#/definitions/content" },
+        {
+          "required": [
+            "ref",
+            "terms",
+            "meta",
+            "cost"
           ]
         }
       ]
