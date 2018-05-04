@@ -17,6 +17,22 @@
         },
         {
           "type": "object",
+          "description": "Single ticket choices",
+          "properties": {
+            "inboundSingle": { "$ref": "#/definitions/config" }
+          },
+          "required": ["inboundSingle"]
+        },
+        {
+          "type": "object",
+          "description": "Single ticket choices",
+          "properties": {
+            "outboundSingle": { "$ref": "#/definitions/config" }
+          },
+          "required": ["outboundSingle"]
+        },
+        {
+          "type": "object",
           "description": "Two way ticket choices",
           "properties": {
             "openReturn": { "$ref": "#/definitions/config" }

@@ -1,27 +1,18 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.maas.global/maas-backend/provider/routes/response",
-  "description": "Response schema for routes providers",
+  "description": "Response schema for routes providers, subset of routes-query response schema",
+  "type": "object",
   "properties": {
     "plan": {
-      "type": "object",
-      "properties": {
-        "from": {
-          "$ref": "../../../core/components/units-geo.json#/definitions/place"
+      "allOf": [
+        {
+          "$ref": "../../../core/plan.json#/definitions/plan"
         },
-        "itineraries": {
-          "allOf": [
-            {
-              "$ref": "../../../core/plan.json#/properties/itineraries"
-            }
-          ]
+        {
+          "required": ["from", "outwards", "returns"]
         }
-      },
-      "required": ["from", "itineraries" ],
-      "additionalProperties": false
-    },
-    "debug": { "type": "object" }
-  },
-  "required": [ "plan" ],
-  "additionalProperties": false
+      ]
+    }
+  }
 }

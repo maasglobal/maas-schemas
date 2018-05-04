@@ -31,7 +31,7 @@
       }
     }
   },
-  "required": [ "identityId", "payload" ],
+  "required": ["identityId", "payload"],
   "definitions": {
     "payload": {
       "type": "object",
@@ -65,20 +65,24 @@
         "arriveBy": {
           "$ref": "../../../core/components/units.json#/definitions/time"
         },
+        "leaveAtReturn": {
+          "$ref": "../../../core/components/units.json#/definitions/time"
+        },
+        "arriveByReturn": {
+          "$ref": "../../../core/components/units.json#/definitions/time"
+        },
         "modes": {
           "type": "string",
           "enum": ["PUBLIC_TRANSIT", "TAXI", "CAR", "WALK", "BICYCLE", "BICYCLE_RENT"]
         },
         "transitMode": {
           "type": "string",
-          "enum": ["TRAIN", "BUS", "SUBWAY", "TRAM"]
+          "enum": ["TRAIN", "BUS", "SUBWAY", "TRAM", "RAIL"]
         },
         "options": {
           "type": "object"
         }
-      },
-      "required": ["from", "to", "fromAddress", "toAddress", "fromName", "toName"],
-      "additionalProperties": false
+      }
     }
   }
 }
