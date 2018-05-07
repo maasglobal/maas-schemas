@@ -260,6 +260,11 @@
                       "minLength": 1,
                       "maxLength": 64
                     },
+                    "stationId": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64
+                    },
                     "facilities": {
                       "type": "array",
                       "items": {
@@ -331,6 +336,11 @@
                       "maxLength": 64
                     },
                     "stopCode": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64
+                    },
+                    "stationId": {
                       "type": "string",
                       "minLength": 1,
                       "maxLength": 64
@@ -1469,6 +1479,11 @@
                       "minLength": 1,
                       "maxLength": 64
                     },
+                    "stationId": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64
+                    },
                     "facilities": {
                       "type": "array",
                       "items": {
@@ -1540,6 +1555,11 @@
                       "maxLength": 64
                     },
                     "stopCode": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64
+                    },
+                    "stationId": {
                       "type": "string",
                       "minLength": 1,
                       "maxLength": 64

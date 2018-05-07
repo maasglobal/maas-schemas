@@ -72,6 +72,18 @@
               "maximum": 9007199254740991,
               "minimum": 1451606400
             },
+            "leaveAtReturn": {
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+              "type": "integer",
+              "maximum": 9007199254740991,
+              "minimum": 1451606400
+            },
+            "arriveByReturn": {
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+              "type": "integer",
+              "maximum": 9007199254740991,
+              "minimum": 1451606400
+            },
             "modes": {
               "type": "string",
               "enum": [
@@ -89,14 +101,14 @@
                 "TRAIN",
                 "BUS",
                 "SUBWAY",
-                "TRAM"
+                "TRAM",
+                "RAIL"
               ]
             },
             "options": {
               "type": "object"
             }
-          },
-          "additionalProperties": false
+          }
         },
         {
           "description": "Permit arriveBy",
@@ -159,6 +171,18 @@
               "maximum": 9007199254740991,
               "minimum": 1451606400
             },
+            "leaveAtReturn": {
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+              "type": "integer",
+              "maximum": 9007199254740991,
+              "minimum": 1451606400
+            },
+            "arriveByReturn": {
+              "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+              "type": "integer",
+              "maximum": 9007199254740991,
+              "minimum": 1451606400
+            },
             "modes": {
               "type": "string",
               "enum": [
@@ -176,14 +200,14 @@
                 "TRAIN",
                 "BUS",
                 "SUBWAY",
-                "TRAM"
+                "TRAM",
+                "RAIL"
               ]
             },
             "options": {
               "type": "object"
             }
-          },
-          "additionalProperties": false
+          }
         }
       ]
     },
@@ -259,6 +283,18 @@
           "maximum": 9007199254740991,
           "minimum": 1451606400
         },
+        "leaveAtReturn": {
+          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 1451606400
+        },
+        "arriveByReturn": {
+          "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 1451606400
+        },
         "modes": {
           "type": "string",
           "enum": [
@@ -276,22 +312,14 @@
             "TRAIN",
             "BUS",
             "SUBWAY",
-            "TRAM"
+            "TRAM",
+            "RAIL"
           ]
         },
         "options": {
           "type": "object"
         }
-      },
-      "required": [
-        "from",
-        "to",
-        "fromAddress",
-        "toAddress",
-        "fromName",
-        "toName"
-      ],
-      "additionalProperties": false
+      }
     }
   }
 }

@@ -115,6 +115,11 @@
                         "minLength": 1,
                         "maxLength": 64
                       },
+                      "stationId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 64
+                      },
                       "facilities": {
                         "type": "array",
                         "items": {
@@ -186,6 +191,11 @@
                         "maxLength": 64
                       },
                       "stopCode": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 64
+                      },
+                      "stationId": {
                         "type": "string",
                         "minLength": 1,
                         "maxLength": 64
@@ -338,6 +348,24 @@
                   },
                   "tokenId": {
                     "type": "string"
+                  },
+                  "originalAmount": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "charge",
+                      "refund"
+                    ]
                   }
                 },
                 "required": [
@@ -532,6 +560,11 @@
                   "minLength": 1,
                   "maxLength": 64
                 },
+                "stationId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64
+                },
                 "facilities": {
                   "type": "array",
                   "items": {
@@ -603,6 +636,11 @@
                   "maxLength": 64
                 },
                 "stopCode": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64
+                },
+                "stationId": {
                   "type": "string",
                   "minLength": 1,
                   "maxLength": 64
@@ -755,6 +793,24 @@
             },
             "tokenId": {
               "type": "string"
+            },
+            "originalAmount": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "charge",
+                "refund"
+              ]
             }
           },
           "required": [
