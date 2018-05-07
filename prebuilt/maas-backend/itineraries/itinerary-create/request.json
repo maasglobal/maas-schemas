@@ -1131,6 +1131,55 @@
                       ],
                       "additionalProperties": false
                     },
+                    "cost": {
+                      "$schema": "http://json-schema.org/draft-04/schema#",
+                      "description": "MaaS common units that are used consistently within our own objects",
+                      "type": "object",
+                      "properties": {
+                        "amount": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0,
+                              "multipleOf": 0.01
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "discount": {
+                          "type": "number",
+                          "minimum": 0,
+                          "multipleOf": 0.01
+                        },
+                        "taxes": {
+                          "type": "number",
+                          "minimum": 0,
+                          "multipleOf": 0.01
+                        },
+                        "currency": {
+                          "anyOf": [
+                            {
+                              "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                              "type": "string",
+                              "enum": [
+                                "EUR",
+                                "GBP"
+                              ]
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "amount",
+                        "currency"
+                      ],
+                      "additionalProperties": false
+                    },
                     "fares": {
                       "type": "array",
                       "items": {
@@ -7876,6 +7925,55 @@
                           "enum": [
                             "charge",
                             "refund"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "amount",
+                        "currency"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "cost": {
+                      "$schema": "http://json-schema.org/draft-04/schema#",
+                      "description": "MaaS common units that are used consistently within our own objects",
+                      "type": "object",
+                      "properties": {
+                        "amount": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0,
+                              "multipleOf": 0.01
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "discount": {
+                          "type": "number",
+                          "minimum": 0,
+                          "multipleOf": 0.01
+                        },
+                        "taxes": {
+                          "type": "number",
+                          "minimum": 0,
+                          "multipleOf": 0.01
+                        },
+                        "currency": {
+                          "anyOf": [
+                            {
+                              "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                              "type": "string",
+                              "enum": [
+                                "EUR",
+                                "GBP"
+                              ]
+                            },
+                            {
+                              "type": "null"
+                            }
                           ]
                         }
                       },
@@ -14639,6 +14737,55 @@
                       ],
                       "additionalProperties": false
                     },
+                    "cost": {
+                      "$schema": "http://json-schema.org/draft-04/schema#",
+                      "description": "MaaS common units that are used consistently within our own objects",
+                      "type": "object",
+                      "properties": {
+                        "amount": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0,
+                              "multipleOf": 0.01
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "discount": {
+                          "type": "number",
+                          "minimum": 0,
+                          "multipleOf": 0.01
+                        },
+                        "taxes": {
+                          "type": "number",
+                          "minimum": 0,
+                          "multipleOf": 0.01
+                        },
+                        "currency": {
+                          "anyOf": [
+                            {
+                              "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                              "type": "string",
+                              "enum": [
+                                "EUR",
+                                "GBP"
+                              ]
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "amount",
+                        "currency"
+                      ],
+                      "additionalProperties": false
+                    },
                     "fares": {
                       "type": "array",
                       "items": {
@@ -21384,6 +21531,55 @@
                       "enum": [
                         "charge",
                         "refund"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency"
+                  ],
+                  "additionalProperties": false
+                },
+                "cost": {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "description": "MaaS common units that are used consistently within our own objects",
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "anyOf": [
+                        {
+                          "type": "number",
+                          "minimum": 0,
+                          "multipleOf": 0.01
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "discount": {
+                      "type": "number",
+                      "minimum": 0,
+                      "multipleOf": 0.01
+                    },
+                    "taxes": {
+                      "type": "number",
+                      "minimum": 0,
+                      "multipleOf": 0.01
+                    },
+                    "currency": {
+                      "anyOf": [
+                        {
+                          "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                          "type": "string",
+                          "enum": [
+                            "EUR",
+                            "GBP"
+                          ]
+                        },
+                        {
+                          "type": "null"
+                        }
                       ]
                     }
                   },
