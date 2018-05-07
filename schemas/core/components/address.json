@@ -6,12 +6,13 @@
     "componentAddress": {
       "description": "Encoded address components in form country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|streetNumber:6",
       "type": "string",
-      "pattern": "^(?:(?:(?:country:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:state:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:city:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:zipCode:(?:\\d{3,10}|(?:\\p{L}|\\d){2,4}(\\s(?:\\p{L}|\\d){2,4})?))|(?:streetName:[^|]+)|(?:streetNumber:\\d+))\\|?){4,6}$"
+      "pattern":
+        "^(?:(?:(?:country:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:state:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:city:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:zipCode:(?:\\d{3,10}|(?:\\p{L}|\\d){2,4}(\\s(?:\\p{L}|\\d){2,4})?))|(?:streetName:[^|]+)|(?:streetNumber:\\d+))\\|?){4,6}$"
     },
     "placeName": {
       "description": "Place name (given in autocomplete)",
       "type": "string",
-      "pattern": "^(?:(?:\\p{L}|\\d)+[\\x21-\\xFF]?\\s?)((?:\\p{L}|[\\x21-\\xFF])+\\s?)*$",
+      "pattern": "^(?:\\p{L}|\\d)(?:\\p{L}|\\d|[!-/:-@[-`{-\\xA9\\xAB-\\xB4\\xB6-\\xB9\\xBB-\\xBF\\xD7\\xF7])*(?:\\s(?:\\p{L}|\\d|[!-/:-@[-`{-\\xA9\\xAB-\\xB4\\xB6-\\xB9\\xBB-\\xBF\\xD7\\xF7])+)*$",
       "maxLength": 255
     },
     "firstName": {

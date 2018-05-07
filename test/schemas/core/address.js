@@ -16,6 +16,10 @@ describe('address.placeName', () => {
 
   generateTestCases(schema.definitions.placeName, false, [
     '💩',
+    // Double space, made inefficient regex lock the process
+    'ENTERPRISE RENT A CAR 9 10 SUFFOLK STREET  QUEENSWAY',
+    // Double space (2)
+    'Erenköy Mahallesi, Çoban Yıldızı Sk. No:4, 34738 Kadıköy/İstanbul,  Turkki',
     // '00100', Does not work, but relaxed the schema
     '',
   ]);
