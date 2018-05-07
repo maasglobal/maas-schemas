@@ -3,6 +3,7 @@
   "id": "https://api.maas.global/maas-backend/provider/routes/response",
   "description": "Response schema for routes providers, subset of routes-query response schema",
   "type": "object",
+  "required": ["plan"],
   "properties": {
     "plan": {
       "allOf": [
