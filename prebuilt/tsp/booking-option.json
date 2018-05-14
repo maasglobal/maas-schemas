@@ -1043,217 +1043,38 @@
           {
             "oneOf": [
               {
-                "type": "object",
-                "description": "Single ticket choices",
-                "properties": {
-                  "outboundSingle": {
+                "anyOf": [
+                  {
                     "type": "object",
-                    "description": "A customization to the booking option",
+                    "description": "Single ticket choices",
                     "properties": {
-                      "type": {
-                        "description": "Describe the possible combination of choices user can make",
-                        "enum": [
-                          "oneOf",
-                          "someOf",
-                          "allOf",
-                          "oneOrNoneOf",
-                          "someOrNoneOf"
-                        ]
-                      },
-                      "name": {
-                        "type": "string",
-                        "minLength": 0,
-                        "maxLength": 255
-                      },
-                      "description": {
-                        "type": "string"
-                      },
-                      "choices": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "description": "Set of choices for one customization",
-                        "items": {
-                          "type": "object",
-                          "description": "A choice for one customization",
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "maxLength": 255
-                            },
-                            "name": {
-                              "type": "string",
-                              "minLength": 0,
-                              "maxLength": 255
-                            },
-                            "description": {
-                              "type": "string"
-                            },
-                            "default": {
-                              "type": "boolean"
-                            },
-                            "cost": {
-                              "$schema": "http://json-schema.org/draft-04/schema#",
-                              "description": "MaaS common units that are used consistently within our own objects",
-                              "type": "object",
-                              "properties": {
-                                "amount": {
-                                  "anyOf": [
-                                    {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                },
-                                "discount": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "taxes": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "currency": {
-                                  "anyOf": [
-                                    {
-                                      "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                      "type": "string",
-                                      "enum": [
-                                        "EUR",
-                                        "GBP"
-                                      ]
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                }
-                              },
-                              "required": [
-                                "amount",
-                                "currency"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "fares": {
-                              "type": "array",
-                              "items": [
-                                {
-                                  "ref": "./fare.json"
-                                }
-                              ]
-                            },
-                            "terms": {
-                              "description": "MaaS booking terms and condition for its business engine",
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                                  "type": "string",
-                                  "minLength": 0,
-                                  "maxLength": 64
-                                },
-                                "validity": {
-                                  "description": "Booking validity conditions",
-                                  "type": "object",
-                                  "properties": {
-                                    "startTime": {
-                                      "description": "Epoch when the outbound ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "endTime": {
-                                      "description": "Epoch when the outbound ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "startTimeReturn": {
-                                      "description": "Epoch when the return ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "endTimeReturn": {
-                                      "description": "Epoch when the return ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    }
-                                  },
-                                  "required": [
-                                    "startTime",
-                                    "endTime"
-                                  ]
-                                },
-                                "fareRates": {
-                                  "type": "array",
-                                  "items": {
-                                    "description": "Booking fare rate",
-                                    "type": "object",
-                                    "properties": {
-                                      "amount": {
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 0.01
-                                      },
-                                      "currency": {
-                                        "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                        "type": "string",
-                                        "enum": [
-                                          "EUR",
-                                          "GBP"
-                                        ]
-                                      },
-                                      "timeInterval": {
-                                        "description": "Amount of seconds that fare rate is applied to",
-                                        "type": "number",
-                                        "minimum": 1,
-                                        "multipleOf": 1
-                                      },
-                                      "startAt": {
-                                        "description": "Amount of seconds after this fare rate should be applied to",
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 1
-                                      },
-                                      "type": {
-                                        "enum": [
-                                          "maxRate",
-                                          "missedReturnPenalty"
-                                        ]
-                                      }
-                                    },
-                                    "required": [
-                                      "amount",
-                                      "currency"
-                                    ]
-                                  }
-                                }
-                              },
-                              "additionalProperties": true
-                            },
-                            "meta": {
-                              "type": "object"
-                            }
+                      "inboundSingle": {
+                        "type": "object",
+                        "description": "A customization to the booking option",
+                        "properties": {
+                          "type": {
+                            "description": "Describe the possible combination of choices user can make",
+                            "enum": [
+                              "oneOf",
+                              "someOf",
+                              "allOf",
+                              "oneOrNoneOf",
+                              "someOrNoneOf"
+                            ]
                           },
-                          "required": [
-                            "id",
-                            "name",
-                            "default",
-                            "terms",
-                            "meta"
-                          ]
-                        },
-                        "contains": {
-                          "allOf": [
-                            {
+                          "name": {
+                            "type": "string",
+                            "minLength": 0,
+                            "maxLength": 255
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "choices": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "description": "Set of choices for one customization",
+                            "items": {
                               "type": "object",
                               "description": "A choice for one customization",
                               "properties": {
@@ -1432,229 +1253,238 @@
                                 "meta"
                               ]
                             },
-                            {
-                              "required": [
-                                "default"
+                            "contains": {
+                              "allOf": [
+                                {
+                                  "type": "object",
+                                  "description": "A choice for one customization",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "maxLength": 255
+                                    },
+                                    "name": {
+                                      "type": "string",
+                                      "minLength": 0,
+                                      "maxLength": 255
+                                    },
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "default": {
+                                      "type": "boolean"
+                                    },
+                                    "cost": {
+                                      "$schema": "http://json-schema.org/draft-04/schema#",
+                                      "description": "MaaS common units that are used consistently within our own objects",
+                                      "type": "object",
+                                      "properties": {
+                                        "amount": {
+                                          "anyOf": [
+                                            {
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "multipleOf": 0.01
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
+                                          ]
+                                        },
+                                        "discount": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "multipleOf": 0.01
+                                        },
+                                        "taxes": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "multipleOf": 0.01
+                                        },
+                                        "currency": {
+                                          "anyOf": [
+                                            {
+                                              "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                                              "type": "string",
+                                              "enum": [
+                                                "EUR",
+                                                "GBP"
+                                              ]
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "amount",
+                                        "currency"
+                                      ],
+                                      "additionalProperties": false
+                                    },
+                                    "fares": {
+                                      "type": "array",
+                                      "items": [
+                                        {
+                                          "ref": "./fare.json"
+                                        }
+                                      ]
+                                    },
+                                    "terms": {
+                                      "description": "MaaS booking terms and condition for its business engine",
+                                      "type": "object",
+                                      "properties": {
+                                        "type": {
+                                          "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
+                                          "type": "string",
+                                          "minLength": 0,
+                                          "maxLength": 64
+                                        },
+                                        "validity": {
+                                          "description": "Booking validity conditions",
+                                          "type": "object",
+                                          "properties": {
+                                            "startTime": {
+                                              "description": "Epoch when the outbound ticket will be valid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            },
+                                            "endTime": {
+                                              "description": "Epoch when the outbound ticket will be invalid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            },
+                                            "startTimeReturn": {
+                                              "description": "Epoch when the return ticket will be valid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            },
+                                            "endTimeReturn": {
+                                              "description": "Epoch when the return ticket will be invalid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            }
+                                          },
+                                          "required": [
+                                            "startTime",
+                                            "endTime"
+                                          ]
+                                        },
+                                        "fareRates": {
+                                          "type": "array",
+                                          "items": {
+                                            "description": "Booking fare rate",
+                                            "type": "object",
+                                            "properties": {
+                                              "amount": {
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "multipleOf": 0.01
+                                              },
+                                              "currency": {
+                                                "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                                                "type": "string",
+                                                "enum": [
+                                                  "EUR",
+                                                  "GBP"
+                                                ]
+                                              },
+                                              "timeInterval": {
+                                                "description": "Amount of seconds that fare rate is applied to",
+                                                "type": "number",
+                                                "minimum": 1,
+                                                "multipleOf": 1
+                                              },
+                                              "startAt": {
+                                                "description": "Amount of seconds after this fare rate should be applied to",
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "multipleOf": 1
+                                              },
+                                              "type": {
+                                                "enum": [
+                                                  "maxRate",
+                                                  "missedReturnPenalty"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "amount",
+                                              "currency"
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      "additionalProperties": true
+                                    },
+                                    "meta": {
+                                      "type": "object"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "name",
+                                    "default",
+                                    "terms",
+                                    "meta"
+                                  ]
+                                },
+                                {
+                                  "required": [
+                                    "default"
+                                  ]
+                                }
                               ]
                             }
-                          ]
-                        }
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name",
+                          "choices"
+                        ]
                       }
                     },
                     "required": [
-                      "type",
-                      "name",
-                      "choices"
+                      "inboundSingle"
                     ]
                   },
-                  "inboundSingle": {
+                  {
                     "type": "object",
-                    "description": "A customization to the booking option",
+                    "description": "Single ticket choices",
                     "properties": {
-                      "type": {
-                        "description": "Describe the possible combination of choices user can make",
-                        "enum": [
-                          "oneOf",
-                          "someOf",
-                          "allOf",
-                          "oneOrNoneOf",
-                          "someOrNoneOf"
-                        ]
-                      },
-                      "name": {
-                        "type": "string",
-                        "minLength": 0,
-                        "maxLength": 255
-                      },
-                      "description": {
-                        "type": "string"
-                      },
-                      "choices": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "description": "Set of choices for one customization",
-                        "items": {
-                          "type": "object",
-                          "description": "A choice for one customization",
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "maxLength": 255
-                            },
-                            "name": {
-                              "type": "string",
-                              "minLength": 0,
-                              "maxLength": 255
-                            },
-                            "description": {
-                              "type": "string"
-                            },
-                            "default": {
-                              "type": "boolean"
-                            },
-                            "cost": {
-                              "$schema": "http://json-schema.org/draft-04/schema#",
-                              "description": "MaaS common units that are used consistently within our own objects",
-                              "type": "object",
-                              "properties": {
-                                "amount": {
-                                  "anyOf": [
-                                    {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                },
-                                "discount": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "taxes": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "currency": {
-                                  "anyOf": [
-                                    {
-                                      "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                      "type": "string",
-                                      "enum": [
-                                        "EUR",
-                                        "GBP"
-                                      ]
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                }
-                              },
-                              "required": [
-                                "amount",
-                                "currency"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "fares": {
-                              "type": "array",
-                              "items": [
-                                {
-                                  "ref": "./fare.json"
-                                }
-                              ]
-                            },
-                            "terms": {
-                              "description": "MaaS booking terms and condition for its business engine",
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                                  "type": "string",
-                                  "minLength": 0,
-                                  "maxLength": 64
-                                },
-                                "validity": {
-                                  "description": "Booking validity conditions",
-                                  "type": "object",
-                                  "properties": {
-                                    "startTime": {
-                                      "description": "Epoch when the outbound ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "endTime": {
-                                      "description": "Epoch when the outbound ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "startTimeReturn": {
-                                      "description": "Epoch when the return ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "endTimeReturn": {
-                                      "description": "Epoch when the return ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    }
-                                  },
-                                  "required": [
-                                    "startTime",
-                                    "endTime"
-                                  ]
-                                },
-                                "fareRates": {
-                                  "type": "array",
-                                  "items": {
-                                    "description": "Booking fare rate",
-                                    "type": "object",
-                                    "properties": {
-                                      "amount": {
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 0.01
-                                      },
-                                      "currency": {
-                                        "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                        "type": "string",
-                                        "enum": [
-                                          "EUR",
-                                          "GBP"
-                                        ]
-                                      },
-                                      "timeInterval": {
-                                        "description": "Amount of seconds that fare rate is applied to",
-                                        "type": "number",
-                                        "minimum": 1,
-                                        "multipleOf": 1
-                                      },
-                                      "startAt": {
-                                        "description": "Amount of seconds after this fare rate should be applied to",
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 1
-                                      },
-                                      "type": {
-                                        "enum": [
-                                          "maxRate",
-                                          "missedReturnPenalty"
-                                        ]
-                                      }
-                                    },
-                                    "required": [
-                                      "amount",
-                                      "currency"
-                                    ]
-                                  }
-                                }
-                              },
-                              "additionalProperties": true
-                            },
-                            "meta": {
-                              "type": "object"
-                            }
+                      "outboundSingle": {
+                        "type": "object",
+                        "description": "A customization to the booking option",
+                        "properties": {
+                          "type": {
+                            "description": "Describe the possible combination of choices user can make",
+                            "enum": [
+                              "oneOf",
+                              "someOf",
+                              "allOf",
+                              "oneOrNoneOf",
+                              "someOrNoneOf"
+                            ]
                           },
-                          "required": [
-                            "id",
-                            "name",
-                            "default",
-                            "terms",
-                            "meta"
-                          ]
-                        },
-                        "contains": {
-                          "allOf": [
-                            {
+                          "name": {
+                            "type": "string",
+                            "minLength": 0,
+                            "maxLength": 255
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "choices": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "description": "Set of choices for one customization",
+                            "items": {
                               "type": "object",
                               "description": "A choice for one customization",
                               "properties": {
@@ -1833,845 +1663,207 @@
                                 "meta"
                               ]
                             },
-                            {
-                              "required": [
-                                "default"
-                              ]
-                            }
-                          ]
-                        }
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "name",
-                      "choices"
-                    ]
-                  }
-                },
-                "required": [
-                  "outboundSingle",
-                  "inboundSingle"
-                ]
-              },
-              {
-                "type": "object",
-                "description": "Single ticket choices",
-                "properties": {
-                  "inboundSingle": {
-                    "type": "object",
-                    "description": "A customization to the booking option",
-                    "properties": {
-                      "type": {
-                        "description": "Describe the possible combination of choices user can make",
-                        "enum": [
-                          "oneOf",
-                          "someOf",
-                          "allOf",
-                          "oneOrNoneOf",
-                          "someOrNoneOf"
-                        ]
-                      },
-                      "name": {
-                        "type": "string",
-                        "minLength": 0,
-                        "maxLength": 255
-                      },
-                      "description": {
-                        "type": "string"
-                      },
-                      "choices": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "description": "Set of choices for one customization",
-                        "items": {
-                          "type": "object",
-                          "description": "A choice for one customization",
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "maxLength": 255
-                            },
-                            "name": {
-                              "type": "string",
-                              "minLength": 0,
-                              "maxLength": 255
-                            },
-                            "description": {
-                              "type": "string"
-                            },
-                            "default": {
-                              "type": "boolean"
-                            },
-                            "cost": {
-                              "$schema": "http://json-schema.org/draft-04/schema#",
-                              "description": "MaaS common units that are used consistently within our own objects",
-                              "type": "object",
-                              "properties": {
-                                "amount": {
-                                  "anyOf": [
-                                    {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                },
-                                "discount": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "taxes": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "currency": {
-                                  "anyOf": [
-                                    {
-                                      "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                      "type": "string",
-                                      "enum": [
-                                        "EUR",
-                                        "GBP"
-                                      ]
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                }
-                              },
-                              "required": [
-                                "amount",
-                                "currency"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "fares": {
-                              "type": "array",
-                              "items": [
+                            "contains": {
+                              "allOf": [
                                 {
-                                  "ref": "./fare.json"
-                                }
-                              ]
-                            },
-                            "terms": {
-                              "description": "MaaS booking terms and condition for its business engine",
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                                  "type": "string",
-                                  "minLength": 0,
-                                  "maxLength": 64
-                                },
-                                "validity": {
-                                  "description": "Booking validity conditions",
                                   "type": "object",
+                                  "description": "A choice for one customization",
                                   "properties": {
-                                    "startTime": {
-                                      "description": "Epoch when the outbound ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
+                                    "id": {
+                                      "type": "string",
+                                      "maxLength": 255
                                     },
-                                    "endTime": {
-                                      "description": "Epoch when the outbound ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
+                                    "name": {
+                                      "type": "string",
+                                      "minLength": 0,
+                                      "maxLength": 255
                                     },
-                                    "startTimeReturn": {
-                                      "description": "Epoch when the return ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
+                                    "description": {
+                                      "type": "string"
                                     },
-                                    "endTimeReturn": {
-                                      "description": "Epoch when the return ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    }
-                                  },
-                                  "required": [
-                                    "startTime",
-                                    "endTime"
-                                  ]
-                                },
-                                "fareRates": {
-                                  "type": "array",
-                                  "items": {
-                                    "description": "Booking fare rate",
-                                    "type": "object",
-                                    "properties": {
-                                      "amount": {
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 0.01
-                                      },
-                                      "currency": {
-                                        "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                        "type": "string",
-                                        "enum": [
-                                          "EUR",
-                                          "GBP"
-                                        ]
-                                      },
-                                      "timeInterval": {
-                                        "description": "Amount of seconds that fare rate is applied to",
-                                        "type": "number",
-                                        "minimum": 1,
-                                        "multipleOf": 1
-                                      },
-                                      "startAt": {
-                                        "description": "Amount of seconds after this fare rate should be applied to",
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 1
-                                      },
-                                      "type": {
-                                        "enum": [
-                                          "maxRate",
-                                          "missedReturnPenalty"
-                                        ]
-                                      }
+                                    "default": {
+                                      "type": "boolean"
                                     },
-                                    "required": [
-                                      "amount",
-                                      "currency"
-                                    ]
-                                  }
-                                }
-                              },
-                              "additionalProperties": true
-                            },
-                            "meta": {
-                              "type": "object"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "default",
-                            "terms",
-                            "meta"
-                          ]
-                        },
-                        "contains": {
-                          "allOf": [
-                            {
-                              "type": "object",
-                              "description": "A choice for one customization",
-                              "properties": {
-                                "id": {
-                                  "type": "string",
-                                  "maxLength": 255
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "minLength": 0,
-                                  "maxLength": 255
-                                },
-                                "description": {
-                                  "type": "string"
-                                },
-                                "default": {
-                                  "type": "boolean"
-                                },
-                                "cost": {
-                                  "$schema": "http://json-schema.org/draft-04/schema#",
-                                  "description": "MaaS common units that are used consistently within our own objects",
-                                  "type": "object",
-                                  "properties": {
-                                    "amount": {
-                                      "anyOf": [
-                                        {
+                                    "cost": {
+                                      "$schema": "http://json-schema.org/draft-04/schema#",
+                                      "description": "MaaS common units that are used consistently within our own objects",
+                                      "type": "object",
+                                      "properties": {
+                                        "amount": {
+                                          "anyOf": [
+                                            {
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "multipleOf": 0.01
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
+                                          ]
+                                        },
+                                        "discount": {
                                           "type": "number",
                                           "minimum": 0,
                                           "multipleOf": 0.01
                                         },
-                                        {
-                                          "type": "null"
-                                        }
-                                      ]
-                                    },
-                                    "discount": {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    "taxes": {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    "currency": {
-                                      "anyOf": [
-                                        {
-                                          "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                          "type": "string",
-                                          "enum": [
-                                            "EUR",
-                                            "GBP"
-                                          ]
-                                        },
-                                        {
-                                          "type": "null"
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "amount",
-                                    "currency"
-                                  ],
-                                  "additionalProperties": false
-                                },
-                                "fares": {
-                                  "type": "array",
-                                  "items": [
-                                    {
-                                      "ref": "./fare.json"
-                                    }
-                                  ]
-                                },
-                                "terms": {
-                                  "description": "MaaS booking terms and condition for its business engine",
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                                      "type": "string",
-                                      "minLength": 0,
-                                      "maxLength": 64
-                                    },
-                                    "validity": {
-                                      "description": "Booking validity conditions",
-                                      "type": "object",
-                                      "properties": {
-                                        "startTime": {
-                                          "description": "Epoch when the outbound ticket will be valid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
-                                        },
-                                        "endTime": {
-                                          "description": "Epoch when the outbound ticket will be invalid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
-                                        },
-                                        "startTimeReturn": {
-                                          "description": "Epoch when the return ticket will be valid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
-                                        },
-                                        "endTimeReturn": {
-                                          "description": "Epoch when the return ticket will be invalid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
-                                        }
-                                      },
-                                      "required": [
-                                        "startTime",
-                                        "endTime"
-                                      ]
-                                    },
-                                    "fareRates": {
-                                      "type": "array",
-                                      "items": {
-                                        "description": "Booking fare rate",
-                                        "type": "object",
-                                        "properties": {
-                                          "amount": {
-                                            "type": "number",
-                                            "minimum": 0,
-                                            "multipleOf": 0.01
-                                          },
-                                          "currency": {
-                                            "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                            "type": "string",
-                                            "enum": [
-                                              "EUR",
-                                              "GBP"
-                                            ]
-                                          },
-                                          "timeInterval": {
-                                            "description": "Amount of seconds that fare rate is applied to",
-                                            "type": "number",
-                                            "minimum": 1,
-                                            "multipleOf": 1
-                                          },
-                                          "startAt": {
-                                            "description": "Amount of seconds after this fare rate should be applied to",
-                                            "type": "number",
-                                            "minimum": 0,
-                                            "multipleOf": 1
-                                          },
-                                          "type": {
-                                            "enum": [
-                                              "maxRate",
-                                              "missedReturnPenalty"
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "amount",
-                                          "currency"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "additionalProperties": true
-                                },
-                                "meta": {
-                                  "type": "object"
-                                }
-                              },
-                              "required": [
-                                "id",
-                                "name",
-                                "default",
-                                "terms",
-                                "meta"
-                              ]
-                            },
-                            {
-                              "required": [
-                                "default"
-                              ]
-                            }
-                          ]
-                        }
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "name",
-                      "choices"
-                    ]
-                  }
-                },
-                "required": [
-                  "inboundSingle"
-                ]
-              },
-              {
-                "type": "object",
-                "description": "Single ticket choices",
-                "properties": {
-                  "outboundSingle": {
-                    "type": "object",
-                    "description": "A customization to the booking option",
-                    "properties": {
-                      "type": {
-                        "description": "Describe the possible combination of choices user can make",
-                        "enum": [
-                          "oneOf",
-                          "someOf",
-                          "allOf",
-                          "oneOrNoneOf",
-                          "someOrNoneOf"
-                        ]
-                      },
-                      "name": {
-                        "type": "string",
-                        "minLength": 0,
-                        "maxLength": 255
-                      },
-                      "description": {
-                        "type": "string"
-                      },
-                      "choices": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "description": "Set of choices for one customization",
-                        "items": {
-                          "type": "object",
-                          "description": "A choice for one customization",
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "maxLength": 255
-                            },
-                            "name": {
-                              "type": "string",
-                              "minLength": 0,
-                              "maxLength": 255
-                            },
-                            "description": {
-                              "type": "string"
-                            },
-                            "default": {
-                              "type": "boolean"
-                            },
-                            "cost": {
-                              "$schema": "http://json-schema.org/draft-04/schema#",
-                              "description": "MaaS common units that are used consistently within our own objects",
-                              "type": "object",
-                              "properties": {
-                                "amount": {
-                                  "anyOf": [
-                                    {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                },
-                                "discount": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "taxes": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "currency": {
-                                  "anyOf": [
-                                    {
-                                      "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                      "type": "string",
-                                      "enum": [
-                                        "EUR",
-                                        "GBP"
-                                      ]
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                }
-                              },
-                              "required": [
-                                "amount",
-                                "currency"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "fares": {
-                              "type": "array",
-                              "items": [
-                                {
-                                  "ref": "./fare.json"
-                                }
-                              ]
-                            },
-                            "terms": {
-                              "description": "MaaS booking terms and condition for its business engine",
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                                  "type": "string",
-                                  "minLength": 0,
-                                  "maxLength": 64
-                                },
-                                "validity": {
-                                  "description": "Booking validity conditions",
-                                  "type": "object",
-                                  "properties": {
-                                    "startTime": {
-                                      "description": "Epoch when the outbound ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "endTime": {
-                                      "description": "Epoch when the outbound ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "startTimeReturn": {
-                                      "description": "Epoch when the return ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "endTimeReturn": {
-                                      "description": "Epoch when the return ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    }
-                                  },
-                                  "required": [
-                                    "startTime",
-                                    "endTime"
-                                  ]
-                                },
-                                "fareRates": {
-                                  "type": "array",
-                                  "items": {
-                                    "description": "Booking fare rate",
-                                    "type": "object",
-                                    "properties": {
-                                      "amount": {
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 0.01
-                                      },
-                                      "currency": {
-                                        "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                        "type": "string",
-                                        "enum": [
-                                          "EUR",
-                                          "GBP"
-                                        ]
-                                      },
-                                      "timeInterval": {
-                                        "description": "Amount of seconds that fare rate is applied to",
-                                        "type": "number",
-                                        "minimum": 1,
-                                        "multipleOf": 1
-                                      },
-                                      "startAt": {
-                                        "description": "Amount of seconds after this fare rate should be applied to",
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 1
-                                      },
-                                      "type": {
-                                        "enum": [
-                                          "maxRate",
-                                          "missedReturnPenalty"
-                                        ]
-                                      }
-                                    },
-                                    "required": [
-                                      "amount",
-                                      "currency"
-                                    ]
-                                  }
-                                }
-                              },
-                              "additionalProperties": true
-                            },
-                            "meta": {
-                              "type": "object"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "default",
-                            "terms",
-                            "meta"
-                          ]
-                        },
-                        "contains": {
-                          "allOf": [
-                            {
-                              "type": "object",
-                              "description": "A choice for one customization",
-                              "properties": {
-                                "id": {
-                                  "type": "string",
-                                  "maxLength": 255
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "minLength": 0,
-                                  "maxLength": 255
-                                },
-                                "description": {
-                                  "type": "string"
-                                },
-                                "default": {
-                                  "type": "boolean"
-                                },
-                                "cost": {
-                                  "$schema": "http://json-schema.org/draft-04/schema#",
-                                  "description": "MaaS common units that are used consistently within our own objects",
-                                  "type": "object",
-                                  "properties": {
-                                    "amount": {
-                                      "anyOf": [
-                                        {
+                                        "taxes": {
                                           "type": "number",
                                           "minimum": 0,
                                           "multipleOf": 0.01
                                         },
-                                        {
-                                          "type": "null"
-                                        }
-                                      ]
-                                    },
-                                    "discount": {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    "taxes": {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    "currency": {
-                                      "anyOf": [
-                                        {
-                                          "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                          "type": "string",
-                                          "enum": [
-                                            "EUR",
-                                            "GBP"
+                                        "currency": {
+                                          "anyOf": [
+                                            {
+                                              "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                                              "type": "string",
+                                              "enum": [
+                                                "EUR",
+                                                "GBP"
+                                              ]
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
                                           ]
-                                        },
-                                        {
-                                          "type": "null"
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "amount",
-                                    "currency"
-                                  ],
-                                  "additionalProperties": false
-                                },
-                                "fares": {
-                                  "type": "array",
-                                  "items": [
-                                    {
-                                      "ref": "./fare.json"
-                                    }
-                                  ]
-                                },
-                                "terms": {
-                                  "description": "MaaS booking terms and condition for its business engine",
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                                      "type": "string",
-                                      "minLength": 0,
-                                      "maxLength": 64
-                                    },
-                                    "validity": {
-                                      "description": "Booking validity conditions",
-                                      "type": "object",
-                                      "properties": {
-                                        "startTime": {
-                                          "description": "Epoch when the outbound ticket will be valid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
-                                        },
-                                        "endTime": {
-                                          "description": "Epoch when the outbound ticket will be invalid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
-                                        },
-                                        "startTimeReturn": {
-                                          "description": "Epoch when the return ticket will be valid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
-                                        },
-                                        "endTimeReturn": {
-                                          "description": "Epoch when the return ticket will be invalid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
                                         }
                                       },
                                       "required": [
-                                        "startTime",
-                                        "endTime"
+                                        "amount",
+                                        "currency"
+                                      ],
+                                      "additionalProperties": false
+                                    },
+                                    "fares": {
+                                      "type": "array",
+                                      "items": [
+                                        {
+                                          "ref": "./fare.json"
+                                        }
                                       ]
                                     },
-                                    "fareRates": {
-                                      "type": "array",
-                                      "items": {
-                                        "description": "Booking fare rate",
-                                        "type": "object",
-                                        "properties": {
-                                          "amount": {
-                                            "type": "number",
-                                            "minimum": 0,
-                                            "multipleOf": 0.01
+                                    "terms": {
+                                      "description": "MaaS booking terms and condition for its business engine",
+                                      "type": "object",
+                                      "properties": {
+                                        "type": {
+                                          "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
+                                          "type": "string",
+                                          "minLength": 0,
+                                          "maxLength": 64
+                                        },
+                                        "validity": {
+                                          "description": "Booking validity conditions",
+                                          "type": "object",
+                                          "properties": {
+                                            "startTime": {
+                                              "description": "Epoch when the outbound ticket will be valid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            },
+                                            "endTime": {
+                                              "description": "Epoch when the outbound ticket will be invalid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            },
+                                            "startTimeReturn": {
+                                              "description": "Epoch when the return ticket will be valid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            },
+                                            "endTimeReturn": {
+                                              "description": "Epoch when the return ticket will be invalid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            }
                                           },
-                                          "currency": {
-                                            "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                            "type": "string",
-                                            "enum": [
-                                              "EUR",
-                                              "GBP"
-                                            ]
-                                          },
-                                          "timeInterval": {
-                                            "description": "Amount of seconds that fare rate is applied to",
-                                            "type": "number",
-                                            "minimum": 1,
-                                            "multipleOf": 1
-                                          },
-                                          "startAt": {
-                                            "description": "Amount of seconds after this fare rate should be applied to",
-                                            "type": "number",
-                                            "minimum": 0,
-                                            "multipleOf": 1
-                                          },
-                                          "type": {
-                                            "enum": [
-                                              "maxRate",
-                                              "missedReturnPenalty"
+                                          "required": [
+                                            "startTime",
+                                            "endTime"
+                                          ]
+                                        },
+                                        "fareRates": {
+                                          "type": "array",
+                                          "items": {
+                                            "description": "Booking fare rate",
+                                            "type": "object",
+                                            "properties": {
+                                              "amount": {
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "multipleOf": 0.01
+                                              },
+                                              "currency": {
+                                                "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                                                "type": "string",
+                                                "enum": [
+                                                  "EUR",
+                                                  "GBP"
+                                                ]
+                                              },
+                                              "timeInterval": {
+                                                "description": "Amount of seconds that fare rate is applied to",
+                                                "type": "number",
+                                                "minimum": 1,
+                                                "multipleOf": 1
+                                              },
+                                              "startAt": {
+                                                "description": "Amount of seconds after this fare rate should be applied to",
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "multipleOf": 1
+                                              },
+                                              "type": {
+                                                "enum": [
+                                                  "maxRate",
+                                                  "missedReturnPenalty"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "amount",
+                                              "currency"
                                             ]
                                           }
-                                        },
-                                        "required": [
-                                          "amount",
-                                          "currency"
-                                        ]
-                                      }
+                                        }
+                                      },
+                                      "additionalProperties": true
+                                    },
+                                    "meta": {
+                                      "type": "object"
                                     }
                                   },
-                                  "additionalProperties": true
+                                  "required": [
+                                    "id",
+                                    "name",
+                                    "default",
+                                    "terms",
+                                    "meta"
+                                  ]
                                 },
-                                "meta": {
-                                  "type": "object"
+                                {
+                                  "required": [
+                                    "default"
+                                  ]
                                 }
-                              },
-                              "required": [
-                                "id",
-                                "name",
-                                "default",
-                                "terms",
-                                "meta"
-                              ]
-                            },
-                            {
-                              "required": [
-                                "default"
                               ]
                             }
-                          ]
-                        }
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name",
+                          "choices"
+                        ]
                       }
                     },
                     "required": [
-                      "type",
-                      "name",
-                      "choices"
+                      "outboundSingle"
                     ]
                   }
-                },
-                "required": [
-                  "outboundSingle"
                 ]
               },
               {
@@ -8019,217 +7211,38 @@
           {
             "oneOf": [
               {
-                "type": "object",
-                "description": "Single ticket choices",
-                "properties": {
-                  "outboundSingle": {
+                "anyOf": [
+                  {
                     "type": "object",
-                    "description": "A customization to the booking option",
+                    "description": "Single ticket choices",
                     "properties": {
-                      "type": {
-                        "description": "Describe the possible combination of choices user can make",
-                        "enum": [
-                          "oneOf",
-                          "someOf",
-                          "allOf",
-                          "oneOrNoneOf",
-                          "someOrNoneOf"
-                        ]
-                      },
-                      "name": {
-                        "type": "string",
-                        "minLength": 0,
-                        "maxLength": 255
-                      },
-                      "description": {
-                        "type": "string"
-                      },
-                      "choices": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "description": "Set of choices for one customization",
-                        "items": {
-                          "type": "object",
-                          "description": "A choice for one customization",
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "maxLength": 255
-                            },
-                            "name": {
-                              "type": "string",
-                              "minLength": 0,
-                              "maxLength": 255
-                            },
-                            "description": {
-                              "type": "string"
-                            },
-                            "default": {
-                              "type": "boolean"
-                            },
-                            "cost": {
-                              "$schema": "http://json-schema.org/draft-04/schema#",
-                              "description": "MaaS common units that are used consistently within our own objects",
-                              "type": "object",
-                              "properties": {
-                                "amount": {
-                                  "anyOf": [
-                                    {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                },
-                                "discount": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "taxes": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "currency": {
-                                  "anyOf": [
-                                    {
-                                      "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                      "type": "string",
-                                      "enum": [
-                                        "EUR",
-                                        "GBP"
-                                      ]
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                }
-                              },
-                              "required": [
-                                "amount",
-                                "currency"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "fares": {
-                              "type": "array",
-                              "items": [
-                                {
-                                  "ref": "./fare.json"
-                                }
-                              ]
-                            },
-                            "terms": {
-                              "description": "MaaS booking terms and condition for its business engine",
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                                  "type": "string",
-                                  "minLength": 0,
-                                  "maxLength": 64
-                                },
-                                "validity": {
-                                  "description": "Booking validity conditions",
-                                  "type": "object",
-                                  "properties": {
-                                    "startTime": {
-                                      "description": "Epoch when the outbound ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "endTime": {
-                                      "description": "Epoch when the outbound ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "startTimeReturn": {
-                                      "description": "Epoch when the return ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "endTimeReturn": {
-                                      "description": "Epoch when the return ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    }
-                                  },
-                                  "required": [
-                                    "startTime",
-                                    "endTime"
-                                  ]
-                                },
-                                "fareRates": {
-                                  "type": "array",
-                                  "items": {
-                                    "description": "Booking fare rate",
-                                    "type": "object",
-                                    "properties": {
-                                      "amount": {
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 0.01
-                                      },
-                                      "currency": {
-                                        "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                        "type": "string",
-                                        "enum": [
-                                          "EUR",
-                                          "GBP"
-                                        ]
-                                      },
-                                      "timeInterval": {
-                                        "description": "Amount of seconds that fare rate is applied to",
-                                        "type": "number",
-                                        "minimum": 1,
-                                        "multipleOf": 1
-                                      },
-                                      "startAt": {
-                                        "description": "Amount of seconds after this fare rate should be applied to",
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 1
-                                      },
-                                      "type": {
-                                        "enum": [
-                                          "maxRate",
-                                          "missedReturnPenalty"
-                                        ]
-                                      }
-                                    },
-                                    "required": [
-                                      "amount",
-                                      "currency"
-                                    ]
-                                  }
-                                }
-                              },
-                              "additionalProperties": true
-                            },
-                            "meta": {
-                              "type": "object"
-                            }
+                      "inboundSingle": {
+                        "type": "object",
+                        "description": "A customization to the booking option",
+                        "properties": {
+                          "type": {
+                            "description": "Describe the possible combination of choices user can make",
+                            "enum": [
+                              "oneOf",
+                              "someOf",
+                              "allOf",
+                              "oneOrNoneOf",
+                              "someOrNoneOf"
+                            ]
                           },
-                          "required": [
-                            "id",
-                            "name",
-                            "default",
-                            "terms",
-                            "meta"
-                          ]
-                        },
-                        "contains": {
-                          "allOf": [
-                            {
+                          "name": {
+                            "type": "string",
+                            "minLength": 0,
+                            "maxLength": 255
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "choices": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "description": "Set of choices for one customization",
+                            "items": {
                               "type": "object",
                               "description": "A choice for one customization",
                               "properties": {
@@ -8408,229 +7421,238 @@
                                 "meta"
                               ]
                             },
-                            {
-                              "required": [
-                                "default"
+                            "contains": {
+                              "allOf": [
+                                {
+                                  "type": "object",
+                                  "description": "A choice for one customization",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "maxLength": 255
+                                    },
+                                    "name": {
+                                      "type": "string",
+                                      "minLength": 0,
+                                      "maxLength": 255
+                                    },
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "default": {
+                                      "type": "boolean"
+                                    },
+                                    "cost": {
+                                      "$schema": "http://json-schema.org/draft-04/schema#",
+                                      "description": "MaaS common units that are used consistently within our own objects",
+                                      "type": "object",
+                                      "properties": {
+                                        "amount": {
+                                          "anyOf": [
+                                            {
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "multipleOf": 0.01
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
+                                          ]
+                                        },
+                                        "discount": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "multipleOf": 0.01
+                                        },
+                                        "taxes": {
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "multipleOf": 0.01
+                                        },
+                                        "currency": {
+                                          "anyOf": [
+                                            {
+                                              "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                                              "type": "string",
+                                              "enum": [
+                                                "EUR",
+                                                "GBP"
+                                              ]
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "amount",
+                                        "currency"
+                                      ],
+                                      "additionalProperties": false
+                                    },
+                                    "fares": {
+                                      "type": "array",
+                                      "items": [
+                                        {
+                                          "ref": "./fare.json"
+                                        }
+                                      ]
+                                    },
+                                    "terms": {
+                                      "description": "MaaS booking terms and condition for its business engine",
+                                      "type": "object",
+                                      "properties": {
+                                        "type": {
+                                          "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
+                                          "type": "string",
+                                          "minLength": 0,
+                                          "maxLength": 64
+                                        },
+                                        "validity": {
+                                          "description": "Booking validity conditions",
+                                          "type": "object",
+                                          "properties": {
+                                            "startTime": {
+                                              "description": "Epoch when the outbound ticket will be valid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            },
+                                            "endTime": {
+                                              "description": "Epoch when the outbound ticket will be invalid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            },
+                                            "startTimeReturn": {
+                                              "description": "Epoch when the return ticket will be valid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            },
+                                            "endTimeReturn": {
+                                              "description": "Epoch when the return ticket will be invalid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            }
+                                          },
+                                          "required": [
+                                            "startTime",
+                                            "endTime"
+                                          ]
+                                        },
+                                        "fareRates": {
+                                          "type": "array",
+                                          "items": {
+                                            "description": "Booking fare rate",
+                                            "type": "object",
+                                            "properties": {
+                                              "amount": {
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "multipleOf": 0.01
+                                              },
+                                              "currency": {
+                                                "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                                                "type": "string",
+                                                "enum": [
+                                                  "EUR",
+                                                  "GBP"
+                                                ]
+                                              },
+                                              "timeInterval": {
+                                                "description": "Amount of seconds that fare rate is applied to",
+                                                "type": "number",
+                                                "minimum": 1,
+                                                "multipleOf": 1
+                                              },
+                                              "startAt": {
+                                                "description": "Amount of seconds after this fare rate should be applied to",
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "multipleOf": 1
+                                              },
+                                              "type": {
+                                                "enum": [
+                                                  "maxRate",
+                                                  "missedReturnPenalty"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "amount",
+                                              "currency"
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      "additionalProperties": true
+                                    },
+                                    "meta": {
+                                      "type": "object"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "name",
+                                    "default",
+                                    "terms",
+                                    "meta"
+                                  ]
+                                },
+                                {
+                                  "required": [
+                                    "default"
+                                  ]
+                                }
                               ]
                             }
-                          ]
-                        }
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name",
+                          "choices"
+                        ]
                       }
                     },
                     "required": [
-                      "type",
-                      "name",
-                      "choices"
+                      "inboundSingle"
                     ]
                   },
-                  "inboundSingle": {
+                  {
                     "type": "object",
-                    "description": "A customization to the booking option",
+                    "description": "Single ticket choices",
                     "properties": {
-                      "type": {
-                        "description": "Describe the possible combination of choices user can make",
-                        "enum": [
-                          "oneOf",
-                          "someOf",
-                          "allOf",
-                          "oneOrNoneOf",
-                          "someOrNoneOf"
-                        ]
-                      },
-                      "name": {
-                        "type": "string",
-                        "minLength": 0,
-                        "maxLength": 255
-                      },
-                      "description": {
-                        "type": "string"
-                      },
-                      "choices": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "description": "Set of choices for one customization",
-                        "items": {
-                          "type": "object",
-                          "description": "A choice for one customization",
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "maxLength": 255
-                            },
-                            "name": {
-                              "type": "string",
-                              "minLength": 0,
-                              "maxLength": 255
-                            },
-                            "description": {
-                              "type": "string"
-                            },
-                            "default": {
-                              "type": "boolean"
-                            },
-                            "cost": {
-                              "$schema": "http://json-schema.org/draft-04/schema#",
-                              "description": "MaaS common units that are used consistently within our own objects",
-                              "type": "object",
-                              "properties": {
-                                "amount": {
-                                  "anyOf": [
-                                    {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                },
-                                "discount": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "taxes": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "currency": {
-                                  "anyOf": [
-                                    {
-                                      "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                      "type": "string",
-                                      "enum": [
-                                        "EUR",
-                                        "GBP"
-                                      ]
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                }
-                              },
-                              "required": [
-                                "amount",
-                                "currency"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "fares": {
-                              "type": "array",
-                              "items": [
-                                {
-                                  "ref": "./fare.json"
-                                }
-                              ]
-                            },
-                            "terms": {
-                              "description": "MaaS booking terms and condition for its business engine",
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                                  "type": "string",
-                                  "minLength": 0,
-                                  "maxLength": 64
-                                },
-                                "validity": {
-                                  "description": "Booking validity conditions",
-                                  "type": "object",
-                                  "properties": {
-                                    "startTime": {
-                                      "description": "Epoch when the outbound ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "endTime": {
-                                      "description": "Epoch when the outbound ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "startTimeReturn": {
-                                      "description": "Epoch when the return ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "endTimeReturn": {
-                                      "description": "Epoch when the return ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    }
-                                  },
-                                  "required": [
-                                    "startTime",
-                                    "endTime"
-                                  ]
-                                },
-                                "fareRates": {
-                                  "type": "array",
-                                  "items": {
-                                    "description": "Booking fare rate",
-                                    "type": "object",
-                                    "properties": {
-                                      "amount": {
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 0.01
-                                      },
-                                      "currency": {
-                                        "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                        "type": "string",
-                                        "enum": [
-                                          "EUR",
-                                          "GBP"
-                                        ]
-                                      },
-                                      "timeInterval": {
-                                        "description": "Amount of seconds that fare rate is applied to",
-                                        "type": "number",
-                                        "minimum": 1,
-                                        "multipleOf": 1
-                                      },
-                                      "startAt": {
-                                        "description": "Amount of seconds after this fare rate should be applied to",
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 1
-                                      },
-                                      "type": {
-                                        "enum": [
-                                          "maxRate",
-                                          "missedReturnPenalty"
-                                        ]
-                                      }
-                                    },
-                                    "required": [
-                                      "amount",
-                                      "currency"
-                                    ]
-                                  }
-                                }
-                              },
-                              "additionalProperties": true
-                            },
-                            "meta": {
-                              "type": "object"
-                            }
+                      "outboundSingle": {
+                        "type": "object",
+                        "description": "A customization to the booking option",
+                        "properties": {
+                          "type": {
+                            "description": "Describe the possible combination of choices user can make",
+                            "enum": [
+                              "oneOf",
+                              "someOf",
+                              "allOf",
+                              "oneOrNoneOf",
+                              "someOrNoneOf"
+                            ]
                           },
-                          "required": [
-                            "id",
-                            "name",
-                            "default",
-                            "terms",
-                            "meta"
-                          ]
-                        },
-                        "contains": {
-                          "allOf": [
-                            {
+                          "name": {
+                            "type": "string",
+                            "minLength": 0,
+                            "maxLength": 255
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "choices": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "description": "Set of choices for one customization",
+                            "items": {
                               "type": "object",
                               "description": "A choice for one customization",
                               "properties": {
@@ -8809,845 +7831,207 @@
                                 "meta"
                               ]
                             },
-                            {
-                              "required": [
-                                "default"
-                              ]
-                            }
-                          ]
-                        }
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "name",
-                      "choices"
-                    ]
-                  }
-                },
-                "required": [
-                  "outboundSingle",
-                  "inboundSingle"
-                ]
-              },
-              {
-                "type": "object",
-                "description": "Single ticket choices",
-                "properties": {
-                  "inboundSingle": {
-                    "type": "object",
-                    "description": "A customization to the booking option",
-                    "properties": {
-                      "type": {
-                        "description": "Describe the possible combination of choices user can make",
-                        "enum": [
-                          "oneOf",
-                          "someOf",
-                          "allOf",
-                          "oneOrNoneOf",
-                          "someOrNoneOf"
-                        ]
-                      },
-                      "name": {
-                        "type": "string",
-                        "minLength": 0,
-                        "maxLength": 255
-                      },
-                      "description": {
-                        "type": "string"
-                      },
-                      "choices": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "description": "Set of choices for one customization",
-                        "items": {
-                          "type": "object",
-                          "description": "A choice for one customization",
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "maxLength": 255
-                            },
-                            "name": {
-                              "type": "string",
-                              "minLength": 0,
-                              "maxLength": 255
-                            },
-                            "description": {
-                              "type": "string"
-                            },
-                            "default": {
-                              "type": "boolean"
-                            },
-                            "cost": {
-                              "$schema": "http://json-schema.org/draft-04/schema#",
-                              "description": "MaaS common units that are used consistently within our own objects",
-                              "type": "object",
-                              "properties": {
-                                "amount": {
-                                  "anyOf": [
-                                    {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                },
-                                "discount": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "taxes": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "currency": {
-                                  "anyOf": [
-                                    {
-                                      "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                      "type": "string",
-                                      "enum": [
-                                        "EUR",
-                                        "GBP"
-                                      ]
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                }
-                              },
-                              "required": [
-                                "amount",
-                                "currency"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "fares": {
-                              "type": "array",
-                              "items": [
+                            "contains": {
+                              "allOf": [
                                 {
-                                  "ref": "./fare.json"
-                                }
-                              ]
-                            },
-                            "terms": {
-                              "description": "MaaS booking terms and condition for its business engine",
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                                  "type": "string",
-                                  "minLength": 0,
-                                  "maxLength": 64
-                                },
-                                "validity": {
-                                  "description": "Booking validity conditions",
                                   "type": "object",
+                                  "description": "A choice for one customization",
                                   "properties": {
-                                    "startTime": {
-                                      "description": "Epoch when the outbound ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
+                                    "id": {
+                                      "type": "string",
+                                      "maxLength": 255
                                     },
-                                    "endTime": {
-                                      "description": "Epoch when the outbound ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
+                                    "name": {
+                                      "type": "string",
+                                      "minLength": 0,
+                                      "maxLength": 255
                                     },
-                                    "startTimeReturn": {
-                                      "description": "Epoch when the return ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
+                                    "description": {
+                                      "type": "string"
                                     },
-                                    "endTimeReturn": {
-                                      "description": "Epoch when the return ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    }
-                                  },
-                                  "required": [
-                                    "startTime",
-                                    "endTime"
-                                  ]
-                                },
-                                "fareRates": {
-                                  "type": "array",
-                                  "items": {
-                                    "description": "Booking fare rate",
-                                    "type": "object",
-                                    "properties": {
-                                      "amount": {
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 0.01
-                                      },
-                                      "currency": {
-                                        "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                        "type": "string",
-                                        "enum": [
-                                          "EUR",
-                                          "GBP"
-                                        ]
-                                      },
-                                      "timeInterval": {
-                                        "description": "Amount of seconds that fare rate is applied to",
-                                        "type": "number",
-                                        "minimum": 1,
-                                        "multipleOf": 1
-                                      },
-                                      "startAt": {
-                                        "description": "Amount of seconds after this fare rate should be applied to",
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 1
-                                      },
-                                      "type": {
-                                        "enum": [
-                                          "maxRate",
-                                          "missedReturnPenalty"
-                                        ]
-                                      }
+                                    "default": {
+                                      "type": "boolean"
                                     },
-                                    "required": [
-                                      "amount",
-                                      "currency"
-                                    ]
-                                  }
-                                }
-                              },
-                              "additionalProperties": true
-                            },
-                            "meta": {
-                              "type": "object"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "default",
-                            "terms",
-                            "meta"
-                          ]
-                        },
-                        "contains": {
-                          "allOf": [
-                            {
-                              "type": "object",
-                              "description": "A choice for one customization",
-                              "properties": {
-                                "id": {
-                                  "type": "string",
-                                  "maxLength": 255
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "minLength": 0,
-                                  "maxLength": 255
-                                },
-                                "description": {
-                                  "type": "string"
-                                },
-                                "default": {
-                                  "type": "boolean"
-                                },
-                                "cost": {
-                                  "$schema": "http://json-schema.org/draft-04/schema#",
-                                  "description": "MaaS common units that are used consistently within our own objects",
-                                  "type": "object",
-                                  "properties": {
-                                    "amount": {
-                                      "anyOf": [
-                                        {
+                                    "cost": {
+                                      "$schema": "http://json-schema.org/draft-04/schema#",
+                                      "description": "MaaS common units that are used consistently within our own objects",
+                                      "type": "object",
+                                      "properties": {
+                                        "amount": {
+                                          "anyOf": [
+                                            {
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "multipleOf": 0.01
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
+                                          ]
+                                        },
+                                        "discount": {
                                           "type": "number",
                                           "minimum": 0,
                                           "multipleOf": 0.01
                                         },
-                                        {
-                                          "type": "null"
-                                        }
-                                      ]
-                                    },
-                                    "discount": {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    "taxes": {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    "currency": {
-                                      "anyOf": [
-                                        {
-                                          "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                          "type": "string",
-                                          "enum": [
-                                            "EUR",
-                                            "GBP"
-                                          ]
-                                        },
-                                        {
-                                          "type": "null"
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "amount",
-                                    "currency"
-                                  ],
-                                  "additionalProperties": false
-                                },
-                                "fares": {
-                                  "type": "array",
-                                  "items": [
-                                    {
-                                      "ref": "./fare.json"
-                                    }
-                                  ]
-                                },
-                                "terms": {
-                                  "description": "MaaS booking terms and condition for its business engine",
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                                      "type": "string",
-                                      "minLength": 0,
-                                      "maxLength": 64
-                                    },
-                                    "validity": {
-                                      "description": "Booking validity conditions",
-                                      "type": "object",
-                                      "properties": {
-                                        "startTime": {
-                                          "description": "Epoch when the outbound ticket will be valid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
-                                        },
-                                        "endTime": {
-                                          "description": "Epoch when the outbound ticket will be invalid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
-                                        },
-                                        "startTimeReturn": {
-                                          "description": "Epoch when the return ticket will be valid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
-                                        },
-                                        "endTimeReturn": {
-                                          "description": "Epoch when the return ticket will be invalid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
-                                        }
-                                      },
-                                      "required": [
-                                        "startTime",
-                                        "endTime"
-                                      ]
-                                    },
-                                    "fareRates": {
-                                      "type": "array",
-                                      "items": {
-                                        "description": "Booking fare rate",
-                                        "type": "object",
-                                        "properties": {
-                                          "amount": {
-                                            "type": "number",
-                                            "minimum": 0,
-                                            "multipleOf": 0.01
-                                          },
-                                          "currency": {
-                                            "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                            "type": "string",
-                                            "enum": [
-                                              "EUR",
-                                              "GBP"
-                                            ]
-                                          },
-                                          "timeInterval": {
-                                            "description": "Amount of seconds that fare rate is applied to",
-                                            "type": "number",
-                                            "minimum": 1,
-                                            "multipleOf": 1
-                                          },
-                                          "startAt": {
-                                            "description": "Amount of seconds after this fare rate should be applied to",
-                                            "type": "number",
-                                            "minimum": 0,
-                                            "multipleOf": 1
-                                          },
-                                          "type": {
-                                            "enum": [
-                                              "maxRate",
-                                              "missedReturnPenalty"
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "amount",
-                                          "currency"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "additionalProperties": true
-                                },
-                                "meta": {
-                                  "type": "object"
-                                }
-                              },
-                              "required": [
-                                "id",
-                                "name",
-                                "default",
-                                "terms",
-                                "meta"
-                              ]
-                            },
-                            {
-                              "required": [
-                                "default"
-                              ]
-                            }
-                          ]
-                        }
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "name",
-                      "choices"
-                    ]
-                  }
-                },
-                "required": [
-                  "inboundSingle"
-                ]
-              },
-              {
-                "type": "object",
-                "description": "Single ticket choices",
-                "properties": {
-                  "outboundSingle": {
-                    "type": "object",
-                    "description": "A customization to the booking option",
-                    "properties": {
-                      "type": {
-                        "description": "Describe the possible combination of choices user can make",
-                        "enum": [
-                          "oneOf",
-                          "someOf",
-                          "allOf",
-                          "oneOrNoneOf",
-                          "someOrNoneOf"
-                        ]
-                      },
-                      "name": {
-                        "type": "string",
-                        "minLength": 0,
-                        "maxLength": 255
-                      },
-                      "description": {
-                        "type": "string"
-                      },
-                      "choices": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "description": "Set of choices for one customization",
-                        "items": {
-                          "type": "object",
-                          "description": "A choice for one customization",
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "maxLength": 255
-                            },
-                            "name": {
-                              "type": "string",
-                              "minLength": 0,
-                              "maxLength": 255
-                            },
-                            "description": {
-                              "type": "string"
-                            },
-                            "default": {
-                              "type": "boolean"
-                            },
-                            "cost": {
-                              "$schema": "http://json-schema.org/draft-04/schema#",
-                              "description": "MaaS common units that are used consistently within our own objects",
-                              "type": "object",
-                              "properties": {
-                                "amount": {
-                                  "anyOf": [
-                                    {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                },
-                                "discount": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "taxes": {
-                                  "type": "number",
-                                  "minimum": 0,
-                                  "multipleOf": 0.01
-                                },
-                                "currency": {
-                                  "anyOf": [
-                                    {
-                                      "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                      "type": "string",
-                                      "enum": [
-                                        "EUR",
-                                        "GBP"
-                                      ]
-                                    },
-                                    {
-                                      "type": "null"
-                                    }
-                                  ]
-                                }
-                              },
-                              "required": [
-                                "amount",
-                                "currency"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "fares": {
-                              "type": "array",
-                              "items": [
-                                {
-                                  "ref": "./fare.json"
-                                }
-                              ]
-                            },
-                            "terms": {
-                              "description": "MaaS booking terms and condition for its business engine",
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                                  "type": "string",
-                                  "minLength": 0,
-                                  "maxLength": 64
-                                },
-                                "validity": {
-                                  "description": "Booking validity conditions",
-                                  "type": "object",
-                                  "properties": {
-                                    "startTime": {
-                                      "description": "Epoch when the outbound ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "endTime": {
-                                      "description": "Epoch when the outbound ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "startTimeReturn": {
-                                      "description": "Epoch when the return ticket will be valid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    },
-                                    "endTimeReturn": {
-                                      "description": "Epoch when the return ticket will be invalid",
-                                      "type": "integer",
-                                      "maximum": 9007199254740991,
-                                      "minimum": 1451606400
-                                    }
-                                  },
-                                  "required": [
-                                    "startTime",
-                                    "endTime"
-                                  ]
-                                },
-                                "fareRates": {
-                                  "type": "array",
-                                  "items": {
-                                    "description": "Booking fare rate",
-                                    "type": "object",
-                                    "properties": {
-                                      "amount": {
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 0.01
-                                      },
-                                      "currency": {
-                                        "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                        "type": "string",
-                                        "enum": [
-                                          "EUR",
-                                          "GBP"
-                                        ]
-                                      },
-                                      "timeInterval": {
-                                        "description": "Amount of seconds that fare rate is applied to",
-                                        "type": "number",
-                                        "minimum": 1,
-                                        "multipleOf": 1
-                                      },
-                                      "startAt": {
-                                        "description": "Amount of seconds after this fare rate should be applied to",
-                                        "type": "number",
-                                        "minimum": 0,
-                                        "multipleOf": 1
-                                      },
-                                      "type": {
-                                        "enum": [
-                                          "maxRate",
-                                          "missedReturnPenalty"
-                                        ]
-                                      }
-                                    },
-                                    "required": [
-                                      "amount",
-                                      "currency"
-                                    ]
-                                  }
-                                }
-                              },
-                              "additionalProperties": true
-                            },
-                            "meta": {
-                              "type": "object"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "default",
-                            "terms",
-                            "meta"
-                          ]
-                        },
-                        "contains": {
-                          "allOf": [
-                            {
-                              "type": "object",
-                              "description": "A choice for one customization",
-                              "properties": {
-                                "id": {
-                                  "type": "string",
-                                  "maxLength": 255
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "minLength": 0,
-                                  "maxLength": 255
-                                },
-                                "description": {
-                                  "type": "string"
-                                },
-                                "default": {
-                                  "type": "boolean"
-                                },
-                                "cost": {
-                                  "$schema": "http://json-schema.org/draft-04/schema#",
-                                  "description": "MaaS common units that are used consistently within our own objects",
-                                  "type": "object",
-                                  "properties": {
-                                    "amount": {
-                                      "anyOf": [
-                                        {
+                                        "taxes": {
                                           "type": "number",
                                           "minimum": 0,
                                           "multipleOf": 0.01
                                         },
-                                        {
-                                          "type": "null"
-                                        }
-                                      ]
-                                    },
-                                    "discount": {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    "taxes": {
-                                      "type": "number",
-                                      "minimum": 0,
-                                      "multipleOf": 0.01
-                                    },
-                                    "currency": {
-                                      "anyOf": [
-                                        {
-                                          "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                          "type": "string",
-                                          "enum": [
-                                            "EUR",
-                                            "GBP"
+                                        "currency": {
+                                          "anyOf": [
+                                            {
+                                              "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                                              "type": "string",
+                                              "enum": [
+                                                "EUR",
+                                                "GBP"
+                                              ]
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
                                           ]
-                                        },
-                                        {
-                                          "type": "null"
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "amount",
-                                    "currency"
-                                  ],
-                                  "additionalProperties": false
-                                },
-                                "fares": {
-                                  "type": "array",
-                                  "items": [
-                                    {
-                                      "ref": "./fare.json"
-                                    }
-                                  ]
-                                },
-                                "terms": {
-                                  "description": "MaaS booking terms and condition for its business engine",
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
-                                      "type": "string",
-                                      "minLength": 0,
-                                      "maxLength": 64
-                                    },
-                                    "validity": {
-                                      "description": "Booking validity conditions",
-                                      "type": "object",
-                                      "properties": {
-                                        "startTime": {
-                                          "description": "Epoch when the outbound ticket will be valid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
-                                        },
-                                        "endTime": {
-                                          "description": "Epoch when the outbound ticket will be invalid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
-                                        },
-                                        "startTimeReturn": {
-                                          "description": "Epoch when the return ticket will be valid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
-                                        },
-                                        "endTimeReturn": {
-                                          "description": "Epoch when the return ticket will be invalid",
-                                          "type": "integer",
-                                          "maximum": 9007199254740991,
-                                          "minimum": 1451606400
                                         }
                                       },
                                       "required": [
-                                        "startTime",
-                                        "endTime"
+                                        "amount",
+                                        "currency"
+                                      ],
+                                      "additionalProperties": false
+                                    },
+                                    "fares": {
+                                      "type": "array",
+                                      "items": [
+                                        {
+                                          "ref": "./fare.json"
+                                        }
                                       ]
                                     },
-                                    "fareRates": {
-                                      "type": "array",
-                                      "items": {
-                                        "description": "Booking fare rate",
-                                        "type": "object",
-                                        "properties": {
-                                          "amount": {
-                                            "type": "number",
-                                            "minimum": 0,
-                                            "multipleOf": 0.01
+                                    "terms": {
+                                      "description": "MaaS booking terms and condition for its business engine",
+                                      "type": "object",
+                                      "properties": {
+                                        "type": {
+                                          "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
+                                          "type": "string",
+                                          "minLength": 0,
+                                          "maxLength": 64
+                                        },
+                                        "validity": {
+                                          "description": "Booking validity conditions",
+                                          "type": "object",
+                                          "properties": {
+                                            "startTime": {
+                                              "description": "Epoch when the outbound ticket will be valid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            },
+                                            "endTime": {
+                                              "description": "Epoch when the outbound ticket will be invalid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            },
+                                            "startTimeReturn": {
+                                              "description": "Epoch when the return ticket will be valid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            },
+                                            "endTimeReturn": {
+                                              "description": "Epoch when the return ticket will be invalid",
+                                              "type": "integer",
+                                              "maximum": 9007199254740991,
+                                              "minimum": 1451606400
+                                            }
                                           },
-                                          "currency": {
-                                            "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
-                                            "type": "string",
-                                            "enum": [
-                                              "EUR",
-                                              "GBP"
-                                            ]
-                                          },
-                                          "timeInterval": {
-                                            "description": "Amount of seconds that fare rate is applied to",
-                                            "type": "number",
-                                            "minimum": 1,
-                                            "multipleOf": 1
-                                          },
-                                          "startAt": {
-                                            "description": "Amount of seconds after this fare rate should be applied to",
-                                            "type": "number",
-                                            "minimum": 0,
-                                            "multipleOf": 1
-                                          },
-                                          "type": {
-                                            "enum": [
-                                              "maxRate",
-                                              "missedReturnPenalty"
+                                          "required": [
+                                            "startTime",
+                                            "endTime"
+                                          ]
+                                        },
+                                        "fareRates": {
+                                          "type": "array",
+                                          "items": {
+                                            "description": "Booking fare rate",
+                                            "type": "object",
+                                            "properties": {
+                                              "amount": {
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "multipleOf": 0.01
+                                              },
+                                              "currency": {
+                                                "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+                                                "type": "string",
+                                                "enum": [
+                                                  "EUR",
+                                                  "GBP"
+                                                ]
+                                              },
+                                              "timeInterval": {
+                                                "description": "Amount of seconds that fare rate is applied to",
+                                                "type": "number",
+                                                "minimum": 1,
+                                                "multipleOf": 1
+                                              },
+                                              "startAt": {
+                                                "description": "Amount of seconds after this fare rate should be applied to",
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "multipleOf": 1
+                                              },
+                                              "type": {
+                                                "enum": [
+                                                  "maxRate",
+                                                  "missedReturnPenalty"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "amount",
+                                              "currency"
                                             ]
                                           }
-                                        },
-                                        "required": [
-                                          "amount",
-                                          "currency"
-                                        ]
-                                      }
+                                        }
+                                      },
+                                      "additionalProperties": true
+                                    },
+                                    "meta": {
+                                      "type": "object"
                                     }
                                   },
-                                  "additionalProperties": true
+                                  "required": [
+                                    "id",
+                                    "name",
+                                    "default",
+                                    "terms",
+                                    "meta"
+                                  ]
                                 },
-                                "meta": {
-                                  "type": "object"
+                                {
+                                  "required": [
+                                    "default"
+                                  ]
                                 }
-                              },
-                              "required": [
-                                "id",
-                                "name",
-                                "default",
-                                "terms",
-                                "meta"
-                              ]
-                            },
-                            {
-                              "required": [
-                                "default"
                               ]
                             }
-                          ]
-                        }
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name",
+                          "choices"
+                        ]
                       }
                     },
                     "required": [
-                      "type",
-                      "name",
-                      "choices"
+                      "outboundSingle"
                     ]
                   }
-                },
-                "required": [
-                  "outboundSingle"
                 ]
               },
               {
