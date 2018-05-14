@@ -74,6 +74,12 @@
             }
           ]
         },
+        "stops": {
+          "type": "array",
+          "items": {
+            "$ref": "./stop.json"
+          }
+        },
         "departureDelay": {
           "$ref": "./components/units.json#/definitions/duration"
         },
