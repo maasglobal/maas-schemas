@@ -7,29 +7,24 @@
     {
       "oneOf": [
         {
-          "type": "object",
-          "description": "Single ticket choices",
-          "properties": {
-            "outboundSingle": { "$ref": "#/definitions/config" },
-            "inboundSingle": { "$ref": "#/definitions/config" }
-          },
-          "required": ["outboundSingle", "inboundSingle"]
-        },
-        {
-          "type": "object",
-          "description": "Single ticket choices",
-          "properties": {
-            "inboundSingle": { "$ref": "#/definitions/config" }
-          },
-          "required": ["inboundSingle"]
-        },
-        {
-          "type": "object",
-          "description": "Single ticket choices",
-          "properties": {
-            "outboundSingle": { "$ref": "#/definitions/config" }
-          },
-          "required": ["outboundSingle"]
+          "anyOf": [
+            {
+              "type": "object",
+              "description": "Single ticket choices",
+              "properties": {
+                "inboundSingle": { "$ref": "#/definitions/config" }
+              },
+              "required": ["inboundSingle"]
+            },
+            {
+              "type": "object",
+              "description": "Single ticket choices",
+              "properties": {
+                "outboundSingle": { "$ref": "#/definitions/config" }
+              },
+              "required": ["outboundSingle"]
+            }
+          ]
         },
         {
           "type": "object",
