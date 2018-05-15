@@ -19,6 +19,9 @@
         "states": {
           "type": "string",
           "pattern": "^([A-Ö]+,)*[A-Ö]+$"
+        },
+        "bookingId": {
+          "$ref": "../../../core/booking.json#/properties/id"
         }
       },
       "additionalProperties": false
