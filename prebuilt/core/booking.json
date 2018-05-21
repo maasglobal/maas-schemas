@@ -1129,6 +1129,24 @@
           "minLength": 0,
           "maxLength": 64
         },
+        "seating": {
+          "description": "Ticket's seat information for long distance trains, coaches or flights",
+          "type": "object",
+          "properties": {
+            "number": {
+              "type": [
+                "string",
+                "number"
+              ]
+            },
+            "coach": {
+              "type": [
+                "string",
+                "number"
+              ]
+            }
+          }
+        },
         "validity": {
           "description": "Booking validity conditions",
           "type": "object",
@@ -1480,6 +1498,24 @@
                                     "minLength": 0,
                                     "maxLength": 64
                                   },
+                                  "seating": {
+                                    "description": "Ticket's seat information for long distance trains, coaches or flights",
+                                    "type": "object",
+                                    "properties": {
+                                      "number": {
+                                        "type": [
+                                          "string",
+                                          "number"
+                                        ]
+                                      },
+                                      "coach": {
+                                        "type": [
+                                          "string",
+                                          "number"
+                                        ]
+                                      }
+                                    }
+                                  },
                                   "validity": {
                                     "description": "Booking validity conditions",
                                     "type": "object",
@@ -1660,6 +1696,24 @@
                                         "type": "string",
                                         "minLength": 0,
                                         "maxLength": 64
+                                      },
+                                      "seating": {
+                                        "description": "Ticket's seat information for long distance trains, coaches or flights",
+                                        "type": "object",
+                                        "properties": {
+                                          "number": {
+                                            "type": [
+                                              "string",
+                                              "number"
+                                            ]
+                                          },
+                                          "coach": {
+                                            "type": [
+                                              "string",
+                                              "number"
+                                            ]
+                                          }
+                                        }
                                       },
                                       "validity": {
                                         "description": "Booking validity conditions",
@@ -1890,6 +1944,24 @@
                                     "minLength": 0,
                                     "maxLength": 64
                                   },
+                                  "seating": {
+                                    "description": "Ticket's seat information for long distance trains, coaches or flights",
+                                    "type": "object",
+                                    "properties": {
+                                      "number": {
+                                        "type": [
+                                          "string",
+                                          "number"
+                                        ]
+                                      },
+                                      "coach": {
+                                        "type": [
+                                          "string",
+                                          "number"
+                                        ]
+                                      }
+                                    }
+                                  },
                                   "validity": {
                                     "description": "Booking validity conditions",
                                     "type": "object",
@@ -2070,6 +2142,24 @@
                                         "type": "string",
                                         "minLength": 0,
                                         "maxLength": 64
+                                      },
+                                      "seating": {
+                                        "description": "Ticket's seat information for long distance trains, coaches or flights",
+                                        "type": "object",
+                                        "properties": {
+                                          "number": {
+                                            "type": [
+                                              "string",
+                                              "number"
+                                            ]
+                                          },
+                                          "coach": {
+                                            "type": [
+                                              "string",
+                                              "number"
+                                            ]
+                                          }
+                                        }
                                       },
                                       "validity": {
                                         "description": "Booking validity conditions",
@@ -2302,6 +2392,24 @@
                                 "minLength": 0,
                                 "maxLength": 64
                               },
+                              "seating": {
+                                "description": "Ticket's seat information for long distance trains, coaches or flights",
+                                "type": "object",
+                                "properties": {
+                                  "number": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  },
+                                  "coach": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  }
+                                }
+                              },
                               "validity": {
                                 "description": "Booking validity conditions",
                                 "type": "object",
@@ -2482,6 +2590,24 @@
                                     "type": "string",
                                     "minLength": 0,
                                     "maxLength": 64
+                                  },
+                                  "seating": {
+                                    "description": "Ticket's seat information for long distance trains, coaches or flights",
+                                    "type": "object",
+                                    "properties": {
+                                      "number": {
+                                        "type": [
+                                          "string",
+                                          "number"
+                                        ]
+                                      },
+                                      "coach": {
+                                        "type": [
+                                          "string",
+                                          "number"
+                                        ]
+                                      }
+                                    }
                                   },
                                   "validity": {
                                     "description": "Booking validity conditions",
@@ -2719,6 +2845,24 @@
                             "minLength": 0,
                             "maxLength": 64
                           },
+                          "seating": {
+                            "description": "Ticket's seat information for long distance trains, coaches or flights",
+                            "type": "object",
+                            "properties": {
+                              "number": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              },
+                              "coach": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              }
+                            }
+                          },
                           "validity": {
                             "description": "Booking validity conditions",
                             "type": "object",
@@ -2899,6 +3043,24 @@
                                 "type": "string",
                                 "minLength": 0,
                                 "maxLength": 64
+                              },
+                              "seating": {
+                                "description": "Ticket's seat information for long distance trains, coaches or flights",
+                                "type": "object",
+                                "properties": {
+                                  "number": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  },
+                                  "coach": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  }
+                                }
                               },
                               "validity": {
                                 "description": "Booking validity conditions",
@@ -3120,6 +3282,24 @@
                             "minLength": 0,
                             "maxLength": 64
                           },
+                          "seating": {
+                            "description": "Ticket's seat information for long distance trains, coaches or flights",
+                            "type": "object",
+                            "properties": {
+                              "number": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              },
+                              "coach": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              }
+                            }
+                          },
                           "validity": {
                             "description": "Booking validity conditions",
                             "type": "object",
@@ -3300,6 +3480,24 @@
                                 "type": "string",
                                 "minLength": 0,
                                 "maxLength": 64
+                              },
+                              "seating": {
+                                "description": "Ticket's seat information for long distance trains, coaches or flights",
+                                "type": "object",
+                                "properties": {
+                                  "number": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  },
+                                  "coach": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  }
+                                }
                               },
                               "validity": {
                                 "description": "Booking validity conditions",
@@ -3521,6 +3719,24 @@
                             "minLength": 0,
                             "maxLength": 64
                           },
+                          "seating": {
+                            "description": "Ticket's seat information for long distance trains, coaches or flights",
+                            "type": "object",
+                            "properties": {
+                              "number": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              },
+                              "coach": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              }
+                            }
+                          },
                           "validity": {
                             "description": "Booking validity conditions",
                             "type": "object",
@@ -3701,6 +3917,24 @@
                                 "type": "string",
                                 "minLength": 0,
                                 "maxLength": 64
+                              },
+                              "seating": {
+                                "description": "Ticket's seat information for long distance trains, coaches or flights",
+                                "type": "object",
+                                "properties": {
+                                  "number": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  },
+                                  "coach": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  }
+                                }
                               },
                               "validity": {
                                 "description": "Booking validity conditions",
@@ -3922,6 +4156,24 @@
                             "minLength": 0,
                             "maxLength": 64
                           },
+                          "seating": {
+                            "description": "Ticket's seat information for long distance trains, coaches or flights",
+                            "type": "object",
+                            "properties": {
+                              "number": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              },
+                              "coach": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              }
+                            }
+                          },
                           "validity": {
                             "description": "Booking validity conditions",
                             "type": "object",
@@ -4102,6 +4354,24 @@
                                 "type": "string",
                                 "minLength": 0,
                                 "maxLength": 64
+                              },
+                              "seating": {
+                                "description": "Ticket's seat information for long distance trains, coaches or flights",
+                                "type": "object",
+                                "properties": {
+                                  "number": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  },
+                                  "coach": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  }
+                                }
                               },
                               "validity": {
                                 "description": "Booking validity conditions",
@@ -4331,6 +4601,24 @@
                             "minLength": 0,
                             "maxLength": 64
                           },
+                          "seating": {
+                            "description": "Ticket's seat information for long distance trains, coaches or flights",
+                            "type": "object",
+                            "properties": {
+                              "number": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              },
+                              "coach": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              }
+                            }
+                          },
                           "validity": {
                             "description": "Booking validity conditions",
                             "type": "object",
@@ -4511,6 +4799,24 @@
                                 "type": "string",
                                 "minLength": 0,
                                 "maxLength": 64
+                              },
+                              "seating": {
+                                "description": "Ticket's seat information for long distance trains, coaches or flights",
+                                "type": "object",
+                                "properties": {
+                                  "number": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  },
+                                  "coach": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  }
+                                }
                               },
                               "validity": {
                                 "description": "Booking validity conditions",
@@ -4732,6 +5038,24 @@
                             "minLength": 0,
                             "maxLength": 64
                           },
+                          "seating": {
+                            "description": "Ticket's seat information for long distance trains, coaches or flights",
+                            "type": "object",
+                            "properties": {
+                              "number": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              },
+                              "coach": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              }
+                            }
+                          },
                           "validity": {
                             "description": "Booking validity conditions",
                             "type": "object",
@@ -4912,6 +5236,24 @@
                                 "type": "string",
                                 "minLength": 0,
                                 "maxLength": 64
+                              },
+                              "seating": {
+                                "description": "Ticket's seat information for long distance trains, coaches or flights",
+                                "type": "object",
+                                "properties": {
+                                  "number": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  },
+                                  "coach": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  }
+                                }
                               },
                               "validity": {
                                 "description": "Booking validity conditions",
@@ -5133,6 +5475,24 @@
                             "minLength": 0,
                             "maxLength": 64
                           },
+                          "seating": {
+                            "description": "Ticket's seat information for long distance trains, coaches or flights",
+                            "type": "object",
+                            "properties": {
+                              "number": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              },
+                              "coach": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              }
+                            }
+                          },
                           "validity": {
                             "description": "Booking validity conditions",
                             "type": "object",
@@ -5313,6 +5673,24 @@
                                 "type": "string",
                                 "minLength": 0,
                                 "maxLength": 64
+                              },
+                              "seating": {
+                                "description": "Ticket's seat information for long distance trains, coaches or flights",
+                                "type": "object",
+                                "properties": {
+                                  "number": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  },
+                                  "coach": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  }
+                                }
                               },
                               "validity": {
                                 "description": "Booking validity conditions",
@@ -5534,6 +5912,24 @@
                             "minLength": 0,
                             "maxLength": 64
                           },
+                          "seating": {
+                            "description": "Ticket's seat information for long distance trains, coaches or flights",
+                            "type": "object",
+                            "properties": {
+                              "number": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              },
+                              "coach": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              }
+                            }
+                          },
                           "validity": {
                             "description": "Booking validity conditions",
                             "type": "object",
@@ -5714,6 +6110,24 @@
                                 "type": "string",
                                 "minLength": 0,
                                 "maxLength": 64
+                              },
+                              "seating": {
+                                "description": "Ticket's seat information for long distance trains, coaches or flights",
+                                "type": "object",
+                                "properties": {
+                                  "number": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  },
+                                  "coach": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ]
+                                  }
+                                }
                               },
                               "validity": {
                                 "description": "Booking validity conditions",
@@ -5937,6 +6351,24 @@
                         "minLength": 0,
                         "maxLength": 64
                       },
+                      "seating": {
+                        "description": "Ticket's seat information for long distance trains, coaches or flights",
+                        "type": "object",
+                        "properties": {
+                          "number": {
+                            "type": [
+                              "string",
+                              "number"
+                            ]
+                          },
+                          "coach": {
+                            "type": [
+                              "string",
+                              "number"
+                            ]
+                          }
+                        }
+                      },
                       "validity": {
                         "description": "Booking validity conditions",
                         "type": "object",
@@ -6117,6 +6549,24 @@
                             "type": "string",
                             "minLength": 0,
                             "maxLength": 64
+                          },
+                          "seating": {
+                            "description": "Ticket's seat information for long distance trains, coaches or flights",
+                            "type": "object",
+                            "properties": {
+                              "number": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              },
+                              "coach": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ]
+                              }
+                            }
                           },
                           "validity": {
                             "description": "Booking validity conditions",
@@ -6311,6 +6761,24 @@
                   "type": "string",
                   "minLength": 0,
                   "maxLength": 64
+                },
+                "seating": {
+                  "description": "Ticket's seat information for long distance trains, coaches or flights",
+                  "type": "object",
+                  "properties": {
+                    "number": {
+                      "type": [
+                        "string",
+                        "number"
+                      ]
+                    },
+                    "coach": {
+                      "type": [
+                        "string",
+                        "number"
+                      ]
+                    }
+                  }
                 },
                 "validity": {
                   "description": "Booking validity conditions",
@@ -7357,6 +7825,24 @@
           "type": "string",
           "minLength": 0,
           "maxLength": 64
+        },
+        "seating": {
+          "description": "Ticket's seat information for long distance trains, coaches or flights",
+          "type": "object",
+          "properties": {
+            "number": {
+              "type": [
+                "string",
+                "number"
+              ]
+            },
+            "coach": {
+              "type": [
+                "string",
+                "number"
+              ]
+            }
+          }
         },
         "validity": {
           "description": "Booking validity conditions",
