@@ -4,16 +4,55 @@
   "description": "Request schema for itineraries-create",
   "type": "object",
   "properties": {
-    "identityId": {
-      "$ref": "../../../core/components/units.json#/definitions/identityId"
+    "$ref": "#/definitions/itineraryCreate"
+  },
+  "allOf": [
+    { "$ref": "#/definitions/itineraryCreate" },
+    {
+      "oneOf": [
+        { "required": ["identityId", "itinerary"] },
+        { "required": ["identityId", "outward"] },
+        { "required": ["identityId", "outward", "return"] }
+      ]
+    }
+  ],
+  "definitions": {
+    "itineraryCreate": {
+      "type": "object",
+      "properties": {
+        "outward": {
+          "itinerary": {
+            "$ref": "../../../core/itinerary.json"
+          },
+          "customerSelections": {
+            "type": "array",
+            "items": {
+              "$ref": "../../../core/components/configurator.json#/definitions/customerSelection"
+            }
+          }
+        },
+        "return": {
+          "itinerary": {
+            "$ref": "../../../core/itinerary.json"
+          },
+          "customerSelections": {
+            "type": "array",
+            "items": {
+              "$ref": "../../../core/components/configurator.json#/definitions/customerSelection"
+            }
+          }
+        }
+      }
     },
     "itinerary": {
       "$ref": "../../../core/itinerary.json"
+    },
+    "identityId": {
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "headers": {
       "$ref": "../../../core/components/api-common.json#/definitions/headers"
     }
   },
-  "required": [ "itinerary" ],
   "additionalProperties": false
 }
