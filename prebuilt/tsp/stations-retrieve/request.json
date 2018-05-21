@@ -4,7 +4,9 @@
   "type": "object",
   "properties": {
     "id": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
     },
     "agencyId": {
       "$schema": "http://json-schema.org/draft-04/schema#",
