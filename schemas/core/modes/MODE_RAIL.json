@@ -1,5 +1,37 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Schema for MODE_RAIL meta field",
-  "type": "object"
+  "type": "object",
+  "properties": {
+    "outward": {
+      "from": {
+        "$ref": "../components/units-geo.json#/definitions/place"
+      },
+      "to": {
+        "$ref": "../components/units-geo.json#/definitions/place"
+      }
+    },
+    "return": {
+      "from": {
+        "$ref": "../components/units-geo.json#/definitions/place"
+      },
+      "to": {
+        "$ref": "../components/units-geo.json#/definitions/place"
+      }
+    },
+    "deliveryMethod": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "stationId": {
+          "$ref": "../components/station.json#/definitions/id"
+        },
+        "alternateCollections": {
+          "type": "string"
+        }
+      }
+    }
+  }
 }
