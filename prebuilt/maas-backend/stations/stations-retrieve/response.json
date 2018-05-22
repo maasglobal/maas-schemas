@@ -9,7 +9,9 @@
       "description": "Detailed station schema, coming as stations-retrieve response",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
         },
         "code": {
           "type": "string"
