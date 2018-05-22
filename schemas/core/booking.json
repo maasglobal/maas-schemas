@@ -69,7 +69,6 @@
     "leg": {
       "type": "object",
       "description": "MaaS response may return any subset of legCore",
-      "type": "object",
       "properties": {
         "signature": {
           "$ref": "./components/units.json#/definitions/signature"

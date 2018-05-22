@@ -60,6 +60,14 @@
         "endTime"
       ]
     },
+    "reusable": {
+      "type": "boolean",
+      "description": "A flag indicating whether this booking can be reused for another trip within the validity period"
+    },
+    "reconcilable": {
+      "type": "boolean",
+      "description": "A flag indicating whether this booking will be reconciled once the trip has finished"
+    },
     "fareRates": {
       "type": "array",
       "items": {

@@ -6,7 +6,7 @@
   "properties": {
     "identityId": {
       "type": "string",
-      "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
+      "pattern": "^[aepsu]{2}\\x2D[0-9A-Z_a-z]{4}\\x2D[0-9]:[0-9a-f]{8}(\\x2D[0-9a-f]{4}){3}\\x2D[0-9a-f]{12}$"
     },
     "payload": {
       "type": "object",
@@ -25,7 +25,7 @@
       "Accept": {
         "description": "SemVer versioning schemas for versioning our resources",
         "type": "string",
-        "pattern": "\\bapplication\\/json[,;][\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*version=((0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\-[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?(?:\\+[\\-0-9a-z]+(?:\\.[\\-0-9a-z]+)*)?)\\b"
+        "pattern": "\\bapplication\\/json[,;][\\t-\\r \\xA0\\u1680\\u2000-\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF]*version=((0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\x2D[\\x2D0-9a-z]+(?:\\.[\\x2D0-9a-z]+)*)?(?:\\+[\\x2D0-9a-z]+(?:\\.[\\x2D0-9a-z]+)*)?)\\b"
       },
       "X-Whim-User-Agent": {
         "type": "string",
