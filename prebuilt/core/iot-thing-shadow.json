@@ -35,7 +35,7 @@
             "legId": {
               "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
               "type": "string",
-              "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
+              "pattern": "^[0-9A-Fa-f]{8}(\\x2D[0-9A-Fa-f]{4}){3}\\x2D[0-9A-Fa-f]{12}$"
             }
           }
         },
@@ -45,7 +45,7 @@
             "id": {
               "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
               "type": "string",
-              "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
+              "pattern": "^[0-9A-Fa-f]{8}(\\x2D[0-9A-Fa-f]{4}){3}\\x2D[0-9A-Fa-f]{12}$"
             },
             "timestamp": {
               "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",

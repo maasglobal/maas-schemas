@@ -16,12 +16,12 @@
         },
         "customerId": {
           "type": "string",
-          "pattern": "^[aepsu]{2}\\-[0-9A-Z_a-z]{4}\\-[0-9]:[0-9a-f]{8}(\\-[0-9a-f]{4}){3}\\-[0-9a-f]{12}$"
+          "pattern": "^[aepsu]{2}\\x2D[0-9A-Z_a-z]{4}\\x2D[0-9]:[0-9a-f]{8}(\\x2D[0-9a-f]{4}){3}\\x2D[0-9a-f]{12}$"
         },
         "bookingId": {
           "description": "bookingId of the requested booking",
           "type": "string",
-          "pattern": "^[0-9A-Fa-f]{8}(\\-[0-9A-Fa-f]{4}){3}\\-[0-9A-Fa-f]{12}$"
+          "pattern": "^[0-9A-Fa-f]{8}(\\x2D[0-9A-Fa-f]{4}){3}\\x2D[0-9A-Fa-f]{12}$"
         },
         "lineItems": {
           "type": "array",

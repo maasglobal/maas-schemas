@@ -51,9 +51,6 @@
       "type": "object",
       "description": "Boolean properties indicating which features are supported by the provider",
       "properties": {
-        "reconcile": {
-          "type": "boolean"
-        },
         "ticket": {
           "type": "boolean"
         },
@@ -65,7 +62,6 @@
         }
       },
       "required": [
-        "reconcile",
         "ticket",
         "stationsList",
         "stationsRetrieve"

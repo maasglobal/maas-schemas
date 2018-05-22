@@ -6,7 +6,7 @@
     "location": {
       "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
       "type": "string",
-      "pattern": "^[\\+\\-]?[0-9]{1,3}(\\.[0-9]+)?,[\\+\\-]?[0-9]{1,3}(\\.[0-9]+)?$",
+      "pattern": "^[\\+\\x2D]?[0-9]{1,3}(\\.[0-9]+)?,[\\+\\x2D]?[0-9]{1,3}(\\.[0-9]+)?$",
       "minLength": 1,
       "maxLength": 64
     },
