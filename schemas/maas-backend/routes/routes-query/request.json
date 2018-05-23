@@ -78,6 +78,10 @@
         },
         "options": {
           "type": "object"
+        },
+        "customer": {
+          "description": "JSON encoded object which must be validated against /core/customer.json schema",
+          "$ref": "../../../core/components/units.json#/definitions/jsonParam"
         }
       },
       "patternProperties": {

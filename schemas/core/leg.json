@@ -114,9 +114,6 @@
               "$ref": "./components/units-geo.json#/definitions/polyline"
             }
           }
-        },
-        "fare": {
-          "$ref": "./components/fare.json"
         }
       },
       "required": [
@@ -127,7 +124,7 @@
         "endTime",
         "legGeometry"
       ],
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "waitingLeg": {
       "type": "object",

@@ -39,20 +39,12 @@
           "minLength": 0,
           "maxLength": 255
         },
-        "description": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 255
-        },
         "meta": {
           "type": "object",
           "additionalProperties": true
         },
         "icon": {
           "$ref": "../../../core/components/units.json#/definitions/url"
-        },
-        "fare": {
-          "$ref": "../../../core/components/fare.json"
         },
         "fares": {
           "type": "array",
@@ -66,7 +58,7 @@
           "maxLength": 2000
         }
       },
-      "required": ["id", "agencyId", "tspProductId", "name", "description", "icon", "fare", "fares"],
+      "required": ["id", "agencyId", "tspProductId", "name", "description", "icon", "fares"],
       "additionalProperties": true
     }
   },

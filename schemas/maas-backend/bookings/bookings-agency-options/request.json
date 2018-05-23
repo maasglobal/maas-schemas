@@ -51,7 +51,7 @@
           "description": "Componentized from address",
           "$ref": "../../../core/components/address.json#/definitions/componentAddress"
         },
-        "fromRadius":{
+        "fromRadius": {
           "$ref": "../../../core/components/units-geo.json#/definitions/distance"
         },
         "toName": {
@@ -62,8 +62,12 @@
           "description": "Componentized to address",
           "$ref": "../../../core/components/address.json#/definitions/componentAddress"
         },
-        "toRadius":{
+        "toRadius": {
           "$ref": "../../../core/components/units-geo.json#/definitions/distance"
+        },
+        "customer": {
+          "description": "JSON encoded object which must be validated against /core/customer.json schema",
+          "$ref": "../../../core/components/units.json#/definitions/jsonParam"
         }
       }
     }

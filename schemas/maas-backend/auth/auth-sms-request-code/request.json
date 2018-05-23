@@ -8,7 +8,7 @@
       "type": "object",
       "properties": {
         "phone": {
-          "$ref": "../../../core/components/customer.json#/properties/rawPhone"
+          "$ref": "../../../core/components/units.json#/definitions/rawPhone"
         }
       },
       "required": ["phone"],

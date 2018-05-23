@@ -12,9 +12,6 @@
     "state": {
       "$ref": "./components/state.json#/definitions/bookingState"
     },
-    "fare": {
-      "$ref": "./components/fare.json"
-    },
     "fares": {
       "type": "array",
       "items": {
@@ -39,7 +36,7 @@
     "customer": {
       "allOf": [
         {
-          "$ref": "./components/customer.json"
+          "$ref": "./customer.json"
         },
         {
           "required": ["firstName", "lastName", "phone", "email"]

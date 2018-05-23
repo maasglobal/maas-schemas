@@ -53,7 +53,7 @@
           "minLength": 1,
           "maxLength": 64
         },
-        "phone": { "$ref": "../components/customer.json#/properties/phone" }
+        "phone": { "$ref": "../components/units.json#/definitions/phone" }
       }
     }
   },
