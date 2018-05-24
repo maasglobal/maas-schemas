@@ -31,7 +31,8 @@
     "meta",
     "terms",
     "customer",
-    "tspProduct"
+    "tspProduct",
+    "customer"
   ],
   "additionalProperties": true
 }
