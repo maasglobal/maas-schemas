@@ -42,8 +42,8 @@
           "$ref": "../../core/booking.json#/definitions/token"
         },
         "customer": {
-          "$ref": "../../core/components/customer.json",
-          "required": ["firstName", "lastName", "phone", "email"]
+          "$ref": "../../core/customer.json",
+          "required": ["firstName", "lastName", "phone", "email", "locale", "opaqueId"]
         }
       },
       "required": [ "tspId", "state" ],
