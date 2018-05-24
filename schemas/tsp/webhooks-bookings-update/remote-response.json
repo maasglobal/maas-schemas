@@ -42,7 +42,7 @@
           "$ref": "../../core/booking.json#/definitions/token"
         },
         "customer": {
-          "$ref": "../../core/components/customer.json",
+          "$ref": "../../core/customer.json",
           "required": ["firstName", "lastName", "phone", "email"]
         }
       },
