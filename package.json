@@ -11,7 +11,7 @@
     "test": "jest",
     "watch": "gulp watch",
     "build": "gulp",
-    "prepublish": "gulp deref-schemas && gulp test && gulp validate"
+    "prepublish": "gulp deref-schemas"
   },
   "repository": {
     "type": "git",

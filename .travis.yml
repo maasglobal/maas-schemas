@@ -4,3 +4,9 @@ node_js:
 script:
 - npm run lint
 - npm test
+deploy:
+  provider: npm
+  email: tech@maas.global
+  api_key: $NPM_TOKEN
+  on:
+    branch: master
