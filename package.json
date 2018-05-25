@@ -1,6 +1,6 @@
 {
   "name": "maas-schemas",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Schemas for MaaS infrastructure",
   "main": "validator.js",
   "engine": {
@@ -11,7 +11,7 @@
     "test": "jest",
     "watch": "gulp watch",
     "build": "gulp",
-    "prepublish": "gulp deref-schemas && gulp test && gulp validate"
+    "prepublish": "gulp deref-schemas"
   },
   "repository": {
     "type": "git",
