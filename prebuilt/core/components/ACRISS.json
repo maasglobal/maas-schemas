@@ -1,6 +1,0 @@
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "ACRISS classification of the car, see https://en.wikipedia.org/wiki/ACRISS_Car_Classification_Code",
-  "type": "string",
-  "pattern": "[C-JL-PRSUWX][B-HJ-NP-TV-Z][A-DMN][A-FHIL-NQ-SUVXZ]"
-}

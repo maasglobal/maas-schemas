@@ -1,5 +1,0 @@
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/profile/profile-info/response",
-  "description": "Response schema for profile-info"
-}

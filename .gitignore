@@ -12,4 +12,5 @@ package-lock.json
 .DS_Store
 .tmp
 
-
+# prebuild is done before publish
+prebuilt

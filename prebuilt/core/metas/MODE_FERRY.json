@@ -1,5 +1,0 @@
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "Schema for MODE_FERRY meta field",
-  "type": "object"
-}
