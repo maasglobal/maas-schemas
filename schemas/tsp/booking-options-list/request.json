@@ -92,10 +92,6 @@
       "description": "Comma-separated list of tspProductIds that the user has access to",
       "type": "string",
       "minLength": 0
-    },
-    "customer": {
-      "description": "JSON encoded object which should be validated against /core/customer.json schema",
-      "$ref": "../../core/components/units.json#/definitions/jsonParam"
     }
   },
   "required": ["startTime", "from"],

@@ -33,9 +33,6 @@
     },
     "customerSelection": {
       "$ref": "../../core/components/configurator.json#/definitions/customerSelection"
-    },
-    "customer": {
-      "$ref": "../../core/customer.json"
     }
   },
   "required": ["tspId", "state", "meta", "terms", "token", "tspProduct" ],
