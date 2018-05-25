@@ -10,7 +10,8 @@
     "lint": "gulp validate",
     "test": "jest",
     "watch": "gulp watch",
-    "build": "gulp"
+    "build": "gulp",
+    "prepublish": "gulp deref-schemas && gulp test && gulp validate"
   },
   "repository": {
     "type": "git",
