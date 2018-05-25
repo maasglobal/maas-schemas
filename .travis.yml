@@ -8,5 +8,6 @@ deploy:
   provider: npm
   email: tech@maas.global
   api_key: $NPM_TOKEN
+  skip_cleanup: true
   on:
     branch: master
