@@ -1,6 +1,6 @@
 'use strict';
 
-const schema = require('../../../prebuilt/core/components/customer.json');
+const schema = require('../../../prebuilt/core/customer.json');
 const { generateTestCases } = require('../../../test-lib');
 
 describe('customer.firstName', () => {

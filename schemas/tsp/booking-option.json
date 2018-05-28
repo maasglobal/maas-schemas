@@ -37,6 +37,10 @@
       },
       "cost": {
         "$ref": "../core/components/cost.json"
+      },
+      "customer": {
+        "description": "MaaS customer data",
+        "$ref": "../core/customer.json"
       }
     },
     "leg": {
