@@ -124,7 +124,7 @@
           "type": "object"
         }
       },
-      "required": ["id", "name", "default", "terms", "meta"]
+      "required": ["id", "name", "default"]
     },
     "customerSelection": {
       "type": "object",
