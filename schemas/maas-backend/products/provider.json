@@ -67,6 +67,42 @@
         "stationsRetrieve"
       ],
       "additionalProperties": false
+    },
+    "optionalParameters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "enum": ["string", "number", "boolean"]
+                }
+              },
+              "required": ["id", "name", "type"],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": ["id", "name", "inputs"],
+        "additionalProperties": false
+      }
     }
   },
   "required": [
@@ -75,7 +111,8 @@
     "groupId",
     "branding",
     "hidden",
-    "features"
+    "features",
+    "optionalParameters"
   ],
   "additionalProperties": false
 }
