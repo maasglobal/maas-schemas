@@ -35,6 +35,11 @@
       "$ref": "../../../core/components/travel-mode.json"
     }
   },
+  "patternProperties": {
+    "^(optionalParameters).+": {
+      "type": ["string", "number", "boolean"]
+    }
+  },
   "required": ["from", "to"],
   "additionalProperties": false
 }

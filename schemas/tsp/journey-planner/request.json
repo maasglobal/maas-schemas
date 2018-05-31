@@ -15,6 +15,11 @@
       "required": ["from", "to", "arriveBy"]
     }
   ],
+  "patternProperties": {
+    "^(optionalParameters).+": {
+      "type": ["string", "number", "boolean"]
+    }
+  },
   "definitions": {
     "payload": {
       "from": {

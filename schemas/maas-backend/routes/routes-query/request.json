@@ -36,9 +36,6 @@
     "payload": {
       "type": "object",
       "properties": {
-        "identityId": {
-          "$ref": "../../../core/components/units.json#/definitions/identityId"
-        },
         "from": {
           "$ref": "../../../core/components/units-geo.json#/definitions/shortLocationString"
         },
@@ -82,7 +79,13 @@
         "options": {
           "type": "object"
         }
-      }
+      },
+      "patternProperties": {
+        "^(optionalParameters).+": {
+          "type": ["string", "number", "boolean"]
+        }
+      },
+      "additionalProperties": false
     }
   }
 }
