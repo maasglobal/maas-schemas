@@ -11,3 +11,11 @@ package-lock.json
 # OS STUFF
 .DS_Store
 .tmp
+
+.eslintrc
+.travis.yml
+gulpfile.js
+jest.*
+test-lib.js
+test/
+.github/
