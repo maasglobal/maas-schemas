@@ -11,7 +11,8 @@
             "ref",
             "terms",
             "meta",
-            "configurator"
+            "configurator",
+            "customer"
           ]
         }
       ]
@@ -24,7 +25,8 @@
             "ref",
             "terms",
             "meta",
-            "fares"
+            "fares",
+            "customer"
           ]
         }
       ]
@@ -37,7 +39,8 @@
             "ref",
             "terms",
             "meta",
-            "cost"
+            "cost",
+            "customer"
           ]
         }
       ]
@@ -58,9 +61,6 @@
       "product": {
         "$ref": "./product.json"
       },
-      "fare": {
-        "$ref": "./components/fare.json"
-      },
       "cost": {
         "$ref": "./components/cost.json"
       },
@@ -78,6 +78,9 @@
       },
       "configurator": {
         "$ref": "./components/configurator.json"
+      },
+      "customer": {
+        "$ref": "./customer.json"
       }
     }
   }

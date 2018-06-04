@@ -46,10 +46,10 @@
           "$ref": "#/definitions/identityId"
         },
         "firstName": {
-          "$ref": "../../core/components/customer.json#/properties/firstName"
+          "$ref": "../../core/components/units.json#/definitions/personalName"
         },
         "lastName": {
-          "$ref": "../../core/components/customer.json#/properties/lastName"
+          "$ref": "../../core/components/units.json#/definitions/personalName"
         },
         "address": {
           "$ref": "../../core/components/address.json#/definitions/address"
@@ -64,10 +64,10 @@
           "$ref": "../../core/components/address.json#/definitions/country"
         },
         "phone": {
-          "$ref": "../../core/components/customer.json#/properties/phone"
+          "$ref": "../../core/components/units.json#/definitions/phone"
         },
         "email": {
-          "$ref": "../../core/components/customer.json#/properties/email"
+          "$ref": "../../core/components/units.json#/definitions/email"
         }
       }
     },

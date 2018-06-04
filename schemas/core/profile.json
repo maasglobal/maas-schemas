@@ -12,16 +12,16 @@
       "$ref": "./components/units.json#/definitions/identityId"
     },
     "phone": {
-      "$ref": "./components/customer.json#/properties/phone"
+      "$ref": "./components/units.json#/definitions/phone"
     },
     "email": {
-      "$ref": "./components/customer.json#/properties/email"
+      "$ref": "./components/units.json#/definitions/email"
     },
     "firstName": {
-      "$ref": "./components/customer.json#/properties/firstName"
+      "$ref": "./components/units.json#/definitions/personalName"
     },
     "lastName": {
-      "$ref": "./components/customer.json#/properties/lastName"
+      "$ref": "./components/units.json#/definitions/personalName"
     },
     "city": {
       "$ref": "./components/address.json#/definitions/city"

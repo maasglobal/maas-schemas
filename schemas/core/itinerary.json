@@ -24,8 +24,16 @@
     "endTime": {
       "$ref": "./components/units.json#/definitions/time"
     },
-    "fare": {
-      "$ref": "./components/fare.json"
+    "co2": {
+      "description": "Grams of CO2 as a byproduct by the trip",
+      "type": "number",
+      "minValue": 0
+    },
+    "fares": {
+      "type": "array",
+      "items": {
+        "$ref": "./components/fare.json"
+      }
     },
     "legs": {
       "type": "array",
@@ -44,6 +52,7 @@
       }
     }
   },
+  "additionalProperties": false,
   "required": [
     "startTime",
     "endTime",
