@@ -79,6 +79,9 @@
           "name": {
             "type": "string"
           },
+          "type": {
+            "enum": ["oneOf", "someOf", "allOf", "oneOrNoneOf", "someOrNoneOf"]
+          },
           "inputs": {
             "type": "array",
             "items": {
