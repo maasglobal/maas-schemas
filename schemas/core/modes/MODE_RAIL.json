@@ -4,20 +4,36 @@
   "type": "object",
   "properties": {
     "outward": {
-      "from": {
-        "$ref": "../components/units-geo.json#/definitions/place"
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Arbitrary outward journey id given by either TSP or map provider",
+          "type": "string"
+        },
+        "from": {
+          "$ref": "../components/units-geo.json#/definitions/place"
+        },
+        "to": {
+          "$ref": "../components/units-geo.json#/definitions/place"
+        }
       },
-      "to": {
-        "$ref": "../components/units-geo.json#/definitions/place"
-      }
+      "required": ["from", "to"]
     },
     "return": {
-      "from": {
-        "$ref": "../components/units-geo.json#/definitions/place"
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Arbitrary return journey id given by either TSP or map provider",
+          "type": "string"
+        },
+        "from": {
+          "$ref": "../components/units-geo.json#/definitions/place"
+        },
+        "to": {
+          "$ref": "../components/units-geo.json#/definitions/place"
+        }
       },
-      "to": {
-        "$ref": "../components/units-geo.json#/definitions/place"
-      }
+      "required": ["from", "to"]
     },
     "deliveryMethod": {
       "type": "object",
