@@ -10,7 +10,8 @@
     "seatFeatures": { "$ref": "#/definitions/config" },
     "inboundSingle": { "$ref": "#/definitions/config" },
     "outboundSingle": { "$ref": "#/definitions/config" },
-    "openReturn": { "$ref": "#/definitions/config" }
+    "openReturn": { "$ref": "#/definitions/config" },
+    "ticketCollectionPoint": { "$ref": "#/definitions/text" }
   },
   "additionalProperties": false,
   "definitions": {
@@ -89,13 +90,42 @@
     "customerSelection": {
       "type": "object",
       "patternProperties": {
-        "^[a-z0-9\\-]+$": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "^.*$": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 0,
+              "maxLength": 8192
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 8192
+              }
+            }
+          ]
         }
       }
+    },
+    "text": {
+      "type": "object",
+      "description": "Generic text field to pass information from user",
+      "properties": {
+        "type": {
+          "enum": ["text"]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": ["type", "name"]
     }
   }
 }
