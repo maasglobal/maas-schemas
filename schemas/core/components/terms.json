@@ -46,13 +46,63 @@
       "type": "boolean",
       "description": "A flag indicating whether this booking will be reconciled once the trip has finished"
     },
-    "cancellable": {
-      "type": "boolean",
-      "description": "A flag indicating whether this booking can be cancelled in 'RESERVED' state"
+    "cancellation": {
+      "type": "object",
+      "properties": {
+        "cancellable": {
+          "type": "boolean",
+          "description": "A flag indicating whether this booking can be cancelled in 'RESERVED' state"
+        },
+        "fee": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "minimum": 0,
+              "multipleOf": 0.01
+            },
+            "currency": {
+              "$ref": "./units.json#/definitions/currency"
+            }
+          },
+          "required": [
+            "amount",
+            "currency"
+          ]
+        }
+      },
+      "required": [
+        "cancellable"
+      ]
     },
-    "amendable": {
-      "type": "boolean",
-      "description": "A flag indicating whether this booking can be amended"
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "amendable": {
+          "type": "boolean",
+          "description": "A flag indicating whether this booking can be amended"
+        },
+        "fee": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "minimum": 0,
+              "multipleOf": 0.01
+            },
+            "currency": {
+              "$ref": "./units.json#/definitions/currency"
+            }
+          },
+          "required": [
+            "amount",
+            "currency"
+          ]
+        }
+      },
+      "required": [
+        "amendable"
+      ]
     },
     "fareRates": {
       "type": "array",
