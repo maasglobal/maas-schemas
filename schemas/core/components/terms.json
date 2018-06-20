@@ -49,60 +49,24 @@
     "cancellation": {
       "type": "object",
       "properties": {
-        "cancellable": {
-          "type": "boolean",
-          "description": "A flag indicating whether this booking can be cancelled in 'RESERVED' state"
+        "outward": {
+          "$ref": "#/definitions/cancellation"
         },
-        "fee": {
-          "type": "object",
-          "properties": {
-            "amount": {
-              "type": "number",
-              "minimum": 0,
-              "multipleOf": 0.01
-            },
-            "currency": {
-              "$ref": "./units.json#/definitions/currency"
-            }
-          },
-          "required": [
-            "amount",
-            "currency"
-          ]
+        "return": {
+          "$ref": "#/definitions/cancellation"
         }
-      },
-      "required": [
-        "cancellable"
-      ]
+      }
     },
     "amendment": {
       "type": "object",
       "properties": {
-        "amendable": {
-          "type": "boolean",
-          "description": "A flag indicating whether this booking can be amended"
+        "outward": {
+          "$ref": "#/definitions/amendment"
         },
-        "fee": {
-          "type": "object",
-          "properties": {
-            "amount": {
-              "type": "number",
-              "minimum": 0,
-              "multipleOf": 0.01
-            },
-            "currency": {
-              "$ref": "./units.json#/definitions/currency"
-            }
-          },
-          "required": [
-            "amount",
-            "currency"
-          ]
+        "return": {
+          "$ref": "#/definitions/amendment"
         }
-      },
-      "required": [
-        "amendable"
-      ]
+      }
     },
     "fareRates": {
       "type": "array",
@@ -157,6 +121,64 @@
           "type": ["string", "number"]
         }
       }
+    },
+    "cancellation": {
+      "type": "object",
+      "properties": {
+        "cancellable": {
+          "type": "boolean",
+          "description": "A flag indicating whether this booking can be cancelled in 'RESERVED' state"
+        },
+        "cost": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "minimum": 0,
+              "multipleOf": 0.01
+            },
+            "currency": {
+              "$ref": "./units.json#/definitions/currency"
+            }
+          },
+          "required": [
+            "amount",
+            "currency"
+          ]
+        }
+      },
+      "required": [
+        "cancellable"
+      ]
+    },
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "amendable": {
+          "type": "boolean",
+          "description": "A flag indicating whether this booking can be amended"
+        },
+        "cost": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "minimum": 0,
+              "multipleOf": 0.01
+            },
+            "currency": {
+              "$ref": "./units.json#/definitions/currency"
+            }
+          },
+          "required": [
+            "amount",
+            "currency"
+          ]
+        }
+      },
+      "required": [
+        "amendable"
+      ]
     }
   }
 }
