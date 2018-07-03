@@ -8,27 +8,50 @@
       "$ref": "../../../core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "type": "object",
-      "properties": {
-        "agencyId": {
-          "$ref": "../../../core/components/agencyId.json"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "agencyId": {
+              "$ref": "../../../core/components/agencyId.json"
+            },
+            "lat": {
+              "$ref": "../../../core/components/units-geo.json#/definitions/relaxedLatitude"
+            },
+            "lon": {
+              "$ref": "../../../core/components/units-geo.json#/definitions/relaxedLatitude"
+            },
+            "radius": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "type": {
+              "enum": ["origin", "destination"]
+            }
+          },
+          "required": ["agencyId", "lat", "lon", "type"]
         },
-        "lat": {
-          "$ref": "../../../core/components/units-geo.json#/definitions/relaxedLatitude"
-        },
-        "lon": {
-          "$ref": "../../../core/components/units-geo.json#/definitions/relaxedLatitude"
-        },
-        "radius": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "limit": {
-          "type": "integer",
-          "minimum": 0
+        {
+          "type": "object",
+          "properties": {
+            "agencyId": {
+              "$ref": "../../../core/components/agencyId.json"
+            },
+            "name": {
+              "type": "string",
+              "minLength": 3
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "type": {
+              "enum": ["origin", "destination"]
+            }
+          },
+          "required": ["agencyId", "name", "count", "type"]
         }
-      },
-      "required": ["agencyId", "lat", "lon"]
+      ]
     },
     "headers": {
       "Accept": {
