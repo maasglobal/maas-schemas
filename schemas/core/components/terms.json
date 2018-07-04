@@ -129,22 +129,13 @@
           "type": "boolean",
           "description": "A flag indicating whether this booking can be cancelled in 'RESERVED' state"
         },
-        "cost": {
-          "type": "object",
-          "properties": {
-            "amount": {
-              "type": "number",
-              "minimum": 0,
-              "multipleOf": 0.01
-            },
-            "currency": {
-              "$ref": "./units.json#/definitions/currency"
-            }
+        "fee": {
+          "cost": {
+            "$ref": "./cost.json"
           },
-          "required": [
-            "amount",
-            "currency"
-          ]
+          "fare": {
+            "$ref": "./fare.json"
+          }
         }
       },
       "required": [
@@ -158,22 +149,13 @@
           "type": "boolean",
           "description": "A flag indicating whether this booking can be amended"
         },
-        "cost": {
-          "type": "object",
-          "properties": {
-            "amount": {
-              "type": "number",
-              "minimum": 0,
-              "multipleOf": 0.01
-            },
-            "currency": {
-              "$ref": "./units.json#/definitions/currency"
-            }
+        "fee": {
+          "cost": {
+            "$ref": "./cost.json"
           },
-          "required": [
-            "amount",
-            "currency"
-          ]
+          "fare": {
+            "$ref": "./fare.json"
+          }
         }
       },
       "required": [
