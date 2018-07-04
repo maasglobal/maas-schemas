@@ -129,13 +129,11 @@
           "type": "boolean",
           "description": "A flag indicating whether this booking can be cancelled in 'RESERVED' state"
         },
-        "fee": {
-          "cost": {
-            "$ref": "./cost.json"
-          },
-          "fare": {
-            "$ref": "./fare.json"
-          }
+        "cost": {
+          "$ref": "./cost.json"
+        },
+        "fare": {
+          "$ref": "./fare.json"
         }
       },
       "required": [
@@ -149,13 +147,11 @@
           "type": "boolean",
           "description": "A flag indicating whether this booking can be amended"
         },
-        "fee": {
-          "cost": {
-            "$ref": "./cost.json"
-          },
-          "fare": {
-            "$ref": "./fare.json"
-          }
+        "cost": {
+          "$ref": "./cost.json"
+        },
+        "fare": {
+          "$ref": "./fare.json"
         }
       },
       "required": [
