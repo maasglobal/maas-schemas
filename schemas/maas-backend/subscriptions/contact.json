@@ -68,6 +68,9 @@
         },
         "email": {
           "$ref": "../../core/components/units.json#/definitions/email"
+        },
+        "dob": {
+          "$ref": "../../core/components/units.json#/definitions/time"
         }
       }
     },

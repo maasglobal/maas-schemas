@@ -32,6 +32,10 @@
     "zipCode": {
       "$ref": "./components/address.json#/definitions/zipCode"
     },
+    "dob": {
+      "description": "Date of Birth",
+      "$ref": "./components/units.json#/definitions/time"
+    },
     "regionId": {
       "type": "string",
       "minLength": 2,
