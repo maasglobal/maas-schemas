@@ -1,6 +1,6 @@
 {
   "name": "maas-schemas",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "Schemas for MaaS infrastructure",
   "main": "validator.js",
   "engine": {

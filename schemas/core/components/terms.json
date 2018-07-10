@@ -46,6 +46,28 @@
       "type": "boolean",
       "description": "A flag indicating whether this booking will be reconciled once the trip has finished"
     },
+    "cancellation": {
+      "type": "object",
+      "properties": {
+        "outward": {
+          "$ref": "#/definitions/cancellation"
+        },
+        "return": {
+          "$ref": "#/definitions/cancellation"
+        }
+      }
+    },
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "outward": {
+          "$ref": "#/definitions/amendment"
+        },
+        "return": {
+          "$ref": "#/definitions/amendment"
+        }
+      }
+    },
     "fareRates": {
       "type": "array",
       "items": {
@@ -99,6 +121,42 @@
           "type": ["string", "number"]
         }
       }
+    },
+    "cancellation": {
+      "type": "object",
+      "properties": {
+        "cancellable": {
+          "type": "boolean",
+          "description": "A flag indicating whether this booking can be cancelled in 'RESERVED' state"
+        },
+        "cost": {
+          "$ref": "./cost.json"
+        },
+        "fare": {
+          "$ref": "./fare.json"
+        }
+      },
+      "required": [
+        "cancellable"
+      ]
+    },
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "amendable": {
+          "type": "boolean",
+          "description": "A flag indicating whether this booking can be amended"
+        },
+        "cost": {
+          "$ref": "./cost.json"
+        },
+        "fare": {
+          "$ref": "./fare.json"
+        }
+      },
+      "required": [
+        "amendable"
+      ]
     }
   }
 }
