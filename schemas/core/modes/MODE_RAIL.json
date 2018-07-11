@@ -44,7 +44,7 @@
         "stationId": {
           "$ref": "../components/station.json#/definitions/id"
         },
-        "alternateCollections": {
+        "alternativeCollections": {
           "type": "string"
         }
       }
