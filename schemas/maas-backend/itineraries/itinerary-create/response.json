@@ -1,12 +1,27 @@
 {
   "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-create/response.json",
   "description": "Response schema for itineraries-create",
-  "type": "object",
-  "properties": {
-    "itinerary": {
-      "$ref": "http://maasglobal.com/core/itinerary.json"
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "itinerary": {
+          "$ref": "../../../core/itinerary.json"
+        }
+      },
+      "required": ["itinerary"]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "outward": {
+          "$ref": "../../../core/itinerary.json"
+        },
+        "return": {
+          "$ref": "../../../core/itinerary.json"
+        }
+      },
+      "required": ["outward", "return"]
     }
-  },
-  "required": [ "itinerary" ],
-  "additionalProperties": false
+  ]
 }
