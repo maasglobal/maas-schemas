@@ -1,4 +1,38 @@
 {
   "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-update/request.json",
-  "description": "Maas Itinerary update request"
+  "description": "Maas Itinerary update request",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identityId": {
+      "$ref": "../../../core/components/units.json#/definitions/identityId"
+    },
+    "headers": {
+      "$ref": "../../../core/components/api-common.json#/definitions/headers"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "itinerary": {
+          "$ref": "../../../core/itinerary.json"
+        },
+        "customerSelections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ref": {
+                "$ref": "../../../core/product-option.json#/definitions/ref"
+              },
+              "customerSelection": {
+                "$ref": "../../../core/components/configurator.json#/definitions/customerSelection"
+              }
+            }
+          }
+        }
+      },
+      "required": ["itinerary", "customerSelections"],
+      "additionalProperties": false
+    }
+  }
 }
