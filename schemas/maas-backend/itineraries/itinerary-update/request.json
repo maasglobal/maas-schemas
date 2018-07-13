@@ -22,7 +22,7 @@
             "type": "object",
             "properties": {
               "ref": {
-                "$ref": "../../../core/product-option.json#/definitions/ref"
+                "$ref": "../../../core/product-option.json#/definitions/content/properties/ref"
               },
               "customerSelection": {
                 "$ref": "../../../core/components/configurator.json#/definitions/customerSelection"
