@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/invoices/invoice",
+  "$id": "http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json",
   "description": "MaaS InvoiceLineItem schema",
   "definitions": {
     "InvoiceLineItemId": {
@@ -19,7 +18,7 @@
           "minLength": 4
         },
         "invoiceId": {
-          "$ref": "./invoice.json#/definitions/InvoiceId"
+          "$ref": "invoice.json#/definitions/InvoiceId"
         },
         "type": {
           "type": "string",
@@ -30,7 +29,7 @@
           "minLength": 4
         },
         "date": {
-          "$ref": "../../core/components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "description": {
           "type": "string",
@@ -42,7 +41,7 @@
           "multipleOf": 0.01
         },
         "currency": {
-          "$ref": "../../core/components/units.json#/definitions/currency"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
         },
         "referenceInvoiceLineItemId": {
           "$ref": "#/definitions/InvoiceLineItemId"

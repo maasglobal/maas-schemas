@@ -1,17 +1,16 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/regions/regions-options/request",
+  "$id": "http://maasglobal.com/maas-backend/stations/stations-retrieve/request.json",
   "description": "Request schema for regions-options",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/components/units.json#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
       "properties": {
         "agencyId": {
-          "$ref": "../../../core/components/agencyId.json"
+          "$ref": "http://maasglobal.com/core/components/agencyId.json"
         },
         "stationId": {
           "type": "string",
@@ -21,10 +20,10 @@
     },
     "headers": {
       "Accept": {
-        "$ref": "../../../core/components/api-common.json#/definitions/acceptHeader"
+        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/acceptHeader"
       },
       "X-Whim-User-Agent": {
-        "$ref": "../../../core/components/api-common.json#/definitions/userAgentHeader"
+        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/userAgentHeader"
       }
     }
   },

@@ -1,31 +1,30 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/subscriptions/subscription",
+  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptionAddress.json",
   "description": "MaaS subscription address schema",
   "definitions": {
     "subscriptionAddress": {
       "type": "object",
       "properties": {
         "firstName": {
-          "$ref": "../../core/components/address.json#/definitions/firstName"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/firstName"
         },
         "lastName": {
-          "$ref": "../../core/components/address.json#/definitions/lastName"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/lastName"
         },
         "city": {
-          "$ref": "../../core/components/address.json#/definitions/city"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
         },
         "zipCode": {
-          "$ref": "../../core/components/address.json#/definitions/zipCode"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
         },
         "country": {
-          "$ref": "../../core/components/address.json#/definitions/country"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
         },
         "phone": {
-          "$ref": "../../core/components/address.json#/definitions/phone"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/phone"
         },
         "email": {
-          "$ref": "../../core/components/address.json#/definitions/email"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/email"
         }
       },
       "required": ["zipCode", "country"],

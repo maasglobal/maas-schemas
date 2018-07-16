@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/tsp/booking-option",
+  "$id": "http://maasglobal.com/tsp/booking-option.json",
   "description": "MaaS single TSP adapter option",
   "type": "object",
   "allOf": [
@@ -24,23 +23,23 @@
         "$ref": "#/definitions/leg"
       },
       "terms": {
-        "$ref": "../core/booking.json#/definitions/terms"
+        "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
       },
       "meta": {
-        "$ref": "../core/booking.json#/definitions/meta"
+        "$ref": "http://maasglobal.com/core/booking.json#/definitions/meta"
       },
       "tspProduct": {
         "$ref": "#/definitions/tspProduct"
       },
       "configurator": {
-        "$ref": "../core/components/configurator.json"
+        "$ref": "http://maasglobal.com/core/components/configurator.json"
       },
       "cost": {
-        "$ref": "../core/components/cost.json"
+        "$ref": "http://maasglobal.com/core/components/cost.json"
       },
       "customer": {
         "description": "MaaS customer data",
-        "$ref": "../core/customer.json"
+        "$ref": "http://maasglobal.com/core/customer.json"
       }
     },
     "leg": {
@@ -48,26 +47,26 @@
       "description": "A subset of the standard leg (../core/leg.json)",
       "properties": {
         "mode": {
-          "$ref": "../core/components/travel-mode.json"
+          "$ref": "http://maasglobal.com/core/components/travel-mode.json"
         },
         "startTime": {
-          "$ref": "../core/components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "../core/components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "from": {
           "description": "Starting location's lat and lon pair of this request",
-          "$ref": "../core/components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
         },
         "to": {
-          "$ref": "../core/components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
         },
         "departureDelay": {
-          "$ref": "../core/components/units.json#/definitions/duration"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/duration"
         },
         "agencyId": {
-          "$ref": "../core/components/units.json#/definitions/agencyId"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/agencyId"
         }
       },
       "additionalProperties": false,
@@ -78,22 +77,22 @@
       "description": "A leg delta, containing any subset of the valid properties",
       "properties": {
         "mode": {
-          "$ref": "../core/components/travel-mode.json"
+          "$ref": "http://maasglobal.com/core/components/travel-mode.json"
         },
         "startTime": {
-          "$ref": "../core/components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "../core/components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "departureDelay": {
-          "$ref": "../core/components/units.json#/definitions/duration"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/duration"
         },
         "from": {
-          "$ref": "../core/components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
         },
         "to": {
-          "$ref": "../core/components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
         }
       },
       "additionalProperties": false

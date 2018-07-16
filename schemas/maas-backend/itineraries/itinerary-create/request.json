@@ -1,11 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/itineraries/itinerary-create/request",
+  "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-create/request.json",
   "description": "Request schema for itineraries-create",
   "type": "object",
-  "properties": {
-    "$ref": "#/definitions/itineraryCreate"
-  },
   "allOf": [
     { "$ref": "#/definitions/itineraryCreate" },
     {
@@ -22,36 +18,36 @@
       "properties": {
         "outward": {
           "itinerary": {
-            "$ref": "../../../core/itinerary.json"
+            "$ref": "http://maasglobal.com/core/itinerary.json"
           },
           "customerSelections": {
             "type": "array",
             "items": {
-              "$ref": "../../../core/components/configurator.json#/definitions/customerSelection"
+              "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
             }
           }
         },
         "return": {
           "itinerary": {
-            "$ref": "../../../core/itinerary.json"
+            "$ref": "http://maasglobal.com/core/itinerary.json"
           },
           "customerSelections": {
             "type": "array",
             "items": {
-              "$ref": "../../../core/components/configurator.json#/definitions/customerSelection"
+              "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
             }
           }
         }
       }
     },
     "itinerary": {
-      "$ref": "../../../core/itinerary.json"
+      "$ref": "http://maasglobal.com/core/itinerary.json"
     },
     "identityId": {
-      "$ref": "../../../core/components/units.json#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "headers": {
-      "$ref": "../../../core/components/api-common.json#/definitions/headers"
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
   "additionalProperties": false

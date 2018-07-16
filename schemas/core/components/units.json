@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/components/units.json",
   "description": "MaaS common units that are used consistently within our own objects",
   "definitions": {
     "uuid": {
@@ -71,7 +71,7 @@
     "jsonParam": {
       "description": "JSON encoded object or array",
       "type": "string",
-      "minLength": "2"
+      "minLength": 2
     },
     "personalName": {
       "description": "First or last name of a customer (e.g. John)",

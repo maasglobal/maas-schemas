@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/modes/MODE_RAIL.json",
   "description": "Schema for MODE_RAIL meta field",
   "type": "object",
   "properties": {
@@ -11,10 +11,10 @@
           "type": "string"
         },
         "from": {
-          "$ref": "../components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
         },
         "to": {
-          "$ref": "../components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
         }
       },
       "required": ["from", "to"]
@@ -27,10 +27,10 @@
           "type": "string"
         },
         "from": {
-          "$ref": "../components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
         },
         "to": {
-          "$ref": "../components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
         }
       },
       "required": ["from", "to"]
@@ -42,7 +42,7 @@
           "type": "string"
         },
         "stationId": {
-          "$ref": "../components/station.json#/definitions/id"
+          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
         },
         "alternativeCollections": {
           "type": "string"

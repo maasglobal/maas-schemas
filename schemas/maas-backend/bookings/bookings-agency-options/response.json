@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/bookings/bookings-agency-options/response",
+  "$id": "http://maasglobal.com/maas-backend/bookings/bookings-agency-options/response.json",
   "description": "Response schema for bookings-agency-options",
   "type": "object",
   "properties": {
@@ -16,7 +15,7 @@
         "bikeStations": {
           "type": "array",
           "items": {
-            "$ref": "../../../core/components/bike-station.json"
+            "$ref": "http://maasglobal.com/core/components/bike-station.json"
           }
         }
       }
@@ -35,19 +34,19 @@
           "type": "object",
           "properties": {
             "fares": {
-              "$ref": "../../../core/booking.json#/properties/fares"
+              "$ref": "http://maasglobal.com/core/booking.json#/properties/fares"
             },
             "cost": {
-              "$ref": "../../../core/booking.json#/properties/cost"
+              "$ref": "http://maasglobal.com/core/booking.json#/properties/cost"
             },
             "leg": {
-              "$ref": "../../../core/booking.json#/properties/leg"
+              "$ref": "http://maasglobal.com/core/booking.json#/properties/leg"
             },
             "meta": {
-              "$ref": "../../../core/booking.json#/properties/meta"
+              "$ref": "http://maasglobal.com/core/booking.json#/properties/meta"
             },
             "terms": {
-              "$ref": "../../../core/booking.json#/properties/terms"
+              "$ref": "http://maasglobal.com/core/booking.json#/properties/terms"
             },
             "tspProduct": {
               "type": "object",
@@ -58,7 +57,7 @@
               }
             },
             "configurator": {
-              "$ref": "../../../core/booking.json#/properties/configurator"
+              "$ref": "http://maasglobal.com/core/booking.json#/properties/configurator"
             }
           }
         },

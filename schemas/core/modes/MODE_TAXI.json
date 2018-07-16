@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/modes/MODE_TAXI.json",
   "description": "Schema for MODE_TAXI meta field",
   "type": "object",
   "properties": {
@@ -9,7 +9,7 @@
       "minLength": 1,
       "maxLength": 256
     },
-    "vehicleLocation": { "$ref": "../components/units-geo.json#/definitions/location" },
+    "vehicleLocation": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location" },
     "vehicleType": {
       "type": "string",
       "minLength": 1,
@@ -35,7 +35,7 @@
           "maxLength": 128
         },
         "image": {
-          "$ref": "../components/units.json#/definitions/url"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
         }
       }
     },
@@ -44,7 +44,7 @@
       "minLength": 1,
       "maxLength": 128
     },
-    "eta": { "$ref": "../components/units.json#/definitions/time" },
+    "eta": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" },
     "taxiCenter": {
       "type": "object",
       "properties": {
@@ -53,7 +53,7 @@
           "minLength": 1,
           "maxLength": 64
         },
-        "phone": { "$ref": "../components/units.json#/definitions/phone" }
+        "phone": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/phone" }
       }
     }
   },

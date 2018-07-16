@@ -1,15 +1,14 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "$id": "https://api.maas.global/schemas/core/stop",
+  "$id": "http://maasglobal.com/core/stop.json",
   "allOf": [
     {
-      "$ref": "./components/units-geo.json#/definitions/place"
+      "$ref": "components/units-geo.json#/definitions/place"
     },
     {
       "type": "object",
       "properties": {
         "startTime": {
-          "$ref": "./components/units.json#/definitions/time"
+          "$ref": "components/units.json#/definitions/time"
         }
       }
     }

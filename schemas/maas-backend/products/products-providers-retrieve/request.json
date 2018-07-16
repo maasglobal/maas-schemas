@@ -1,21 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/products/products-providers-retrieve/request",
+  "$id": "http://maasglobal.com/maas-backend/products/products-providers-retrieve/request.json",
   "description": "Request schema for products-providers-retrieve",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/components/units.json#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "$ref": "#/definitions/payload"
     },
     "headers": {
       "Accept": {
-        "$ref": "../../../core/components/api-common.json#/definitions/acceptHeader"
+        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/acceptHeader"
       },
       "X-Whim-User-Agent": {
-        "$ref": "../../../core/components/api-common.json#/definitions/userAgentHeader"
+        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/userAgentHeader"
       }
     }
   },
@@ -25,7 +24,7 @@
     "payload": {
       "type": "object",
       "properties": {
-        "agencyId": { "$ref": "../../../core/components/units.json#/definitions/agencyId" }
+        "agencyId": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/agencyId" }
       },
       "required": [ "agencyId" ]
     }

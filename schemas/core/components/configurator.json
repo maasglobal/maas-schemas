@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/components/configurator.json",
   "description": "Configurator schema to customize a booking option",
   "type": "object",
   "description": "Wrapper schema, with each of its properties a config that the user can customize",
@@ -68,18 +68,18 @@
           "type": "boolean"
         },
         "cost": {
-          "$ref": "./cost.json"
+          "$ref": "cost.json"
         },
         "fares": {
           "type": "array",
           "items": [
             {
-              "ref": "./fare.json"
+              "ref": "fare.json"
             }
           ]
         },
         "terms": {
-          "$ref": "./terms.json"
+          "$ref": "terms.json"
         },
         "meta": {
           "type": "object"

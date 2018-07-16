@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/profile/profile-devices-put/request",
+  "$id": "http://maasglobal.com/maas-backend/profile/profile-devices-put/response.json",
   "description": "Response schema for profile-devices-put",
   "type": "object",
   "properties": {
@@ -23,7 +22,7 @@
           "pattern": "^.{32,255}$"
         },
         "deviceIdentifier": {
-          "$ref": "../../../core/components/units.json#/definitions/uuid"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
         },
         "deviceType": {
           "type": "string",

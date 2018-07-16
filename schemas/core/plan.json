@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/plan.json",
   "description": "OpenTripPlanner compatible format for plans, extended with id for legs and itineraries",
 
   "allOf": [
@@ -16,10 +16,10 @@
       "type": "object",
       "properties": {
         "from": {
-          "$ref": "./components/units-geo.json#/definitions/place"
+          "$ref": "components/units-geo.json#/definitions/place"
         },
         "planId": {
-          "$ref": "./components/units.json#/definitions/uuid"
+          "$ref": "components/units.json#/definitions/uuid"
         },
         "itineraries": {
           "$ref": "#/definitions/itineraries"
@@ -35,7 +35,7 @@
     "itineraries": {
       "type": "array",
       "items": {
-        "$ref": "./itinerary.json"
+        "$ref": "itinerary.json"
       }
     }
   }

@@ -1,12 +1,12 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/modes/MODE_BICYCLE.json",
   "type": "object",
   "properties": {
     "pickupStation": {
-      "$ref": "../components/bike-station.json"
+      "$ref": "http://maasglobal.com/core/components/bike-station.json"
     },
     "returnStation": {
-      "$ref": "../components/bike-station.json"
+      "$ref": "http://maasglobal.com/core/components/bike-station.json"
     },
     "pickupStationId": {
       "type": "string"

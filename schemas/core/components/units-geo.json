@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/components/units-geo.json",
   "description": "MaaS common geolocaion units that are used consistently within our own objects",
   "definitions": {
     "latitude": {
@@ -98,10 +98,10 @@
           "additionalProperties": true,
           "properties": {
             "name": {
-              "$ref": "./address.json#/definitions/placeName"
+              "$ref": "address.json#/definitions/placeName"
             },
             "address": {
-              "$ref": "./address.json#/definitions/componentAddress"
+              "$ref": "address.json#/definitions/componentAddress"
             },
             "localeAddress": {
               "type": "string",

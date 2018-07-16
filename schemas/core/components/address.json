@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/core/address",
+  "$id": "http://maasglobal.com/core/components/address.json",
   "description": "MaaS schema for address related information",
   "definitions": {
     "componentAddress": {

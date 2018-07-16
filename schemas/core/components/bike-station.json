@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/components/bike-station.json",
   "description": "MaaS bike station schema",
   "type": "object",
   "properties": {
@@ -10,7 +10,7 @@
       "type": "string"
     },
     "location": {
-      "$ref": "../components/units-geo.json#/definitions/location"
+      "$ref": "units-geo.json#/definitions/location"
     },
     "slots": {
       "type": "object",

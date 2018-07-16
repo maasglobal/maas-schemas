@@ -1,13 +1,12 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-options/response",
+  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-options/response.json",
   "description": "Response schema for subscriptions-options",
   "type": "object",
   "properties": {
     "options": {
       "type": "array",
       "items": {
-        "$ref": "../subscriptionOption.json"
+        "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscriptionOption.json"
       }
     },
     "debug": {

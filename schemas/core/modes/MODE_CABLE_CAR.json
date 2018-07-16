@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/modes/MODE_CABLE_CAR.json",
   "description": "Schema for MODE_CABLE_CAR meta field",
   "type": "object"
 }

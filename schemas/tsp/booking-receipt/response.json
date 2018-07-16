@@ -1,13 +1,12 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/tsp/booking-receipt/response",
+  "$id": "http://maasglobal.com/tsp/bookings-receipt/response.json",
   "description": "Response schema for getting a receipt for specific booking",
   "properties": {
     "tspId": {
-      "$ref": "../../core/booking.json#/definitions/tspId"
+      "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
     },
     "cost": {
-      "$ref": "../../core/booking.json#/properties/cost"
+      "$ref": "http://maasglobal.com/core/booking.json#/properties/cost"
     },
     "receipt": {
       "type": "object",

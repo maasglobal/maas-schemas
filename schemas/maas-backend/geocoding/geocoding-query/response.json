@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/geocoding/geocoding-query/response",
+  "$id": "http://maasglobal.com/maas-backend/geocoding/geocoding-query/response.json",
   "description": "MaaS.fi geocoding (GeoJSON) response schema",
   "type": "object",
   "properties": {
@@ -10,7 +9,7 @@
     "features": {
       "type": "array",
       "items": {
-        "$ref": "../../../core/components/geolocation.json#/definitions/feature"
+        "$ref": "http://maasglobal.com/core/components/geolocation.json#/definitions/feature"
       }
     },
     "debug": { "type": "object" }

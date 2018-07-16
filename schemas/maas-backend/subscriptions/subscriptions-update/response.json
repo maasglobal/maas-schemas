@@ -1,11 +1,10 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-update/response",
+  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-update/response.json",
   "description": "Response schema for subscriptions-update",
   "type": "object",
   "properties": {
     "subscription": {
-      "$ref": "../subscriptionOption.json"
+      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscriptionOption.json"
     },
     "debug": {
       "type": "object",

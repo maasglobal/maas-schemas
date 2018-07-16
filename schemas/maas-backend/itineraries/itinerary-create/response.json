@@ -1,11 +1,10 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/itineraries/itinerary-create/response",
+  "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-create/response.json",
   "description": "Response schema for itineraries-create",
   "type": "object",
   "properties": {
     "itinerary": {
-      "$ref": "../../../core/itinerary.json"
+      "$ref": "http://maasglobal.com/core/itinerary.json"
     }
   },
   "required": [ "itinerary" ],

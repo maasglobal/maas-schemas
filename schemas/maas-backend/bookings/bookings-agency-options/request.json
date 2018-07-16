@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/bookings/bookings-agency-options/request",
+  "$id": "http://maasglobal.com/maas-backend/bookings/bookings-agency-options/request.json",
   "description": "Request schema for bookings-agency-options",
   "type": "object",
   "additionalProperties": false,
@@ -11,13 +10,13 @@
   ],
   "properties": {
     "identityId": {
-      "$ref": "../../../core/components/units.json#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "$ref": "#/definitions/payload"
     },
     "headers": {
-      "$ref": "../../../core/components/api-common.json#/definitions/headers"
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
   "definitions": {
@@ -26,48 +25,48 @@
       "additionalProperties": false,
       "properties": {
         "mode": {
-          "$ref": "../../../core/components/travel-mode.json"
+          "$ref": "http://maasglobal.com/core/components/travel-mode.json"
         },
         "agencyId": {
-          "$ref": "../../../core/components/units.json#/definitions/agencyId"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/agencyId"
         },
         "startTime": {
-          "$ref": "../../../core/components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "../../../core/components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "from": {
-          "$ref": "../../../core/components/units-geo.json#/definitions/shortLocationString"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
         },
         "to": {
-          "$ref": "../../../core/components/units-geo.json#/definitions/shortLocationString"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
         },
         "fromName": {
           "description": "The human understandable name for 'from'",
-          "$ref": "../../../core/components/address.json#/definitions/placeName"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
         },
         "fromAddress": {
           "description": "Componentized from address",
-          "$ref": "../../../core/components/address.json#/definitions/componentAddress"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
         },
         "fromRadius": {
-          "$ref": "../../../core/components/units-geo.json#/definitions/distance"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
         },
         "toName": {
           "description": "The human understandable name for 'to'",
-          "$ref": "../../../core/components/address.json#/definitions/placeName"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
         },
         "toAddress": {
           "description": "Componentized to address",
-          "$ref": "../../../core/components/address.json#/definitions/componentAddress"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
         },
         "toRadius": {
-          "$ref": "../../../core/components/units-geo.json#/definitions/distance"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
         },
         "customer": {
           "description": "JSON encoded object which must be validated against /core/customer.json schema",
-          "$ref": "../../../core/components/units.json#/definitions/jsonParam"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/jsonParam"
         }
       }
     }

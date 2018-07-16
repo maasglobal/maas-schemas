@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/invoices/invoice",
+  "$id": "http://maasglobal.com/maas-backend/invoices/invoice.json",
   "description": "MaaS Invoice schema",
   "definitions": {
     "InvoiceId": {
@@ -14,16 +13,16 @@
           "$ref": "#/definitions/InvoiceId"
         },
         "customerId": {
-          "$ref": "../../core/components/units.json#/definitions/identityId"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
         },
         "bookingId": {
           "description": "bookingId of the requested booking",
-          "$ref": "../../core/components/units.json#/definitions/uuid"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
         },
         "lineItems": {
           "type": "array",
           "items": {
-            "$ref": "./invoiceLineItem.json#/definitions/InvoiceLineItem"
+            "$ref": "invoiceLineItem.json#/definitions/InvoiceLineItem"
           },
           "minLength": 1
         }

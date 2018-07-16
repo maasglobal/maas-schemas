@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/core/point-cost",
+  "$id": "http://maasglobal.com/core/components/point-cost.json",
   "description": "Subscription option's point cost",
   "type": "number",
   "minimum": 0

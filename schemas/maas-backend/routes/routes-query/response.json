@@ -1,10 +1,9 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/routes/routes-query/response",
+  "$id": "http://maasglobal.com/maas-backend/routes/routes-query/response.json",
   "description": "MaaS.fi routes-query response schema",
   "properties": {
     "plan": {
-      "$ref": "../../../core/plan.json"
+      "$ref": "http://maasglobal.com/core/plan.json"
     },
     "debug": { "type": "object" }
   },

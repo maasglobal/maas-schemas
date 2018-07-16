@@ -1,5 +1,4 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/provider/geocoding/response",
+  "$id": "http://maasglobal.com/maas-backend/provider/geocoding/response.json",
   "description": "Response schema for geocoding providers"
 }

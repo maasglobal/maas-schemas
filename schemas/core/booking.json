@@ -1,25 +1,25 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/booking.json#",
   "type": "object",
   "description": "The base booking object with all fields, to be inherited",
   "properties": {
     "id": {
-      "$ref": "./components/units.json#/definitions/uuid"
+      "$ref": "components/units.json#/definitions/uuid"
     },
     "tspId": {
       "$ref": "#/definitions/tspId"
     },
     "state": {
-      "$ref": "./components/state.json#/definitions/bookingState"
+      "$ref": "components/state.json#/definitions/bookingState"
     },
     "fares": {
       "type": "array",
       "items": {
-        "$ref": "./components/fare.json"
+        "$ref": "components/fare.json"
       }
     },
     "cost": {
-      "$ref": "./components/cost.json"
+      "$ref": "components/cost.json"
     },
     "leg": {
       "$ref": "#/definitions/leg"
@@ -36,7 +36,7 @@
     "customer": {
       "allOf": [
         {
-          "$ref": "./customer.json"
+          "$ref": "customer.json"
         },
         {
           "required": ["firstName", "lastName", "phone", "email"]
@@ -44,16 +44,16 @@
       ]
     },
     "product": {
-      "$ref": "./product.json"
+      "$ref": "product.json"
     },
     "signature": {
-      "$ref": "./components/units.json#/definitions/signature"
+      "$ref": "components/units.json#/definitions/signature"
     },
     "configurator": {
-      "$ref": "./components/configurator.json"
+      "$ref": "components/configurator.json"
     },
     "customerSelection": {
-      "$ref": "./components/configurator.json#/definitions/customerSelection"
+      "$ref": "components/configurator.json#/definitions/customerSelection"
     }
   },
   "required": ["id", "state", "leg", "meta", "terms", "token", "customer"],
@@ -68,49 +68,49 @@
       "description": "MaaS response may return any subset of legCore",
       "properties": {
         "signature": {
-          "$ref": "./components/units.json#/definitions/signature"
+          "$ref": "components/units.json#/definitions/signature"
         },
         "from": {
-          "$ref": "./leg.json#/definitions/legCore/properties/from"
+          "$ref": "leg.json#/definitions/legCore/properties/from"
         },
         "to": {
-          "$ref": "./leg.json#/definitions/legCore/properties/to"
+          "$ref": "leg.json#/definitions/legCore/properties/to"
         },
         "startTime": {
-          "$ref": "./leg.json#/definitions/legCore/properties/startTime"
+          "$ref": "leg.json#/definitions/legCore/properties/startTime"
         },
         "endTime": {
-          "$ref": "./leg.json#/definitions/legCore/properties/endTime"
+          "$ref": "leg.json#/definitions/legCore/properties/endTime"
         },
         "mode": {
-          "$ref": "./leg.json#/definitions/legCore/properties/mode"
+          "$ref": "leg.json#/definitions/legCore/properties/mode"
         },
         "departureDelay": {
-          "$ref": "./leg.json#/definitions/legCore/properties/departureDelay"
+          "$ref": "leg.json#/definitions/legCore/properties/departureDelay"
         },
         "arrivalDelay": {
-          "$ref": "./leg.json#/definitions/legCore/properties/arrivalDelay"
+          "$ref": "leg.json#/definitions/legCore/properties/arrivalDelay"
         },
         "distance": {
-          "$ref": "./leg.json#/definitions/legCore/properties/distance"
+          "$ref": "leg.json#/definitions/legCore/properties/distance"
         },
         "state": {
-          "$ref": "./leg.json#/definitions/legCore/properties/state"
+          "$ref": "leg.json#/definitions/legCore/properties/state"
         },
         "route": {
-          "$ref": "./leg.json#/definitions/legCore/properties/route"
+          "$ref": "leg.json#/definitions/legCore/properties/route"
         },
         "routeShortName": {
-          "$ref": "./leg.json#/definitions/legCore/properties/routeShortName"
+          "$ref": "leg.json#/definitions/legCore/properties/routeShortName"
         },
         "routeLongName": {
-          "$ref": "./leg.json#/definitions/legCore/properties/routeLongName"
+          "$ref": "leg.json#/definitions/legCore/properties/routeLongName"
         },
         "agencyId": {
-          "$ref": "./leg.json#/definitions/legCore/properties/agencyId"
+          "$ref": "leg.json#/definitions/legCore/properties/agencyId"
         },
         "legGeometry": {
-          "$ref": "./leg.json#/definitions/legCore/properties/legGeometry"
+          "$ref": "leg.json#/definitions/legCore/properties/legGeometry"
         }
       },
       "additionalProperties": false
@@ -120,27 +120,27 @@
       "description":
         "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
       "properties": {
-        "MODE_WALK": { "$ref": "./modes/MODE_WALK.json" },
-        "MODE_BICYCLE": { "$ref": "./modes/MODE_BICYCLE.json" },
-        "MODE_CAR": { "$ref": "./modes/MODE_CAR.json" },
-        "MODE_TRAM": { "$ref": "./modes/MODE_TRAM.json" },
-        "MODE_SUBWAY": { "$ref": "./modes/MODE_SUBWAY.json" },
-        "MODE_RAIL": { "$ref": "./modes/MODE_RAIL.json" },
-        "MODE_BUS": { "$ref": "./modes/MODE_BUS.json" },
-        "MODE_FERRY": { "$ref": "./modes/MODE_FERRY.json" },
-        "MODE_CABLE_CAR": { "$ref": "./modes/MODE_CABLE_CAR.json" },
-        "MODE_GONDOLA": { "$ref": "./modes/MODE_GONDOLA.json" },
-        "MODE_FURNICULAR": { "$ref": "./modes/MODE_FURNICULAR.json" },
-        "MODE_SHARED_CAR": { "$ref": "./modes/MODE_SHARED_CAR.json" },
-        "MODE_TRANSIT": { "$ref": "./modes/MODE_TRANSIT.json" },
-        "MODE_TRAIN": { "$ref": "./modes/MODE_TRAIN.json" },
-        "MODE_TRAINISH": { "$ref": "./modes/MODE_TRAINISH.json" },
-        "MODE_BUSISH": { "$ref": "./modes/MODE_BUSISH.json" },
-        "MODE_TAXI": { "$ref": "./modes/MODE_TAXI.json" }
+        "MODE_WALK": { "$ref": "http://maasglobal.com/core/modes/MODE_WALK.json" },
+        "MODE_BICYCLE": { "$ref": "http://maasglobal.com/core/modes/MODE_BICYCLE.json" },
+        "MODE_CAR": { "$ref": "http://maasglobal.com/core/modes/MODE_CAR.json" },
+        "MODE_TRAM": { "$ref": "http://maasglobal.com/core/modes/MODE_TRAM.json" },
+        "MODE_SUBWAY": { "$ref": "http://maasglobal.com/core/modes/MODE_SUBWAY.json" },
+        "MODE_RAIL": { "$ref": "http://maasglobal.com/core/modes/MODE_RAIL.json" },
+        "MODE_BUS": { "$ref": "http://maasglobal.com/core/modes/MODE_BUS.json" },
+        "MODE_FERRY": { "$ref": "http://maasglobal.com/core/modes/MODE_FERRY.json" },
+        "MODE_CABLE_CAR": { "$ref": "http://maasglobal.com/core/modes/MODE_CABLE_CAR.json" },
+        "MODE_GONDOLA": { "$ref": "http://maasglobal.com/core/modes/MODE_GONDOLA.json" },
+        "MODE_FURNICULAR": { "$ref": "http://maasglobal.com/core/modes/MODE_FUNICULAR.json" },
+        "MODE_SHARED_CAR": { "$ref": "http://maasglobal.com/core/modes/MODE_SHARED_CAR.json" },
+        "MODE_TRANSIT": { "$ref": "http://maasglobal.com/core/modes/MODE_TRANSIT.json" },
+        "MODE_TRAIN": { "$ref": "http://maasglobal.com/core/modes/MODE_TRAIN.json" },
+        "MODE_TRAINISH": { "$ref": "http://maasglobal.com/core/modes/MODE_TRAINISH.json" },
+        "MODE_BUSISH": { "$ref": "http://maasglobal.com/core/modes/MODE_BUSISH.json" },
+        "MODE_TAXI": { "$ref": "http://maasglobal.com/core/modes/MODE_TAXI.json" }
       }
     },
     "terms": {
-      "$ref": "./components/terms.json"
+      "$ref": "components/terms.json"
     },
     "token": {
       "description":
@@ -153,11 +153,11 @@
           "properties": {
             "startTime": {
               "description": "The starting time from which the ticket is valid",
-              "$ref": "./components/units.json#/definitions/time"
+              "$ref": "components/units.json#/definitions/time"
             },
             "endTime": {
               "description": "The finishing time the ticket is valid for",
-              "$ref": "./components/units.json#/definitions/time"
+              "$ref": "components/units.json#/definitions/time"
             }
           }
         },

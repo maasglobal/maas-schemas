@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/auth/auth-sms-request-code/request",
+  "$id": "http://maasglobal.com/maas-backend/auth/auth-sms-request.code/request.json",
   "description": "Request schema for auth-sms-request-code",
   "type": "object",
   "properties": {
@@ -8,14 +7,14 @@
       "type": "object",
       "properties": {
         "phone": {
-          "$ref": "../../../core/components/units.json#/definitions/rawPhone"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/rawPhone"
         }
       },
       "required": ["phone"],
       "additionalProperties": false
     },
     "headers": {
-      "$ref": "../../../core/components/api-common.json#/definitions/headers"
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["payload"],

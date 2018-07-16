@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/core/geolocation",
+  "$id": "http://maasglobal.com/core/components/geolocation.json",
   "description": "Partial (Points only) GeoJSON Schema",
   "definitions": {
     "featureCollection": {
@@ -33,7 +32,7 @@
       "properties": {
         "type": { "enum": [ "Point" ] },
         "coordinates": {
-          "$ref": "./units-geo.json#/definitions/shortLocation"
+          "$ref": "units-geo.json#/definitions/shortLocation"
         }
       },
       "additionalProperties": false,

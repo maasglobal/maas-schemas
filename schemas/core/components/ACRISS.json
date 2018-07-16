@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/components/ACRISS.json",
   "description": "ACRISS classification of the car, see https://en.wikipedia.org/wiki/ACRISS_Car_Classification_Code",
   "type": "string",
   "pattern": "[MNEHCDIJSRFGPULWOX][BCDWVLSTFJXPQZEMRHYNGK][MNCABD][RNDQHIECLSABMFVZUX]"

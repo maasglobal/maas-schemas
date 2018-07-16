@@ -1,4 +1,5 @@
 {
+  "$id": "http://maasglobal.com/core/components/terms.json",
   "description": "MaaS booking terms and condition for its business engine",
   "type": "object",
   "properties": {
@@ -20,19 +21,19 @@
       "type": "object",
       "properties": {
         "startTime": {
-          "$ref": "./units.json#/definitions/time",
+          "$ref": "units.json#/definitions/time",
           "description": "Epoch when the outbound ticket will be valid"
         },
         "endTime": {
-          "$ref": "./units.json#/definitions/time",
+          "$ref": "units.json#/definitions/time",
           "description": "Epoch when the outbound ticket will be invalid"
         },
         "startTimeReturn": {
-          "$ref": "./units.json#/definitions/time",
+          "$ref": "units.json#/definitions/time",
           "description": "Epoch when the return ticket will be valid"
         },
         "endTimeReturn": {
-          "$ref": "./units.json#/definitions/time",
+          "$ref": "units.json#/definitions/time",
           "description": "Epoch when the return ticket will be invalid"
         }
       },
@@ -80,7 +81,7 @@
             "multipleOf": 0.01
           },
           "currency": {
-            "$ref": "./units.json#/definitions/currency"
+            "$ref": "units.json#/definitions/currency"
           },
           "timeInterval": {
             "description": "Amount of seconds that fare rate is applied to",
@@ -130,10 +131,10 @@
           "description": "A flag indicating whether this booking can be cancelled in 'RESERVED' state"
         },
         "cost": {
-          "$ref": "./cost.json"
+          "$ref": "cost.json"
         },
         "fare": {
-          "$ref": "./fare.json"
+          "$ref": "fare.json"
         }
       },
       "required": [
@@ -148,10 +149,10 @@
           "description": "A flag indicating whether this booking can be amended"
         },
         "cost": {
-          "$ref": "./cost.json"
+          "$ref": "cost.json"
         },
         "fare": {
-          "$ref": "./fare.json"
+          "$ref": "fare.json"
         }
       },
       "required": [
