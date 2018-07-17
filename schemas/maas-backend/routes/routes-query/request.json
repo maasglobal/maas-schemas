@@ -7,19 +7,7 @@
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/payload",
-          "description": "Permit leaveAt",
-          "required": ["from", "to", "leaveAt"]
-        },
-        {
-          "$ref": "#/definitions/payload",
-          "description": "Permit arriveBy",
-          "required": ["from", "to", "arriveBy"]
-        }
-      ]
+      "$ref": "#/definitions/payload"
     },
     "headers": {
       "Accept": {

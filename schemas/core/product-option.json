@@ -2,81 +2,123 @@
   "$id": "http://maasglobal.com/core/product-option.json",
   "description": "Product option for an itinerary, is either an existing booking pointer or a new booking instruction",
   "oneOf": [
-    {
-      "allOf": [
-        { "$ref": "#/definitions/content" },
-        {
-          "required": [
-            "ref",
-            "terms",
-            "meta",
-            "configurator"
-          ]
-        }
-      ]
-    },
-    {
-      "allOf": [
-        { "$ref": "#/definitions/content" },
-        {
-          "required": [
-            "ref",
-            "terms",
-            "meta",
-            "fares"
-          ]
-        }
-      ]
-    },
-    {
-      "allOf": [
-        { "$ref": "#/definitions/content" },
-        {
-          "required": [
-            "ref",
-            "terms",
-            "meta",
-            "cost"
-          ]
-        }
-      ]
-    }
+    { "$ref": "#/definitions/withConfigurator" },
+    { "$ref": "#/definitions/withFares" },
+    { "$ref": "#/definitions/withCost" }
   ],
   "definitions": {
-    "content": {
-      "identityId": {
-        "$ref": "units.json#/definitions/identityId"
-      },
-      "bookingId": {
-        "$ref": "units.json#/definitions/uuid"
-      },
-      "ref": {
-        "type": "integer",
-        "minValue": 0
-      },
-      "product": {
-        "$ref": "product.json"
-      },
-      "cost": {
-        "$ref": "cost.json"
-      },
-      "fares": {
-        "type": "array",
-        "items": {
-          "$ref": "fare.json"
+    "withConfigurator": {
+      "description": "Works with configurator",
+      "type": "object",
+      "required": [
+        "ref",
+        "terms",
+        "meta",
+        "configurator"
+      ],
+      "properties": {
+        "identityId": {
+          "$ref": "units.json#/definitions/identityId"
+        },
+        "bookingId": {
+          "$ref": "units.json#/definitions/uuid"
+        },
+        "ref": {
+          "type": "integer",
+          "minValue": 0
+        },
+        "product": {
+          "$ref": "product.json"
+        },
+        "terms": {
+          "$ref": "terms.json"
+        },
+        "meta": {
+          "$ref": "booking.json#/definitions/meta"
+        },
+        "configurator": {
+          "$ref": "configurator.json"
+        },
+        "customer": {
+          "$ref": "customer.json"
         }
-      },
-      "terms": {
-        "$ref": "terms.json"
-      },
-      "meta": {
-        "$ref": "booking.json#/definitions/meta"
-      },
-      "configurator": {
-        "$ref": "configurator.json"
-      },
-      "customer": {
-        "$ref": "customer.json"
+      }
+    },
+    "withFares": {
+      "description": "Works with fares",
+      "type": "object",
+      "required": [
+        "ref",
+        "terms",
+        "meta",
+        "fares"
+      ],
+      "properties": {
+        "identityId": {
+          "$ref": "units.json#/definitions/identityId"
+        },
+        "bookingId": {
+          "$ref": "units.json#/definitions/uuid"
+        },
+        "ref": {
+          "type": "integer",
+          "minValue": 0
+        },
+        "product": {
+          "$ref": "product.json"
+        },
+        "fares": {
+          "type": "array",
+          "items": {
+            "$ref": "fare.json"
+          }
+        },
+        "terms": {
+          "$ref": "terms.json"
+        },
+        "meta": {
+          "$ref": "booking.json#/definitions/meta"
+        },
+        "customer": {
+          "$ref": "customer.json"
+        }
+      }
+    },
+    "withCost": {
+      "description": "Works with cost",
+      "type": "object",
+      "required": [
+        "ref",
+        "terms",
+        "meta",
+        "cost"
+      ],
+      "properties": {
+        "identityId": {
+          "$ref": "units.json#/definitions/identityId"
+        },
+        "bookingId": {
+          "$ref": "units.json#/definitions/uuid"
+        },
+        "ref": {
+          "type": "integer",
+          "minValue": 0
+        },
+        "product": {
+          "$ref": "product.json"
+        },
+        "cost": {
+          "$ref": "cost.json"
+        },
+        "terms": {
+          "$ref": "terms.json"
+        },
+        "meta": {
+          "$ref": "booking.json#/definitions/meta"
+        },
+        "customer": {
+          "$ref": "customer.json"
+        }
       }
     }
   }

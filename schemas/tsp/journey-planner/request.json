@@ -2,24 +2,12 @@
   "$id": "http://maasglobal.com/tsp/journey-planner/request.json",
   "description": "Request schema for getting journey options from a TSP adapter.",
   "type": "object",
-  "oneOf": [
-    {
-      "$ref": "#/definitions/payload",
-      "description": "Permit leaveAt",
-      "required": ["from", "to", "leaveAt"]
-    },
-    {
-      "$ref": "#/definitions/payload",
-      "description": "Permit arriveBy",
-      "required": ["from", "to", "arriveBy"]
-    }
-  ],
   "patternProperties": {
     "^(optionalParameters).+": {
       "type": ["string", "number", "boolean"]
     }
   },
-  "definitions": {
+  "properties": {
     "payload": {
       "from": {
         "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"

@@ -1,45 +1,63 @@
 {
   "$id": "http://maasglobal.com/tsp/booking-option.json",
   "description": "MaaS single TSP adapter option",
-  "type": "object",
-  "allOf": [
+  "oneOf": [
     {
-      "$ref": "#/definitions/content"
+      "$ref": "#/definitions/contentWithCost"
     },
     {
-      "oneOf": [
-        {
-          "required": ["leg", "meta", "terms", "tspProduct", "cost"]
-        },
-        {
-          "required": ["leg", "meta", "terms", "tspProduct", "configurator"]
-        }
-      ]
+      "$ref": "#/definitions/contentWithConfigurator"
     }
   ],
   "definitions": {
-    "content": {
-      "leg": {
-        "$ref": "#/definitions/leg"
-      },
-      "terms": {
-        "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
-      },
-      "meta": {
-        "$ref": "http://maasglobal.com/core/booking.json#/definitions/meta"
-      },
-      "tspProduct": {
-        "$ref": "#/definitions/tspProduct"
-      },
-      "configurator": {
-        "$ref": "http://maasglobal.com/core/components/configurator.json"
-      },
-      "cost": {
-        "$ref": "http://maasglobal.com/core/components/cost.json"
-      },
-      "customer": {
-        "description": "MaaS customer data",
-        "$ref": "http://maasglobal.com/core/customer.json"
+    "contentWithCost": {
+      "type": "object",
+      "required": ["leg", "meta", "terms", "tspProduct", "cost"],
+      "properties": {
+        "leg": {
+          "$ref": "#/definitions/leg"
+        },
+        "terms": {
+          "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+        },
+        "meta": {
+          "$ref": "http://maasglobal.com/core/booking.json#/definitions/meta"
+        },
+        "tspProduct": {
+          "$ref": "#/definitions/tspProduct"
+        },
+        "cost": {
+          "$ref": "http://maasglobal.com/core/components/cost.json"
+        },
+        "customer": {
+          "description": "MaaS customer data",
+          "$ref": "http://maasglobal.com/core/customer.json"
+        }
+      }
+    },
+    "contentWithConfigurator": {
+      "type": "object",
+      "required": ["leg", "meta", "terms", "tspProduct", "configurator"],
+      "properties": {
+        "leg": {
+          "$ref": "#/definitions/leg"
+        },
+        "terms": {
+          "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+        },
+        "meta": {
+          "$ref": "http://maasglobal.com/core/booking.json#/definitions/meta"
+        },
+        "tspProduct": {
+          "$ref": "#/definitions/tspProduct"
+        },
+        "configurator": {
+          "$ref": "http://maasglobal.com/core/components/configurator.json"
+        },
+        "customer": {
+          "description": "MaaS customer data",
+          "$ref": "http://maasglobal.com/core/customer.json"
+        }
       }
     },
     "leg": {
