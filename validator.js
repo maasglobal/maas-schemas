@@ -9,7 +9,6 @@
  *  .catch(error => // Error)
  *  .then(result => // OK)
  */
-const ajvFactory = require('ajv');
 const ValidationError = require('./ValidationError');
 
 /**
@@ -34,7 +33,6 @@ const ValidationError = require('./ValidationError');
  * @see https://en.wikipedia.org/wiki/Tree_traversal#In-order
  */
 function mapDeep(object, callback, key, context) {
-
   // Handle defaults
   key = key || undefined;
   context = context || undefined;
@@ -60,7 +58,7 @@ function mapDeep(object, callback, key, context) {
 
   // Handle a complex case (Object); iterate key-value (k-v) pairs
   const transformed = {};
-  for (let k in object) { // eslint-disable-line prefer-const
+  for (const k in object) {
     if (!Object.prototype.hasOwnProperty.call(object, k)) {
       continue;
     }
@@ -149,30 +147,14 @@ function sanitize(object) {
  * @throws {ValidationError} in case of invalid object
  * @throws {TypeError} in case of invalid schema
  */
-function validateSync(schema, object, options) {
-  const opts = Object.assign({ verbose: true,
-    allErrors: true,
-    validateSchema: false,
-    addUsedSchema: false,
-    meta: false,
-    inlineRefs: false,
-    sourceCode: false,
-    errorDataPath: 'property',
-    multipleOfPrecision: 6,
-    sanitize: false,
-  }, options);
-
-  if (opts.sanitize === true) {
-    object = sanitize(object);
+function validateSync(ajv, schema, object) {
+  if (!schema.$id) {
+    console.warn('Unregistered schema $id', schema.$id);
   }
-
-  // Always re-create AJV, because options may have changed
-  const ajv = ajvFactory(opts);
-  const ajvValidate = ajv.compile(schema);
-  const valid = ajvValidate(object);
+  const valid = ajv.validate(schema.$id || schema, object);
 
   if (!valid) {
-    throw ValidationError.fromValidatorErrors(ajvValidate.errors, object);
+    throw ValidationError.fromValidatorErrors(ajv.errors, object);
   }
 
   return object;
@@ -190,9 +172,9 @@ function validateSync(schema, object, options) {
  * @return {Promise -> Object} resolve w/validated object or reject w/error if invalid
  * @see validateSync()
  */
-function validate(schema, object, options) {
+function validate(ajv, schema, object, options) {
   try {
-    return Promise.resolve(validateSync(schema, object, options));
+    return Promise.resolve(validateSync(ajv, schema, object, options));
   } catch (error) {
     return Promise.reject(error);
   }
@@ -200,7 +182,6 @@ function validate(schema, object, options) {
 
 module.exports = {
   sanitize,
-  toFixed,
   validate,
   validateSync,
 };

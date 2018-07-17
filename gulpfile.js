@@ -1,17 +1,23 @@
 'use strict';
 
-const deref = require('gulp-jsonschema-deref');
+const AJV = require('ajv');
 const eslint = require('gulp-eslint');
 const gulp = require('gulp');
 const jsonclint = require('gulp-json-lint');
-const jsonFormat = require('gulp-json-format');
 const jsonlint = require('gulp-jsonlint');
 const jest = require('gulp-jest').default;
-const transformUnicode = require('./utils/transform-unicode-patterns');
+const fg = require('fast-glob');
 
 const jsoncFiles = ['.eslintrc']; // json with comments
 const jsonFiles = ['schemas/**/*.json'];
 const jsFiles = ['*.js', 'test/**/*.js'];
+
+const ajv = new AJV();
+
+gulp.task('ajv-validate', () => {
+  const schemas = fg.sync(['schemas/**/*.json'], { absolute: true });
+  schemas.forEach(schema => ajv.addSchema(require(schema)));
+});
 
 gulp.task('jsonclint', () => {
   // Unfortunately does not support failOnError at the moment
@@ -38,23 +44,10 @@ gulp.task('eslint', () => {
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('deref-schemas', () => {
-  return gulp
-    .src('./schemas/**/*.json')
-    .pipe(deref())
-    .pipe(transformUnicode.transform())
-    .pipe(jsonFormat(2))
-    .pipe(gulp.dest('prebuilt'));
-});
-
-gulp.task('validate', ['jsonclint', 'jsonlint', 'eslint']);
+gulp.task('validate', ['jsonclint', 'jsonlint', 'eslint', 'ajv-validate']);
 
 gulp.task('test', () => {
   return gulp.src('./test').pipe(jest(require('./jest.config')));
 });
 
-gulp.task('watch', () => {
-  gulp.watch([].concat(jsonFiles, jsoncFiles, jsFiles), ['test', 'validate', 'deref-schemas']);
-});
-
-gulp.task('default', ['test', 'validate', 'deref-schemas']);
+gulp.task('default', ['validate', 'test']);
