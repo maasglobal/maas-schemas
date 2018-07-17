@@ -1,67 +1,58 @@
 'use strict';
 
-const schema = require('../../../prebuilt/core/customer.json');
+const schema = require('../../../schemas/core/customer.json');
 const { generateTestCases } = require('../../../test-lib');
 
 describe('customer.firstName', () => {
-  generateTestCases(schema.properties.firstName, true, [
-    'Lauri',
-    //'Влади́мир', // Cyrillic: Vladimir -> Not supported
-    '明', // Chinese: Ming
-    'ADÉLAÏDE', // French form of Adelaide
-    'Hans V.',
+  generateTestCases(schema, true, [
+    { firstName: 'Lauri' },
+    { firstName: '明' }, // Chinese: Ming
+    { firstName: 'ADÉLAÏDE' }, // French form of Adelaide
+    { firstName: 'Hans V.' },
   ]);
 
-  generateTestCases(schema.properties.firstName, false, [
-    '💩',
+  generateTestCases(schema, false, [
+    { firstName: '💩' },
     //'lauri svan', // --> Should fail but doesn't - hard to define as regexp
   ]);
 });
 
 describe('customer.lastName', () => {
-  generateTestCases(schema.properties.lastName, true, [
-    'Svan',
+  generateTestCases(schema, true, [
+    { lastName: 'Svan' },
     //'Пу́тин', // Cyrillic: Putin -> Not supported
-    '姚', // Chinese: Yao
-    "O'Neill",
-    'Sören-sön',
+    { lastName: '姚' }, // Chinese: Yao
+    { lastName: "O'Neill" },
+    { lastName: 'Sören-sön' },
     // 'महात्मा', // Hindi: Gandhi -> not supported
-    'Dot. d`Tester',
+    { lastName: 'Dot. d`Tester' },
   ]);
 
-  generateTestCases(schema.properties.lastName, false, [
-    '💩',
+  generateTestCases(schema, false, [
+    { lastName: '💩' },
     //'svan', // --> Should fail but doesn't - hard to define as regexp
     '',
   ]);
 });
 
 describe('customer.phone', () => {
-  generateTestCases(schema.properties.phone, true, ['+35850123456', '+855979301811']);
+  generateTestCases(schema, true, [{ phone: '+35850123456' }, { phone: '+855979301811' }]);
 
-  generateTestCases(schema.properties.phone, false, [
-    '💩',
+  generateTestCases(schema, false, [
+    { phone: '💩' },
     //'svan', // --> Should fail but doesn't - hard to define as regexp
-    '',
-    'sdfdsf',
-    '+358123456789012345678', // Too long string
+    { phone: '' },
+    { phone: 'sdfdsf' },
+    { phone: '+358123456789012345678' }, // Too long string
   ]);
 });
 
 describe('customer.email', () => {
-  generateTestCases(schema.properties.email, true, [
-    'info@maas.global',
+  generateTestCases(schema, true, [
+    { email: 'info@maas.global' },
     // See https://hackernoon.com/the-100-correct-way-to-validate-email-addresses-7c4818f24643
     //'user@tt', // -> not supported
-    '#"€"€#"@gmail.com',
-    'very@very@unsual.com',
-  ]);
-
-  generateTestCases(schema.properties.phone, false, [
-    '💩',
-    //'svan', // --> Should fail but doesn't - hard to define as regexp
-    '',
-    'sdfdsf',
-    '+358123456789012345678', // Too long string
+    { email: '#"€"€#"@gmail.com' },
+    { email: 'very@very@unsual.com' },
   ]);
 });

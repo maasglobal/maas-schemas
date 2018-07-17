@@ -1,6 +1,6 @@
 'use strict';
 
-const schema = require('../../../prebuilt/core/components/address.json');
+const schema = require('../../../schemas/core/components/address.json');
 const { generateTestCases } = require('../../../test-lib');
 
 describe('address.placeName', () => {
@@ -28,22 +28,17 @@ describe('address.placeName', () => {
 describe('address.componentAddress', () => {
   generateTestCases(schema.definitions.componentAddress, true, [
     // Ludviginkatu 6, Helsinki, Uusimaa, Finland
-    'country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|' +
-      'streetNumber:6',
+    'country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
     // Interchangeable fields
-    'city:Helsinki|state:Uusimaa|country:Finland|zipCode:00100|streetName:Ludviginkatu|' +
-      'streetNumber:6',
+    'city:Helsinki|state:Uusimaa|country:Finland|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
     // State not mandatory
     'city:Helsinki|country:Finland|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
     // Spaces in-between
-    'country:New Zealand|state:Bay of Plenty|city:White Pine Bush|zipCode:3191|' +
-      'streetName:White Pine Bush Road|streetNumber:479',
+    'country:New Zealand|state:Bay of Plenty|city:White Pine Bush|zipCode:3191|streetName:White Pine Bush Road|streetNumber:479',
     // Other interesting special characters
-    "country:Aäöم武кв.-`''´`|state:Aäöم武кв.-`''´`|city:Aäöم武кв.-`''´`|zipCode:3191|" +
-      "streetName:Aäöم武кв.-`''´`|streetNumber:479",
+    "country:Aäöم武кв.-`''´`|state:Aäöم武кв.-`''´`|city:Aäöم武кв.-`''´`|zipCode:3191|streetName:Aäöم武кв.-`''´`|streetNumber:479",
     // King's Cross, UK, London
-    'city:Lontoo|streetNumber:2|streetName:Charrington Street|zipCode:NW1|' +
-      'country:Yhdistynyt kuningaskunta',
+    'city:Lontoo|streetNumber:2|streetName:Charrington Street|zipCode:NW1|country:Yhdistynyt kuningaskunta',
     "country:UK|city:London|zipCode:NW8 7HA|streetName:St John's Wood Road|streetNumber:28",
     'country:UK|city:London|zipCode:SE1 9DT|streetName:New Globe Walk|streetNumber:21',
   ]);
