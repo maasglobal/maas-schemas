@@ -8,7 +8,9 @@
   },
   "scripts": {
     "lint": "gulp validate",
-    "test": "jest"
+    "test": "jest",
+    "build": "node build.js",
+    "prepublish": "node build.js"
   },
   "repository": {
     "type": "git",

@@ -3,8 +3,7 @@
 const AJV = require('ajv');
 const validator = require('./validator');
 const { transform } = require('./utils/transform-unicode-patterns');
-
-const fg = require('fast-glob');
+const registry = require('./registry.js');
 
 let ajv;
 
@@ -27,10 +26,8 @@ function init(options) {
     )
   );
 
-  const schemaPaths = fg.sync(['schemas/**/*.json'], { absolute: true, cwd: __dirname });
-  schemaPaths.forEach(schemaPath => {
-    let schema = require(schemaPath);
-    schema = transform(schema);
+  Object.keys(registry).forEach(key => {
+    const schema = registry[key];
     ajv.addSchema(transform(schema));
   });
 }

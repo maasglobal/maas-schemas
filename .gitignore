@@ -14,3 +14,6 @@ package-lock.json
 
 # prebuild is done before publish
 prebuilt
+
+# schemas registry, generated upon build / prepublish
+registry.js
