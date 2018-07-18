@@ -18,10 +18,10 @@
       ],
       "properties": {
         "identityId": {
-          "$ref": "units.json#/definitions/identityId"
+          "$ref": "components/units.json#/definitions/identityId"
         },
         "bookingId": {
-          "$ref": "units.json#/definitions/uuid"
+          "$ref": "components/units.json#/definitions/uuid"
         },
         "ref": {
           "type": "integer",
@@ -31,13 +31,13 @@
           "$ref": "product.json"
         },
         "terms": {
-          "$ref": "terms.json"
+          "$ref": "components/terms.json"
         },
         "meta": {
           "$ref": "booking.json#/definitions/meta"
         },
         "configurator": {
-          "$ref": "configurator.json"
+          "$ref": "components/configurator.json"
         },
         "customer": {
           "$ref": "customer.json"
@@ -55,10 +55,10 @@
       ],
       "properties": {
         "identityId": {
-          "$ref": "units.json#/definitions/identityId"
+          "$ref": "components/units.json#/definitions/identityId"
         },
         "bookingId": {
-          "$ref": "units.json#/definitions/uuid"
+          "$ref": "components/units.json#/definitions/uuid"
         },
         "ref": {
           "type": "integer",
@@ -70,11 +70,11 @@
         "fares": {
           "type": "array",
           "items": {
-            "$ref": "fare.json"
+            "$ref": "components/fare.json"
           }
         },
         "terms": {
-          "$ref": "terms.json"
+          "$ref": "components/terms.json"
         },
         "meta": {
           "$ref": "booking.json#/definitions/meta"
@@ -95,10 +95,10 @@
       ],
       "properties": {
         "identityId": {
-          "$ref": "units.json#/definitions/identityId"
+          "$ref": "components/units.json#/definitions/identityId"
         },
         "bookingId": {
-          "$ref": "units.json#/definitions/uuid"
+          "$ref": "components/units.json#/definitions/uuid"
         },
         "ref": {
           "type": "integer",
@@ -108,10 +108,10 @@
           "$ref": "product.json"
         },
         "cost": {
-          "$ref": "cost.json"
+          "$ref": "components/cost.json"
         },
         "terms": {
-          "$ref": "terms.json"
+          "$ref": "components/terms.json"
         },
         "meta": {
           "$ref": "booking.json#/definitions/meta"
