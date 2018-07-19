@@ -1,13 +1,6 @@
 'use strict';
 
-const rewritePattern = require('regexpu-core');
-
-const UNICODE_REGEX_OPTS = {
-  dotAllFlag: true,
-  unicodePropertyEscape: true,
-  useUnicodeFlag: false,
-};
-const UNICODE_REGEX_FLAGS = 'us';
+const pL = require('./pL');
 
 /**
  * Find the key in object mattching a pattern and modify its value using a function
@@ -36,7 +29,7 @@ function findAndReplace(input, pattern, modifierFunc) {
  */
 function transform(schema) {
   schema = findAndReplace(schema, 'pattern', existingValue => {
-    return rewritePattern(existingValue, UNICODE_REGEX_FLAGS, UNICODE_REGEX_OPTS);
+    return existingValue.replace(/\\p\{L\}/g, pL);
   });
 
   return schema;

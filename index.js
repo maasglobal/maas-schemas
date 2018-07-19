@@ -37,14 +37,6 @@ function init(options) {
  *
  * @param {Object} schema - schema json required from /schemas folder
  */
-function validateSync(schema, object, options = {}) {
-  if (!ajv) init(options);
-  if (options.sanitize === true) {
-    object = validator.sanitize(object);
-  }
-  return validator.validateSync(ajv, schema, object, options);
-}
-
 function validate(schema, object, options = {}) {
   if (!ajv) init(options);
   if (options.sanitize === true) {
@@ -55,6 +47,5 @@ function validate(schema, object, options = {}) {
 
 module.exports = {
   init,
-  validateSync,
   validate,
 };

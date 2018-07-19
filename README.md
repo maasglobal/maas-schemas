@@ -20,15 +20,3 @@ This repository contains the JSON schemas used by MaaS.
  */
 function validate(schema, object, options)
 ```
-
-```javascript
-/**
- *  Async validate an object by first resolving the corresponding schema by schemaId
- *
- *  @param {String} schema - schema from the schemas folder
- *  @param {Object} object - input testing subject
- *  @return {Promise->Object} resolve w/validated object Promise
- *  @throws {ValidationError}
- */
-function validate(schema, object, options)
-```

@@ -147,10 +147,7 @@ function sanitize(object) {
  * @throws {ValidationError} in case of invalid object
  * @throws {TypeError} in case of invalid schema
  */
-function validateSync(ajv, schema, object) {
-  if (!schema.$id) {
-    console.warn('Unregistered schema $id', schema.$id);
-  }
+function validate(ajv, schema, object) {
   const valid = ajv.validate(schema.$id || schema, object);
 
   if (!valid) {
@@ -160,28 +157,7 @@ function validateSync(ajv, schema, object) {
   return object;
 }
 
-/**
- * Validate an object using schema retrieved from schemaId. This validator does
- * not resolve schema references, e.g. give it a fully dereferenced input.
- *
- * This method calls validateSync() internally.
- *
- * @param {object} schema the schema object
- * @param {object} object the object to validate
- * @param {object} options optional validation options (see ajv documentation)
- * @return {Promise -> Object} resolve w/validated object or reject w/error if invalid
- * @see validateSync()
- */
-function validate(ajv, schema, object, options) {
-  try {
-    return Promise.resolve(validateSync(ajv, schema, object, options));
-  } catch (error) {
-    return Promise.reject(error);
-  }
-}
-
 module.exports = {
   sanitize,
   validate,
-  validateSync,
 };

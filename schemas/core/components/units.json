@@ -64,9 +64,7 @@
     },
     "htmlBlock": {
       "description": "HTML string of block level content",
-      "type": "string",
-      "pattern":
-        "^\\s*<(?:address|article|aside|blockquote|div|dl|figcaption|figure|h1|h2|h3|h4|h5|h6|header|hgroup|main|nav|ol|output|p|pre|section|table|ul|video)>.*>\\s*$"
+      "type": "string"
     },
     "jsonParam": {
       "description": "JSON encoded object or array",
