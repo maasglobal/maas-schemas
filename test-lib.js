@@ -2,7 +2,7 @@
 
 const { expect } = require('chai');
 const main = require('./index');
-const ValidationError = require('./ValidationError');
+const ValidationError = require('./lib/ValidationError');
 const { transform } = require('./utils/transform-unicode-patterns');
 
 function generateTestCases(schema, positive, cases) {

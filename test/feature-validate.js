@@ -2,7 +2,6 @@
 
 const expect = require('chai').expect;
 const utils = require('..');
-const ValidationError = require('../ValidationError');
 const bookingOptionsRequest = require('./valid-booking-options-request.json');
 const bookingOptionsResponse = require('./valid-booking-options-response.json');
 const validBookingResponse = require('./valid-booking-response.json');
@@ -23,7 +22,7 @@ describe('Schema validation', () => {
     const schema = require('../schemas/tsp/booking-create/response.json');
 
     it('should succeed without error', () => {
-      return utils.validate(schema, validBookingResponse);
+      expect(utils.validate(schema, validBookingResponse)).to.exist;
     });
   });
 
@@ -31,14 +30,11 @@ describe('Schema validation', () => {
     const schema = require('../schemas/tsp/booking-create/response.json');
 
     it('should have validation error', () => {
-      return utils.validate(schema, invalidBookingResponse).then(
-        response => {
-          expect('should.not.succeed').to.be.null;
-        },
-        error => {
-          expect(error).to.be.an.instanceof(ValidationError);
-        }
-      );
+      try {
+        expect(utils.validate(schema, invalidBookingResponse)).to.not.exist;
+      } catch (e) {
+        expect(e).to.exist;
+      }
     });
   });
 
@@ -46,7 +42,7 @@ describe('Schema validation', () => {
     const schema = require('../schemas/tsp/booking-options-list/request.json');
 
     it('should succeed without error', () => {
-      return utils.validate(schema, bookingOptionsRequest);
+      expect(utils.validate(schema, bookingOptionsRequest)).to.exist;
     });
   });
 
@@ -54,7 +50,7 @@ describe('Schema validation', () => {
     const schema = require('../schemas/tsp/booking-options-list/response.json');
 
     it('should succeed without error', () => {
-      return utils.validate(schema, bookingOptionsResponse);
+      expect(utils.validate(schema, bookingOptionsResponse)).to.exist;
     });
   });
 
@@ -62,7 +58,7 @@ describe('Schema validation', () => {
     const schema = require('../schemas/tsp/booking-ticket/request.json');
 
     it('should succeed without error', () => {
-      return utils.validate(schema, bookingTicketRequestRequest);
+      expect(utils.validate(schema, bookingTicketRequestRequest)).to.exist;
     });
   });
 
@@ -70,7 +66,7 @@ describe('Schema validation', () => {
     const schema = require('../schemas/tsp/booking-ticket/response.json');
 
     it('should succeed without error', () => {
-      return utils.validate(schema, bookingTicketRequestResponse);
+      expect(utils.validate(schema, bookingTicketRequestResponse)).to.exist;
     });
   });
 });

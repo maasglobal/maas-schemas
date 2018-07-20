@@ -1,7 +1,7 @@
 'use strict';
 
 const AJV = require('ajv');
-const validator = require('./validator');
+const validator = require('./lib/validator');
 const { transform } = require('./utils/transform-unicode-patterns');
 const registry = require('./registry.js');
 
