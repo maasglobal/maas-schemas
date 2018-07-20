@@ -1,58 +1,45 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/tsp/journey-planner/request",
+  "$id": "http://maasglobal.com/tsp/journey-planner/request.json",
   "description": "Request schema for getting journey options from a TSP adapter.",
   "type": "object",
-  "oneOf": [
-    {
-      "$ref": "#/definitions/payload",
-      "description": "Permit leaveAt",
-      "required": ["from", "to", "leaveAt"]
-    },
-    {
-      "$ref": "#/definitions/payload",
-      "description": "Permit arriveBy",
-      "required": ["from", "to", "arriveBy"]
-    }
-  ],
   "patternProperties": {
     "^(optionalParameters).+": {
       "type": ["string", "number", "boolean"]
     }
   },
-  "definitions": {
+  "properties": {
     "payload": {
       "from": {
-        "$ref": "../../core/components/units-geo.json#/definitions/shortLocationString"
+        "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
       },
       "fromName": {
-        "$ref": "../../core/components/address.json#/definitions/placeName"
+        "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
       },
       "fromAddress": {
         "description": "Componentized from address",
-        "$ref": "../../core/components/address.json#/definitions/componentAddress"
+        "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
       },
       "to": {
-        "$ref": "../../core/components/units-geo.json#/definitions/shortLocationString"
+        "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
       },
       "toName": {
-        "$ref": "../../core/components/address.json#/definitions/placeName"
+        "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
       },
       "toAddress": {
         "description": "Componentized to address",
-        "$ref": "../../core/components/address.json#/definitions/componentAddress"
+        "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
       },
       "leaveAt": {
-        "$ref": "../../core/components/units.json#/definitions/time"
+        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
       },
       "arriveBy": {
-        "$ref": "../../core/components/units.json#/definitions/time"
+        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
       },
       "leaveAtReturn": {
-        "$ref": "../../core/components/units.json#/definitions/time"
+        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
       },
       "arriveByReturn": {
-        "$ref": "../../core/components/units.json#/definitions/time"
+        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
       },
       "mode": {
         "type": "string"

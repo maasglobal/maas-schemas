@@ -1,5 +1,4 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/itineraries/itinerary-update/response",
+  "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-udpate/response.json",
   "description": "Maas Itinerary update request"
 }

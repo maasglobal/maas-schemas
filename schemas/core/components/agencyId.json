@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/components/agencyId.json",
   "type": "string",
   "minLength": 2,
   "maxLength": 64

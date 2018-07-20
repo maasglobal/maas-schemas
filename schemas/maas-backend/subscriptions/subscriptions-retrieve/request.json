@@ -1,14 +1,13 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptions-retrieve/request",
+  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-retrieve/request.json",
   "description": "Request schema for subscriptions-retrieve",
   "type": "object",
   "properties": {
     "customerId": {
-      "$ref": "../../../core/components/units.json#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "userId": {
-      "$ref": "../../../core/components/units.json#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "nextPeriod": {
       "type": "boolean",
@@ -16,10 +15,10 @@
     },
     "headers": {
       "Accept": {
-        "$ref": "../../../core/components/api-common.json#/definitions/acceptHeader"
+        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/acceptHeader"
       },
       "X-Whim-User-Agent": {
-        "$ref": "../../../core/components/api-common.json#/definitions/userAgentHeader"
+        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/userAgentHeader"
       }
     }
   },

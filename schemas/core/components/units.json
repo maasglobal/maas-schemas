@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/components/units.json",
   "description": "MaaS common units that are used consistently within our own objects",
   "definitions": {
     "uuid": {
@@ -64,14 +64,12 @@
     },
     "htmlBlock": {
       "description": "HTML string of block level content",
-      "type": "string",
-      "pattern":
-        "^\\s*<(?:address|article|aside|blockquote|div|dl|figcaption|figure|h1|h2|h3|h4|h5|h6|header|hgroup|main|nav|ol|output|p|pre|section|table|ul|video)>.*>\\s*$"
+      "type": "string"
     },
     "jsonParam": {
       "description": "JSON encoded object or array",
       "type": "string",
-      "minLength": "2"
+      "minLength": 2
     },
     "personalName": {
       "description": "First or last name of a customer (e.g. John)",

@@ -2,17 +2,11 @@
 
 const expect = require('chai').expect;
 const utils = require('..');
-const ValidationError = require('../ValidationError');
-const bookingOptionsRequest =
-  require('./valid-booking-options-request.json');
-const bookingOptionsResponse =
-  require('./valid-booking-options-response.json');
-const validBookingResponse =
-  require('./valid-booking-response.json');
-const bookingTicketRequestRequest =
-  require('./valid-booking-ticket-request.json');
-const bookingTicketRequestResponse =
-  require('./valid-booking-ticket-response.json');
+const bookingOptionsRequest = require('./valid-booking-options-request.json');
+const bookingOptionsResponse = require('./valid-booking-options-response.json');
+const validBookingResponse = require('./valid-booking-response.json');
+const bookingTicketRequestRequest = require('./valid-booking-ticket-request.json');
+const bookingTicketRequestResponse = require('./valid-booking-ticket-response.json');
 // Missing required fields [leg, customer, token] etc...
 const invalidBookingResponse = {
   customer: {
@@ -25,57 +19,54 @@ const invalidBookingResponse = {
 
 describe('Schema validation', () => {
   describe('validate valid booking-create response', () => {
-    const schema = require('../prebuilt/tsp/booking-create/response.json');
+    const schema = require('../schemas/tsp/booking-create/response.json');
 
     it('should succeed without error', () => {
-      return utils.validate(schema, validBookingResponse);
+      expect(utils.validate(schema, validBookingResponse)).to.exist;
     });
   });
 
   describe('validate invalid booking-create response', () => {
-    const schema = require('../prebuilt/tsp/booking-create/response.json');
+    const schema = require('../schemas/tsp/booking-create/response.json');
 
     it('should have validation error', () => {
-      return utils.validate(schema, invalidBookingResponse)
-        .then(
-          response => {
-            expect('should.not.succeed').to.be.null;
-          }, error => {
-            expect(error).to.be.an.instanceof(ValidationError);
-          }
-        );
+      try {
+        expect(utils.validate(schema, invalidBookingResponse)).to.not.exist;
+      } catch (e) {
+        expect(e).to.exist;
+      }
     });
   });
 
-  describe('validate prebuilt booking options request schema', () => {
-    const schema = require('../prebuilt/tsp/booking-options-list/request.json');
+  describe('validate schemas booking options request schema', () => {
+    const schema = require('../schemas/tsp/booking-options-list/request.json');
 
     it('should succeed without error', () => {
-      return utils.validate(schema, bookingOptionsRequest);
+      expect(utils.validate(schema, bookingOptionsRequest)).to.exist;
     });
   });
 
-  describe('validate prebuilt booking options response schema', () => {
-    const schema = require('../prebuilt/tsp/booking-options-list/response.json');
+  describe('validate schemas booking options response schema', () => {
+    const schema = require('../schemas/tsp/booking-options-list/response.json');
 
     it('should succeed without error', () => {
-      return utils.validate(schema, bookingOptionsResponse);
+      expect(utils.validate(schema, bookingOptionsResponse)).to.exist;
     });
   });
 
   describe('validate prebuild booking ticket request schema', () => {
-    const schema = require('../prebuilt/tsp/booking-ticket/request.json');
+    const schema = require('../schemas/tsp/booking-ticket/request.json');
 
     it('should succeed without error', () => {
-      return utils.validate(schema, bookingTicketRequestRequest);
+      expect(utils.validate(schema, bookingTicketRequestRequest)).to.exist;
     });
   });
 
   describe('validate prebuild booking ticket response schema', () => {
-    const schema = require('../prebuilt/tsp/booking-ticket/response.json');
+    const schema = require('../schemas/tsp/booking-ticket/response.json');
 
     it('should succeed without error', () => {
-      return utils.validate(schema, bookingTicketRequestResponse);
+      expect(utils.validate(schema, bookingTicketRequestResponse)).to.exist;
     });
   });
 });

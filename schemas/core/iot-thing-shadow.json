@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/core/iot-thing-shadow",
+  "$id": "http://maasglobal.com/core/iot-thing-shadow.json",
   "description": "Schema for MaaS thing shadow",
   "type": "object",
   "properties": {
@@ -15,16 +14,16 @@
           "type": "object",
           "properties": {
             "lat": {
-              "$ref": "./components/units-geo.json#/definitions/latitude"
+              "$ref": "components/units-geo.json#/definitions/latitude"
             },
             "lon": {
-              "$ref": "./components/units-geo.json#/definitions/longitude"
+              "$ref": "components/units-geo.json#/definitions/longitude"
             },
             "timestamp": {
-              "$ref": "./components/units.json#/definitions/time"
+              "$ref": "components/units.json#/definitions/time"
             },
             "legId": {
-              "$ref": "./components/units.json#/definitions/uuid"
+              "$ref": "components/units.json#/definitions/uuid"
             }
           }
         },
@@ -32,13 +31,13 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "./components/units.json#/definitions/uuid"
+              "$ref": "components/units.json#/definitions/uuid"
             },
             "timestamp": {
-              "$ref": "./components/units.json#/definitions/time"
+              "$ref": "components/units.json#/definitions/time"
             },
             "state": {
-              "$ref": "./components/state.json#/definitions/legState"
+              "$ref": "components/state.json#/definitions/legState"
             }
           }
         }

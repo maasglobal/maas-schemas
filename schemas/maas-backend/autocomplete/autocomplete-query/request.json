@@ -1,23 +1,22 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/autocomplete/autocomplete-query/request",
+  "$id": "http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/request.json",
   "description": "Request schema for autocomplete",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/components/units.json#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
       "properties": {
         "name": {
-          "$ref": "../../../core/components/address.json#/definitions/placeName"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
         },
         "lat": {
-          "$ref": "../../../core/components/units-geo.json#/definitions/relaxedLatitude"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude"
         },
         "lon": {
-          "$ref": "../../../core/components/units-geo.json#/definitions/relaxedLongitude"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude"
         },
         "count": {
           "type": "integer",
@@ -26,7 +25,7 @@
           "default": 5
         },
         "radius": {
-          "$ref": "../../../core/components/units-geo.json#/definitions/distance",
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance",
           "default": 5000
         }
       },
@@ -34,7 +33,7 @@
       "additionalProperties": false
     },
     "headers": {
-      "$ref": "../../../core/components/api-common.json#/definitions/headers"
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   }
 }

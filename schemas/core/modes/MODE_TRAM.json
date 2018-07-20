@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/modes/MODE_TRAM.json",
   "description": "Schema for MODE_TRAM meta field",
   "type": "object"
 }

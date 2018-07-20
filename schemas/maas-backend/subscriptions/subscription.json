@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/subscriptions/subscription",
+  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscription.json",
   "description": "MaaS subscription schema",
   "definitions": {
     "newSubscription": {
@@ -22,10 +21,10 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "./contact.json#/definitions/identityId"
+          "$ref": "contact.json#/definitions/identityId"
         },
         "customerId": {
-          "$ref": "./contact.json#/definitions/identityId"
+          "$ref": "contact.json#/definitions/identityId"
         },
         "plan": {
           "$ref": "#/definitions/plan"
@@ -46,13 +45,13 @@
           "$ref": "#/definitions/terms"
         },
         "pointCost": {
-          "$ref": "../../core/components/point-cost.json"
+          "$ref": "http://maasglobal.com/core/components/point-cost.json"
         },
         "region": {
-          "$ref": "../../core/region.json"
+          "$ref": "http://maasglobal.com/core/region.json"
         },
         "shippingAddress": {
-          "$ref": "./subscriptionAddress.json"
+          "$ref": "subscriptionAddress.json"
         },
         "updateParams": {
           "type": "object"
@@ -166,24 +165,24 @@
       "pattern": "^[^\\s\\/]{1,50}$"
     },
     "price": {
-      "$ref": "../../core/components/cost.json"
+      "$ref": "http://maasglobal.com/core/components/cost.json"
     },
     "terms": {
       "description": "Terms related to this subscription",
       "type": "object",
       "properties": {
         "activated": {
-          "$ref": "../../core/components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "modified": {
-          "$ref": "../../core/components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "validity": {
           "description": "Subscription validity conditions",
           "type": "object",
           "properties": {
-            "startTime": { "$ref": "../../core/components/units.json#/definitions/time" },
-            "endTime": { "$ref": "../../core/components/units.json#/definitions/time" }
+            "startTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" },
+            "endTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }
           },
           "required": ["startTime", "endTime"]
         },

@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/core/profile",
+  "$id": "http://maasglobal.com/core/profile.json",
   "description": "MaaS user profiles as returned by our API",
   "type": "object",
   "properties": {
@@ -9,28 +8,28 @@
       "minValue": 0
     },
     "identityId": {
-      "$ref": "./components/units.json#/definitions/identityId"
+      "$ref": "components/units.json#/definitions/identityId"
     },
     "phone": {
-      "$ref": "./components/units.json#/definitions/phone"
+      "$ref": "components/units.json#/definitions/phone"
     },
     "email": {
-      "$ref": "./components/units.json#/definitions/email"
+      "$ref": "components/units.json#/definitions/email"
     },
     "firstName": {
-      "$ref": "./components/units.json#/definitions/personalName"
+      "$ref": "components/units.json#/definitions/personalName"
     },
     "lastName": {
-      "$ref": "./components/units.json#/definitions/personalName"
+      "$ref": "components/units.json#/definitions/personalName"
     },
     "city": {
-      "$ref": "./components/address.json#/definitions/city"
+      "$ref": "components/address.json#/definitions/city"
     },
     "country": {
-      "$ref": "./components/address.json#/definitions/country"
+      "$ref": "components/address.json#/definitions/country"
     },
     "zipCode": {
-      "$ref": "./components/address.json#/definitions/zipCode"
+      "$ref": "components/address.json#/definitions/zipCode"
     },
     "regionId": {
       "type": "string",
@@ -38,7 +37,7 @@
       "maxLength": 256
     },
     "region": {
-      "$ref": "./region.json"
+      "$ref": "region.json"
     },
     "profileImageUrl": {
       "type": "string",
@@ -48,7 +47,7 @@
     "favoriteLocations": {
       "type": "array",
       "items": {
-        "$ref": "./components/units-geo.json#/definitions/place"
+        "$ref": "components/units-geo.json#/definitions/place"
       }
     },
     "paymentMethod": {
@@ -76,7 +75,7 @@
         },
         "expiry": {
           "description": "When this payment method expires",
-          "$ref": "./components/units.json#/definitions/time"
+          "$ref": "components/units.json#/definitions/time"
         }
       },
       "required": ["type", "valid"]
@@ -96,14 +95,14 @@
     "balances": {
       "type": "array",
       "items": {
-        "$ref": "./components/fare.json"
+        "$ref": "components/fare.json"
       }
     },
     "created": {
-      "$ref": "./components/units.json#/definitions/time"
+      "$ref": "components/units.json#/definitions/time"
     },
     "modified": {
-      "$ref": "./components/units.json#/definitions/time"
+      "$ref": "components/units.json#/definitions/time"
     }
   },
   "additionalProperties": false,
@@ -161,7 +160,7 @@
           "type": "boolean"
         },
         "pointCost": {
-          "$ref": "./components/point-cost.json"
+          "$ref": "components/point-cost.json"
         },
         "description": {
           "type": "string"

@@ -1,11 +1,10 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/bookings/bookings-update/response",
+  "$id": "http://maasglobal.com/maas-backend/bookings/bookings-update/response.json",
   "description": "Response schema for bookings-update",
   "type": "object",
   "properties": {
     "booking": {
-      "$ref": "../../../core/booking.json"
+      "$ref": "http://maasglobal.com/core/booking.json"
     },
     "debug": {
       "type": "object",

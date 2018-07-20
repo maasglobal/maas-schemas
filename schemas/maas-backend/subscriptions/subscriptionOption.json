@@ -1,9 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/subscriptions/subscriptionOption",
+  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptionOption.json",
   "description": "MaaS subscription option schema",
   "allOf": [
-    { "$ref": "./subscription.json#/definitions/subscriptionBase" },
+    { "$ref": "subscription.json#/definitions/subscriptionBase" },
     { "$ref": "#/definitions/subscriptionAdditions" }
   ],
   "definitions": {
@@ -28,7 +27,7 @@
           "additionalProperties": true
         },
         "pointCost": {
-          "$ref": "../../core/components/point-cost.json"
+          "$ref": "http://maasglobal.com/core/components/point-cost.json"
         },
         "wmpGrant": {
           "type": "integer",

@@ -1,5 +1,4 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/stations/stations-list/response",
-  "$ref": "../../../tsp/stations-list/response.json"
+  "$id": "http://maasglobal.com/maas-backend/stations/stations-list/response.json",
+  "$ref": "http://maasglobal.com/tsp/stations-list/response.json"
 }

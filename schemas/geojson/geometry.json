@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://json-schema.org/geojson/geometry.json#",
+  "$id": "http://maasglobal.com/geojson/geometry.json",
   "title": "GeoJSON Geometry",
   "description": "GeoJSON geometry, forked from https://github.com/fge/sample-json-schemas/ under BSD license",
   "type": "object",

@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/itineraries/itinerary-list/response",
+  "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-list/response.json",
   "description": "Response schema for itineraries-list",
   "type": "object",
   "properties": {
@@ -8,7 +7,7 @@
       "type": "array",
       "minItems": 0,
       "items": {
-        "$ref": "../../../core/itinerary.json"
+        "$ref": "http://maasglobal.com/core/itinerary.json"
       }
     },
     "maas": {

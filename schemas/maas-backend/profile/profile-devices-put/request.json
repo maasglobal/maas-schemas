@@ -1,11 +1,10 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/profile/profile-devices-put/request",
+  "$id": "http://maasglobal.com/maas-backend/profile/profile-devices-put/request.json",
   "description": "Request schema for profile-active-plan-put",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/components/units.json#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
@@ -16,7 +15,7 @@
           "pattern": "^.{32,255}$"
         },
         "deviceIdentifier": {
-          "$ref": "../../../core/components/units.json#/definitions/uuid"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
         },
         "deviceType": {
           "type": "string",
@@ -29,10 +28,10 @@
     },
     "headers": {
       "Accept": {
-        "$ref": "../../../core/components/api-common.json#/definitions/acceptHeader"
+        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/acceptHeader"
       },
       "X-Whim-User-Agent": {
-        "$ref": "../../../core/components/api-common.json#/definitions/userAgentHeader"
+        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/userAgentHeader"
       }
     }
   },

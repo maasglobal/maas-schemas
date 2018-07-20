@@ -1,5 +1,4 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/tracking/tracking-active-itinerary-get/request",
+  "$id": "http://maasglobal.com/maas-backend/tracking/tracking-active-itinerary-get/request.json",
   "description": "Request schema for getting active itinerary tracking object"
 }

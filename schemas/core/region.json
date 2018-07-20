@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/regions/region",
+  "$id": "http://maasglobal.com/core/region.json",
   "description": "MaaS region schema",
   "type": "object",
   "properties": {
@@ -15,10 +14,10 @@
       "maxLength": 255
     },
     "countryCode": {
-      "$ref": "./components/address.json#/definitions/country"
+      "$ref": "components/address.json#/definitions/country"
     },
     "zipCode": {
-      "$ref": "./components/address.json#/definitions/zipCode"
+      "$ref": "components/address.json#/definitions/zipCode"
     },
     "availability": {
       "type": "object",

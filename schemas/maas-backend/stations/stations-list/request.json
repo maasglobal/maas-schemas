@@ -1,25 +1,25 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/stations/stations-list/request",
+  "$id": "http://maasglobal.com/maas-backend/stations/stations-list/request.json",
   "description": "Request schema for stations list",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/components/units.json#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "oneOf": [
         {
           "type": "object",
+          "description": "Query by radius",
           "properties": {
             "agencyId": {
-              "$ref": "../../../core/components/agencyId.json"
+              "$ref": "http://maasglobal.com/core/components/agencyId.json"
             },
             "lat": {
-              "$ref": "../../../core/components/units-geo.json#/definitions/relaxedLatitude"
+              "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude"
             },
             "lon": {
-              "$ref": "../../../core/components/units-geo.json#/definitions/relaxedLatitude"
+              "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude"
             },
             "radius": {
               "type": "integer",
@@ -33,9 +33,10 @@
         },
         {
           "type": "object",
+          "description": "Query by name",
           "properties": {
             "agencyId": {
-              "$ref": "../../../core/components/agencyId.json"
+              "$ref": "http://maasglobal.com/core/components/agencyId.json"
             },
             "name": {
               "type": "string",
@@ -55,10 +56,10 @@
     },
     "headers": {
       "Accept": {
-        "$ref": "../../../core/components/api-common.json#/definitions/acceptHeader"
+        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/acceptHeader"
       },
       "X-Whim-User-Agent": {
-        "$ref": "../../../core/components/api-common.json#/definitions/userAgentHeader"
+        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/userAgentHeader"
       }
     }
   },

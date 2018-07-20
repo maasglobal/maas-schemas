@@ -1,14 +1,13 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/itineraries/itinerary-cancel/request",
+  "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-cancel/request.json",
   "description": "Request schema for itinerary-cancel",
   "type": "object",
   "properties": {
     "itineraryId": {
-      "$ref": "../../../core/components/units.json#/definitions/uuid"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
     },
     "headers": {
-      "$ref": "../../../core/components/api-common.json#/definitions/headers"
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": [ "itineraryId" ],

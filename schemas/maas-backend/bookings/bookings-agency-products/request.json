@@ -1,17 +1,16 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/bookings/bookings-agency-products/request",
+  "$id": "http://maasglobal.com/maas-backend/bookings/bookings-agency-products/request.json",
   "description": "Request schema for bookings-agency-products",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/components/units.json#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "$ref": "#/definitions/payload"
     },
     "headers": {
-      "$ref": "../../../core/components/api-common.json#/definitions/headers"
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId", "payload"],
@@ -22,7 +21,7 @@
       "required": ["agencyId"],
       "properties": {
         "agencyId": {
-          "$ref": "../../../core/components/units.json#/definitions/agencyId"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/agencyId"
         }
       }
     }

@@ -1,17 +1,16 @@
 {
   "name": "maas-schemas",
-  "version": "2.7.1",
+  "version": "3.0.0",
   "description": "Schemas for MaaS infrastructure",
-  "main": "validator.js",
+  "main": "index.js",
   "engine": {
     "node": ">=6"
   },
   "scripts": {
     "lint": "gulp validate",
     "test": "jest",
-    "watch": "gulp watch",
-    "build": "gulp",
-    "prepublish": "gulp deref-schemas"
+    "build": "node build.js",
+    "prepublish": "node build.js"
   },
   "repository": {
     "type": "git",
@@ -34,11 +33,10 @@
   },
   "homepage": "https://github.com/maasglobal/maas-schemas#readme",
   "dependencies": {
-    "ajv": "^4.1.8",
-    "json-schema-ref-parser": "^3.1.2"
+    "ajv": "^6.5.2",
+    "fast-glob": "^2.2.2"
   },
   "devDependencies": {
-    "bluebird": "^3.4.5",
     "chai": "^3.5.0",
     "eslint": "^3.1.1",
     "eslint-config-airbnb-base": "^5.0.0",
@@ -47,16 +45,9 @@
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
     "gulp-jest": "^2.0.0",
-    "gulp-json-format": "^1.0.0",
     "gulp-json-lint": "^0.1.0",
     "gulp-jsonlint": "^1.1.2",
-    "gulp-jsonschema-deref": "0.0.2",
-    "gulp-mocha": "^3.0.1",
-    "gulp-transform": "^1.1.0",
     "jest": "^22.4.3",
-    "jest-cli": "^22.4.3",
-    "jsonpath": "^0.2.11",
-    "mocha": "^2.5.3",
-    "regexpu-core": "^4.1.3"
+    "jest-cli": "^22.4.3"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/components/car-rental.json",
   "description": "Base schema for MODE_CAR* metas",
   "type": "object",
   "properties": {
@@ -19,7 +19,7 @@
       "maxLength": 256
     },
     "image": {
-      "$ref": "../components/units.json#/definitions/url"
+      "$ref": "units.json#/definitions/url"
     },
     "terms": {},
     "car": {
@@ -60,7 +60,7 @@
           "enum": ["diesel", "electric", "ethanol", "gasoline", "hybrid", "hydrogen", "lpg", "multifuel", null]
         },
         "classification": {
-          "$ref": "../components/ACRISS.json"
+          "$ref": "ACRISS.json"
         },
         "registrationPlate": {
           "description": "Registration plate (e.g. if we know the actual car already)",
@@ -81,22 +81,22 @@
         },
         "location": {
           "description": "Current geo location",
-          "$ref": "../components/units-geo.json#/definitions/location"
+          "$ref": "units-geo.json#/definitions/location"
         }
       },
       "required": ["classification"]
     },
     "pickupInfo": {
       "description": "Pickup instructions in HTML format",
-      "$ref": "../components/units.json#/definitions/htmlBlock"
+      "$ref": "units.json#/definitions/htmlBlock"
     },
     "returnInfo": {
       "description": "Return Instructions in HTML format",
-      "$ref": "../components/units.json#/definitions/htmlBlock"
+      "$ref": "units.json#/definitions/htmlBlock"
     },
     "startEndGeoRegionUrl": {
       "description": "Region in which car can be rented and returned. Url to GeoJSON file",
-      "$ref": "../components/units.json#/definitions/url"
+      "$ref": "units.json#/definitions/url"
     }
   },
   "required": ["name", "description", "image"],

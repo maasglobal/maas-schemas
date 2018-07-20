@@ -1,15 +1,15 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/tsp/stations-list/request.json",
   "description": "MaaS stations query request schema",
   "oneOf": [
     {
       "type": "object",
       "properties": {
         "location": {
-          "$ref": "../../core/components/units-geo.json#/definitions/shortLocationString"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
         },
         "radius": {
-          "$ref": "../../core/components/units-geo.json#/definitions/distance"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
         }
       },
       "required": ["location"]

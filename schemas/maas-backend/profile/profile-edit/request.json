@@ -1,5 +1,4 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/profile/profile-edit/request",
+  "$id": "http://maasglobal.com/maas-backend/profile/profile-edit/request.json",
   "description": "Request schema for profile-edit"
 }

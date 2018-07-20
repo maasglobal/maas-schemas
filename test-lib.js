@@ -1,21 +1,22 @@
 'use strict';
 
 const { expect } = require('chai');
-const validator = require('./validator');
-const ValidationError = require('./ValidationError');
+const main = require('./index');
+const ValidationError = require('./lib/ValidationError');
+const { transform } = require('./utils/transform-unicode-patterns');
 
 function generateTestCases(schema, positive, cases) {
   if (positive) {
     it('positive cases', () => {
       cases.forEach(value => {
-        expect(validator.validateSync(schema, value)).to.be.an.object;
+        expect(main.validate(transform(schema), value)).to.be.an.object;
       });
     });
   } else {
     it('negative cases', () => {
       cases.forEach(value => {
         const func = () => {
-          validator.validateSync(schema, value);
+          main.validate(transform(schema), value);
           console.warn(`We should not get here. Input: ${value}`);
         };
         expect(func).to.throw(ValidationError);

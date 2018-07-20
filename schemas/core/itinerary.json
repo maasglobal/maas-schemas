@@ -1,28 +1,28 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/itinerary.json",
   "description": "OpenTripPlanner itinerary, augmented with leg bookings per leg",
   "type": "object",
   "properties": {
     "id": {
-      "$ref": "./components/units.json#/definitions/uuid"
+      "$ref": "components/units.json#/definitions/uuid"
     },
     "sourcePlanId": {
-      "$ref": "./components/units.json#/definitions/uuid"
+      "$ref": "components/units.json#/definitions/uuid"
     },
     "identityId": {
-      "$ref": "./components/units.json#/definitions/identityId"
+      "$ref": "components/units.json#/definitions/identityId"
     },
     "signature": {
-      "$ref": "./components/units.json#/definitions/signature"
+      "$ref": "components/units.json#/definitions/signature"
     },
     "state": {
-      "$ref": "./components/state.json#/definitions/itineraryState"
+      "$ref": "components/state.json#/definitions/itineraryState"
     },
     "startTime": {
-      "$ref": "./components/units.json#/definitions/time"
+      "$ref": "components/units.json#/definitions/time"
     },
     "endTime": {
-      "$ref": "./components/units.json#/definitions/time"
+      "$ref": "components/units.json#/definitions/time"
     },
     "co2": {
       "description": "Grams of CO2 as a byproduct by the trip",
@@ -32,7 +32,7 @@
     "fares": {
       "type": "array",
       "items": {
-        "$ref": "./components/fare.json"
+        "$ref": "components/fare.json"
       }
     },
     "legs": {
@@ -40,7 +40,7 @@
       "minItems": 0,
       "items": [
         {
-          "$ref": "./leg.json"
+          "$ref": "leg.json"
         }
       ]
     },
@@ -48,7 +48,7 @@
       "type": "array",
       "minItems": 0,
       "items": {
-        "$ref": "./product-option.json"
+        "$ref": "product-option.json"
       }
     }
   },

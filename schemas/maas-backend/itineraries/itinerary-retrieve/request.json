@@ -1,18 +1,17 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/itineraries/itinerary-retrieve/request",
+  "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-retrieve/request.json",
   "description": "Request schema for itinerary-retrieve",
   "type": "object",
   "properties": {
     "itineraryId": {
-      "$ref": "../../../core/components/units.json#/definitions/uuid"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
     },
     "headers": {
       "Accept": {
-        "$ref": "../../../core/components/api-common.json#/definitions/acceptHeader"
+        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/acceptHeader"
       },
       "X-Whim-User-Agent": {
-        "$ref": "../../../core/components/api-common.json#/definitions/userAgentHeader"
+        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/userAgentHeader"
       }
     }
   },

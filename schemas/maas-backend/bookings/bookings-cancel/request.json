@@ -1,17 +1,16 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/bookings/bookings-cancel/request",
+  "$id": "http://maasglobal.com/maas-backend/bookings/bookings-cancel/request.json",
   "description": "Request schema for bookings-cancel",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/components/units.json#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "bookingId": {
-      "$ref": "../../../core/components/units.json#/definitions/uuid"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
     },
     "headers": {
-      "$ref": "../../../core/components/api-common.json#/definitions/headers"
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   }
 }

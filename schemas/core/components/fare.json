@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/components/fare.json",
   "description": "A fare/price as billed to the user in WMPs or in tokens",
   "type": "object",
   "properties": {

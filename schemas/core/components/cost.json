@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/components/cost.json",
   "description": "MaaS common units that are used consistently within our own objects",
   "type": "object",
   "properties": {
@@ -40,7 +40,7 @@
     "currency": {
       "anyOf": [
         {
-          "$ref": "./units.json#/definitions/currency"
+          "$ref": "units.json#/definitions/currency"
         },
         {
           "type": "null"

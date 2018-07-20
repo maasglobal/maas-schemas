@@ -1,5 +1,4 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/tracking/tracking-active-leg-set/request",
+  "$id": "http://maasglobal.com/maas-backend/tracking/tracking-active-leg-set/request.json",
   "description": "Request schema for setting active leg tracking object"
 }

@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/core/product.json",
   "description": "Product in core which encapsulates at least an id, name and a tspProductId",
   "type": "object",
   "properties": {
@@ -28,7 +28,7 @@
       "minimum": 0
     },
     "agencyId": {
-      "$ref": "./components/units.json#/definitions/agencyId"
+      "$ref": "components/units.json#/definitions/agencyId"
     },
     "tspProductId": {
       "type": "string",

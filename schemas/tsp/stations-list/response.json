@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://maasglobal.com/tsp/stations-list/response.json",
   "description": "MaaS stations query response schema",
   "type": "object",
   "properties": {
@@ -10,31 +10,31 @@
         "description": "Simplified station schema, coming as part of stations-list response",
         "properties": {
           "id": {
-            "$ref": "../../core/components/station.json#/definitions/id"
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
           },
           "code": {
-            "$ref": "../../core/components/station.json#/definitions/code"
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/code"
           },
           "name": {
-            "$ref": "../../core/components/station.json#/definitions/name"
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/name"
           },
           "location": {
-            "$ref": "../../core/components/station.json#/definitions/location"
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/location"
           },
           "agencyId": {
-            "$ref": "../../core/components/station.json#/definitions/agencyId"
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/agencyId"
           },
           "services": {
-            "$ref": "../../core/components/station.json#/definitions/services"
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/services"
           },
           "address": {
-            "$ref": "../../core/components/station.json#/definitions/address"
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/address"
           },
           "city": {
-            "$ref": "../../core/components/station.json#/definitions/city"
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/city"
           },
           "country": {
-            "$ref": "../../core/components/station.json#/definitions/country"
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/country"
           }
         },
         "required": ["id", "location", "agencyId", "services"],

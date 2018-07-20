@@ -1,33 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.maas.global/maas-backend/routes/routes-query/request",
+  "$id": "http://maasglobal.com/maas-backend/routes/routes-query/request.json",
   "description": "Request schema for routes query",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "../../../core/components/units.json#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/payload",
-          "description": "Permit leaveAt",
-          "required": ["from", "to", "leaveAt"]
-        },
-        {
-          "$ref": "#/definitions/payload",
-          "description": "Permit arriveBy",
-          "required": ["from", "to", "arriveBy"]
-        }
-      ]
+      "$ref": "#/definitions/payload"
     },
     "headers": {
       "Accept": {
-        "$ref": "../../../core/components/api-common.json#/definitions/acceptHeader"
+        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/acceptHeader"
       },
       "X-Whim-User-Agent": {
-        "$ref": "../../../core/components/api-common.json#/definitions/userAgentHeader"
+        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/userAgentHeader"
       }
     }
   },
@@ -35,38 +22,39 @@
   "definitions": {
     "payload": {
       "type": "object",
+      "required": ["from", "to"],
       "properties": {
         "from": {
-          "$ref": "../../../core/components/units-geo.json#/definitions/shortLocationString"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
         },
         "fromName": {
-          "$ref": "../../../core/components/address.json#/definitions/placeName"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
         },
         "fromAddress": {
           "description": "Componentized from address",
-          "$ref": "../../../core/components/address.json#/definitions/componentAddress"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
         },
         "to": {
-          "$ref": "../../../core/components/units-geo.json#/definitions/shortLocationString"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
         },
         "toName": {
-          "$ref": "../../../core/components/address.json#/definitions/placeName"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
         },
         "toAddress": {
           "description": "Componentized to address",
-          "$ref": "../../../core/components/address.json#/definitions/componentAddress"
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
         },
         "leaveAt": {
-          "$ref": "../../../core/components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "arriveBy": {
-          "$ref": "../../../core/components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "leaveAtReturn": {
-          "$ref": "../../../core/components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "arriveByReturn": {
-          "$ref": "../../../core/components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "modes": {
           "type": "string",
@@ -81,7 +69,7 @@
         },
         "customer": {
           "description": "JSON encoded object which must be validated against /core/customer.json schema",
-          "$ref": "../../../core/components/units.json#/definitions/jsonParam"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/jsonParam"
         }
       },
       "patternProperties": {

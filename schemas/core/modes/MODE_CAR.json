@@ -1,4 +1,5 @@
 {
+  "$id": "http://maasglobal.com/core/modes/MODE_CAR.json",
   "description": "Schemas for MODE_CAR meta field",
-  "$ref": "../components/car-rental.json"
+  "$ref": "http://maasglobal.com/core/components/car-rental.json"
 }
