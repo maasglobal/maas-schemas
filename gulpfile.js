@@ -16,7 +16,11 @@ const ajv = new AJV();
 
 gulp.task('ajv-validate', () => {
   const schemas = fg.sync(['schemas/**/*.json'], { absolute: true });
+  // Add to cache first
   schemas.forEach(schema => ajv.addSchema(require(schema)));
+
+  // Validate that all schemas work properly with refs
+  schemas.forEach(schema => ajv.compile(require(schema)));
 });
 
 gulp.task('jsonclint', () => {
