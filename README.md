@@ -12,8 +12,9 @@ This repository contains the JSON schemas used by MaaS.
 ```javascript
 /**
  *  Validate an object by first resolving the corresponding schema by schemaId
+ *  NOTE: It is recommended to use schema $id instead of raw schema object
  *
- *  @param {String} schema - schema from the schemas folder
+ *  @param {Object/String} schema/schema.$id - schema from the schemas folder. If given as a whole, will extract $id from the schema. None existed schema will be re-validate. If given only $id, will use that to reference to schema
  *  @param {Object} object - input testing subject
  *  @return {Object} resolve w/validated object
  *  @throws {ValidationError}
