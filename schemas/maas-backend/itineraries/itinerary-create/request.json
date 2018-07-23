@@ -2,20 +2,21 @@
   "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-create/request.json",
   "description": "Request schema for itineraries-create",
   "type": "object",
-  "allOf": [
-    { "$ref": "#/definitions/itineraryCreate" },
-    {
-      "oneOf": [
-        { "required": ["identityId", "itinerary"] },
-        { "required": ["identityId", "outward"] },
-        { "required": ["identityId", "outward", "return"] }
-      ]
-    }
-  ],
-  "definitions": {
-    "itineraryCreate": {
+  "additionalProperties": false,
+  "properties": {
+    "identityId": {
+      "$ref": "#/definitions/identityId"
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    },
+    "payload": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
+        "itinerary": {
+          "$ref": "http://maasglobal.com/core/itinerary.json"
+        },
         "outward": {
           "itinerary": {
             "$ref": "http://maasglobal.com/core/itinerary.json"
@@ -39,7 +40,9 @@
           }
         }
       }
-    },
+    }
+  },
+  "definitions": {
     "itinerary": {
       "$ref": "http://maasglobal.com/core/itinerary.json"
     },
@@ -49,6 +52,5 @@
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
-  },
-  "additionalProperties": false
+  }
 }

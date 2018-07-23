@@ -6,7 +6,7 @@
       "type": "object",
       "properties": {
         "itinerary": {
-          "$ref": "../../../core/itinerary.json"
+          "$ref": "http://maasglobal.com/core/itinerary.json"
         }
       },
       "required": ["itinerary"]
@@ -15,10 +15,10 @@
       "type": "object",
       "properties": {
         "outward": {
-          "$ref": "../../../core/itinerary.json"
+          "$ref": "http://maasglobal.com/core/itinerary.json"
         },
         "return": {
-          "$ref": "../../../core/itinerary.json"
+          "$ref": "http://maasglobal.com/core/itinerary.json"
         }
       },
       "required": ["outward", "return"]
