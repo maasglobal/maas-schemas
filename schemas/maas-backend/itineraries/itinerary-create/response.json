@@ -21,7 +21,7 @@
           "$ref": "http://maasglobal.com/core/itinerary.json"
         }
       },
-      "required": ["outward", "return"]
+      "required": ["outward"]
     }
   ]
 }
