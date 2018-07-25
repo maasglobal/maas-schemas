@@ -7,6 +7,9 @@
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
+    "itineraryId": {
+      "$ref": "http://maasglobal.com/core/itinerary.json#/properties/id"
+    },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     },
