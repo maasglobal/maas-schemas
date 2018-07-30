@@ -19,3 +19,5 @@ jest.*
 test-lib.js
 test/
 .github/
+
+.npmrc
