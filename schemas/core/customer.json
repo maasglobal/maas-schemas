@@ -3,6 +3,9 @@
   "description": "MaaS customer schema",
   "type": "object",
   "properties": {
+    "identityId": {
+      "$ref": "components/units.json#/definitions/identityId"
+    },
     "opaqueId": {
       "description": "Typically the hash of the identityId",
       "type": "string",

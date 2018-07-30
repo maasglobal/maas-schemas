@@ -50,6 +50,15 @@
       "items": {
         "$ref": "product-option.json"
       }
+    },
+    "type": {
+      "enum": ["outward", "return"]
+    },
+    "bookings": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/core/booking.json"
+      }
     }
   },
   "additionalProperties": false,
