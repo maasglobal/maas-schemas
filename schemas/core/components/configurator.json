@@ -54,7 +54,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "maxLength": 255
+          "minLength": 0
         },
         "name": {
           "type": "string",
