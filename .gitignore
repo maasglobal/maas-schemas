@@ -17,3 +17,6 @@ prebuilt
 
 # schemas registry, generated upon build / prepublish
 registry.js
+
+# npmrc
+.npmrc
