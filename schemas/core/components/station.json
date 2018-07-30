@@ -14,8 +14,11 @@
     "name": {
       "type": "string"
     },
-    "location": {
-      "$ref": "units-geo.json#/definitions/shortLocationString"
+    "lat": {
+      "$ref": "units-geo.json#/definitions/latitude"
+    },
+    "lon": {
+      "$ref": "units-geo.json#/definitions/longitude"
     },
     "address": {
       "$ref": "address.json#/definitions/address"

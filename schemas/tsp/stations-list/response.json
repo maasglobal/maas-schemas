@@ -18,8 +18,11 @@
           "name": {
             "$ref": "http://maasglobal.com/core/components/station.json#/definitions/name"
           },
-          "location": {
-            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/location"
+          "lat": {
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/lat"
+          },
+          "lon": {
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/lon"
           },
           "agencyId": {
             "$ref": "http://maasglobal.com/core/components/station.json#/definitions/agencyId"
@@ -37,7 +40,7 @@
             "$ref": "http://maasglobal.com/core/components/station.json#/definitions/country"
           }
         },
-        "required": ["id", "location", "agencyId", "services"],
+        "required": ["id", "lat", "lon", "agencyId", "services"],
         "additionalProperties": false
       }
     }
