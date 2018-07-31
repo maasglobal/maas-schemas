@@ -5,14 +5,12 @@ const fs = require('fs');
 
 const schemaPaths = fg.sync(['schemas/**/*.json'], { cwd: __dirname });
 
-let fileContent = "'use strict'\nmodule.exports = {";
-fileContent += '\n';
+const modulePaths = schemaPaths
+  .map(schemaPath => {
+    return `'${schemaPath}': require('./${schemaPath}')`;
+  })
+  .join(',\n');
 
-schemaPaths.forEach(path => {
-  const relativePath = `./${path}`;
-  fileContent = fileContent + `'${path}': require('` + relativePath + "'),\n";
-});
-
-fileContent += '}';
+const fileContent = `'use strict'\nmodule.exports = {\n${modulePaths}\n}`;
 
 fs.writeFileSync('registry.js', fileContent, { encoding: 'utf-8' });
