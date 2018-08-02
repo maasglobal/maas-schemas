@@ -81,6 +81,9 @@
           "type": {
             "enum": ["oneOf", "someOf", "allOf", "oneOrNoneOf", "someOrNoneOf"]
           },
+          "userSelectable": {
+            "type": "boolean"
+          },
           "inputs": {
             "type": "array",
             "items": {
