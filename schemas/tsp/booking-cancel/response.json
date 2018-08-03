@@ -7,7 +7,8 @@
       "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
     },
     "state": {
-      "enum": [ "CANCELLED" ]
+      "description": "For normal full cancellation, end state would be CANCELLED. For booking that has multi tickets, if not all of them are cancelled, response state will be RESERVED",
+      "enum": [ "CANCELLED", "RESERVED" ]
     },
     "cost": {
       "$ref": "http://maasglobal.com/core/booking.json#/properties/cost"
