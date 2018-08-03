@@ -135,10 +135,15 @@
         },
         "fare": {
           "$ref": "fare.json"
+        },
+        "refunded": {
+          "type": "boolean",
+          "description": "Whether this part of the booking has been refunded"
         }
       },
       "required": [
-        "cancellable"
+        "cancellable",
+        "refunded"
       ]
     },
     "amendment": {
