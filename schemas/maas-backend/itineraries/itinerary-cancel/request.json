@@ -3,6 +3,9 @@
   "description": "Request schema for itinerary-cancel",
   "type": "object",
   "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
     "itineraryId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
     },
