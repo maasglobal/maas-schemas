@@ -96,7 +96,7 @@
             "multipleOf": 1
           },
           "type": {
-            "enum": ["maxRate", "missedReturnPenalty", "pricePerExceedingInterval"]
+            "enum": ["maxRate", "missedReturnPenalty", "perExceedingInterval"]
           }
         },
         "required": ["amount", "currency"]
