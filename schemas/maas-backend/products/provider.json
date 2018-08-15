@@ -96,7 +96,7 @@
                   "type": "string"
                 },
                 "type": {
-                  "enum": ["string", "number", "boolean"]
+                  "enum": ["string", "number", "boolean", "station"]
                 }
               },
               "required": ["id", "name", "type"],
