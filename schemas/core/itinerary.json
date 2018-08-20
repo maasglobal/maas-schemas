@@ -9,6 +9,10 @@
     "sourcePlanId": {
       "$ref": "components/units.json#/definitions/uuid"
     },
+    "isOvertaken": {
+      "type": "boolean",
+      "default": false
+    },
     "identityId": {
       "$ref": "components/units.json#/definitions/identityId"
     },
