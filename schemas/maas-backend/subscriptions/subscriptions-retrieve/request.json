@@ -14,12 +14,7 @@
       "default": false
     },
     "headers": {
-      "Accept": {
-        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/acceptHeader"
-      },
-      "X-Whim-User-Agent": {
-        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/userAgentHeader"
-      }
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["customerId", "userId"],
