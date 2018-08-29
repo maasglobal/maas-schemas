@@ -29,6 +29,9 @@
           "description": "Componentized from address",
           "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
         },
+        "fromStationId": {
+          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+        },
         "to": {
           "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
         },
@@ -38,6 +41,9 @@
         "toAddress": {
           "description": "Componentized to address",
           "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+        },
+        "toStationId": {
+          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
         },
         "leaveAt": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"

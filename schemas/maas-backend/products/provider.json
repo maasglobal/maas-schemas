@@ -81,6 +81,9 @@
           "type": {
             "enum": ["oneOf", "someOf", "allOf", "oneOrNoneOf", "someOrNoneOf"]
           },
+          "userSelectable": {
+            "type": "boolean"
+          },
           "inputs": {
             "type": "array",
             "items": {
@@ -93,7 +96,10 @@
                   "type": "string"
                 },
                 "type": {
-                  "enum": ["string", "number", "boolean"]
+                  "enum": ["string", "number", "boolean", "station"]
+                },
+                "default": {
+                  "type": ["string", "number", "boolean"]
                 }
               },
               "required": ["id", "name", "type"],
