@@ -21,6 +21,9 @@
         },
         "bookingId": {
           "$ref": "http://maasglobal.com/core/booking.json#/properties/id"
+        },
+        "originalFare": {
+          "type": "string"
         }
       },
       "additionalProperties": false
