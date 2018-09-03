@@ -6,6 +6,9 @@
     "itineraryId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
     },
+    "originalFare": {
+      "type": "string"
+    },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
