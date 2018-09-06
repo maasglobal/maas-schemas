@@ -1,0 +1,36 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/customer.json",
+  "description": "MaaS customer schema",
+  "definitions": {
+    "type": "object",
+    "properties": {
+      "identityId": {
+        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      },
+      "firstName": {
+        "description": "First name of the customer (e.g. John)",
+        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/personalName"
+      },
+      "lastName": {
+        "description": "Last name of the customer (e.g. Doe)",
+        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/personalName"
+      },
+      "phone": {
+        "description": "ITU-T E.164 phone number",
+        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/phone"
+      },
+      "email": {
+        "description": "Rough validation of a valid e-mail address",
+        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/email"
+      },
+      "paymentSources": {
+        "type": "array",
+        "items": {
+          "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/paymentSource"
+        }
+      }
+    },
+    "required": [ "firstName", "lastName", "phone", "email" ],
+    "additionalProperties": false
+  }
+}
