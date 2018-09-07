@@ -1,12 +1,11 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/update/request.json",
-  "description": "MaaS customer update",
+  "$id": "http://maasglobal.com/maas-backend/customers/retrieve/request.json",
+  "description": "MaaS customer retrieve",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "identityId",
     "customerId",
-    "payload",
     "headers"
   ],
   "properties": {
@@ -15,9 +14,6 @@
     },
     "customerId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
-    },
-    "payload": {
-      "$ref": "http://maasglobal.com/maas-backend/customers/customer.json"
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"

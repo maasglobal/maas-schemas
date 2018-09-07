@@ -6,6 +6,21 @@
       "type": "string",
       "minLength": 2
     },
+    "gatewayName": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 255
+    },
+    "type": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 100
+    },
+    "alias": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 100
+    },
     "paymentSource": {
       "description": "Payment source",
       "type": "object",
@@ -14,12 +29,10 @@
           "$ref": "#/definitions/paymentSourceId"
         },
         "gatewayName": {
-          "type": "string",
-          "minLength": 4
+          "$ref": "#/definitions/gatewayName"
         },
         "type": {
-          "type": "string",
-          "minLength": 4
+          "$ref": "#/definitions/type"
         },
         "expiryYear": {
           "type": "number",
@@ -46,13 +59,13 @@
         "billingZip": {
           "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
         },
+        "isDefault": {
+          "type": "boolean"
+        },
         "alias": {
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 100
+          "$ref": "#/definitions/alias"
         }
       },
-      "required": [ "paymentSourceId", "gatewayName", "type" ],
       "additionalProperties": false
     }
   }
