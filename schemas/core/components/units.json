@@ -92,6 +92,11 @@
       "type": "string",
       "pattern": "^.+@.+\\..+$",
       "maxLength": 64
+    },
+    "paymentSourceId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 255
     }
   }
 }
