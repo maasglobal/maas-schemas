@@ -17,7 +17,13 @@
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "$ref": "http://maasglobal.com/maas-backend/customers/customer.json"
+      "type": "object",
+      "properties": {
+        "customer": {
+          "$ref": "http://maasglobal.com/maas-backend/customers/customer.json"
+        }
+      },
+      "required": [ "customer" ]
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
