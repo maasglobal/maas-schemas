@@ -26,7 +26,7 @@
               "minimum": 0
             },
             "type": {
-              "enum": ["origin", "destination"]
+              "enum": ["origin", "destination", "viaAvoid"]
             }
           },
           "required": ["agencyId", "lat", "lon", "type"]
@@ -47,7 +47,7 @@
               "minimum": 1
             },
             "type": {
-              "enum": ["origin", "destination"]
+              "enum": ["origin", "destination", "viaAvoid"]
             }
           },
           "required": ["agencyId", "name", "count", "type"]
