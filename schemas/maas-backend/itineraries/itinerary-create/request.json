@@ -5,7 +5,7 @@
   "additionalProperties": false,
   "properties": {
     "identityId": {
-      "$ref": "#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
@@ -17,40 +17,29 @@
         "itinerary": {
           "$ref": "http://maasglobal.com/core/itinerary.json"
         },
+        "paymentSourceId": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/paymentSourceId"
+        },
         "outward": {
-          "itinerary": {
-            "$ref": "http://maasglobal.com/core/itinerary.json"
-          },
-          "customerSelections": {
-            "type": "array",
-            "items": {
-              "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
-            }
-          }
+          "$ref": "#/definitions/payload"
         },
         "return": {
-          "itinerary": {
-            "$ref": "http://maasglobal.com/core/itinerary.json"
-          },
-          "customerSelections": {
-            "type": "array",
-            "items": {
-              "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
-            }
-          }
+          "$ref": "#/definitions/payload"
         }
       }
     }
   },
   "definitions": {
-    "itinerary": {
-      "$ref": "http://maasglobal.com/core/itinerary.json"
-    },
-    "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
-    },
-    "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    "payload": {
+      "itinerary": {
+        "$ref": "http://maasglobal.com/core/itinerary.json"
+      },
+      "customerSelections": {
+        "type": "array",
+        "items": {
+          "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
+        }
+      }
     }
   }
 }
