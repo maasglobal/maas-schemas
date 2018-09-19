@@ -95,11 +95,17 @@
               ]
             },
             "maxRadiusMetres": {
-              "description": "The maximum radius to which the maximum fixed fare applies",
+              "description": "The maximum radius to which the maximum fixed fare applies, in metres",
               "type": "integer",
               "minValue": 0
             }
-          }
+          },
+          "required": [
+            "fixedFareAmount",
+            "fixedFareCurrency",
+            "maxRadiusMetres"
+          ],
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
