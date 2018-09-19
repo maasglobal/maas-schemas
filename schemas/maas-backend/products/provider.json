@@ -67,36 +67,42 @@
       ],
       "additionalProperties": false
     },
-    "radius": {
+    "extra": {
       "type": "object",
       "properties": {
-        "fixedFareAmount": {
-          "description": "The amount of the maximum fixed fare",
-          "type": "number",
-          "minimum": 0,
-          "multipleOf": 0.01
-        },
-        "fixedFareCurrency": {
-          "oneOf": [
-            {
-              "description": "The currency of the maximum fixed fare",
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+        "radius": {
+          "type": "object",
+          "properties": {
+            "fixedFareAmount": {
+              "description": "The amount of the maximum fixed fare",
+              "type": "number",
+              "minimum": 0,
+              "multipleOf": 0.01
             },
-            {
-              "type": "string",
-              "enum": [
-                "WMP",
-                "TOKEN"
+            "fixedFareCurrency": {
+              "oneOf": [
+                {
+                  "description": "The currency of the maximum fixed fare",
+                  "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "WMP",
+                    "TOKEN"
+                  ]
+                }
               ]
+            },
+            "maxRadiusMetres": {
+              "description": "The maximum radius to which the maximum fixed fare applies",
+              "type": "integer",
+              "minValue": 0
             }
-          ]
-        },
-        "maxRadiusMetres": {
-          "description": "The maximum radius to which the maximum fixed fare applies",
-          "type": "integer",
-          "minValue": 0
+          }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "optionalParameters": {
       "type": "array",
