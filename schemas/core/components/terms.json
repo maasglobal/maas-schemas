@@ -47,6 +47,20 @@
       "type": "boolean",
       "description": "A flag indicating whether this booking will be reconciled once the trip has finished"
     },
+    "restrictions": {
+      "type": "object",
+      "description": "Booking restrictions",
+      "properties": {
+        "singleDevice": {
+          "type": "boolean",
+          "description": "A flag indicating whether this booking can be viewed in multiple devices at the same time"
+        },
+        "freeTicket": {
+          "type": "object",
+          "description": "A JSON schema object which defines restriction rules for free ticket"
+        }
+      }
+    },
     "cancellation": {
       "type": "object",
       "properties": {
