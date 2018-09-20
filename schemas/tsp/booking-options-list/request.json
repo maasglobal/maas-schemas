@@ -79,8 +79,8 @@
       "description": "'to' location radius in meters",
       "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
     },
-    "legGeometry": {
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/polyline"
+    "distance": {
+      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
     },
     "extraOptions": {
       "description": "An arbitrary string passed on a per-TSP basis, e.g. user's subscription period",
