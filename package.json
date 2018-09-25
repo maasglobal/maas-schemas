@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/maasglobal/maas-schemas#readme",
   "dependencies": {
-    "ajv": "^6.5.2",
+    "ajv": "^6.5.4",
     "fast-glob": "^2.2.2"
   },
   "devDependencies": {
