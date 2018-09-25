@@ -9,7 +9,7 @@ function generateTestCases(schema, positive, cases) {
   if (positive) {
     it('positive cases', () => {
       cases.forEach(value => {
-        expect(main.validate(transform(schema), value)).to.be.an.object;
+        expect(main.validate(transform(schema), value)).to.exist;
       });
     });
   } else {
