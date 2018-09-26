@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const expect = require('chai').expect;
+const { expect } = require('chai');
 const glob = require('glob');
 const ajvFactory = require('ajv');
 
@@ -21,6 +21,7 @@ describe('Source schemas should be valid JSON Schemas', () => {
         schemaPaths.forEach(schemaPath => {
           it(`should be a able to require a valid schema ${schemaPath}`, () => {
             const filePath = path.resolve(__dirname, '..', schemaPath);
+            // eslint-disable-next-line import/no-dynamic-require
             const schema = require(filePath);
             const valid = ajv.validateSchema(schema);
             expect(ajv.errors || []).to.eql([]);

@@ -105,8 +105,8 @@ describe('address.city', () => {
     '💩',
     '',
     // Too long
-    'LRuwGi4XRMVgImvVm7OEsw58YBDsUsApuKGXrjAcQi9QDEWwFYUp2yrzspe2WHu5rGuFoSU6TKeFIf73QjEnzv5Lq6' +
-      'Wu1YTJAbN2bZws8SfwhEoDInr6K3zTgmFQEQnzaDheGZtO4IMzAGoDSUx2zw1Lv4inpE4uq6NBYELaSusrlxGM0p' +
-      'JEiUrYZwIlzGAS4MgRrOKfZIyuZLH9gARtzyKvstQZw9bMmnRE8yWPTNGKlWmYBHLjMTluZp5AcpbU',
+    'LRuwGi4XRMVgImvVm7OEsw58YBDsUsApuKGXrjAcQi9QDEWwFYUp2yrzspe2WHu5rGuFoSU6TKeFIf73QjEnzv5Lq6'
+      + 'Wu1YTJAbN2bZws8SfwhEoDInr6K3zTgmFQEQnzaDheGZtO4IMzAGoDSUx2zw1Lv4inpE4uq6NBYELaSusrlxGM0p'
+      + 'JEiUrYZwIlzGAS4MgRrOKfZIyuZLH9gARtzyKvstQZw9bMmnRE8yWPTNGKlWmYBHLjMTluZp5AcpbU',
   ]);
 });
