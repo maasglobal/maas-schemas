@@ -6,14 +6,6 @@
     "identityId": {
       "$ref": "components/units.json#/definitions/identityId"
     },
-    "opaqueId": {
-      "description": "Typically the hash of the identityId",
-      "type": "string",
-      "pattern": "^[0-9abcdefABCDEF]+$"
-    },
-    "locale": {
-      "$ref": "i18n.json#/definitions/locale"
-    },
     "firstName": {
       "description": "First name of the customer (e.g. John)",
       "$ref": "components/units.json#/definitions/personalName"
@@ -34,6 +26,19 @@
       "description": "Rough validation of a valid e-mail address",
       "$ref": "components/units.json#/definitions/email"
     },
+    "locale": {
+      "$ref": "i18n.json#/definitions/locale"
+    },
+    "appInstanceId": {
+      "description": "An id specific to a user device",
+      "type": "string",
+      "minLength": 6
+    },
+    "opaqueId": {
+      "description": "Typically the hash of the identityId",
+      "type": "string",
+      "pattern": "^[0-9abcdefABCDEF]+$"
+    },
     "note": {
       "description": "A general purpose text string forwarded to the TSP if appropriate",
       "type": "string",
@@ -43,9 +48,10 @@
       "description": "The customer's date of birth",
       "$ref": "components/units.json#/definitions/isoDate"
     },
-    "hasSubscription": {
-      "description": "Whether the customer has a recurring subscription",
-      "type": "boolean"
+    "ssid": {
+      "description": "Social Security ID",
+      "type": "string",
+      "minLength": 4
     }
   },
   "additionalProperties": false
