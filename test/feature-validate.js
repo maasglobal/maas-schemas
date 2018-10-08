@@ -33,6 +33,7 @@ describe('Schema validation', () => {
       try {
         expect(utils.validate(schema, invalidBookingResponse)).to.not.exist;
       } catch (e) {
+        expect(e.name).to.equal('ValidationError');
         expect(e).to.exist;
       }
     });
