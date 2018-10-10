@@ -110,6 +110,20 @@
       },
       "additionalProperties": false
     },
+    "personalDataAllowList": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 2
+      }
+    },
+    "personalDataRequireList": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 0
+      }
+    },
     "optionalParameters": {
       "type": "array",
       "items": {
@@ -163,6 +177,8 @@
     "branding",
     "hidden",
     "features",
+    "personalDataAllowList",
+    "personalDataRequireList",
     "optionalParameters"
   ],
   "additionalProperties": false
