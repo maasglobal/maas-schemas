@@ -15,6 +15,7 @@ function init() {
     inlineRefs: false,
     meta: false,
     multipleOfPrecision: 6,
+    removeAdditional: true,
     sanitize: false,
     sourceCode: false,
     validateSchema: false,
