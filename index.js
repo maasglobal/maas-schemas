@@ -9,16 +9,16 @@ let ajv;
 
 function init() {
   ajv = new AJV({
-    verbose: true,
-    allErrors: true,
-    validateSchema: false,
     addUsedSchema: false,
-    meta: false,
-    inlineRefs: false,
-    sourceCode: false,
+    allErrors: true,
     errorDataPath: 'property',
+    inlineRefs: false,
+    meta: false,
     multipleOfPrecision: 6,
     sanitize: false,
+    sourceCode: false,
+    validateSchema: false,
+    verbose: true,
   });
 
   Object.keys(registry).forEach(key => {
