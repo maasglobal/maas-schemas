@@ -7,24 +7,20 @@ const registry = require('./registry.js');
 
 let ajv;
 
-function init(options) {
-  ajv = new AJV(
-    Object.assign(
-      {
-        verbose: true,
-        allErrors: true,
-        validateSchema: false,
-        addUsedSchema: false,
-        meta: false,
-        inlineRefs: false,
-        sourceCode: false,
-        errorDataPath: 'property',
-        multipleOfPrecision: 6,
-        sanitize: false,
-      },
-      options
-    )
-  );
+function init() {
+  ajv = new AJV({
+    addUsedSchema: false,
+    allErrors: true,
+    errorDataPath: 'property',
+    inlineRefs: false,
+    meta: false,
+    multipleOfPrecision: 6,
+    removeAdditional: true,
+    sanitize: false,
+    sourceCode: false,
+    validateSchema: false,
+    verbose: true,
+  });
 
   Object.keys(registry).forEach(key => {
     const schema = registry[key];
@@ -38,7 +34,7 @@ function init(options) {
  * @param {Object} schema - schema json required from /schemas folder
  */
 function validate(schema, object, options = {}) {
-  if (!ajv) init(options);
+  if (!ajv) init();
   if (options.sanitize === true) {
     object = validator.sanitize(object);
   }

@@ -1,6 +1,6 @@
 'use strict';
 
-const expect = require('chai').expect;
+const { expect } = require('chai');
 const utils = require('..');
 const bookingOptionsRequest = require('./valid-booking-options-request.json');
 const bookingOptionsResponse = require('./valid-booking-options-response.json');
