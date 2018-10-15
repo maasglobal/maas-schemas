@@ -117,13 +117,6 @@
         "minLength": 2
       }
     },
-    "personalDataRequireList": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 0
-      }
-    },
     "optionalParameters": {
       "type": "array",
       "items": {
@@ -178,7 +171,6 @@
     "hidden",
     "features",
     "personalDataAllowList",
-    "personalDataRequireList",
     "optionalParameters"
   ],
   "additionalProperties": false
