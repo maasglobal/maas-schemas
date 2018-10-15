@@ -21,6 +21,11 @@
     "email": {
       "description": "Rough validation of a valid e-mail address",
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/email"
+    },
+    "profileImageUrl": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 1024
     }
   },
   "required": [ "firstName", "lastName", "phone", "email" ],
