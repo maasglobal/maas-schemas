@@ -11,6 +11,7 @@ function init() {
   ajv = new AJV({
     addUsedSchema: false,
     allErrors: true,
+    coerceTypes: true,
     errorDataPath: 'property',
     inlineRefs: false,
     meta: false,
@@ -18,6 +19,7 @@ function init() {
     removeAdditional: true,
     sanitize: false,
     sourceCode: false,
+    useDefaults: true,
     validateSchema: false,
     verbose: true,
   });
