@@ -63,10 +63,11 @@
         },
         "toRadius": {
           "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
-        },
-        "customer": {
-          "description": "JSON encoded object which must be validated against /core/customer.json schema",
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/jsonParam"
+        }
+      },
+      "patternProperties": {
+        "^(optionalParameters).+": {
+          "type": ["string", "number", "boolean"]
         }
       }
     }
