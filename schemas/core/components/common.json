@@ -52,6 +52,22 @@
       "type": "string",
       "minLength": 3,
       "maxLength": 255
+    },
+    "appInstanceId": {
+      "description": "An id specific to a user device",
+      "type": "string",
+      "minLength": 6
+    },
+    "opaqueId": {
+      "description": "Typically the hash of the identityId",
+      "type": "string",
+      "pattern": "^[0-9abcdefABCDEF]+$"
+    },
+    "ssid": {
+      "description": "Social Security ID",
+      "type": "string",
+      "minLength": 4
     }
+
   }
 }

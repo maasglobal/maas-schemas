@@ -31,13 +31,11 @@
     },
     "appInstanceId": {
       "description": "An id specific to a user device",
-      "type": "string",
-      "minLength": 6
+      "$ref": "components/common.json#/definitions/appInstanceId"
     },
     "opaqueId": {
       "description": "Typically the hash of the identityId",
-      "type": "string",
-      "pattern": "^[0-9abcdefABCDEF]+$"
+      "$ref": "components/common.json#/definitions/opaqueId"
     },
     "dob": {
       "description": "The customer's date of birth",
@@ -45,8 +43,7 @@
     },
     "ssid": {
       "description": "Social Security ID",
-      "type": "string",
-      "minLength": 4
+      "$ref": "components/common.json#/definitions/ssid"
     }
   },
   "additionalProperties": false
