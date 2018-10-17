@@ -10,7 +10,7 @@
       "items": {
         "properties": {
           "identifier": {
-            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/deviceToken"
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/deviceToken"
           },
           "type": {
              "enum": ["ios", "android"]

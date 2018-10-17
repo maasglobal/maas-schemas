@@ -47,7 +47,7 @@
       "$ref": "product.json"
     },
     "signature": {
-      "$ref": "components/units.json#/definitions/signature"
+      "$ref": "components/common.json#/definitions/signature"
     },
     "configurator": {
       "$ref": "components/configurator.json"
@@ -68,7 +68,7 @@
       "description": "MaaS response may return any subset of legCore",
       "properties": {
         "signature": {
-          "$ref": "components/units.json#/definitions/signature"
+          "$ref": "components/common.json#/definitions/signature"
         },
         "from": {
           "$ref": "leg.json#/definitions/legCore/properties/from"

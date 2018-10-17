@@ -11,16 +11,16 @@
       "$ref": "components/units.json#/definitions/identityId"
     },
     "phone": {
-      "$ref": "components/units.json#/definitions/phone"
+      "$ref": "components/common.json#/definitions/phone"
     },
     "email": {
-      "$ref": "components/units.json#/definitions/email"
+      "$ref": "components/common.json#/definitions/email"
     },
     "firstName": {
-      "$ref": "components/units.json#/definitions/personalName"
+      "$ref": "components/common.json#/definitions/personalName"
     },
     "lastName": {
-      "$ref": "components/units.json#/definitions/personalName"
+      "$ref": "components/common.json#/definitions/personalName"
     },
     "city": {
       "$ref": "components/address.json#/definitions/city"

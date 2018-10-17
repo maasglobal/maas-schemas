@@ -84,7 +84,7 @@
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/duration"
         },
         "agencyId": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/agencyId"
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
         }
       },
       "additionalProperties": false,

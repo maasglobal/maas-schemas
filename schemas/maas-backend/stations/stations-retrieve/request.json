@@ -10,7 +10,7 @@
       "type": "object",
       "properties": {
         "agencyId": {
-          "$ref": "http://maasglobal.com/core/components/agencyId.json"
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
         },
         "stationId": {
           "type": "string",

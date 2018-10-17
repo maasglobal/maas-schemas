@@ -45,10 +45,10 @@
           "$ref": "#/definitions/identityId"
         },
         "firstName": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/personalName"
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
         },
         "lastName": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/personalName"
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
         },
         "address": {
           "$ref": "http://maasglobal.com/core/components/address.json#/definitions/address"
@@ -63,10 +63,10 @@
           "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
         },
         "phone": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/phone"
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone"
         },
         "email": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/email"
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
         }
       }
     },

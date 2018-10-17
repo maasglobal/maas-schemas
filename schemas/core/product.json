@@ -28,7 +28,7 @@
       "minimum": 0
     },
     "agencyId": {
-      "$ref": "components/units.json#/definitions/agencyId"
+      "$ref": "components/common.json#/definitions/agencyId"
     },
     "tspProductId": {
       "type": "string",

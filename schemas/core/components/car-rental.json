@@ -88,11 +88,11 @@
     },
     "pickupInfo": {
       "description": "Pickup instructions in HTML format",
-      "$ref": "units.json#/definitions/htmlBlock"
+      "$ref": "common.json#/definitions/htmlBlock"
     },
     "returnInfo": {
       "description": "Return Instructions in HTML format",
-      "$ref": "units.json#/definitions/htmlBlock"
+      "$ref": "common.json#/definitions/htmlBlock"
     },
     "startEndGeoRegionUrl": {
       "description": "Region in which car can be rented and returned. Url to GeoJSON file",

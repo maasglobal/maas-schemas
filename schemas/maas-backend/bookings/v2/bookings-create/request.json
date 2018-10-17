@@ -10,7 +10,7 @@
       "type": "object",
       "properties": {
         "paymentSourceId": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/paymentSourceId"
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
         },
         "booking": {
           "$ref": "http://maasglobal.com/maas-backend/bookings/bookings-agency-options/response.json#/definitions/option"

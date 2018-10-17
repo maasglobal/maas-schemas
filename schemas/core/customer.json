@@ -8,23 +8,23 @@
     },
     "firstName": {
       "description": "First name of the customer (e.g. John)",
-      "$ref": "components/units.json#/definitions/personalName"
+      "$ref": "components/common.json#/definitions/personalName"
     },
     "lastName": {
       "description": "Last name of the customer (e.g. Doe)",
-      "$ref": "components/units.json#/definitions/personalName"
+      "$ref": "components/common.json#/definitions/personalName"
     },
     "phone": {
       "description": "ITU-T E.164 phone number",
-      "$ref": "components/units.json#/definitions/phone"
+      "$ref": "components/common.json#/definitions/phone"
     },
     "rawPhone": {
       "description": "Slightly looser definition of phone number",
-      "$ref": "components/units.json#/definitions/rawPhone"
+      "$ref": "components/common.json#/definitions/rawPhone"
     },
     "email": {
       "description": "Rough validation of a valid e-mail address",
-      "$ref": "components/units.json#/definitions/email"
+      "$ref": "components/common.json#/definitions/email"
     },
     "locale": {
       "$ref": "i18n.json#/definitions/locale"
@@ -38,11 +38,6 @@
       "description": "Typically the hash of the identityId",
       "type": "string",
       "pattern": "^[0-9abcdefABCDEF]+$"
-    },
-    "note": {
-      "description": "A general purpose text string forwarded to the TSP if appropriate",
-      "type": "string",
-      "minLength": 0
     },
     "dob": {
       "description": "The customer's date of birth",

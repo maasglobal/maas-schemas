@@ -70,7 +70,7 @@
         },
         "customer": {
           "description": "JSON encoded object which must be validated against /core/customer.json schema",
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/jsonParam"
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/jsonParam"
         }
       },
       "patternProperties": {

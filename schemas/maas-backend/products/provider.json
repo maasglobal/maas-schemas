@@ -9,7 +9,7 @@
       "maxLength": 255
     },
     "agencyId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/agencyId"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
     },
     "groupId": {
       "type": "string",
