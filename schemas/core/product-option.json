@@ -40,7 +40,7 @@
           "$ref": "components/configurator.json"
         },
         "customer": {
-          "$ref": "customer.json"
+          "$ref": "booking-option.json#/definitions/customer"
         }
       }
     },
@@ -80,7 +80,7 @@
           "$ref": "booking.json#/definitions/meta"
         },
         "customer": {
-          "$ref": "customer.json"
+          "$ref": "booking-option.json#/definitions/customer"
         }
       }
     },
@@ -117,7 +117,7 @@
           "$ref": "booking.json#/definitions/meta"
         },
         "customer": {
-          "$ref": "customer.json"
+          "$ref": "booking-option.json#/definitions/customer"
         }
       }
     }

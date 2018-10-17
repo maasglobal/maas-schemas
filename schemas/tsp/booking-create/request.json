@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "leg": {
-      "$ref": "http://maasglobal.com/tsp/booking-option.json#/definitions/leg"
+      "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/leg"
     },
     "meta": {
       "$ref": "http://maasglobal.com/core/booking.json#/definitions/meta"
@@ -16,7 +16,7 @@
       "$ref": "http://maasglobal.com/core/booking.json#/properties/customer"
     },
     "tspProduct": {
-      "$ref": "http://maasglobal.com/tsp/booking-option.json#/definitions/tspProduct"
+      "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/tspProduct"
     },
     "configurator": {
       "$ref": "http://maasglobal.com/core/components/configurator.json"

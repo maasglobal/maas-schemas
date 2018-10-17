@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/tsp/booking-option.json",
+  "$id": "http://maasglobal.com/core/booking-option.json",
   "description": "MaaS single TSP adapter option",
   "oneOf": [
     {
@@ -30,8 +30,7 @@
           "$ref": "http://maasglobal.com/core/components/cost.json"
         },
         "customer": {
-          "description": "MaaS customer data",
-          "$ref": "http://maasglobal.com/core/customer.json"
+          "$ref": "#/definitions/customer"
         }
       }
     },
@@ -55,9 +54,55 @@
           "$ref": "http://maasglobal.com/core/components/configurator.json"
         },
         "customer": {
-          "description": "MaaS customer data",
-          "$ref": "http://maasglobal.com/core/customer.json"
+          "$ref": "#/definitions/customer"
         }
+      }
+    },
+    "customer": {
+      "description": "MaaS customer data",
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "description": "First name of the customer (e.g. John)",
+          "$ref": "components/common.json#/definitions/personalName"
+        },
+        "lastName": {
+          "description": "Last name of the customer (e.g. Doe)",
+          "$ref": "components/common.json#/definitions/personalName"
+        },
+        "phone": {
+          "description": "ITU-T E.164 phone number",
+          "$ref": "components/common.json#/definitions/phone"
+        },
+        "rawPhone": {
+          "description": "Slightly looser definition of phone number",
+          "$ref": "components/common.json#/definitions/rawPhone"
+        },
+        "email": {
+          "description": "Rough validation of a valid e-mail address",
+          "$ref": "components/common.json#/definitions/email"
+        },
+        "locale": {
+          "$ref": "i18n.json#/definitions/locale"
+        },
+        "appInstanceId": {
+          "description": "An id specific to a user device",
+          "$ref": "components/common.json#/definitions/appInstanceId"
+        },
+        "opaqueId": {
+          "description": "Typically the hash of the identityId",
+          "$ref": "components/common.json#/definitions/opaqueId"
+        },
+        "dob": {
+          "description": "The customer's date of birth",
+          "$ref": "components/units.json#/definitions/isoDate"
+        },
+        "ssid": {
+          "description": "Social Security ID",
+          "$ref": "components/common.json#/definitions/ssid"
+        },
+        "additionalProperties": false,
+        "required": ["firstName", "lastName", "phone", "email"]
       }
     },
     "leg": {
