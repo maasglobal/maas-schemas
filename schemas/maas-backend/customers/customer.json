@@ -22,11 +22,30 @@
       "description": "Rough validation of a valid e-mail address",
       "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
     },
-    "profileImageUrl": {
-      "type": "string",
-      "minLength": 10,
-      "maxLength": 1024
+    "locale": {
+      "$ref": "i18n.json#/definitions/locale"
+    },
+    "appInstanceId": {
+      "description": "An id specific to a user device",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/appInstanceId"
+    },
+    "opaqueId": {
+      "description": "Typically the hash of the identityId",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/opaqueId"
+    },
+    "dob": {
+      "description": "The customer's date of birth",
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+    },
+    "ssid": {
+      "description": "Social Security ID",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/ssid"
     }
+  },
+  "profileImageUrl": {
+    "type": "string",
+    "minLength": 10,
+    "maxLength": 1024
   },
   "required": [ "firstName", "lastName", "phone", "email" ],
   "additionalProperties": false
