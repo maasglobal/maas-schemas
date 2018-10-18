@@ -6,52 +6,55 @@
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
-    "firstName": {
-      "description": "First name of the customer (e.g. John)",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+    "profileImageUrl": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 1024
     },
-    "lastName": {
-      "description": "Last name of the customer (e.g. Doe)",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
-    },
-    "phone": {
-      "description": "ITU-T E.164 phone number",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone"
-    },
-    "email": {
-      "description": "Rough validation of a valid e-mail address",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
-    },
-    "dob": {
-      "oneOf": [
-        {
+    "personalData": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "description": "First name of the customer (e.g. John)",
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+        },
+        "lastName": {
+          "description": "Last name of the customer (e.g. Doe)",
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+        },
+        "phone": {
+          "description": "ITU-T E.164 phone number",
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone"
+        },
+        "email": {
+          "description": "Rough validation of a valid e-mail address",
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
+        },
+        "city": {
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
+        },
+        "country": {
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
+        },
+        "zipCode": {
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+        },
+        "dob": {
           "description": "The customer's date of birth",
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
         },
-        {
-          "description": "A flag indicating the presence of the customer's date of birth",
-          "type": "boolean"
-        }
-      ]
-    },
-    "ssid": {
-      "oneOf": [
-        {
+        "ssid": {
           "description": "Social Security ID",
           "$ref": "http://maasglobal.com/core/components/common.json#/definitions/ssid"
-        },
-        {
-          "description": "A flag indicating the presence of the customer's date of birth",
-          "type": "boolean"
         }
-      ]
+      },
+      "required": [],
+      "additionalProperties": false
     }
   },
-  "profileImageUrl": {
-    "type": "string",
-    "minLength": 10,
-    "maxLength": 1024
-  },
-  "required": [ "firstName", "lastName", "phone", "email" ],
+  "required": [
+    "identityId",
+    "personalData"
+  ],
   "additionalProperties": false
 }
