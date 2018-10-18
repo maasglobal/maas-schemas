@@ -56,6 +56,15 @@
           "description": "Rough validation of a valid e-mail address",
           "$ref": "components/common.json#/definitions/email"
         },
+        "city": {
+          "$ref": "components/address.json#/definitions/city"
+        },
+        "country": {
+          "$ref": "components/address.json#/definitions/country"
+        },
+        "zipCode": {
+          "$ref": "components/address.json#/definitions/zipCode"
+        },
         "locale": {
           "$ref": "components/i18n.json#/definitions/locale"
         },

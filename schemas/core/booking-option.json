@@ -93,6 +93,15 @@
           "description": "Typically the hash of the identityId",
           "$ref": "components/common.json#/definitions/opaqueId"
         },
+        "city": {
+          "$ref": "components/address.json#/definitions/city"
+        },
+        "country": {
+          "$ref": "components/address.json#/definitions/country"
+        },
+        "zipCode": {
+          "$ref": "components/address.json#/definitions/zipCode"
+        },
         "dob": {
           "description": "The customer's date of birth",
           "$ref": "components/units.json#/definitions/isoDate"
