@@ -57,7 +57,7 @@
           "$ref": "components/common.json#/definitions/email"
         },
         "locale": {
-          "$ref": "i18n.json#/definitions/locale"
+          "$ref": "components/i18n.json#/definitions/locale"
         },
         "appInstanceId": {
           "description": "An id specific to a user device",

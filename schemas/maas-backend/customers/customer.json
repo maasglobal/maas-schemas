@@ -22,24 +22,29 @@
       "description": "Rough validation of a valid e-mail address",
       "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
     },
-    "locale": {
-      "$ref": "i18n.json#/definitions/locale"
-    },
-    "appInstanceId": {
-      "description": "An id specific to a user device",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/appInstanceId"
-    },
-    "opaqueId": {
-      "description": "Typically the hash of the identityId",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/opaqueId"
-    },
     "dob": {
-      "description": "The customer's date of birth",
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+      "oneOf": [
+        {
+          "description": "The customer's date of birth",
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+        },
+        {
+          "description": "A flag indicating the presence of the customer's date of birth",
+          "type": "boolean"
+        }
+      ]
     },
     "ssid": {
-      "description": "Social Security ID",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/ssid"
+      "oneOf": [
+        {
+          "description": "Social Security ID",
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/ssid"
+        },
+        {
+          "description": "A flag indicating the presence of the customer's date of birth",
+          "type": "boolean"
+        }
+      ]
     }
   },
   "profileImageUrl": {
