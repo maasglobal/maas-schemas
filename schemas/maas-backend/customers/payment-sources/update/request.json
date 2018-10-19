@@ -1,6 +1,6 @@
 {
   "$id": "http://maasglobal.com/maas-backend/customers/payment-sources/update/request.json",
-  "description": "MaaS customer payment sources create",
+  "description": "MaaS customer payment sources update",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -25,9 +25,7 @@
         "paymentSource": {
           "type": "object",
           "properties": {
-            "isDefault": {
-              "type": { "enum": [ true ] }
-            },
+            "isDefault": { "enum": [ true ] },
             "alias": {
               "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias"
             }
