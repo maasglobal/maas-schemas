@@ -110,7 +110,14 @@
       },
       "additionalProperties": false
     },
-    "personalDataAllowList": {
+    "personalDataOptionsAllowList": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 0
+      }
+    },
+    "personalDataCreateAllowList": {
       "type": "array",
       "items": {
         "type": "string",
@@ -170,7 +177,8 @@
     "branding",
     "hidden",
     "features",
-    "personalDataAllowList",
+    "personalDataOptionsAllowList",
+    "personalDataCreateAllowList",
     "optionalParameters"
   ],
   "additionalProperties": false
