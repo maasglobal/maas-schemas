@@ -7,7 +7,6 @@
   "properties": {
     "paymentSource": {
       "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/paymentSource"
-    },
-    "debug": { "type": "object" }
+    }
   }
 }
