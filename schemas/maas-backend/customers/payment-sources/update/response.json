@@ -1,0 +1,13 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/payment-sources/update/response.json",
+  "description": "MaaS customer payment sources update response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [ "paymentSource" ],
+  "properties": {
+    "paymentSource": {
+      "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/paymentSource"
+    },
+    "debug": { "type": "object" }
+  }
+}
