@@ -59,6 +59,9 @@
         "billingZip": {
           "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
         },
+        "isValid": {
+          "type": "boolean"
+        },
         "isDefault": {
           "type": "boolean"
         },
