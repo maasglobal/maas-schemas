@@ -6,6 +6,7 @@
   "required": [
     "identityId",
     "customerId",
+    "paymentSourceId",
     "payload",
     "headers"
   ],
