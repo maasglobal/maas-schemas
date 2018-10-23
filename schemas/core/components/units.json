@@ -91,7 +91,7 @@
       "description": "Rough validation of a valid e-mail address, see https://davidcel.is/posts/stop-validating-email-addresses-with-regex/",
       "type": "string",
       "pattern": "^.+@.+\\..+$",
-      "maxLength": 64
+      "maxLength": 255
     },
     "paymentSourceId": {
       "type": "string",
