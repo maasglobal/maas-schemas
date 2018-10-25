@@ -3,9 +3,6 @@
   "description": "MaaS customer schema",
   "type": "object",
   "properties": {
-    "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
-    },
     "profileImageUrl": {
       "type": "string",
       "minLength": 10,
@@ -52,9 +49,6 @@
       "additionalProperties": false
     }
   },
-  "required": [
-    "identityId",
-    "personalData"
-  ],
+  "required": [],
   "additionalProperties": false
 }
