@@ -67,7 +67,24 @@
       "description": "Social Security ID",
       "type": "string",
       "minLength": 4
+    },
+    "personalDataAllowItem": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "allOf",
+            "anyOf"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLemgth": 1
+          }
+        }
+      }
     }
-
   }
 }

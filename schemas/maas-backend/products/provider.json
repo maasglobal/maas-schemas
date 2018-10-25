@@ -110,18 +110,16 @@
       },
       "additionalProperties": false
     },
-    "personalDataOptionsAllowList": {
+    "personalDataOptionsAllow": {
       "type": "array",
       "items": {
-        "type": "string",
-        "minLength": 0
+        "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalDataAllowItem"
       }
     },
-    "personalDataCreateAllowList": {
+    "personalDataCreateAllow": {
       "type": "array",
       "items": {
-        "type": "string",
-        "minLength": 2
+        "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalDataAllowItem"
       }
     },
     "optionalParameters": {
@@ -177,8 +175,8 @@
     "branding",
     "hidden",
     "features",
-    "personalDataOptionsAllowList",
-    "personalDataCreateAllowList",
+    "personalDataOptionsAllow",
+    "personalDataCreateAllow",
     "optionalParameters"
   ],
   "additionalProperties": false
