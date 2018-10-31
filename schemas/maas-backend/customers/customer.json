@@ -27,6 +27,9 @@
           "description": "Rough validation of a valid e-mail address",
           "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
         },
+        "address": {
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/address"
+        },
         "city": {
           "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
         },

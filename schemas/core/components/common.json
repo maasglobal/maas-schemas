@@ -63,6 +63,15 @@
       "type": "string",
       "pattern": "^[0-9abcdefABCDEF]+$"
     },
+    "clientId": {
+      "description": "An id indicating the source of the client",
+      "type": {
+        "enum": [
+          "whim",
+          "wechat"
+        ]
+      }
+    },
     "ssid": {
       "description": "Social Security ID",
       "type": "string",
