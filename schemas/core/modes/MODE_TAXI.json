@@ -55,6 +55,9 @@
         },
         "phone": { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone" }
       }
+    },
+    "customerNote": {
+      "type": "string"
     }
   },
   "additionalProperties": false
