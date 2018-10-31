@@ -65,12 +65,8 @@
     },
     "clientId": {
       "description": "An id indicating the source of the client",
-      "type": {
-        "enum": [
-          "whim",
-          "wechat"
-        ]
-      }
+      "type": "string",
+      "enum": ["whim", "wechat"]
     },
     "ssid": {
       "description": "Social Security ID",
