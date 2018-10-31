@@ -90,6 +90,10 @@
           }
         }
       }
+    },
+    "customerNote": {
+      "description": "A free-form text note from the customer to the TSP",
+      "type": "string"
     }
   }
 }
