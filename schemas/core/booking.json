@@ -86,7 +86,7 @@
         }
       },
       "additionalProperties": false,
-      "required": ["identityId", "firstName", "lastName", "phone", "email"]
+      "required": ["firstName", "lastName", "phone", "email"]
     },
     "product": {
       "$ref": "product.json"
