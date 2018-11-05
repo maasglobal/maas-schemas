@@ -113,13 +113,13 @@
     "personalDataOptionsAllow": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalDataAllowItem"
+        "$ref": "http://maasglobal.com/core/components/personalDataAllowItem.json"
       }
     },
     "personalDataCreateAllow": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalDataAllowItem"
+        "$ref": "http://maasglobal.com/core/components/personalDataAllowItem.json"
       }
     },
     "optionalParameters": {
