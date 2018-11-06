@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/personalDataAllow.json",
+  "$id": "http://maasglobal.com/core/components/personalDataAllowItem.json",
   "description": "MaaS personal data permissions specification",
   "type": "object",
   "properties": {
