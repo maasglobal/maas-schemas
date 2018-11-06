@@ -18,7 +18,7 @@
           "$ref": "http://maasglobal.com/core/itinerary.json"
         },
         "paymentSourceId": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/paymentSourceId"
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
         },
         "outward": {
           "$ref": "#/definitions/payload"

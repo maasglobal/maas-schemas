@@ -4,49 +4,60 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "components/units.json#/definitions/identityId"
-    },
-    "opaqueId": {
-      "description": "Typically the hash of the identityId",
-      "type": "string",
-      "pattern": "^[0-9abcdefABCDEF]+$"
-    },
-    "locale": {
-      "$ref": "i18n.json#/definitions/locale"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "firstName": {
       "description": "First name of the customer (e.g. John)",
-      "$ref": "components/units.json#/definitions/personalName"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
     },
     "lastName": {
       "description": "Last name of the customer (e.g. Doe)",
-      "$ref": "components/units.json#/definitions/personalName"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
     },
     "phone": {
       "description": "ITU-T E.164 phone number",
-      "$ref": "components/units.json#/definitions/phone"
-    },
-    "rawPhone": {
-      "description": "Slightly looser definition of phone number",
-      "$ref": "components/units.json#/definitions/rawPhone"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone"
     },
     "email": {
       "description": "Rough validation of a valid e-mail address",
-      "$ref": "components/units.json#/definitions/email"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
     },
-    "note": {
-      "description": "A general purpose text string forwarded to the TSP if appropriate",
-      "type": "string",
-      "minLength": 0
+    "address": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/address"
+    },
+    "city": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
+    },
+    "country": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
+    },
+    "zipCode": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+    },
+    "locale": {
+      "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale"
+    },
+    "appInstanceId": {
+      "description": "An id specific to a user device",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/appInstanceId"
+    },
+    "opaqueId": {
+      "description": "Typically the hash of the identityId",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/opaqueId"
+    },
+    "clientId": {
+      "description": "An id indicating the source of the client",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/clientId"
     },
     "dob": {
       "description": "The customer's date of birth",
-      "$ref": "components/units.json#/definitions/isoDate"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
     },
-    "hasSubscription": {
-      "description": "Whether the customer has a recurring subscription",
-      "type": "boolean"
+    "ssid": {
+      "description": "Social Security ID",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/ssid"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "required": ["firstName", "lastName", "phone", "email"]
 }

@@ -27,7 +27,7 @@
       "$ref": "address.json#/definitions/country"
     },
     "agencyId": {
-      "$ref": "agencyId.json"
+      "$ref": "common.json#/definitions/agencyId"
     },
     "openingHours": {
       "description": "Opening hour of the station, object format is left for TSP to decide",

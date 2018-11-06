@@ -13,7 +13,7 @@
           "description": "Query by radius",
           "properties": {
             "agencyId": {
-              "$ref": "http://maasglobal.com/core/components/agencyId.json"
+              "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
             },
             "lat": {
               "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude"
@@ -36,7 +36,7 @@
           "description": "Query by name",
           "properties": {
             "agencyId": {
-              "$ref": "http://maasglobal.com/core/components/agencyId.json"
+              "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
             },
             "name": {
               "type": "string",

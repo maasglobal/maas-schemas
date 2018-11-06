@@ -92,9 +92,10 @@
       "type": "string",
       "minLength": 0
     },
-    "customer": {
-      "description": "JSON encoded object which should be validated against /core/customer.json schema",
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/jsonParam"
+    "patternProperties": {
+      "^(optionalParameters).+": {
+        "type": ["string", "number", "boolean"]
+      }
     }
   },
   "required": ["startTime", "from"],

@@ -31,10 +31,10 @@
           "$ref": "components/units.json#/definitions/uuid"
         },
         "signature": {
-          "$ref": "components/units.json#/definitions/signature"
+          "$ref": "components/common.json#/definitions/signature"
         },
         "tspProduct": {
-          "$ref": "http://maasglobal.com/tsp/booking-option.json#/definitions/tspProduct"
+          "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/tspProduct"
         },
         "productOption": {
           "description": "Index of the productOption used in the itinerary's productOptions",
@@ -105,7 +105,7 @@
           "maxLength": 255
         },
         "agencyId": {
-          "$ref": "components/units.json#/definitions/agencyId"
+          "$ref": "components/common.json#/definitions/agencyId"
         },
         "legGeometry": {
           "type": "object",

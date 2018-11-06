@@ -53,7 +53,7 @@
           "minLength": 1,
           "maxLength": 64
         },
-        "phone": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/phone" }
+        "phone": { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone" }
       }
     }
   },

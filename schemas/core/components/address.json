@@ -16,26 +16,19 @@
     },
     "firstName": {
       "description": "First name of the customer (e.g. John)",
-      "type": "string",
-      "pattern": "^(?:\\p{L})+(?:[`'´\\-\\.,]?\\s?(?:\\p{L})*)*$",
-      "maxLength": 255
+      "$ref": "common.json#/definitions/personalName"
     },
     "lastName": {
       "description": "Last name of the customer (e.g. Doe)",
-      "type": "string",
-      "pattern": "^(?:\\p{L})+(?:[`'´\\-\\.,]?\\s?(?:\\p{L})*)*$",
-      "maxLength": 255
+      "$ref": "common.json#/definitions/personalName"
     },
     "phone": {
-      "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
-      "type": "string",
-      "pattern": "^\\+(?:\\d){6,14}\\d$"
+      "description": "ITU-T E.164 phone number",
+      "$ref": "common.json#/definitions/phone"
     },
     "email": {
-      "description": "Rough validation of a valid e-mail address, see https://davidcel.is/posts/stop-validating-email-addresses-with-regex/",
-      "type": "string",
-      "pattern": "^.+@.+\\..+$",
-      "maxLength": 64
+      "description": "Rough validation of a valid e-mail address",
+      "$ref": "common.json#/definitions/email"
     },
     "address": {
       "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",

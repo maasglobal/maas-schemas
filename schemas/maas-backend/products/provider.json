@@ -9,7 +9,7 @@
       "maxLength": 255
     },
     "agencyId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/agencyId"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
     },
     "groupId": {
       "type": "string",
@@ -110,6 +110,18 @@
       },
       "additionalProperties": false
     },
+    "personalDataOptionsAllow": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/core/components/personalDataAllowItem.json"
+      }
+    },
+    "personalDataCreateAllow": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/core/components/personalDataAllowItem.json"
+      }
+    },
     "optionalParameters": {
       "type": "array",
       "items": {
@@ -163,6 +175,8 @@
     "branding",
     "hidden",
     "features",
+    "personalDataOptionsAllow",
+    "personalDataCreateAllow",
     "optionalParameters"
   ],
   "additionalProperties": false

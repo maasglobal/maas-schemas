@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/tsp/booking-option.json",
+  "$id": "http://maasglobal.com/core/booking-option.json",
   "description": "MaaS single TSP adapter option",
   "oneOf": [
     {
@@ -30,8 +30,7 @@
           "$ref": "http://maasglobal.com/core/components/cost.json"
         },
         "customer": {
-          "description": "MaaS customer data",
-          "$ref": "http://maasglobal.com/core/customer.json"
+          "$ref": "#/definitions/customer"
         }
       }
     },
@@ -55,10 +54,13 @@
           "$ref": "http://maasglobal.com/core/components/configurator.json"
         },
         "customer": {
-          "description": "MaaS customer data",
-          "$ref": "http://maasglobal.com/core/customer.json"
+          "$ref": "#/definitions/customer"
         }
       }
+    },
+    "customer": {
+      "description": "MaaS booking customer",
+      "$ref": "http://maasglobal.com/core/customer.json"
     },
     "leg": {
       "type": "object",
@@ -84,7 +86,7 @@
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/duration"
         },
         "agencyId": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/agencyId"
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
         }
       },
       "additionalProperties": false,

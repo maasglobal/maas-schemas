@@ -17,7 +17,7 @@
       "$ref": "components/units.json#/definitions/identityId"
     },
     "signature": {
-      "$ref": "components/units.json#/definitions/signature"
+      "$ref": "components/common.json#/definitions/signature"
     },
     "state": {
       "$ref": "components/state.json#/definitions/itineraryState"

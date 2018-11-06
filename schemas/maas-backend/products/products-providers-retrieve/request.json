@@ -19,7 +19,7 @@
     "payload": {
       "type": "object",
       "properties": {
-        "agencyId": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/agencyId" }
+        "agencyId": { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId" }
       },
       "required": [ "agencyId" ]
     }
