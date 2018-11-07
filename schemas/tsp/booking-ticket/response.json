@@ -8,11 +8,11 @@
     },
     "type": {
       "type": "string",
-      "enum": ["html","svg"]
+      "enum": ["html","pdf","svg"]
     },
     "contentType": {
       "type": "string",
-      "enum": ["image/svg+xml","text/html"]
+      "enum": ["application/pdf","image/svg+xml","text/html"]
     }
   },
   "required": [
