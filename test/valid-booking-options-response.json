@@ -1,10 +1,6 @@
 {
   "options": [
     {
-      "cost": {
-        "amount": 16.7,
-        "currency": "EUR"
-      },
       "terms": {
       },
       "meta": {

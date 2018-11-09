@@ -12,7 +12,7 @@
   "definitions": {
     "contentWithCost": {
       "type": "object",
-      "required": ["leg", "meta", "terms", "tspProduct", "cost"],
+      "required": ["leg", "meta", "terms", "tspProduct"],
       "properties": {
         "leg": {
           "$ref": "#/definitions/leg"
