@@ -60,7 +60,12 @@
     },
     "ssid": {
       "description": "Social Security ID",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/ssid"
+      "anyOf": [
+        { "type": "boolean" },
+        {
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/ssid"
+        }
+      ]
     }
   },
   "additionalProperties": false,
