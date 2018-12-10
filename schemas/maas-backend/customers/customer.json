@@ -40,12 +40,22 @@
           "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
         },
         "dob": {
-          "description": "The customer's date of birth",
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+          "description": "The customer's date of birth or boolean indicating if the value is already in DB",
+          "anyOf": [
+            { "type": "boolean" },
+            {
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+            }
+          ]
         },
         "ssid": {
           "description": "Social Security ID",
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/ssid"
+          "anyOf": [
+            { "type": "boolean" },
+            {
+              "$ref": "http://maasglobal.com/core/components/common.json#/definitions/ssid"
+            }
+          ]
         }
       },
       "required": [],
