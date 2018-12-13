@@ -11,7 +11,8 @@
       "type": "object",
       "properties": {
         "avainpay": { "$ref": "#/definitions/avainpayPaymentParameters" }
-      }
+      },
+      "additionalProperties": false
     },
     "debug": {
       "type": "object",
@@ -64,7 +65,8 @@
           "description": "WeChat's message signature",
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }
