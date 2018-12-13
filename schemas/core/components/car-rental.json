@@ -70,7 +70,14 @@
           ]
         },
         "classification": {
-          "$ref": "ACRISS.json"
+          "anyOf": [
+            {
+              "$ref": "ACRISS.json"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "registrationPlate": {
           "description": "Registration plate (e.g. if we know the actual car already)",
