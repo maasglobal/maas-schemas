@@ -4,6 +4,7 @@ const { expect } = require('chai');
 const utils = require('..');
 const bookingOptionsRequest = require('./valid-booking-options-request.json');
 const bookingOptionsResponse = require('./valid-booking-options-response.json');
+const validBookingResponseWithPaymentParameters = require('./valid-booking-response-v2-payment-parameters.json');
 const validBookingResponse = require('./valid-booking-response.json');
 const bookingTicketRequestRequest = require('./valid-booking-ticket-request.json');
 const bookingTicketRequestResponse = require('./valid-booking-ticket-response.json');
@@ -68,6 +69,16 @@ describe('Schema validation', () => {
 
     it('should succeed without error', () => {
       expect(utils.validate(schema, bookingTicketRequestResponse)).to.exist;
+    });
+  });
+
+  describe('validate schemas booking response schema with paymentParameters', () => {
+    const schema = require('../schemas/maas-backend/bookings/v2/bookings-create/response.json');
+
+    it('should succeed without error', () => {
+      const validated = utils.validate(schema, validBookingResponseWithPaymentParameters);
+      expect(validated).to.exist;
+      expect(validated.paymentParameters).to.deep.equal(validBookingResponseWithPaymentParameters.paymentParameters);
     });
   });
 });
