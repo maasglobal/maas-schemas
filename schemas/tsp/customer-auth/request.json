@@ -4,11 +4,15 @@
   "type": "object",
   "properties": {
     "nonce": {
-      "$ref": "http://maasglobal.com/core/components/common#/definitions/nonce"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/nonce"
+    },
+    "returnUrl": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
     }
   },
   "required": [
-    "nonce"
+    "nonce",
+    "returnUrl"
   ],
   "additionalProperties": false
 }
