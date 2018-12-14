@@ -1,0 +1,14 @@
+{
+  "$id": "http://maasglobal.com/tsp/customer-auth/response.json",
+  "description": "Response schema for initiating customer authorization for TSP",
+  "type": "object",
+  "properties": {
+    "nonce": {
+      "$ref": "http://maasglobal.com/core/components/common#/definitions/nonce"
+    }
+  },
+  "required": [
+    "authUrl"
+  ],
+  "additionalProperties": false
+}
