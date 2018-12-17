@@ -16,6 +16,9 @@
       "$ref": "http://maasglobal.com/core/error.json"
     }
   },
-  "required": ["authToken", "validTo", "nonce"],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "oneOf": [
+    { "required": ["authToken", "validTo", "nonce"] },
+    { "required": ["error"] }
+  ]
 }
