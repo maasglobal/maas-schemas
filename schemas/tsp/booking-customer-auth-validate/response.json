@@ -1,0 +1,18 @@
+{
+  "$id": "http://maasglobal.com/tsp/customer-auth-validate/response.json",
+  "description": "Response schema for completing customer authorization for TSP",
+  "type": "object",
+  "properties": {
+    "authToken": {
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/authToken"
+    },
+    "validTo": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+    },
+    "nonce": {
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/nonce"
+    }
+  },
+  "required": ["authToken", "validTo", "nonce"],
+  "additionalProperties": false
+}

@@ -72,6 +72,18 @@
       "description": "Social Security ID",
       "type": "string",
       "minLength": 4
+    },
+    "authToken": {
+      "description": "Authentication Token",
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 255
+    },
+    "state": {
+      "description": "Authentication Response State",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
     }
   }
 }
