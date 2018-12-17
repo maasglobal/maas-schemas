@@ -76,7 +76,8 @@
     "nonce": {
       "description": "Nonce value",
       "type": "string",
-      "minLength": 255
+      "minLength": 32,
+      "maxLength": 8192
     }
   }
 }
