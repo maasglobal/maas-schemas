@@ -11,6 +11,9 @@
     },
     "nonce": {
       "$ref": "http://maasglobal.com/core/components/common.json#/definitions/nonce"
+    },
+    "error": {
+      "$ref": "http://maasglobal.com/core/components/error.json"
     }
   },
   "required": ["authToken", "validTo", "nonce"],
