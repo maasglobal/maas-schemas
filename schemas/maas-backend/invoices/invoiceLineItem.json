@@ -45,6 +45,13 @@
         },
         "referenceInvoiceLineItemId": {
           "$ref": "#/definitions/InvoiceLineItemId"
+        },
+        "tokenId": {
+          "$ref": "http://maasglobal.com/core/components/fare.json#/properties/tokenId"
+        },
+        "token": {
+          "description": "Arbitrary token data, e.g. payment parameters for async payment gateways",
+          "type": "object"
         }
        },
       "required": [ "id", "gatewayId", "description", "amount", "currency", "type" ],

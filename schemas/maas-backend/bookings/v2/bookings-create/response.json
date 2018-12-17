@@ -6,11 +6,67 @@
     "booking": {
       "$ref": "http://maasglobal.com/core/booking.json"
     },
+    "paymentParameters": {
+      "description": "Payment parameters for asynchronous payment methods",
+      "type": "object",
+      "properties": {
+        "avainpay": { "$ref": "#/definitions/avainpayPaymentParameters" }
+      },
+      "additionalProperties": false
+    },
     "debug": {
       "type": "object",
       "additionalProperties": true
     }
   },
   "required": ["booking"],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "definitions": {
+    "avainpayPaymentParameters": {
+      "type": "object",
+      "properties": {
+        "return_code": {
+          "description": "The return code, usually 'SUCCESS'",
+          "type": "string"
+        },
+        "appid": {
+          "description": "App ID",
+          "type": "string"
+        },
+        "mch_id": {
+          "description": "Merchant ID",
+          "type": "string"
+        },
+        "sub_mch_id": {
+          "description": "Our sub-merchant ID",
+          "type": "string"
+        },
+        "nonce_str": {
+          "description": "Nonce",
+          "type": "string"
+        },
+        "result_code": {
+          "description": "The result code, usually 'SUCCESS'",
+          "type": "string"
+        },
+        "prepay_id": {
+          "description": "WeChat's prepay ID",
+          "type": "string"
+        },
+        "trade_type": {
+          "description": "The trade type, usually 'APP'",
+          "type": "string"
+        },
+        "code_url": {
+          "description": "WeChat's code URL",
+          "type": "string"
+        },
+        "sign": {
+          "description": "WeChat's message signature",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
 }

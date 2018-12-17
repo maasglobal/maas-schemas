@@ -72,6 +72,12 @@
       "description": "Social Security ID",
       "type": "string",
       "minLength": 4
+    },
+    "nonce": {
+      "description": "Nonce value",
+      "type": "string",
+      "minLength": 32,
+      "maxLength": 8192
     }
   }
 }
