@@ -10,7 +10,7 @@
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
     },
     "nonce": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/nonce"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
     },
     "error": {
       "$ref": "http://maasglobal.com/core/error.json"
