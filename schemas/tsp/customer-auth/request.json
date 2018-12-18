@@ -4,16 +4,13 @@
   "type": "object",
   "properties": {
     "nonce": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/nonce"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
     },
     "returnUrl": {
       "description": "URL where client is returned after authorization flow is completed.",
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
     }
   },
-  "required": [
-    "nonce",
-    "returnUrl"
-  ],
+  "required": ["nonce", "returnUrl"],
   "additionalProperties": false
 }
