@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "authToken": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/authToken"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
     },
     "validTo": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
