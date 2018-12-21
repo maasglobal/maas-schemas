@@ -1,0 +1,10 @@
+{
+  "$id": "http://maasglobal.com/tsp/customer-auth-validate/request.json",
+  "description": "Request schema for completing customer authorization for TSP",
+  "type": "object",
+  "encodedData": {
+    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
+  },
+  "required": ["encodedData"],
+  "additionalProperties": true
+}

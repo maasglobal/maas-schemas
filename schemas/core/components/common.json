@@ -73,10 +73,10 @@
       "type": "string",
       "minLength": 4
     },
-    "nonce": {
-      "description": "Nonce value",
+    "encodedQueryParam": {
+      "description": "Encoded Query Params",
       "type": "string",
-      "minLength": 32,
+      "minLength": 1,
       "maxLength": 8192
     }
   }
