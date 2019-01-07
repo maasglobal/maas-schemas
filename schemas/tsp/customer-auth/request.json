@@ -9,8 +9,11 @@
     "returnUrl": {
       "description": "URL where client is returned after authorization flow is completed.",
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+    },
+    "locale": {
+      "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale",
     }
   },
   "required": ["nonce", "returnUrl"],
-  "additionalProperties": false
+  "additionalProperties": true
 }
