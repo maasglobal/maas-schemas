@@ -22,6 +22,6 @@
       "$ref": "../../core/booking.json#/properties/customerSelection"
     }
   },
-  "required": ["tspId", "state"],
+  "required": ["tspId"],
   "additionalProperties": true
 }
