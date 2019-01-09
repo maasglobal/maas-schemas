@@ -7,7 +7,7 @@
       "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
     },
     "state": {
-      "enum": ["RESERVED", "CONFIRMED", "ACTIVATED", "ON_HOLD", "EXPIRED"]
+      "enum": ["RESERVED", "ACTIVATED", "ON_HOLD", "EXPIRED"]
     },
     "configurator": {
       "$ref": "../../core/booking.json#/properties/configurator"
@@ -22,6 +22,6 @@
       "$ref": "../../core/booking.json#/properties/customerSelection"
     }
   },
-  "required": ["tspId", "state"],
+  "required": ["tspId"],
   "additionalProperties": true
 }
