@@ -28,6 +28,6 @@
       "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/tspProduct"
     }
   },
-  "required": ["tspId", "state"],
+  "required": ["tspId"],
   "additionalProperties": false
 }
