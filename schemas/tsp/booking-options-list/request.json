@@ -4,9 +4,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "http://maasglobal.com/core/components/personal-data-query.json"
-    },
-    {
+      "type": "object",
       "properties": {
         "mode": {
           "$ref": "http://maasglobal.com/core/components/travel-mode.json"
@@ -105,14 +103,16 @@
               "boolean"
             ]
           }
-        },
-        "$ref": "http://maasglobal.com/core/components/personal-data-query.json"
+        }
       },
       "required": [
         "startTime",
         "from"
       ],
       "additionalProperties": true
+    },
+    {
+      "$ref": "http://maasglobal.com/core/components/personal-data-query.json#/definitions/queryParams"
     }
   ]
 }

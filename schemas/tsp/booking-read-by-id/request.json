@@ -4,6 +4,7 @@
   "type": "object",
   "allOf": [
     {
+      "type": "object",
       "properties": {
         "tspId": {
           "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
