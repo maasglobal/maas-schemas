@@ -1,0 +1,5 @@
+{
+  "tspId": "tsp-id",
+  "customer[notInSchema]": "passedThrough",
+  "customer[phone]": "+35855544433"
+}
