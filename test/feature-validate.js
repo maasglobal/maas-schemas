@@ -8,6 +8,10 @@ const validBookingResponseWithPaymentParameters = require('./valid-booking-respo
 const validBookingResponse = require('./valid-booking-response.json');
 const bookingTicketRequestRequest = require('./valid-booking-ticket-request.json');
 const bookingTicketRequestResponse = require('./valid-booking-ticket-response.json');
+
+const tspReadByIdRequest = require('./valid-tsp-read-by-id-request.json');
+const tspOptionsListRequest = require('./valid-tsp-options-list-request.json');
+
 // Missing required fields [leg, customer, token] etc...
 const invalidBookingResponse = {
   customer: {
@@ -79,6 +83,24 @@ describe('Schema validation', () => {
       const validated = utils.validate(schema, validBookingResponseWithPaymentParameters);
       expect(validated).to.exist;
       expect(validated.paymentParameters).to.deep.equal(validBookingResponseWithPaymentParameters.paymentParameters);
+    });
+  });
+
+  describe('validate schemas TSP read by id query parameters', () => {
+    const schema = require('../schemas/tsp/booking-read-by-id/request.json');
+
+    it('should succeed without error', () => {
+      const validated = utils.validate(schema, tspReadByIdRequest);
+      expect(validated).to.deep.equal(tspReadByIdRequest);
+    });
+  });
+
+  describe('validate schemas TSP options list query parameters', () => {
+    const schema = require('../schemas/tsp/booking-options-list/request.json');
+
+    it('should succeed without error', () => {
+      const validated = utils.validate(schema, tspOptionsListRequest);
+      expect(validated).to.deep.equal(tspOptionsListRequest);
     });
   });
 });

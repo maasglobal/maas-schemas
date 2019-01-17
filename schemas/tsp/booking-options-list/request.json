@@ -2,102 +2,117 @@
   "$id": "http://maasglobal.com/tsp/bookings-options-list/request.json",
   "description": "Request schema for getting options from a TSP adapter.",
   "type": "object",
-  "properties": {
-    "mode": {
-      "$ref": "http://maasglobal.com/core/components/travel-mode.json"
-    },
-    "startTime": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
-    },
-    "endTime": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
-    },
-    "from": {
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
-    },
-    "fromName": {
-      "anyOf": [
-        {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "$ref": "http://maasglobal.com/core/components/travel-mode.json"
         },
-        {
-          "type": "string",
-          "maxLength": 0
-        }
-      ]
-    },
-    "fromAddress": {
-      "anyOf": [
-        {
-          "description": "Componentized from address",
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+        "startTime": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
-        {
-          "type": "string",
-          "maxLength": 0
-        }
-      ]
-    },
-    "fromRadius": {
-      "description": "'from' location radius in meters",
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
-    },
-    "to": {
-      "anyOf": [
-        {
+        "endTime": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        "from": {
           "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
         },
-        {
-          "type": "string",
-          "maxLength": 0
-        }
-      ]
-    },
-    "toName": {
-      "anyOf": [
-        {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+        "fromName": {
+          "anyOf": [
+            {
+              "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+            },
+            {
+              "type": "string",
+              "maxLength": 0
+            }
+          ]
         },
-        {
-          "type": "string",
-          "maxLength": 0
-        }
-      ]
-    },
-    "toAddress": {
-      "anyOf": [
-        {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+        "fromAddress": {
+          "anyOf": [
+            {
+              "description": "Componentized from address",
+              "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+            },
+            {
+              "type": "string",
+              "maxLength": 0
+            }
+          ]
         },
-        {
+        "fromRadius": {
+          "description": "'from' location radius in meters",
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
+        },
+        "to": {
+          "anyOf": [
+            {
+              "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
+            },
+            {
+              "type": "string",
+              "maxLength": 0
+            }
+          ]
+        },
+        "toName": {
+          "anyOf": [
+            {
+              "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+            },
+            {
+              "type": "string",
+              "maxLength": 0
+            }
+          ]
+        },
+        "toAddress": {
+          "anyOf": [
+            {
+              "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+            },
+            {
+              "type": "string",
+              "maxLength": 0
+            }
+          ]
+        },
+        "toRadius": {
+          "description": "'to' location radius in meters",
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
+        },
+        "distance": {
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
+        },
+        "extraOptions": {
+          "description": "An arbitrary string passed on a per-TSP basis, e.g. user's subscription period",
           "type": "string",
-          "maxLength": 0
+          "minLength": 0
+        },
+        "tspProductIds": {
+          "description": "Comma-separated list of tspProductIds that the user has access to",
+          "type": "string",
+          "minLength": 0
+        },
+        "patternProperties": {
+          "^(optionalParameters).+": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          }
         }
-      ]
+      },
+      "required": [
+        "startTime",
+        "from"
+      ],
+      "additionalProperties": true
     },
-    "toRadius": {
-      "description": "'to' location radius in meters",
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
-    },
-    "distance": {
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
-    },
-    "extraOptions": {
-      "description": "An arbitrary string passed on a per-TSP basis, e.g. user's subscription period",
-      "type": "string",
-      "minLength": 0
-    },
-    "tspProductIds": {
-      "description": "Comma-separated list of tspProductIds that the user has access to",
-      "type": "string",
-      "minLength": 0
-    },
-    "patternProperties": {
-      "^(optionalParameters).+": {
-        "type": ["string", "number", "boolean"]
-      }
+    {
+      "$ref": "http://maasglobal.com/core/components/personal-data-query.json#/definitions/queryParams"
     }
-  },
-  "required": ["startTime", "from"],
-  "additionalProperties": true
+  ]
 }

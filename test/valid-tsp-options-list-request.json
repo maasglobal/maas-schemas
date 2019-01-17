@@ -1,0 +1,10 @@
+{
+  "mode": "TAXI",
+  "startTime": 1475850000000,
+  "endTime": 1475860000000,
+  "from": "-60.00,24.00",
+  "to": "+60.05,-24.05",
+  "fromRadius": 100,
+  "toRadius": 10,
+  "customer[opaqueId]": "1ca7f4853bc724caa58645552c842ea21543337fe4731e2222de7e1668e1facf"
+}
