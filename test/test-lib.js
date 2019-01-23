@@ -15,11 +15,9 @@ function generateTestCases(schema, positive, cases) {
   } else {
     it('negative cases', () => {
       cases.forEach(value => {
-        const func = () => {
+        expect(() => {
           main.validate(transform(schema), value);
-          console.warn(`We should not get here. Input: ${value}`);
-        };
-        expect(func).to.throw(ValidationError);
+        }).to.throw(ValidationError);
       });
     });
   }
