@@ -1,15 +1,31 @@
 language: node_js
-node_js:
-- "8"
-script:
-- npm run lint
-- npm test
-deploy:
-  provider: npm
-  email: tech@maas.global
-  api_key: $NPM_TOKEN
-  skip_cleanup: true
-  on:
-    branch: master
-after_deploy:
-  - ./scripts/tag.sh
+node_js: '8'
+cache:
+  directories:
+    - node_modules # Our node modules
+    - $HOME/.npm # Globally installed packages, e.g. NPM
+
+install:
+  - npm install
+  - npm update # Ensure to use latest versions of dependencies
+
+stages:
+  - name: test
+    if: type = pull_request
+  - name: deploy
+    if: branch = master AND type != pull_request
+
+jobs:
+  include:
+    - stage: test
+      script:
+        - npm run lint-updated
+        - npm run prettier-check-updated
+        - npm test
+    - stage: deploy
+      script: skip
+      deploy:
+        provider: npm
+        email: tech@maas.global
+        api_key: $NPM_TOKEN
+      after_deploy: ./scripts/tag.sh
