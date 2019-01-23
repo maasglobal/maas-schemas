@@ -6,12 +6,6 @@
   "engine": {
     "node": ">=6"
   },
-  "scripts": {
-    "lint": "gulp validate",
-    "test": "jest",
-    "build": "node build.js",
-    "prepublish": "node build.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maasglobal/maas-schemas.git"
@@ -49,5 +43,11 @@
     "gulp-jsonlint": "^1.2.2",
     "jest": "^23.6",
     "jest-cli": "^23.6"
+  },
+  "scripts": {
+    "lint": "gulp validate",
+    "test": "jest",
+    "build": "node build.js",
+    "prepublish": "node build.js"
   }
 }
