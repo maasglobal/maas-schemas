@@ -7,12 +7,14 @@ const ajvFactory = require('ajv');
 
 const ajv = ajvFactory({ allErrors: true });
 
-const globPromise = (pattern, options) => new Promise((resolve, reject) => {
-  glob(pattern, options || {}, (err, matches) => {
-    if (err) return reject(err);
-    return resolve(matches);
+function globPromise(pattern, options) {
+  return new Promise((resolve, reject) => {
+    glob(pattern, options || {}, (err, matches) => {
+      if (err) return reject(err);
+      return resolve(matches);
+    });
   });
-});
+}
 
 describe('Source schemas should be valid JSON Schemas', () => {
   before(() => {
