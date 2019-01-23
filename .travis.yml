@@ -18,10 +18,7 @@ stages:
 jobs:
   include:
     - stage: test
-      script:
-        - npm run lint-updated
-        - npm run prettier-check-updated
-        - npm test
+      script: npm run lint-updated && npm run prettier-check-updated && npm run validate-schemas && npm test
     - stage: deploy
       script: skip
       deploy:
