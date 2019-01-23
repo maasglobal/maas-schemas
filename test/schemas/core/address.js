@@ -1,7 +1,7 @@
 'use strict';
 
 const schema = require('../../../schemas/core/components/address.json');
-const { generateTestCases } = require('../../../test-lib');
+const { generateTestCases } = require('../../test-lib');
 
 describe('address.placeName', () => {
   generateTestCases(schema.definitions.placeName, true, [

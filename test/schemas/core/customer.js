@@ -1,7 +1,7 @@
 'use strict';
 
 const schema = require('../../../schemas/core/components/common.json');
-const { generateTestCases } = require('../../../test-lib');
+const { generateTestCases } = require('../../test-lib');
 
 describe('customer.firstName', () => {
   generateTestCases(schema.definitions.personalName, true, [
