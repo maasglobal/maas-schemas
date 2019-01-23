@@ -11,6 +11,6 @@
       "additionalProperties": true
     }
   },
-  "required": [ "estimate" ],
+  "required": ["estimate"],
   "additionalProperties": false
 }

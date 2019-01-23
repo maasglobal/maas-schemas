@@ -30,10 +30,7 @@ describe('customer.lastName', () => {
 });
 
 describe('customer.phone', () => {
-  generateTestCases(schema.definitions.phone, true, [
-    '+35850123456',
-    '+855979301811',
-  ]);
+  generateTestCases(schema.definitions.phone, true, ['+35850123456', '+855979301811']);
 
   generateTestCases(schema.definitions.phone, false, [
     '💩',

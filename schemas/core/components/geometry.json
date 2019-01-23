@@ -3,18 +3,13 @@
   "title": "GeoJSON Geometry",
   "description": "GeoJSON geometry, forked from https://github.com/fge/sample-json-schemas/ under BSD license",
   "type": "object",
-  "required": [
-    "type",
-    "coordinates"
-  ],
+  "required": ["type", "coordinates"],
   "oneOf": [
     {
       "title": "Point",
       "properties": {
         "type": {
-          "enum": [
-            "Point"
-          ]
+          "enum": ["Point"]
         },
         "coordinates": {
           "$ref": "#/definitions/position"
@@ -25,9 +20,7 @@
       "title": "MultiPoint",
       "properties": {
         "type": {
-          "enum": [
-            "MultiPoint"
-          ]
+          "enum": ["MultiPoint"]
         },
         "coordinates": {
           "$ref": "#/definitions/positionArray"
@@ -38,9 +31,7 @@
       "title": "LineString",
       "properties": {
         "type": {
-          "enum": [
-            "LineString"
-          ]
+          "enum": ["LineString"]
         },
         "coordinates": {
           "$ref": "#/definitions/lineString"
@@ -51,9 +42,7 @@
       "title": "MultiLineString",
       "properties": {
         "type": {
-          "enum": [
-            "MultiLineString"
-          ]
+          "enum": ["MultiLineString"]
         },
         "coordinates": {
           "type": "array",
@@ -67,9 +56,7 @@
       "title": "Polygon",
       "properties": {
         "type": {
-          "enum": [
-            "Polygon"
-          ]
+          "enum": ["Polygon"]
         },
         "coordinates": {
           "$ref": "#/definitions/polygon"
@@ -80,9 +67,7 @@
       "title": "MultiPolygon",
       "properties": {
         "type": {
-          "enum": [
-            "MultiPolygon"
-          ]
+          "enum": ["MultiPolygon"]
         },
         "coordinates": {
           "type": "array",
@@ -106,7 +91,7 @@
           "type": "number"
         }
       ],
-      "additionalItems":false
+      "additionalItems": false
     },
     "positionArray": {
       "description": "An array of positions",

@@ -66,9 +66,5 @@
     }
   },
   "additionalProperties": false,
-  "required": [
-    "startTime",
-    "endTime",
-    "legs"
-  ]
+  "required": ["startTime", "endTime", "legs"]
 }

@@ -19,6 +19,6 @@
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
-  "required": [ "identityId", "bookingId" ],
+  "required": ["identityId", "bookingId"],
   "additionalProperties": false
 }

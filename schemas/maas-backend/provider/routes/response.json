@@ -4,10 +4,7 @@
   "type": "object",
   "properties": {
     "plan": {
-      "oneOf": [
-        { "$ref": "#/definitions/plan1" },
-        { "$ref": "#/definitions/plan2" }
-      ]
+      "oneOf": [{ "$ref": "#/definitions/plan1" }, { "$ref": "#/definitions/plan2" }]
     }
   },
   "definitions": {

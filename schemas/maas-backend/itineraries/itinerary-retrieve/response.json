@@ -11,6 +11,6 @@
       "additionalProperties": true
     }
   },
-  "required": [ "itinerary" ],
+  "required": ["itinerary"],
   "additionalProperties": false
 }

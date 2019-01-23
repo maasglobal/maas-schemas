@@ -21,7 +21,7 @@
       "properties": {
         "agencyId": { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId" }
       },
-      "required": [ "agencyId" ]
+      "required": ["agencyId"]
     }
   }
 }

@@ -3,11 +3,7 @@
   "description": "Request schema for bookings-agency-options",
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "identityId",
-    "payload",
-    "headers"
-  ],
+  "required": ["identityId", "payload", "headers"],
   "properties": {
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"

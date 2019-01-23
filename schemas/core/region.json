@@ -24,6 +24,6 @@
       "additionalProperties": true
     }
   },
-  "required": [ "id", "countryCode", "zipCode" ],
+  "required": ["id", "countryCode", "zipCode"],
   "additionalProperties": true
 }

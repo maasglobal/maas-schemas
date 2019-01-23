@@ -21,6 +21,6 @@
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
-  "required": [ "identityId", "payload" ],
+  "required": ["identityId", "payload"],
   "additionalProperties": false
 }

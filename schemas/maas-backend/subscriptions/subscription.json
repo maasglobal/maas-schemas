@@ -4,17 +4,17 @@
   "definitions": {
     "newSubscription": {
       "$ref": "#/definitions/subscriptionBase",
-      "required": [ "plan" ],
+      "required": ["plan"],
       "additionalProperties": true
     },
     "subscriptionUpdate": {
       "$ref": "#/definitions/subscriptionBase",
-      "required": [ ],
+      "required": [],
       "additionalProperties": true
     },
     "subscriptionResponse": {
       "$ref": "#/definitions/subscriptionBase",
-      "required": [ "plan", "terms" ],
+      "required": ["plan", "terms"],
       "additionalProperties": true
     },
     "subscriptionBase": {

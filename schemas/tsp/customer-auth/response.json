@@ -7,8 +7,6 @@
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
     }
   },
-  "required": [
-    "authUrl"
-  ],
+  "required": ["authUrl"],
   "additionalProperties": false
 }

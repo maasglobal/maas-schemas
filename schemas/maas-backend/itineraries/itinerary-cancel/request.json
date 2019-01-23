@@ -13,6 +13,6 @@
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
-  "required": [ "itineraryId" ],
+  "required": ["itineraryId"],
   "additionalProperties": false
 }

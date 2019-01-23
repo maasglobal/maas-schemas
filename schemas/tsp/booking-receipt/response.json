@@ -13,6 +13,6 @@
       "description": "Receipt as received from TSP, could be stored for future reference."
     }
   },
-  "required": [ "tspId", "cost" ],
+  "required": ["tspId", "cost"],
   "additionalProperties": false
 }

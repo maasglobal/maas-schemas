@@ -36,9 +36,5 @@
       "maxLength": 255
     }
   },
-  "required": [
-    "id",
-    "tspProductId",
-    "name"
-  ]
+  "required": ["id", "tspProductId", "name"]
 }

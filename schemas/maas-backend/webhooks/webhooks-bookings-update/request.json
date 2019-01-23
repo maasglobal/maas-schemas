@@ -12,5 +12,5 @@
       "$ref": "http://maasglobal.com/tsp/webhooks-bookings-update/remote-request.json"
     }
   },
-  "required": [ "agencyId", "payload" ]
+  "required": ["agencyId", "payload"]
 }
