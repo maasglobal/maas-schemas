@@ -5,7 +5,6 @@ const eslint = require('gulp-eslint');
 const gulp = require('gulp');
 const jsonclint = require('gulp-json-lint');
 const jsonlint = require('gulp-jsonlint');
-const jest = require('gulp-jest').default;
 const fg = require('fast-glob');
 
 const jsoncFiles = ['.eslintrc']; // json with comments
@@ -52,8 +51,4 @@ gulp.task('eslint', () => {
 
 gulp.task('validate', ['jsonclint', 'jsonlint', 'eslint', 'ajv-validate']);
 
-gulp.task('test', () => {
-  return gulp.src('./test').pipe(jest(require('./jest.config')));
-});
-
-gulp.task('default', ['validate', 'test']);
+gulp.task('default', ['validate']);
