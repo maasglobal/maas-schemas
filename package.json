@@ -33,7 +33,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "eslint": "^5.12.1",
-    "eslint-config-maasglobal": "^2.0.6",
+    "eslint-config-maasglobal": "^2.0.7",
     "eslint-plugin-import": "^2.15",
     "glob": "^7.1.3",
     "gulp": "^3.9.1",
