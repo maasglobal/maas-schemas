@@ -36,6 +36,6 @@
       "$ref": "components/address.json#/definitions/zipCode"
     }
   },
-  "required": [ "id", "customerId", "status", "valid" ],
+  "required": ["id", "customerId", "status", "valid"],
   "additionalProperties": false
 }

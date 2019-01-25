@@ -27,7 +27,7 @@
           "minLength": 1
         }
       },
-      "required": [ "id", "customerId", "bookingId", "lineItems" ],
+      "required": ["id", "customerId", "bookingId", "lineItems"],
       "additionalProperties": false
     }
   }

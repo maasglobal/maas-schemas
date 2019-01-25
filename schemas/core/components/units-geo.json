@@ -136,10 +136,7 @@
           }
         }
       ],
-      "required": [
-        "lat",
-        "lon"
-      ]
+      "required": ["lat", "lon"]
     }
   }
 }

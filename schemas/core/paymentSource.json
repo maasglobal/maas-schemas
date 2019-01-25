@@ -13,7 +13,16 @@
     },
     "type": {
       "type": "string",
-      "enum": ["card", "paypal_express_checkout", "amazon_payments", "direct_debit", "generic", "alipay", "unionpay", "apple_pay"]
+      "enum": [
+        "card",
+        "paypal_express_checkout",
+        "amazon_payments",
+        "direct_debit",
+        "generic",
+        "alipay",
+        "unionpay",
+        "apple_pay"
+      ]
     },
     "gateway": {
       "type": "string",
@@ -42,6 +51,6 @@
       "$ref": "card.json"
     }
   },
-  "required": [ "customerId", "type" ],
+  "required": ["customerId", "type"],
   "additionalProperties": false
 }

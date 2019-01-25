@@ -155,10 +155,7 @@
           "description": "Whether this part of the booking has been refunded"
         }
       },
-      "required": [
-        "cancellable",
-        "refunded"
-      ]
+      "required": ["cancellable", "refunded"]
     },
     "amendment": {
       "type": "object",
@@ -174,9 +171,7 @@
           "$ref": "fare.json"
         }
       },
-      "required": [
-        "amendable"
-      ]
+      "required": ["amendable"]
     }
   }
 }

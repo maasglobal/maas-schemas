@@ -3,12 +3,7 @@
   "description": "MaaS customer stats. Give lifetime stats of customer e.g total number of bookings and itineraries",
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "identityId",
-    "lifetimeBookingsCount",
-    "lifetimeItinerariesCount",
-    "profileCreationTimestamp"
-  ],
+  "required": ["identityId", "lifetimeBookingsCount", "lifetimeItinerariesCount", "profileCreationTimestamp"],
   "properties": {
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"

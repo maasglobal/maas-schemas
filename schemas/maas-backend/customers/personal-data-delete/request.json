@@ -3,12 +3,7 @@
   "description": "MaaS customer personal data delete item",
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "identityId",
-    "customerId",
-    "payload",
-    "headers"
-  ],
+  "required": ["identityId", "customerId", "payload", "headers"],
   "properties": {
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
@@ -24,7 +19,7 @@
           "minLength": 2
         }
       },
-      "required": [ "itemName" ]
+      "required": ["itemName"]
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"

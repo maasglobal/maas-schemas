@@ -11,6 +11,6 @@
       "additionalProperties": true
     }
   },
-  "required": [ "customer" ],
+  "required": ["customer"],
   "additionalProperties": false
 }

@@ -7,8 +7,6 @@
       "$ref": "http://maasglobal.com/maas-backend/products/provider.json"
     }
   },
-  "required": [
-    "provider"
-  ],
+  "required": ["provider"],
   "additionalProperties": false
 }

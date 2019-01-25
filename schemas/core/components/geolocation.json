@@ -4,7 +4,7 @@
   "definitions": {
     "featureCollection": {
       "properties": {
-        "type": { "enum": [ "FeatureCollection" ] },
+        "type": { "enum": ["FeatureCollection"] },
         "features": {
           "type": "array",
           "items": {
@@ -12,11 +12,11 @@
           }
         }
       },
-      "required": [ "type", "features" ]
+      "required": ["type", "features"]
     },
     "feature": {
       "properties": {
-        "type": { "enum": [ "Feature" ] },
+        "type": { "enum": ["Feature"] },
         "geometry": {
           "$ref": "#/definitions/geometry"
         },
@@ -25,18 +25,18 @@
         }
       },
       "additionalProperties": false,
-      "required": [ "type", "geometry", "properties"]
+      "required": ["type", "geometry", "properties"]
     },
     "geometry": {
       "type": "object",
       "properties": {
-        "type": { "enum": [ "Point" ] },
+        "type": { "enum": ["Point"] },
         "coordinates": {
           "$ref": "units-geo.json#/definitions/shortLocation"
         }
       },
       "additionalProperties": false,
-      "required": [ "type", "coordinates" ]
+      "required": ["type", "coordinates"]
     },
     "properties": {
       "type": "object",
@@ -78,7 +78,7 @@
         },
         "zipcode": { "type": "integer" }
       },
-      "required": [ "name" ]
+      "required": ["name"]
     }
   }
 }

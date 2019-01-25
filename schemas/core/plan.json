@@ -1,10 +1,7 @@
 {
   "$id": "http://maasglobal.com/core/plan.json",
   "description": "OpenTripPlanner compatible format for plans, extended with id for legs and itineraries",
-  "oneOf": [
-    { "$ref": "#/definitions/plan1" },
-    { "$ref": "#/definitions/plan2" }
-  ],
+  "oneOf": [{ "$ref": "#/definitions/plan1" }, { "$ref": "#/definitions/plan2" }],
   "definitions": {
     "plan1": {
       "type": "object",

@@ -27,10 +27,6 @@
       "$ref": "http://maasglobal.com/core/booking.json#/definitions/token"
     }
   },
-  "required": [
-    "ticket",
-    "token",
-    "tspId"
-  ],
+  "required": ["ticket", "token", "tspId"],
   "additionalProperties": true
 }

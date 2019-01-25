@@ -57,17 +57,7 @@
           "enum": ["manual", "automatic", null]
         },
         "fuel": {
-          "enum": [
-            "diesel",
-            "electric",
-            "ethanol",
-            "gasoline",
-            "hybrid",
-            "hydrogen",
-            "lpg",
-            "multifuel",
-            null
-          ]
+          "enum": ["diesel", "electric", "ethanol", "gasoline", "hybrid", "hydrogen", "lpg", "multifuel", null]
         },
         "classification": {
           "anyOf": [

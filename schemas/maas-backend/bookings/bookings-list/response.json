@@ -15,6 +15,6 @@
       "additionalProperties": true
     }
   },
-  "required": [ "bookings" ],
+  "required": ["bookings"],
   "additionalProperties": false
 }
