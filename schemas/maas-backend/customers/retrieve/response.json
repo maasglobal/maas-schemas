@@ -1,0 +1,12 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/retrieve/response.json",
+  "description": "MaaS customer retrieve",
+  "type": "object",
+  "properties": {
+    "customer": {
+      "$ref": "../customer.json"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["customer"]
+}
