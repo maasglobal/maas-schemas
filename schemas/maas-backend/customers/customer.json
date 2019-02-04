@@ -56,6 +56,10 @@
               "$ref": "http://maasglobal.com/core/components/common.json#/definitions/ssid"
             }
           ]
+        },
+        "subscriberType": {
+          "description": "Subscriber Type",
+          "type": "string"
         }
       },
       "required": [],
