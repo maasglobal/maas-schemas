@@ -37,9 +37,6 @@ function init() {
  */
 function validate(schema, object, options = {}) {
   if (!ajv) init();
-  if (options.sanitize === true) {
-    object = validator.sanitize(object);
-  }
   return validator.validate(ajv, schema, object, options);
 }
 
