@@ -14,7 +14,7 @@ function init() {
     coerceTypes: true,
     errorDataPath: 'property',
     inlineRefs: false,
-    meta: false,
+    meta: true,
     multipleOfPrecision: 6,
     removeAdditional: true,
     sanitize: false,
@@ -23,6 +23,7 @@ function init() {
     validateSchema: false,
     verbose: true,
   });
+  require('ajv-merge-patch')(ajv);
 
   Object.keys(registry).forEach(key => {
     const schema = registry[key];
