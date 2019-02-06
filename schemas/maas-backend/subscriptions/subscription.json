@@ -131,7 +131,7 @@
         "quantity": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 100000,
+          "maximum": 200000,
           "default": 1
         },
         "unitPrice": {
