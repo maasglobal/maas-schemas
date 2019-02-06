@@ -24,13 +24,14 @@
       "multipleOf": 0.01
     },
     "currency": {
-      "$merge": {
+      "$patch": {
         "source": {
           "$ref": "units.json#/definitions/currency"
         },
-        "with": {
-          "type": ["string", "null"]
-        }
+        "with": [
+          { "op": "replace", "path": "/type", "value": ["string", "null"] },
+          { "op": "add", "path": "/enum/-", "value": null }
+        ]
       }
     }
   },
