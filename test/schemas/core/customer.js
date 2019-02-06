@@ -1,6 +1,7 @@
 'use strict';
 
 const schema = require('../../../schemas/core/components/common.json');
+const customerSchema = require('../../../schemas/core/customer.json');
 const { generateTestCases } = require('../../test-lib');
 
 describe('customer.firstName', () => {
@@ -49,4 +50,8 @@ describe('customer.email', () => {
     '#"€"€#"@gmail.com',
     'very@very@unsual.com',
   ]);
+});
+
+describe('customer.subscriberType', () => {
+  generateTestCases(customerSchema.properties.subscriberType, true, ['non-subscriber']);
 });
