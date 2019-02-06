@@ -24,14 +24,14 @@
       "multipleOf": 0.01
     },
     "currency": {
-      "anyOf": [
-        {
+      "$merge": {
+        "source": {
           "$ref": "units.json#/definitions/currency"
         },
-        {
-          "type": "null"
+        "with": {
+          "type": ["string", "null"]
         }
-      ]
+      }
     }
   },
   "required": ["amount", "currency"],
