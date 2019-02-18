@@ -1,6 +1,6 @@
 {
   "name": "maas-schemas",
-  "version": "5.13.0",
+  "version": "6.0.0",
   "description": "Schemas for MaaS infrastructure",
   "main": "index.js",
   "engine": {
@@ -27,7 +27,8 @@
   },
   "homepage": "https://github.com/maasglobal/maas-schemas#readme",
   "dependencies": {
-    "ajv": "^6.7.0",
+    "ajv": "^6.8.1",
+    "ajv-merge-patch": "^4.1.0",
     "fast-glob": "^2.2.6"
   },
   "devDependencies": {

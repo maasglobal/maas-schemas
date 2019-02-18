@@ -4,28 +4,14 @@
   "type": "object",
   "properties": {
     "amount": {
-      "anyOf": [
-        {
-          "type": "number",
-          "minimum": 0,
-          "multipleOf": 0.01
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": ["number", "null"],
+      "minimum": 0,
+      "multipleOf": 0.01
     },
     "originalAmount": {
-      "anyOf": [
-        {
-          "type": "number",
-          "minimum": 0,
-          "multipleOf": 0.01
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": ["number", "null"],
+      "minimum": 0,
+      "multipleOf": 0.01
     },
     "discount": {
       "type": "number",
@@ -38,14 +24,15 @@
       "multipleOf": 0.01
     },
     "currency": {
-      "anyOf": [
-        {
+      "$patch": {
+        "source": {
           "$ref": "units.json#/definitions/currency"
         },
-        {
-          "type": "null"
-        }
-      ]
+        "with": [
+          { "op": "replace", "path": "/type", "value": ["string", "null"] },
+          { "op": "add", "path": "/enum/-", "value": null }
+        ]
+      }
     }
   },
   "required": ["amount", "currency"],
