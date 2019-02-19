@@ -6,6 +6,10 @@
     "ticket": {
       "type": "string"
     },
+    "refreshInterval": {
+      "description": "An interval in seconds with which frequency the client needs to refetch the ticket from the TSP",
+      "type": "integer"
+    },
     "type": {
       "type": "string",
       "enum": ["html", "pdf", "svg"]
