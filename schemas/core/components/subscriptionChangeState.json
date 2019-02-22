@@ -1,0 +1,23 @@
+{
+  "$id": "http://maasglobal.com/core/components/subscriptionChangeState.json",
+  "description": "MaaS state schemas",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Subscription change state id",
+      "$ref": "units.json#/definitions/uuid"
+
+    },
+    "state": {
+      "description": "State enum",
+      "type": "string",
+      "enum": ["IN_PROGRESS", "COMPLETED", "FAILED"]
+    },
+    "failureKey": {
+      "description": "Failure key enum, identifying reason for the failure",
+      "type": "string",
+      "enum": ["INTERNAL_SERVER_ERROR", "NOT_ELIGIBLE", "INVALID_AUTHORIZATION", "EXISTING_TICKET"]
+    }
+  },
+  "required": ["id", "state"]
+}
