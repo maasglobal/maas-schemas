@@ -1,0 +1,12 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/tsp-auth/validate/response.json",
+  "description": "Response schema for tsp-auth validate",
+  "type": "object",
+  "properties": {
+    "location": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+    }
+  },
+  "required": ["location"],
+  "additionalProperties": false
+}

@@ -1,0 +1,25 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/tsp-auth/validate/request.json",
+  "description": "Request schema for tsp-auth validate",
+  "type": "object",
+  "properties": {
+    "agencyId": {
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+    },
+    "token": {
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
+    },
+    "encodedData": {
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
+    },
+    "error": {
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/errorKey"
+    },
+    "headers": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": ["agencyId", "token", "encodedData"],
+  "additionalProperties": false
+}
