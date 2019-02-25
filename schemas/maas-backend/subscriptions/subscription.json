@@ -2,19 +2,19 @@
   "$id": "http://maasglobal.com/maas-backend/subscriptions/subscription.json",
   "description": "MaaS subscription schema",
   "definitions": {
-    "subscriptionCreate": {
+    "subscription": {
       "$ref": "#/definitions/subscriptionBase",
       "required": ["plan", "addons", "coupons", "changeState"],
       "additionalProperties": true
     },
-    "subscriptionUpdate": {
+    "subscriptionCreatePayload": {
       "$ref": "#/definitions/subscriptionBase",
-      "required": ["plan", "addons", "coupons", "changeState"],
+      "required": ["plan", "addons"],
       "additionalProperties": true
     },
-    "subscriptionRetrieve": {
+    "subscriptionUpdatePayload": {
       "$ref": "#/definitions/subscriptionBase",
-      "required": ["plan", "addons", "coupons", "changeState"],
+      "required": [],
       "additionalProperties": true
     },
     "subscriptionBase": {
@@ -49,6 +49,9 @@
         },
         "region": {
           "$ref": "http://maasglobal.com/core/region.json"
+        },
+        "shippingAddress": {
+          "$ref": "subscriptionAddress.json"
         },
         "availability": {
           "type": "object",
@@ -89,7 +92,7 @@
           "minLength": 2
         },
         "changeState": {
-          "$ref": "http://maasglobal.com/core/components/subscriptonChangeState.json"
+          "$ref": "http://maasglobal.com/core/components/subscriptionChangeState.json"
         }
       },
       "additionalProperties": true
@@ -184,8 +187,12 @@
           "description": "Subscription validity conditions",
           "type": "object",
           "properties": {
-            "startTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" },
-            "endTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }
+            "startTime": {
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+            },
+            "endTime": {
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+            }
           },
           "required": ["startTime", "endTime"]
         },

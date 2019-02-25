@@ -10,7 +10,7 @@
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/newSubscription"
+      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscriptionCreatePayload"
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
