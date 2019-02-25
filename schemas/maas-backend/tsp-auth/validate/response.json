@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "location": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/whimDeepLink"
     }
   },
   "required": ["location"],

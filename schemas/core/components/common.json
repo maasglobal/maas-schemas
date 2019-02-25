@@ -84,6 +84,11 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 255
+    },
+    "whimDeepLink": {
+      "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
+      "type": "string",
+      "pattern": "^(whim):\\/\\/\\/[^\\s/$.?#].[^\\s]*$"
     }
   }
 }
