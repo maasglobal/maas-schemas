@@ -5,6 +5,9 @@
   "encodedData": {
     "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
   },
+  "error": {
+    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/errorKey"
+  },
   "required": ["encodedData"],
   "additionalProperties": true
 }
