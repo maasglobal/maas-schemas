@@ -9,36 +9,19 @@
     "subscriptionAdditions": {
       "type": "object",
       "properties": {
-        "plan": {
-          "type": "object"
-        },
-        "addons": {
-          "type": "array"
-        },
-        "coupons": {
-          "type": "array"
-        },
         "discounts": {
           "type": "array"
         },
-        "meta": {
-          "description": "Arbitrary metadata on whatever app might need to display",
-          "type": "object",
-          "additionalProperties": true
-        },
-        "pointCost": {
-          "$ref": "http://maasglobal.com/core/components/point-cost.json"
-        },
-        "wmpGrant": {
-          "type": "integer",
-          "minValue": 0
-        },
-        "availability": {
-          "type": "object",
-          "additionalProperties": true
+        "requiredAuthorizations": {
+          "description": "Authorizations needed for the user before this subscription can be fulfilled",
+          "type": "array",
+          "items": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+          },
+          "minItems": 0
         }
       },
-      "required": ["plan", "wmpGrant", "pointCost", "addons", "coupons"],
+      "required": ["plan", "wmpGrant", "pointCost", "addons", "coupons", "requiredAuthorizations"],
       "additionalProperties": true
     }
   }
