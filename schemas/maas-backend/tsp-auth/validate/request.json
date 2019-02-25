@@ -1,6 +1,6 @@
 {
   "$id": "http://maasglobal.com/maas-backend/tsp-auth/validate/request.json",
-  "description": "Request schema for tsp-auth validate",
+  "description": "Request schema for tsp-auth validate. Leaving as much flexibility as possible to be resilient for different TSPs",
   "type": "object",
   "properties": {
     "agencyId": {
@@ -20,6 +20,5 @@
       "additionalProperties": true
     }
   },
-  "required": ["agencyId", "token", "encodedData"],
-  "additionalProperties": false
+  "additionalProperties": true
 }
