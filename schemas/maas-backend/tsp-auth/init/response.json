@@ -1,0 +1,12 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/tsp-auth/init/response.json",
+  "description": "Response schema for tsp-auth init",
+  "type": "object",
+  "properties": {
+    "authUrl": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+    }
+  },
+  "required": ["authUrl"],
+  "additionalProperties": false
+}
