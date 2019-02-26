@@ -80,9 +80,9 @@
       "maxLength": 8192
     },
     "errorKey": {
-      "description": "Error key, some provides always have error key present in request thus allowing zero length",
+      "description": "Error key",
       "type": "string",
-      "minLength": 0,
+      "minLength": 1,
       "maxLength": 255
     },
     "whimDeepLink": {
