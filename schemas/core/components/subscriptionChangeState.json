@@ -16,7 +16,7 @@
     "failureKey": {
       "description": "Failure key enum, identifying reason for the failure",
       "type": "string",
-      "enum": ["INTERNAL_SERVER_ERROR", "NOT_ELIGIBLE", "INVALID_AUTHORIZATION", "EXISTING_TICKET"]
+      "enum": ["UNKNOWN_ERROR", "NOT_ELIGIBLE", "EXISTING_TICKET"]
     }
   },
   "required": ["id", "state"]
