@@ -1,9 +1,11 @@
 # MaaS-schemas submodule
+
 [![Build Status](https://travis-ci.com/maasglobal/maas-schemas.svg?token=EzGctxgsjK7P9ky3oz1p&branch=master)](https://travis-ci.com/maasglobal/maas-schemas)
 
 This repository contains the JSON schemas used by MaaS.
 
 ## Features
+
 - Newest JSON schemas spec + AJV
 - Out of the box validator
 

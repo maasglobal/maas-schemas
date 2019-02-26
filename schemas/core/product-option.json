@@ -10,12 +10,7 @@
     "withConfigurator": {
       "description": "Works with configurator",
       "type": "object",
-      "required": [
-        "ref",
-        "terms",
-        "meta",
-        "configurator"
-      ],
+      "required": ["ref", "terms", "meta", "configurator"],
       "properties": {
         "identityId": {
           "$ref": "components/units.json#/definitions/identityId"
@@ -47,12 +42,7 @@
     "withFares": {
       "description": "Works with fares",
       "type": "object",
-      "required": [
-        "ref",
-        "terms",
-        "meta",
-        "fares"
-      ],
+      "required": ["ref", "terms", "meta", "fares"],
       "properties": {
         "identityId": {
           "$ref": "components/units.json#/definitions/identityId"
@@ -87,12 +77,7 @@
     "withCost": {
       "description": "Works with cost",
       "type": "object",
-      "required": [
-        "ref",
-        "terms",
-        "meta",
-        "cost"
-      ],
+      "required": ["ref", "terms", "meta", "cost"],
       "properties": {
         "identityId": {
           "$ref": "components/units.json#/definitions/identityId"

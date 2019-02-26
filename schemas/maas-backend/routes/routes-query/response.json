@@ -7,6 +7,6 @@
     },
     "debug": { "type": "object" }
   },
-  "required": [ "plan" ],
+  "required": ["plan"],
   "additionalProperties": false
 }

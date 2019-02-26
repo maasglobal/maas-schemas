@@ -116,14 +116,7 @@
           }
         }
       },
-      "required": [
-        "from",
-        "to",
-        "mode",
-        "startTime",
-        "endTime",
-        "legGeometry"
-      ],
+      "required": ["from", "to", "mode", "startTime", "endTime", "legGeometry"],
       "additionalProperties": false
     },
     "waitingLeg": {
@@ -140,11 +133,7 @@
           "$ref": "components/travel-mode.json#/definitions/waitingMode"
         }
       },
-      "required": [
-        "mode",
-        "startTime",
-        "endTime"
-      ]
+      "required": ["mode", "startTime", "endTime"]
     },
     "transferLeg": {
       "type": "object",
@@ -160,11 +149,7 @@
           "$ref": "components/travel-mode.json#/definitions/transferMode"
         }
       },
-      "required": [
-        "mode",
-        "startTime",
-        "endTime"
-      ]
+      "required": ["mode", "startTime", "endTime"]
     }
   }
 }

@@ -22,7 +22,7 @@
         "lat": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude" },
         "lon": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude" }
       },
-      "required": [ "lat", "lon" ]
+      "required": ["lat", "lon"]
     }
   }
 }

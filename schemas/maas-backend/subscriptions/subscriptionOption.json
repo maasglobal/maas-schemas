@@ -38,7 +38,7 @@
           "additionalProperties": true
         }
       },
-      "required": [ "plan", "wmpGrant", "pointCost", "addons", "coupons" ],
+      "required": ["plan", "wmpGrant", "pointCost", "addons", "coupons"],
       "additionalProperties": true
     }
   }

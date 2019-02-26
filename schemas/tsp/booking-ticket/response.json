@@ -8,17 +8,13 @@
     },
     "type": {
       "type": "string",
-      "enum": ["html","pdf","svg"]
+      "enum": ["html", "pdf", "svg"]
     },
     "contentType": {
       "type": "string",
-      "enum": ["application/pdf","image/svg+xml","text/html"]
+      "enum": ["application/pdf", "image/svg+xml", "text/html"]
     }
   },
-  "required": [
-    "ticket",
-    "type",
-    "contentType"
-  ],
+  "required": ["ticket", "type", "contentType"],
   "additionalProperties": true
 }

@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "type": {
-      "enum": [ "FeatureCollection" ]
+      "enum": ["FeatureCollection"]
     },
     "features": {
       "type": "array",
@@ -14,6 +14,6 @@
     },
     "debug": { "type": "object" }
   },
-  "required": [ "type", "features" ],
+  "required": ["type", "features"],
   "additionalProperties": false
 }

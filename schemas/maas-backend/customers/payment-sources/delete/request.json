@@ -3,11 +3,7 @@
   "description": "MaaS customer retrieve",
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "identityId",
-    "customerId",
-    "headers"
-  ],
+  "required": ["identityId", "customerId", "headers"],
   "properties": {
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"

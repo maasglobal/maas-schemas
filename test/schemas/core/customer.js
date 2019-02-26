@@ -1,7 +1,8 @@
 'use strict';
 
 const schema = require('../../../schemas/core/components/common.json');
-const { generateTestCases } = require('../../../test-lib');
+const customerSchema = require('../../../schemas/core/customer.json');
+const { generateTestCases } = require('../../test-lib');
 
 describe('customer.firstName', () => {
   generateTestCases(schema.definitions.personalName, true, [
@@ -30,10 +31,7 @@ describe('customer.lastName', () => {
 });
 
 describe('customer.phone', () => {
-  generateTestCases(schema.definitions.phone, true, [
-    '+35850123456',
-    '+855979301811',
-  ]);
+  generateTestCases(schema.definitions.phone, true, ['+35850123456', '+855979301811']);
 
   generateTestCases(schema.definitions.phone, false, [
     '💩',
@@ -52,4 +50,8 @@ describe('customer.email', () => {
     '#"€"€#"@gmail.com',
     'very@very@unsual.com',
   ]);
+});
+
+describe('customer.subscriberType', () => {
+  generateTestCases(customerSchema.properties.subscriberType, true, ['non-subscriber']);
 });

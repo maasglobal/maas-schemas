@@ -4,48 +4,27 @@
   "type": "object",
   "properties": {
     "amount": {
-      "anyOf": [
-        {
-          "type": "integer",
-          "minimum": 0
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": ["integer", "null"],
+      "minimum": 0
     },
     "currency": {
       "type": "string",
-      "enum": [ "WMP", "TOKEN" ]
+      "enum": ["WMP", "TOKEN"]
     },
     "tokenId": {
       "type": "string"
     },
     "originalAmount": {
-      "anyOf": [
-        {
-          "type": "integer",
-          "minimum": 0
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": ["integer", "null"],
+      "minimum": 0
     },
     "productionAmount": {
-      "anyOf": [
-        {
-          "type": "integer",
-          "minimum": 0
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": ["integer", "null"],
+      "minimum": 0
     },
     "type": {
       "type": "string",
-      "enum": [ "charge", "refund" ]
+      "enum": ["charge", "refund"]
     }
   },
   "required": ["amount", "currency"],

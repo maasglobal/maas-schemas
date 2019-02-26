@@ -3,10 +3,7 @@
   "description": "MaaS event response error objects",
   "type": "object",
   "description": "An error that the service may send",
-  "required": [
-    "message",
-    "code"
-  ],
+  "required": ["message", "code"],
   "properties": {
     "message": {
       "type": "string",

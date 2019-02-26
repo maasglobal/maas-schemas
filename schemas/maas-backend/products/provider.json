@@ -60,11 +60,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "ticket",
-        "stationsList",
-        "stationsRetrieve"
-      ],
+      "required": ["ticket", "stationsList", "stationsRetrieve"],
       "additionalProperties": false
     },
     "extra": {
@@ -87,10 +83,7 @@
                 },
                 {
                   "type": "string",
-                  "enum": [
-                    "WMP",
-                    "TOKEN"
-                  ]
+                  "enum": ["WMP", "TOKEN"]
                 }
               ]
             },
@@ -104,11 +97,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "fixedFareAmount",
-            "fixedFareCurrency",
-            "maxRadiusMetres"
-          ],
+          "required": ["fixedFareAmount", "fixedFareCurrency", "maxRadiusMetres"],
           "additionalProperties": false
         }
       },

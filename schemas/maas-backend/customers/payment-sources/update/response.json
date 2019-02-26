@@ -3,7 +3,7 @@
   "description": "MaaS customer payment sources update response",
   "type": "object",
   "additionalProperties": false,
-  "required": [ "paymentSource" ],
+  "required": ["paymentSource"],
   "properties": {
     "paymentSource": {
       "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/paymentSource"

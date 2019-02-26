@@ -36,7 +36,7 @@
           }
         }
       ],
-      "required": ["identityId", "phone" ]
+      "required": ["identityId", "phone"]
     },
     "contactBase": {
       "type": "object",
@@ -135,10 +135,7 @@
       "required": ["type", "number", "expiryMonth", "expiryYear", "cvv"]
     },
     "newPaymentMethod": {
-      "oneOf": [
-        { "$ref": "#/definitions/stripePaymentMethod" },
-        { "$ref": "#/definitions/creditCardPaymentMethod" }
-      ]
+      "oneOf": [{ "$ref": "#/definitions/stripePaymentMethod" }, { "$ref": "#/definitions/creditCardPaymentMethod" }]
     }
   }
 }

@@ -6,12 +6,10 @@
     "providers": {
       "type": "array",
       "items": {
-      "$ref": "http://maasglobal.com/maas-backend/products/provider.json"
+        "$ref": "http://maasglobal.com/maas-backend/products/provider.json"
       }
     }
   },
-  "required": [
-    "providers"
-  ],
+  "required": ["providers"],
   "additionalProperties": false
 }
