@@ -17,13 +17,9 @@
     }
   },
   "additionalProperties": false,
-<<<<<<< HEAD
   "oneOf": [
     { "required": ["authToken", "nonce", "validTo"] },
     { "required": ["authToken", "nonce", "validTo", "error"] },
     { "required": ["error", "nonce"] }
   ]
-=======
-  "oneOf": [{ "required": ["authToken", "nonce", "validTo"] }, { "required": ["error", "nonce"] }]
->>>>>>> f9c34248dc7d05f96ac6ffcd5c54c783beeb59f6
 }
