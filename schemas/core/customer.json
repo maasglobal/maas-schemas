@@ -72,6 +72,5 @@
       "type": "string"
     }
   },
-  "additionalProperties": false,
-  "required": ["firstName", "lastName", "phone", "email"]
+  "additionalProperties": false
 }
