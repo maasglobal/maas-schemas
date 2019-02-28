@@ -60,14 +60,14 @@
           "enum": ["diesel", "electric", "ethanol", "gasoline", "hybrid", "hydrogen", "lpg", "multifuel", null]
         },
         "classification": {
-          "anyOf": [
-            {
+          "$merge": {
+            "source": {
               "$ref": "ACRISS.json"
             },
-            {
-              "type": "null"
+            "with": {
+              "type": ["string", "null"]
             }
-          ]
+          }
         },
         "registrationPlate": {
           "description": "Registration plate (e.g. if we know the actual car already)",
