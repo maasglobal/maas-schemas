@@ -15,7 +15,7 @@
       "type": "string",
       "description": "An internal error code, used for reference",
       "minLength": 1,
-      "maxLength": 16
+      "maxLength": 64
     }
   }
 }

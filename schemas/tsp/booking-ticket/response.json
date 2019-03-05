@@ -13,6 +13,10 @@
     "contentType": {
       "type": "string",
       "enum": ["application/pdf", "image/svg+xml", "text/html"]
+    },
+    "refreshAt": {
+      "$ref": "units.json#/definitions/time",
+      "description": "Epoch when the ticket needs to be refreshed"
     }
   },
   "required": ["ticket", "type", "contentType"],
