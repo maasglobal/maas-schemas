@@ -40,7 +40,7 @@
           "$ref": "http://maasglobal.com/core/customer.json"
         },
         {
-          "required": ["identityId", "firstName", "lastName", "phone", "email"]
+          "required": ["identityId"]
         }
       ]
     },
