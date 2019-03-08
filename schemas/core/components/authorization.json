@@ -9,10 +9,7 @@
     "state": {
       "description": "The state of an authorization",
       "type": "string",
-      "enum": [
-        "VALID",
-        "INVALID"
-      ]
+      "enum": ["VALID", "INVALID"]
     },
     "validTo": {
       "$ref": "units.json#/definitions/time",

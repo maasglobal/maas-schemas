@@ -6,7 +6,6 @@
     "id": {
       "description": "Subscription change state id",
       "$ref": "units.json#/definitions/uuid"
-
     },
     "state": {
       "description": "State enum",
