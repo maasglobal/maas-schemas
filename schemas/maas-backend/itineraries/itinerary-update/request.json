@@ -16,6 +16,9 @@
     "payload": {
       "type": "object",
       "properties": {
+        "paymentSourceId": {
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
+        },
         "itinerary": {
           "$ref": "http://maasglobal.com/core/itinerary.json"
         },
