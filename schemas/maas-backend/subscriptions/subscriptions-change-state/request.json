@@ -16,6 +16,6 @@
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
-  "required": ["customerId", "userId", "changeStateId"],
+  "required": ["customerId", "userId", "changeStateId", "headers"],
   "additionalProperties": false
 }
