@@ -39,7 +39,7 @@
         {
           "type": "object",
           "properties": {
-            "objectType": { "enum": ["Profile"] },
+            "objectType": { "enum": ["Profile", "Subscription"] },
             "ids": {
               "type": "array",
               "minItems": 1,

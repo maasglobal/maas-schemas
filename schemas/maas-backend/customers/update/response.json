@@ -1,0 +1,12 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/update/response.json",
+  "description": "MaaS customer update",
+  "type": "object",
+  "properties": {
+    "customer": {
+      "$ref": "../customer.json"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["customer"]
+}

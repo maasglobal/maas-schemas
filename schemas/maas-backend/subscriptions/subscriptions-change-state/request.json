@@ -1,6 +1,6 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-create/request.json",
-  "description": "Request schema for subscriptions-create",
+  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-change-state/request.json",
+  "description": "Request schema for subscriptions-change-state",
   "type": "object",
   "properties": {
     "customerId": {
@@ -9,13 +9,13 @@
     "userId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
-    "payload": {
-      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscriptionCreatePayload"
+    "changeStateId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
-  "required": ["customerId", "userId", "payload"],
+  "required": ["customerId", "userId", "changeStateId", "headers"],
   "additionalProperties": false
 }

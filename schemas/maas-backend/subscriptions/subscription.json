@@ -2,19 +2,19 @@
   "$id": "http://maasglobal.com/maas-backend/subscriptions/subscription.json",
   "description": "MaaS subscription schema",
   "definitions": {
-    "newSubscription": {
+    "subscription": {
       "$ref": "#/definitions/subscriptionBase",
-      "required": ["plan"],
+      "required": ["plan", "addons", "coupons", "changeState"],
       "additionalProperties": true
     },
-    "subscriptionUpdate": {
+    "subscriptionCreatePayload": {
+      "$ref": "#/definitions/subscriptionBase",
+      "required": ["plan", "addons"],
+      "additionalProperties": true
+    },
+    "subscriptionUpdatePayload": {
       "$ref": "#/definitions/subscriptionBase",
       "required": [],
-      "additionalProperties": true
-    },
-    "subscriptionResponse": {
-      "$ref": "#/definitions/subscriptionBase",
-      "required": ["plan", "terms"],
       "additionalProperties": true
     },
     "subscriptionBase": {
@@ -53,8 +53,9 @@
         "shippingAddress": {
           "$ref": "subscriptionAddress.json"
         },
-        "updateParams": {
-          "type": "object"
+        "availability": {
+          "type": "object",
+          "additionalProperties": true
         },
         "name": {
           "type": "string",
@@ -65,7 +66,9 @@
           "minLength": 2
         },
         "meta": {
-          "type": "object"
+          "description": "Arbitrary metadata on whatever app might need to display",
+          "type": "object",
+          "additionalProperties": true
         },
         "level": {
           "type": "integer",
@@ -87,6 +90,9 @@
         "topUpId": {
           "type": "string",
           "minLength": 2
+        },
+        "changeState": {
+          "$ref": "http://maasglobal.com/core/components/subscriptionChangeState.json"
         }
       },
       "additionalProperties": true
@@ -181,8 +187,12 @@
           "description": "Subscription validity conditions",
           "type": "object",
           "properties": {
-            "startTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" },
-            "endTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }
+            "startTime": {
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+            },
+            "endTime": {
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+            }
           },
           "required": ["startTime", "endTime"]
         },

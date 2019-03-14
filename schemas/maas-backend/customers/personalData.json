@@ -1,0 +1,63 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/personalData.json",
+  "description": "MaaS customer personal data schema",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "description": "First name of the customer (e.g. John)",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+    },
+    "lastName": {
+      "description": "Last name of the customer (e.g. Doe)",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+    },
+    "phone": {
+      "description": "ITU-T E.164 phone number",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone"
+    },
+    "email": {
+      "description": "Rough validation of a valid e-mail address",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
+    },
+    "address": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/address"
+    },
+    "city": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
+    },
+    "country": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
+    },
+    "zipCode": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+    },
+    "dob": {
+      "description": "The customer's date of birth or boolean indicating if the value is already in DB",
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+        }
+      ]
+    },
+    "ssid": {
+      "description": "Social Security ID",
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/ssid"
+        }
+      ]
+    },
+    "subscriberType": {
+      "description": "Subscriber Type",
+      "type": "string"
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

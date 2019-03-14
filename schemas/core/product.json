@@ -4,9 +4,7 @@
   "type": "object",
   "properties": {
     "id": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 255
+      "$ref": "#/definitions/id"
     },
     "name": {
       "type": "string",
@@ -31,6 +29,13 @@
       "$ref": "components/common.json#/definitions/agencyId"
     },
     "tspProductId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    }
+  },
+  "definitions": {
+    "id": {
       "type": "string",
       "minLength": 1,
       "maxLength": 255

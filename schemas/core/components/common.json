@@ -78,6 +78,17 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 8192
+    },
+    "errorKey": {
+      "description": "Error key",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "whimDeepLink": {
+      "description": "Whim only deep link to localhost and freely defined view - not a complete URI validation",
+      "type": "string",
+      "pattern": "^(whim):\\/\\/\\/[^\\s/$.?#].[^\\s]*$"
     }
   }
 }
