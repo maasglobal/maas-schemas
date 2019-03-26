@@ -64,6 +64,10 @@
     "cancellation": {
       "type": "object",
       "properties": {
+        "cancellationForm": {
+          "description": "User will fill in this form to cancel their ticket should programmed cancellation does not function. Edge case support",
+          "type": "string"
+        },
         "outward": {
           "$ref": "#/definitions/cancellation"
         },
