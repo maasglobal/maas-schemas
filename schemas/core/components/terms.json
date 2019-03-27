@@ -64,9 +64,9 @@
     "cancellation": {
       "type": "object",
       "properties": {
-        "cancellationForm": {
+        "cancallationFormActionUrl": {
           "description": "User will fill in this form to cancel their ticket should programmed cancellation does not function. Edge case support",
-          "type": "string"
+          "$ref": "units.json#/definitions/url"
         },
         "outward": {
           "$ref": "#/definitions/cancellation"
