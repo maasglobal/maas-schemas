@@ -55,6 +55,10 @@
           "type": "boolean",
           "description": "A flag indicating whether this booking can be viewed in multiple devices at the same time"
         },
+        "skipRestrictionCheck": {
+          "type": "boolean",
+          "description": "A flag indicating whether restriction check should be run"
+        },
         "freeTicket": {
           "type": "object",
           "description": "A JSON schema object which defines restriction rules for free ticket"
