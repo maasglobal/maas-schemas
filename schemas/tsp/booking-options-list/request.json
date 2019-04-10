@@ -92,6 +92,10 @@
       "type": "string",
       "minLength": 0
     },
+    "extensionOptionsForTspId": {
+      "description": "Request for possible booking extension options for tspId",
+      "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+    },
     "patternProperties": {
       "^(optionalParameters).+": {
         "type": ["string", "number", "boolean"]
