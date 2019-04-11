@@ -118,7 +118,7 @@
             "multipleOf": 1
           },
           "type": {
-            "enum": ["maxRate", "missedReturnPenalty"]
+            "enum": ["maxRate", "missedReturnPenalty", "extra"]
           }
         },
         "required": ["amount", "currency"]
