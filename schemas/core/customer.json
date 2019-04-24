@@ -70,6 +70,10 @@
     "subscriberType": {
       "description": "Subscriber Type",
       "type": "string"
+    },
+    "authToken": {
+      "description": "Authentication Token",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
     }
   },
   "additionalProperties": false
