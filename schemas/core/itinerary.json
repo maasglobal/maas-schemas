@@ -61,7 +61,7 @@
     "bookings": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/booking.json"
+        "$ref": "booking.json"
       }
     }
   },
