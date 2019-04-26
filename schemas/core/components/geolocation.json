@@ -32,7 +32,7 @@
       "properties": {
         "type": { "enum": ["Point"] },
         "coordinates": {
-          "$ref": "units-geo.json#/definitions/shortLocation"
+          "$ref": "/schemas/core/components/units-geo.json#/definitions/shortLocation"
         }
       },
       "additionalProperties": false,

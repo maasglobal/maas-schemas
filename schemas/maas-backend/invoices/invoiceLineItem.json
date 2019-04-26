@@ -18,7 +18,7 @@
           "minLength": 4
         },
         "invoiceId": {
-          "$ref": "invoice.json#/definitions/InvoiceId"
+          "$ref": "/schemas/maas-backend/invoices/invoice.json#/definitions/InvoiceId"
         },
         "type": {
           "type": "string",

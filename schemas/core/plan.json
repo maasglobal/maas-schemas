@@ -7,10 +7,10 @@
       "type": "object",
       "properties": {
         "from": {
-          "$ref": "components/units-geo.json#/definitions/place"
+          "$ref": "/schemas/core/components/units-geo.json#/definitions/place"
         },
         "planId": {
-          "$ref": "components/units.json#/definitions/uuid"
+          "$ref": "/schemas/core/components/units.json#/definitions/uuid"
         },
         "outwards": {
           "$ref": "#/definitions/itineraries"
@@ -25,10 +25,10 @@
       "type": "object",
       "properties": {
         "from": {
-          "$ref": "components/units-geo.json#/definitions/place"
+          "$ref": "/schemas/core/components/units-geo.json#/definitions/place"
         },
         "planId": {
-          "$ref": "components/units.json#/definitions/uuid"
+          "$ref": "/schemas/core/components/units.json#/definitions/uuid"
         },
         "itineraries": {
           "$ref": "#/definitions/itineraries"
@@ -39,7 +39,7 @@
     "itineraries": {
       "type": "array",
       "items": {
-        "$ref": "itinerary.json"
+        "$ref": "/schemas/core/itinerary.json"
       }
     }
   }

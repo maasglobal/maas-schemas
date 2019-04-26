@@ -13,29 +13,29 @@
       "required": ["ref", "terms", "meta", "configurator"],
       "properties": {
         "identityId": {
-          "$ref": "components/units.json#/definitions/identityId"
+          "$ref": "/schemas/core/components/units.json#/definitions/identityId"
         },
         "bookingId": {
-          "$ref": "components/units.json#/definitions/uuid"
+          "$ref": "/schemas/core/components/units.json#/definitions/uuid"
         },
         "ref": {
           "type": "integer",
           "minValue": 0
         },
         "product": {
-          "$ref": "product.json"
+          "$ref": "/schemas/core/product.json"
         },
         "terms": {
-          "$ref": "components/terms.json"
+          "$ref": "/schemas/core/components/terms.json"
         },
         "meta": {
-          "$ref": "booking.json#/definitions/meta"
+          "$ref": "/schemas/core/booking.json#/definitions/meta"
         },
         "configurator": {
-          "$ref": "components/configurator.json"
+          "$ref": "/schemas/core/components/configurator.json"
         },
         "customer": {
-          "$ref": "booking-option.json#/definitions/customer"
+          "$ref": "/schemas/core/booking-option.json#/definitions/customer"
         }
       }
     },
@@ -45,32 +45,32 @@
       "required": ["ref", "terms", "meta", "fares"],
       "properties": {
         "identityId": {
-          "$ref": "components/units.json#/definitions/identityId"
+          "$ref": "/schemas/core/components/units.json#/definitions/identityId"
         },
         "bookingId": {
-          "$ref": "components/units.json#/definitions/uuid"
+          "$ref": "/schemas/core/components/units.json#/definitions/uuid"
         },
         "ref": {
           "type": "integer",
           "minValue": 0
         },
         "product": {
-          "$ref": "product.json"
+          "$ref": "/schemas/core/product.json"
         },
         "fares": {
           "type": "array",
           "items": {
-            "$ref": "components/fare.json"
+            "$ref": "/schemas/core/components/fare.json"
           }
         },
         "terms": {
-          "$ref": "components/terms.json"
+          "$ref": "/schemas/core/components/terms.json"
         },
         "meta": {
-          "$ref": "booking.json#/definitions/meta"
+          "$ref": "/schemas/core/booking.json#/definitions/meta"
         },
         "customer": {
-          "$ref": "booking-option.json#/definitions/customer"
+          "$ref": "/schemas/core/booking-option.json#/definitions/customer"
         }
       }
     },
@@ -80,29 +80,29 @@
       "required": ["ref", "terms", "meta", "cost"],
       "properties": {
         "identityId": {
-          "$ref": "components/units.json#/definitions/identityId"
+          "$ref": "/schemas/core/components/units.json#/definitions/identityId"
         },
         "bookingId": {
-          "$ref": "components/units.json#/definitions/uuid"
+          "$ref": "/schemas/core/components/units.json#/definitions/uuid"
         },
         "ref": {
           "type": "integer",
           "minValue": 0
         },
         "product": {
-          "$ref": "product.json"
+          "$ref": "/schemas/core/product.json"
         },
         "cost": {
-          "$ref": "components/cost.json"
+          "$ref": "/schemas/core/components/cost.json"
         },
         "terms": {
-          "$ref": "components/terms.json"
+          "$ref": "/schemas/core/components/terms.json"
         },
         "meta": {
-          "$ref": "booking.json#/definitions/meta"
+          "$ref": "/schemas/core/booking.json#/definitions/meta"
         },
         "customer": {
-          "$ref": "booking-option.json#/definitions/customer"
+          "$ref": "/schemas/core/booking-option.json#/definitions/customer"
         }
       }
     }

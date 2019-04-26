@@ -5,7 +5,7 @@
   "properties": {
     "id": {
       "description": "Subscription change state id",
-      "$ref": "units.json#/definitions/uuid"
+      "$ref": "/schemas/core/components/units.json#/definitions/uuid"
     },
     "state": {
       "description": "State enum",
@@ -13,7 +13,7 @@
       "enum": ["IN_PROGRESS", "COMPLETED", "FAILED"]
     },
     "created": {
-      "$ref": "units.json#/definitions/time"
+      "$ref": "/schemas/core/components/units.json#/definitions/time"
     },
     "failureKey": {
       "description": "Failure key enum, identifying reason for the failure",

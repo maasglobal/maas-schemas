@@ -10,7 +10,7 @@
       "type": "string"
     },
     "location": {
-      "$ref": "units-geo.json#/definitions/location"
+      "$ref": "/schemas/core/components/units-geo.json#/definitions/location"
     },
     "slots": {
       "type": "object",

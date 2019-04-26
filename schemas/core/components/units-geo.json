@@ -98,10 +98,10 @@
           "additionalProperties": true,
           "properties": {
             "name": {
-              "$ref": "address.json#/definitions/placeName"
+              "$ref": "/schemas/core/components/address.json#/definitions/placeName"
             },
             "address": {
-              "$ref": "address.json#/definitions/componentAddress"
+              "$ref": "/schemas/core/components/address.json#/definitions/componentAddress"
             },
             "localeAddress": {
               "type": "string",

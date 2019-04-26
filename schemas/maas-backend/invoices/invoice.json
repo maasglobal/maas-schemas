@@ -22,7 +22,7 @@
         "lineItems": {
           "type": "array",
           "items": {
-            "$ref": "invoiceLineItem.json#/definitions/InvoiceLineItem"
+            "$ref": "/schemas/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem"
           },
           "minLength": 1
         }

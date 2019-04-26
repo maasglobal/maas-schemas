@@ -21,10 +21,10 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "contact.json#/definitions/identityId"
+          "$ref": "/schemas/maas-backend/subscriptions/contact.json#/definitions/identityId"
         },
         "customerId": {
-          "$ref": "contact.json#/definitions/identityId"
+          "$ref": "/schemas/maas-backend/subscriptions/contact.json#/definitions/identityId"
         },
         "plan": {
           "$ref": "#/definitions/plan"
@@ -51,7 +51,7 @@
           "$ref": "/schemas/core/region.json"
         },
         "shippingAddress": {
-          "$ref": "subscriptionAddress.json"
+          "$ref": "/schemas/maas-backend/subscriptions/subscriptionAddress.json"
         },
         "availability": {
           "type": "object",

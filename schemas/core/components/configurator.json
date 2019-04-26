@@ -78,7 +78,7 @@
           "type": "boolean"
         },
         "cost": {
-          "$ref": "cost.json"
+          "$ref": "/schemas/core/components/cost.json"
         },
         "fares": {
           "type": "array",
@@ -89,7 +89,7 @@
           ]
         },
         "terms": {
-          "$ref": "terms.json"
+          "$ref": "/schemas/core/components/terms.json"
         },
         "meta": {
           "type": "object"
