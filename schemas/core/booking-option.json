@@ -18,16 +18,16 @@
           "$ref": "#/definitions/leg"
         },
         "terms": {
-          "$ref": "booking.json#/definitions/terms"
+          "$ref": "/schemas/core/booking.json#/definitions/terms"
         },
         "meta": {
-          "$ref": "booking.json#/definitions/meta"
+          "$ref": "/schemas/core/booking.json#/definitions/meta"
         },
         "tspProduct": {
           "$ref": "#/definitions/tspProduct"
         },
         "cost": {
-          "$ref": "components/cost.json"
+          "$ref": "/schemas/core/components/cost.json"
         },
         "customer": {
           "$ref": "#/definitions/customer"
@@ -42,16 +42,16 @@
           "$ref": "#/definitions/leg"
         },
         "terms": {
-          "$ref": "booking.json#/definitions/terms"
+          "$ref": "/schemas/core/booking.json#/definitions/terms"
         },
         "meta": {
-          "$ref": "booking.json#/definitions/meta"
+          "$ref": "/schemas/core/booking.json#/definitions/meta"
         },
         "tspProduct": {
           "$ref": "#/definitions/tspProduct"
         },
         "configurator": {
-          "$ref": "components/configurator.json"
+          "$ref": "/schemas/core/components/configurator.json"
         },
         "customer": {
           "$ref": "#/definitions/customer"
@@ -60,33 +60,33 @@
     },
     "customer": {
       "description": "MaaS booking customer",
-      "$ref": "customer.json"
+      "$ref": "/schemas/core/customer.json"
     },
     "leg": {
       "type": "object",
       "description": "A subset of the standard leg (../core/leg.json)",
       "properties": {
         "mode": {
-          "$ref": "components/travel-mode.json"
+          "$ref": "/schemas/core/components/travel-mode.json"
         },
         "startTime": {
-          "$ref": "components/units.json#/definitions/time"
+          "$ref": "/schemas/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "components/units.json#/definitions/time"
+          "$ref": "/schemas/core/components/units.json#/definitions/time"
         },
         "from": {
           "description": "Starting location's lat and lon pair of this request",
-          "$ref": "components/units-geo.json#/definitions/place"
+          "$ref": "/schemas/core/components/units-geo.json#/definitions/place"
         },
         "to": {
-          "$ref": "components/units-geo.json#/definitions/place"
+          "$ref": "/schemas/core/components/units-geo.json#/definitions/place"
         },
         "departureDelay": {
-          "$ref": "components/units.json#/definitions/duration"
+          "$ref": "/schemas/core/components/units.json#/definitions/duration"
         },
         "agencyId": {
-          "$ref": "components/common.json#/definitions/agencyId"
+          "$ref": "/schemas/core/components/common.json#/definitions/agencyId"
         }
       },
       "additionalProperties": false,
@@ -97,22 +97,22 @@
       "description": "A leg delta, containing any subset of the valid properties",
       "properties": {
         "mode": {
-          "$ref": "components/travel-mode.json"
+          "$ref": "/schemas/core/components/travel-mode.json"
         },
         "startTime": {
-          "$ref": "components/units.json#/definitions/time"
+          "$ref": "/schemas/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "components/units.json#/definitions/time"
+          "$ref": "/schemas/core/components/units.json#/definitions/time"
         },
         "departureDelay": {
-          "$ref": "components/units.json#/definitions/duration"
+          "$ref": "/schemas/core/components/units.json#/definitions/duration"
         },
         "from": {
-          "$ref": "components/units-geo.json#/definitions/place"
+          "$ref": "/schemas/core/components/units-geo.json#/definitions/place"
         },
         "to": {
-          "$ref": "components/units-geo.json#/definitions/place"
+          "$ref": "/schemas/core/components/units-geo.json#/definitions/place"
         }
       },
       "additionalProperties": false
