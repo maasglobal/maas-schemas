@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "tspId": {
-      "$ref": "/schemas/http://maasglobal.com/core/booking.json#/definitions/tspId"
+      "$ref": "/schemas/core/booking.json#/definitions/tspId"
     }
   },
   "required": ["tspId"],
