@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "agencyId": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+      "$ref": "/schemas/core/components/common.json#/definitions/agencyId"
     },
     "products": {
       "type": "array",
@@ -43,12 +43,12 @@
           "additionalProperties": true
         },
         "icon": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+          "$ref": "/schemas/core/components/units.json#/definitions/url"
         },
         "fares": {
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/core/components/fare.json"
+            "$ref": "/schemas/core/components/fare.json"
           }
         },
         "description": {

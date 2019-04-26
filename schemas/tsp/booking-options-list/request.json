@@ -4,21 +4,21 @@
   "type": "object",
   "properties": {
     "mode": {
-      "$ref": "http://maasglobal.com/core/components/travel-mode.json"
+      "$ref": "/schemas/core/components/travel-mode.json"
     },
     "startTime": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "/schemas/core/components/units.json#/definitions/time"
     },
     "endTime": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "/schemas/core/components/units.json#/definitions/time"
     },
     "from": {
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
+      "$ref": "/schemas/core/components/units-geo.json#/definitions/shortLocationString"
     },
     "fromName": {
       "anyOf": [
         {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+          "$ref": "/schemas/core/components/address.json#/definitions/placeName"
         },
         {
           "type": "string",
@@ -30,7 +30,7 @@
       "anyOf": [
         {
           "description": "Componentized from address",
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+          "$ref": "/schemas/core/components/address.json#/definitions/componentAddress"
         },
         {
           "type": "string",
@@ -40,12 +40,12 @@
     },
     "fromRadius": {
       "description": "'from' location radius in meters",
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
+      "$ref": "/schemas/core/components/units-geo.json#/definitions/distance"
     },
     "to": {
       "anyOf": [
         {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
+          "$ref": "/schemas/core/components/units-geo.json#/definitions/shortLocationString"
         },
         {
           "type": "string",
@@ -56,7 +56,7 @@
     "toName": {
       "anyOf": [
         {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+          "$ref": "/schemas/core/components/address.json#/definitions/placeName"
         },
         {
           "type": "string",
@@ -67,7 +67,7 @@
     "toAddress": {
       "anyOf": [
         {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+          "$ref": "/schemas/core/components/address.json#/definitions/componentAddress"
         },
         {
           "type": "string",
@@ -77,10 +77,10 @@
     },
     "toRadius": {
       "description": "'to' location radius in meters",
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
+      "$ref": "/schemas/core/components/units-geo.json#/definitions/distance"
     },
     "distance": {
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
+      "$ref": "/schemas/core/components/units-geo.json#/definitions/distance"
     },
     "extraOptions": {
       "description": "An arbitrary string passed on a per-TSP basis, e.g. user's subscription period",

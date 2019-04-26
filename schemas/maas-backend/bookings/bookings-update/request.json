@@ -4,17 +4,17 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
     },
     "bookingId": {
       "description": "bookingId of the requested booking",
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+      "$ref": "/schemas/core/components/units.json#/definitions/uuid"
     },
     "payload": {
-      "$ref": "http://maasglobal.com/core/booking.json"
+      "$ref": "/schemas/core/booking.json"
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId", "payload"],

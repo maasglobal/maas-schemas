@@ -9,7 +9,7 @@
     "features": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/components/geolocation.json#/definitions/feature"
+        "$ref": "/schemas/core/components/geolocation.json#/definitions/feature"
       }
     },
     "debug": { "type": "object" }

@@ -6,7 +6,7 @@
   "required": ["paymentSource"],
   "properties": {
     "paymentSource": {
-      "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/paymentSource"
+      "$ref": "/schemas/maas-backend/customers/payment-sources/paymentSource.json#/definitions/paymentSource"
     }
   }
 }

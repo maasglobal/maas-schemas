@@ -45,33 +45,33 @@
           "$ref": "#/definitions/identityId"
         },
         "firstName": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+          "$ref": "/schemas/core/components/common.json#/definitions/personalName"
         },
         "lastName": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+          "$ref": "/schemas/core/components/common.json#/definitions/personalName"
         },
         "address": {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/address"
+          "$ref": "/schemas/core/components/address.json#/definitions/address"
         },
         "city": {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
+          "$ref": "/schemas/core/components/address.json#/definitions/city"
         },
         "zipCode": {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+          "$ref": "/schemas/core/components/address.json#/definitions/zipCode"
         },
         "country": {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
+          "$ref": "/schemas/core/components/address.json#/definitions/country"
         },
         "phone": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone"
+          "$ref": "/schemas/core/components/common.json#/definitions/phone"
         },
         "email": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
+          "$ref": "/schemas/core/components/common.json#/definitions/email"
         }
       }
     },
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
     },
     "paymentMethodResponse": {
       "description": "The payment (gateway) method info; no credit cards here",

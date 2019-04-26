@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "changeState": {
-      "$ref": "http://maasglobal.com/core/components/subscriptionChangeState.json"
+      "$ref": "/schemas/core/components/subscriptionChangeState.json"
     }
   },
   "required": ["changeState"],

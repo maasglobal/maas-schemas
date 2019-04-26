@@ -9,7 +9,7 @@
       "maxLength": 256
     },
     "payload": {
-      "$ref": "http://maasglobal.com/tsp/webhooks-bookings-update/remote-request.json"
+      "$ref": "/schemas/tsp/webhooks-bookings-update/remote-request.json"
     }
   },
   "required": ["agencyId", "payload"]

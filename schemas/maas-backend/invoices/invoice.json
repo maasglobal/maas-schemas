@@ -13,11 +13,11 @@
           "$ref": "#/definitions/InvoiceId"
         },
         "customerId": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+          "$ref": "/schemas/core/components/units.json#/definitions/identityId"
         },
         "bookingId": {
           "description": "bookingId of the requested booking",
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+          "$ref": "/schemas/core/components/units.json#/definitions/uuid"
         },
         "lineItems": {
           "type": "array",

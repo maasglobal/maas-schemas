@@ -8,37 +8,37 @@
       "description": "Detailed station schema, coming as stations-retrieve response",
       "properties": {
         "id": {
-          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+          "$ref": "/schemas/core/components/station.json#/definitions/id"
         },
         "code": {
-          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/code"
+          "$ref": "/schemas/core/components/station.json#/definitions/code"
         },
         "name": {
-          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/name"
+          "$ref": "/schemas/core/components/station.json#/definitions/name"
         },
         "location": {
-          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/location"
+          "$ref": "/schemas/core/components/station.json#/definitions/location"
         },
         "agencyId": {
-          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/agencyId"
+          "$ref": "/schemas/core/components/station.json#/definitions/agencyId"
         },
         "address": {
-          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/address"
+          "$ref": "/schemas/core/components/station.json#/definitions/address"
         },
         "city": {
-          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/city"
+          "$ref": "/schemas/core/components/station.json#/definitions/city"
         },
         "country": {
-          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/country"
+          "$ref": "/schemas/core/components/station.json#/definitions/country"
         },
         "openingHours": {
-          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/openingHours"
+          "$ref": "/schemas/core/components/station.json#/definitions/openingHours"
         },
         "facilities": {
-          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/facilities"
+          "$ref": "/schemas/core/components/station.json#/definitions/facilities"
         },
         "timetables": {
-          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/timetables"
+          "$ref": "/schemas/core/components/station.json#/definitions/timetables"
         }
       },
       "required": ["id", "location", "agencyId"],

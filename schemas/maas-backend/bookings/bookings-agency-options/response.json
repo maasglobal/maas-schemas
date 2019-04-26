@@ -15,7 +15,7 @@
         "bikeStations": {
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/core/components/bike-station.json"
+            "$ref": "/schemas/core/components/bike-station.json"
           }
         }
       }
@@ -34,19 +34,19 @@
           "type": "object",
           "properties": {
             "fares": {
-              "$ref": "http://maasglobal.com/core/booking.json#/properties/fares"
+              "$ref": "/schemas/core/booking.json#/properties/fares"
             },
             "cost": {
-              "$ref": "http://maasglobal.com/core/booking.json#/properties/cost"
+              "$ref": "/schemas/core/booking.json#/properties/cost"
             },
             "leg": {
-              "$ref": "http://maasglobal.com/core/booking.json#/properties/leg"
+              "$ref": "/schemas/core/booking.json#/properties/leg"
             },
             "meta": {
-              "$ref": "http://maasglobal.com/core/booking.json#/properties/meta"
+              "$ref": "/schemas/core/booking.json#/properties/meta"
             },
             "terms": {
-              "$ref": "http://maasglobal.com/core/booking.json#/properties/terms"
+              "$ref": "/schemas/core/booking.json#/properties/terms"
             },
             "tspProduct": {
               "type": "object",
@@ -57,7 +57,7 @@
               }
             },
             "configurator": {
-              "$ref": "http://maasglobal.com/core/booking.json#/properties/configurator"
+              "$ref": "/schemas/core/booking.json#/properties/configurator"
             }
           }
         },

@@ -16,7 +16,7 @@
           "description": "Authorizations needed for the user before this subscription can be fulfilled",
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+            "$ref": "/schemas/core/components/common.json#/definitions/agencyId"
           },
           "minItems": 0
         }

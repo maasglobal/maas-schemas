@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "regionId": {
@@ -14,7 +14,7 @@
       }
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId", "payload"],

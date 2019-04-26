@@ -54,10 +54,10 @@
           "minLength": 2
         },
         "billingCountry": {
-          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/country"
+          "$ref": "/schemas/core/components/station.json#/definitions/country"
         },
         "billingZip": {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+          "$ref": "/schemas/core/components/address.json#/definitions/zipCode"
         },
         "isValid": {
           "type": "boolean"

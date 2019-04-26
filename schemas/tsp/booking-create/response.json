@@ -4,37 +4,37 @@
   "type": "object",
   "properties": {
     "tspId": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+      "$ref": "/schemas/core/booking.json#/definitions/tspId"
     },
     "state": {
-      "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState"
+      "$ref": "/schemas/core/components/state.json#/definitions/bookingState"
     },
     "cost": {
-      "$ref": "http://maasglobal.com/core/booking.json#/properties/cost"
+      "$ref": "/schemas/core/booking.json#/properties/cost"
     },
     "leg": {
-      "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/leg"
+      "$ref": "/schemas/core/booking-option.json#/definitions/leg"
     },
     "meta": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/meta"
+      "$ref": "/schemas/core/booking.json#/definitions/meta"
     },
     "terms": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+      "$ref": "/schemas/core/booking.json#/definitions/terms"
     },
     "token": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/token"
+      "$ref": "/schemas/core/booking.json#/definitions/token"
     },
     "tspProduct": {
-      "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/tspProduct"
+      "$ref": "/schemas/core/booking-option.json#/definitions/tspProduct"
     },
     "configurator": {
-      "$ref": "http://maasglobal.com/core/components/configurator.json"
+      "$ref": "/schemas/core/components/configurator.json"
     },
     "customerSelection": {
-      "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
+      "$ref": "/schemas/core/components/configurator.json#/definitions/customerSelection"
     },
     "customer": {
-      "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/customer"
+      "$ref": "/schemas/core/booking-option.json#/definitions/customer"
     }
   },
   "required": ["tspId", "state", "meta", "terms", "token", "tspProduct"],

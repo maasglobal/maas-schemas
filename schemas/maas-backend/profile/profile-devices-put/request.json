@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
@@ -15,7 +15,7 @@
           "pattern": "^.{32,255}$"
         },
         "deviceIdentifier": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+          "$ref": "/schemas/core/components/units.json#/definitions/uuid"
         },
         "deviceType": {
           "type": "string",
@@ -26,7 +26,7 @@
       "additionalProperties": false
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
     }
   },
   "additionalProperties": false

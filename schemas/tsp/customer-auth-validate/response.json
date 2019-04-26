@@ -4,16 +4,16 @@
   "type": "object",
   "properties": {
     "authToken": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
+      "$ref": "/schemas/core/components/common.json#/definitions/encodedQueryParam"
     },
     "validTo": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "/schemas/core/components/units.json#/definitions/time"
     },
     "nonce": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
+      "$ref": "/schemas/core/components/common.json#/definitions/encodedQueryParam"
     },
     "error": {
-      "$ref": "http://maasglobal.com/core/error.json"
+      "$ref": "/schemas/core/error.json"
     }
   },
   "additionalProperties": false,

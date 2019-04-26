@@ -6,7 +6,7 @@
       "type": "object",
       "properties": {
         "booking": {
-          "$ref": "http://maasglobal.com/core/booking.json"
+          "$ref": "/schemas/core/booking.json"
         }
       },
       "required": ["booking"]

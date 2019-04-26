@@ -1,5 +1,5 @@
 {
   "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-bookings-update/response.json",
   "description": "MaaS webhook to update bookings for tsp adapter callback response schema.",
-  "$ref": "http://maasglobal.com/tsp/webhooks-bookings-update/remote-response.json"
+  "$ref": "/schemas/tsp/webhooks-bookings-update/remote-response.json"
 }

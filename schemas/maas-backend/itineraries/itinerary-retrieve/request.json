@@ -4,13 +4,13 @@
   "type": "object",
   "properties": {
     "itineraryId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+      "$ref": "/schemas/core/components/units.json#/definitions/uuid"
     },
     "originalFare": {
       "type": "string"
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["itineraryId"],

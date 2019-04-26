@@ -3,10 +3,10 @@
   "type": "object",
   "properties": {
     "pickupStation": {
-      "$ref": "http://maasglobal.com/core/components/bike-station.json"
+      "$ref": "/schemas/core/components/bike-station.json"
     },
     "returnStation": {
-      "$ref": "http://maasglobal.com/core/components/bike-station.json"
+      "$ref": "/schemas/core/components/bike-station.json"
     },
     "pickupStationId": {
       "type": "string"

@@ -6,7 +6,7 @@
   "required": ["identityId", "lifetimeBookingsCount", "lifetimeItinerariesCount", "profileCreationTimestamp"],
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
     },
     "lifetimeBookingsCount": {
       "type": "integer",
@@ -17,7 +17,7 @@
       "minimum": 0
     },
     "profileCreationTimestamp": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "/schemas/core/components/units.json#/definitions/time"
     }
   }
 }

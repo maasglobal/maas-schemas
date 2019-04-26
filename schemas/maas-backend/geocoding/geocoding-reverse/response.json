@@ -11,7 +11,7 @@
       "items": {
         "allOf": [
           {
-            "$ref": "http://maasglobal.com/core/components/geolocation.json#/definitions/feature"
+            "$ref": "/schemas/core/components/geolocation.json#/definitions/feature"
           },
           {
             "type": "object",

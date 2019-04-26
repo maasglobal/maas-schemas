@@ -29,7 +29,7 @@
           "minLength": 4
         },
         "date": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "/schemas/core/components/units.json#/definitions/time"
         },
         "description": {
           "type": "string",
@@ -41,13 +41,13 @@
           "multipleOf": 0.01
         },
         "currency": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+          "$ref": "/schemas/core/components/units.json#/definitions/currency"
         },
         "referenceInvoiceLineItemId": {
           "$ref": "#/definitions/InvoiceLineItemId"
         },
         "tokenId": {
-          "$ref": "http://maasglobal.com/core/components/fare.json#/properties/tokenId"
+          "$ref": "/schemas/core/components/fare.json#/properties/tokenId"
         },
         "token": {
           "description": "Arbitrary token data, e.g. payment parameters for async payment gateways",

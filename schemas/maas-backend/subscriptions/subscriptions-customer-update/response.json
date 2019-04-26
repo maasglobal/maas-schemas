@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "customer": {
-      "$ref": "http://maasglobal.com/maas-backend/subscriptions/contact.json#/definitions/contactResponse"
+      "$ref": "/schemas/maas-backend/subscriptions/contact.json#/definitions/contactResponse"
     },
     "debug": {
       "type": "object",

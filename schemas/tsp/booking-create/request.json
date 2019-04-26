@@ -4,25 +4,25 @@
   "type": "object",
   "properties": {
     "leg": {
-      "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/leg"
+      "$ref": "/schemas/core/booking-option.json#/definitions/leg"
     },
     "meta": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/meta"
+      "$ref": "/schemas/core/booking.json#/definitions/meta"
     },
     "terms": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+      "$ref": "/schemas/core/booking.json#/definitions/terms"
     },
     "customer": {
-      "$ref": "http://maasglobal.com/core/customer.json"
+      "$ref": "/schemas/core/customer.json"
     },
     "tspProduct": {
-      "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/tspProduct"
+      "$ref": "/schemas/core/booking-option.json#/definitions/tspProduct"
     },
     "configurator": {
-      "$ref": "http://maasglobal.com/core/components/configurator.json"
+      "$ref": "/schemas/core/components/configurator.json"
     },
     "customerSelection": {
-      "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
+      "$ref": "/schemas/core/components/configurator.json#/definitions/customerSelection"
     }
   },
   "required": ["leg", "meta", "terms", "customer", "tspProduct"],

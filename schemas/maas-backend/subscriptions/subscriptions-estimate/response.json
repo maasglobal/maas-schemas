@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "estimate": {
-      "$ref": "http://maasglobal.com/maas-backend/subscriptions/pricing.json"
+      "$ref": "/schemas/maas-backend/subscriptions/pricing.json"
     },
     "debug": {
       "type": "object",

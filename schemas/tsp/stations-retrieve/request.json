@@ -4,10 +4,10 @@
   "type": "object",
   "properties": {
     "id": {
-      "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+      "$ref": "/schemas/core/components/station.json#/definitions/id"
     },
     "agencyId": {
-      "$ref": "http://maasglobal.com/core/components/station.json#/definitions/agencyId"
+      "$ref": "/schemas/core/components/station.json#/definitions/agencyId"
     }
   },
   "additionalProperties": false

@@ -3,10 +3,10 @@
   "description": "Response schema for getting a receipt for specific booking",
   "properties": {
     "tspId": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+      "$ref": "/schemas/core/booking.json#/definitions/tspId"
     },
     "cost": {
-      "$ref": "http://maasglobal.com/core/booking.json#/properties/cost"
+      "$ref": "/schemas/core/booking.json#/properties/cost"
     },
     "receipt": {
       "type": "object",

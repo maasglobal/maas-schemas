@@ -5,22 +5,22 @@
   "additionalProperties": false,
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
     },
     "itineraryId": {
-      "$ref": "http://maasglobal.com/core/itinerary.json#/properties/id"
+      "$ref": "/schemas/core/itinerary.json#/properties/id"
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
     },
     "payload": {
       "type": "object",
       "properties": {
         "paymentSourceId": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
+          "$ref": "/schemas/core/components/common.json#/definitions/paymentSourceId"
         },
         "itinerary": {
-          "$ref": "http://maasglobal.com/core/itinerary.json"
+          "$ref": "/schemas/core/itinerary.json"
         },
         "customerSelections": {
           "type": "array",
@@ -28,10 +28,10 @@
             "type": "object",
             "properties": {
               "ref": {
-                "$ref": "http://maasglobal.com/core/product-option.json#/definitions/withConfigurator/properties/ref"
+                "$ref": "/schemas/core/product-option.json#/definitions/withConfigurator/properties/ref"
               },
               "customerSelection": {
-                "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
+                "$ref": "/schemas/core/components/configurator.json#/definitions/customerSelection"
               }
             }
           }

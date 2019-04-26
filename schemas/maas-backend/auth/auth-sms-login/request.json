@@ -7,7 +7,7 @@
       "type": "object",
       "properties": {
         "phone": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/rawPhone"
+          "$ref": "/schemas/core/components/common.json#/definitions/rawPhone"
         },
         "code": {
           "description": "TOPT login verification code",
@@ -21,7 +21,7 @@
       "additionalProperties": false
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["payload"],

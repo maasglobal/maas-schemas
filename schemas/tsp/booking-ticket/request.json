@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "tspId": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+      "$ref": "/schemas/core/booking.json#/definitions/tspId"
     },
     "ticket": {
       "description": "Ticket path.",
@@ -24,7 +24,7 @@
       ]
     },
     "token": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/token"
+      "$ref": "/schemas/core/booking.json#/definitions/token"
     }
   },
   "required": ["ticket", "token", "tspId"],

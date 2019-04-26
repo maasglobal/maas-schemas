@@ -4,16 +4,16 @@
   "type": "object",
   "properties": {
     "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
     },
     "userId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscriptionCreatePayload"
+      "$ref": "/schemas/maas-backend/subscriptions/subscription.json#/definitions/subscriptionCreatePayload"
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["customerId", "userId", "payload"],

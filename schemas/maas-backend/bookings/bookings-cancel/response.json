@@ -5,7 +5,7 @@
     "booking": {
       "allOf": [
         {
-          "$ref": "http://maasglobal.com/core/booking.json"
+          "$ref": "/schemas/core/booking.json"
         },
         {
           "type": "object",

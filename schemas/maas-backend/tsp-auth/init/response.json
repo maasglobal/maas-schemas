@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "authUrl": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+      "$ref": "/schemas/core/components/units.json#/definitions/url"
     }
   },
   "required": ["authUrl"],

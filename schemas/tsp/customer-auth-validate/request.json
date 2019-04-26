@@ -3,10 +3,10 @@
   "description": "Request schema for completing customer authorization for TSP",
   "type": "object",
   "encodedData": {
-    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
+    "$ref": "/schemas/core/components/common.json#/definitions/encodedQueryParam"
   },
   "error": {
-    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/errorKey"
+    "$ref": "/schemas/core/components/common.json#/definitions/errorKey"
   },
   "required": ["encodedData"],
   "additionalProperties": true

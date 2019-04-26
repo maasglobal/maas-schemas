@@ -4,19 +4,19 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
       "properties": {
         "name": {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+          "$ref": "/schemas/core/components/address.json#/definitions/placeName"
         },
         "lat": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude"
+          "$ref": "/schemas/core/components/units-geo.json#/definitions/relaxedLatitude"
         },
         "lon": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude"
+          "$ref": "/schemas/core/components/units-geo.json#/definitions/relaxedLongitude"
         },
         "count": {
           "type": "integer",
@@ -25,7 +25,7 @@
           "default": 5
         },
         "radius": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance",
+          "$ref": "/schemas/core/components/units-geo.json#/definitions/distance",
           "default": 5000
         }
       },
@@ -33,7 +33,7 @@
       "additionalProperties": false
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
     }
   }
 }

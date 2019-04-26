@@ -4,40 +4,40 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
     },
     "from": {
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocation"
+      "$ref": "/schemas/core/components/units-geo.json#/definitions/shortLocation"
     },
     "fromName": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+      "$ref": "/schemas/core/components/address.json#/definitions/placeName"
     },
     "fromAddress": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+      "$ref": "/schemas/core/components/address.json#/definitions/componentAddress"
     },
     "fromStationId": {
-      "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+      "$ref": "/schemas/core/components/station.json#/definitions/id"
     },
     "to": {
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocation"
+      "$ref": "/schemas/core/components/units-geo.json#/definitions/shortLocation"
     },
     "toName": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+      "$ref": "/schemas/core/components/address.json#/definitions/placeName"
     },
     "toAddress": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+      "$ref": "/schemas/core/components/address.json#/definitions/componentAddress"
     },
     "toStationId": {
-      "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+      "$ref": "/schemas/core/components/station.json#/definitions/id"
     },
     "leaveAt": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "/schemas/core/components/units.json#/definitions/time"
     },
     "arriveBy": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "/schemas/core/components/units.json#/definitions/time"
     },
     "modes": {
-      "$ref": "http://maasglobal.com/core/components/travel-mode.json"
+      "$ref": "/schemas/core/components/travel-mode.json"
     }
   },
   "patternProperties": {

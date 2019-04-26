@@ -6,10 +6,10 @@
       "type": "object",
       "properties": {
         "location": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
+          "$ref": "/schemas/core/components/units-geo.json#/definitions/shortLocationString"
         },
         "radius": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
+          "$ref": "/schemas/core/components/units-geo.json#/definitions/distance"
         }
       },
       "required": ["location"]

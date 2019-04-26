@@ -9,7 +9,7 @@
       "minLength": 1,
       "maxLength": 256
     },
-    "vehicleLocation": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location" },
+    "vehicleLocation": { "$ref": "/schemas/core/components/units-geo.json#/definitions/location" },
     "vehicleType": {
       "type": "string",
       "minLength": 1,
@@ -35,7 +35,7 @@
           "maxLength": 128
         },
         "image": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+          "$ref": "/schemas/core/components/units.json#/definitions/url"
         }
       }
     },
@@ -44,7 +44,7 @@
       "minLength": 1,
       "maxLength": 128
     },
-    "eta": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" },
+    "eta": { "$ref": "/schemas/core/components/units.json#/definitions/time" },
     "taxiCenter": {
       "type": "object",
       "properties": {
@@ -53,7 +53,7 @@
           "minLength": 1,
           "maxLength": 64
         },
-        "phone": { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone" }
+        "phone": { "$ref": "/schemas/core/components/common.json#/definitions/phone" }
       }
     }
   },

@@ -6,7 +6,7 @@
     "providers": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/maas-backend/products/provider.json"
+        "$ref": "/schemas/maas-backend/products/provider.json"
       }
     }
   },

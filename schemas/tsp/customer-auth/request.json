@@ -4,14 +4,14 @@
   "type": "object",
   "properties": {
     "nonce": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
+      "$ref": "/schemas/core/components/common.json#/definitions/encodedQueryParam"
     },
     "returnUrl": {
       "description": "URL where client is returned after authorization flow is completed.",
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+      "$ref": "/schemas/core/components/units.json#/definitions/url"
     },
     "locale": {
-      "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale"
+      "$ref": "/schemas/core/components/i18n.json#/definitions/locale"
     }
   },
   "required": ["nonce", "returnUrl"],

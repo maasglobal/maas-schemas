@@ -45,10 +45,10 @@
           "$ref": "#/definitions/terms"
         },
         "pointCost": {
-          "$ref": "http://maasglobal.com/core/components/point-cost.json"
+          "$ref": "/schemas/core/components/point-cost.json"
         },
         "region": {
-          "$ref": "http://maasglobal.com/core/region.json"
+          "$ref": "/schemas/core/region.json"
         },
         "shippingAddress": {
           "$ref": "subscriptionAddress.json"
@@ -91,7 +91,7 @@
           "minLength": 2
         },
         "changeState": {
-          "$ref": "http://maasglobal.com/core/components/subscriptionChangeState.json"
+          "$ref": "/schemas/core/components/subscriptionChangeState.json"
         }
       },
       "additionalProperties": true
@@ -167,27 +167,27 @@
       "pattern": "^[^\\s\\/]{1,50}$"
     },
     "price": {
-      "$ref": "http://maasglobal.com/core/components/cost.json"
+      "$ref": "/schemas/core/components/cost.json"
     },
     "terms": {
       "description": "Terms related to this subscription",
       "type": "object",
       "properties": {
         "activated": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "/schemas/core/components/units.json#/definitions/time"
         },
         "modified": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "/schemas/core/components/units.json#/definitions/time"
         },
         "validity": {
           "description": "Subscription validity conditions",
           "type": "object",
           "properties": {
             "startTime": {
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+              "$ref": "/schemas/core/components/units.json#/definitions/time"
             },
             "endTime": {
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+              "$ref": "/schemas/core/components/units.json#/definitions/time"
             }
           },
           "required": ["startTime", "endTime"]

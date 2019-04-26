@@ -5,20 +5,20 @@
   "additionalProperties": false,
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
     },
     "payload": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "itinerary": {
-          "$ref": "http://maasglobal.com/core/itinerary.json"
+          "$ref": "/schemas/core/itinerary.json"
         },
         "paymentSourceId": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
+          "$ref": "/schemas/core/components/common.json#/definitions/paymentSourceId"
         },
         "outward": {
           "$ref": "#/definitions/outwardReturnWrapper"
@@ -32,12 +32,12 @@
   "definitions": {
     "outwardReturnWrapper": {
       "itinerary": {
-        "$ref": "http://maasglobal.com/core/itinerary.json"
+        "$ref": "/schemas/core/itinerary.json"
       },
       "customerSelections": {
         "type": "array",
         "items": {
-          "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
+          "$ref": "/schemas/core/components/configurator.json#/definitions/customerSelection"
         }
       }
     }

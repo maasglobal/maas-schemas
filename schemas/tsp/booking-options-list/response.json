@@ -6,7 +6,7 @@
     "options": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/booking-option.json"
+        "$ref": "/schemas/core/booking-option.json"
       }
     },
     "additional": {
@@ -15,7 +15,7 @@
         "bikeStations": {
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/core/components/bike-station.json"
+            "$ref": "/schemas/core/components/bike-station.json"
           }
         }
       }

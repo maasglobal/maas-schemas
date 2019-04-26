@@ -7,7 +7,7 @@
       "type": "array",
       "minItems": 0,
       "items": {
-        "$ref": "http://maasglobal.com/core/booking.json"
+        "$ref": "/schemas/core/booking.json"
       }
     },
     "debug": {

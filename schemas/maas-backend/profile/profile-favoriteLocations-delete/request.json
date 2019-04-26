@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
@@ -19,10 +19,10 @@
     },
     "headers": {
       "Accept": {
-        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/acceptHeader"
+        "$ref": "/schemas/core/components/api-common.json#/definitions/acceptHeader"
       },
       "X-Whim-User-Agent": {
-        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/userAgentHeader"
+        "$ref": "/schemas/core/components/api-common.json#/definitions/userAgentHeader"
       }
     }
   },
