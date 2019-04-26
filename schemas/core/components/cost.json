@@ -26,7 +26,7 @@
     "currency": {
       "$patch": {
         "source": {
-          "$ref": "/schemas/core/components/units.json#/definitions/currency"
+          "$ref": "/core/components/units.json#/definitions/currency"
         },
         "with": [
           { "op": "replace", "path": "/type", "value": ["string", "null"] },

@@ -6,7 +6,7 @@
       "type": "object",
       "properties": {
         "booking": {
-          "$ref": "/schemas/core/booking.json"
+          "$ref": "/core/booking.json"
         }
       },
       "required": ["booking"]

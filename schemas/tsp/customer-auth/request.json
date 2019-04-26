@@ -4,14 +4,14 @@
   "type": "object",
   "properties": {
     "nonce": {
-      "$ref": "/schemas/core/components/common.json#/definitions/encodedQueryParam"
+      "$ref": "/core/components/common.json#/definitions/encodedQueryParam"
     },
     "returnUrl": {
       "description": "URL where client is returned after authorization flow is completed.",
-      "$ref": "/schemas/core/components/units.json#/definitions/url"
+      "$ref": "/core/components/units.json#/definitions/url"
     },
     "locale": {
-      "$ref": "/schemas/core/components/i18n.json#/definitions/locale"
+      "$ref": "/core/components/i18n.json#/definitions/locale"
     }
   },
   "required": ["nonce", "returnUrl"],

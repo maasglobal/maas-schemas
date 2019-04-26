@@ -6,16 +6,16 @@
   "required": ["identityId", "customerId", "headers"],
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "customerId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "paymentSourceId": {
-      "$ref": "/schemas/maas-backend/customers/payment-sources/paymentSource.json#/definitions/paymentSourceId"
+      "$ref": "/maas-backend/customers/payment-sources/paymentSource.json#/definitions/paymentSourceId"
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   }
 }

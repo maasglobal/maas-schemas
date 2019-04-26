@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "changeState": {
-      "$ref": "/schemas/core/components/subscriptionChangeState.json"
+      "$ref": "/core/components/subscriptionChangeState.json"
     }
   },
   "required": ["changeState"],

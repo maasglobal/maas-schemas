@@ -6,13 +6,13 @@
   "required": ["identityId", "customerId", "paymentSourceId", "payload", "headers"],
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "customerId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "paymentSourceId": {
-      "$ref": "/schemas/maas-backend/customers/payment-sources/paymentSource.json#/definitions/paymentSourceId"
+      "$ref": "/maas-backend/customers/payment-sources/paymentSource.json#/definitions/paymentSourceId"
     },
     "payload": {
       "type": "object",
@@ -22,7 +22,7 @@
           "properties": {
             "isDefault": { "enum": [true] },
             "alias": {
-              "$ref": "/schemas/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias"
+              "$ref": "/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias"
             }
           },
           "anyOf": [{ "required": ["isDefault"] }, { "required": ["alias"] }],
@@ -32,7 +32,7 @@
       "required": ["paymentSource"]
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   }
 }

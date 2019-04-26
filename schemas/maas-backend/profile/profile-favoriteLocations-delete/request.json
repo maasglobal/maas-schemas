@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
@@ -19,10 +19,10 @@
     },
     "headers": {
       "Accept": {
-        "$ref": "/schemas/core/components/api-common.json#/definitions/acceptHeader"
+        "$ref": "/core/components/api-common.json#/definitions/acceptHeader"
       },
       "X-Whim-User-Agent": {
-        "$ref": "/schemas/core/components/api-common.json#/definitions/userAgentHeader"
+        "$ref": "/core/components/api-common.json#/definitions/userAgentHeader"
       }
     }
   },

@@ -7,7 +7,7 @@
       "type": "array",
       "minItems": 0,
       "items": {
-        "$ref": "/schemas/core/booking.json"
+        "$ref": "/core/booking.json"
       }
     },
     "debug": {

@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "provider": {
-      "$ref": "/schemas/maas-backend/products/provider.json"
+      "$ref": "/maas-backend/products/provider.json"
     }
   },
   "required": ["provider"],

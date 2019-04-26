@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "agencyId": {
-      "$ref": "/schemas/core/components/common.json#/definitions/agencyId"
+      "$ref": "/core/components/common.json#/definitions/agencyId"
     },
     "state": {
       "description": "The state of an authorization",
@@ -12,14 +12,14 @@
       "enum": ["VALID", "INVALID"]
     },
     "validTo": {
-      "$ref": "/schemas/core/components/units.json#/definitions/time",
+      "$ref": "/core/components/units.json#/definitions/time",
       "description": "Epoch when the authorization will be invalid"
     },
     "created": {
-      "$ref": "/schemas/core/components/units.json#/definitions/time"
+      "$ref": "/core/components/units.json#/definitions/time"
     },
     "modified": {
-      "$ref": "/schemas/core/components/units.json#/definitions/time"
+      "$ref": "/core/components/units.json#/definitions/time"
     }
   },
   "additionalProperties": false,

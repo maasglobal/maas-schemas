@@ -4,16 +4,16 @@
   "type": "object",
   "properties": {
     "customerId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "userId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "changeStateId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/uuid"
+      "$ref": "/core/components/units.json#/definitions/uuid"
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["customerId", "userId", "changeStateId", "headers"],

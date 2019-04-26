@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "booking": {
-      "$ref": "/schemas/core/booking.json"
+      "$ref": "/core/booking.json"
     },
     "paymentParameters": {
       "description": "Payment parameters for asynchronous payment methods",

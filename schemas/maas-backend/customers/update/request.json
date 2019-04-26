@@ -6,10 +6,10 @@
   "required": ["identityId", "customerId", "payload", "headers"],
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "customerId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
@@ -23,7 +23,7 @@
               "maxLength": 1024
             },
             "personalData": {
-              "$ref": "/schemas/maas-backend/customers/personalData.json"
+              "$ref": "/maas-backend/customers/personalData.json"
             }
           },
           "additionalProperties": false
@@ -32,7 +32,7 @@
       "required": ["customer"]
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   }
 }

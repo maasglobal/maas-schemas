@@ -14,16 +14,16 @@
           "type": "object",
           "properties": {
             "lat": {
-              "$ref": "/schemas/core/components/units-geo.json#/definitions/latitude"
+              "$ref": "/core/components/units-geo.json#/definitions/latitude"
             },
             "lon": {
-              "$ref": "/schemas/core/components/units-geo.json#/definitions/longitude"
+              "$ref": "/core/components/units-geo.json#/definitions/longitude"
             },
             "timestamp": {
-              "$ref": "/schemas/core/components/units.json#/definitions/time"
+              "$ref": "/core/components/units.json#/definitions/time"
             },
             "legId": {
-              "$ref": "/schemas/core/components/units.json#/definitions/uuid"
+              "$ref": "/core/components/units.json#/definitions/uuid"
             }
           }
         },
@@ -31,13 +31,13 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "/schemas/core/components/units.json#/definitions/uuid"
+              "$ref": "/core/components/units.json#/definitions/uuid"
             },
             "timestamp": {
-              "$ref": "/schemas/core/components/units.json#/definitions/time"
+              "$ref": "/core/components/units.json#/definitions/time"
             },
             "state": {
-              "$ref": "/schemas/core/components/state.json#/definitions/legState"
+              "$ref": "/core/components/state.json#/definitions/legState"
             }
           }
         }

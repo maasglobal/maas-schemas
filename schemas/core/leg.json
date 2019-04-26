@@ -28,13 +28,13 @@
       "description": "MaaS specific leg extensions",
       "properties": {
         "id": {
-          "$ref": "/schemas/core/components/units.json#/definitions/uuid"
+          "$ref": "/core/components/units.json#/definitions/uuid"
         },
         "signature": {
-          "$ref": "/schemas/core/components/common.json#/definitions/signature"
+          "$ref": "/core/components/common.json#/definitions/signature"
         },
         "tspProduct": {
-          "$ref": "/schemas/core/booking-option.json#/definitions/tspProduct"
+          "$ref": "/core/booking-option.json#/definitions/tspProduct"
         },
         "productOption": {
           "description": "Index of the productOption used in the itinerary's productOptions",
@@ -47,47 +47,47 @@
       "type": "object",
       "properties": {
         "state": {
-          "$ref": "/schemas/core/components/state.json#/definitions/legState"
+          "$ref": "/core/components/state.json#/definitions/legState"
         },
         "from": {
-          "$ref": "/schemas/core/components/units-geo.json#/definitions/place"
+          "$ref": "/core/components/units-geo.json#/definitions/place"
         },
         "to": {
-          "$ref": "/schemas/core/components/units-geo.json#/definitions/place"
+          "$ref": "/core/components/units-geo.json#/definitions/place"
         },
         "startTime": {
-          "$ref": "/schemas/core/components/units.json#/definitions/time"
+          "$ref": "/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "/schemas/core/components/units.json#/definitions/time"
+          "$ref": "/core/components/units.json#/definitions/time"
         },
         "mode": {
           "anyOf": [
             {
-              "$ref": "/schemas/core/components/travel-mode.json#/definitions/personalMode"
+              "$ref": "/core/components/travel-mode.json#/definitions/personalMode"
             },
             {
-              "$ref": "/schemas/core/components/travel-mode.json#/definitions/publicTransitMode"
+              "$ref": "/core/components/travel-mode.json#/definitions/publicTransitMode"
             },
             {
-              "$ref": "/schemas/core/components/travel-mode.json#/definitions/privateTransitMode"
+              "$ref": "/core/components/travel-mode.json#/definitions/privateTransitMode"
             }
           ]
         },
         "stops": {
           "type": "array",
           "items": {
-            "$ref": "/schemas/core/stop.json"
+            "$ref": "/core/stop.json"
           }
         },
         "departureDelay": {
-          "$ref": "/schemas/core/components/units.json#/definitions/duration"
+          "$ref": "/core/components/units.json#/definitions/duration"
         },
         "arrivalDelay": {
-          "$ref": "/schemas/core/components/units.json#/definitions/duration"
+          "$ref": "/core/components/units.json#/definitions/duration"
         },
         "distance": {
-          "$ref": "/schemas/core/components/units-geo.json#/definitions/distance"
+          "$ref": "/core/components/units-geo.json#/definitions/distance"
         },
         "route": {
           "type": "string",
@@ -105,13 +105,13 @@
           "maxLength": 255
         },
         "agencyId": {
-          "$ref": "/schemas/core/components/common.json#/definitions/agencyId"
+          "$ref": "/core/components/common.json#/definitions/agencyId"
         },
         "legGeometry": {
           "type": "object",
           "properties": {
             "points": {
-              "$ref": "/schemas/core/components/units-geo.json#/definitions/polyline"
+              "$ref": "/core/components/units-geo.json#/definitions/polyline"
             }
           }
         }
@@ -124,13 +124,13 @@
       "additionalProperties": true,
       "properties": {
         "startTime": {
-          "$ref": "/schemas/core/components/units.json#/definitions/time"
+          "$ref": "/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "/schemas/core/components/units.json#/definitions/time"
+          "$ref": "/core/components/units.json#/definitions/time"
         },
         "mode": {
-          "$ref": "/schemas/core/components/travel-mode.json#/definitions/waitingMode"
+          "$ref": "/core/components/travel-mode.json#/definitions/waitingMode"
         }
       },
       "required": ["mode", "startTime", "endTime"]
@@ -140,13 +140,13 @@
       "additionalProperties": true,
       "properties": {
         "startTime": {
-          "$ref": "/schemas/core/components/units.json#/definitions/time"
+          "$ref": "/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "/schemas/core/components/units.json#/definitions/time"
+          "$ref": "/core/components/units.json#/definitions/time"
         },
         "mode": {
-          "$ref": "/schemas/core/components/travel-mode.json#/definitions/transferMode"
+          "$ref": "/core/components/travel-mode.json#/definitions/transferMode"
         }
       },
       "required": ["mode", "startTime", "endTime"]

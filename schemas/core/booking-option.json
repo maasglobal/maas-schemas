@@ -18,16 +18,16 @@
           "$ref": "#/definitions/leg"
         },
         "terms": {
-          "$ref": "/schemas/core/booking.json#/definitions/terms"
+          "$ref": "/core/booking.json#/definitions/terms"
         },
         "meta": {
-          "$ref": "/schemas/core/booking.json#/definitions/meta"
+          "$ref": "/core/booking.json#/definitions/meta"
         },
         "tspProduct": {
           "$ref": "#/definitions/tspProduct"
         },
         "cost": {
-          "$ref": "/schemas/core/components/cost.json"
+          "$ref": "/core/components/cost.json"
         },
         "customer": {
           "$ref": "#/definitions/customer"
@@ -42,16 +42,16 @@
           "$ref": "#/definitions/leg"
         },
         "terms": {
-          "$ref": "/schemas/core/booking.json#/definitions/terms"
+          "$ref": "/core/booking.json#/definitions/terms"
         },
         "meta": {
-          "$ref": "/schemas/core/booking.json#/definitions/meta"
+          "$ref": "/core/booking.json#/definitions/meta"
         },
         "tspProduct": {
           "$ref": "#/definitions/tspProduct"
         },
         "configurator": {
-          "$ref": "/schemas/core/components/configurator.json"
+          "$ref": "/core/components/configurator.json"
         },
         "customer": {
           "$ref": "#/definitions/customer"
@@ -60,33 +60,33 @@
     },
     "customer": {
       "description": "MaaS booking customer",
-      "$ref": "/schemas/core/customer.json"
+      "$ref": "/core/customer.json"
     },
     "leg": {
       "type": "object",
       "description": "A subset of the standard leg (../core/leg.json)",
       "properties": {
         "mode": {
-          "$ref": "/schemas/core/components/travel-mode.json"
+          "$ref": "/core/components/travel-mode.json"
         },
         "startTime": {
-          "$ref": "/schemas/core/components/units.json#/definitions/time"
+          "$ref": "/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "/schemas/core/components/units.json#/definitions/time"
+          "$ref": "/core/components/units.json#/definitions/time"
         },
         "from": {
           "description": "Starting location's lat and lon pair of this request",
-          "$ref": "/schemas/core/components/units-geo.json#/definitions/place"
+          "$ref": "/core/components/units-geo.json#/definitions/place"
         },
         "to": {
-          "$ref": "/schemas/core/components/units-geo.json#/definitions/place"
+          "$ref": "/core/components/units-geo.json#/definitions/place"
         },
         "departureDelay": {
-          "$ref": "/schemas/core/components/units.json#/definitions/duration"
+          "$ref": "/core/components/units.json#/definitions/duration"
         },
         "agencyId": {
-          "$ref": "/schemas/core/components/common.json#/definitions/agencyId"
+          "$ref": "/core/components/common.json#/definitions/agencyId"
         }
       },
       "additionalProperties": false,
@@ -97,22 +97,22 @@
       "description": "A leg delta, containing any subset of the valid properties",
       "properties": {
         "mode": {
-          "$ref": "/schemas/core/components/travel-mode.json"
+          "$ref": "/core/components/travel-mode.json"
         },
         "startTime": {
-          "$ref": "/schemas/core/components/units.json#/definitions/time"
+          "$ref": "/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "/schemas/core/components/units.json#/definitions/time"
+          "$ref": "/core/components/units.json#/definitions/time"
         },
         "departureDelay": {
-          "$ref": "/schemas/core/components/units.json#/definitions/duration"
+          "$ref": "/core/components/units.json#/definitions/duration"
         },
         "from": {
-          "$ref": "/schemas/core/components/units-geo.json#/definitions/place"
+          "$ref": "/core/components/units-geo.json#/definitions/place"
         },
         "to": {
-          "$ref": "/schemas/core/components/units-geo.json#/definitions/place"
+          "$ref": "/core/components/units-geo.json#/definitions/place"
         }
       },
       "additionalProperties": false

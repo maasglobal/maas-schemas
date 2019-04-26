@@ -3,10 +3,10 @@
   "description": "Request schema for completing customer authorization for TSP",
   "type": "object",
   "encodedData": {
-    "$ref": "/schemas/core/components/common.json#/definitions/encodedQueryParam"
+    "$ref": "/core/components/common.json#/definitions/encodedQueryParam"
   },
   "error": {
-    "$ref": "/schemas/core/components/common.json#/definitions/errorKey"
+    "$ref": "/core/components/common.json#/definitions/errorKey"
   },
   "required": ["encodedData"],
   "additionalProperties": true

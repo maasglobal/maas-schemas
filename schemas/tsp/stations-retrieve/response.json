@@ -8,37 +8,37 @@
       "description": "Detailed station schema, coming as stations-retrieve response",
       "properties": {
         "id": {
-          "$ref": "/schemas/core/components/station.json#/definitions/id"
+          "$ref": "/core/components/station.json#/definitions/id"
         },
         "code": {
-          "$ref": "/schemas/core/components/station.json#/definitions/code"
+          "$ref": "/core/components/station.json#/definitions/code"
         },
         "name": {
-          "$ref": "/schemas/core/components/station.json#/definitions/name"
+          "$ref": "/core/components/station.json#/definitions/name"
         },
         "location": {
-          "$ref": "/schemas/core/components/station.json#/definitions/location"
+          "$ref": "/core/components/station.json#/definitions/location"
         },
         "agencyId": {
-          "$ref": "/schemas/core/components/station.json#/definitions/agencyId"
+          "$ref": "/core/components/station.json#/definitions/agencyId"
         },
         "address": {
-          "$ref": "/schemas/core/components/station.json#/definitions/address"
+          "$ref": "/core/components/station.json#/definitions/address"
         },
         "city": {
-          "$ref": "/schemas/core/components/station.json#/definitions/city"
+          "$ref": "/core/components/station.json#/definitions/city"
         },
         "country": {
-          "$ref": "/schemas/core/components/station.json#/definitions/country"
+          "$ref": "/core/components/station.json#/definitions/country"
         },
         "openingHours": {
-          "$ref": "/schemas/core/components/station.json#/definitions/openingHours"
+          "$ref": "/core/components/station.json#/definitions/openingHours"
         },
         "facilities": {
-          "$ref": "/schemas/core/components/station.json#/definitions/facilities"
+          "$ref": "/core/components/station.json#/definitions/facilities"
         },
         "timetables": {
-          "$ref": "/schemas/core/components/station.json#/definitions/timetables"
+          "$ref": "/core/components/station.json#/definitions/timetables"
         }
       },
       "required": ["id", "location", "agencyId"],

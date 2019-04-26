@@ -4,13 +4,13 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
       "properties": {
         "agencyId": {
-          "$ref": "/schemas/core/components/common.json#/definitions/agencyId"
+          "$ref": "/core/components/common.json#/definitions/agencyId"
         },
         "stationId": {
           "type": "string",
@@ -19,7 +19,7 @@
       }
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId", "payload"],

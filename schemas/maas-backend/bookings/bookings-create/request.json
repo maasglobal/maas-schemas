@@ -4,21 +4,21 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
       "properties": {
         "booking": {
-          "$ref": "/schemas/maas-backend/bookings/bookings-agency-options/response.json#/definitions/option"
+          "$ref": "/maas-backend/bookings/bookings-agency-options/response.json#/definitions/option"
         },
         "customerSelection": {
-          "$ref": "/schemas/core/components/configurator.json#/definitions/customerSelection"
+          "$ref": "/core/components/configurator.json#/definitions/customerSelection"
         }
       }
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId", "payload"],

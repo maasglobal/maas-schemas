@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "results": {
       "properties": {

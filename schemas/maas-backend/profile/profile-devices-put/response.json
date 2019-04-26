@@ -22,7 +22,7 @@
           "pattern": "^.{32,255}$"
         },
         "deviceIdentifier": {
-          "$ref": "/schemas/core/components/units.json#/definitions/uuid"
+          "$ref": "/core/components/units.json#/definitions/uuid"
         },
         "deviceType": {
           "type": "string",

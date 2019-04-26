@@ -10,31 +10,31 @@
         "description": "Simplified station schema, coming as part of stations-list response",
         "properties": {
           "id": {
-            "$ref": "/schemas/core/components/station.json#/definitions/id"
+            "$ref": "/core/components/station.json#/definitions/id"
           },
           "code": {
-            "$ref": "/schemas/core/components/station.json#/definitions/code"
+            "$ref": "/core/components/station.json#/definitions/code"
           },
           "name": {
-            "$ref": "/schemas/core/components/station.json#/definitions/name"
+            "$ref": "/core/components/station.json#/definitions/name"
           },
           "location": {
-            "$ref": "/schemas/core/components/station.json#/definitions/location"
+            "$ref": "/core/components/station.json#/definitions/location"
           },
           "agencyId": {
-            "$ref": "/schemas/core/components/station.json#/definitions/agencyId"
+            "$ref": "/core/components/station.json#/definitions/agencyId"
           },
           "services": {
-            "$ref": "/schemas/core/components/station.json#/definitions/services"
+            "$ref": "/core/components/station.json#/definitions/services"
           },
           "address": {
-            "$ref": "/schemas/core/components/station.json#/definitions/address"
+            "$ref": "/core/components/station.json#/definitions/address"
           },
           "city": {
-            "$ref": "/schemas/core/components/station.json#/definitions/city"
+            "$ref": "/core/components/station.json#/definitions/city"
           },
           "country": {
-            "$ref": "/schemas/core/components/station.json#/definitions/country"
+            "$ref": "/core/components/station.json#/definitions/country"
           }
         },
         "required": ["id", "location", "agencyId", "services"],

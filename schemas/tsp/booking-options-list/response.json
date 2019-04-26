@@ -6,7 +6,7 @@
     "options": {
       "type": "array",
       "items": {
-        "$ref": "/schemas/core/booking-option.json"
+        "$ref": "/core/booking-option.json"
       }
     },
     "additional": {
@@ -15,7 +15,7 @@
         "bikeStations": {
           "type": "array",
           "items": {
-            "$ref": "/schemas/core/components/bike-station.json"
+            "$ref": "/core/components/bike-station.json"
           }
         }
       }

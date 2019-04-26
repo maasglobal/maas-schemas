@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "profile": {
-      "$ref": "/schemas/core/profile.json"
+      "$ref": "/core/profile.json"
     },
     "debug": {
       "type": "object",

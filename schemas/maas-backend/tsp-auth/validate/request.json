@@ -4,16 +4,16 @@
   "type": "object",
   "properties": {
     "agencyId": {
-      "$ref": "/schemas/core/components/common.json#/definitions/agencyId"
+      "$ref": "/core/components/common.json#/definitions/agencyId"
     },
     "token": {
-      "$ref": "/schemas/core/components/common.json#/definitions/encodedQueryParam"
+      "$ref": "/core/components/common.json#/definitions/encodedQueryParam"
     },
     "encodedData": {
-      "$ref": "/schemas/core/components/common.json#/definitions/encodedQueryParam"
+      "$ref": "/core/components/common.json#/definitions/encodedQueryParam"
     },
     "error": {
-      "$ref": "/schemas/core/components/common.json#/definitions/errorKey"
+      "$ref": "/core/components/common.json#/definitions/errorKey"
     },
     "headers": {
       "type": "object",

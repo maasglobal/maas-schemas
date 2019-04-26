@@ -4,13 +4,13 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "agencyId": {
-      "$ref": "/schemas/core/components/common.json#/definitions/agencyId"
+      "$ref": "/core/components/common.json#/definitions/agencyId"
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId", "agencyId"],

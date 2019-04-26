@@ -4,18 +4,18 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
       "properties": {
         "name": { "type": "string", "minLength": 2, "maxLength": 128 },
-        "lat": { "$ref": "/schemas/core/components/units-geo.json#/definitions/relaxedLatitude" },
-        "lon": { "$ref": "/schemas/core/components/units-geo.json#/definitions/relaxedLongitude" },
+        "lat": { "$ref": "/core/components/units-geo.json#/definitions/relaxedLatitude" },
+        "lon": { "$ref": "/core/components/units-geo.json#/definitions/relaxedLongitude" },
         "count": { "type": "integer", "minimum": 1, "maximum": 100, "default": 5 },
-        "distance": { "$ref": "/schemas/core/components/units-geo.json#/definitions/distance" },
+        "distance": { "$ref": "/core/components/units-geo.json#/definitions/distance" },
         "locale": {
-          "$ref": "/schemas/core/components/i18n.json#/definitions/locale",
+          "$ref": "/core/components/i18n.json#/definitions/locale",
           "default": "fi-FI"
         }
       },
@@ -23,7 +23,7 @@
       "additionalProperties": false
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["payload"],

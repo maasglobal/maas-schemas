@@ -4,22 +4,22 @@
   "description": "The base booking object with all fields, to be inherited",
   "properties": {
     "id": {
-      "$ref": "/schemas/core/components/units.json#/definitions/uuid"
+      "$ref": "/core/components/units.json#/definitions/uuid"
     },
     "tspId": {
       "$ref": "#/definitions/tspId"
     },
     "state": {
-      "$ref": "/schemas/core/components/state.json#/definitions/bookingState"
+      "$ref": "/core/components/state.json#/definitions/bookingState"
     },
     "fares": {
       "type": "array",
       "items": {
-        "$ref": "/schemas/core/components/fare.json"
+        "$ref": "/core/components/fare.json"
       }
     },
     "cost": {
-      "$ref": "/schemas/core/components/cost.json"
+      "$ref": "/core/components/cost.json"
     },
     "leg": {
       "$ref": "#/definitions/leg"
@@ -37,7 +37,7 @@
       "description": "MaaS booking customer",
       "allOf": [
         {
-          "$ref": "/schemas/core/customer.json"
+          "$ref": "/core/customer.json"
         },
         {
           "required": ["identityId"]
@@ -45,16 +45,16 @@
       ]
     },
     "product": {
-      "$ref": "/schemas/core/product.json"
+      "$ref": "/core/product.json"
     },
     "signature": {
-      "$ref": "/schemas/core/components/common.json#/definitions/signature"
+      "$ref": "/core/components/common.json#/definitions/signature"
     },
     "configurator": {
-      "$ref": "/schemas/core/components/configurator.json"
+      "$ref": "/core/components/configurator.json"
     },
     "customerSelection": {
-      "$ref": "/schemas/core/components/configurator.json#/definitions/customerSelection"
+      "$ref": "/core/components/configurator.json#/definitions/customerSelection"
     }
   },
   "required": ["id", "state", "leg", "meta", "terms", "token", "customer"],
@@ -69,49 +69,49 @@
       "description": "MaaS response may return any subset of legCore",
       "properties": {
         "signature": {
-          "$ref": "/schemas/core/components/common.json#/definitions/signature"
+          "$ref": "/core/components/common.json#/definitions/signature"
         },
         "from": {
-          "$ref": "/schemas/core/leg.json#/definitions/legCore/properties/from"
+          "$ref": "/core/leg.json#/definitions/legCore/properties/from"
         },
         "to": {
-          "$ref": "/schemas/core/leg.json#/definitions/legCore/properties/to"
+          "$ref": "/core/leg.json#/definitions/legCore/properties/to"
         },
         "startTime": {
-          "$ref": "/schemas/core/leg.json#/definitions/legCore/properties/startTime"
+          "$ref": "/core/leg.json#/definitions/legCore/properties/startTime"
         },
         "endTime": {
-          "$ref": "/schemas/core/leg.json#/definitions/legCore/properties/endTime"
+          "$ref": "/core/leg.json#/definitions/legCore/properties/endTime"
         },
         "mode": {
-          "$ref": "/schemas/core/leg.json#/definitions/legCore/properties/mode"
+          "$ref": "/core/leg.json#/definitions/legCore/properties/mode"
         },
         "departureDelay": {
-          "$ref": "/schemas/core/leg.json#/definitions/legCore/properties/departureDelay"
+          "$ref": "/core/leg.json#/definitions/legCore/properties/departureDelay"
         },
         "arrivalDelay": {
-          "$ref": "/schemas/core/leg.json#/definitions/legCore/properties/arrivalDelay"
+          "$ref": "/core/leg.json#/definitions/legCore/properties/arrivalDelay"
         },
         "distance": {
-          "$ref": "/schemas/core/leg.json#/definitions/legCore/properties/distance"
+          "$ref": "/core/leg.json#/definitions/legCore/properties/distance"
         },
         "state": {
-          "$ref": "/schemas/core/leg.json#/definitions/legCore/properties/state"
+          "$ref": "/core/leg.json#/definitions/legCore/properties/state"
         },
         "route": {
-          "$ref": "/schemas/core/leg.json#/definitions/legCore/properties/route"
+          "$ref": "/core/leg.json#/definitions/legCore/properties/route"
         },
         "routeShortName": {
-          "$ref": "/schemas/core/leg.json#/definitions/legCore/properties/routeShortName"
+          "$ref": "/core/leg.json#/definitions/legCore/properties/routeShortName"
         },
         "routeLongName": {
-          "$ref": "/schemas/core/leg.json#/definitions/legCore/properties/routeLongName"
+          "$ref": "/core/leg.json#/definitions/legCore/properties/routeLongName"
         },
         "agencyId": {
-          "$ref": "/schemas/core/leg.json#/definitions/legCore/properties/agencyId"
+          "$ref": "/core/leg.json#/definitions/legCore/properties/agencyId"
         },
         "legGeometry": {
-          "$ref": "/schemas/core/leg.json#/definitions/legCore/properties/legGeometry"
+          "$ref": "/core/leg.json#/definitions/legCore/properties/legGeometry"
         }
       },
       "additionalProperties": false
@@ -120,28 +120,28 @@
       "type": "object",
       "description": "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
       "properties": {
-        "MODE_WALK": { "$ref": "/schemas/core/modes/MODE_WALK.json" },
-        "MODE_BICYCLE": { "$ref": "/schemas/core/modes/MODE_BICYCLE.json" },
-        "MODE_CAR": { "$ref": "/schemas/core/modes/MODE_CAR.json" },
-        "MODE_TRAM": { "$ref": "/schemas/core/modes/MODE_TRAM.json" },
-        "MODE_SUBWAY": { "$ref": "/schemas/core/modes/MODE_SUBWAY.json" },
-        "MODE_RAIL": { "$ref": "/schemas/core/modes/MODE_RAIL.json" },
-        "MODE_BUS": { "$ref": "/schemas/core/modes/MODE_BUS.json" },
-        "MODE_FERRY": { "$ref": "/schemas/core/modes/MODE_FERRY.json" },
-        "MODE_CABLE_CAR": { "$ref": "/schemas/core/modes/MODE_CABLE_CAR.json" },
-        "MODE_GONDOLA": { "$ref": "/schemas/core/modes/MODE_GONDOLA.json" },
-        "MODE_FUNICULAR": { "$ref": "/schemas/core/modes/MODE_FUNICULAR.json" },
-        "MODE_SHARED_BICYCLE": { "$ref": "/schemas/core/modes/MODE_SHARED_BICYCLE.json" },
-        "MODE_SHARED_CAR": { "$ref": "/schemas/core/modes/MODE_SHARED_CAR.json" },
-        "MODE_TRANSIT": { "$ref": "/schemas/core/modes/MODE_TRANSIT.json" },
-        "MODE_TRAIN": { "$ref": "/schemas/core/modes/MODE_TRAIN.json" },
-        "MODE_TRAINISH": { "$ref": "/schemas/core/modes/MODE_TRAINISH.json" },
-        "MODE_BUSISH": { "$ref": "/schemas/core/modes/MODE_BUSISH.json" },
-        "MODE_TAXI": { "$ref": "/schemas/core/modes/MODE_TAXI.json" }
+        "MODE_WALK": { "$ref": "/core/modes/MODE_WALK.json" },
+        "MODE_BICYCLE": { "$ref": "/core/modes/MODE_BICYCLE.json" },
+        "MODE_CAR": { "$ref": "/core/modes/MODE_CAR.json" },
+        "MODE_TRAM": { "$ref": "/core/modes/MODE_TRAM.json" },
+        "MODE_SUBWAY": { "$ref": "/core/modes/MODE_SUBWAY.json" },
+        "MODE_RAIL": { "$ref": "/core/modes/MODE_RAIL.json" },
+        "MODE_BUS": { "$ref": "/core/modes/MODE_BUS.json" },
+        "MODE_FERRY": { "$ref": "/core/modes/MODE_FERRY.json" },
+        "MODE_CABLE_CAR": { "$ref": "/core/modes/MODE_CABLE_CAR.json" },
+        "MODE_GONDOLA": { "$ref": "/core/modes/MODE_GONDOLA.json" },
+        "MODE_FUNICULAR": { "$ref": "/core/modes/MODE_FUNICULAR.json" },
+        "MODE_SHARED_BICYCLE": { "$ref": "/core/modes/MODE_SHARED_BICYCLE.json" },
+        "MODE_SHARED_CAR": { "$ref": "/core/modes/MODE_SHARED_CAR.json" },
+        "MODE_TRANSIT": { "$ref": "/core/modes/MODE_TRANSIT.json" },
+        "MODE_TRAIN": { "$ref": "/core/modes/MODE_TRAIN.json" },
+        "MODE_TRAINISH": { "$ref": "/core/modes/MODE_TRAINISH.json" },
+        "MODE_BUSISH": { "$ref": "/core/modes/MODE_BUSISH.json" },
+        "MODE_TAXI": { "$ref": "/core/modes/MODE_TAXI.json" }
       }
     },
     "terms": {
-      "$ref": "/schemas/core/components/terms.json"
+      "$ref": "/core/components/terms.json"
     },
     "token": {
       "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
@@ -153,11 +153,11 @@
           "properties": {
             "startTime": {
               "description": "The starting time from which the ticket is valid",
-              "$ref": "/schemas/core/components/units.json#/definitions/time"
+              "$ref": "/core/components/units.json#/definitions/time"
             },
             "endTime": {
               "description": "The finishing time the ticket is valid for",
-              "$ref": "/schemas/core/components/units.json#/definitions/time"
+              "$ref": "/core/components/units.json#/definitions/time"
             }
           }
         },

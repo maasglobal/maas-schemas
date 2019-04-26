@@ -5,20 +5,20 @@
   "additionalProperties": false,
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     },
     "payload": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "itinerary": {
-          "$ref": "/schemas/core/itinerary.json"
+          "$ref": "/core/itinerary.json"
         },
         "paymentSourceId": {
-          "$ref": "/schemas/core/components/common.json#/definitions/paymentSourceId"
+          "$ref": "/core/components/common.json#/definitions/paymentSourceId"
         },
         "outward": {
           "$ref": "#/definitions/outwardReturnWrapper"
@@ -32,12 +32,12 @@
   "definitions": {
     "outwardReturnWrapper": {
       "itinerary": {
-        "$ref": "/schemas/core/itinerary.json"
+        "$ref": "/core/itinerary.json"
       },
       "customerSelections": {
         "type": "array",
         "items": {
-          "$ref": "/schemas/core/components/configurator.json#/definitions/customerSelection"
+          "$ref": "/core/components/configurator.json#/definitions/customerSelection"
         }
       }
     }

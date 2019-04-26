@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "location": {
-      "$ref": "/schemas/core/components/common.json#/definitions/whimDeepLink"
+      "$ref": "/core/components/common.json#/definitions/whimDeepLink"
     }
   },
   "required": ["location"],

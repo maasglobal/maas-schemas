@@ -4,23 +4,23 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
       "properties": {
         "startTime": {
-          "$ref": "/schemas/core/components/units.json#/definitions/time"
+          "$ref": "/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "/schemas/core/components/units.json#/definitions/time"
+          "$ref": "/core/components/units.json#/definitions/time"
         },
         "states": {
           "type": "string",
           "pattern": "^([A-Ö]+,)*[A-Ö]+$"
         },
         "bookingId": {
-          "$ref": "/schemas/core/booking.json#/properties/id"
+          "$ref": "/core/booking.json#/properties/id"
         },
         "originalFare": {
           "type": "string"
@@ -29,7 +29,7 @@
       "additionalProperties": false
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId"],

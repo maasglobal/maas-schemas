@@ -4,16 +4,16 @@
   "type": "object",
   "properties": {
     "authToken": {
-      "$ref": "/schemas/core/components/common.json#/definitions/encodedQueryParam"
+      "$ref": "/core/components/common.json#/definitions/encodedQueryParam"
     },
     "validTo": {
-      "$ref": "/schemas/core/components/units.json#/definitions/time"
+      "$ref": "/core/components/units.json#/definitions/time"
     },
     "nonce": {
-      "$ref": "/schemas/core/components/common.json#/definitions/encodedQueryParam"
+      "$ref": "/core/components/common.json#/definitions/encodedQueryParam"
     },
     "error": {
-      "$ref": "/schemas/core/error.json"
+      "$ref": "/core/error.json"
     }
   },
   "additionalProperties": false,

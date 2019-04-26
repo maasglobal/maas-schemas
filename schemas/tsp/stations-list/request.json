@@ -6,10 +6,10 @@
       "type": "object",
       "properties": {
         "location": {
-          "$ref": "/schemas/core/components/units-geo.json#/definitions/shortLocationString"
+          "$ref": "/core/components/units-geo.json#/definitions/shortLocationString"
         },
         "radius": {
-          "$ref": "/schemas/core/components/units-geo.json#/definitions/distance"
+          "$ref": "/core/components/units-geo.json#/definitions/distance"
         }
       },
       "required": ["location"]

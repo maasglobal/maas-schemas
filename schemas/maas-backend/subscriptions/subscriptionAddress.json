@@ -6,25 +6,25 @@
       "type": "object",
       "properties": {
         "firstName": {
-          "$ref": "/schemas/core/components/address.json#/definitions/firstName"
+          "$ref": "/core/components/address.json#/definitions/firstName"
         },
         "lastName": {
-          "$ref": "/schemas/core/components/address.json#/definitions/lastName"
+          "$ref": "/core/components/address.json#/definitions/lastName"
         },
         "city": {
-          "$ref": "/schemas/core/components/address.json#/definitions/city"
+          "$ref": "/core/components/address.json#/definitions/city"
         },
         "zipCode": {
-          "$ref": "/schemas/core/components/address.json#/definitions/zipCode"
+          "$ref": "/core/components/address.json#/definitions/zipCode"
         },
         "country": {
-          "$ref": "/schemas/core/components/address.json#/definitions/country"
+          "$ref": "/core/components/address.json#/definitions/country"
         },
         "phone": {
-          "$ref": "/schemas/core/components/address.json#/definitions/phone"
+          "$ref": "/core/components/address.json#/definitions/phone"
         },
         "email": {
-          "$ref": "/schemas/core/components/address.json#/definitions/email"
+          "$ref": "/core/components/address.json#/definitions/email"
         }
       },
       "required": ["zipCode", "country"],

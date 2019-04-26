@@ -12,7 +12,7 @@
       "type": "object",
       "properties": {
         "from": {
-          "$ref": "/schemas/core/components/units-geo.json#/definitions/place"
+          "$ref": "/core/components/units-geo.json#/definitions/place"
         },
         "outwards": {
           "$ref": "#/definitions/itineraries"
@@ -27,7 +27,7 @@
       "type": "object",
       "properties": {
         "from": {
-          "$ref": "/schemas/core/components/units-geo.json#/definitions/place"
+          "$ref": "/core/components/units-geo.json#/definitions/place"
         },
         "itineraries": {
           "$ref": "#/definitions/itineraries"
@@ -38,7 +38,7 @@
     "itineraries": {
       "type": "array",
       "items": {
-        "$ref": "/schemas/core/itinerary.json"
+        "$ref": "/core/itinerary.json"
       }
     }
   }

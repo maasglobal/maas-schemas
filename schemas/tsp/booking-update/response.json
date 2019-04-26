@@ -4,28 +4,28 @@
   "type": "object",
   "properties": {
     "tspId": {
-      "$ref": "/schemas/core/booking.json#/definitions/tspId"
+      "$ref": "/core/booking.json#/definitions/tspId"
     },
     "cost": {
-      "$ref": "/schemas/core/booking.json#/properties/cost"
+      "$ref": "/core/booking.json#/properties/cost"
     },
     "state": {
       "enum": ["RESERVED", "CONFIRMED", "ACTIVATED", "ON_HOLD", "EXPIRED", "CANCELLED"]
     },
     "leg": {
-      "$ref": "/schemas/core/booking-option.json#/definitions/legDelta"
+      "$ref": "/core/booking-option.json#/definitions/legDelta"
     },
     "meta": {
-      "$ref": "/schemas/core/booking.json#/definitions/meta"
+      "$ref": "/core/booking.json#/definitions/meta"
     },
     "terms": {
-      "$ref": "/schemas/core/booking.json#/definitions/terms"
+      "$ref": "/core/booking.json#/definitions/terms"
     },
     "token": {
-      "$ref": "/schemas/core/booking.json#/definitions/token"
+      "$ref": "/core/booking.json#/definitions/token"
     },
     "tspProduct": {
-      "$ref": "/schemas/core/booking-option.json#/definitions/tspProduct"
+      "$ref": "/core/booking-option.json#/definitions/tspProduct"
     }
   },
   "required": ["tspId", "state"],

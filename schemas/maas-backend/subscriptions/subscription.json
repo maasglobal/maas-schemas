@@ -21,10 +21,10 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "/schemas/maas-backend/subscriptions/contact.json#/definitions/identityId"
+          "$ref": "/maas-backend/subscriptions/contact.json#/definitions/identityId"
         },
         "customerId": {
-          "$ref": "/schemas/maas-backend/subscriptions/contact.json#/definitions/identityId"
+          "$ref": "/maas-backend/subscriptions/contact.json#/definitions/identityId"
         },
         "plan": {
           "$ref": "#/definitions/plan"
@@ -45,13 +45,13 @@
           "$ref": "#/definitions/terms"
         },
         "pointCost": {
-          "$ref": "/schemas/core/components/point-cost.json"
+          "$ref": "/core/components/point-cost.json"
         },
         "region": {
-          "$ref": "/schemas/core/region.json"
+          "$ref": "/core/region.json"
         },
         "shippingAddress": {
-          "$ref": "/schemas/maas-backend/subscriptions/subscriptionAddress.json"
+          "$ref": "/maas-backend/subscriptions/subscriptionAddress.json"
         },
         "availability": {
           "type": "object",
@@ -91,7 +91,7 @@
           "minLength": 2
         },
         "changeState": {
-          "$ref": "/schemas/core/components/subscriptionChangeState.json"
+          "$ref": "/core/components/subscriptionChangeState.json"
         }
       },
       "additionalProperties": true
@@ -167,27 +167,27 @@
       "pattern": "^[^\\s\\/]{1,50}$"
     },
     "price": {
-      "$ref": "/schemas/core/components/cost.json"
+      "$ref": "/core/components/cost.json"
     },
     "terms": {
       "description": "Terms related to this subscription",
       "type": "object",
       "properties": {
         "activated": {
-          "$ref": "/schemas/core/components/units.json#/definitions/time"
+          "$ref": "/core/components/units.json#/definitions/time"
         },
         "modified": {
-          "$ref": "/schemas/core/components/units.json#/definitions/time"
+          "$ref": "/core/components/units.json#/definitions/time"
         },
         "validity": {
           "description": "Subscription validity conditions",
           "type": "object",
           "properties": {
             "startTime": {
-              "$ref": "/schemas/core/components/units.json#/definitions/time"
+              "$ref": "/core/components/units.json#/definitions/time"
             },
             "endTime": {
-              "$ref": "/schemas/core/components/units.json#/definitions/time"
+              "$ref": "/core/components/units.json#/definitions/time"
             }
           },
           "required": ["startTime", "endTime"]

@@ -10,7 +10,7 @@
       "items": {
         "properties": {
           "identifier": {
-            "$ref": "/schemas/core/components/common.json#/definitions/deviceToken"
+            "$ref": "/core/components/common.json#/definitions/deviceToken"
           },
           "type": {
             "enum": ["ios", "android"]

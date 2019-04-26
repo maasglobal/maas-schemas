@@ -15,19 +15,19 @@
       "type": "string"
     },
     "location": {
-      "$ref": "/schemas/core/components/units-geo.json#/definitions/shortLocationString"
+      "$ref": "/core/components/units-geo.json#/definitions/shortLocationString"
     },
     "address": {
-      "$ref": "/schemas/core/components/address.json#/definitions/address"
+      "$ref": "/core/components/address.json#/definitions/address"
     },
     "city": {
-      "$ref": "/schemas/core/components/address.json#/definitions/city"
+      "$ref": "/core/components/address.json#/definitions/city"
     },
     "country": {
-      "$ref": "/schemas/core/components/address.json#/definitions/country"
+      "$ref": "/core/components/address.json#/definitions/country"
     },
     "agencyId": {
-      "$ref": "/schemas/core/components/common.json#/definitions/agencyId"
+      "$ref": "/core/components/common.json#/definitions/agencyId"
     },
     "openingHours": {
       "description": "Opening hour of the station, object format is left for TSP to decide",
@@ -44,7 +44,7 @@
       "description": "What agency and mode of transport will occupy this station",
       "type": "array",
       "items": {
-        "$ref": "/schemas/core/components/travel-mode.json"
+        "$ref": "/core/components/travel-mode.json"
       }
     },
     "timetables": {
@@ -57,7 +57,7 @@
             "type": "string"
           },
           "mode": {
-            "$ref": "/schemas/core/components/travel-mode.json"
+            "$ref": "/core/components/travel-mode.json"
           },
           "name": {
             "type": "string"
@@ -66,10 +66,10 @@
             "type": "string"
           },
           "schedule": {
-            "$ref": "/schemas/core/components/units.json#/definitions/time"
+            "$ref": "/core/components/units.json#/definitions/time"
           },
           "realtime": {
-            "$ref": "/schemas/core/components/units.json#/definitions/time"
+            "$ref": "/core/components/units.json#/definitions/time"
           }
         }
       }

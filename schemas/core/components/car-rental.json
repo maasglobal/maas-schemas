@@ -19,7 +19,7 @@
       "maxLength": 256
     },
     "image": {
-      "$ref": "/schemas/core/components/units.json#/definitions/url"
+      "$ref": "/core/components/units.json#/definitions/url"
     },
     "terms": {},
     "car": {
@@ -62,7 +62,7 @@
         "classification": {
           "$merge": {
             "source": {
-              "$ref": "/schemas/core/components/ACRISS.json"
+              "$ref": "/core/components/ACRISS.json"
             },
             "with": {
               "type": ["string", "null"]
@@ -88,22 +88,22 @@
         },
         "location": {
           "description": "Current geo location",
-          "$ref": "/schemas/core/components/units-geo.json#/definitions/location"
+          "$ref": "/core/components/units-geo.json#/definitions/location"
         }
       },
       "required": ["classification"]
     },
     "pickupInfo": {
       "description": "Pickup instructions in HTML format",
-      "$ref": "/schemas/core/components/common.json#/definitions/htmlBlock"
+      "$ref": "/core/components/common.json#/definitions/htmlBlock"
     },
     "returnInfo": {
       "description": "Return Instructions in HTML format",
-      "$ref": "/schemas/core/components/common.json#/definitions/htmlBlock"
+      "$ref": "/core/components/common.json#/definitions/htmlBlock"
     },
     "startEndGeoRegionUrl": {
       "description": "Region in which car can be rented and returned. Url to GeoJSON file",
-      "$ref": "/schemas/core/components/units.json#/definitions/url"
+      "$ref": "/core/components/units.json#/definitions/url"
     }
   },
   "required": ["name", "description", "image"],

@@ -17,7 +17,7 @@
     },
     "total": {
       "description": "Sum of the quantity * unitPrice - sum of discounts",
-      "$ref": "/schemas/core/components/cost.json"
+      "$ref": "/core/components/cost.json"
     },
     "terms": {
       "$ref": "#/definitions/terms"
@@ -31,7 +31,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "/schemas/maas-backend/subscriptions/subscription.json#/definitions/subscriptionItemId"
+          "$ref": "/maas-backend/subscriptions/subscription.json#/definitions/subscriptionItemId"
         },
         "type": {
           "type": "string",
@@ -49,7 +49,7 @@
         },
         "unitPrice": {
           "description": "Price of one unit after all taxes & discounts",
-          "$ref": "/schemas/core/components/cost.json"
+          "$ref": "/core/components/cost.json"
         }
       },
       "required": ["id", "type", "description", "quantity", "unitPrice"],
@@ -65,7 +65,7 @@
         },
         "discount": {
           "description": "Price of one unit after all taxes & discounts",
-          "$ref": "/schemas/core/components/cost.json"
+          "$ref": "/core/components/cost.json"
         }
       },
       "required": ["description", "discount"],
@@ -79,8 +79,8 @@
           "description": "Subscription validity conditions",
           "type": "object",
           "properties": {
-            "startTime": { "$ref": "/schemas/core/components/units.json#/definitions/time" },
-            "endTime": { "$ref": "/schemas/core/components/units.json#/definitions/time" }
+            "startTime": { "$ref": "/core/components/units.json#/definitions/time" },
+            "endTime": { "$ref": "/core/components/units.json#/definitions/time" }
           },
           "required": ["startTime", "endTime"]
         }

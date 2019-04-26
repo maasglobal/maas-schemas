@@ -4,13 +4,13 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "itineraryId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/uuid"
+      "$ref": "/core/components/units.json#/definitions/uuid"
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["itineraryId"],

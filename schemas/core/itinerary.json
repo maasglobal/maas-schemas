@@ -4,29 +4,29 @@
   "type": "object",
   "properties": {
     "id": {
-      "$ref": "/schemas/core/components/units.json#/definitions/uuid"
+      "$ref": "/core/components/units.json#/definitions/uuid"
     },
     "sourcePlanId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/uuid"
+      "$ref": "/core/components/units.json#/definitions/uuid"
     },
     "isOvertaken": {
       "type": "boolean",
       "default": false
     },
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "signature": {
-      "$ref": "/schemas/core/components/common.json#/definitions/signature"
+      "$ref": "/core/components/common.json#/definitions/signature"
     },
     "state": {
-      "$ref": "/schemas/core/components/state.json#/definitions/itineraryState"
+      "$ref": "/core/components/state.json#/definitions/itineraryState"
     },
     "startTime": {
-      "$ref": "/schemas/core/components/units.json#/definitions/time"
+      "$ref": "/core/components/units.json#/definitions/time"
     },
     "endTime": {
-      "$ref": "/schemas/core/components/units.json#/definitions/time"
+      "$ref": "/core/components/units.json#/definitions/time"
     },
     "co2": {
       "description": "Grams of CO2 as a byproduct by the trip",
@@ -36,7 +36,7 @@
     "fares": {
       "type": "array",
       "items": {
-        "$ref": "/schemas/core/components/fare.json"
+        "$ref": "/core/components/fare.json"
       }
     },
     "legs": {
@@ -44,7 +44,7 @@
       "minItems": 0,
       "items": [
         {
-          "$ref": "/schemas/core/leg.json"
+          "$ref": "/core/leg.json"
         }
       ]
     },
@@ -52,7 +52,7 @@
       "type": "array",
       "minItems": 0,
       "items": {
-        "$ref": "/schemas/core/product-option.json"
+        "$ref": "/core/product-option.json"
       }
     },
     "type": {
@@ -61,7 +61,7 @@
     "bookings": {
       "type": "array",
       "items": {
-        "$ref": "/schemas/core/booking.json"
+        "$ref": "/core/booking.json"
       }
     }
   },

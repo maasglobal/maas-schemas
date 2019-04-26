@@ -4,11 +4,11 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "bookingId": {
       "description": "bookingId of the requested booking",
-      "$ref": "/schemas/core/components/units.json#/definitions/uuid"
+      "$ref": "/core/components/units.json#/definitions/uuid"
     },
     "refresh": {
       "description": "Whether or not to refresh the booking from the TSP end",
@@ -16,7 +16,7 @@
       "default": false
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId", "bookingId"],

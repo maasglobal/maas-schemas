@@ -4,16 +4,16 @@
   "type": "object",
   "properties": {
     "customerId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "userId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "$ref": "/schemas/maas-backend/subscriptions/subscription.json#/definitions/subscriptionCreatePayload"
+      "$ref": "/maas-backend/subscriptions/subscription.json#/definitions/subscriptionCreatePayload"
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["customerId", "userId", "payload"],

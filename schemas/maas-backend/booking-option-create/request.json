@@ -6,13 +6,13 @@
   "required": ["identityId", "payload", "headers"],
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "$ref": "#/definitions/payload"
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   },
   "definitions": {
@@ -21,19 +21,19 @@
       "additionalProperties": false,
       "properties": {
         "paymentSourceId": {
-          "$ref": "/schemas/core/components/common.json#/definitions/paymentSourceId"
+          "$ref": "/core/components/common.json#/definitions/paymentSourceId"
         },
         "productId": {
-          "$ref": "/schemas/core/product.json#/definitions/id"
+          "$ref": "/core/product.json#/definitions/id"
         },
         "customerSelection": {
-          "$ref": "/schemas/core/components/configurator.json#/definitions/customerSelection"
+          "$ref": "/core/components/configurator.json#/definitions/customerSelection"
         },
         "autoPurchaseId": {
-          "$ref": "/schemas/core/components/units.json#/definitions/uuid"
+          "$ref": "/core/components/units.json#/definitions/uuid"
         },
         "agencyOptions": {
-          "$ref": "/schemas/core/components/agencyOptions.json"
+          "$ref": "/core/components/agencyOptions.json"
         }
       }
     }

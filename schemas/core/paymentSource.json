@@ -9,7 +9,7 @@
       "maxLength": 255
     },
     "customerId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "type": {
       "type": "string",
@@ -48,7 +48,7 @@
       "type": "boolean"
     },
     "card": {
-      "$ref": "/schemas/core/card.json"
+      "$ref": "/core/card.json"
     }
   },
   "required": ["customerId", "type"],

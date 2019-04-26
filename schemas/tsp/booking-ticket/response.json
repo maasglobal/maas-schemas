@@ -15,7 +15,7 @@
       "enum": ["application/pdf", "image/svg+xml", "text/html"]
     },
     "refreshAt": {
-      "$ref": "/schemas/core/components/units.json#/definitions/time",
+      "$ref": "/core/components/units.json#/definitions/time",
       "description": "Epoch when the ticket needs to be refreshed"
     }
   },

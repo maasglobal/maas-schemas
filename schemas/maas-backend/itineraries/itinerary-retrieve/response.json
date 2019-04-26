@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "itinerary": {
-      "$ref": "/schemas/core/itinerary.json"
+      "$ref": "/core/itinerary.json"
     },
     "maas": {
       "type": "object",

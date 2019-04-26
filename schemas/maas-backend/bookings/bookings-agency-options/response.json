@@ -15,7 +15,7 @@
         "bikeStations": {
           "type": "array",
           "items": {
-            "$ref": "/schemas/core/components/bike-station.json"
+            "$ref": "/core/components/bike-station.json"
           }
         }
       }
@@ -34,19 +34,19 @@
           "type": "object",
           "properties": {
             "fares": {
-              "$ref": "/schemas/core/booking.json#/properties/fares"
+              "$ref": "/core/booking.json#/properties/fares"
             },
             "cost": {
-              "$ref": "/schemas/core/booking.json#/properties/cost"
+              "$ref": "/core/booking.json#/properties/cost"
             },
             "leg": {
-              "$ref": "/schemas/core/booking.json#/properties/leg"
+              "$ref": "/core/booking.json#/properties/leg"
             },
             "meta": {
-              "$ref": "/schemas/core/booking.json#/properties/meta"
+              "$ref": "/core/booking.json#/properties/meta"
             },
             "terms": {
-              "$ref": "/schemas/core/booking.json#/properties/terms"
+              "$ref": "/core/booking.json#/properties/terms"
             },
             "tspProduct": {
               "type": "object",
@@ -57,7 +57,7 @@
               }
             },
             "configurator": {
-              "$ref": "/schemas/core/booking.json#/properties/configurator"
+              "$ref": "/core/booking.json#/properties/configurator"
             }
           }
         },

@@ -6,10 +6,10 @@
   "required": ["identityId", "customerId", "payload", "headers"],
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "customerId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
@@ -18,10 +18,10 @@
           "type": "object",
           "properties": {
             "gatewayName": {
-              "$ref": "/schemas/maas-backend/customers/payment-sources/paymentSource.json#/definitions/gatewayName"
+              "$ref": "/maas-backend/customers/payment-sources/paymentSource.json#/definitions/gatewayName"
             },
             "type": {
-              "$ref": "/schemas/maas-backend/customers/payment-sources/paymentSource.json#/definitions/type"
+              "$ref": "/maas-backend/customers/payment-sources/paymentSource.json#/definitions/type"
             },
             "temporaryToken": {
               "type": "string",
@@ -32,7 +32,7 @@
               "type": "boolean"
             },
             "alias": {
-              "$ref": "/schemas/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias"
+              "$ref": "/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias"
             }
           },
           "required": ["type", "gatewayName", "temporaryToken", "isDefault"],
@@ -42,7 +42,7 @@
       "required": ["paymentSource"]
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   }
 }

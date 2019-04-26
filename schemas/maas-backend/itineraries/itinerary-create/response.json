@@ -6,7 +6,7 @@
       "type": "object",
       "properties": {
         "itinerary": {
-          "$ref": "/schemas/core/itinerary.json"
+          "$ref": "/core/itinerary.json"
         }
       },
       "required": ["itinerary"]
@@ -15,10 +15,10 @@
       "type": "object",
       "properties": {
         "outward": {
-          "$ref": "/schemas/core/itinerary.json"
+          "$ref": "/core/itinerary.json"
         },
         "return": {
-          "$ref": "/schemas/core/itinerary.json"
+          "$ref": "/core/itinerary.json"
         }
       },
       "required": ["outward"]

@@ -54,10 +54,10 @@
           "minLength": 2
         },
         "billingCountry": {
-          "$ref": "/schemas/core/components/station.json#/definitions/country"
+          "$ref": "/core/components/station.json#/definitions/country"
         },
         "billingZip": {
-          "$ref": "/schemas/core/components/address.json#/definitions/zipCode"
+          "$ref": "/core/components/address.json#/definitions/zipCode"
         },
         "isValid": {
           "type": "boolean"

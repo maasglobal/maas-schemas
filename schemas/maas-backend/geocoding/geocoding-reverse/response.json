@@ -11,7 +11,7 @@
       "items": {
         "allOf": [
           {
-            "$ref": "/schemas/core/components/geolocation.json#/definitions/feature"
+            "$ref": "/core/components/geolocation.json#/definitions/feature"
           },
           {
             "type": "object",

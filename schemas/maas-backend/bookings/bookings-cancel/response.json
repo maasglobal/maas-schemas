@@ -5,7 +5,7 @@
     "booking": {
       "allOf": [
         {
-          "$ref": "/schemas/core/booking.json"
+          "$ref": "/core/booking.json"
         },
         {
           "type": "object",

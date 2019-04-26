@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "subscription": {
-      "$ref": "/schemas/maas-backend/subscriptions/subscription.json#/definitions/subscription"
+      "$ref": "/maas-backend/subscriptions/subscription.json#/definitions/subscription"
     },
     "debug": {
       "type": "object",

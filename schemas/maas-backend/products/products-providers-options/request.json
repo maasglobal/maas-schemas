@@ -4,13 +4,13 @@
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+      "$ref": "/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "$ref": "#/definitions/payload"
     },
     "headers": {
-      "$ref": "/schemas/core/components/api-common.json#/definitions/headers"
+      "$ref": "/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId", "payload"],
@@ -19,8 +19,8 @@
     "payload": {
       "type": "object",
       "properties": {
-        "lat": { "$ref": "/schemas/core/components/units-geo.json#/definitions/relaxedLatitude" },
-        "lon": { "$ref": "/schemas/core/components/units-geo.json#/definitions/relaxedLongitude" }
+        "lat": { "$ref": "/core/components/units-geo.json#/definitions/relaxedLatitude" },
+        "lon": { "$ref": "/core/components/units-geo.json#/definitions/relaxedLongitude" }
       },
       "required": ["lat", "lon"]
     }

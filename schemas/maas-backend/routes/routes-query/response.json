@@ -3,7 +3,7 @@
   "description": "MaaS.fi routes-query response schema",
   "properties": {
     "plan": {
-      "$ref": "/schemas/core/plan.json"
+      "$ref": "/core/plan.json"
     },
     "debug": { "type": "object" }
   },

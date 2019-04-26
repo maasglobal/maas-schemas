@@ -13,16 +13,16 @@
           "$ref": "#/definitions/InvoiceId"
         },
         "customerId": {
-          "$ref": "/schemas/core/components/units.json#/definitions/identityId"
+          "$ref": "/core/components/units.json#/definitions/identityId"
         },
         "bookingId": {
           "description": "bookingId of the requested booking",
-          "$ref": "/schemas/core/components/units.json#/definitions/uuid"
+          "$ref": "/core/components/units.json#/definitions/uuid"
         },
         "lineItems": {
           "type": "array",
           "items": {
-            "$ref": "/schemas/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem"
+            "$ref": "/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem"
           },
           "minLength": 1
         }

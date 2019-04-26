@@ -4,25 +4,25 @@
   "type": "object",
   "properties": {
     "leg": {
-      "$ref": "/schemas/core/booking-option.json#/definitions/leg"
+      "$ref": "/core/booking-option.json#/definitions/leg"
     },
     "meta": {
-      "$ref": "/schemas/core/booking.json#/definitions/meta"
+      "$ref": "/core/booking.json#/definitions/meta"
     },
     "terms": {
-      "$ref": "/schemas/core/booking.json#/definitions/terms"
+      "$ref": "/core/booking.json#/definitions/terms"
     },
     "customer": {
-      "$ref": "/schemas/core/customer.json"
+      "$ref": "/core/customer.json"
     },
     "tspProduct": {
-      "$ref": "/schemas/core/booking-option.json#/definitions/tspProduct"
+      "$ref": "/core/booking-option.json#/definitions/tspProduct"
     },
     "configurator": {
-      "$ref": "/schemas/core/components/configurator.json"
+      "$ref": "/core/components/configurator.json"
     },
     "customerSelection": {
-      "$ref": "/schemas/core/components/configurator.json#/definitions/customerSelection"
+      "$ref": "/core/components/configurator.json#/definitions/customerSelection"
     }
   },
   "required": ["leg", "meta", "terms", "customer", "tspProduct"],

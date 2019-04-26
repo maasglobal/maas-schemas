@@ -2,7 +2,7 @@
   "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptionOption.json",
   "description": "MaaS subscription option schema",
   "allOf": [
-    { "$ref": "/schemas/maas-backend/subscriptions/subscription.json#/definitions/subscriptionBase" },
+    { "$ref": "/maas-backend/subscriptions/subscription.json#/definitions/subscriptionBase" },
     { "$ref": "#/definitions/subscriptionAdditions" }
   ],
   "definitions": {
@@ -16,7 +16,7 @@
           "description": "Authorizations needed for the user before this subscription can be fulfilled",
           "type": "array",
           "items": {
-            "$ref": "/schemas/core/components/common.json#/definitions/agencyId"
+            "$ref": "/core/components/common.json#/definitions/agencyId"
           },
           "minItems": 0
         }

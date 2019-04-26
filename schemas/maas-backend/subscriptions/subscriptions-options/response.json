@@ -6,7 +6,7 @@
     "options": {
       "type": "array",
       "items": {
-        "$ref": "/schemas/maas-backend/subscriptions/subscriptionOption.json"
+        "$ref": "/maas-backend/subscriptions/subscriptionOption.json"
       }
     },
     "debug": {
