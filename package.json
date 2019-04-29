@@ -1,5 +1,5 @@
 {
-  "name": "@maasglobal/maas-schemas",
+  "name": "maas-schemas",
   "version": "7.6.0",
   "description": "Schemas for MaaS infrastructure",
   "main": "index.js",
