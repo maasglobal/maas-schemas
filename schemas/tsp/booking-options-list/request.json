@@ -96,6 +96,10 @@
       "description": "Request for possible booking extension options for tspId",
       "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
     },
+    "purchasingAppInstanceId": {
+      "description": "appInstanceId to use for options and purchase",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/appInstanceId"
+    },
     "patternProperties": {
       "^(optionalParameters).+": {
         "type": ["string", "number", "boolean"]
