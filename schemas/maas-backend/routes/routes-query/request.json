@@ -67,6 +67,10 @@
         },
         "options": {
           "type": "object"
+        },
+        "bookingIdToExtend": {
+          "description": "bookingId to fetch possible extension options for",
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
         }
       },
       "patternProperties": {
