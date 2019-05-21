@@ -47,7 +47,7 @@
           "$ref": "http://maasglobal.com/core/components/station.json#/definitions/services"
         }
       },
-      "required": ["id", "location", "agencyId", "services"],
+      "required": ["id", "location", "agencyId"],
       "additionalProperties": false
     }
   }
