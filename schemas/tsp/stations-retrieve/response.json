@@ -39,6 +39,12 @@
         },
         "timetables": {
           "$ref": "http://maasglobal.com/core/components/station.json#/definitions/timetables"
+        },
+        "zone": {
+          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/zone"
+        },
+        "services": {
+          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/services"
         }
       },
       "required": ["id", "location", "agencyId"],

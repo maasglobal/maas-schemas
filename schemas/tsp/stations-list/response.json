@@ -35,6 +35,9 @@
           },
           "country": {
             "$ref": "http://maasglobal.com/core/components/station.json#/definitions/country"
+          },
+          "zone": {
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/zone"
           }
         },
         "required": ["id", "location", "agencyId", "services"],
