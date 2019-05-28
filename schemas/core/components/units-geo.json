@@ -131,7 +131,10 @@
               }
             },
             "openingHours": {
-              "type": "object"
+              "$ref": "station.json#/definitions/openingHours"
+            },
+            "zone": {
+              "$ref": "station.json#/definitions/zone"
             }
           }
         }
