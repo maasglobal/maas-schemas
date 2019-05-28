@@ -84,6 +84,17 @@
           "type": "string"
         }
       ]
+    },
+    "platformCode": {
+      "description": "Platform number",
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ]
     }
   }
 }

@@ -45,6 +45,9 @@
         },
         "services": {
           "$ref": "http://maasglobal.com/core/components/station.json#/definitions/services"
+        },
+        "platformCode": {
+          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/platformCode"
         }
       },
       "required": ["id", "location", "agencyId"],
