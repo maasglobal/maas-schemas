@@ -76,7 +76,7 @@
     },
     "zone": {
       "description": "Geofencing zone defined by provider that the station is within",
-      "oneOf": [
+      "anyOf": [
         {
           "type": "number"
         },
@@ -87,7 +87,7 @@
     },
     "platformCode": {
       "description": "Platform number",
-      "oneOf": [
+      "anyOf": [
         {
           "type": "number"
         },
