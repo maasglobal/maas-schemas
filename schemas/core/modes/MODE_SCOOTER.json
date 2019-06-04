@@ -2,27 +2,12 @@
   "$id": "http://maasglobal.com/core/modes/MODE_SCOOTER.json",
   "type": "object",
   "properties": {
-    "pickupStation": {
-      "$ref": "http://maasglobal.com/core/components/bike-station.json"
-    },
-    "returnStation": {
-      "$ref": "http://maasglobal.com/core/components/bike-station.json"
-    },
-    "pickupStationId": {
-      "type": "string"
-    },
-    "returnStationId": {
-      "type": "string"
-    },
     "scooter": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "type": {
-          "type": "string"
-        }
       },
       "required": ["id"]
     }
