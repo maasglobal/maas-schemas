@@ -137,7 +137,8 @@
         "MODE_TRAIN": { "$ref": "http://maasglobal.com/core/modes/MODE_TRAIN.json" },
         "MODE_TRAINISH": { "$ref": "http://maasglobal.com/core/modes/MODE_TRAINISH.json" },
         "MODE_BUSISH": { "$ref": "http://maasglobal.com/core/modes/MODE_BUSISH.json" },
-        "MODE_TAXI": { "$ref": "http://maasglobal.com/core/modes/MODE_TAXI.json" }
+        "MODE_TAXI": { "$ref": "http://maasglobal.com/core/modes/MODE_TAXI.json" },
+        "MODE_SCOOTER": { "$ref": "http://maasglobal.com/core/modes/MODE_SCOOTER.json" }
       }
     },
     "terms": {
