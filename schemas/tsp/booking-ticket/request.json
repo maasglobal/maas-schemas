@@ -11,13 +11,13 @@
       "anyOf": [
         {
           "type": "string",
-          "pattern": "[a-z]\\.[svg|html]"
+          "pattern": "[a-z]\\.[svg|html|pdf]"
         },
         {
           "type": "array",
           "items": {
             "type": "string",
-            "pattern": "[a-z]\\.[svg|html]",
+            "pattern": "[a-z]\\.[svg|html|pdf]",
             "minimum": 1
           }
         }
