@@ -66,6 +66,16 @@
           "newState": "PENDING",
           "oldState": "START",
           "timestamp": 1544691509551
+        },
+        {
+          "reason": {
+            "text": "Unexpectecd error",
+            "errorCode": 500
+          },
+          "invalid": false,
+          "newState": "UNKNOWN",
+          "oldState": "UNKNOWN",
+          "timestamp": "1545710094600"
         }
       ],
       "cancelling": false,

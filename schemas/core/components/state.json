@@ -19,6 +19,12 @@
         "FINISHED"
       ]
     },
+    "bookingStateUnknown": {
+      "const": "UNKNOWN"
+    },
+    "maybeBookingState": {
+      "anyOf": [{ "$ref": "#/definitions/bookingState" }, { "$ref": "#/definitions/bookingStateUnknown" }]
+    },
     "legState": {
       "description": "The life-cycle state of a leg",
       "type": "string",

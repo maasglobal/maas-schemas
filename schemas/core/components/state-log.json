@@ -1,0 +1,50 @@
+{
+  "$id": "http://maasglobal.com/core/components/state-log.json",
+  "description": "Set of booking state transitions",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/bookingStateTransition"
+  },
+  "definitions": {
+    "obsoleteTime": {
+      "type": "string",
+      "pattern": "^[0-9]+$"
+    },
+    "bookingStateTransition": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "anyOf": [
+            {
+              "$ref": "units.json#/definitions/time"
+            },
+            {
+              "$ref": "#/definitions/obsoleteTime"
+            }
+          ]
+        },
+        "oldState": {
+          "$ref": "state.json#/definitions/maybeBookingState"
+        },
+        "newState": {
+          "$ref": "state.json#/definitions/maybeBookingState"
+        },
+        "invalid": {
+          "type": "boolean"
+        },
+        "reason": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "errorCode": "number"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "required": ["newState", "oldState", "timestamp"],
+      "additionalProperties": true
+    }
+  }
+}
