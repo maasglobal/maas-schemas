@@ -16,7 +16,8 @@
         "CANCELLED",
         "EXPIRED",
         "REJECTED",
-        "FINISHED"
+        "FINISHED",
+        "UNKNOWN"
       ]
     },
     "legState": {
