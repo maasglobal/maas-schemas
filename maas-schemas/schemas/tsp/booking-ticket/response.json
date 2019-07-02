@@ -8,11 +8,11 @@
     },
     "type": {
       "type": "string",
-      "enum": ["html", "pdf", "svg"]
+      "enum": ["html", "pdf", "svg", "png"]
     },
     "contentType": {
       "type": "string",
-      "enum": ["application/pdf", "image/svg+xml", "text/html"]
+      "enum": ["application/pdf", "image/svg+xml", "image/png", "text/html"]
     },
     "refreshAt": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
