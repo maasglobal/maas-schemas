@@ -70,6 +70,10 @@
           },
           "realtime": {
             "$ref": "units.json#/definitions/time"
+          },
+          "isRealtime": {
+            "type": "boolean",
+            "description": "A flag indicating whether this transport mode is realtime or not"
           }
         }
       }
