@@ -12,6 +12,9 @@
     "state": {
       "$ref": "components/state.json#/definitions/bookingState"
     },
+    "stateLog": {
+      "$ref": "components/state-log.json"
+    },
     "fares": {
       "type": "array",
       "items": {
