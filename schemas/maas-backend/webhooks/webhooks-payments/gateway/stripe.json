@@ -78,15 +78,6 @@
           "required": ["type", "id", "data"],
           "additionalProperties": true
         },
-        "headers": {
-          "type": "object",
-          "properties": {
-            "Set-Cookie": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": true
-        },
         "params": {
           "type": "object",
           "properties": {
@@ -95,9 +86,10 @@
               "enum": ["stripe"]
             }
           },
-          "required": ["gatewayName"]
+          "required": ["gatewatName"]
         }
-      }
+      },
+      "required": ["params", "payload"]
     }
   }
 }
