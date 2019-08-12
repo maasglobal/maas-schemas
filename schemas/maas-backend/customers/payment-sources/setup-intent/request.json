@@ -14,17 +14,27 @@
     "payload": {
       "type": "object",
       "properties": {
-        "gatewayName": {
-          "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/gatewayName"
-        },
-        "isDefault": {
-          "type": "boolean"
-        },
-        "alias": {
-          "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias"
+        "setupIntent": {
+          "type": "object",
+          "properties": {
+            "gatewayName": {
+              "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/gatewayName"
+            },
+            "isDefault": {
+              "type": "boolean"
+            },
+            "type": {
+              "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/type"
+            },
+            "alias": {
+              "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias"
+            }
+          },
+          "required": ["gatewayName", "isDefault", "type"],
+          "additionalProperties": false
         }
       },
-      "required": ["gatewayName", "isDefault"],
+      "required": ["setupIntent"],
       "additionalProperties": false
     }
   },
