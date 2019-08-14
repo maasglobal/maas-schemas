@@ -10,7 +10,8 @@
       "description": "Payment parameters for asynchronous payment methods",
       "type": "object",
       "properties": {
-        "avainpay": { "$ref": "#/definitions/avainpayPaymentParameters" }
+        "avainpay": { "$ref": "#/definitions/avainpayPaymentParameters" },
+        "stripe": { "$ref": "#/definitions/stripePaymentParameters" }
       },
       "additionalProperties": false
     },
@@ -22,6 +23,16 @@
   "required": ["booking"],
   "additionalProperties": false,
   "definitions": {
+    "stripePaymentParameters": {
+      "type": "object",
+      "properties": {
+        "clientSecret": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        }
+      }
+    },
     "avainpayPaymentParameters": {
       "anyOf": [
         {

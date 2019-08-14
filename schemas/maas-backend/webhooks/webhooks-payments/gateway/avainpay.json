@@ -53,7 +53,8 @@
           },
           "required": ["gatewayName"]
         }
-      }
+      },
+      "required": ["params", "payload"]
     }
   }
 }

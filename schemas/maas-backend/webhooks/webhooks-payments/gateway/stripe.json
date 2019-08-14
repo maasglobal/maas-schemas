@@ -86,7 +86,7 @@
               "enum": ["stripe"]
             }
           },
-          "required": ["gatewatName"]
+          "required": ["gatewayName"]
         }
       },
       "required": ["params", "payload"]
