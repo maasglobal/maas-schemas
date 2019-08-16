@@ -17,6 +17,9 @@
         "setupIntent": {
           "type": "object",
           "properties": {
+            "paymentSourceId": {
+              "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
+            },
             "gatewayName": {
               "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/gatewayName"
             },
