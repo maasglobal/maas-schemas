@@ -2,6 +2,12 @@
   "$id": "http://maasglobal.com/core/components/fare.json",
   "description": "A fare/price as billed to the user in WMPs or in tokens",
   "type": "object",
+  "definitions": {
+    "tokenId": {
+      "type": "string",
+      "pattern": "^[a-z]+(-[a-z]+)*-[a-z0-9_]+$"
+    }
+  },
   "properties": {
     "amount": {
       "type": ["integer", "null"],
@@ -12,7 +18,7 @@
       "enum": ["WMP", "TOKEN"]
     },
     "tokenId": {
-      "type": "string"
+      "$ref": "#/definitions/tokenId"
     },
     "originalAmount": {
       "type": ["integer", "null"],
