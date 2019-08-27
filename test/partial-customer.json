@@ -1,4 +1,22 @@
 {
+  "identityId": "eu-west-1:00000000-0000-0000-0000-000000000000",
+  "email": "example@example.com",
+  "phone": "+99000000000",
+  "locale": "en",
+  "clientId": "whim",
+  "lastName": "Example",
+  "firstName": "Example",
+  "address": "Example Street 123",
+  "city": "Exampleville",
+  "country": "CX",
+  "zipCode": "00123",
+  "locale": "foo",
+  "appInstanceId": "foobar",
+  "opaqueId": "abc123",
+  "dob": "2011-11-20",
+  "ssid": "20111120-123a",
+  "subscriberType": "",
+  "authToken": "foo",
   "balances": {
     "WMP": {
       "currency": "WMP",

@@ -24,7 +24,24 @@
         "locale": "en",
         "clientId": "whim",
         "lastName": "Example",
-        "firstName": "Example"
+        "firstName": "Example",
+        "address": "Example Street 123",
+        "city": "Exampleville",
+        "country": "CX",
+        "zipCode": "00123",
+        "locale": "foo",
+        "appInstanceId": "foobar",
+        "opaqueId": "abc123",
+        "dob": "2011-11-20",
+        "ssid": "20111120-123a",
+        "subscriberType": "",
+        "authToken": "foo",
+        "balances": {
+          "WMP": {
+            "currency": "WMP",
+            "amount": 123
+          }
+        }
       },
       "token": {},
       "terms": {
@@ -118,7 +135,24 @@
         "locale": "en",
         "clientId": "whim",
         "lastName": "Example",
-        "firstName": "Example"
+        "firstName": "Example",
+        "address": "Example Street 123",
+        "city": "Exampleville",
+        "country": "CX",
+        "zipCode": "00123",
+        "locale": "foo",
+        "appInstanceId": "foobar",
+        "opaqueId": "abc123",
+        "dob": "2011-11-20",
+        "ssid": "20111120-123a",
+        "subscriberType": "",
+        "authToken": "foo",
+        "balances": {
+          "WMP": {
+            "currency": "WMP",
+            "amount": 123
+          }
+        }
       },
       "token": {},
       "terms": {

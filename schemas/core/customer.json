@@ -113,5 +113,25 @@
       "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
     }
   },
+  "required": [
+    "identityId",
+    "firstName",
+    "lastName",
+    "phone",
+    "email",
+    "address",
+    "city",
+    "country",
+    "zipCode",
+    "locale",
+    "appInstanceId",
+    "opaqueId",
+    "clientId",
+    "dob",
+    "ssid",
+    "balances",
+    "subscriberType",
+    "authToken"
+  ],
   "additionalProperties": false
 }
