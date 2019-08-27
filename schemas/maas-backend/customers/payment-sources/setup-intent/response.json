@@ -1,0 +1,39 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/payment-sources/setup-intent/response.json",
+  "description": "MaaS customer payment sources setup intent create response",
+  "type": "object",
+  "properties": {
+    "setupIntent": {
+      "type": "object",
+      "properties": {
+        "setupIntentId": {
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
+        },
+        "type": {
+          "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/type"
+        },
+        "gatewayName": {
+          "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/gatewayName"
+        },
+        "clientSecret": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 255
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "alias": {
+          "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias"
+        },
+        "status": {
+          "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/status"
+        }
+      },
+      "required": ["setupIntentId", "type", "gatewayName", "isDefault", "status"],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "required": ["setupIntent"]
+}
