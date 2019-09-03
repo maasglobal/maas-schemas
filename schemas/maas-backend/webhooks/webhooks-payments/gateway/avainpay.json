@@ -1,6 +1,6 @@
 {
   "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json",
-  "description": "MaaS payment source schema",
+  "description": "Avainpay payment webhook schema",
   "definitions": {
     "request": {
       "properties": {

@@ -1,6 +1,6 @@
 {
   "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-payments/gateway/stripe.json",
-  "description": "MaaS payment source schema",
+  "description": "Stripe payment webhook schema",
   "definitions": {
     "request": {
       "properties": {
