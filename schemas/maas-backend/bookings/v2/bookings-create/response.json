@@ -10,8 +10,12 @@
       "description": "Payment parameters for asynchronous payment methods",
       "type": "object",
       "properties": {
-        "avainpay": { "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/avainpayPaymentParameters" },
-        "stripe": { "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/stripePaymentParameters" }
+        "avainpay": {
+          "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/avainpayPaymentParameters"
+        },
+        "stripe": {
+          "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/stripePaymentParameters"
+        }
       },
       "additionalProperties": false
     },
