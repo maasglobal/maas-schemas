@@ -8,6 +8,8 @@ const validBookingResponsesWithPaymentParameters = require('./valid-booking-resp
 const validBookingResponse = require('./valid-booking-response.json');
 const bookingTicketRequestRequest = require('./valid-booking-ticket-request.json');
 const bookingTicketRequestResponse = require('./valid-booking-ticket-response.json');
+const customer = require('./partial-customer.json');
+
 // Missing required fields [leg, customer, token] etc...
 const invalidBookingResponse = {
   customer: {
@@ -82,6 +84,14 @@ describe('Schema validation', () => {
         expect(validated).to.exist;
         expect(validated.paymentParameters).to.deep.equal(validBookingResponse.paymentParameters);
       }
+    });
+  });
+
+  describe('validate schemas customer', () => {
+    const schema = require('../schemas/core/customer.json');
+
+    it('should succeed without error', () => {
+      expect(utils.validate(schema, customer)).to.exist;
     });
   });
 });
