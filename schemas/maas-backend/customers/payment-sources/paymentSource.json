@@ -21,6 +21,16 @@
       "minLength": 3,
       "maxLength": 100
     },
+    "status": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 255
+    },
+    "setupIntentId": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 255
+    },
     "paymentSource": {
       "description": "Payment source",
       "type": "object",
@@ -67,9 +77,16 @@
         },
         "alias": {
           "$ref": "#/definitions/alias"
+        },
+        "status": {
+          "$ref": "#/definitions/status"
+        },
+        "setupIntentId": {
+          "$ref": "#/definitions/setupIntentId"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "required": ["paymentSourceId", "gatewayName", "type", "isDefault", "status"]
     }
   }
 }
