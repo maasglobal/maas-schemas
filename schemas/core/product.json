@@ -32,6 +32,9 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 255
+    },
+    "allowFinishTrip": {
+      "type": "boolean"
     }
   },
   "definitions": {
