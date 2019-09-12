@@ -95,14 +95,14 @@
             "description": {
               "description": "User facing description of the radius rule",
               "type": "string"
-            },
-            "prebookingSupported": {
-              "description": "Is pre-booking supported",
-              "type": "boolean"
             }
           },
           "required": ["fixedFareAmount", "fixedFareCurrency", "maxRadiusMetres"],
           "additionalProperties": false
+        },
+        "prebookingSupported": {
+          "description": "Is pre-booking supported",
+          "type": "boolean"
         }
       },
       "additionalProperties": false
