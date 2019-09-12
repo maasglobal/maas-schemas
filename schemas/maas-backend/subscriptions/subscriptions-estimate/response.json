@@ -6,6 +6,10 @@
     "estimate": {
       "$ref": "http://maasglobal.com/maas-backend/subscriptions/pricing.json"
     },
+    "immediateUpdate": {
+      "description": "If a given subscription change will be immediate or not",
+      "type": "boolean"
+    },
     "debug": {
       "type": "object",
       "additionalProperties": true
