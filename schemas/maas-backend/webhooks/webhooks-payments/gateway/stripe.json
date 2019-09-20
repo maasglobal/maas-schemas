@@ -3,6 +3,7 @@
   "description": "Stripe payment webhook schema",
   "definitions": {
     "request": {
+      "type": "object",
       "properties": {
         "payload": {
           "type": "object",

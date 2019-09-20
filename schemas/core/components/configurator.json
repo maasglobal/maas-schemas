@@ -2,7 +2,6 @@
   "$id": "http://maasglobal.com/core/components/configurator.json",
   "description": "Configurator schema to customize a booking option",
   "type": "object",
-  "description": "Wrapper schema, with each of its properties a config that the user can customize",
   "properties": {
     "seatDirection": { "$ref": "#/definitions/config" },
     "seatPosition": { "$ref": "#/definitions/config" },
