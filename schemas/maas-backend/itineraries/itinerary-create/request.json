@@ -12,7 +12,6 @@
     },
     "payload": {
       "type": "object",
-      "additionalProperties": false,
       "properties": {
         "itinerary": {
           "$ref": "http://maasglobal.com/core/itinerary.json"
@@ -26,18 +25,22 @@
         "return": {
           "$ref": "#/definitions/outwardReturnWrapper"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "definitions": {
     "outwardReturnWrapper": {
-      "itinerary": {
-        "$ref": "http://maasglobal.com/core/itinerary.json"
-      },
-      "customerSelections": {
-        "type": "array",
-        "items": {
-          "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
+      "type": "object",
+      "properties": {
+        "itinerary": {
+          "$ref": "http://maasglobal.com/core/itinerary.json"
+        },
+        "customerSelections": {
+          "type": "array",
+          "items": {
+            "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
+          }
         }
       }
     }

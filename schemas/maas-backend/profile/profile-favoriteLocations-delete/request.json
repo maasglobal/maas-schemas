@@ -18,11 +18,14 @@
       "required": ["name"]
     },
     "headers": {
-      "Accept": {
-        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/acceptHeader"
-      },
-      "X-Whim-User-Agent": {
-        "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/userAgentHeader"
+      "type": "object",
+      "properties": {
+        "Accept": {
+          "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/acceptHeader"
+        },
+        "X-Whim-User-Agent": {
+          "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/userAgentHeader"
+        }
       }
     }
   },

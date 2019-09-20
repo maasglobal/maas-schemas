@@ -2,26 +2,6 @@
   "$id": "http://maasglobal.com/core/leg.json",
   "type": "object",
   "description": "The base leg object with all fields, to be inherited",
-  "leg": {
-    "allOf": [
-      {
-        "$ref": "#/definitions/legExtensions"
-      },
-      {
-        "anyOf": [
-          {
-            "$ref": "#/definitions/legCore"
-          },
-          {
-            "$ref": "#/definitions/waitingLeg"
-          },
-          {
-            "$ref": "#/definitions/transferLeg"
-          }
-        ]
-      }
-    ]
-  },
   "definitions": {
     "legExtensions": {
       "type": "object",
@@ -151,5 +131,23 @@
       },
       "required": ["mode", "startTime", "endTime"]
     }
-  }
+  },
+  "allOf": [
+    {
+      "$ref": "#/definitions/legExtensions"
+    },
+    {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/legCore"
+        },
+        {
+          "$ref": "#/definitions/waitingLeg"
+        },
+        {
+          "$ref": "#/definitions/transferLeg"
+        }
+      ]
+    }
+  ]
 }
