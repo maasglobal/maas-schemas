@@ -119,13 +119,13 @@
         },
         "expiryMonth": {
           "type": "integer",
-          "minValue": 1,
-          "maxValue": 12
+          "minimum": 1,
+          "maximum": 12
         },
         "expiryYear": {
           "type": "integer",
-          "minValue": 2017,
-          "maxValue": 2030
+          "minimum": 2017,
+          "maximum": 2030
         },
         "cvv": {
           "type": "string",

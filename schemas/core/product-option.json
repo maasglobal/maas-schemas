@@ -20,7 +20,7 @@
         },
         "ref": {
           "type": "integer",
-          "minValue": 0
+          "minimum": 0
         },
         "product": {
           "$ref": "product.json"
@@ -52,7 +52,7 @@
         },
         "ref": {
           "type": "integer",
-          "minValue": 0
+          "minimum": 0
         },
         "product": {
           "$ref": "product.json"
@@ -87,7 +87,7 @@
         },
         "ref": {
           "type": "integer",
-          "minValue": 0
+          "minimum": 0
         },
         "product": {
           "$ref": "product.json"

@@ -90,7 +90,7 @@
             "maxRadiusMetres": {
               "description": "The maximum radius to which the maximum fixed fare applies, in metres",
               "type": "integer",
-              "minValue": 0
+              "minimum": 0
             },
             "description": {
               "description": "User facing description of the radius rule",

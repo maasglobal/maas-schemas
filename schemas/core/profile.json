@@ -5,7 +5,7 @@
   "properties": {
     "id": {
       "type": "integer",
-      "minValue": 0
+      "minimum": 0
     },
     "identityId": {
       "$ref": "components/units.json#/definitions/identityId"
@@ -121,7 +121,7 @@
       "properties": {
         "id": {
           "type": "integer",
-          "minValue": 0
+          "minimum": 0
         },
         "name": {
           "type": "string",
@@ -158,11 +158,11 @@
         },
         "wmpGrant": {
           "type": "integer",
-          "minValue": 0
+          "minimum": 0
         },
         "level": {
           "type": "integer",
-          "minValue": 0
+          "minimum": 0
         },
         "active": {
           "type": "boolean"
@@ -175,7 +175,7 @@
         },
         "availability": {
           "type": "integer",
-          "minValue": 0
+          "minimum": 0
         }
       },
       "required": ["plan", "addons", "coupons", "pointCost"]

@@ -30,7 +30,7 @@
     "co2": {
       "description": "Grams of CO2 as a byproduct by the trip",
       "type": "number",
-      "minValue": 0
+      "minimum": 0
     },
     "fares": {
       "type": "array",
