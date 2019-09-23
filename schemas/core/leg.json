@@ -12,14 +12,6 @@
         },
         "signature": {
           "$ref": "components/common.json#/definitions/signature"
-        },
-        "tspProduct": {
-          "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/tspProduct"
-        },
-        "productOption": {
-          "description": "Index of the productOption used in the itinerary's productOptions",
-          "type": "integer",
-          "minValue": 0
         }
       }
     },
@@ -94,14 +86,20 @@
               "$ref": "components/units-geo.json#/definitions/polyline"
             }
           }
+        },
+        "tspProduct": {
+          "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/tspProduct"
+        },
+        "productOption": {
+          "description": "Index of the productOption used in the itinerary's productOptions",
+          "type": "integer",
+          "minValue": 0
         }
       },
-      "required": ["from", "to", "mode", "startTime", "endTime", "legGeometry"],
-      "additionalProperties": false
+      "required": ["from", "to", "mode", "startTime", "endTime", "legGeometry"]
     },
     "waitingLeg": {
       "type": "object",
-      "additionalProperties": true,
       "properties": {
         "startTime": {
           "$ref": "components/units.json#/definitions/time"
@@ -117,7 +115,6 @@
     },
     "transferLeg": {
       "type": "object",
-      "additionalProperties": true,
       "properties": {
         "startTime": {
           "$ref": "components/units.json#/definitions/time"
