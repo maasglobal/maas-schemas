@@ -131,8 +131,8 @@
     "textInputSelection": {
       "description": "customerSelection format for configurator config type - text",
       "type": "string",
-      "minValue": 0,
-      "maxValue": 8192
+      "minLength": 0,
+      "maxLength": 8192
     },
     "customerSelection": {
       "type": "object",
