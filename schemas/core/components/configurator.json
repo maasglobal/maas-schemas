@@ -96,26 +96,13 @@
       },
       "required": ["id", "name", "default"]
     },
-    "customerSelection": {
-      "type": "object",
-      "patternProperties": {
-        "^[a-zA-Z0-9\\-]+$": {
-          "anyOf": [
-            {
-              "type": "string",
-              "minLength": 0,
-              "maxLength": 8192
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "minLength": 0,
-                "maxLength": 8192
-              }
-            }
-          ]
-        }
+    "configChoiceSelection": {
+      "description": "customerSelection format for configurator config type - choice",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 8192
       }
     },
     "text": {
@@ -140,6 +127,44 @@
         }
       },
       "required": ["type", "name"]
+    },
+    "textInputSelection": {
+      "description": "customerSelection format for configurator config type - text",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 8192
+    },
+    "customerSelection": {
+      "type": "object",
+      "properties": {
+        "seatDirection": {
+          "$ref": "#/definitions/configChoiceSelection"
+        },
+        "seatPosition": {
+          "$ref": "#/definitions/configChoiceSelection"
+        },
+        "seatType": {
+          "$ref": "#/definitions/configChoiceSelection"
+        },
+        "seatFeatures": {
+          "$ref": "#/definitions/configChoiceSelection"
+        },
+        "outboundSingle": {
+          "$ref": "#/definitions/configChoiceSelection"
+        },
+        "inboundSingle": {
+          "$ref": "#/definitions/configChoiceSelection"
+        },
+        "openReturn": {
+          "$ref": "#/definitions/configChoiceSelection"
+        },
+        "freeReturn": {
+          "$ref": "#/definitions/configChoiceSelection"
+        },
+        "ticketCollectionPoint": {
+          "$ref": "#/definitions/textInputSelection"
+        }
+      }
     }
   }
 }

@@ -10,8 +10,7 @@
       "$ref": "components/units.json#/definitions/uuid"
     },
     "isOvertaken": {
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     },
     "identityId": {
       "$ref": "components/units.json#/definitions/identityId"
