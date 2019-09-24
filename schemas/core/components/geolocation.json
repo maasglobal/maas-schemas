@@ -16,6 +16,7 @@
       "required": ["type", "features"]
     },
     "feature": {
+      "type": "object",
       "properties": {
         "type": { "enum": ["Feature"] },
         "geometry": {

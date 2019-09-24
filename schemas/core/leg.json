@@ -93,7 +93,7 @@
         "productOption": {
           "description": "Index of the productOption used in the itinerary's productOptions",
           "type": "integer",
-          "minValue": 0
+          "minimum": 0
         }
       },
       "required": ["from", "to", "mode", "startTime", "endTime", "legGeometry"],
