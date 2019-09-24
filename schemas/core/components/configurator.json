@@ -101,8 +101,8 @@
       "type": "array",
       "items": {
         "type": "string",
-        "minimum": 0,
-        "maximum": 8192
+        "minLength": 0,
+        "maxLength": 8192
       }
     },
     "text": {

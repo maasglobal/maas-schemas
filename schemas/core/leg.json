@@ -96,7 +96,8 @@
           "minValue": 0
         }
       },
-      "required": ["from", "to", "mode", "startTime", "endTime", "legGeometry"]
+      "required": ["from", "to", "mode", "startTime", "endTime", "legGeometry"],
+      "additionalProperties": false
     },
     "waitingLeg": {
       "type": "object",
