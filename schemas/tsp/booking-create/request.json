@@ -22,7 +22,7 @@
       "$ref": "http://maasglobal.com/core/components/configurator.json"
     },
     "customerSelection": {
-      "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
+      "$ref": "http://maasglobal.com/core/components/customerSelection.json"
     }
   },
   "required": ["leg", "meta", "terms", "customer", "tspProduct"],
