@@ -1,0 +1,52 @@
+{
+  "$id": "http://maasglobal.com/core/components/customerSelection.json",
+  "description": "Customer Selection for Configurator",
+  "type": "object",
+  "properties": {
+    "seatDirection": {
+      "$ref": "#/definitions/configChoiceSelection"
+    },
+    "seatPosition": {
+      "$ref": "#/definitions/configChoiceSelection"
+    },
+    "seatType": {
+      "$ref": "#/definitions/configChoiceSelection"
+    },
+    "seatFeatures": {
+      "$ref": "#/definitions/configChoiceSelection"
+    },
+    "outboundSingle": {
+      "$ref": "#/definitions/configChoiceSelection"
+    },
+    "inboundSingle": {
+      "$ref": "#/definitions/configChoiceSelection"
+    },
+    "openReturn": {
+      "$ref": "#/definitions/configChoiceSelection"
+    },
+    "freeReturn": {
+      "$ref": "#/definitions/configChoiceSelection"
+    },
+    "ticketCollectionPoint": {
+      "$ref": "#/definitions/textInputSelection"
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "configChoiceSelection": {
+      "description": "customerSelection format for configurator config type - choice",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 8192
+      }
+    },
+    "textInputSelection": {
+      "description": "customerSelection format for configurator config type - text",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 8192
+    }
+  }
+}
