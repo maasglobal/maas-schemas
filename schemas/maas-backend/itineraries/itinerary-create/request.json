@@ -39,7 +39,7 @@
         "customerSelections": {
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
+            "$ref": "http://maasglobal.com/core/components/customerSelection.json"
           }
         }
       }

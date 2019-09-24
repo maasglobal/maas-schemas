@@ -57,7 +57,7 @@
       "$ref": "components/configurator.json"
     },
     "customerSelection": {
-      "$ref": "components/configurator.json#/definitions/customerSelection"
+      "$ref": "components/customerSelection.json"
     }
   },
   "required": ["id", "state", "leg", "meta", "terms", "token", "customer"],
