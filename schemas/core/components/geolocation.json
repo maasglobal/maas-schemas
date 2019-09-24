@@ -34,7 +34,7 @@
       "properties": {
         "type": { "enum": ["Point"] },
         "coordinates": {
-          "$ref": "units-geo.json#/definitions/shortLocation"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocation"
         }
       },
       "additionalProperties": false,

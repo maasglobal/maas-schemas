@@ -21,19 +21,19 @@
       "type": "object",
       "properties": {
         "startTime": {
-          "$ref": "units.json#/definitions/time",
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
           "description": "Epoch when the outbound ticket will be valid"
         },
         "endTime": {
-          "$ref": "units.json#/definitions/time",
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
           "description": "Epoch when the outbound ticket will be invalid"
         },
         "startTimeReturn": {
-          "$ref": "units.json#/definitions/time",
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
           "description": "Epoch when the return ticket will be valid"
         },
         "endTimeReturn": {
-          "$ref": "units.json#/definitions/time",
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
           "description": "Epoch when the return ticket will be invalid"
         }
       },
@@ -70,7 +70,7 @@
       "properties": {
         "cancellationFormActionUrl": {
           "description": "User will fill in this form to cancel their ticket should programmed cancellation does not function. Edge case support",
-          "$ref": "units.json#/definitions/url"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
         },
         "outward": {
           "$ref": "#/definitions/cancellation"
@@ -103,7 +103,7 @@
             "multipleOf": 0.01
           },
           "currency": {
-            "$ref": "units.json#/definitions/currency"
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
           },
           "timeInterval": {
             "description": "Amount of seconds that fare rate is applied to",
@@ -153,10 +153,10 @@
           "description": "A flag indicating whether this booking can be cancelled in 'RESERVED' state"
         },
         "cost": {
-          "$ref": "cost.json"
+          "$ref": "http://maasglobal.com/core/components/cost.json"
         },
         "fare": {
-          "$ref": "fare.json"
+          "$ref": "http://maasglobal.com/core/components/fare.json"
         },
         "refunded": {
           "type": "boolean",
@@ -173,10 +173,10 @@
           "description": "A flag indicating whether this booking can be amended"
         },
         "cost": {
-          "$ref": "cost.json"
+          "$ref": "http://maasglobal.com/core/components/cost.json"
         },
         "fare": {
-          "$ref": "fare.json"
+          "$ref": "http://maasglobal.com/core/components/fare.json"
         }
       },
       "required": ["amendable"]
