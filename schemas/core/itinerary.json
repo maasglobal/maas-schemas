@@ -4,28 +4,28 @@
   "type": "object",
   "properties": {
     "id": {
-      "$ref": "components/units.json#/definitions/uuid"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
     },
     "sourcePlanId": {
-      "$ref": "components/units.json#/definitions/uuid"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
     },
     "isOvertaken": {
       "type": "boolean"
     },
     "identityId": {
-      "$ref": "components/units.json#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "signature": {
-      "$ref": "components/common.json#/definitions/signature"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/signature"
     },
     "state": {
-      "$ref": "components/state.json#/definitions/itineraryState"
+      "$ref": "http://maasglobal.com/core/components/state.json#/definitions/itineraryState"
     },
     "startTime": {
-      "$ref": "components/units.json#/definitions/time"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
     },
     "endTime": {
-      "$ref": "components/units.json#/definitions/time"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
     },
     "co2": {
       "description": "Grams of CO2 as a byproduct by the trip",
@@ -35,7 +35,7 @@
     "fares": {
       "type": "array",
       "items": {
-        "$ref": "components/fare.json"
+        "$ref": "http://maasglobal.com/core/components/fare.json"
       }
     },
     "legs": {
@@ -43,7 +43,7 @@
       "minItems": 0,
       "items": [
         {
-          "$ref": "leg.json"
+          "$ref": "http://maasglobal.com/core/leg.json"
         }
       ]
     },
@@ -51,7 +51,7 @@
       "type": "array",
       "minItems": 0,
       "items": {
-        "$ref": "product-option.json"
+        "$ref": "http://maasglobal.com/core/product-option.json"
       }
     },
     "type": {

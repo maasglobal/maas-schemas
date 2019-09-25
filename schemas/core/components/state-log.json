@@ -16,7 +16,7 @@
         "timestamp": {
           "anyOf": [
             {
-              "$ref": "units.json#/definitions/time"
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
             },
             {
               "$ref": "#/definitions/obsoleteTime"
@@ -24,10 +24,10 @@
           ]
         },
         "oldState": {
-          "$ref": "state.json#/definitions/bookingState"
+          "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState"
         },
         "newState": {
-          "$ref": "state.json#/definitions/bookingState"
+          "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState"
         },
         "invalid": {
           "type": "boolean"

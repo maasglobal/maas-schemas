@@ -13,29 +13,29 @@
       "required": ["ref", "terms", "meta", "configurator"],
       "properties": {
         "identityId": {
-          "$ref": "components/units.json#/definitions/identityId"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
         },
         "bookingId": {
-          "$ref": "components/units.json#/definitions/uuid"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
         },
         "ref": {
           "type": "integer",
           "minimum": 0
         },
         "product": {
-          "$ref": "product.json"
+          "$ref": "http://maasglobal.com/core/product.json"
         },
         "terms": {
-          "$ref": "components/terms.json"
+          "$ref": "http://maasglobal.com/core/components/terms.json"
         },
         "meta": {
-          "$ref": "booking.json#/definitions/meta"
+          "$ref": "http://maasglobal.com/core/booking.json#/definitions/meta"
         },
         "configurator": {
-          "$ref": "components/configurator.json"
+          "$ref": "http://maasglobal.com/core/components/configurator.json"
         },
         "customer": {
-          "$ref": "booking-option.json#/definitions/customer"
+          "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/customer"
         }
       }
     },
@@ -45,32 +45,32 @@
       "required": ["ref", "terms", "meta", "fares"],
       "properties": {
         "identityId": {
-          "$ref": "components/units.json#/definitions/identityId"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
         },
         "bookingId": {
-          "$ref": "components/units.json#/definitions/uuid"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
         },
         "ref": {
           "type": "integer",
           "minimum": 0
         },
         "product": {
-          "$ref": "product.json"
+          "$ref": "http://maasglobal.com/core/product.json"
         },
         "fares": {
           "type": "array",
           "items": {
-            "$ref": "components/fare.json"
+            "$ref": "http://maasglobal.com/core/components/fare.json"
           }
         },
         "terms": {
-          "$ref": "components/terms.json"
+          "$ref": "http://maasglobal.com/core/components/terms.json"
         },
         "meta": {
-          "$ref": "booking.json#/definitions/meta"
+          "$ref": "http://maasglobal.com/core/booking.json#/definitions/meta"
         },
         "customer": {
-          "$ref": "booking-option.json#/definitions/customer"
+          "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/customer"
         }
       }
     },
@@ -80,29 +80,29 @@
       "required": ["ref", "terms", "meta", "cost"],
       "properties": {
         "identityId": {
-          "$ref": "components/units.json#/definitions/identityId"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
         },
         "bookingId": {
-          "$ref": "components/units.json#/definitions/uuid"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
         },
         "ref": {
           "type": "integer",
           "minimum": 0
         },
         "product": {
-          "$ref": "product.json"
+          "$ref": "http://maasglobal.com/core/product.json"
         },
         "cost": {
-          "$ref": "components/cost.json"
+          "$ref": "http://maasglobal.com/core/components/cost.json"
         },
         "terms": {
-          "$ref": "components/terms.json"
+          "$ref": "http://maasglobal.com/core/components/terms.json"
         },
         "meta": {
-          "$ref": "booking.json#/definitions/meta"
+          "$ref": "http://maasglobal.com/core/booking.json#/definitions/meta"
         },
         "customer": {
-          "$ref": "booking-option.json#/definitions/customer"
+          "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/customer"
         }
       }
     }

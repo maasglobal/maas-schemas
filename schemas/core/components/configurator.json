@@ -77,18 +77,18 @@
           "type": "boolean"
         },
         "cost": {
-          "$ref": "cost.json"
+          "$ref": "http://maasglobal.com/core/components/cost.json"
         },
         "fares": {
           "type": "array",
           "items": [
             {
-              "ref": "fare.json"
+              "$ref": "http://maasglobal.com/core/components/fare.json"
             }
           ]
         },
         "terms": {
-          "$ref": "terms.json"
+          "$ref": "http://maasglobal.com/core/components/terms.json"
         },
         "meta": {
           "type": "object"

@@ -14,10 +14,10 @@
       "maxLength": 255
     },
     "countryCode": {
-      "$ref": "components/address.json#/definitions/country"
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
     },
     "zipCode": {
-      "$ref": "components/address.json#/definitions/zipCode"
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
     },
     "availability": {
       "type": "object",

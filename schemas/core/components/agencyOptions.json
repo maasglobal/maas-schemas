@@ -4,44 +4,44 @@
   "type": "object",
   "properties": {
     "mode": {
-      "$ref": "travel-mode.json"
+      "$ref": "http://maasglobal.com/core/components/travel-mode.json"
     },
     "agencyId": {
-      "$ref": "common.json#/definitions/agencyId"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
     },
     "startTime": {
-      "$ref": "units.json#/definitions/time"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
     },
     "endTime": {
-      "$ref": "units.json#/definitions/time"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
     },
     "from": {
-      "$ref": "units-geo.json#/definitions/shortLocationString"
+      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
     },
     "to": {
-      "$ref": "units-geo.json#/definitions/shortLocationString"
+      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
     },
     "fromName": {
       "description": "The human understandable name for 'from'",
-      "$ref": "address.json#/definitions/placeName"
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
     },
     "fromAddress": {
       "description": "Componentized from address",
-      "$ref": "address.json#/definitions/componentAddress"
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
     },
     "fromRadius": {
-      "$ref": "units-geo.json#/definitions/distance"
+      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
     },
     "toName": {
       "description": "The human understandable name for 'to'",
-      "$ref": "address.json#/definitions/placeName"
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
     },
     "toAddress": {
       "description": "Componentized to address",
-      "$ref": "address.json#/definitions/componentAddress"
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
     },
     "toRadius": {
-      "$ref": "units-geo.json#/definitions/distance"
+      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
     }
   },
   "additionalProperties": false

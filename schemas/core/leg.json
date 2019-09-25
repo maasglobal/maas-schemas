@@ -8,10 +8,10 @@
       "description": "MaaS specific leg extensions",
       "properties": {
         "id": {
-          "$ref": "components/units.json#/definitions/uuid"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
         },
         "signature": {
-          "$ref": "components/common.json#/definitions/signature"
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/signature"
         }
       }
     },
@@ -19,47 +19,47 @@
       "type": "object",
       "properties": {
         "state": {
-          "$ref": "components/state.json#/definitions/legState"
+          "$ref": "http://maasglobal.com/core/components/state.json#/definitions/legState"
         },
         "from": {
-          "$ref": "components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
         },
         "to": {
-          "$ref": "components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
         },
         "startTime": {
-          "$ref": "components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "mode": {
           "anyOf": [
             {
-              "$ref": "components/travel-mode.json#/definitions/personalMode"
+              "$ref": "http://maasglobal.com/core/components/travel-mode.json#/definitions/personalMode"
             },
             {
-              "$ref": "components/travel-mode.json#/definitions/publicTransitMode"
+              "$ref": "http://maasglobal.com/core/components/travel-mode.json#/definitions/publicTransitMode"
             },
             {
-              "$ref": "components/travel-mode.json#/definitions/privateTransitMode"
+              "$ref": "http://maasglobal.com/core/components/travel-mode.json#/definitions/privateTransitMode"
             }
           ]
         },
         "stops": {
           "type": "array",
           "items": {
-            "$ref": "stop.json"
+            "$ref": "http://maasglobal.com/core/stop.json"
           }
         },
         "departureDelay": {
-          "$ref": "components/units.json#/definitions/duration"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/duration"
         },
         "arrivalDelay": {
-          "$ref": "components/units.json#/definitions/duration"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/duration"
         },
         "distance": {
-          "$ref": "components/units-geo.json#/definitions/distance"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
         },
         "route": {
           "type": "string",
@@ -77,13 +77,13 @@
           "maxLength": 255
         },
         "agencyId": {
-          "$ref": "components/common.json#/definitions/agencyId"
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
         },
         "legGeometry": {
           "type": "object",
           "properties": {
             "points": {
-              "$ref": "components/units-geo.json#/definitions/polyline"
+              "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/polyline"
             }
           }
         },
@@ -103,13 +103,13 @@
       "type": "object",
       "properties": {
         "startTime": {
-          "$ref": "components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "mode": {
-          "$ref": "components/travel-mode.json#/definitions/waitingMode"
+          "$ref": "http://maasglobal.com/core/components/travel-mode.json#/definitions/waitingMode"
         }
       },
       "required": ["mode", "startTime", "endTime"]
@@ -118,13 +118,13 @@
       "type": "object",
       "properties": {
         "startTime": {
-          "$ref": "components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "mode": {
-          "$ref": "components/travel-mode.json#/definitions/transferMode"
+          "$ref": "http://maasglobal.com/core/components/travel-mode.json#/definitions/transferMode"
         }
       },
       "required": ["mode", "startTime", "endTime"]

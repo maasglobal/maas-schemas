@@ -19,7 +19,7 @@
       "maxLength": 256
     },
     "image": {
-      "$ref": "units.json#/definitions/url"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
     },
     "terms": {},
     "car": {
@@ -62,7 +62,7 @@
         "classification": {
           "$merge": {
             "source": {
-              "$ref": "ACRISS.json"
+              "$ref": "http://maasglobal.com/core/components/ACRISS.json"
             },
             "with": {
               "type": ["string", "null"]
@@ -88,22 +88,22 @@
         },
         "location": {
           "description": "Current geo location",
-          "$ref": "units-geo.json#/definitions/location"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location"
         }
       },
       "required": ["classification"]
     },
     "pickupInfo": {
       "description": "Pickup instructions in HTML format",
-      "$ref": "common.json#/definitions/htmlBlock"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/htmlBlock"
     },
     "returnInfo": {
       "description": "Return Instructions in HTML format",
-      "$ref": "common.json#/definitions/htmlBlock"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/htmlBlock"
     },
     "startEndGeoRegionUrl": {
       "description": "Region in which car can be rented and returned. Url to GeoJSON file",
-      "$ref": "units.json#/definitions/url"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
     }
   },
   "required": ["name", "description", "image"],

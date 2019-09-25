@@ -98,10 +98,10 @@
           "additionalProperties": true,
           "properties": {
             "name": {
-              "$ref": "address.json#/definitions/placeName"
+              "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
             },
             "address": {
-              "$ref": "address.json#/definitions/componentAddress"
+              "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
             },
             "localeAddress": {
               "type": "string",
@@ -131,10 +131,10 @@
               }
             },
             "openingHours": {
-              "$ref": "station.json#/definitions/openingHours"
+              "$ref": "http://maasglobal.com/core/components/station.json#/definitions/openingHours"
             },
             "zone": {
-              "$ref": "station.json#/definitions/zone"
+              "$ref": "http://maasglobal.com/core/components/station.json#/definitions/zone"
             }
           }
         }
