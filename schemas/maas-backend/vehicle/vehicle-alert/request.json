@@ -8,8 +8,8 @@
       "minLength": 1,
       "maxLength": 255
     },
-    "agencyId": {
-      "$ref": "http://maasglobal.com/core/components/common.json#definitions/agencyId"
+    "productId": {
+      "$ref": "http://maasglobal.com/core/product.json#/definitions/id"
     }
   }
 }
