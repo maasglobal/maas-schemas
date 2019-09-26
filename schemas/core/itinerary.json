@@ -46,11 +46,9 @@
     "legs": {
       "type": "array",
       "minItems": 0,
-      "items": [
-        {
-          "$ref": "http://maasglobal.com/core/leg.json"
-        }
-      ]
+      "items": {
+        "$ref": "http://maasglobal.com/core/leg.json"
+      }
     },
     "productOptions": {
       "type": "array",

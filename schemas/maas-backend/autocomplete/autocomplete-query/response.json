@@ -5,11 +5,9 @@
   "properties": {
     "suggestions": {
       "type": "array",
-      "items": [
-        {
-          "type": "string"
-        }
-      ]
+      "items": {
+        "type": "string"
+      }
     },
     "debug": {
       "type": "object"
