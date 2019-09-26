@@ -2,9 +2,14 @@
   "$id": "http://maasglobal.com/core/itinerary.json",
   "description": "OpenTripPlanner itinerary, augmented with leg bookings per leg",
   "type": "object",
-  "properties": {
+  "definitions": {
     "id": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+    }
+  },
+  "properties": {
+    "id": {
+      "$ref": "#/definitions/id"
     },
     "sourcePlanId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"

@@ -4,7 +4,7 @@
   "description": "The base booking object with all fields, to be inherited",
   "properties": {
     "id": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+      "$ref": "#/definitions/id"
     },
     "tspId": {
       "$ref": "#/definitions/tspId"
@@ -16,13 +16,10 @@
       "$ref": "http://maasglobal.com/core/components/state-log.json"
     },
     "fares": {
-      "type": "array",
-      "items": {
-        "$ref": "http://maasglobal.com/core/components/fare.json"
-      }
+      "$ref": "#/definitions/fares"
     },
     "cost": {
-      "$ref": "http://maasglobal.com/core/components/cost.json"
+      "$ref": "#/definitions/cost"
     },
     "leg": {
       "$ref": "#/definitions/leg"
@@ -54,7 +51,7 @@
       "$ref": "http://maasglobal.com/core/components/common.json#/definitions/signature"
     },
     "configurator": {
-      "$ref": "http://maasglobal.com/core/components/configurator.json"
+      "$ref": "#/definitions/configurator"
     },
     "customerSelection": {
       "$ref": "http://maasglobal.com/core/components/customerSelection.json"
@@ -62,6 +59,21 @@
   },
   "required": ["id", "state", "leg", "meta", "terms", "token", "customer"],
   "definitions": {
+    "id": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+    },
+    "fares": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/core/components/fare.json"
+      }
+    },
+    "cost": {
+      "$ref": "http://maasglobal.com/core/components/cost.json"
+    },
+    "configurator": {
+      "$ref": "http://maasglobal.com/core/components/configurator.json"
+    },
     "tspId": {
       "type": "string",
       "minLength": 1,
@@ -71,51 +83,24 @@
       "type": "object",
       "description": "MaaS response may return any subset of legCore",
       "properties": {
-        "signature": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/signature"
-        },
-        "from": {
-          "$ref": "http://maasglobal.com/core/leg.json#/definitions/legCore/properties/from"
-        },
-        "to": {
-          "$ref": "http://maasglobal.com/core/leg.json#/definitions/legCore/properties/to"
-        },
-        "startTime": {
-          "$ref": "http://maasglobal.com/core/leg.json#/definitions/legCore/properties/startTime"
-        },
-        "endTime": {
-          "$ref": "http://maasglobal.com/core/leg.json#/definitions/legCore/properties/endTime"
-        },
-        "mode": {
-          "$ref": "http://maasglobal.com/core/leg.json#/definitions/legCore/properties/mode"
-        },
-        "departureDelay": {
-          "$ref": "http://maasglobal.com/core/leg.json#/definitions/legCore/properties/departureDelay"
-        },
-        "arrivalDelay": {
-          "$ref": "http://maasglobal.com/core/leg.json#/definitions/legCore/properties/arrivalDelay"
-        },
-        "distance": {
-          "$ref": "http://maasglobal.com/core/leg.json#/definitions/legCore/properties/distance"
-        },
-        "state": {
-          "$ref": "http://maasglobal.com/core/leg.json#/definitions/legCore/properties/state"
-        },
-        "route": {
-          "$ref": "http://maasglobal.com/core/leg.json#/definitions/legCore/properties/route"
-        },
-        "routeShortName": {
-          "$ref": "http://maasglobal.com/core/leg.json#/definitions/legCore/properties/routeShortName"
-        },
-        "routeLongName": {
-          "$ref": "http://maasglobal.com/core/leg.json#/definitions/legCore/properties/routeLongName"
-        },
-        "agencyId": {
-          "$ref": "http://maasglobal.com/core/leg.json#/definitions/legCore/properties/agencyId"
-        },
-        "legGeometry": {
-          "$ref": "http://maasglobal.com/core/leg.json#/definitions/legCore/properties/legGeometry"
-        }
+        "signature": { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/signature" },
+        "state": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/state" },
+        "from": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/from" },
+        "to": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/to" },
+        "startTime": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/startTime" },
+        "endTime": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/endTime" },
+        "mode": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/mode" },
+        "stops": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/stops" },
+        "departureDelay": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/departureDelay" },
+        "arrivalDelay": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/arrivalDelay" },
+        "distance": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/distance" },
+        "route": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/route" },
+        "routeShortName": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/routeShortName" },
+        "routeLongName": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/routeLongName" },
+        "agencyId": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/agencyId" },
+        "legGeometry": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/legGeometry" },
+        "tspProduct": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/tspProduct" },
+        "productOption": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/productOption" }
       },
       "additionalProperties": false
     },
