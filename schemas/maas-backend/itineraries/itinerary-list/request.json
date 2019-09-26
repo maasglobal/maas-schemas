@@ -20,7 +20,7 @@
           "pattern": "^([A-Ö]+,)*[A-Ö]+$"
         },
         "bookingId": {
-          "$ref": "http://maasglobal.com/core/booking.json#/properties/id"
+          "$ref": "http://maasglobal.com/core/booking.json#/definitions/id"
         },
         "originalFare": {
           "type": "string"

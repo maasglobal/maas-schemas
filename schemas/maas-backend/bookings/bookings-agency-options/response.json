@@ -34,19 +34,19 @@
           "type": "object",
           "properties": {
             "fares": {
-              "$ref": "http://maasglobal.com/core/booking.json#/properties/fares"
+              "$ref": "http://maasglobal.com/core/booking.json#/definitions/fares"
             },
             "cost": {
-              "$ref": "http://maasglobal.com/core/booking.json#/properties/cost"
+              "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
             },
             "leg": {
-              "$ref": "http://maasglobal.com/core/booking.json#/properties/leg"
+              "$ref": "http://maasglobal.com/core/booking.json#/definitions/leg"
             },
             "meta": {
-              "$ref": "http://maasglobal.com/core/booking.json#/properties/meta"
+              "$ref": "http://maasglobal.com/core/booking.json#/definitions/meta"
             },
             "terms": {
-              "$ref": "http://maasglobal.com/core/booking.json#/properties/terms"
+              "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
             },
             "tspProduct": {
               "type": "object",
@@ -57,7 +57,7 @@
               }
             },
             "configurator": {
-              "$ref": "http://maasglobal.com/core/booking.json#/properties/configurator"
+              "$ref": "http://maasglobal.com/core/booking.json#/definitions/configurator"
             }
           }
         },

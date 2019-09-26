@@ -7,6 +7,10 @@
     { "$ref": "#/definitions/withCost" }
   ],
   "definitions": {
+    "ref": {
+      "type": "integer",
+      "minimum": 0
+    },
     "withConfigurator": {
       "description": "Works with configurator",
       "type": "object",
@@ -19,8 +23,7 @@
           "$ref": "components/units.json#/definitions/uuid"
         },
         "ref": {
-          "type": "integer",
-          "minimum": 0
+          "$ref": "#/definitions/ref"
         },
         "product": {
           "$ref": "product.json"
