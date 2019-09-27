@@ -8,6 +8,7 @@
   ],
   "definitions": {
     "ref": {
+      "description": "numeric key for connecting productOption with leg.productOption",
       "type": "integer",
       "minimum": 0
     },
