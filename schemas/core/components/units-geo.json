@@ -76,7 +76,8 @@
         {
           "$ref": "#/definitions/longitude"
         }
-      ]
+      ],
+      "additionalItems": false
     },
     "shortLocationString": {
       "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",

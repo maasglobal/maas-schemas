@@ -46,31 +46,29 @@
                       "properties": {
                         "data": {
                           "type": "array",
-                          "items": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "string",
-                                  "minLength": 3,
-                                  "maxLength": 256
-                                },
-                                "object": {
-                                  "type": "string",
-                                  "minLength": 3,
-                                  "maxLength": 256
-                                },
-                                "amount": {
-                                  "type": "number",
-                                  "minimum": 0
-                                },
-                                "amount_refunded": {
-                                  "type": "number",
-                                  "minimum": 0
-                                }
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "minLength": 3,
+                                "maxLength": 256
+                              },
+                              "object": {
+                                "type": "string",
+                                "minLength": 3,
+                                "maxLength": 256
+                              },
+                              "amount": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "amount_refunded": {
+                                "type": "number",
+                                "minimum": 0
                               }
                             }
-                          ]
+                          }
                         }
                       }
                     }

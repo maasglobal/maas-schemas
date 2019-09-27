@@ -8,7 +8,7 @@
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "itineraryId": {
-      "$ref": "http://maasglobal.com/core/itinerary.json#/properties/id"
+      "$ref": "http://maasglobal.com/core/itinerary.json#/definitions/id"
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
@@ -28,7 +28,7 @@
             "type": "object",
             "properties": {
               "ref": {
-                "$ref": "http://maasglobal.com/core/product-option.json#/definitions/withConfigurator/properties/ref"
+                "$ref": "http://maasglobal.com/core/product-option.json#/definitions/ref"
               },
               "customerSelection": {
                 "$ref": "http://maasglobal.com/core/components/customerSelection.json"

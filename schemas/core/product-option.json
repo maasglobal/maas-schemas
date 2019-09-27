@@ -7,6 +7,11 @@
     { "$ref": "#/definitions/withCost" }
   ],
   "definitions": {
+    "ref": {
+      "description": "numeric key for connecting productOption with leg.productOption",
+      "type": "integer",
+      "minimum": 0
+    },
     "withConfigurator": {
       "description": "Works with configurator",
       "type": "object",
@@ -19,8 +24,7 @@
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
         },
         "ref": {
-          "type": "integer",
-          "minimum": 0
+          "$ref": "#/definitions/ref"
         },
         "product": {
           "$ref": "http://maasglobal.com/core/product.json"

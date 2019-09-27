@@ -7,7 +7,7 @@
       "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
     },
     "cost": {
-      "$ref": "http://maasglobal.com/core/booking.json#/properties/cost"
+      "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
     },
     "state": {
       "enum": ["RESERVED", "CONFIRMED", "ACTIVATED", "EXPIRED", "CANCELLED", "REJECTED"]
