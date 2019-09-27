@@ -50,9 +50,7 @@
           "items": {
             "$ref": "#/definitions/choice"
           },
-          "contains": {
-            "allOf": [{ "$ref": "#/definitions/choice" }, { "required": ["default"] }]
-          }
+          "contains": { "required": ["default"] }
         }
       },
       "required": ["type", "name", "choices"]
@@ -74,7 +72,7 @@
           "type": "string"
         },
         "default": {
-          "type": "boolean"
+          "const": true
         },
         "cost": {
           "$ref": "http://maasglobal.com/core/components/cost.json"
