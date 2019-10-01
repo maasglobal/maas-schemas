@@ -14,7 +14,7 @@
   "additionalProperties": false,
   "definitions": {
     "bookingDelta": {
-      "type:": "object",
+      "type": "object",
       "properties": {
         "id": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"

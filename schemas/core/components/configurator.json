@@ -2,7 +2,6 @@
   "$id": "http://maasglobal.com/core/components/configurator.json",
   "description": "Configurator schema to customize a booking option",
   "type": "object",
-  "description": "Wrapper schema, with each of its properties a config that the user can customize",
   "properties": {
     "seatDirection": { "$ref": "#/definitions/config" },
     "seatPosition": { "$ref": "#/definitions/config" },
@@ -96,28 +95,6 @@
         }
       },
       "required": ["id", "name", "default"]
-    },
-    "customerSelection": {
-      "type": "object",
-      "patternProperties": {
-        "^[a-zA-Z0-9\\-]+$": {
-          "anyOf": [
-            {
-              "type": "string",
-              "minLength": 0,
-              "maxLength": 8192
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "minLength": 0,
-                "maxLength": 8192
-              }
-            }
-          ]
-        }
-      }
     },
     "text": {
       "type": "object",

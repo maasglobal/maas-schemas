@@ -36,8 +36,10 @@
           "type": "object",
           "properties": {
             "text": {
-              "type": "string",
-              "errorCode": "number"
+              "type": "string"
+            },
+            "errorCode": {
+              "type": "number"
             }
           },
           "additionalProperties": true

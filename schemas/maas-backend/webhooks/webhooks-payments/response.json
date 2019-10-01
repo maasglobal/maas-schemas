@@ -4,6 +4,7 @@
   "oneOf": [{ "$ref": "#/definitions/avainpayResponse" }],
   "definitions": {
     "avainpayResponse": {
+      "type": "object",
       "properties": {
         "action_str": {
           "type": "string",

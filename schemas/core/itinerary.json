@@ -10,8 +10,7 @@
       "$ref": "components/units.json#/definitions/uuid"
     },
     "isOvertaken": {
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     },
     "identityId": {
       "$ref": "components/units.json#/definitions/identityId"
@@ -31,7 +30,7 @@
     "co2": {
       "description": "Grams of CO2 as a byproduct by the trip",
       "type": "number",
-      "minValue": 0
+      "minimum": 0
     },
     "fares": {
       "type": "array",

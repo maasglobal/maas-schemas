@@ -10,12 +10,12 @@
     },
     "expiryMonth": {
       "type": "number",
-      "minValue": 1,
-      "maxValue": 12
+      "minimum": 1,
+      "maximum": 12
     },
     "expiryYear": {
       "type": "number",
-      "minValue": 2000
+      "minimum": 2000
     },
     "maskedNumber": {
       "type": "string",

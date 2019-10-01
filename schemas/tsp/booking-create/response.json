@@ -31,7 +31,7 @@
       "$ref": "http://maasglobal.com/core/components/configurator.json"
     },
     "customerSelection": {
-      "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
+      "$ref": "http://maasglobal.com/core/components/customerSelection.json"
     },
     "customer": {
       "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/customer"

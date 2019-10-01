@@ -3,6 +3,7 @@
   "description": "Partial (Points only) GeoJSON Schema",
   "definitions": {
     "featureCollection": {
+      "type": "object",
       "properties": {
         "type": { "enum": ["FeatureCollection"] },
         "features": {
@@ -15,6 +16,7 @@
       "required": ["type", "features"]
     },
     "feature": {
+      "type": "object",
       "properties": {
         "type": { "enum": ["Feature"] },
         "geometry": {
