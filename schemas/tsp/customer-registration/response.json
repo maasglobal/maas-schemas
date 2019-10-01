@@ -1,0 +1,12 @@
+{
+  "$id": "http://maasglobal.com/tsp/customer-registration/response.json",
+  "description": "Response schema for retrieving customer registration details",
+  "type": "object",
+  "properties": {
+    "customer": {
+      "type": "object"
+    }
+  },
+  "required": ["customer"],
+  "additionalProperties": true
+}

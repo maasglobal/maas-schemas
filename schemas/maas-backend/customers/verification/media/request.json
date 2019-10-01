@@ -1,28 +1,28 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/verification/register/request.json",
+  "$id": "http://maasglobal.com/maas-backend/customers/verification/media/request.json",
   "additionalProperties": false,
-  "description": "MaaS customer verification TSP registration",
+  "description": "MaaS customer verification media retrieve",
   "properties": {
     "customerId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
-    },
-    "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     },
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "properties": {
-        "agencyId": {
+        "side": {
+          "minLength": 2,
+          "type": "string"
+        },
+        "type": {
           "minLength": 2,
           "type": "string"
         }
       },
-      "required": ["agencyId"],
+      "required": ["type", "side"],
       "type": "object"
     }
   },
-  "required": ["identityId", "customerId", "payload", "headers"],
   "type": "object"
 }
