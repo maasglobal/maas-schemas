@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "customer": {
-      "$ref": "../customer.json"
+      "$ref": "../../../customer.json"
     }
   },
   "additionalProperties": false,
