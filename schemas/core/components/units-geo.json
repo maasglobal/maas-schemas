@@ -85,62 +85,6 @@
       "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$",
       "minLength": 1,
       "maxLength": 64
-    },
-    "place": {
-      "type": "object",
-      "additionalProperties": true,
-      "description": "A place, as a location-name pair with name and address",
-      "allOf": [
-        {
-          "$ref": "#/definitions/relaxedLocation"
-        },
-        {
-          "type": "object",
-          "additionalProperties": true,
-          "properties": {
-            "name": {
-              "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
-            },
-            "address": {
-              "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
-            },
-            "localeAddress": {
-              "type": "string",
-              "description": "Country specific formatted address"
-            },
-            "stopId": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 64
-            },
-            "stopCode": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 64
-            },
-            "stationId": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 64
-            },
-            "facilities": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 80
-              }
-            },
-            "openingHours": {
-              "$ref": "http://maasglobal.com/core/components/station.json#/definitions/openingHours"
-            },
-            "zone": {
-              "$ref": "http://maasglobal.com/core/components/station.json#/definitions/zone"
-            }
-          }
-        }
-      ],
-      "required": ["lat", "lon"]
     }
   }
 }

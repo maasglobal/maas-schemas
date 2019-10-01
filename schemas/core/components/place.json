@@ -1,0 +1,57 @@
+{
+  "$id": "http://maasglobal.com/core/components/place.json",
+  "description": "A place, as a location-name pair with name and address",
+  "type": "object",
+  "additionalProperties": true,
+  "allOf": [
+    {
+      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLocation"
+    },
+    {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "name": {
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+        },
+        "address": {
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+        },
+        "localeAddress": {
+          "type": "string",
+          "description": "Country specific formatted address"
+        },
+        "stopId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "stopCode": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "stationId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "facilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          }
+        },
+        "openingHours": {
+          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/openingHours"
+        },
+        "zone": {
+          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/zone"
+        }
+      }
+    }
+  ],
+  "required": ["lat", "lon"]
+}
