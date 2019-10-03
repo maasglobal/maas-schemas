@@ -1,0 +1,26 @@
+{
+  "$id": "http://maasglobal.com/core/booking-meta.json",
+  "description": "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
+  "type": "object",
+  "properties": {
+    "MODE_WALK": { "$ref": "http://maasglobal.com/core/modes/MODE_WALK.json" },
+    "MODE_BICYCLE": { "$ref": "http://maasglobal.com/core/modes/MODE_BICYCLE.json" },
+    "MODE_CAR": { "$ref": "http://maasglobal.com/core/modes/MODE_CAR.json" },
+    "MODE_TRAM": { "$ref": "http://maasglobal.com/core/modes/MODE_TRAM.json" },
+    "MODE_SUBWAY": { "$ref": "http://maasglobal.com/core/modes/MODE_SUBWAY.json" },
+    "MODE_RAIL": { "$ref": "http://maasglobal.com/core/modes/MODE_RAIL.json" },
+    "MODE_BUS": { "$ref": "http://maasglobal.com/core/modes/MODE_BUS.json" },
+    "MODE_FERRY": { "$ref": "http://maasglobal.com/core/modes/MODE_FERRY.json" },
+    "MODE_CABLE_CAR": { "$ref": "http://maasglobal.com/core/modes/MODE_CABLE_CAR.json" },
+    "MODE_GONDOLA": { "$ref": "http://maasglobal.com/core/modes/MODE_GONDOLA.json" },
+    "MODE_FUNICULAR": { "$ref": "http://maasglobal.com/core/modes/MODE_FUNICULAR.json" },
+    "MODE_SHARED_BICYCLE": { "$ref": "http://maasglobal.com/core/modes/MODE_SHARED_BICYCLE.json" },
+    "MODE_SHARED_CAR": { "$ref": "http://maasglobal.com/core/modes/MODE_SHARED_CAR.json" },
+    "MODE_TRANSIT": { "$ref": "http://maasglobal.com/core/modes/MODE_TRANSIT.json" },
+    "MODE_TRAIN": { "$ref": "http://maasglobal.com/core/modes/MODE_TRAIN.json" },
+    "MODE_TRAINISH": { "$ref": "http://maasglobal.com/core/modes/MODE_TRAINISH.json" },
+    "MODE_BUSISH": { "$ref": "http://maasglobal.com/core/modes/MODE_BUSISH.json" },
+    "MODE_TAXI": { "$ref": "http://maasglobal.com/core/modes/MODE_TAXI.json" },
+    "MODE_SCOOTER": { "$ref": "http://maasglobal.com/core/modes/MODE_SCOOTER.json" }
+  }
+}

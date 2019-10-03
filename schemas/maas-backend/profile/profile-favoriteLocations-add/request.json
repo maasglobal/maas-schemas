@@ -7,7 +7,7 @@
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
+      "$ref": "http://maasglobal.com/core/components/place.json"
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"

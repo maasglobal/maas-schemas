@@ -11,10 +11,10 @@
           "type": "string"
         },
         "from": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/place.json"
         },
         "to": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/place.json"
         }
       },
       "required": ["from", "to"]
@@ -27,10 +27,10 @@
           "type": "string"
         },
         "from": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/place.json"
         },
         "to": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/place.json"
         }
       },
       "required": ["from", "to"]
