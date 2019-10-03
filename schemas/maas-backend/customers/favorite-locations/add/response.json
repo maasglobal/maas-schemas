@@ -3,47 +3,53 @@
   "description": "MaaS customer favorite location adding response",
   "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
-    },
-    "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
-    },
-    "type": {
-      "type": "string"
-    },
-    "name": {
-      "type": "string"
-    },
-    "lat": {
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/latitude"
-    },
-    "lon": {
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/longitude"
-    },
-    "streetName": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
-    },
-    "streetNumber": {
-      "type": "string"
-    },
-    "city": {
-      "type": "string"
-    },
-    "country": {
-      "type": "string"
-    },
-    "zipCode": {
-      "type": "string"
-    },
-    "agencyId": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
-    },
-    "stopId": {
-      "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
-    },
-    "lineId": {
-      "type": "string"
+    "favoriteLocation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "identityId": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "lat": {
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/latitude"
+        },
+        "lon": {
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/longitude"
+        },
+        "streetName": {
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+        },
+        "streetNumber": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "zipCode": {
+          "type": "string"
+        },
+        "agencyId": {
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+        },
+        "stopId": {
+          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+        },
+        "lineId": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false
