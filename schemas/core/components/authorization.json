@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "agencyId": {
-      "$ref": "common.json#/definitions/agencyId"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
     },
     "state": {
       "description": "The state of an authorization",
@@ -12,14 +12,14 @@
       "enum": ["VALID", "INVALID"]
     },
     "validTo": {
-      "$ref": "units.json#/definitions/time",
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
       "description": "Epoch when the authorization will be invalid"
     },
     "created": {
-      "$ref": "units.json#/definitions/time"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
     },
     "modified": {
-      "$ref": "units.json#/definitions/time"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
     }
   },
   "additionalProperties": false,

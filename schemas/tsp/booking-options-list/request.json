@@ -99,11 +99,11 @@
     "purchasingAppInstanceId": {
       "description": "appInstanceId to use for options and purchase",
       "$ref": "http://maasglobal.com/core/components/common.json#/definitions/appInstanceId"
-    },
-    "patternProperties": {
-      "^(optionalParameters).+": {
-        "type": ["string", "number", "boolean"]
-      }
+    }
+  },
+  "patternProperties": {
+    "^(optionalParameters).+": {
+      "type": ["string", "number", "boolean"]
     }
   },
   "required": ["startTime", "from"],

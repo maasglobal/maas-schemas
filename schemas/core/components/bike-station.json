@@ -10,7 +10,7 @@
       "type": "string"
     },
     "location": {
-      "$ref": "units-geo.json#/definitions/location"
+      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location"
     },
     "slots": {
       "type": "object",

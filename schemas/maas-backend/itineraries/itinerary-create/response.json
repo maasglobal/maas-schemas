@@ -33,35 +33,24 @@
     }
   ],
   "definitions": {
+    "paymentParameter": {
+      "type": "object",
+      "properties": {
+        "avainpay": {
+          "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/avainpayPaymentParameters"
+        },
+        "stripe": {
+          "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/stripePaymentParameters"
+        }
+      }
+    },
     "paymentParameters": {
       "description": "Payment parameters for asynchronous payment methods",
       "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "avainpay": {
-              "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/avainpayPaymentParameters"
-            },
-            "stripe": {
-              "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/stripePaymentParameters"
-            }
-          }
-        },
+        { "$ref": "#/definitions/paymentParameter" },
         {
           "type": "array",
-          "items": [
-            {
-              "type": "object",
-              "properties": {
-                "avainpay": {
-                  "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/avainpayPaymentParameters"
-                },
-                "stripe": {
-                  "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/stripePaymentParameters"
-                }
-              }
-            }
-          ]
+          "items": { "$ref": "#/definitions/paymentParameter" }
         }
       ]
     }

@@ -2,13 +2,13 @@
   "$id": "http://maasglobal.com/core/stop.json",
   "allOf": [
     {
-      "$ref": "components/units-geo.json#/definitions/place"
+      "$ref": "http://maasglobal.com/core/components/place.json"
     },
     {
       "type": "object",
       "properties": {
         "startTime": {
-          "$ref": "components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         }
       }
     }

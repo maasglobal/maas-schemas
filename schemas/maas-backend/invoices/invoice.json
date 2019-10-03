@@ -2,15 +2,11 @@
   "$id": "http://maasglobal.com/maas-backend/invoices/invoice.json",
   "description": "MaaS Invoice schema",
   "definitions": {
-    "InvoiceId": {
-      "type": "string",
-      "minLength": 2
-    },
     "Invoice": {
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/definitions/InvoiceId"
+          "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceId"
         },
         "customerId": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
@@ -22,7 +18,7 @@
         "lineItems": {
           "type": "array",
           "items": {
-            "$ref": "invoiceLineItem.json#/definitions/InvoiceLineItem"
+            "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem"
           },
           "minLength": 1
         }

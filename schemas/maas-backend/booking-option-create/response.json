@@ -15,11 +15,14 @@
       "type": "object",
       "properties": {
         "error": {
-          "message": {
-            "type": "string",
-            "description": "A human readable error message (preferably in English)",
-            "minLength": 1,
-            "maxLength": 255
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "A human readable error message (preferably in English)",
+              "minLength": 1,
+              "maxLength": 255
+            }
           }
         }
       },

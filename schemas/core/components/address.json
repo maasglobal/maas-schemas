@@ -15,19 +15,19 @@
     },
     "firstName": {
       "description": "First name of the customer (e.g. John)",
-      "$ref": "common.json#/definitions/personalName"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
     },
     "lastName": {
       "description": "Last name of the customer (e.g. Doe)",
-      "$ref": "common.json#/definitions/personalName"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
     },
     "phone": {
       "description": "ITU-T E.164 phone number",
-      "$ref": "common.json#/definitions/phone"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone"
     },
     "email": {
       "description": "Rough validation of a valid e-mail address",
-      "$ref": "common.json#/definitions/email"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
     },
     "address": {
       "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
