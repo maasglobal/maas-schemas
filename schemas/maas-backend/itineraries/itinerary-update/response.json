@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "itinerary": {
-      "$ref": "../../../core/itinerary.json"
+      "$ref": "http://maasglobal.com/core/itinerary.json"
     }
   },
   "required": ["itinerary"],

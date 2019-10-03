@@ -27,7 +27,7 @@
           "$ref": "http://maasglobal.com/core/product.json#/definitions/id"
         },
         "customerSelection": {
-          "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
+          "$ref": "http://maasglobal.com/core/components/customerSelection.json"
         },
         "autoPurchaseId": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"

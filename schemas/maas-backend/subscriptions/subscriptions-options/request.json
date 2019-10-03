@@ -7,10 +7,13 @@
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "regionId": {
-        "type": "string",
-        "minLength": 2,
-        "maxLength": 255
+      "type": "object",
+      "properties": {
+        "regionId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 255
+        }
       }
     },
     "headers": {

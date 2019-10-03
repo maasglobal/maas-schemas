@@ -3,6 +3,7 @@
   "description": "Partial (Points only) GeoJSON Schema",
   "definitions": {
     "featureCollection": {
+      "type": "object",
       "properties": {
         "type": { "enum": ["FeatureCollection"] },
         "features": {
@@ -15,6 +16,7 @@
       "required": ["type", "features"]
     },
     "feature": {
+      "type": "object",
       "properties": {
         "type": { "enum": ["Feature"] },
         "geometry": {
@@ -32,7 +34,7 @@
       "properties": {
         "type": { "enum": ["Point"] },
         "coordinates": {
-          "$ref": "units-geo.json#/definitions/shortLocation"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocation"
         }
       },
       "additionalProperties": false,

@@ -3,6 +3,7 @@
   "description": "Stripe payment webhook schema",
   "definitions": {
     "request": {
+      "type": "object",
       "properties": {
         "payload": {
           "type": "object",
@@ -41,10 +42,11 @@
                       "minimum": 0
                     },
                     "charges": {
-                      "data": {
-                        "type": "array",
-                        "items": [
-                          {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "array",
+                          "items": {
                             "type": "object",
                             "properties": {
                               "id": {
@@ -67,7 +69,7 @@
                               }
                             }
                           }
-                        ]
+                        }
                       }
                     }
                   }

@@ -5,6 +5,9 @@
     "stripePaymentParameters": {
       "type": "object",
       "properties": {
+        "bookingId": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+        },
         "clientSecret": {
           "type": "string",
           "minLength": 1,

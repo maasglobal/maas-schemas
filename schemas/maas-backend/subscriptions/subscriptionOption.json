@@ -2,7 +2,7 @@
   "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptionOption.json",
   "description": "MaaS subscription option schema",
   "allOf": [
-    { "$ref": "subscription.json#/definitions/subscriptionBase" },
+    { "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscriptionBase" },
     { "$ref": "#/definitions/subscriptionAdditions" }
   ],
   "definitions": {

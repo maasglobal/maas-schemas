@@ -7,35 +7,39 @@
     { "$ref": "#/definitions/withCost" }
   ],
   "definitions": {
+    "ref": {
+      "description": "numeric key for connecting productOption with leg.productOption",
+      "type": "integer",
+      "minimum": 0
+    },
     "withConfigurator": {
       "description": "Works with configurator",
       "type": "object",
       "required": ["ref", "terms", "meta", "configurator"],
       "properties": {
         "identityId": {
-          "$ref": "components/units.json#/definitions/identityId"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
         },
         "bookingId": {
-          "$ref": "components/units.json#/definitions/uuid"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
         },
         "ref": {
-          "type": "integer",
-          "minValue": 0
+          "$ref": "#/definitions/ref"
         },
         "product": {
-          "$ref": "product.json"
+          "$ref": "http://maasglobal.com/core/product.json"
         },
         "terms": {
-          "$ref": "components/terms.json"
+          "$ref": "http://maasglobal.com/core/components/terms.json"
         },
         "meta": {
-          "$ref": "booking.json#/definitions/meta"
+          "$ref": "http://maasglobal.com/core/booking-meta.json"
         },
         "configurator": {
-          "$ref": "components/configurator.json"
+          "$ref": "http://maasglobal.com/core/components/configurator.json"
         },
         "customer": {
-          "$ref": "booking-option.json#/definitions/customer"
+          "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/customer"
         }
       }
     },
@@ -45,32 +49,32 @@
       "required": ["ref", "terms", "meta", "fares"],
       "properties": {
         "identityId": {
-          "$ref": "components/units.json#/definitions/identityId"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
         },
         "bookingId": {
-          "$ref": "components/units.json#/definitions/uuid"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
         },
         "ref": {
           "type": "integer",
-          "minValue": 0
+          "minimum": 0
         },
         "product": {
-          "$ref": "product.json"
+          "$ref": "http://maasglobal.com/core/product.json"
         },
         "fares": {
           "type": "array",
           "items": {
-            "$ref": "components/fare.json"
+            "$ref": "http://maasglobal.com/core/components/fare.json"
           }
         },
         "terms": {
-          "$ref": "components/terms.json"
+          "$ref": "http://maasglobal.com/core/components/terms.json"
         },
         "meta": {
-          "$ref": "booking.json#/definitions/meta"
+          "$ref": "http://maasglobal.com/core/booking-meta.json"
         },
         "customer": {
-          "$ref": "booking-option.json#/definitions/customer"
+          "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/customer"
         }
       }
     },
@@ -80,29 +84,29 @@
       "required": ["ref", "terms", "meta", "cost"],
       "properties": {
         "identityId": {
-          "$ref": "components/units.json#/definitions/identityId"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
         },
         "bookingId": {
-          "$ref": "components/units.json#/definitions/uuid"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
         },
         "ref": {
           "type": "integer",
-          "minValue": 0
+          "minimum": 0
         },
         "product": {
-          "$ref": "product.json"
+          "$ref": "http://maasglobal.com/core/product.json"
         },
         "cost": {
-          "$ref": "components/cost.json"
+          "$ref": "http://maasglobal.com/core/components/cost.json"
         },
         "terms": {
-          "$ref": "components/terms.json"
+          "$ref": "http://maasglobal.com/core/components/terms.json"
         },
         "meta": {
-          "$ref": "booking.json#/definitions/meta"
+          "$ref": "http://maasglobal.com/core/booking-meta.json"
         },
         "customer": {
-          "$ref": "booking-option.json#/definitions/customer"
+          "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/customer"
         }
       }
     }

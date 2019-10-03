@@ -10,7 +10,7 @@
       "type": "array",
       "items": {
         "type": "string",
-        "minLemgth": 1
+        "minLength": 1
       }
     }
   }

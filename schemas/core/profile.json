@@ -5,31 +5,31 @@
   "properties": {
     "id": {
       "type": "integer",
-      "minValue": 0
+      "minimum": 0
     },
     "identityId": {
-      "$ref": "components/units.json#/definitions/identityId"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "phone": {
-      "$ref": "components/common.json#/definitions/phone"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone"
     },
     "email": {
-      "$ref": "components/common.json#/definitions/email"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
     },
     "firstName": {
-      "$ref": "components/common.json#/definitions/personalName"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
     },
     "lastName": {
-      "$ref": "components/common.json#/definitions/personalName"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
     },
     "city": {
-      "$ref": "components/address.json#/definitions/city"
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
     },
     "country": {
-      "$ref": "components/address.json#/definitions/country"
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
     },
     "zipCode": {
-      "$ref": "components/address.json#/definitions/zipCode"
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
     },
     "regionId": {
       "type": "string",
@@ -37,7 +37,7 @@
       "maxLength": 256
     },
     "region": {
-      "$ref": "region.json"
+      "$ref": "http://maasglobal.com/core/region.json"
     },
     "profileImageUrl": {
       "type": "string",
@@ -47,7 +47,7 @@
     "favoriteLocations": {
       "type": "array",
       "items": {
-        "$ref": "components/units-geo.json#/definitions/place"
+        "$ref": "http://maasglobal.com/core/components/place.json"
       }
     },
     "paymentMethod": {
@@ -75,7 +75,7 @@
         },
         "expiry": {
           "description": "When this payment method expires",
-          "$ref": "components/units.json#/definitions/time"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         }
       },
       "required": ["type", "valid"]
@@ -95,14 +95,14 @@
     "balances": {
       "type": "array",
       "items": {
-        "$ref": "components/fare.json"
+        "$ref": "http://maasglobal.com/core/components/fare.json"
       }
     },
     "created": {
-      "$ref": "components/units.json#/definitions/time"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
     },
     "modified": {
-      "$ref": "components/units.json#/definitions/time"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
     }
   },
   "additionalProperties": false,
@@ -121,7 +121,7 @@
       "properties": {
         "id": {
           "type": "integer",
-          "minValue": 0
+          "minimum": 0
         },
         "name": {
           "type": "string",
@@ -158,24 +158,24 @@
         },
         "wmpGrant": {
           "type": "integer",
-          "minValue": 0
+          "minimum": 0
         },
         "level": {
           "type": "integer",
-          "minValue": 0
+          "minimum": 0
         },
         "active": {
           "type": "boolean"
         },
         "pointCost": {
-          "$ref": "components/point-cost.json"
+          "$ref": "http://maasglobal.com/core/components/point-cost.json"
         },
         "description": {
           "type": "string"
         },
         "availability": {
           "type": "integer",
-          "minValue": 0
+          "minimum": 0
         }
       },
       "required": ["plan", "addons", "coupons", "pointCost"]

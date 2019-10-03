@@ -13,7 +13,7 @@
           "$ref": "http://maasglobal.com/maas-backend/bookings/bookings-agency-options/response.json#/definitions/option"
         },
         "customerSelection": {
-          "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
+          "$ref": "http://maasglobal.com/core/components/customerSelection.json"
         }
       }
     },

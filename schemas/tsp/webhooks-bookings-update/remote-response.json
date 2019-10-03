@@ -14,7 +14,7 @@
   "additionalProperties": false,
   "definitions": {
     "bookingDelta": {
-      "type:": "object",
+      "type": "object",
       "properties": {
         "id": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
@@ -23,7 +23,7 @@
           "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
         },
         "cost": {
-          "$ref": "http://maasglobal.com/core/booking.json#/properties/cost"
+          "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
         },
         "state": {
           "enum": ["RESERVED", "CONFIRMED", "ACTIVATED", "EXPIRED", "CANCELLED", "REJECTED"]
@@ -32,7 +32,7 @@
           "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/leg"
         },
         "meta": {
-          "$ref": "http://maasglobal.com/core/booking.json#/definitions/meta"
+          "$ref": "http://maasglobal.com/core/booking-meta.json"
         },
         "terms": {
           "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"

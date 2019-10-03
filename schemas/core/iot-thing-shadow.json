@@ -14,16 +14,16 @@
           "type": "object",
           "properties": {
             "lat": {
-              "$ref": "components/units-geo.json#/definitions/latitude"
+              "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/latitude"
             },
             "lon": {
-              "$ref": "components/units-geo.json#/definitions/longitude"
+              "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/longitude"
             },
             "timestamp": {
-              "$ref": "components/units.json#/definitions/time"
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
             },
             "legId": {
-              "$ref": "components/units.json#/definitions/uuid"
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
             }
           }
         },
@@ -31,13 +31,13 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "components/units.json#/definitions/uuid"
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
             },
             "timestamp": {
-              "$ref": "components/units.json#/definitions/time"
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
             },
             "state": {
-              "$ref": "components/state.json#/definitions/legState"
+              "$ref": "http://maasglobal.com/core/components/state.json#/definitions/legState"
             }
           }
         }
