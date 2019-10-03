@@ -17,11 +17,6 @@
         "customer": {
           "type": "object",
           "properties": {
-            "profileImageUrl": {
-              "type": "string",
-              "minLength": 10,
-              "maxLength": 1024
-            },
             "personalData": {
               "$ref": "http://maasglobal.com/maas-backend/customers/personalData.json"
             }
