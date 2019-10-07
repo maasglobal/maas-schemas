@@ -3,7 +3,27 @@
   "description": "MaaS customer favorite location updating response",
   "type": "object",
   "properties": {
-    "$ref": "http://maasglobal.com/maas-backend/customers/favorite-locations/add/response.json#/properties/favoriteLocation"
+    "favoriteLocation": {
+      "type": "object",
+      "properties": {
+        "allOf": [
+          {
+            "$ref": "http://maasglobal.com/core/components/favoriteLocation.json"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "identityId": {
+                "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+              }
+            }
+          }
+        ]
+      }
+    }
   },
   "additionalProperties": false
 }

@@ -6,7 +6,22 @@
     "favoriteLocations": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/maas-backend/customers/favorite-locations/add/response.json"
+        "allOf": [
+          {
+            "$ref": "http://maasglobal.com/core/components/favoriteLocation.json"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "identityId": {
+                "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+              }
+            }
+          }
+        ]
       }
     }
   },

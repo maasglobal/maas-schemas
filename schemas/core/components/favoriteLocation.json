@@ -1,0 +1,48 @@
+{
+  "$id": "http://maasglobal.com/core/components/favoriteLocation.json",
+  "description": "Customer's favorite location",
+  "type": "object",
+  "definitions": {
+    "favoriteLocationTypes": {
+      "type": "string",
+      "enum": ["ADDRESS", "STOP"]
+    }
+  },
+  "properties": {
+    "type": {
+      "$ref": "#/definitions/favoriteLocationTypes"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "location": {
+      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location"
+    },
+    "streetName": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+    },
+    "streetNumber": {
+      "type": "string"
+    },
+    "city": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
+    },
+    "country": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/countryName"
+    },
+    "zipCode": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+    },
+    "agencyId": {
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+    },
+    "stopId": {
+      "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+    },
+    "lineId": {
+      "type": "string"
+    }
+  },
+  "required": ["type", "name"]
+}

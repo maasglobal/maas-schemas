@@ -15,42 +15,7 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "type": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "lat": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/latitude"
-        },
-        "lon": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/longitude"
-        },
-        "streetName": {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
-        },
-        "streetNumber": {
-          "type": "string"
-        },
-        "city": {
-          "type": "string"
-        },
-        "country": {
-          "type": "string"
-        },
-        "zipCode": {
-          "type": "string"
-        },
-        "agencyId": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
-        },
-        "stopId": {
-          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
-        },
-        "lineId": {
-          "type": "string"
-        }
+        "$ref": "http://maasglobal.com/core/components/favoriteLocation.json"
       }
     },
     "headers": {
