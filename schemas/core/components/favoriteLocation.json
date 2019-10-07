@@ -9,6 +9,12 @@
     }
   },
   "properties": {
+    "id": {
+      "type": "number"
+    },
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
     "type": {
       "$ref": "#/definitions/favoriteLocationTypes"
     },
