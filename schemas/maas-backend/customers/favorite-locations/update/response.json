@@ -6,7 +6,7 @@
     "favoriteLocation": {
       "allOf": [
         {
-          "$ref": "http://maasglobal.com/core/components/favoriteLocation.json"
+          "$ref": "http://maasglobal.com/core/components/partialFavoriteLocation.json"
         },
         {
           "required": ["type", "name", "location", "id", "identityId"]
