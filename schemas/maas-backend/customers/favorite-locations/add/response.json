@@ -4,25 +4,22 @@
   "type": "object",
   "properties": {
     "favoriteLocation": {
-      "type": "object",
-      "properties": {
-        "allOf": [
-          {
-            "$ref": "http://maasglobal.com/core/components/favoriteLocation.json"
-          },
-          {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "number"
-              },
-              "identityId": {
-                "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
-              }
+      "allOf": [
+        {
+          "$ref": "http://maasglobal.com/core/components/favoriteLocation.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "identityId": {
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
             }
           }
-        ]
-      }
+        }
+      ]
     },
     "additionalProperties": false
   },
