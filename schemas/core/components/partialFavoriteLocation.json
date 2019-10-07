@@ -49,6 +49,5 @@
     "lineId": {
       "type": "string"
     }
-  },
-  "required": ["type", "name", "location"]
+  }
 }

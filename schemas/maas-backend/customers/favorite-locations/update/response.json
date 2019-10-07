@@ -9,7 +9,7 @@
           "$ref": "http://maasglobal.com/core/components/favoriteLocation.json"
         },
         {
-          "required": ["id", "identityId"]
+          "required": ["type", "name", "location", "id", "identityId"]
         }
       ]
     }

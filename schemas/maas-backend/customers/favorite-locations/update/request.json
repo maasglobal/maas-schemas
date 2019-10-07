@@ -15,7 +15,7 @@
       "type": "number"
     },
     "payload": {
-      "$ref": "http://maasglobal.com/core/components/favoriteLocation.json"
+      "$ref": "http://maasglobal.com/core/components/partialFavoriteLocation.json"
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
