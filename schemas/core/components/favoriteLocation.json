@@ -44,5 +44,5 @@
       "type": "string"
     }
   },
-  "required": ["type", "name"]
+  "required": ["type", "name", "location"]
 }
