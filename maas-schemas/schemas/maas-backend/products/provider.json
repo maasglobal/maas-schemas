@@ -115,7 +115,8 @@
               "description": "Maximum amount of milliseconds before the taxi can be prebooked in the future",
               "type": "number"
             }
-          }
+          },
+          "required": ["isSupported"]
         }
       },
       "additionalProperties": false
