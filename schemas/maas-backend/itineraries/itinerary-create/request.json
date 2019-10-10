@@ -39,7 +39,18 @@
         "customerSelections": {
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+            "allOf": [
+              {
+                "ref": {
+                  "$ref": "http://maasglobal.com/core/product-option.json#/definitions/ref"
+                }
+              },
+              {
+                "customerSelection": {
+                  "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+                }
+              }
+            ]
           }
         }
       }
