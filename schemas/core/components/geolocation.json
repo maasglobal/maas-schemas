@@ -78,7 +78,9 @@
           "minLength": 1,
           "maxLength": 16
         },
-        "zipcode": { "type": "integer" }
+        "zipcode": {
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+        }
       },
       "required": ["name"]
     }
