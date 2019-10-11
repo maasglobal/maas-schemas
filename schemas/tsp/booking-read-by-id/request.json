@@ -5,6 +5,10 @@
   "properties": {
     "tspId": {
       "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+    },
+    "query": {
+      "type": "object",
+      "description": "Debug info"
     }
   },
   "required": ["tspId"],
