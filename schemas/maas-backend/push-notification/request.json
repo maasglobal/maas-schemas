@@ -21,7 +21,7 @@
         {
           "type": "object",
           "properties": {
-            "objectType": { "enum": ["Itinerary", "Booking", "Profile", "Subscription"] },
+            "objectType": { "enum": ["Itinerary", "Booking"] },
             "ids": {
               "type": "array",
               "minItems": 1,
@@ -46,7 +46,14 @@
               "minItems": 1,
               "maxItems": 1,
               "items": {
-                "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+                "anyOf": [
+                  {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+                  },
+                  {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+                  }
+                ]
               }
             }
           },
