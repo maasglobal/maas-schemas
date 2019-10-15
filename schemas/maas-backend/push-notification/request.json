@@ -21,7 +21,7 @@
         {
           "type": "object",
           "properties": {
-            "objectType": { "enum": ["Itinerary", "Booking"] },
+            "objectType": { "enum": ["Itinerary", "Booking", "Profile"] },
             "ids": {
               "type": "array",
               "minItems": 1,
