@@ -46,14 +46,7 @@
               "minItems": 1,
               "maxItems": 1,
               "items": {
-                "anyOf": [
-                  {
-                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
-                  },
-                  {
-                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
-                  }
-                ]
+                "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
               }
             }
           },
