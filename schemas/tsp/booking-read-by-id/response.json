@@ -9,7 +9,7 @@
       "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
     },
     "state": {
-      "enum": ["RESERVED", "CONFIRMED", "ACTIVATED", "ON_HOLD", "EXPIRED", "CANCELLED", "REJECTED"]
+      "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState"
     },
     "leg": {
       "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/legDelta"
