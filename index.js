@@ -16,8 +16,10 @@ function init() {
     inlineRefs: false,
     meta: true,
     multipleOfPrecision: 6,
+    removeAdditional: true,
     sanitize: false,
     sourceCode: false,
+    useDefaults: true,
     validateSchema: false,
     verbose: true,
   });
