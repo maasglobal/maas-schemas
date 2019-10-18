@@ -49,8 +49,7 @@
           "description": "Set of choices for one customization",
           "items": {
             "$ref": "#/definitions/choice"
-          },
-          "contains": { "properties": { "default": { "const": true } } }
+          }
         }
       },
       "required": ["type", "name", "choices"]
