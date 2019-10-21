@@ -32,8 +32,7 @@
     "address": {
       "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
       "type": "string",
-      "pattern": "^(?:(?:\\p{L}|\\d)+[`'´\\(\\)\\-/,\\.]?)+(\\s?(?:\\p{L}|[\\d`'´\\(\\)\\-/,\\.])?)*$",
-      "maxLength": 255
+      "pattern": "^(?:(?:\\p{L}|\\d)+[`'´\\(\\)\\-/,\\.]?)+(\\s?(?:\\p{L}|[\\d`'´\\(\\)\\-/,\\.])?)*$"
     },
     "zipCode": {
       "description": "Numeric zip code, see https://en.wikipedia.org/wiki/Postal_code",
