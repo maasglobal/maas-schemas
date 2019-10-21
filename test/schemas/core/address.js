@@ -12,12 +12,10 @@ describe('address.placeName', () => {
     "28 St John's Wood Road, London",
     "Shakespeare's Globe",
     'Tarkk´ampujankatu', // Common known validation failure
-    '\'s-Gravesandestraat 55'
+    "'s-Gravesandestraat 55",
   ]);
 
-  generateTestCases(schema.definitions.placeName, false, [
-    '',
-  ]);
+  generateTestCases(schema.definitions.placeName, false, ['']);
 });
 
 describe('address.componentAddress', () => {
