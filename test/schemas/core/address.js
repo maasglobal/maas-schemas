@@ -12,15 +12,10 @@ describe('address.placeName', () => {
     "28 St John's Wood Road, London",
     "Shakespeare's Globe",
     'Tarkk´ampujankatu', // Common known validation failure
+    '\'s-Gravesandestraat 55'
   ]);
 
   generateTestCases(schema.definitions.placeName, false, [
-    '💩',
-    // Double space, made inefficient regex lock the process
-    'ENTERPRISE RENT A CAR 9 10 SUFFOLK STREET  QUEENSWAY',
-    // Double space (2)
-    'Erenköy Mahallesi, Çoban Yıldızı Sk. No:4, 34738 Kadıköy/İstanbul,  Turkki',
-    // '00100', Does not work, but relaxed the schema
     '',
   ]);
 });
