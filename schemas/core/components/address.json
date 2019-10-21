@@ -10,7 +10,7 @@
     "placeName": {
       "description": "Place name (given in autocomplete)",
       "type": "string",
-      "pattern": "^(?:\\p{L}|\\d)(?:\\p{L}|\\d|[!-/:-@[-`{-\\xA9\\xAB-\\xB4\\xB6-\\xB9\\xBB-\\xBF\\xD7\\xF7])*(?:\\s(?:\\p{L}|\\d|[!-/:-@[-`{-\\xA9\\xAB-\\xB4\\xB6-\\xB9\\xBB-\\xBF\\xD7\\xF7])+)*$",
+      "minLength": 1,
       "maxLength": 255
     },
     "firstName": {
