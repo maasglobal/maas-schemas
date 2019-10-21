@@ -12,17 +12,10 @@ describe('address.placeName', () => {
     "28 St John's Wood Road, London",
     "Shakespeare's Globe",
     'Tarkk´ampujankatu', // Common known validation failure
+    "'s-Gravesandestraat 55",
   ]);
 
-  generateTestCases(schema.definitions.placeName, false, [
-    '💩',
-    // Double space, made inefficient regex lock the process
-    'ENTERPRISE RENT A CAR 9 10 SUFFOLK STREET  QUEENSWAY',
-    // Double space (2)
-    'Erenköy Mahallesi, Çoban Yıldızı Sk. No:4, 34738 Kadıköy/İstanbul,  Turkki',
-    // '00100', Does not work, but relaxed the schema
-    '',
-  ]);
+  generateTestCases(schema.definitions.placeName, false, ['']);
 });
 
 describe('address.componentAddress', () => {
@@ -35,8 +28,10 @@ describe('address.componentAddress', () => {
     'city:Helsinki|country:Finland|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
     // Spaces in-between
     'country:New Zealand|state:Bay of Plenty|city:White Pine Bush|zipCode:3191|streetName:White Pine Bush Road|streetNumber:479',
+    // Apostrophe
+    "country:Côte d'Ivoire|city:Abidjan|zipCode:01 BP2581|streetName:Cocody Quartier Ambassades Impasse du Belier|streetNumber:58",
     // Other interesting special characters
-    "country:Aäöم武кв.-`''´`|state:Aäöم武кв.-`''´`|city:Aäöم武кв.-`''´`|zipCode:3191|streetName:Aäöم武кв.-`''´`|streetNumber:479",
+    "country:Aäöم武кв'|state:Aäöم武кв.-`''´`|city:Aäöم武кв.-`''´`|zipCode:3191|streetName:Aäöم武кв.-`''´`|streetNumber:479",
     // King's Cross, UK, London
     'city:Lontoo|streetNumber:2|streetName:Charrington Street|zipCode:NW1|country:Yhdistynyt kuningaskunta',
     "country:UK|city:London|zipCode:NW8 7HA|streetName:St John's Wood Road|streetNumber:28",
@@ -48,7 +43,6 @@ describe('address.componentAddress', () => {
     // TODO The parser does not yet support limiting to one occurrence of each field
     //'country:Finland|country:Finland|country:Finland|country:Finland|country:Finland|
     //   country:Finland',
-    '',
   ]);
 });
 
@@ -61,11 +55,7 @@ describe('address.address', () => {
     'Красная Площадь', // Cyrillic - Red square
   ]);
 
-  generateTestCases(schema.definitions.address, false, [
-    '💩',
-    // '00100', Does not work, but relaxed the schema
-    '',
-  ]);
+  generateTestCases(schema.definitions.address, false, ['💩']);
 });
 
 describe('address.zipCode', () => {
@@ -101,12 +91,5 @@ describe('address.city', () => {
     'Москва', // Cyrillic: Moscow
   ]);
 
-  generateTestCases(schema.definitions.city, false, [
-    '💩',
-    '',
-    // Too long
-    'LRuwGi4XRMVgImvVm7OEsw58YBDsUsApuKGXrjAcQi9QDEWwFYUp2yrzspe2WHu5rGuFoSU6TKeFIf73QjEnzv5Lq6' +
-      'Wu1YTJAbN2bZws8SfwhEoDInr6K3zTgmFQEQnzaDheGZtO4IMzAGoDSUx2zw1Lv4inpE4uq6NBYELaSusrlxGM0p' +
-      'JEiUrYZwIlzGAS4MgRrOKfZIyuZLH9gARtzyKvstQZw9bMmnRE8yWPTNGKlWmYBHLjMTluZp5AcpbU',
-  ]);
+  generateTestCases(schema.definitions.city, false, ['']);
 });
