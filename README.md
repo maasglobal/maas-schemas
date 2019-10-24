@@ -9,6 +9,17 @@ This repository contains the JSON schemas used by MaaS.
 - Newest JSON schemas spec + AJV
 - Out of the box validator
 
+## Documentation
+
+To generate documentation from JSON Schemas, execute:
+
+```bash
+npm run docs
+```
+
+After that, documentation will be available in Markdown format in docs/ folder
+and in HTML formats in _docs/ folder.
+
 ## JavaScript API
 
 ```javascript
