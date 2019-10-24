@@ -3,6 +3,9 @@
 const AJV = require('ajv');
 const path = require("path")
 const fg = require('fast-glob');
+
+// Internal dependency of @adobe/jsonschema2md
+// eslint-disable-next-line import/no-extraneous-dependencies
 const i18n = require("i18n")
 
 const ajv = new AJV({
@@ -19,9 +22,10 @@ const ajv = new AJV({
     verbose: true,
 });
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 const Schema = require('@adobe/jsonschema2md').schema
 
-// Replicate cli 
+// Replicate cli or else it throws error
 const i18nPath = "node_modules/@adobe/jsonschema2md/lib/locales"
 i18n.configure({
     // setup some locales - other locales default to en silently
@@ -32,7 +36,7 @@ i18n.configure({
 });
 
 // Parse JSON schema recursively
-const createRefLink = (schema, schemaPathMap, property, ref, breadcrumbs) => {
+function createRefLink(schema, schemaPathMap, property, ref, breadcrumbs) {
     if (ref.startsWith("#/definitions/")) {
         const file = path.basename(schema.filePath)
         property.$linkVal = ref.substring("#/definitions/".length)
@@ -41,7 +45,7 @@ const createRefLink = (schema, schemaPathMap, property, ref, breadcrumbs) => {
     } else
         if (ref.startsWith("http://")) {
             let schemaFile = ref
-            let schemaDefinition = undefined
+            let schemaDefinition
             if (ref.indexOf("#/definitions") > 0) {
                 schemaFile = ref.substring(0, ref.indexOf("#/definitions"))
                 schemaDefinition = ref.substring(ref.indexOf("#/definitions") + 1)
@@ -56,14 +60,16 @@ const createRefLink = (schema, schemaPathMap, property, ref, breadcrumbs) => {
                 property.$linkPath = file.replace(".json", ".md")
                 //console.info("Generating external link " + property.$linkVal + ", " + property.$linkPath + " in " + breadcrumbs)
             } else {
+                // eslint-disable-next-line no-console
                 console.warn("Undefined absolute reference: " + ref)
             }
         } else {
+            // eslint-disable-next-line no-console
             console.warn("Cant handle ref: " + ref + " in " + breadcrumbs)
         }
 }
 
-const resolveRef = (schema, schemaPathMap, o, breadcrumbs) => {
+function resolveRef(schema, schemaPathMap, o, breadcrumbs) {
     if (o.definitions) {
         Object.keys(o.definitions).forEach(def => {
             resolveRef(schema, schemaPathMap, o.definitions[def], breadcrumbs)
@@ -77,20 +83,20 @@ const resolveRef = (schema, schemaPathMap, o, breadcrumbs) => {
         })
     }
 
-    if (o["$ref"]) {
+    if (o.$ref) {
         createRefLink(
             schema,
             schemaPathMap,
             o,
-            o["$ref"], breadcrumbs)
+            o.$ref, breadcrumbs)
     }
 
-    if (o.items && o.items["$ref"]) {
+    if (o.items && o.items.$ref) {
         createRefLink(
             schema,
             schemaPathMap,
             o.items,
-            o.items["$ref"], breadcrumbs + ".items")
+            o.items.$ref, breadcrumbs + ".items")
     }
 
     if (o.oneOf) {
@@ -101,6 +107,7 @@ const resolveRef = (schema, schemaPathMap, o, breadcrumbs) => {
         if (o.items) {
             resolveRef(schema, schemaPathMap, o.items, breadcrumbs + ".items")
         } else {
+            // eslint-disable-next-line no-console
             console.warn("Array without item type: " + breadcrumbs)
         }
     }
@@ -110,12 +117,12 @@ const resolveRef = (schema, schemaPathMap, o, breadcrumbs) => {
     }
 }
 
-const createMarkdown = async () => {
+async function createMarkdown() {
     const schemaPath = path.resolve("./schemas")
 
-    // eslint-disable-next-line import/no-dynamic-require
     const schemas = (await fg(['schemas/**/**.json'], { absolute: true })).map(path => ({
         filePath: path,
+        // eslint-disable-next-line import/no-dynamic-require
         jsonSchema: require(path)
     }));
 
@@ -123,9 +130,9 @@ const createMarkdown = async () => {
     for (const schema of schemas) ajv.addSchema(schema.jsonSchema);
     for (const schema of schemas) ajv.compile(schema.jsonSchema);
 
-    let schemaPathMap = {}
+    const schemaPathMap = {}
     schemas.forEach(schema => {
-        let key = String(schema.jsonSchema['$id'])
+        let key = String(schema.jsonSchema.$id)
         if (key.endsWith(".json#")) {
             key = key.substring(0, key.length - 1)
         }

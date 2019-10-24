@@ -18,7 +18,7 @@ npm run docs
 ```
 
 After that, documentation will be available in Markdown format in docs/ folder
-and in HTML formats in _docs/ folder.
+and in HTML format in _docs/ folder.
 
 ## JavaScript API
 
