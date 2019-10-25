@@ -6,16 +6,16 @@
       "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
     },
     "cost": {
-      "$ref": "http://maasglobal.com/core/booking.json#/properties/cost"
+      "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
     },
     "state": {
-      "enum": ["RESERVED", "CONFIRMED", "ACTIVATED", "ON_HOLD", "EXPIRED", "CANCELLED", "REJECTED"]
+      "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState"
     },
     "leg": {
       "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/legDelta"
     },
     "meta": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/meta"
+      "$ref": "http://maasglobal.com/core/booking-meta.json"
     },
     "terms": {
       "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"

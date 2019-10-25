@@ -24,15 +24,10 @@
       "multipleOf": 0.01
     },
     "currency": {
-      "$patch": {
-        "source": {
-          "$ref": "units.json#/definitions/currency"
-        },
-        "with": [
-          { "op": "replace", "path": "/type", "value": ["string", "null"] },
-          { "op": "add", "path": "/enum/-", "value": null }
-        ]
-      }
+      "oneOf": [
+        { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency" },
+        { "type": "null" }
+      ]
     }
   },
   "required": ["amount", "currency"],

@@ -11,6 +11,7 @@
         "PAID",
         "RESERVED",
         "CONFIRMED",
+        "ARRIVED",
         "ACTIVATED",
         "ON_HOLD",
         "CANCELLED",

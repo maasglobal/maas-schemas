@@ -12,7 +12,7 @@
       "type": "object",
       "properties": {
         "from": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/place.json"
         },
         "outwards": {
           "$ref": "#/definitions/itineraries"
@@ -27,7 +27,7 @@
       "type": "object",
       "properties": {
         "from": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/place"
+          "$ref": "http://maasglobal.com/core/components/place.json"
         },
         "itineraries": {
           "$ref": "#/definitions/itineraries"

@@ -9,13 +9,8 @@
     "items": {
       "type": "array",
       "items": {
-        "anyOf": [
-          {
-            "type": "string",
-            "minLength": 1
-          },
-          { "type": "object" }
-        ]
+        "type": "string",
+        "minLength": 1
       }
     }
   }

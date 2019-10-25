@@ -56,6 +56,11 @@
     "subscriberType": {
       "description": "Subscriber Type",
       "type": "string"
+    },
+    "profileImageUrl": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 1024
     }
   },
   "required": [],

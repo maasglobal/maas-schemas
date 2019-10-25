@@ -26,12 +26,15 @@
       "minimum": 0
     },
     "agencyId": {
-      "$ref": "components/common.json#/definitions/agencyId"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
     },
     "tspProductId": {
       "type": "string",
       "minLength": 1,
       "maxLength": 255
+    },
+    "allowFinishTrip": {
+      "type": "boolean"
     }
   },
   "definitions": {

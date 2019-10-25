@@ -34,7 +34,7 @@
       "properties": {
         "type": { "enum": ["Point"] },
         "coordinates": {
-          "$ref": "units-geo.json#/definitions/shortLocation"
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocation"
         }
       },
       "additionalProperties": false,
@@ -78,7 +78,9 @@
           "minLength": 1,
           "maxLength": 16
         },
-        "zipcode": { "type": "integer" }
+        "zipcode": {
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+        }
       },
       "required": ["name"]
     }

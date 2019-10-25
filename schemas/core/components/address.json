@@ -5,35 +5,33 @@
     "componentAddress": {
       "description": "Encoded address components in form country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|streetNumber:6",
       "type": "string",
-      "pattern": "^(?:(?:(?:country:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:state:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:city:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:zipCode:(?:\\d{3,10}|(?:\\p{L}|\\d){2,4}(\\s(?:\\p{L}|\\d){2,4})?))|(?:streetName:[^|]+)|(?:streetNumber:\\d+))\\|?){4,6}$"
+      "pattern": "^(?:(?:(?:country:(?:\\p{L}|\\s|')+)|(?:state:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:city:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:zipCode:(?:[a-zA-Z0-9 ]{3,10}|(?:\\p{L}|\\d){2,4}(\\s(?:\\p{L}|\\d){2,4})?))|(?:streetName:[^|]+)|(?:streetNumber:\\d+))\\|?){4,6}$"
     },
     "placeName": {
       "description": "Place name (given in autocomplete)",
       "type": "string",
-      "pattern": "^(?:\\p{L}|\\d)(?:\\p{L}|\\d|[!-/:-@[-`{-\\xA9\\xAB-\\xB4\\xB6-\\xB9\\xBB-\\xBF\\xD7\\xF7])*(?:\\s(?:\\p{L}|\\d|[!-/:-@[-`{-\\xA9\\xAB-\\xB4\\xB6-\\xB9\\xBB-\\xBF\\xD7\\xF7])+)*$",
-      "maxLength": 255
+      "minLength": 1
     },
     "firstName": {
       "description": "First name of the customer (e.g. John)",
-      "$ref": "common.json#/definitions/personalName"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
     },
     "lastName": {
       "description": "Last name of the customer (e.g. Doe)",
-      "$ref": "common.json#/definitions/personalName"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
     },
     "phone": {
       "description": "ITU-T E.164 phone number",
-      "$ref": "common.json#/definitions/phone"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone"
     },
     "email": {
       "description": "Rough validation of a valid e-mail address",
-      "$ref": "common.json#/definitions/email"
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
     },
     "address": {
       "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
       "type": "string",
-      "pattern": "^(?:(?:\\p{L}|\\d)+[`'´\\(\\)\\-/,\\.]?)+(\\s?(?:\\p{L}|[\\d`'´\\(\\)\\-/,\\.])?)*$",
-      "maxLength": 255
+      "minLength": 2
     },
     "zipCode": {
       "description": "Numeric zip code, see https://en.wikipedia.org/wiki/Postal_code",
@@ -44,7 +42,7 @@
     "countryName": {
       "description": "Alphabetic country name",
       "type": "string",
-      "pattern": "^(?:\\p{L}|\\s)+$",
+      "pattern": "^(?:\\p{L}|\\s|')+$",
       "maxLength": 64
     },
     "country": {
@@ -55,8 +53,7 @@
     "city": {
       "description": "Alphabetic city name",
       "type": "string",
-      "pattern": "^(?:\\p{L}|[\\s`'´])+$",
-      "maxLength": 64
+      "minLength": 1
     }
   }
 }

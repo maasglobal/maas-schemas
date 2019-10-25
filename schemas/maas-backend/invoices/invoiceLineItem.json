@@ -2,23 +2,19 @@
   "$id": "http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json",
   "description": "MaaS InvoiceLineItem schema",
   "definitions": {
-    "InvoiceLineItemId": {
-      "type": "string",
-      "minLength": 2
-    },
     "InvoiceLineItem": {
       "description": "Invoice line item",
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/definitions/InvoiceLineItemId"
+          "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceLineItemId"
         },
         "gatewayId": {
           "type": "string",
           "minLength": 4
         },
         "invoiceId": {
-          "$ref": "invoice.json#/definitions/InvoiceId"
+          "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceId"
         },
         "type": {
           "type": "string",
@@ -44,10 +40,10 @@
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
         },
         "referenceInvoiceLineItemId": {
-          "$ref": "#/definitions/InvoiceLineItemId"
+          "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceLineItemId"
         },
         "tokenId": {
-          "$ref": "http://maasglobal.com/core/components/fare.json#/properties/tokenId"
+          "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/tokenId"
         },
         "token": {
           "description": "Arbitrary token data, e.g. payment parameters for async payment gateways",

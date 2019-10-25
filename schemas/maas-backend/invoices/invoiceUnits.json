@@ -1,0 +1,14 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/invoices/invoiceUnits.json",
+  "description": "MaaS Invoice Units schema",
+  "definitions": {
+    "InvoiceId": {
+      "type": "string",
+      "minLength": 2
+    },
+    "InvoiceLineItemId": {
+      "type": "string",
+      "minLength": 2
+    }
+  }
+}
