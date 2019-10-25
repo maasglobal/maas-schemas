@@ -1,26 +1,12 @@
 'use strict';
 
-const AJV = require('ajv');
 const path = require('path');
-const fg = require('fast-glob');
+const ajv = require('../index').init();
+const registry = require('../registry.js');
 
 // Internal dependency of @adobe/jsonschema2md
 // eslint-disable-next-line import/no-extraneous-dependencies
 const i18n = require('i18n');
-
-const ajv = new AJV({
-  addUsedSchema: false,
-  allErrors: true,
-  coerceTypes: true,
-  errorDataPath: 'property',
-  inlineRefs: false,
-  meta: true,
-  multipleOfPrecision: 6,
-  sanitize: false,
-  sourceCode: false,
-  validateSchema: false,
-  verbose: true,
-});
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 const Schema = require('@adobe/jsonschema2md').schema;
@@ -110,16 +96,10 @@ function resolveRef(schema, schemaPathMap, o, breadcrumbs) {
 
 async function createMarkdown() {
   const schemaPath = path.resolve('./schemas');
-
-  const schemas = (await fg(['schemas/**/**.json'], { absolute: true })).map(path => ({
-    filePath: path,
-    // eslint-disable-next-line import/no-dynamic-require
-    jsonSchema: require(path),
+  const schemas = Object.entries(registry).map(([filePath, jsonSchema]) => ({
+    filePath: path.resolve(filePath),
+    jsonSchema,
   }));
-
-  ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
-  for (const schema of schemas) ajv.addSchema(schema.jsonSchema);
-  for (const schema of schemas) ajv.compile(schema.jsonSchema);
 
   const schemaPathMap = {};
   schemas.forEach(schema => {

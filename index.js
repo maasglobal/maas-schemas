@@ -29,6 +29,8 @@ function init() {
     const schema = registry[key];
     ajv.addSchema(transform(schema));
   });
+
+  return ajv;
 }
 
 /**

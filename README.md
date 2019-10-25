@@ -14,6 +14,7 @@ This repository contains the JSON schemas used by MaaS.
 To generate documentation from JSON Schemas, execute:
 
 ```bash
+npm run build
 npm run docs
 ```
 
