@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "customer": {
-      "$ref": "../../customer.json"
+      "$ref": "http://maasglobal.com/maas-backend/customers/customer.json"
     }
   },
   "additionalProperties": false,
