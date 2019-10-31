@@ -2,7 +2,6 @@
 
 const AJV = require('ajv');
 const validator = require('./lib/validator');
-const { transform } = require('./utils/transform-unicode-patterns');
 const registry = require('./registry.js');
 
 if (typeof Object.fromEntries === 'undefined') {
@@ -48,10 +47,11 @@ function init() {
     verbose: true,
   });
   require('ajv-merge-patch')(ajv);
+  require('ajv-keywords')(ajv);
 
   Object.keys(registry).forEach(key => {
     const schema = registry[key];
-    ajv.addSchema(transform(schema));
+    ajv.addSchema(schema);
   });
 }
 
