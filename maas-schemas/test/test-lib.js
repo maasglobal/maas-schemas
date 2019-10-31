@@ -3,20 +3,19 @@
 const { expect } = require('chai');
 const main = require('../index');
 const ValidationError = require('../lib/ValidationError');
-const { transform } = require('../utils/transform-unicode-patterns');
 
 function generateTestCases(schema, positive, cases) {
   if (positive) {
-    it('positive cases', () => {
-      cases.forEach(value => {
-        expect(main.validate(transform(schema), value)).to.exist;
+    cases.forEach(value => {
+      it(`positive cases ${value}`, () => {
+        expect(main.validate(schema, value)).to.exist;
       });
     });
   } else {
-    it('negative cases', () => {
-      cases.forEach(value => {
+    cases.forEach(value => {
+      it(`negative cases ${value}`, () => {
         expect(() => {
-          main.validate(transform(schema), value);
+          main.validate(schema, value);
         }).to.throw(ValidationError);
       });
     });
