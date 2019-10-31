@@ -28,8 +28,8 @@
     },
     "personalName": {
       "description": "First or last name of a customer (e.g. John)",
-      "type": "string",
-      "pattern": "^(?:\\p{L})+(?:[`'´\\-\\.,]?\\s?(?:\\p{L})*)*$",
+      "regexp": "/^[\\p{L}\\s`'´\\-\\.,]+$/gui",
+      "minLength": 1,
       "maxLength": 255
     },
     "phone": {
