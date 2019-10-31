@@ -5,7 +5,7 @@
     "componentAddress": {
       "description": "Encoded address components in form country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|streetNumber:6",
       "type": "string",
-      "pattern": "^(?:(?:(?:country:(?:\\p{L}|\\s|')+)|(?:state:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:city:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:zipCode:(?:[a-zA-Z0-9 ]{3,10}|(?:\\p{L}|\\d){2,4}(\\s(?:\\p{L}|\\d){2,4})?))|(?:streetName:[^|]+)|(?:streetNumber:\\d+))\\|?){4,6}$"
+      "regexp": "/^(?:(?:(?:country:(?:\\p{L}|\\s|')+)|(?:state:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:city:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:zipCode:(?:[a-zA-Z0-9\\s]{3,10}|(?:\\p{L}|\\d){2,4}(\\s(?:\\p{L}|\\d){2,4})?))|(?:streetName:[^|]+)|(?:streetNumber:\\d+))\\|?){4,6}$/gu"
     },
     "placeName": {
       "description": "Place name (given in autocomplete)",
@@ -42,7 +42,7 @@
     "countryName": {
       "description": "Alphabetic country name",
       "type": "string",
-      "pattern": "^(?:\\p{L}|\\s|')+$",
+      "regexp": "/^(?:\\p{L}|\\s|')+$/gu",
       "maxLength": 64
     },
     "country": {
