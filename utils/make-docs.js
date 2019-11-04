@@ -4,10 +4,7 @@ const path = require('path');
 const ajv = require('../index').init();
 const registry = require('../registry.js');
 
-const {
-  schemaWalk,
-  subschemaWalk
-} = require('@cloudflare/json-schema-walker');
+const { schemaWalk, subschemaWalk } = require('@cloudflare/json-schema-walker');
 
 // Internal dependency of @adobe/jsonschema2md
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -63,20 +60,25 @@ function resolveRef(schema, schemaPathMap, o, relativePath) {
   // Resolve manually all links for definitions
   if (o.definitions) {
     Object.keys(o.definitions).forEach(key => {
-      subschemaWalk(o.definitions[key], (schemaObject, path, parentSchemaObject, pathToRoot) => {
-        if (schemaObject.$ref) {
-          createRefLink(schema, schemaPathMap, schemaObject, schemaObject.$ref, relativePath + path.join("/"));
-        }
-      }, null, [schema])
+      subschemaWalk(
+        o.definitions[key],
+        (schemaObject, path, parentSchemaObject, pathToRoot) => {
+          if (schemaObject.$ref) {
+            createRefLink(schema, schemaPathMap, schemaObject, schemaObject.$ref, relativePath + path.join('/'));
+          }
+        },
+        null,
+        [schema]
+      );
     });
   }
 
   // Walk for all properties in schema
   schemaWalk(schema.jsonSchema, (schemaObject, path, parentSchemaObject, pathToRoot) => {
     if (schemaObject !== false && schemaObject.$ref) {
-      createRefLink(schema, schemaPathMap, schemaObject, schemaObject.$ref, relativePath + path.join("/"));
+      createRefLink(schema, schemaPathMap, schemaObject, schemaObject.$ref, relativePath + path.join('/'));
     }
-  })
+  });
 }
 
 async function createMarkdown() {
