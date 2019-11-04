@@ -4,6 +4,11 @@ const path = require('path');
 const ajv = require('../index').init();
 const registry = require('../registry.js');
 
+const {
+  schemaWalk,
+  subschemaWalk
+} = require('@cloudflare/json-schema-walker');
+
 // Internal dependency of @adobe/jsonschema2md
 // eslint-disable-next-line import/no-extraneous-dependencies
 const i18n = require('i18n');
@@ -54,44 +59,24 @@ function createRefLink(schema, schemaPathMap, property, ref, breadcrumbs) {
   }
 }
 
-function resolveRef(schema, schemaPathMap, o, breadcrumbs) {
+function resolveRef(schema, schemaPathMap, o, relativePath) {
+  // Resolve manually all links for definitions
   if (o.definitions) {
-    Object.keys(o.definitions).forEach(def => {
-      resolveRef(schema, schemaPathMap, o.definitions[def], breadcrumbs);
+    Object.keys(o.definitions).forEach(key => {
+      subschemaWalk(o.definitions[key], (schemaObject, path, parentSchemaObject, pathToRoot) => {
+        if (schemaObject.$ref) {
+          createRefLink(schema, schemaPathMap, schemaObject, schemaObject.$ref, relativePath + path.join("/"));
+        }
+      }, null, [schema])
     });
   }
 
-  if (o.properties) {
-    Object.keys(o.properties).forEach(name => {
-      const prop = o.properties[name];
-      resolveRef(schema, schemaPathMap, prop, breadcrumbs + '.properties.' + name);
-    });
-  }
-
-  if (o.$ref) {
-    createRefLink(schema, schemaPathMap, o, o.$ref, breadcrumbs);
-  }
-
-  if (o.items && o.items.$ref) {
-    createRefLink(schema, schemaPathMap, o.items, o.items.$ref, breadcrumbs + '.items');
-  }
-
-  if (o.oneOf) {
-    o.oneOf.forEach(oo => resolveRef(schema, schemaPathMap, oo, breadcrumbs + '.oneOf[].'));
-  }
-
-  if (o.type === 'array') {
-    if (o.items) {
-      resolveRef(schema, schemaPathMap, o.items, breadcrumbs + '.items');
-    } else {
-      // eslint-disable-next-line no-console
-      console.warn('Array without item type: ' + breadcrumbs);
+  // Walk for all properties in schema
+  schemaWalk(schema.jsonSchema, (schemaObject, path, parentSchemaObject, pathToRoot) => {
+    if (schemaObject !== false && schemaObject.$ref) {
+      createRefLink(schema, schemaPathMap, schemaObject, schemaObject.$ref, relativePath + path.join("/"));
     }
-  }
-
-  if (o.allOf) {
-    o.allOf.forEach(oo => resolveRef(schema, schemaPathMap, oo, breadcrumbs + '.allOf[].'));
-  }
+  })
 }
 
 async function createMarkdown() {
