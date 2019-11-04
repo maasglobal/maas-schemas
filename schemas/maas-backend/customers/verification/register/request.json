@@ -15,8 +15,7 @@
     "payload": {
       "properties": {
         "agencyId": {
-          "minLength": 2,
-          "type": "string"
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
         }
       },
       "required": ["agencyId"],

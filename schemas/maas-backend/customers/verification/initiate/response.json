@@ -40,6 +40,9 @@
               "validTo": {
                 "type": "string"
               },
+              "status": {
+                "type": "string"
+              },
               "type": {
                 "type": "string"
               },
@@ -66,7 +69,7 @@
                 "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
               },
               "agencyId": {
-                "type": "string"
+                "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
               }
             },
             "required": ["id", "identityId", "details", "status", "type", "stateLog"]
