@@ -18,11 +18,14 @@
       "minLength": 1,
       "maxLength": 256
     },
+    "obsoleteIdentityId": {
+      "type": "string",
+      "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+    },
     "identityId": {
       "anyOf": [
         {
-          "type": "string",
-          "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$"
+          "$ref": "#/definitions/obsoleteIdentityId"
         },
         {
           "$ref": "#/definitions/uuid"
