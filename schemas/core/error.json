@@ -1,8 +1,7 @@
 {
   "$id": "http://maasglobal.com/core/error.json",
-  "description": "MaaS event response error objects",
+  "description": "MaaS event response error object. An error that the service may send.",
   "type": "object",
-  "description": "An error that the service may send",
   "required": ["message", "code"],
   "properties": {
     "message": {
