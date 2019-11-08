@@ -1,0 +1,1294 @@
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/booking-option.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/booking-option.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/booking-option.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/card.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/card.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/card.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/card.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/card.json
+WARNING: maximum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/card.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/card.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/card.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/card.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/card.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/card.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/card.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/authorization.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/bike-station.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/bike-station.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/bike-station.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/bike-station.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/bike-station.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/bike-station.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/bike-station.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/bike-station.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: maximum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: maxItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: maximum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: maxItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: maximum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: pattern field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/car-rental.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+WARNING: uniqueItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/configurator.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/cost.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/cost.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/cost.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/cost.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/cost.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/cost.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/cost.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/cost.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/cost.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/cost.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/customerSelection.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/customerSelection.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/customerSelection.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/fare.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/fare.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/fare.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/fare.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/fare.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geolocation.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geometry.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geometry.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geometry.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/geometry.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/personalDataAllowItem.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/personalDataAllowItem.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/place.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/place.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/place.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/place.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/place.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/place.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/place.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/place.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/place.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/place.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/place.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/place.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/place.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/state-log.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/state-log.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/station.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/station.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/station.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/station.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/station.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/station.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/station.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/station.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/subscriptionChangeState.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/subscriptionChangeState.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/components/terms.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/customer.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/customer.json
+WARNING: patternProperty support has limitations
+  in /Users/twruottu/src/maas-schemas/schemas/core/customer.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/customer.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/customer.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/customer.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/customer.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/error.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/error.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/error.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/error.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/error.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/error.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/itinerary.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/itinerary.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/itinerary.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/itinerary.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_RAIL.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_RAIL.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_RAIL.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_RAIL.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_SCOOTER.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_SHARED_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_SHARED_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/paymentSource.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product-option.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product-option.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product-option.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product-option.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/product.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/region.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/region.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/region.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/region.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/region.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/core/region.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/geojson/geometry.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/geojson/geometry.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/geojson/geometry.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/geojson/geometry.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/auth/auth-sms-login/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/auth/auth-sms-login/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/auth/auth-sms-login/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/auth/auth-sms-login/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/request.json
+WARNING: maximum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/booking-option-create/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/booking-option-create/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/booking-option-create/response.json
+WARNING: patternProperty support has limitations
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-options/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-options/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-list/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-list/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-list/request.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/bookings/bookings-list/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/customer.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/customer.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/customer.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/create/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/create/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/create/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/paymentSource.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: maximum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/setup-intent/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/setup-intent/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/payment-sources/setup-intent/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/personal-data-delete/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/personal-data-delete/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/personalData.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/personalData.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/personalData.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/personalData.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/stats/response.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/stats/response.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/stats/response.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/stats/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/initiate/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/initiate/request.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/initiate/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/media/get/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/media/get/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/media/get/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/media/get/request.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/status/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/geocoding/geocoding-query/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/geocoding/geocoding-query/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/geocoding/geocoding-query/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/geocoding/geocoding-query/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/geocoding/geocoding-query/request.json
+WARNING: maximum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/geocoding/geocoding-query/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/geocoding/geocoding-reverse/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/geocoding/geocoding-reverse/request.json
+WARNING: maximum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/geocoding/geocoding-reverse/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/invoices/invoice.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/invoices/invoiceLineItem.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/invoices/invoiceLineItem.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/invoices/invoiceLineItem.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/invoices/invoiceLineItem.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/invoices/invoiceLineItem.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/invoices/invoiceLineItem.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/invoices/invoiceLineItem.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/invoices/invoiceLineItem.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/invoices/invoiceLineItem.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/invoices/invoiceLineItem.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/itineraries/itinerary-list/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/itineraries/itinerary-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/itineraries/itinerary-list/request.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/itineraries/itinerary-list/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/itineraries/itinerary-retrieve/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+WARNING: pattern field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+WARNING: pattern field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/profile/profile-devices-put/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/profile/profile-devices-put/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/profile/profile-devices-put/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/profile/profile-devices-put/response.json
+WARNING: pattern field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/profile/profile-devices-put/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/profile/profile-devices-put/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/profile/profile-favoriteLocations-delete/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/profile/profile-favoriteLocations-delete/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/profile/profile-favoriteLocations-delete/request.json
+WARNING: patternProperty support has limitations
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/provider/routes/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+WARNING: maximum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+WARNING: maxItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+WARNING: maxItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/routes/routes-query/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/routes/routes-query/request.json
+WARNING: patternProperty support has limitations
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/routes/routes-query/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/routes/routes-query/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/routes/routes-query/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/stations/stations-list/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/stations/stations-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/stations/stations-list/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/stations/stations-list/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/stations/stations-list/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/stations/stations-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/stations/stations-retrieve/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/stations/stations-retrieve/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+WARNING: pattern field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+WARNING: maximum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+WARNING: maximum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+WARNING: pattern field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/pricing.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/pricing.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/pricing.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/pricing.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/pricing.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/pricing.json
+WARNING: maximum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/pricing.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/pricing.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/pricing.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: maximum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscriptionOption.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscriptions-options/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscriptions-options/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/subscriptions/subscriptions-options/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/vehicle/vehicle-alert/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/vehicle/vehicle-alert/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/vehicle/vehicle-alert/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-bookings-update/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-bookings-update/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-bookings-update/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/response.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/webhooks-payments/response.json
+WARNING: minItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: maxItems field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: patternProperty support has limitations
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-ticket/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-ticket/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-ticket/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-ticket/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-ticket/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-ticket/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-ticket/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/booking-ticket/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/journey-planner/request.json
+WARNING: patternProperty support has limitations
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/journey-planner/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/journey-planner/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/stations-list/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/stations-list/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/stations-list/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/stations-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/vehicle-alert/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/vehicle-alert/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in /Users/twruottu/src/maas-schemas/schemas/tsp/vehicle-alert/request.json

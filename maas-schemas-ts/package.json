@@ -1,0 +1,78 @@
+{
+  "name": "maas-schemas-ts",
+  "version": "0.0.13",
+  "description": "TypeScript types and io-ts validators for maas-schemas",
+  "main": "index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "//": [
+    "Run eslint without --fix to check for cyclic dependencies"
+  ],
+  "scripts": {
+    "eslint": "eslint --max-warnings=0 '**/*.{ts,json}' --ignore-path .gitignore",
+    "lint": "yarn eslint",
+    "clean-src": "rm -rf src",
+    "clean": "rm -rf lib",
+    "build-converter": "tsc converter.ts -outdir tmp",
+    "run-converter": "(cd ../maas-schemas/schemas/; find . -name '*.json' -print0|sort -z|xargs -0 -I {} node ../../maas-schemas-ts/tmp/converter.js {} ../../maas-schemas-ts/src http://maasglobal.com/ \\;)",
+    "build-package": "ttsc",
+    "build": "yarn clean && yarn build-package",
+    "typecheck": "tsc --noEmit",
+    "ci": "yarn lint && yarn build",
+    "convert-all": "yarn clean-src && yarn lint && yarn build-converter && (yarn run-converter 2> translation.log) && yarn get-problems && yarn typecheck && yarn eslint --fix && yarn eslint && yarn build",
+    "get-info-culprits": "cat translation.log|grep INFO -A 1|grep '  in'|sort|uniq -c|sort||true",
+    "get-warning-culprits": "cat translation.log|grep WARNING -A 1|grep '  in'|sort|uniq -c|sort||true",
+    "get-error-culprits": "cat translation.log|grep ERROR -A 1|grep '  in'|sort|uniq -c|sort||true",
+    "get-culprits": "yarn get-info-culprits && yarn get-warning-culprits && yarn get-error-culprits",
+    "get-info": "cat translation.log|grep -e INFO|sort|uniq -c|sort||true",
+    "get-warnings": "cat translation.log|grep -e WARNING|sort|uniq -c|sort||true",
+    "get-errors": "cat translation.log|grep ERROR|sort|uniq -c|sort||true",
+    "get-unexpected": "cat translation.log|grep -v -e ERROR -e WARNING -e INFO -e '^  in '||true",
+    "get-problems": "yarn get-info && yarn get-warnings && yarn get-errors && yarn get-unexpected",
+    "get-all": "yarn get-culprits && yarn get-problems",
+    "deploy-npm": "yarn ci && yarn publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maasglobal/maas-schemas-ts.git"
+  },
+  "keywords": [
+    "schemas",
+    "maas",
+    "io-ts",
+    "TypeScript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maasglobal/maas-schemas-ts/issues"
+  },
+  "homepage": "https://github.com/maasglobal/maas-schemas-ts#readme",
+  "peerDependencies": {
+    "io-ts": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/json-schema": "^7.0.3",
+    "@types/node": "^12.7.5",
+    "@typescript-eslint/eslint-plugin": "^2.1.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^2.3.2",
+    "@typescript-eslint/parser": "^2.1.0",
+    "@zerollup/ts-transform-paths": "^1.7.3",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.2.0",
+    "eslint-plugin-fp": "^2.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "fp-ts": "^2.0.5",
+    "io-ts": "^2.0.1",
+    "io-ts-codegen": "^0.4.2",
+    "prettier": "^1.18.2",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "tslint-no-circular-imports": "^0.7.0",
+    "ttypescript": "^1.5.7",
+    "typescript": "^3.5.3"
+  }
+}
