@@ -55,6 +55,7 @@
     "validate-schemas": "./scripts/validate-schemas.js",
     "test": "jest",
     "build": "node build.js",
+    "ci": "npm run lint-updated && npm run prettier-check-updated && npm run validate-schemas && npm test",
     "prepublish": "node build.js"
   }
 }

@@ -2,12 +2,12 @@ language: node_js
 node_js: '8'
 cache:
   directories:
-    - node_modules # Our node modules
+    - maas-schemas/node_modules # Our node modules
     - $HOME/.npm # Globally installed packages, e.g. NPM
 
 install:
-  - npm install
-  - npm update # Ensure to use latest versions of dependencies
+  - yarn --cwd maas-schemas
+  - yarn --cwd maas-schemas upgrade # Ensure to use latest versions of dependencies
 
 stages:
   - name: test
@@ -18,11 +18,14 @@ stages:
 jobs:
   include:
     - stage: test
-      script: npm run lint-updated && npm run prettier-check-updated && npm run validate-schemas && npm test
+      script: yarn --cwd maas-schemas ci
     - stage: deploy
       script: skip
+      before_deploy:
+        - cd maas-schemas
       deploy:
         provider: npm
         email: tech@maas.global
+        skip_cleanup: true
         api_key: $NPM_TOKEN
-      after_deploy: ./scripts/tag.sh
+      after_deploy: ./maas-schemas/scripts/tag.sh
