@@ -93,7 +93,7 @@ function updateFailure(level: ErrorCode) {
 }
 
 function reportError(level: 'INFO' | 'WARNING' | 'ERROR', message: string) {
-  const lines = [`${level}: ${message}`, `  in ${path.resolve(inputFile)}`];
+  const lines = [`${level}: ${message}`, `  in ${inputFile}`];
   // eslint-disable-next-line
   console.error(lines.join('\n'));
 }
@@ -671,7 +671,16 @@ if (returnCode === ErrorCode.WARNING && strict === '--strict') {
   process.exit(returnCode);
 }
 
-fs.mkdirSync(path.dirname(outputFile), { recursive: true });
+function createParentDir(file) {
+  const parentDir = path.dirname(file);
+  if (fs.existsSync(parentDir)) {
+    return;
+  }
+  createParentDir(parentDir);
+  fs.mkdirSync(parentDir);
+}
+createParentDir(outputFile);
+
 const fd = fs.openSync(outputFile, 'w');
 fs.writeFileSync(fd, '');
 

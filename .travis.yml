@@ -8,6 +8,7 @@ cache:
 install:
   - yarn --cwd maas-schemas
   - yarn --cwd maas-schemas upgrade # Ensure to use latest versions of dependencies
+  - yarn --cwd maas-schemas-ts
 
 stages:
   - name: test
@@ -18,7 +19,9 @@ stages:
 jobs:
   include:
     - stage: test
-      script: yarn --cwd maas-schemas ci
+      script:
+        - yarn --cwd maas-schemas ci
+        - yarn --cwd maas-schemas-ts ci
     - stage: deploy
       script: skip
       before_deploy:
