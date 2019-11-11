@@ -53,27 +53,27 @@ export const Arn = t.brand(
 export interface ArnBrand {
   readonly Arn: unique symbol;
 }
-// OldIdentityId
+// ObsoleteIdentityId
 // The purpose of this remains a mystery
-export type OldIdentityId = t.Branded<string, OldIdentityIdBrand>;
-export const OldIdentityId = t.brand(
+export type ObsoleteIdentityId = t.Branded<string, ObsoleteIdentityIdBrand>;
+export const ObsoleteIdentityId = t.brand(
   t.string,
-  (x): x is t.Branded<string, OldIdentityIdBrand> =>
+  (x): x is t.Branded<string, ObsoleteIdentityIdBrand> =>
     typeof x !== 'string' ||
     x.match(
       RegExp('^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$', 'u'),
     ) !== null,
-  'OldIdentityId',
+  'ObsoleteIdentityId',
 );
-export interface OldIdentityIdBrand {
-  readonly OldIdentityId: unique symbol;
+export interface ObsoleteIdentityIdBrand {
+  readonly ObsoleteIdentityId: unique symbol;
 }
 // IdentityId
 // The purpose of this remains a mystery
-export type IdentityId = t.Branded<OldIdentityId | Uuid, IdentityIdBrand>;
+export type IdentityId = t.Branded<ObsoleteIdentityId | Uuid, IdentityIdBrand>;
 export const IdentityId = t.brand(
-  t.union([OldIdentityId, Uuid]),
-  (x): x is t.Branded<OldIdentityId | Uuid, IdentityIdBrand> => true,
+  t.union([ObsoleteIdentityId, Uuid]),
+  (x): x is t.Branded<ObsoleteIdentityId | Uuid, IdentityIdBrand> => true,
   'IdentityId',
 );
 export interface IdentityIdBrand {
