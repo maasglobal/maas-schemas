@@ -50,6 +50,19 @@
       "maxLength": 64,
       "examples": ["joe.customer@example.com"]
     },
+    "customerReference": {
+      "description": "Any unique way to refer a customer",
+      "oneOf": [
+        { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId" },
+        { "$ref": "#/definitions/phone" }
+      ],
+      "examples": ["4828507e-683f-41bf-9d87-689808fbf958", "+358401234567"]
+    },
+    "looseCustomerReference": {
+      "description": "Any unique way to refer a customer, plus some opportunistic ways",
+      "oneOf": [{ "$ref": "#/definitions/customerReference" }, { "$ref": "#/definitions/email" }],
+      "examples": ["4828507e-683f-41bf-9d87-689808fbf958", "+358401234567", "joe.customer@example.com"]
+    },
     "paymentSourceId": {
       "type": "string",
       "minLength": 3,

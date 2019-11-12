@@ -100,7 +100,7 @@ describe('Schema validation', () => {
 
   describe('common schema', () => {
     const schema = require('../schemas/core/components/common.json');
-    const { phone, email } = utils.definitions(schema);
+    const { phone, email, customerReference, looseCustomerReference } = utils.definitions(schema);
     describe('phone schema', () => {
       it('should accept valid examples', () => {
         phone.examples.map(example => expect(utils.validate(phone, example)).to.exist);
@@ -109,6 +109,18 @@ describe('Schema validation', () => {
     describe('email schema', () => {
       it('should accept valid examples', () => {
         email.examples.map(example => expect(utils.validate(email, example)).to.exist);
+      });
+    });
+    describe('customerReference schema', () => {
+      it('should accept valid examples', () => {
+        customerReference.examples.map(example => expect(utils.validate(customerReference, example)).to.exist);
+      });
+    });
+    describe('looseCustomerReference schema', () => {
+      it('should accept valid examples', () => {
+        looseCustomerReference.examples.map(
+          example => expect(utils.validate(looseCustomerReference, example)).to.exist
+        );
       });
     });
   });
