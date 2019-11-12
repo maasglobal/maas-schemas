@@ -113,5 +113,86 @@
       "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "examples": [
+    {
+      "identityId": "eu-west-1:4828507e-683f-41bf-9d87-689808fbf958",
+      "id": 1234,
+      "favoriteLocations": [],
+      "phone": "+358407654321",
+      "email": "bob.customer@example.com",
+      "firstName": "Bob",
+      "lastName": "Customer",
+      "created": 1553687004207,
+      "modified": 1553688004207,
+      "paymentMethod": {
+        "type": "unknown",
+        "valid": false
+      },
+      "subscriptionInstance": {
+        "id": 10,
+        "name": "Whim to Go",
+        "plan": {
+          "id": "fi-whim-payg_v2"
+        },
+        "addons": {
+          "0": "eur-whim-rollover-100_v1",
+          "1": "fi-whim-car"
+        },
+        "region": {
+          "id": "fi-helsinki",
+          "name": "Helsinki Region",
+          "active": true,
+          "hidden": false,
+          "created": "2019-03-27T14:00:00.12345+00:00",
+          "zipCode": "00100",
+          "currency": "EUR",
+          "location": {
+            "lat": 60.1699,
+            "lon": 24.9384
+          },
+          "geometryId": 2,
+          "countryCode": "FI",
+          "countryDefault": true
+        },
+        "coupons": [],
+        "topUpId": "fi-whim-top-up",
+        "wmpGrant": 0,
+        "pointCost": 0.01,
+        "description": "Pay for each trip as you go"
+      },
+      "balances": {
+        "WMP": {
+          "currency": "WMP",
+          "amount": 1234,
+          "type": "charge"
+        },
+        "cx-test-token_v2": {
+          "currency": "TOKEN",
+          "tokenId": "cx-test-token_v2",
+          "amount": 1,
+          "type": "charge"
+        }
+      },
+      "regionId": "fi-helsinki",
+      "region": {
+        "id": "fi-helsinki",
+        "name": "Helsinki Region",
+        "countryCode": "FI",
+        "countryDefault": true,
+        "zipCode": "00100",
+        "location": {
+          "lat": 60.1699,
+          "lon": 24.9384
+        },
+        "active": true,
+        "hidden": false,
+        "geometryId": 2,
+        "created": 1553687004207,
+        "modified": 0,
+        "currency": "EUR"
+      },
+      "balance": 1234
+    }
+  ]
 }

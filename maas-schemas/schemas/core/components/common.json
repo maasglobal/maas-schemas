@@ -35,7 +35,8 @@
     "phone": {
       "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
       "type": "string",
-      "pattern": "^\\+(?:\\d){6,14}\\d$"
+      "pattern": "^\\+(?:\\d){6,14}\\d$",
+      "examples": ["+358401234567"]
     },
     "rawPhone": {
       "description": "Slightly looser definition of phone number",
@@ -46,7 +47,8 @@
       "description": "Rough validation of a valid e-mail address, see https://davidcel.is/posts/stop-validating-email-addresses-with-regex/",
       "type": "string",
       "pattern": "^.+@.+\\..+$",
-      "maxLength": 64
+      "maxLength": 64,
+      "examples": ["joe.customer@example.com"]
     },
     "paymentSourceId": {
       "type": "string",
