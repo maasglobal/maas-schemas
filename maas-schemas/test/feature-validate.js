@@ -95,4 +95,27 @@ describe('Schema validation', () => {
       expect(utils.validate(schema, customer)).to.exist;
     });
   });
+
+  describe('environments', () => {
+    const schema = require('../schemas/environments/environments.json');
+    const { environment, devEnvironment } = utils.definitions(schema);
+    describe('environment schema', () => {
+      it('should accept valid examples', () => {
+        environment.examples.map(example => expect(utils.validate(environment, example)).to.exist);
+      });
+    });
+    describe('dev environment schema', () => {
+      it('should accept valid examples', () => {
+        devEnvironment.examples.map(example => expect(utils.validate(devEnvironment, example)).to.exist);
+      });
+      it('should NOT accept all environment examples', () => {
+        expect(() => environment.examples.forEach(example => utils.validate(devEnvironment, example))).to.throw();
+      });
+    });
+    describe('main schema', () => {
+      it('should accept valid examples', () => {
+        schema.examples.forEach(example => expect(utils.validate(schema, example)).to.exist);
+      });
+    });
+  });
 });

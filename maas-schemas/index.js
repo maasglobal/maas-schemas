@@ -5,6 +5,29 @@ const validator = require('./lib/validator');
 const { transform } = require('./utils/transform-unicode-patterns');
 const registry = require('./registry.js');
 
+if (typeof Object.fromEntries === 'undefined') {
+  // polyfill fromEntries
+  Object.fromEntries = entries => {
+    const result = {};
+    for (const [key, value] of entries) {
+      result[key] = value;
+    }
+    return result;
+  };
+}
+
+function definitions(schema) {
+  return Object.fromEntries(
+    Object.entries(schema.definitions).map(([name, def]) => [
+      name,
+      {
+        $id: `http://maasglobal.com/environments/environments.json#/definitions/${name}`,
+        ...def,
+      },
+    ])
+  );
+}
+
 let ajv;
 
 function init() {
@@ -44,4 +67,5 @@ function validate(schema, object, options = {}) {
 module.exports = {
   init,
   validate,
+  definitions,
 };
