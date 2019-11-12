@@ -825,6 +825,7 @@ log('');
 helpers.forEach(log);
 log('');
 log(`export const schemaId = '${inputSchema.$id}';`);
+log('');
 
 // eslint-disable-next-line
 for (const def of defs) {
@@ -853,9 +854,9 @@ for (const def of defs) {
     log(`export const ${jsonName}: unknown = ${JSON.stringify(defaultValue)};`);
     log(`export const ${defaultName} = ${typeName}.decode(${jsonName});`);
   }
+  log('');
 }
 
-log('');
 exps.forEach(log);
 log('');
 log('// Success');
