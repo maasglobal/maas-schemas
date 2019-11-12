@@ -1,25 +1,20 @@
-# MaaS-schemas submodule
+# Shared MaaS Global Type Definitions
 
-[![Build Status](https://travis-ci.com/maasglobal/maas-schemas.svg?token=EzGctxgsjK7P9ky3oz1p&branch=master)](https://travis-ci.com/maasglobal/maas-schemas)
+This repository contains source code for MaaS Global admin user interface Maui.
+Maui is mainly used by customer care for resolving problems of Whim customer.
 
-This repository contains the JSON schemas used by MaaS.
+## Index
 
-## Features
+The code is divided into several independent npm packages.
 
-- Newest JSON schemas spec + AJV
-- Out of the box validator
+* [maas-schemas](maas-schemas) contains language independent JSON Schema type definitions
+* [maas-schemas-ts](maas-schemas-ts) contains corresponding TypeScript types and validators
 
-## JavaScript API
+## Devops
 
-```javascript
-/**
- *  Validate an object by first resolving the corresponding schema by schemaId
- *  NOTE: It is recommended to use schema $id instead of raw schema object
- *
- *  @param {Object/String} schema/schema.$id - schema from the schemas folder. If given as a whole, will extract $id from the schema. None existed schema will be re-validate. If given only $id, will use that to reference to schema
- *  @param {Object} object - input testing subject
- *  @return {Object} resolve w/validated object
- *  @throws {ValidationError}
- */
-function validate(schema, object, options)
+The following commands should work in all packages where applicable.
+
+```
+yarn                              # install dependencies
+yarn ci                           # perform a local CI test run
 ```
