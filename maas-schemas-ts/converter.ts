@@ -5,6 +5,8 @@ import * as path from 'path';
 import * as gen from 'io-ts-codegen';
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema';
 
+type AJVschema = { regexp: any };
+
 const createHelper = (d: gen.TypeDeclaration) =>
   `\n${gen.printStatic(d)}\n${gen.printRuntime(d)}\n`;
 
@@ -50,6 +52,7 @@ const supportedAtRoot = [
   'minLength',
   'maxLength',
   'pattern',
+  'regexp',
   'minItems',
   'maxItems',
   'uniqueItems',
@@ -258,7 +261,12 @@ function toArrayCombinator(schema: JSONSchema7): gen.TypeReference {
 
 function checkPattern(x: string, pattern: string): string {
   const stringLiteral = JSON.stringify(pattern);
-  return `( typeof x !== 'string' || ${x}.match(RegExp(${stringLiteral}, 'u')) !== null )`;
+  return `( typeof x !== 'string' || ${x}.match(RegExp(${stringLiteral})) !== null )`;
+}
+
+function checkRegexp(x: string, pattern: string): string {
+  const stringLiteral = JSON.stringify(pattern);
+  return `( typeof x !== 'string' || ${x}.match(RegExp(${stringLiteral})) !== null )`;
 }
 
 function checkMinLength(x: string, minLength: number): string {
@@ -300,6 +308,7 @@ function checkUniqueItems(x: string): string {
 function generateChecks(x: string, schema: JSONSchema7): string {
   const checks: Array<string> = [
     ...(schema.pattern ? [checkPattern(x, schema.pattern)] : []),
+    ...((schema as AJVschema).regexp ? [checkRegexp(x, (schema as AJVschema).regexp)] : []),
     ...(schema.minLength ? [checkMinLength(x, schema.minLength)] : []),
     ...(schema.maxLength ? [checkMaxLength(x, schema.maxLength)] : []),
     ...(schema.minimum ? [checkMinimum(x, schema.minimum)] : []),
