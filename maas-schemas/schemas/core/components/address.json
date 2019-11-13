@@ -3,10 +3,9 @@
   "description": "MaaS schema for address related information",
   "definitions": {
     "componentAddress": {
-      "description": "Encoded address components. Check the regexr examples",
+      "description": "Encoded address components. Check the regexr examples. Check https://regexr.com/4ofcq",
       "type": "string",
-      "regexp": "/(streetName:(\\p{L}|\\d|-|\\/| (?=\\p{L}|&|\\d)|[#.,;:'&°’])+\\|?)|(city:(\\p{L}|['-]| (?=\\p{L}))+\\|?)|(state:(\\p{L}| (?=\\p{L}))+\\|?)|(zipCode:(\\p{L}|\\d|-)+\\|?)|(country:(\\p{L}| (?=\\p{L}))+)\\|?|(streetNumber:(\\p{L}|\\d|-|\\/)+)\\|?|(ward:(\\p{L}|\\d|-|[']| (?=\\p{L}|\\d))+)\\|?|(district:(\\p{L}|\\d|-|[']| (?=\\p{L}|\\d))+)\\|?/gui",
-      "example": "https://regexr.com/4ofcq"
+      "regexp": "/(streetName:(\\p{L}|\\d|-|\\/| (?=\\p{L}|&|\\d)|[#.,;:'&°’])+\\|?)|(city:(\\p{L}|['-]| (?=\\p{L}))+\\|?)|(state:(\\p{L}| (?=\\p{L}))+\\|?)|(zipCode:(\\p{L}|\\d|-)+\\|?)|(country:(\\p{L}| (?=\\p{L}))+)\\|?|(streetNumber:(\\p{L}|\\d|-|\\/)+)\\|?|(ward:(\\p{L}|\\d|-|[']| (?=\\p{L}|\\d))+)\\|?|(district:(\\p{L}|\\d|-|[']| (?=\\p{L}|\\d))+)\\|?/gui"
     },
     "placeName": {
       "description": "Place name (given in autocomplete)",
