@@ -20,7 +20,6 @@ export const AcceptHeader = t.brand(
     x.match(
       RegExp(
         '\\bapplication/json[;,]\\s*version=((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?(?:\\+[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?)\\b',
-        'u',
       ),
     ) !== null,
   'AcceptHeader',
