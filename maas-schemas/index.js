@@ -17,11 +17,13 @@ if (typeof Object.fromEntries === 'undefined') {
 }
 
 function definitions(schema) {
+  // schema $id should not contain # but sometimes they do
+  const [schemaId] = schema.$id.split('#');
   return Object.fromEntries(
     Object.entries(schema.definitions).map(([name, def]) => [
       name,
       {
-        $id: `http://maasglobal.com/environments/environments.json#/definitions/${name}`,
+        $id: `${schemaId}#/definitions/${name}`,
         ...def,
       },
     ])
