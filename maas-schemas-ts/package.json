@@ -22,7 +22,7 @@
     "typecheck": "tsc --noEmit",
     "ci": "yarn verify-conversion && yarn lint && yarn build",
     "convert-all": "yarn clean-src && yarn lint && yarn build-converter && (yarn run-converter 2> translation.log) && yarn get-problems && yarn typecheck && yarn prettify",
-    "verify-conversion": "yarn convert-all && (git status > /dev/null) && git diff-index --exit-code HEAD . || (echo 'Please run \"yarn convert-all\" in maas-schemas-ts directory' && yarn get-unexpected && exit 1)",
+    "verify-conversion": "yarn convert-all && git status && git diff-index --exit-code HEAD . || (echo 'Please run \"yarn convert-all\" in maas-schemas-ts directory' && yarn get-unexpected && exit 1)",
     "get-info-culprits": "cat translation.log|grep INFO -A 1|grep '  in'|sort|uniq -c|sort||true",
     "get-warning-culprits": "cat translation.log|grep WARNING -A 1|grep '  in'|sort|uniq -c|sort||true",
     "get-error-culprits": "cat translation.log|grep ERROR -A 1|grep '  in'|sort|uniq -c|sort||true",
