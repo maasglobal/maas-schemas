@@ -1159,6 +1159,28 @@ WARNING: minimum field not supported outside top-level definitions
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/response.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/response.json
