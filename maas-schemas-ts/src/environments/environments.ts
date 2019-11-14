@@ -179,6 +179,16 @@ export const Environment = t.brand(
 export interface EnvironmentBrand {
   readonly Environment: unique symbol;
 }
+export const examplesEnvironmentJson: Array<unknown> = [
+  {
+    id: 'production',
+    api: 'https://production.example.com/api/',
+    live: true,
+    contact: { name: 'Alisha Admin', email: 'admin@example.com' },
+    description: 'Production environment',
+  },
+];
+export const examplesEnvironment = t.array(Environment).decode(examplesEnvironmentJson);
 // DevEnvironment
 // The purpose of this remains a mystery
 export type DevEnvironment = t.Branded<
@@ -218,6 +228,18 @@ export const DevEnvironment = t.brand(
 export interface DevEnvironmentBrand {
   readonly DevEnvironment: unique symbol;
 }
+export const examplesDevEnvironmentJson: Array<unknown> = [
+  {
+    id: 'testing',
+    api: 'https://testing.example.com/api/',
+    live: false,
+    contact: { name: 'Alisha Admin' },
+    description: 'Testing environment',
+  },
+];
+export const examplesDevEnvironment = t
+  .array(DevEnvironment)
+  .decode(examplesDevEnvironmentJson);
 // EnvironmentGroupName
 // The purpose of this remains a mystery
 export type EnvironmentGroupName = t.Branded<string, EnvironmentGroupNameBrand>;
@@ -320,6 +342,45 @@ export const Default = t.brand(
 export interface DefaultBrand {
   readonly Default: unique symbol;
 }
+export const examplesDefaultJson: Array<unknown> = [
+  {
+    index: [
+      {
+        name: 'Core Environments',
+        envs: [
+          {
+            id: 'production',
+            api: 'https://production.example.com/api/',
+            live: true,
+            contact: { name: 'Alisha Admin', email: 'admin@example.com' },
+            description: 'Production environment',
+          },
+          {
+            id: 'testing',
+            api: 'https://testing.example.com/api/',
+            live: false,
+            contact: { name: 'Alisha Admin' },
+            description: 'Testing environment',
+          },
+        ],
+      },
+      {
+        name: 'Development Environments',
+        envs: [
+          {
+            id: 'fantasyTopping',
+            api: 'https://fantasy.example.com/api/',
+            live: false,
+            contact: { name: 'Dennis Developer' },
+            name: 'Fantasy Topping',
+            description: 'Add support for pizza customization',
+          },
+        ],
+      },
+    ],
+  },
+];
+export const examplesDefault = t.array(Default).decode(examplesDefaultJson);
 
 export default Default;
 
