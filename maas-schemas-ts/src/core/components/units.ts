@@ -23,6 +23,8 @@ export const Uuid = t.brand(
 export interface UuidBrand {
   readonly Uuid: unique symbol;
 }
+export const examplesUuidJson: Array<unknown> = ['4828507e-683f-41bf-9d87-689808fbf958'];
+export const examplesUuid = t.array(Uuid).decode(examplesUuidJson);
 // Url
 // Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex
 export type Url = t.Branded<string, UrlBrand>;
@@ -68,6 +70,12 @@ export const ObsoleteIdentityId = t.brand(
 export interface ObsoleteIdentityIdBrand {
   readonly ObsoleteIdentityId: unique symbol;
 }
+export const examplesObsoleteIdentityIdJson: Array<unknown> = [
+  'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
+];
+export const examplesObsoleteIdentityId = t
+  .array(ObsoleteIdentityId)
+  .decode(examplesObsoleteIdentityIdJson);
 // IdentityId
 // The purpose of this remains a mystery
 export type IdentityId = t.Branded<ObsoleteIdentityId | Uuid, IdentityIdBrand>;
@@ -79,6 +87,11 @@ export const IdentityId = t.brand(
 export interface IdentityIdBrand {
   readonly IdentityId: unique symbol;
 }
+export const examplesIdentityIdJson: Array<unknown> = [
+  'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
+  '4828507e-683f-41bf-9d87-689808fbf958',
+];
+export const examplesIdentityId = t.array(IdentityId).decode(examplesIdentityIdJson);
 // Currency
 // Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1
 export type Currency = t.Branded<

@@ -95,6 +95,8 @@ export const Phone = t.brand(
 export interface PhoneBrand {
   readonly Phone: unique symbol;
 }
+export const examplesPhoneJson: Array<unknown> = ['+358401234567'];
+export const examplesPhone = t.array(Phone).decode(examplesPhoneJson);
 // RawPhone
 // Slightly looser definition of phone number
 export type RawPhone = t.Branded<string, RawPhoneBrand>;
@@ -120,6 +122,8 @@ export const Email = t.brand(
 export interface EmailBrand {
   readonly Email: unique symbol;
 }
+export const examplesEmailJson: Array<unknown> = ['joe.customer@example.com'];
+export const examplesEmail = t.array(Email).decode(examplesEmailJson);
 // PaymentSourceId
 // The purpose of this remains a mystery
 export type PaymentSourceId = t.Branded<string, PaymentSourceIdBrand>;
