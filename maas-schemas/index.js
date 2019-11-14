@@ -22,10 +22,9 @@ function definitions(schema) {
   return Object.fromEntries(
     Object.entries(schema.definitions).map(([name, def]) => [
       name,
-      {
+      Object.assign({}, def, {
         $id: `${schemaId}#/definitions/${name}`,
-        ...def,
-      },
+      }),
     ])
   );
 }
