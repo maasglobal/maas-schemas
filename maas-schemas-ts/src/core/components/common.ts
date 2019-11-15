@@ -8,6 +8,7 @@ MaaS common components that are used consistently within our own objects
 */
 
 import * as t from 'io-ts';
+import * as Units_ from 'maas-schemas-ts/core/components/units';
 
 export const schemaId = 'http://maasglobal.com/core/components/common.json';
 // AgencyId
@@ -119,6 +120,34 @@ export const Email = t.brand(
 );
 export interface EmailBrand {
   readonly Email: unique symbol;
+}
+// CustomerReference
+// Any unique way to refer a customer
+export type CustomerReference = t.Branded<
+  Units_.IdentityId | Phone,
+  CustomerReferenceBrand
+>;
+export const CustomerReference = t.brand(
+  t.union([Units_.IdentityId, Phone]),
+  (x): x is t.Branded<Units_.IdentityId | Phone, CustomerReferenceBrand> => true,
+  'CustomerReference',
+);
+export interface CustomerReferenceBrand {
+  readonly CustomerReference: unique symbol;
+}
+// LooseCustomerReference
+// Any unique way to refer a customer, plus some opportunistic ways
+export type LooseCustomerReference = t.Branded<
+  CustomerReference | Email,
+  LooseCustomerReferenceBrand
+>;
+export const LooseCustomerReference = t.brand(
+  t.union([CustomerReference, Email]),
+  (x): x is t.Branded<CustomerReference | Email, LooseCustomerReferenceBrand> => true,
+  'LooseCustomerReference',
+);
+export interface LooseCustomerReferenceBrand {
+  readonly LooseCustomerReference: unique symbol;
 }
 // PaymentSourceId
 // The purpose of this remains a mystery
