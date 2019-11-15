@@ -135,5 +135,169 @@
         }
       }
     }
-  }
+  },
+  "examples": [
+    {
+      "id": "12345678-ABCD-1234-ABCD-123456789ABC",
+      "state": "EXPIRED",
+      "leg": {
+        "to": {
+          "lat": 60.184333,
+          "lon": 24.835972,
+          "name": "Otaranta 6, Espoo",
+          "address": "streetName:Otaranta|streetNumber:6|city:Espoo|zipCode:02150|country:Suomi"
+        },
+        "from": {
+          "lat": 60.168442,
+          "lon": 24.932205,
+          "name": "Urho Kekkosen katu 1, Helsinki",
+          "address": "streetName:Urho Kekkosen katu|streetNumber:1|city:Helsinki|zipCode:00100|country:Suomi"
+        },
+        "mode": "TAXI",
+        "endTime": 1553092978009,
+        "agencyId": "Valopilkku",
+        "startTime": 1553092978009,
+        "departureDelay": 123456
+      },
+      "token": {
+        "type": "SECURITY_CODE",
+        "value": "12345"
+      },
+      "terms": {
+        "reusable": false,
+        "validity": {
+          "endTime": 1553092978009,
+          "startTime": 1553092978009
+        },
+        "reconcilable": false
+      },
+      "meta": {
+        "raw": {
+          "data": {
+            "lat": 60.168442,
+            "lon": 24.932205,
+            "vehicle_id": "123"
+          },
+          "order_id": 12345,
+          "timestamp": "2019-03-20T10:10:12+00:00",
+          "localized_description": "Tilaus on valmis."
+        },
+        "MODE_TAXI": {
+          "vehicleId": "123",
+          "taxiCenter": {
+            "name": "Lähitaksi",
+            "phone": "+3581007300"
+          },
+          "vehicleType": "any",
+          "vehicleLocation": {
+            "lat": 60.245254,
+            "lon": 24.989604
+          }
+        },
+        "timestamp": 1553092978009,
+        "valopilkku": {
+          "prepaid": true,
+          "locations": [
+            {
+              "type": "pickup",
+              "address": {
+                "city": "Helsinki",
+                "street_address": "Urho Kekkosen katu 1"
+              },
+              "contacts": [
+                {
+                  "name": "John Doe",
+                  "passenger_count": 1,
+                  "provider_order_id": "MaaS-12345"
+                }
+              ],
+              "coordinate": {
+                "lat": 60.168442,
+                "lon": 24.932205
+              },
+              "passenger_count": 1
+            },
+            {
+              "type": "destination",
+              "address": {
+                "city": "Espoo",
+                "street_address": "Otaranta 6"
+              },
+              "drop_off": ["MaaS-12345"],
+              "coordinate": {
+                "lat": 60.184333,
+                "lon": 24.835972
+              },
+              "passenger_count": 1
+            }
+          ],
+          "submitted": "2019-03-21T11:13:19.753Z"
+        },
+        "description": "Tilaus on valmis."
+      },
+      "created": "2019-03-20 10:10:12.123456",
+      "modified": "2019-03-20 18:30:12.123456",
+      "cost": {
+        "amount": 0,
+        "currency": "EUR"
+      },
+      "stateLog": [
+        {
+          "reason": {},
+          "invalid": false,
+          "newState": "PENDING",
+          "oldState": "START",
+          "timestamp": 1553092178009
+        },
+        {
+          "reason": {},
+          "invalid": false,
+          "newState": "PAID",
+          "oldState": "PENDING",
+          "timestamp": 1553092278009
+        },
+        {
+          "reason": {},
+          "invalid": false,
+          "newState": "RESERVED",
+          "oldState": "PAID",
+          "timestamp": 1553092378009
+        },
+        {
+          "reason": {},
+          "invalid": false,
+          "newState": "CONFIRMED",
+          "oldState": "RESERVED",
+          "timestamp": 1553092478009
+        },
+        {
+          "reason": {},
+          "invalid": false,
+          "newState": "ACTIVATED",
+          "oldState": "CONFIRMED",
+          "timestamp": 1553092578009
+        },
+        {
+          "reason": {},
+          "invalid": false,
+          "newState": "EXPIRED",
+          "oldState": "ACTIVATED",
+          "timestamp": 1553092678009
+        }
+      ],
+      "productId": "valopilkku-any",
+      "fares": [
+        {
+          "type": "charge",
+          "amount": 1000,
+          "currency": "WMP",
+          "productionAmount": 1234
+        }
+      ],
+      "cancelling": false,
+      "customer": {
+        "identityId": "eu-west-1:4828507e-683f-41bf-9d87-689808fbf958"
+      }
+    }
+  ]
 }
