@@ -18,6 +18,7 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_TAXI.json';
 export type Default = t.Branded<
   {
     vehicleId?: string;
+    noShowReportedByDriver?: boolean;
     vehicleLocation?: UnitsGeo_.Location;
     vehicleType?: string;
     vehicleDescription?: string;
@@ -38,6 +39,7 @@ export type Default = t.Branded<
 export const Default = t.brand(
   t.partial({
     vehicleId: t.string,
+    noShowReportedByDriver: t.boolean,
     vehicleLocation: UnitsGeo_.Location,
     vehicleType: t.string,
     vehicleDescription: t.string,
@@ -58,6 +60,7 @@ export const Default = t.brand(
   ): x is t.Branded<
     {
       vehicleId?: string;
+      noShowReportedByDriver?: boolean;
       vehicleLocation?: UnitsGeo_.Location;
       vehicleType?: string;
       vehicleDescription?: string;

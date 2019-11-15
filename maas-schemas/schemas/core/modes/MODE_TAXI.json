@@ -9,6 +9,9 @@
       "minLength": 1,
       "maxLength": 256
     },
+    "noShowReportedByDriver": {
+      "type": "boolean"
+    },
     "vehicleLocation": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location" },
     "vehicleType": {
       "type": "string",
