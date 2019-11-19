@@ -139,6 +139,9 @@
         },
         "unitPrice": {
           "$ref": "#/definitions/price"
+        },
+        "image": {
+          "type": "string"
         }
       },
       "required": ["id", "quantity"],

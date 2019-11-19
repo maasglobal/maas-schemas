@@ -102,6 +102,7 @@ export type Addon = t.Branded<
     description?: string;
     quantity?: number;
     unitPrice?: Price;
+    image?: string;
   } & {
     id: Defined;
     quantity: Defined;
@@ -116,6 +117,7 @@ export const Addon = t.brand(
       description: t.string,
       quantity: t.number,
       unitPrice: Price,
+      image: t.string,
     }),
     t.type({
       id: Defined,
@@ -131,6 +133,7 @@ export const Addon = t.brand(
       description?: string;
       quantity?: number;
       unitPrice?: Price;
+      image?: string;
     } & {
       id: Defined;
       quantity: Defined;
