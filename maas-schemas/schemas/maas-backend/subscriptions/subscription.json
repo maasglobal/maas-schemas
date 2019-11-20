@@ -141,7 +141,7 @@
           "$ref": "#/definitions/price"
         },
         "image": {
-          "type": "string"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
         }
       },
       "required": ["id", "quantity"],
