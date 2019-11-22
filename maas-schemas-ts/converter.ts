@@ -308,7 +308,9 @@ function checkUniqueItems(x: string): string {
 function generateChecks(x: string, schema: JSONSchema7): string {
   const checks: Array<string> = [
     ...(schema.pattern ? [checkPattern(x, schema.pattern)] : []),
-    ...((schema as AJVschema).regexp ? [checkRegexp(x, (schema as AJVschema).regexp)] : []),
+    ...((schema as AJVschema).regexp
+      ? [checkRegexp(x, (schema as AJVschema).regexp)]
+      : []),
     ...(schema.minLength ? [checkMinLength(x, schema.minLength)] : []),
     ...(schema.maxLength ? [checkMaxLength(x, schema.maxLength)] : []),
     ...(schema.minimum ? [checkMinimum(x, schema.minimum)] : []),

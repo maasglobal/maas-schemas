@@ -10,7 +10,7 @@
     "Run eslint without --fix to check for cyclic dependencies"
   ],
   "scripts": {
-    "eslint": "eslint --max-warnings=0 '**/*.{ts,json}' --ignore-path .gitignore",
+    "eslint": "eslint --max-warnings=0 '**/*.{ts,json}' --ignore-path .gitignore --fix",
     "prettify": "yarn eslint --fix||true",
     "lint": "yarn eslint",
     "clean-src": "rm -rf src",

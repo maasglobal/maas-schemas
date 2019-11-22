@@ -12,7 +12,7 @@ import * as Common_ from 'maas-schemas-ts/core/components/common';
 
 export const schemaId = 'http://maasglobal.com/core/components/address.json';
 // ComponentAddress
-// Encoded address components. Check the regexr examples. Check https://regexr.com/4ofcq
+// Encoded address components. Check the regexr examples. Check https://regexr.com/4ofcq. In streetNumber, there are 2 dashes - they have 2 different unicodes, do not remove
 export type ComponentAddress = t.Branded<string, ComponentAddressBrand>;
 export const ComponentAddress = t.brand(
   t.string,
@@ -20,7 +20,7 @@ export const ComponentAddress = t.brand(
     typeof x !== 'string' ||
     x.match(
       RegExp(
-        "/(streetName:(\\p{L}|\\d|-|\\/| (?=\\p{L}|&|\\d)|[#.,;:'&°’])+\\|?)|(city:(\\p{L}|['-]| (?=\\p{L}))+\\|?)|(state:(\\p{L}| (?=\\p{L}))+\\|?)|(zipCode:(\\p{L}|\\d|-)+\\|?)|(country:(\\p{L}| (?=\\p{L}))+)\\|?|(streetNumber:(\\p{L}|\\d|-|\\/)+)\\|?|(ward:(\\p{L}|\\d|-|[']| (?=\\p{L}|\\d))+)\\|?|(district:(\\p{L}|\\d|-|[']| (?=\\p{L}|\\d))+)\\|?/gui",
+        "/(streetName:(\\p{L}|\\p{N}|-|\\/| (?=\\p{L}|&|\\p{N})|[#.,;:'&°’])+\\|?)|(city:(\\p{L}|['-]| (?=\\p{L}))+\\|?)|(state:(\\p{L}| (?=\\p{L}))+\\|?)|(zipCode:(\\p{L}|\\p{N}|-)+\\|?)|(country:(\\p{L}| (?=\\p{L}))+)\\|?|(streetNumber:(\\p{L}|\\p{N}|-|-|\\/)+)\\|?|(ward:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?|(district:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?/gui",
       ),
     ) !== null,
   'ComponentAddress',

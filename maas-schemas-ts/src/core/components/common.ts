@@ -71,10 +71,10 @@ export interface JsonParamBrand {
 }
 // PersonalName
 // First or last name of a customer (e.g. John)
-export type PersonalName = t.Branded<unknown, PersonalNameBrand>;
+export type PersonalName = t.Branded<string, PersonalNameBrand>;
 export const PersonalName = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, PersonalNameBrand> =>
+  t.string,
+  (x): x is t.Branded<string, PersonalNameBrand> =>
     (typeof x !== 'string' ||
       x.match(RegExp("/^[\\p{L}\\s`'´\\-\\.,]+$/gui")) !== null) &&
     (typeof x !== 'string' || x.length >= 1) &&
