@@ -116,7 +116,7 @@
               "type": "number"
             }
           },
-          "required": ["isSupported"]
+          "required": ["isSupported", "minIntervalUntilBooking", "maxIntervalUntilBooking"]
         }
       },
       "additionalProperties": false
