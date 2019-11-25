@@ -70,6 +70,8 @@ export type Default = t.Branded<
         maxIntervalUntilBooking?: number;
       } & {
         isSupported: Defined;
+        minIntervalUntilBooking: Defined;
+        maxIntervalUntilBooking: Defined;
       };
     };
     personalDataOptionsAllow?: Array<PersonalDataAllowItem_.Default>;
@@ -162,6 +164,8 @@ export const Default = t.brand(
           }),
           t.type({
             isSupported: Defined,
+            minIntervalUntilBooking: Defined,
+            maxIntervalUntilBooking: Defined,
           }),
         ]),
       }),
@@ -262,6 +266,8 @@ export const Default = t.brand(
           maxIntervalUntilBooking?: number;
         } & {
           isSupported: Defined;
+          minIntervalUntilBooking: Defined;
+          maxIntervalUntilBooking: Defined;
         };
       };
       personalDataOptionsAllow?: Array<PersonalDataAllowItem_.Default>;
