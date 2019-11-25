@@ -8,6 +8,7 @@ Product in core which encapsulates at least an id, name and a tspProductId
 */
 
 import * as t from 'io-ts';
+import * as Fare_ from 'maas-schemas-ts/core/components/fare';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 
 type Defined =
@@ -41,17 +42,33 @@ export const Id = t.brand(
 export interface IdBrand {
   readonly Id: unique symbol;
 }
-// PreAuthBufferPercentage
-// Percentage of the fare which is added as a safety margin when pre-authorizing; e.g. if 20% is added as a safety margin, this value would be 0.2
-export type PreAuthBufferPercentage = t.Branded<number, PreAuthBufferPercentageBrand>;
-export const PreAuthBufferPercentage = t.brand(
-  t.number,
-  (x): x is t.Branded<number, PreAuthBufferPercentageBrand> =>
-    typeof x !== 'number' || x % 0.01 === 0,
-  'PreAuthBufferPercentage',
+// PreAuthBuffer
+// The purpose of this remains a mystery
+export type PreAuthBuffer = t.Branded<
+  {
+    percentageExtra?: number;
+    minimumExtra?: Fare_.Default;
+  },
+  PreAuthBufferBrand
+>;
+export const PreAuthBuffer = t.brand(
+  t.partial({
+    percentageExtra: t.number,
+    minimumExtra: Fare_.Default,
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      percentageExtra?: number;
+      minimumExtra?: Fare_.Default;
+    },
+    PreAuthBufferBrand
+  > => true,
+  'PreAuthBuffer',
 );
-export interface PreAuthBufferPercentageBrand {
-  readonly PreAuthBufferPercentage: unique symbol;
+export interface PreAuthBufferBrand {
+  readonly PreAuthBuffer: unique symbol;
 }
 // Default
 // The default export. More information at the top.
@@ -65,7 +82,7 @@ export type Product = t.Branded<
     agencyId?: Common_.AgencyId;
     tspProductId?: string;
     allowFinishTrip?: boolean;
-    preAuthBufferPercentage?: PreAuthBufferPercentage;
+    preAuthBuffer?: PreAuthBuffer;
   } & {
     id: Defined;
     tspProductId: Defined;
@@ -84,7 +101,7 @@ export const Product = t.brand(
       agencyId: Common_.AgencyId,
       tspProductId: t.string,
       allowFinishTrip: t.boolean,
-      preAuthBufferPercentage: PreAuthBufferPercentage,
+      preAuthBuffer: PreAuthBuffer,
     }),
     t.type({
       id: Defined,
@@ -104,7 +121,7 @@ export const Product = t.brand(
       agencyId?: Common_.AgencyId;
       tspProductId?: string;
       allowFinishTrip?: boolean;
-      preAuthBufferPercentage?: PreAuthBufferPercentage;
+      preAuthBuffer?: PreAuthBuffer;
     } & {
       id: Defined;
       tspProductId: Defined;
