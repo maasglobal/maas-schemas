@@ -35,6 +35,9 @@
     },
     "allowFinishTrip": {
       "type": "boolean"
+    },
+    "preAuthBufferPercentage": {
+      "$ref": "#/definitions/preAuthBufferPercentage"
     }
   },
   "definitions": {
@@ -42,6 +45,12 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 255
+    },
+    "preAuthBufferPercentage": {
+      "description": "Percentage of the fare which is added as a safety margin when pre-authorizing; e.g. if 20% is added as a safety margin, this value would be 0.2",
+      "type": "number",
+      "minimum": 0,
+      "multipleOf": 0.01
     }
   },
   "required": ["id", "tspProductId", "name"]

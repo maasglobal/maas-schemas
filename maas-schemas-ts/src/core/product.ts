@@ -41,8 +41,19 @@ export const Id = t.brand(
 export interface IdBrand {
   readonly Id: unique symbol;
 }
-
-// Product
+// PreAuthBufferPercentage
+// Percentage of the fare which is added as a safety margin when pre-authorizing; e.g. if 20% is added as a safety margin, this value would be 0.2
+export type PreAuthBufferPercentage = t.Branded<number, PreAuthBufferPercentageBrand>;
+export const PreAuthBufferPercentage = t.brand(
+  t.number,
+  (x): x is t.Branded<number, PreAuthBufferPercentageBrand> =>
+    typeof x !== 'number' || x % 0.01 === 0,
+  'PreAuthBufferPercentage',
+);
+export interface PreAuthBufferPercentageBrand {
+  readonly PreAuthBufferPercentage: unique symbol;
+}
+// Default
 // The default export. More information at the top.
 export type Product = t.Branded<
   {
@@ -54,6 +65,7 @@ export type Product = t.Branded<
     agencyId?: Common_.AgencyId;
     tspProductId?: string;
     allowFinishTrip?: boolean;
+    preAuthBufferPercentage?: PreAuthBufferPercentage;
   } & {
     id: Defined;
     tspProductId: Defined;
@@ -72,6 +84,7 @@ export const Product = t.brand(
       agencyId: Common_.AgencyId,
       tspProductId: t.string,
       allowFinishTrip: t.boolean,
+      preAuthBufferPercentage: PreAuthBufferPercentage,
     }),
     t.type({
       id: Defined,
@@ -91,6 +104,7 @@ export const Product = t.brand(
       agencyId?: Common_.AgencyId;
       tspProductId?: string;
       allowFinishTrip?: boolean;
+      preAuthBufferPercentage?: PreAuthBufferPercentage;
     } & {
       id: Defined;
       tspProductId: Defined;
