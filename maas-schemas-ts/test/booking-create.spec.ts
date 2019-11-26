@@ -1,5 +1,5 @@
-import { Default as BookingCreateRequest } from '../lib/tsp/booking-create/request';
-import { Default as BookingCreateResponse } from '../lib/tsp/booking-create/response';
+import { Default as BookingCreateRequest } from '../src/tsp/booking-create/request';
+import { Default as BookingCreateResponse } from '../src/tsp/booking-create/response';
 
 import { decode } from 'io-ts-promise';
 import { readFileSync } from 'fs';
