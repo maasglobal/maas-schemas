@@ -20,6 +20,7 @@ module.exports = {
     '@typescript-eslint/no-object-literal-type-assertion': [0],
     //'@typescript-eslint/no-unused-vars': [1, { argsIgnorePattern: '(^_|x)', ignoreRestSiblings: true }],
     '@typescript-eslint/no-unused-vars': [0],
+    '@typescript-eslint/class-name-casing': 0,
     'fp/no-nil': 0,
     'fp/no-rest-parameters': 0,
     'fp/no-unused-expression': 0,

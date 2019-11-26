@@ -46,6 +46,43 @@ function getRegexpObject(regexp: AjvKeywordsRegexp): AjvKeywordsRegexpObject {
 
 // END: Ajv Schema Helpers
 
+function capitalize(word: string) {
+  const empty: '' = '';
+  const [c, ...cs] = word.split(empty);
+  return [c.toUpperCase(), ...cs].join(empty);
+}
+
+// ALL_UPPER-CASE => ALL_UPPERCASE
+function typenameFromAllCaps(allCaps: string): string {
+  return allCaps.split('-').join('');
+}
+
+// random-caseCombination => RandomCaseCombination
+function typenameFromKebab(kebab: string): string {
+  const typename = kebab
+    .split('-')
+    .map(capitalize)
+    .join('');
+  return typename;
+}
+
+function isAllCaps(randomCase: string): boolean {
+  return randomCase === randomCase.toUpperCase();
+}
+
+function typenameFromRandom(randomCase: string): string {
+  if (isAllCaps(randomCase)) {
+    return typenameFromAllCaps(randomCase);
+  }
+  return typenameFromKebab(randomCase);
+}
+
+function getDefaultExport(jsonFilePath) {
+  const [withoutPath] = jsonFilePath.split('/').slice(-1);
+  const [withouExtension] = withoutPath.split('.json');
+  return typenameFromRandom(withouExtension);
+}
+
 const createHelper = (d: gen.TypeDeclaration) =>
   `\n${gen.printStatic(d)}\n${gen.printRuntime(d)}\n`;
 
@@ -106,6 +143,7 @@ if (domain.endsWith('/') === false) {
   throw new Error('invalid domain argument');
 }
 
+const defaultExport = getDefaultExport(inputFile);
 const outputFile = path.join(outputDir, inputFile.split('.json').join('.ts'));
 
 const inputSchema: JSONSchema7 = JSON.parse(fs.readFileSync(inputFile, 'utf-8'));
@@ -166,25 +204,11 @@ function notImplemented(pre: string, item: string, post: string, fatal = false) 
   return error(message);
 }
 
-function capitalize(word: string) {
-  const empty: '' = '';
-  const [c, ...cs] = word.split(empty);
-  return [c.toUpperCase(), ...cs].join(empty);
-}
-
-const camelFromKebab = (kebab: string) => {
-  const camel = kebab
-    .split('-')
-    .map(capitalize)
-    .join('');
-  return camel;
-};
-
 function parseRef(ref: string) {
   const parts = ref.split('#');
   if (parts.length === 1) {
     const [filePath] = parts;
-    return { filePath, variableName: 'Default' };
+    return { filePath, variableName: getDefaultExport(filePath) };
   }
   if (parts.length > 2) {
     // eslint-disable-next-line
@@ -206,7 +230,7 @@ function parseRef(ref: string) {
     // eslint-disable-next-line
     throw new Error('unknown ref format');
   }
-  const variableName = camelFromKebab(name);
+  const variableName = typenameFromKebab(name);
   return { filePath, variableName };
 }
 
@@ -378,7 +402,7 @@ function fromRef(refString: string): gen.TypeReference {
   // eslint-disable-next-line
   const [withoutPath] = ref.filePath.split('/').reverse();
   const [basefile] = withoutPath.split('.json');
-  const importName = `${camelFromKebab(basefile)}_`;
+  const importName = `${typenameFromKebab(basefile)}_`;
   if (ref.filePath.startsWith(domain)) {
     const URI = ref.filePath;
     const [, withoutDomain] = URI.split(domain);
@@ -714,7 +738,7 @@ function fromDefinitions(definitions2: JSONSchema7['definitions']): Array<DefInp
 
 function fromNonRefRoot(schema: JSONSchema7): Array<DefInput> {
   // root schema info is printed in the beginning of the file
-  const title = 'Default';
+  const title = defaultExport;
   const description = 'The default export. More information at the top.';
   const examples = extractExamples(schema);
   const defaultValue = extractDefaultValue(schema);
@@ -727,11 +751,11 @@ function fromNonRefRoot(schema: JSONSchema7): Array<DefInput> {
         defaultValue,
       },
       dec: gen.typeDeclaration(
-        'Default',
+        defaultExport,
         gen.brandCombinator(
           fromSchema(schema, true),
           (x) => generateChecks(x, schema),
-          'Default',
+          defaultExport,
         ),
         true,
       ),
@@ -741,7 +765,7 @@ function fromNonRefRoot(schema: JSONSchema7): Array<DefInput> {
 
 function fromRoot(root: JSONSchema7): Array<DefInput> {
   // root schema info is printed in the beginning of the file
-  const title = 'Default';
+  const title = defaultExport;
   const description = 'The default export. More information at the top.';
   const examples = extractExamples(root);
   const defaultValue = extractDefaultValue(root);
@@ -751,7 +775,7 @@ function fromRoot(root: JSONSchema7): Array<DefInput> {
       // eslint-disable-next-line
       throw new Error('broken input');
     }
-    exps.add('export default Default;');
+    exps.add(`export default ${defaultExport};`);
     return [
       {
         meta: {
@@ -760,14 +784,14 @@ function fromRoot(root: JSONSchema7): Array<DefInput> {
           examples,
           defaultValue,
         },
-        dec: gen.typeDeclaration('Default', fromRef(root['$ref']), true),
+        dec: gen.typeDeclaration(defaultExport, fromRef(root['$ref']), true),
       },
     ];
   }
   const items = fromNonRefRoot(root);
   if (items.length > 0) {
     imps.add("import * as t from 'io-ts';");
-    exps.add('export default Default;');
+    exps.add(`export default ${defaultExport};`);
   }
   return items;
 }
