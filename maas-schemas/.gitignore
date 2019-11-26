@@ -1,0 +1,22 @@
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+package-lock.json
+
+# IDE Stuff
+**/.idea
+.vscode/launch.json
+*.swp
+
+# OS STUFF
+.DS_Store
+.tmp
+
+# prebuild is done before publish
+prebuilt
+
+# schemas registry, generated upon build / prepublish
+registry.js
+
+# npmrc
+.npmrc
