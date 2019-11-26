@@ -5,7 +5,46 @@ import * as path from 'path';
 import * as gen from 'io-ts-codegen';
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema';
 
-type AJVschema = { regexp: any };
+// START: Ajv Schema Helpers https://github.com/epoberezkin/ajv-keywords
+
+type AjvKeywordsRegexpString = string;
+type AjvKeywordsRegexpObject = {
+  pattern: string;
+  flags: string;
+};
+type AjvKeywordsRegexp = AjvKeywordsRegexpString | AjvKeywordsRegexpObject;
+
+type AjvKeywords = { regexp: AjvKeywordsRegexp };
+
+type AjvSchema = JSONSchema7 & AjvKeywords;
+
+function isRegexpString(regexp: AjvKeywordsRegexp): regexp is AjvKeywordsRegexpString {
+  return typeof regexp === 'string';
+}
+
+function isRegexpObject(regexp: AjvKeywordsRegexp): regexp is AjvKeywordsRegexpObject {
+  return typeof regexp === 'object';
+}
+
+function regexpObjectFromString(
+  regexp: AjvKeywordsRegexpString,
+): AjvKeywordsRegexpObject {
+  const pattern = regexp
+    .split('/')
+    .slice(1, -1)
+    .join('/');
+  const [flags] = regexp.split('/').slice(-1);
+  return { pattern, flags };
+}
+
+function getRegexpObject(regexp: AjvKeywordsRegexp): AjvKeywordsRegexpObject {
+  if (isRegexpString(regexp)) {
+    return regexpObjectFromString(regexp);
+  }
+  return regexp;
+}
+
+// END: Ajv Schema Helpers
 
 const createHelper = (d: gen.TypeDeclaration) =>
   `\n${gen.printStatic(d)}\n${gen.printRuntime(d)}\n`;
@@ -264,9 +303,11 @@ function checkPattern(x: string, pattern: string): string {
   return `( typeof x !== 'string' || ${x}.match(RegExp(${stringLiteral})) !== null )`;
 }
 
-function checkRegexp(x: string, pattern: string): string {
-  const stringLiteral = JSON.stringify(pattern);
-  return `( typeof x !== 'string' || ${x}.match(RegExp(${stringLiteral})) !== null )`;
+function checkRegexp(x: string, regexp: AjvKeywordsRegexp): string {
+  const { pattern, flags } = getRegexpObject(regexp);
+  const patternLiteral = JSON.stringify(pattern);
+  const flagsLiteral = JSON.stringify(flags);
+  return `( typeof x !== 'string' || ${x}.match(RegExp(${patternLiteral}, ${flagsLiteral})) !== null )`;
 }
 
 function checkMinLength(x: string, minLength: number): string {
@@ -308,8 +349,8 @@ function checkUniqueItems(x: string): string {
 function generateChecks(x: string, schema: JSONSchema7): string {
   const checks: Array<string> = [
     ...(schema.pattern ? [checkPattern(x, schema.pattern)] : []),
-    ...((schema as AJVschema).regexp
-      ? [checkRegexp(x, (schema as AJVschema).regexp)]
+    ...((schema as AjvSchema).regexp
+      ? [checkRegexp(x, (schema as AjvSchema).regexp)]
       : []),
     ...(schema.minLength ? [checkMinLength(x, schema.minLength)] : []),
     ...(schema.maxLength ? [checkMaxLength(x, schema.maxLength)] : []),
