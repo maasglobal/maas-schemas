@@ -13,8 +13,8 @@ import * as PointCost_ from 'maas-schemas-ts/core/components/point-cost';
 import * as Region_ from 'maas-schemas-ts/core/region';
 import * as SubscriptionAddress_ from 'maas-schemas-ts/maas-backend/subscriptions/subscriptionAddress';
 import * as SubscriptionChangeState_ from 'maas-schemas-ts/core/components/subscriptionChangeState';
-import * as Cost_ from 'maas-schemas-ts/core/components/cost';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as Cost_ from 'maas-schemas-ts/core/components/cost';
 
 type Defined =
   | Record<string, unknown>
@@ -102,7 +102,7 @@ export type Addon = t.Branded<
     description?: string;
     quantity?: number;
     unitPrice?: Price;
-    image?: string;
+    image?: Units_.Url;
   } & {
     id: Defined;
     quantity: Defined;
@@ -117,7 +117,7 @@ export const Addon = t.brand(
       description: t.string,
       quantity: t.number,
       unitPrice: Price,
-      image: t.string,
+      image: Units_.Url,
     }),
     t.type({
       id: Defined,
@@ -133,7 +133,7 @@ export const Addon = t.brand(
       description?: string;
       quantity?: number;
       unitPrice?: Price;
-      image?: string;
+      image?: Units_.Url;
     } & {
       id: Defined;
       quantity: Defined;
