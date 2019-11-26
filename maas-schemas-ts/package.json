@@ -54,7 +54,8 @@
   },
   "homepage": "https://github.com/maasglobal/maas-schemas-ts#readme",
   "peerDependencies": {
-    "io-ts": "^2.0.1"
+    "io-ts": "^2.0.1",
+    "io-ts-types": "^0.5.2"
   },
   "devDependencies": {
     "@types/json-schema": "^7.0.3",
@@ -72,6 +73,9 @@
     "fp-ts": "^2.0.5",
     "io-ts": "^2.0.1",
     "io-ts-codegen": "^0.4.2",
+    "io-ts-types": "^0.5.2",
+    "monocle-ts": "^2.0.0",
+    "newtype-ts": "^0.3.2",
     "prettier": "^1.18.2",
     "ts-node": "^8.4.1",
     "tslint": "^5.20.0",
