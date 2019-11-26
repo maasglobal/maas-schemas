@@ -100,9 +100,23 @@
           "required": ["fixedFareAmount", "fixedFareCurrency", "maxRadiusMetres"],
           "additionalProperties": false
         },
-        "prebookingSupported": {
-          "description": "Is pre-booking supported",
-          "type": "boolean"
+        "prebooking": {
+          "type": "object",
+          "properties": {
+            "isSupported": {
+              "description": "Is pre-booking supported",
+              "type": "boolean"
+            },
+            "minIntervalUntilBooking": {
+              "description": "Minimum amount of milliseconds before the taxi can be prebooked in the future",
+              "type": "number"
+            },
+            "maxIntervalUntilBooking": {
+              "description": "Maximum amount of milliseconds before the taxi can be prebooked in the future",
+              "type": "number"
+            }
+          },
+          "required": ["isSupported", "minIntervalUntilBooking", "maxIntervalUntilBooking"]
         }
       },
       "additionalProperties": false

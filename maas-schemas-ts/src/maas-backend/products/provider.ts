@@ -64,7 +64,15 @@ export type Default = t.Branded<
         fixedFareCurrency: Defined;
         maxRadiusMetres: Defined;
       };
-      prebookingSupported?: boolean;
+      prebooking?: {
+        isSupported?: boolean;
+        minIntervalUntilBooking?: number;
+        maxIntervalUntilBooking?: number;
+      } & {
+        isSupported: Defined;
+        minIntervalUntilBooking: Defined;
+        maxIntervalUntilBooking: Defined;
+      };
     };
     personalDataOptionsAllow?: Array<PersonalDataAllowItem_.Default>;
     personalDataCreateAllow?: Array<PersonalDataAllowItem_.Default>;
@@ -148,7 +156,18 @@ export const Default = t.brand(
             maxRadiusMetres: Defined,
           }),
         ]),
-        prebookingSupported: t.boolean,
+        prebooking: t.intersection([
+          t.partial({
+            isSupported: t.boolean,
+            minIntervalUntilBooking: t.number,
+            maxIntervalUntilBooking: t.number,
+          }),
+          t.type({
+            isSupported: Defined,
+            minIntervalUntilBooking: Defined,
+            maxIntervalUntilBooking: Defined,
+          }),
+        ]),
       }),
       personalDataOptionsAllow: t.array(PersonalDataAllowItem_.Default),
       personalDataCreateAllow: t.array(PersonalDataAllowItem_.Default),
@@ -241,7 +260,15 @@ export const Default = t.brand(
           fixedFareCurrency: Defined;
           maxRadiusMetres: Defined;
         };
-        prebookingSupported?: boolean;
+        prebooking?: {
+          isSupported?: boolean;
+          minIntervalUntilBooking?: number;
+          maxIntervalUntilBooking?: number;
+        } & {
+          isSupported: Defined;
+          minIntervalUntilBooking: Defined;
+          maxIntervalUntilBooking: Defined;
+        };
       };
       personalDataOptionsAllow?: Array<PersonalDataAllowItem_.Default>;
       personalDataCreateAllow?: Array<PersonalDataAllowItem_.Default>;

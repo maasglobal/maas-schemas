@@ -1198,6 +1198,10 @@ WARNING: minimum field not supported outside top-level definitions
   in ./maas-backend/products/provider.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/products/provider.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./maas-backend/products/provider.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./maas-backend/products/provider.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/products/provider.json
 INFO: primitive type "string" used outside top-level definitions
