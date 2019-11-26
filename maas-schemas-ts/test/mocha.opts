@@ -1,0 +1,6 @@
+--exit
+--require ts-node/register
+--extension spec.ts
+--watch-extensions ts
+--recursive
+
