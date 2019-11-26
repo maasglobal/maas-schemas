@@ -846,6 +846,7 @@ for (const def of defs) {
   if (examples.length > 0) {
     const examplesName = `examples${typeName}`;
     const jsonName = `${examplesName}Json`;
+    log(`/** ${examplesName} // => { _tag: 'Right', right: ${jsonName} } */`);
     log(
       `export const ${jsonName}: NonEmptyArray<unknown> = ${JSON.stringify(examples)};`,
     );
@@ -854,6 +855,7 @@ for (const def of defs) {
   if (typeof defaultValue !== 'undefined') {
     const defaultName = `default${typeName}`;
     const jsonName = `${defaultName}Json`;
+    log(`/** ${defaultName} // => { _tag: 'Right', right: ${jsonName} } */`);
     log(`export const ${jsonName}: unknown = ${JSON.stringify(defaultValue)};`);
     log(`export const ${defaultName} = ${typeName}.decode(${jsonName});`);
   }
