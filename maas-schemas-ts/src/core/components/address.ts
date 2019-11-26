@@ -12,7 +12,7 @@ import * as Common_ from 'maas-schemas-ts/core/components/common';
 
 export const schemaId = 'http://maasglobal.com/core/components/address.json';
 // ComponentAddress
-// Encoded address components in form country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|streetNumber:6
+// Encoded address components. Check the regexr examples. Check https://regexr.com/4ofcq. In streetNumber, there are 2 dashes - they have 2 different unicodes, do not remove
 export type ComponentAddress = t.Branded<string, ComponentAddressBrand>;
 export const ComponentAddress = t.brand(
   t.string,
@@ -20,8 +20,7 @@ export const ComponentAddress = t.brand(
     typeof x !== 'string' ||
     x.match(
       RegExp(
-        "^(?:(?:(?:country:(?:\\p{L}|\\s|')+)|(?:state:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:city:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:zipCode:(?:[a-zA-Z0-9 ]{3,10}|(?:\\p{L}|\\d){2,4}(\\s(?:\\p{L}|\\d){2,4})?))|(?:streetName:[^|]+)|(?:streetNumber:\\d+))\\|?){4,6}$",
-        'u',
+        "/(streetName:(\\p{L}|\\p{N}|-|\\/| (?=\\p{L}|&|\\p{N})|[#.,;:'&°’])+\\|?)|(city:(\\p{L}|['-]| (?=\\p{L}))+\\|?)|(state:(\\p{L}| (?=\\p{L}))+\\|?)|(zipCode:(\\p{L}|\\p{N}|-)+\\|?)|(country:(\\p{L}| (?=\\p{L}))+)\\|?|(streetNumber:(\\p{L}|\\p{N}|-|-|\\/)+)\\|?|(ward:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?|(district:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?/gui",
       ),
     ) !== null,
   'ComponentAddress',
@@ -85,7 +84,7 @@ export type CountryName = t.Branded<string, CountryNameBrand>;
 export const CountryName = t.brand(
   t.string,
   (x): x is t.Branded<string, CountryNameBrand> =>
-    (typeof x !== 'string' || x.match(RegExp("^(?:\\p{L}|\\s|')+$", 'u')) !== null) &&
+    (typeof x !== 'string' || x.match(RegExp("/^(?:\\p{L}|\\s|')+$/gui")) !== null) &&
     (typeof x !== 'string' || x.length <= 64),
   'CountryName',
 );
@@ -98,7 +97,7 @@ export type Country = t.Branded<string, CountryBrand>;
 export const Country = t.brand(
   t.string,
   (x): x is t.Branded<string, CountryBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^[A-Z]{2,2}$', 'u')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^[A-Z]{2,2}$')) !== null,
   'Country',
 );
 export interface CountryBrand {

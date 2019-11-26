@@ -17,7 +17,7 @@ export const Locale = t.brand(
   t.string,
   (x): x is t.Branded<string, LocaleBrand> =>
     typeof x !== 'string' ||
-    x.match(RegExp('^[a-z]{2,3}(?:-[a-zA-Z]{4})?(?:-[A-Z]{2,3})?$', 'u')) !== null,
+    x.match(RegExp('^[a-z]{2,3}(?:-[a-zA-Z]{4})?(?:-[A-Z]{2,3})?$')) !== null,
   'Locale',
 );
 export interface LocaleBrand {

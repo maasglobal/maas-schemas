@@ -82,7 +82,7 @@ export type EnvironmentUrl = t.Branded<string & Units_.Url, EnvironmentUrlBrand>
 export const EnvironmentUrl = t.brand(
   t.intersection([t.string, Units_.Url]),
   (x): x is t.Branded<string & Units_.Url, EnvironmentUrlBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^https:', 'u')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^https:')) !== null,
   'EnvironmentUrl',
 );
 export interface EnvironmentUrlBrand {

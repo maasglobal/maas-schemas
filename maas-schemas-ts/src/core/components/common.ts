@@ -28,7 +28,7 @@ export type DeviceToken = t.Branded<string, DeviceTokenBrand>;
 export const DeviceToken = t.brand(
   t.string,
   (x): x is t.Branded<string, DeviceTokenBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^([A-Fa-f0-9]{2}){8,64}$', 'u')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^([A-Fa-f0-9]{2}){8,64}$')) !== null,
   'DeviceToken',
 );
 export interface DeviceTokenBrand {
@@ -76,7 +76,8 @@ export const PersonalName = t.brand(
   t.string,
   (x): x is t.Branded<string, PersonalNameBrand> =>
     (typeof x !== 'string' ||
-      x.match(RegExp("^(?:\\p{L})+(?:[`'´\\-\\.,]?\\s?(?:\\p{L})*)*$", 'u')) !== null) &&
+      x.match(RegExp("/^[\\p{L}\\s`'´\\-\\.,]+$/gui")) !== null) &&
+    (typeof x !== 'string' || x.length >= 1) &&
     (typeof x !== 'string' || x.length <= 255),
   'PersonalName',
 );
@@ -89,7 +90,7 @@ export type Phone = t.Branded<string, PhoneBrand>;
 export const Phone = t.brand(
   t.string,
   (x): x is t.Branded<string, PhoneBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^\\+(?:\\d){6,14}\\d$', 'u')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^\\+(?:\\d){6,14}\\d$')) !== null,
   'Phone',
 );
 export interface PhoneBrand {
@@ -103,7 +104,7 @@ export type RawPhone = t.Branded<string, RawPhoneBrand>;
 export const RawPhone = t.brand(
   t.string,
   (x): x is t.Branded<string, RawPhoneBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^\\+?(?:\\d){6,14}\\d$', 'u')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^\\+?(?:\\d){6,14}\\d$')) !== null,
   'RawPhone',
 );
 export interface RawPhoneBrand {
@@ -115,7 +116,7 @@ export type Email = t.Branded<string, EmailBrand>;
 export const Email = t.brand(
   t.string,
   (x): x is t.Branded<string, EmailBrand> =>
-    (typeof x !== 'string' || x.match(RegExp('^.+@.+\\..+$', 'u')) !== null) &&
+    (typeof x !== 'string' || x.match(RegExp('^.+@.+\\..+$')) !== null) &&
     (typeof x !== 'string' || x.length <= 64),
   'Email',
 );
@@ -155,7 +156,7 @@ export type OpaqueId = t.Branded<string, OpaqueIdBrand>;
 export const OpaqueId = t.brand(
   t.string,
   (x): x is t.Branded<string, OpaqueIdBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^[0-9abcdefABCDEF]+$', 'u')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^[0-9abcdefABCDEF]+$')) !== null,
   'OpaqueId',
 );
 export interface OpaqueIdBrand {
@@ -216,7 +217,7 @@ export const WhimDeepLink = t.brand(
   t.string,
   (x): x is t.Branded<string, WhimDeepLinkBrand> =>
     typeof x !== 'string' ||
-    x.match(RegExp('^(whim):\\/\\/\\/[^\\s/$.?#].[^\\s]*$', 'u')) !== null,
+    x.match(RegExp('^(whim):\\/\\/\\/[^\\s/$.?#].[^\\s]*$')) !== null,
   'WhimDeepLink',
 );
 export interface WhimDeepLinkBrand {

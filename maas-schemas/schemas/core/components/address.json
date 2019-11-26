@@ -3,9 +3,9 @@
   "description": "MaaS schema for address related information",
   "definitions": {
     "componentAddress": {
-      "description": "Encoded address components in form country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|streetNumber:6",
+      "description": "Encoded address components. Check the regexr examples. Check https://regexr.com/4ofcq. In streetNumber, there are 2 dashes - they have 2 different unicodes, do not remove",
       "type": "string",
-      "pattern": "^(?:(?:(?:country:(?:\\p{L}|\\s|')+)|(?:state:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:city:(?:\\p{L}|[,\\.:\\-`'´\\s])+)|(?:zipCode:(?:[a-zA-Z0-9 ]{3,10}|(?:\\p{L}|\\d){2,4}(\\s(?:\\p{L}|\\d){2,4})?))|(?:streetName:[^|]+)|(?:streetNumber:\\d+))\\|?){4,6}$"
+      "regexp": "/(streetName:(\\p{L}|\\p{N}|-|\\/| (?=\\p{L}|&|\\p{N})|[#.,;:'&°’])+\\|?)|(city:(\\p{L}|['-]| (?=\\p{L}))+\\|?)|(state:(\\p{L}| (?=\\p{L}))+\\|?)|(zipCode:(\\p{L}|\\p{N}|-)+\\|?)|(country:(\\p{L}| (?=\\p{L}))+)\\|?|(streetNumber:(\\p{L}|\\p{N}|-|-|\\/)+)\\|?|(ward:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?|(district:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?/gui"
     },
     "placeName": {
       "description": "Place name (given in autocomplete)",
@@ -42,7 +42,7 @@
     "countryName": {
       "description": "Alphabetic country name",
       "type": "string",
-      "pattern": "^(?:\\p{L}|\\s|')+$",
+      "regexp": "/^(?:\\p{L}|\\s|')+$/gui",
       "maxLength": 64
     },
     "country": {

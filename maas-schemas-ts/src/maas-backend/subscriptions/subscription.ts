@@ -40,7 +40,7 @@ export type SubscriptionItemId = t.Branded<string, SubscriptionItemIdBrand>;
 export const SubscriptionItemId = t.brand(
   t.string,
   (x): x is t.Branded<string, SubscriptionItemIdBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^[^\\s\\/]{1,50}$', 'u')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^[^\\s\\/]{1,50}$')) !== null,
   'SubscriptionItemId',
 );
 export interface SubscriptionItemIdBrand {
