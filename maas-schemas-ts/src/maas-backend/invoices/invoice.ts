@@ -29,6 +29,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/maas-backend/invoices/invoice.json';
+
 // Invoice
 // The purpose of this remains a mystery
 export type Invoice = t.Branded<
@@ -81,6 +82,7 @@ export const Invoice = t.brand(
 export interface InvoiceBrand {
   readonly Invoice: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

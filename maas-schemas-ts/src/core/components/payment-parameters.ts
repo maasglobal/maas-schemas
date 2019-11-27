@@ -11,6 +11,7 @@ import * as t from 'io-ts';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 
 export const schemaId = 'http://maasglobal.com/core/components/payment-parameters.json';
+
 // StripePaymentParameters
 // The purpose of this remains a mystery
 export type StripePaymentParameters = t.Branded<
@@ -39,6 +40,7 @@ export const StripePaymentParameters = t.brand(
 export interface StripePaymentParametersBrand {
   readonly StripePaymentParameters: unique symbol;
 }
+
 // AvainpayPaymentParameters
 // The purpose of this remains a mystery
 export type AvainpayPaymentParameters = t.Branded<
@@ -162,6 +164,7 @@ export const AvainpayPaymentParameters = t.brand(
 export interface AvainpayPaymentParametersBrand {
   readonly AvainpayPaymentParameters: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

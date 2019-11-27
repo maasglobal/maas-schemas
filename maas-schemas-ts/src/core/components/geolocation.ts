@@ -28,6 +28,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/components/geolocation.json';
+
 // Geometry
 // The purpose of this remains a mystery
 export type Geometry = t.Branded<
@@ -68,6 +69,7 @@ export const Geometry = t.brand(
 export interface GeometryBrand {
   readonly Geometry: unique symbol;
 }
+
 // Properties
 // The purpose of this remains a mystery
 export type Properties = t.Branded<
@@ -123,6 +125,7 @@ export const Properties = t.brand(
 export interface PropertiesBrand {
   readonly Properties: unique symbol;
 }
+
 // Feature
 // The purpose of this remains a mystery
 export type Feature = t.Branded<
@@ -169,6 +172,7 @@ export const Feature = t.brand(
 export interface FeatureBrand {
   readonly Feature: unique symbol;
 }
+
 // FeatureCollection
 // The purpose of this remains a mystery
 export type FeatureCollection = t.Branded<
@@ -209,6 +213,7 @@ export const FeatureCollection = t.brand(
 export interface FeatureCollectionBrand {
   readonly FeatureCollection: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

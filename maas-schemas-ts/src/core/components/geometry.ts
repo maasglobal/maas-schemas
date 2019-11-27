@@ -26,6 +26,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/components/geometry.json';
+
 // Position
 // A single position
 export type Position = t.Branded<[number, number], PositionBrand>;
@@ -38,6 +39,7 @@ export const Position = t.brand(
 export interface PositionBrand {
   readonly Position: unique symbol;
 }
+
 // PositionArray
 // An array of positions
 export type PositionArray = t.Branded<Array<Position>, PositionArrayBrand>;
@@ -49,6 +51,7 @@ export const PositionArray = t.brand(
 export interface PositionArrayBrand {
   readonly PositionArray: unique symbol;
 }
+
 // LineString
 // An array of two or more positions
 export type LineString = t.Branded<PositionArray & unknown, LineStringBrand>;
@@ -60,6 +63,7 @@ export const LineString = t.brand(
 export interface LineStringBrand {
   readonly LineString: unique symbol;
 }
+
 // LinearRing
 // An array of four positions where the first equals the last
 export type LinearRing = t.Branded<PositionArray & unknown, LinearRingBrand>;
@@ -71,6 +75,7 @@ export const LinearRing = t.brand(
 export interface LinearRingBrand {
   readonly LinearRing: unique symbol;
 }
+
 // Polygon
 // An array of linear rings
 export type Polygon = t.Branded<Array<LinearRing>, PolygonBrand>;
@@ -82,6 +87,7 @@ export const Polygon = t.brand(
 export interface PolygonBrand {
   readonly Polygon: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

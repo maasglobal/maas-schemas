@@ -10,6 +10,7 @@ MaaS Invoice Units schema
 import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/maas-backend/invoices/invoiceUnits.json';
+
 // InvoiceId
 // The purpose of this remains a mystery
 export type InvoiceId = t.Branded<string, InvoiceIdBrand>;
@@ -21,6 +22,7 @@ export const InvoiceId = t.brand(
 export interface InvoiceIdBrand {
   readonly InvoiceId: unique symbol;
 }
+
 // InvoiceLineItemId
 // The purpose of this remains a mystery
 export type InvoiceLineItemId = t.Branded<string, InvoiceLineItemIdBrand>;
@@ -33,6 +35,7 @@ export const InvoiceLineItemId = t.brand(
 export interface InvoiceLineItemIdBrand {
   readonly InvoiceLineItemId: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

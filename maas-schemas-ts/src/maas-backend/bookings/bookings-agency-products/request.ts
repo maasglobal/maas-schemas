@@ -30,6 +30,7 @@ const Defined = t.union([
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/bookings/bookings-agency-products/request.json';
+
 // Payload
 // The purpose of this remains a mystery
 export type Payload = t.Branded<
@@ -64,6 +65,7 @@ export const Payload = t.brand(
 export interface PayloadBrand {
   readonly Payload: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

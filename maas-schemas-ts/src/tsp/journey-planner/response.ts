@@ -10,6 +10,7 @@ Response schema for getting journey options from a TSP adapter.
 import * as Response_ from 'maas-schemas-ts/maas-backend/provider/routes/response';
 
 export const schemaId = 'http://maasglobal.com/tsp/journey-planner/response.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = Response_.Default;

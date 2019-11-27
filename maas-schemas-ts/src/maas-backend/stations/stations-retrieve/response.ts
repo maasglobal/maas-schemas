@@ -11,6 +11,7 @@ import * as Response_ from 'maas-schemas-ts/tsp/stations-retrieve/response';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/stations/stations-retrieve/response.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = Response_.Default;

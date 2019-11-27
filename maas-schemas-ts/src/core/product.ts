@@ -27,6 +27,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/product.json';
+
 // Id
 // The purpose of this remains a mystery
 export type Id = t.Branded<string, IdBrand>;
@@ -40,6 +41,7 @@ export const Id = t.brand(
 export interface IdBrand {
   readonly Id: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

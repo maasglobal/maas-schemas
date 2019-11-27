@@ -27,6 +27,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_BICYCLE.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

@@ -10,6 +10,7 @@ Schema for MODE_WALK meta field
 import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_WALK.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<{}, DefaultBrand>;

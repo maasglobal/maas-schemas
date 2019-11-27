@@ -12,6 +12,7 @@ import * as Common_ from 'maas-schemas-ts/core/components/common';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/tsp-auth/validate/request.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

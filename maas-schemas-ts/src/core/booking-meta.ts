@@ -29,6 +29,7 @@ import * as MODE_TAXI_ from 'maas-schemas-ts/core/modes/MODE_TAXI';
 import * as MODE_SCOOTER_ from 'maas-schemas-ts/core/modes/MODE_SCOOTER';
 
 export const schemaId = 'http://maasglobal.com/core/booking-meta.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

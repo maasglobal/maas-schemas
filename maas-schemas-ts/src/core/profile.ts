@@ -33,6 +33,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/profile.json';
+
 // SubscriptionInstance
 // The purpose of this remains a mystery
 export type SubscriptionInstance = t.Branded<
@@ -121,6 +122,7 @@ export const SubscriptionInstance = t.brand(
 export interface SubscriptionInstanceBrand {
   readonly SubscriptionInstance: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<
