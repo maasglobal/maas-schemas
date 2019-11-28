@@ -45,6 +45,7 @@ function init() {
     useDefaults: true,
     validateSchema: false,
     verbose: true,
+    $data: true
   });
   require('ajv-merge-patch')(ajv);
   require('ajv-keywords')(ajv);

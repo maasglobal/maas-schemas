@@ -2,8 +2,10 @@
 
 const AJV = require('ajv');
 const fg = require('fast-glob');
+const extendAjv = require('ajv-keywords');
 
-const ajv = new AJV();
+const ajv = new AJV({ $data: true });
+extendAjv(ajv);
 
 module.exports = async () => {
   // eslint-disable-next-line import/no-dynamic-require
