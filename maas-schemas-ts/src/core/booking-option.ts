@@ -35,6 +35,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/booking-option.json';
+
 // Leg
 // A subset of the standard leg (../core/leg.json)
 export type Leg = t.Branded<
@@ -99,6 +100,7 @@ export const Leg = t.brand(
 export interface LegBrand {
   readonly Leg: unique symbol;
 }
+
 // TspProduct
 // Defines what kind of TSP product the booking option represents.
 export type TspProduct = t.Branded<
@@ -133,10 +135,12 @@ export const TspProduct = t.brand(
 export interface TspProductBrand {
   readonly TspProduct: unique symbol;
 }
+
 // Customer
 // The purpose of this remains a mystery
 export type Customer = Customer_.Default;
 export const Customer = Customer_.Default;
+
 // ContentWithCost
 // The purpose of this remains a mystery
 export type ContentWithCost = t.Branded<
@@ -198,6 +202,7 @@ export const ContentWithCost = t.brand(
 export interface ContentWithCostBrand {
   readonly ContentWithCost: unique symbol;
 }
+
 // ContentWithConfigurator
 // The purpose of this remains a mystery
 export type ContentWithConfigurator = t.Branded<
@@ -259,6 +264,7 @@ export const ContentWithConfigurator = t.brand(
 export interface ContentWithConfiguratorBrand {
   readonly ContentWithConfigurator: unique symbol;
 }
+
 // LegDelta
 // A leg delta, containing any subset of the valid properties
 export type LegDelta = t.Branded<
@@ -299,6 +305,7 @@ export const LegDelta = t.brand(
 export interface LegDeltaBrand {
   readonly LegDelta: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<ContentWithCost | ContentWithConfigurator, DefaultBrand>;

@@ -769,7 +769,8 @@ function constructDefs(defInputs: Array<DefInput>): Array<Def> {
       info('missing description');
     }
     if (examples.length > 0) {
-      imps.add("import * as t from 'io-ts';");
+      imps.add("import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';");
+      imps.add("import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';");
     }
     return {
       typeName,
@@ -825,6 +826,7 @@ log('');
 helpers.forEach(log);
 log('');
 log(`export const schemaId = '${inputSchema.$id}';`);
+log('');
 
 // eslint-disable-next-line
 for (const def of defs) {
@@ -844,8 +846,10 @@ for (const def of defs) {
   if (examples.length > 0) {
     const examplesName = `examples${typeName}`;
     const jsonName = `${examplesName}Json`;
-    log(`export const ${jsonName}: Array<unknown> = ${JSON.stringify(examples)};`);
-    log(`export const ${examplesName} = t.array(${typeName}).decode(${jsonName});`);
+    log(
+      `export const ${jsonName}: NonEmptyArray<unknown> = ${JSON.stringify(examples)};`,
+    );
+    log(`export const ${examplesName} = nonEmptyArray(${typeName}).decode(${jsonName});`);
   }
   if (typeof defaultValue !== 'undefined') {
     const defaultName = `default${typeName}`;
@@ -853,9 +857,9 @@ for (const def of defs) {
     log(`export const ${jsonName}: unknown = ${JSON.stringify(defaultValue)};`);
     log(`export const ${defaultName} = ${typeName}.decode(${jsonName});`);
   }
+  log('');
 }
 
-log('');
 exps.forEach(log);
 log('');
 log('// Success');

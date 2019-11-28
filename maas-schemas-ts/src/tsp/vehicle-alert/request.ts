@@ -10,6 +10,7 @@ Request vehicle to alert itself to users
 import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/tsp/vehicle-alert/request.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

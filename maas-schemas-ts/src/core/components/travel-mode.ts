@@ -10,6 +10,7 @@ Transfer modes used for MaaS internal services
 import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/core/components/travel-mode.json';
+
 // WaitingMode
 // A mode that only involves waiting in the current location
 export type WaitingMode = t.Branded<string & 'WAIT', WaitingModeBrand>;
@@ -21,6 +22,7 @@ export const WaitingMode = t.brand(
 export interface WaitingModeBrand {
   readonly WaitingMode: unique symbol;
 }
+
 // TransferMode
 // A mode that involves changing transports
 export type TransferMode = t.Branded<
@@ -35,6 +37,7 @@ export const TransferMode = t.brand(
 export interface TransferModeBrand {
   readonly TransferMode: unique symbol;
 }
+
 // PersonalMode
 // A mode that involves using your personal vehicle or legs
 export type PersonalMode = t.Branded<
@@ -63,6 +66,7 @@ export const PersonalMode = t.brand(
 export interface PersonalModeBrand {
   readonly PersonalMode: unique symbol;
 }
+
 // PublicTransitMode
 // A mode that involves transit with fixed schedules
 export type PublicTransitMode = t.Branded<
@@ -96,6 +100,7 @@ export const PublicTransitMode = t.brand(
 export interface PublicTransitModeBrand {
   readonly PublicTransitMode: unique symbol;
 }
+
 // PrivateTransitMode
 // A mode that is available on-demand for your personal use
 export type PrivateTransitMode = t.Branded<
@@ -145,6 +150,7 @@ export const PrivateTransitMode = t.brand(
 export interface PrivateTransitModeBrand {
   readonly PrivateTransitMode: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

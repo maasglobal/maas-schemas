@@ -29,6 +29,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/plan.json';
+
 // Itineraries
 // The purpose of this remains a mystery
 export type Itineraries = t.Branded<Array<Itinerary_.Default>, ItinerariesBrand>;
@@ -40,6 +41,7 @@ export const Itineraries = t.brand(
 export interface ItinerariesBrand {
   readonly Itineraries: unique symbol;
 }
+
 // Plan1
 // The purpose of this remains a mystery
 export type Plan1 = t.Branded<
@@ -92,6 +94,7 @@ export const Plan1 = t.brand(
 export interface Plan1Brand {
   readonly Plan1: unique symbol;
 }
+
 // Plan2
 // The purpose of this remains a mystery
 export type Plan2 = t.Branded<
@@ -138,6 +141,7 @@ export const Plan2 = t.brand(
 export interface Plan2Brand {
   readonly Plan2: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<Plan1 | Plan2, DefaultBrand>;

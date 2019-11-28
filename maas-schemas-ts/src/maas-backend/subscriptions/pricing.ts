@@ -29,6 +29,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/maas-backend/subscriptions/pricing.json';
+
 // LineItem
 // An item that is priced with it summaries
 export type LineItem = t.Branded<
@@ -87,6 +88,7 @@ export const LineItem = t.brand(
 export interface LineItemBrand {
   readonly LineItem: unique symbol;
 }
+
 // Discount
 // A discount from coupon or such
 export type Discount = t.Branded<
@@ -127,6 +129,7 @@ export const Discount = t.brand(
 export interface DiscountBrand {
   readonly Discount: unique symbol;
 }
+
 // Terms
 // Terms related to this subscription
 export type Terms = t.Branded<
@@ -182,6 +185,7 @@ export const Terms = t.brand(
 export interface TermsBrand {
   readonly Terms: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

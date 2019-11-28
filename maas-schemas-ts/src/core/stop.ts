@@ -12,6 +12,7 @@ import * as Place_ from 'maas-schemas-ts/core/components/place';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 
 export const schemaId = 'http://maasglobal.com/core/stop.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

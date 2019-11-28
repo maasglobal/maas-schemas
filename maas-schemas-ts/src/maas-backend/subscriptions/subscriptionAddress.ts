@@ -28,6 +28,7 @@ const Defined = t.union([
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/subscriptions/subscriptionAddress.json';
+
 // SubscriptionAddress
 // The purpose of this remains a mystery
 export type SubscriptionAddress = t.Branded<
@@ -83,6 +84,7 @@ export const SubscriptionAddress = t.brand(
 export interface SubscriptionAddressBrand {
   readonly SubscriptionAddress: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

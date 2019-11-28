@@ -29,6 +29,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/components/configurator.json';
+
 // Choice
 // A choice for one customization
 export type Choice = t.Branded<
@@ -90,6 +91,7 @@ export const Choice = t.brand(
 export interface ChoiceBrand {
   readonly Choice: unique symbol;
 }
+
 // Config
 // A customization to the booking option
 export type Config = t.Branded<
@@ -145,6 +147,7 @@ export const Config = t.brand(
 export interface ConfigBrand {
   readonly Config: unique symbol;
 }
+
 // Text
 // Generic text field to pass information from user
 export type Text = t.Branded<
@@ -191,6 +194,7 @@ export const Text = t.brand(
 export interface TextBrand {
   readonly Text: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

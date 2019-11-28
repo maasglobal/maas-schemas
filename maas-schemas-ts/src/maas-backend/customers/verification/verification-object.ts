@@ -29,6 +29,7 @@ const Defined = t.union([
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/verification/verification-object.json';
+
 // Verification
 // The purpose of this remains a mystery
 export type Verification = t.Branded<
@@ -156,6 +157,7 @@ export const Verification = t.brand(
 export interface VerificationBrand {
   readonly Verification: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

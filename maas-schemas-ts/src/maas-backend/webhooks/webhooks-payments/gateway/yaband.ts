@@ -27,6 +27,7 @@ const Defined = t.union([
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/webhooks/webhooks-payments/gateway/yaband.json';
+
 // Request
 // The purpose of this remains a mystery
 export type Request = t.Branded<
@@ -139,6 +140,7 @@ export const Request = t.brand(
 export interface RequestBrand {
   readonly Request: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;
