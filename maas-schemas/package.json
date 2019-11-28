@@ -61,7 +61,7 @@
     "build": "node build.js",
     "ci": "npm run lint-updated && npm run prettier-check-updated && npm run validate-schemas && npm test",
     "prepublish": "node build.js",
-    "docs": "rm -Rf docs && node ./utils/make-docs.js && markdown-folder-to-html && mv _docs docs/html && mv docs/html/README.html docs/html/index.html",
+    "docs": "rm -Rf docs && node ./utils/make-docs.js && markdown-folder-to-html && mv _docs docs/html && cp docs/html/README.html docs/html/index.html",
     "gh-pages": "gh-pages -d docs"
   }
 }
