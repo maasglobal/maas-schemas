@@ -21,6 +21,8 @@ import * as BookingMeta_ from 'maas-schemas-ts/core/booking-meta';
 import * as Customer_ from 'maas-schemas-ts/core/customer';
 import * as Product_ from 'maas-schemas-ts/core/product';
 import * as CustomerSelection_ from 'maas-schemas-ts/core/components/customerSelection';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 type Defined =
   | Record<string, unknown>
@@ -307,7 +309,7 @@ export const Default = t.brand(
 export interface DefaultBrand {
   readonly Default: unique symbol;
 }
-export const examplesDefaultJson: Array<unknown> = [
+export const examplesDefaultJson: NonEmptyArray<unknown> = [
   {
     id: '12345678-ABCD-1234-ABCD-123456789ABC',
     state: 'EXPIRED',
@@ -429,7 +431,7 @@ export const examplesDefaultJson: Array<unknown> = [
     customer: { identityId: 'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958' },
   },
 ];
-export const examplesDefault = t.array(Default).decode(examplesDefaultJson);
+export const examplesDefault = nonEmptyArray(Default).decode(examplesDefaultJson);
 
 export default Default;
 

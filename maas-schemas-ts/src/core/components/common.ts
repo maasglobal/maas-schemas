@@ -8,6 +8,8 @@ MaaS common components that are used consistently within our own objects
 */
 
 import * as t from 'io-ts';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export const schemaId = 'http://maasglobal.com/core/components/common.json';
 
@@ -103,8 +105,8 @@ export const Phone = t.brand(
 export interface PhoneBrand {
   readonly Phone: unique symbol;
 }
-export const examplesPhoneJson: Array<unknown> = ['+358401234567'];
-export const examplesPhone = t.array(Phone).decode(examplesPhoneJson);
+export const examplesPhoneJson: NonEmptyArray<unknown> = ['+358401234567'];
+export const examplesPhone = nonEmptyArray(Phone).decode(examplesPhoneJson);
 
 // RawPhone
 // Slightly looser definition of phone number
@@ -132,8 +134,8 @@ export const Email = t.brand(
 export interface EmailBrand {
   readonly Email: unique symbol;
 }
-export const examplesEmailJson: Array<unknown> = ['joe.customer@example.com'];
-export const examplesEmail = t.array(Email).decode(examplesEmailJson);
+export const examplesEmailJson: NonEmptyArray<unknown> = ['joe.customer@example.com'];
+export const examplesEmail = nonEmptyArray(Email).decode(examplesEmailJson);
 
 // PaymentSourceId
 // The purpose of this remains a mystery

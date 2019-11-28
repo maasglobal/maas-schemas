@@ -10,6 +10,8 @@ The base environments object with several environment groups and related meta da
 import * as t from 'io-ts';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 type Defined =
   | Record<string, unknown>
@@ -186,7 +188,7 @@ export const Environment = t.brand(
 export interface EnvironmentBrand {
   readonly Environment: unique symbol;
 }
-export const examplesEnvironmentJson: Array<unknown> = [
+export const examplesEnvironmentJson: NonEmptyArray<unknown> = [
   {
     id: 'production',
     api: 'https://production.example.com/api/',
@@ -195,7 +197,9 @@ export const examplesEnvironmentJson: Array<unknown> = [
     description: 'Production environment',
   },
 ];
-export const examplesEnvironment = t.array(Environment).decode(examplesEnvironmentJson);
+export const examplesEnvironment = nonEmptyArray(Environment).decode(
+  examplesEnvironmentJson,
+);
 
 // DevEnvironment
 // The purpose of this remains a mystery
@@ -236,7 +240,7 @@ export const DevEnvironment = t.brand(
 export interface DevEnvironmentBrand {
   readonly DevEnvironment: unique symbol;
 }
-export const examplesDevEnvironmentJson: Array<unknown> = [
+export const examplesDevEnvironmentJson: NonEmptyArray<unknown> = [
   {
     id: 'testing',
     api: 'https://testing.example.com/api/',
@@ -245,9 +249,9 @@ export const examplesDevEnvironmentJson: Array<unknown> = [
     description: 'Testing environment',
   },
 ];
-export const examplesDevEnvironment = t
-  .array(DevEnvironment)
-  .decode(examplesDevEnvironmentJson);
+export const examplesDevEnvironment = nonEmptyArray(DevEnvironment).decode(
+  examplesDevEnvironmentJson,
+);
 
 // EnvironmentGroupName
 // The purpose of this remains a mystery
@@ -354,7 +358,7 @@ export const Default = t.brand(
 export interface DefaultBrand {
   readonly Default: unique symbol;
 }
-export const examplesDefaultJson: Array<unknown> = [
+export const examplesDefaultJson: NonEmptyArray<unknown> = [
   {
     index: [
       {
@@ -392,7 +396,7 @@ export const examplesDefaultJson: Array<unknown> = [
     ],
   },
 ];
-export const examplesDefault = t.array(Default).decode(examplesDefaultJson);
+export const examplesDefault = nonEmptyArray(Default).decode(examplesDefaultJson);
 
 export default Default;
 

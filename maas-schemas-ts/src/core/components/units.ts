@@ -8,6 +8,8 @@ MaaS common units that are used consistently within our own objects
 */
 
 import * as t from 'io-ts';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export const schemaId = 'http://maasglobal.com/core/components/units.json';
 
@@ -24,8 +26,10 @@ export const Uuid = t.brand(
 export interface UuidBrand {
   readonly Uuid: unique symbol;
 }
-export const examplesUuidJson: Array<unknown> = ['4828507e-683f-41bf-9d87-689808fbf958'];
-export const examplesUuid = t.array(Uuid).decode(examplesUuidJson);
+export const examplesUuidJson: NonEmptyArray<unknown> = [
+  '4828507e-683f-41bf-9d87-689808fbf958',
+];
+export const examplesUuid = nonEmptyArray(Uuid).decode(examplesUuidJson);
 
 // Url
 // Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex
@@ -74,12 +78,12 @@ export const ObsoleteIdentityId = t.brand(
 export interface ObsoleteIdentityIdBrand {
   readonly ObsoleteIdentityId: unique symbol;
 }
-export const examplesObsoleteIdentityIdJson: Array<unknown> = [
+export const examplesObsoleteIdentityIdJson: NonEmptyArray<unknown> = [
   'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
 ];
-export const examplesObsoleteIdentityId = t
-  .array(ObsoleteIdentityId)
-  .decode(examplesObsoleteIdentityIdJson);
+export const examplesObsoleteIdentityId = nonEmptyArray(ObsoleteIdentityId).decode(
+  examplesObsoleteIdentityIdJson,
+);
 
 // IdentityId
 // The purpose of this remains a mystery
@@ -92,11 +96,13 @@ export const IdentityId = t.brand(
 export interface IdentityIdBrand {
   readonly IdentityId: unique symbol;
 }
-export const examplesIdentityIdJson: Array<unknown> = [
+export const examplesIdentityIdJson: NonEmptyArray<unknown> = [
   'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
   '4828507e-683f-41bf-9d87-689808fbf958',
 ];
-export const examplesIdentityId = t.array(IdentityId).decode(examplesIdentityIdJson);
+export const examplesIdentityId = nonEmptyArray(IdentityId).decode(
+  examplesIdentityIdJson,
+);
 
 // Currency
 // Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1
