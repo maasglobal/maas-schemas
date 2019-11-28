@@ -34,26 +34,32 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/leg.json';
+
 // State
 // The purpose of this remains a mystery
 export type State = State_.LegState;
 export const State = State_.LegState;
+
 // From
 // The purpose of this remains a mystery
 export type From = Place_.Default;
 export const From = Place_.Default;
+
 // To
 // The purpose of this remains a mystery
 export type To = Place_.Default;
 export const To = Place_.Default;
+
 // StartTime
 // The purpose of this remains a mystery
 export type StartTime = Units_.Time;
 export const StartTime = Units_.Time;
+
 // EndTime
 // The purpose of this remains a mystery
 export type EndTime = Units_.Time;
 export const EndTime = Units_.Time;
+
 // Mode
 // The purpose of this remains a mystery
 export type Mode = t.Branded<
@@ -81,6 +87,7 @@ export const Mode = t.brand(
 export interface ModeBrand {
   readonly Mode: unique symbol;
 }
+
 // Stops
 // The purpose of this remains a mystery
 export type Stops = t.Branded<Array<Stop_.Default>, StopsBrand>;
@@ -92,18 +99,22 @@ export const Stops = t.brand(
 export interface StopsBrand {
   readonly Stops: unique symbol;
 }
+
 // DepartureDelay
 // The purpose of this remains a mystery
 export type DepartureDelay = Units_.Duration;
 export const DepartureDelay = Units_.Duration;
+
 // ArrivalDelay
 // The purpose of this remains a mystery
 export type ArrivalDelay = Units_.Duration;
 export const ArrivalDelay = Units_.Duration;
+
 // Distance
 // The purpose of this remains a mystery
 export type Distance = UnitsGeo_.Distance;
 export const Distance = UnitsGeo_.Distance;
+
 // Route
 // The purpose of this remains a mystery
 export type Route = t.Branded<string, RouteBrand>;
@@ -117,6 +128,7 @@ export const Route = t.brand(
 export interface RouteBrand {
   readonly Route: unique symbol;
 }
+
 // RouteShortName
 // The purpose of this remains a mystery
 export type RouteShortName = t.Branded<string, RouteShortNameBrand>;
@@ -129,6 +141,7 @@ export const RouteShortName = t.brand(
 export interface RouteShortNameBrand {
   readonly RouteShortName: unique symbol;
 }
+
 // RouteLongName
 // The purpose of this remains a mystery
 export type RouteLongName = t.Branded<string, RouteLongNameBrand>;
@@ -142,10 +155,12 @@ export const RouteLongName = t.brand(
 export interface RouteLongNameBrand {
   readonly RouteLongName: unique symbol;
 }
+
 // AgencyId
 // The purpose of this remains a mystery
 export type AgencyId = Common_.AgencyId;
 export const AgencyId = Common_.AgencyId;
+
 // LegGeometry
 // The purpose of this remains a mystery
 export type LegGeometry = t.Branded<
@@ -171,10 +186,12 @@ export const LegGeometry = t.brand(
 export interface LegGeometryBrand {
   readonly LegGeometry: unique symbol;
 }
+
 // TspProduct
 // The purpose of this remains a mystery
 export type TspProduct = BookingOption_.TspProduct;
 export const TspProduct = BookingOption_.TspProduct;
+
 // ProductOption
 // Index of the productOption used in the itinerary's productOptions
 export type ProductOption = t.Branded<number, ProductOptionBrand>;
@@ -186,6 +203,7 @@ export const ProductOption = t.brand(
 export interface ProductOptionBrand {
   readonly ProductOption: unique symbol;
 }
+
 // LegExtensions
 // MaaS specific leg extensions
 export type LegExtensions = t.Branded<
@@ -214,6 +232,7 @@ export const LegExtensions = t.brand(
 export interface LegExtensionsBrand {
   readonly LegExtensions: unique symbol;
 }
+
 // LegCore
 // The purpose of this remains a mystery
 export type LegCore = t.Branded<
@@ -311,6 +330,7 @@ export const LegCore = t.brand(
 export interface LegCoreBrand {
   readonly LegCore: unique symbol;
 }
+
 // WaitingLeg
 // The purpose of this remains a mystery
 export type WaitingLeg = t.Branded<
@@ -357,6 +377,7 @@ export const WaitingLeg = t.brand(
 export interface WaitingLegBrand {
   readonly WaitingLeg: unique symbol;
 }
+
 // TransferLeg
 // The purpose of this remains a mystery
 export type TransferLeg = t.Branded<
@@ -403,6 +424,7 @@ export const TransferLeg = t.brand(
 export interface TransferLegBrand {
   readonly TransferLeg: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

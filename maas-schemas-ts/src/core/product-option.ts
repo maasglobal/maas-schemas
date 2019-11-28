@@ -34,6 +34,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/product-option.json';
+
 // Ref
 // numeric key for connecting productOption with leg.productOption
 export type Ref = t.Branded<number, RefBrand>;
@@ -45,6 +46,7 @@ export const Ref = t.brand(
 export interface RefBrand {
   readonly Ref: unique symbol;
 }
+
 // WithConfigurator
 // Works with configurator
 export type WithConfigurator = t.Branded<
@@ -109,6 +111,7 @@ export const WithConfigurator = t.brand(
 export interface WithConfiguratorBrand {
   readonly WithConfigurator: unique symbol;
 }
+
 // WithFares
 // Works with fares
 export type WithFares = t.Branded<
@@ -173,6 +176,7 @@ export const WithFares = t.brand(
 export interface WithFaresBrand {
   readonly WithFares: unique symbol;
 }
+
 // WithCost
 // Works with cost
 export type WithCost = t.Branded<
@@ -237,6 +241,7 @@ export const WithCost = t.brand(
 export interface WithCostBrand {
   readonly WithCost: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<WithConfigurator | WithFares | WithCost, DefaultBrand>;

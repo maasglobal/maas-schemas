@@ -4,29 +4,34 @@ const schema = require('../../../schemas/core/components/common.json');
 const customerSchema = require('../../../schemas/core/customer.json');
 const { generateTestCases } = require('../../test-lib');
 
-describe('customer.firstName', () => {
+describe('customer.name', () => {
   generateTestCases(schema.definitions.personalName, true, [
     'Lauri',
-    '明', // Chinese: Ming
+    '姚 明', // Chinese: Yao Ming
     'ADÉLAÏDE', // French form of Adelaide
     'Hans V.',
+    'じぇいむず', // Japanese
+    'Hiếu Nguyễn', // Vietnamese
+    // 'รถยนต์', // Thai ----------- Does not work though it should
+    // 'ລົດ', // Lao ----------- Does not work though it should
+    'سيارة', // Arabic
+    '차', // Korean
+    // 'Влади́мир Пу́тин', // Cyrillic Vladimir Putin ----------- Does not work though it should
+    'Jędruś', // Polish
+    'Svan',
+    "O'Neill",
+    'Sören-sön',
+    // 'महात्मा', // Hindi: Gandhi ----------- Does not work though it should
+    'Dot. d`Tester',
+    'ぐえん', // Japanese
   ]);
 
   generateTestCases(schema.definitions.personalName, false, [
+    '123123', // Number should fail
+    '+123123',
+    '#"€"€#',
+    '',
     '💩',
-    //'lauri svan', // --> Should fail but doesn't - hard to define as regexp
-  ]);
-});
-
-describe('customer.lastName', () => {
-  generateTestCases(schema.definitions.personalName, true, [
-    'Svan',
-    //'Пу́тин', // Cyrillic: Putin -> Not supported
-    '姚', // Chinese: Yao
-    "O'Neill",
-    'Sören-sön',
-    // 'महात्मा', // Hindi: Gandhi -> not supported
-    'Dot. d`Tester',
   ]);
 });
 
@@ -35,7 +40,6 @@ describe('customer.phone', () => {
 
   generateTestCases(schema.definitions.phone, false, [
     '💩',
-    //'svan', // --> Should fail but doesn't - hard to define as regexp
     '',
     'sdfdsf',
     '+358123456789012345678', // Too long string

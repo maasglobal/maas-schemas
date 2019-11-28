@@ -10,6 +10,7 @@ Subscription option's point cost
 import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/core/components/point-cost.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<number, DefaultBrand>;

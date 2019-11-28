@@ -13,6 +13,7 @@ import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as State_ from 'maas-schemas-ts/core/components/state';
 
 export const schemaId = 'http://maasglobal.com/core/iot-thing-shadow.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

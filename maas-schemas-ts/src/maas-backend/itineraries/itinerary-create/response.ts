@@ -29,6 +29,7 @@ const Defined = t.union([
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/itineraries/itinerary-create/response.json';
+
 // PaymentParameter
 // The purpose of this remains a mystery
 export type PaymentParameter = t.Branded<
@@ -57,6 +58,7 @@ export const PaymentParameter = t.brand(
 export interface PaymentParameterBrand {
   readonly PaymentParameter: unique symbol;
 }
+
 // PaymentParameters
 // Payment parameters for asynchronous payment methods
 export type PaymentParameters = t.Branded<
@@ -74,6 +76,7 @@ export const PaymentParameters = t.brand(
 export interface PaymentParametersBrand {
   readonly PaymentParameters: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

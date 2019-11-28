@@ -13,6 +13,7 @@ import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_TAXI.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

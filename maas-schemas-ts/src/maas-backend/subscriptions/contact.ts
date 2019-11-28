@@ -29,10 +29,12 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/maas-backend/subscriptions/contact.json';
+
 // IdentityId
 // The purpose of this remains a mystery
 export type IdentityId = Units_.IdentityId;
 export const IdentityId = Units_.IdentityId;
+
 // ContactBase
 // The purpose of this remains a mystery
 export type ContactBase = t.Branded<
@@ -82,6 +84,7 @@ export const ContactBase = t.brand(
 export interface ContactBaseBrand {
   readonly ContactBase: unique symbol;
 }
+
 // StripePaymentMethod
 // The payment (gateway) method info; no credit cards here
 export type StripePaymentMethod = t.Branded<
@@ -122,6 +125,7 @@ export const StripePaymentMethod = t.brand(
 export interface StripePaymentMethodBrand {
   readonly StripePaymentMethod: unique symbol;
 }
+
 // CreditCardPaymentMethod
 // Credit card based payment (only for testing)
 export type CreditCardPaymentMethod = t.Branded<
@@ -180,6 +184,7 @@ export const CreditCardPaymentMethod = t.brand(
 export interface CreditCardPaymentMethodBrand {
   readonly CreditCardPaymentMethod: unique symbol;
 }
+
 // NewPaymentMethod
 // The purpose of this remains a mystery
 export type NewPaymentMethod = t.Branded<
@@ -199,6 +204,7 @@ export const NewPaymentMethod = t.brand(
 export interface NewPaymentMethodBrand {
   readonly NewPaymentMethod: unique symbol;
 }
+
 // NewContact
 // The purpose of this remains a mystery
 export type NewContact = t.Branded<
@@ -239,6 +245,7 @@ export const NewContact = t.brand(
 export interface NewContactBrand {
   readonly NewContact: unique symbol;
 }
+
 // ContactUpdate
 // The purpose of this remains a mystery
 export type ContactUpdate = t.Branded<
@@ -276,6 +283,7 @@ export const ContactUpdate = t.brand(
 export interface ContactUpdateBrand {
   readonly ContactUpdate: unique symbol;
 }
+
 // PaymentMethodResponse
 // The payment (gateway) method info; no credit cards here
 export type PaymentMethodResponse = t.Branded<
@@ -316,6 +324,7 @@ export const PaymentMethodResponse = t.brand(
 export interface PaymentMethodResponseBrand {
   readonly PaymentMethodResponse: unique symbol;
 }
+
 // ContactResponse
 // The purpose of this remains a mystery
 export type ContactResponse = t.Branded<
@@ -356,6 +365,7 @@ export const ContactResponse = t.brand(
 export interface ContactResponseBrand {
   readonly ContactResponse: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

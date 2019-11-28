@@ -34,22 +34,25 @@ const Defined = t.union([
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/subscriptions/subscription.json';
+
 // SubscriptionItemId
 // Identifier for matching the plans (Chargebee compat.)
 export type SubscriptionItemId = t.Branded<string, SubscriptionItemIdBrand>;
 export const SubscriptionItemId = t.brand(
   t.string,
   (x): x is t.Branded<string, SubscriptionItemIdBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^[^\\s\\/]{1,50}$', 'u')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^[^\\s\\/]{1,50}$')) !== null,
   'SubscriptionItemId',
 );
 export interface SubscriptionItemIdBrand {
   readonly SubscriptionItemId: unique symbol;
 }
+
 // Price
 // The purpose of this remains a mystery
 export type Price = Cost_.Default;
 export const Price = Cost_.Default;
+
 // Plan
 // Customer subscription plan
 export type Plan = t.Branded<
@@ -93,6 +96,7 @@ export const Plan = t.brand(
 export interface PlanBrand {
   readonly Plan: unique symbol;
 }
+
 // Addon
 // Customer subscription add-ons
 export type Addon = t.Branded<
@@ -145,6 +149,7 @@ export const Addon = t.brand(
 export interface AddonBrand {
   readonly Addon: unique symbol;
 }
+
 // Coupon
 // Additional coupon that may provide discounts
 export type Coupon = t.Branded<
@@ -185,6 +190,7 @@ export const Coupon = t.brand(
 export interface CouponBrand {
   readonly Coupon: unique symbol;
 }
+
 // Terms
 // Terms related to this subscription
 export type Terms = t.Branded<
@@ -249,6 +255,7 @@ export const Terms = t.brand(
 export interface TermsBrand {
   readonly Terms: unique symbol;
 }
+
 // SubscriptionBase
 // The purpose of this remains a mystery
 export type SubscriptionBase = t.Branded<
@@ -331,18 +338,22 @@ export const SubscriptionBase = t.brand(
 export interface SubscriptionBaseBrand {
   readonly SubscriptionBase: unique symbol;
 }
+
 // Subscription
 // The purpose of this remains a mystery
 export type Subscription = SubscriptionBase;
 export const Subscription = SubscriptionBase;
+
 // SubscriptionCreatePayload
 // The purpose of this remains a mystery
 export type SubscriptionCreatePayload = SubscriptionBase;
 export const SubscriptionCreatePayload = SubscriptionBase;
+
 // SubscriptionUpdatePayload
 // The purpose of this remains a mystery
 export type SubscriptionUpdatePayload = SubscriptionBase;
 export const SubscriptionUpdatePayload = SubscriptionBase;
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

@@ -10,6 +10,7 @@ Customer Selection for Configurator
 import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/core/components/customerSelection.json';
+
 // ConfigChoiceSelection
 // customerSelection format for configurator config type - choice
 export type ConfigChoiceSelection = t.Branded<Array<string>, ConfigChoiceSelectionBrand>;
@@ -21,6 +22,7 @@ export const ConfigChoiceSelection = t.brand(
 export interface ConfigChoiceSelectionBrand {
   readonly ConfigChoiceSelection: unique symbol;
 }
+
 // TextInputSelection
 // customerSelection format for configurator config type - text
 export type TextInputSelection = t.Branded<string, TextInputSelectionBrand>;
@@ -33,6 +35,7 @@ export const TextInputSelection = t.brand(
 export interface TextInputSelectionBrand {
   readonly TextInputSelection: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

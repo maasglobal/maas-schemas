@@ -21,6 +21,8 @@ import * as BookingMeta_ from 'maas-schemas-ts/core/booking-meta';
 import * as Customer_ from 'maas-schemas-ts/core/customer';
 import * as Product_ from 'maas-schemas-ts/core/product';
 import * as CustomerSelection_ from 'maas-schemas-ts/core/components/customerSelection';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 type Defined =
   | Record<string, unknown>
@@ -39,10 +41,12 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/booking.json#';
+
 // Id
 // The purpose of this remains a mystery
 export type Id = Units_.Uuid;
 export const Id = Units_.Uuid;
+
 // Fares
 // The purpose of this remains a mystery
 export type Fares = t.Branded<Array<Fare_.Default>, FaresBrand>;
@@ -54,14 +58,17 @@ export const Fares = t.brand(
 export interface FaresBrand {
   readonly Fares: unique symbol;
 }
+
 // Cost
 // The purpose of this remains a mystery
 export type Cost = Cost_.Default;
 export const Cost = Cost_.Default;
+
 // Configurator
 // The purpose of this remains a mystery
 export type Configurator = Configurator_.Default;
 export const Configurator = Configurator_.Default;
+
 // TspId
 // The purpose of this remains a mystery
 export type TspId = t.Branded<string, TspIdBrand>;
@@ -75,6 +82,7 @@ export const TspId = t.brand(
 export interface TspIdBrand {
   readonly TspId: unique symbol;
 }
+
 // Leg
 // MaaS response may return any subset of legCore
 export type Leg = t.Branded<
@@ -151,10 +159,12 @@ export const Leg = t.brand(
 export interface LegBrand {
   readonly Leg: unique symbol;
 }
+
 // Terms
 // The purpose of this remains a mystery
 export type Terms = Terms_.Default;
 export const Terms = Terms_.Default;
+
 // Token
 // The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.
 export type Token = t.Branded<
@@ -195,6 +205,7 @@ export const Token = t.brand(
 export interface TokenBrand {
   readonly Token: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<
@@ -298,7 +309,8 @@ export const Default = t.brand(
 export interface DefaultBrand {
   readonly Default: unique symbol;
 }
-export const examplesDefaultJson: Array<unknown> = [
+/** examplesDefault // => { _tag: 'Right', right: examplesDefaultJson } */
+export const examplesDefaultJson: NonEmptyArray<unknown> = [
   {
     id: '12345678-ABCD-1234-ABCD-123456789ABC',
     state: 'EXPIRED',
@@ -420,7 +432,7 @@ export const examplesDefaultJson: Array<unknown> = [
     customer: { identityId: 'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958' },
   },
 ];
-export const examplesDefault = t.array(Default).decode(examplesDefaultJson);
+export const examplesDefault = nonEmptyArray(Default).decode(examplesDefaultJson);
 
 export default Default;
 

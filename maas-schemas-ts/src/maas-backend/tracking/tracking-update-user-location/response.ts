@@ -11,6 +11,7 @@ import * as t from 'io-ts';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/tracking/tracking-update-user-location/response.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

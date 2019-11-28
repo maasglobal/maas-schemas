@@ -33,10 +33,12 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/itinerary.json';
+
 // Id
 // The purpose of this remains a mystery
 export type Id = Units_.Uuid;
 export const Id = Units_.Uuid;
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

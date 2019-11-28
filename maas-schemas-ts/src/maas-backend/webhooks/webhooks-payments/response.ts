@@ -27,6 +27,7 @@ const Defined = t.union([
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/webhooks/webhooks-payments/response.json';
+
 // AvainpayResponse
 // The purpose of this remains a mystery
 export type AvainpayResponse = t.Branded<
@@ -88,6 +89,7 @@ export const AvainpayResponse = t.brand(
 export interface AvainpayResponseBrand {
   readonly AvainpayResponse: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<AvainpayResponse, DefaultBrand>;

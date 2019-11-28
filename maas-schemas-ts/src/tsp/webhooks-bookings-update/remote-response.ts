@@ -31,6 +31,7 @@ const Defined = t.union([
 
 export const schemaId =
   'http://maasglobal.com/tsp/webhooks-bookings-update/remote-response.json';
+
 // BookingDelta
 // The purpose of this remains a mystery
 export type BookingDelta = t.Branded<
@@ -105,6 +106,7 @@ export const BookingDelta = t.brand(
 export interface BookingDeltaBrand {
   readonly BookingDelta: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

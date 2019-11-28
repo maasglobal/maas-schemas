@@ -33,6 +33,7 @@ const Defined = t.union([
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/itineraries/itinerary-update/request.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

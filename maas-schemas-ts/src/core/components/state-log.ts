@@ -28,18 +28,20 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/components/state-log.json';
+
 // ObsoleteTime
 // The purpose of this remains a mystery
 export type ObsoleteTime = t.Branded<string, ObsoleteTimeBrand>;
 export const ObsoleteTime = t.brand(
   t.string,
   (x): x is t.Branded<string, ObsoleteTimeBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^[0-9]+$', 'u')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^[0-9]+$')) !== null,
   'ObsoleteTime',
 );
 export interface ObsoleteTimeBrand {
   readonly ObsoleteTime: unique symbol;
 }
+
 // BookingStateTransition
 // The purpose of this remains a mystery
 export type BookingStateTransition = t.Branded<
@@ -101,6 +103,7 @@ export const BookingStateTransition = t.brand(
 export interface BookingStateTransitionBrand {
   readonly BookingStateTransition: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<Array<BookingStateTransition>, DefaultBrand>;

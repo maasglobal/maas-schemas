@@ -10,6 +10,8 @@ The base environments object with several environment groups and related meta da
 import * as t from 'io-ts';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 type Defined =
   | Record<string, unknown>
@@ -28,6 +30,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/environments/environments.json';
+
 // Developer
 // The purpose of this remains a mystery
 export type Developer = t.Branded<
@@ -65,6 +68,7 @@ export const Developer = t.brand(
 export interface DeveloperBrand {
   readonly Developer: unique symbol;
 }
+
 // EnvironmentId
 // The purpose of this remains a mystery
 export type EnvironmentId = t.Branded<string, EnvironmentIdBrand>;
@@ -76,18 +80,20 @@ export const EnvironmentId = t.brand(
 export interface EnvironmentIdBrand {
   readonly EnvironmentId: unique symbol;
 }
+
 // EnvironmentUrl
 // The purpose of this remains a mystery
 export type EnvironmentUrl = t.Branded<string & Units_.Url, EnvironmentUrlBrand>;
 export const EnvironmentUrl = t.brand(
   t.intersection([t.string, Units_.Url]),
   (x): x is t.Branded<string & Units_.Url, EnvironmentUrlBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^https:', 'u')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^https:')) !== null,
   'EnvironmentUrl',
 );
 export interface EnvironmentUrlBrand {
   readonly EnvironmentUrl: unique symbol;
 }
+
 // EnvironmentLive
 // Live environments are connected to actual payment and TSP services
 export type EnvironmentLive = t.Branded<boolean, EnvironmentLiveBrand>;
@@ -99,6 +105,7 @@ export const EnvironmentLive = t.brand(
 export interface EnvironmentLiveBrand {
   readonly EnvironmentLive: unique symbol;
 }
+
 // EnvironmentName
 // The purpose of this remains a mystery
 export type EnvironmentName = t.Branded<string, EnvironmentNameBrand>;
@@ -110,6 +117,7 @@ export const EnvironmentName = t.brand(
 export interface EnvironmentNameBrand {
   readonly EnvironmentName: unique symbol;
 }
+
 // EnvironmentDescription
 // The purpose of this remains a mystery
 export type EnvironmentDescription = t.Branded<string, EnvironmentDescriptionBrand>;
@@ -121,6 +129,7 @@ export const EnvironmentDescription = t.brand(
 export interface EnvironmentDescriptionBrand {
   readonly EnvironmentDescription: unique symbol;
 }
+
 // Environment
 // The purpose of this remains a mystery
 export type Environment = t.Branded<
@@ -179,7 +188,8 @@ export const Environment = t.brand(
 export interface EnvironmentBrand {
   readonly Environment: unique symbol;
 }
-export const examplesEnvironmentJson: Array<unknown> = [
+/** examplesEnvironment // => { _tag: 'Right', right: examplesEnvironmentJson } */
+export const examplesEnvironmentJson: NonEmptyArray<unknown> = [
   {
     id: 'production',
     api: 'https://production.example.com/api/',
@@ -188,7 +198,10 @@ export const examplesEnvironmentJson: Array<unknown> = [
     description: 'Production environment',
   },
 ];
-export const examplesEnvironment = t.array(Environment).decode(examplesEnvironmentJson);
+export const examplesEnvironment = nonEmptyArray(Environment).decode(
+  examplesEnvironmentJson,
+);
+
 // DevEnvironment
 // The purpose of this remains a mystery
 export type DevEnvironment = t.Branded<
@@ -228,7 +241,8 @@ export const DevEnvironment = t.brand(
 export interface DevEnvironmentBrand {
   readonly DevEnvironment: unique symbol;
 }
-export const examplesDevEnvironmentJson: Array<unknown> = [
+/** examplesDevEnvironment // => { _tag: 'Right', right: examplesDevEnvironmentJson } */
+export const examplesDevEnvironmentJson: NonEmptyArray<unknown> = [
   {
     id: 'testing',
     api: 'https://testing.example.com/api/',
@@ -237,9 +251,10 @@ export const examplesDevEnvironmentJson: Array<unknown> = [
     description: 'Testing environment',
   },
 ];
-export const examplesDevEnvironment = t
-  .array(DevEnvironment)
-  .decode(examplesDevEnvironmentJson);
+export const examplesDevEnvironment = nonEmptyArray(DevEnvironment).decode(
+  examplesDevEnvironmentJson,
+);
+
 // EnvironmentGroupName
 // The purpose of this remains a mystery
 export type EnvironmentGroupName = t.Branded<string, EnvironmentGroupNameBrand>;
@@ -251,6 +266,7 @@ export const EnvironmentGroupName = t.brand(
 export interface EnvironmentGroupNameBrand {
   readonly EnvironmentGroupName: unique symbol;
 }
+
 // EnvironmentGroupDescription
 // The purpose of this remains a mystery
 export type EnvironmentGroupDescription = t.Branded<
@@ -265,6 +281,7 @@ export const EnvironmentGroupDescription = t.brand(
 export interface EnvironmentGroupDescriptionBrand {
   readonly EnvironmentGroupDescription: unique symbol;
 }
+
 // EnvironmentGroup
 // The purpose of this remains a mystery
 export type EnvironmentGroup = t.Branded<
@@ -308,6 +325,7 @@ export const EnvironmentGroup = t.brand(
 export interface EnvironmentGroupBrand {
   readonly EnvironmentGroup: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<
@@ -342,7 +360,8 @@ export const Default = t.brand(
 export interface DefaultBrand {
   readonly Default: unique symbol;
 }
-export const examplesDefaultJson: Array<unknown> = [
+/** examplesDefault // => { _tag: 'Right', right: examplesDefaultJson } */
+export const examplesDefaultJson: NonEmptyArray<unknown> = [
   {
     index: [
       {
@@ -380,7 +399,7 @@ export const examplesDefaultJson: Array<unknown> = [
     ],
   },
 ];
-export const examplesDefault = t.array(Default).decode(examplesDefaultJson);
+export const examplesDefault = nonEmptyArray(Default).decode(examplesDefaultJson);
 
 export default Default;
 

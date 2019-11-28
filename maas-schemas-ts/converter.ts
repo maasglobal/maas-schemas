@@ -5,6 +5,47 @@ import * as path from 'path';
 import * as gen from 'io-ts-codegen';
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema';
 
+// START: Ajv Schema Helpers https://github.com/epoberezkin/ajv-keywords
+
+type AjvKeywordsRegexpString = string;
+type AjvKeywordsRegexpObject = {
+  pattern: string;
+  flags: string;
+};
+type AjvKeywordsRegexp = AjvKeywordsRegexpString | AjvKeywordsRegexpObject;
+
+type AjvKeywords = { regexp: AjvKeywordsRegexp };
+
+type AjvSchema = JSONSchema7 & AjvKeywords;
+
+function isRegexpString(regexp: AjvKeywordsRegexp): regexp is AjvKeywordsRegexpString {
+  return typeof regexp === 'string';
+}
+
+function isRegexpObject(regexp: AjvKeywordsRegexp): regexp is AjvKeywordsRegexpObject {
+  return typeof regexp === 'object';
+}
+
+function regexpObjectFromString(
+  regexp: AjvKeywordsRegexpString,
+): AjvKeywordsRegexpObject {
+  const pattern = regexp
+    .split('/')
+    .slice(1, -1)
+    .join('/');
+  const [flags] = regexp.split('/').slice(-1);
+  return { pattern, flags };
+}
+
+function getRegexpObject(regexp: AjvKeywordsRegexp): AjvKeywordsRegexpObject {
+  if (isRegexpString(regexp)) {
+    return regexpObjectFromString(regexp);
+  }
+  return regexp;
+}
+
+// END: Ajv Schema Helpers
+
 const createHelper = (d: gen.TypeDeclaration) =>
   `\n${gen.printStatic(d)}\n${gen.printRuntime(d)}\n`;
 
@@ -50,6 +91,7 @@ const supportedAtRoot = [
   'minLength',
   'maxLength',
   'pattern',
+  'regexp',
   'minItems',
   'maxItems',
   'uniqueItems',
@@ -258,7 +300,14 @@ function toArrayCombinator(schema: JSONSchema7): gen.TypeReference {
 
 function checkPattern(x: string, pattern: string): string {
   const stringLiteral = JSON.stringify(pattern);
-  return `( typeof x !== 'string' || ${x}.match(RegExp(${stringLiteral}, 'u')) !== null )`;
+  return `( typeof x !== 'string' || ${x}.match(RegExp(${stringLiteral})) !== null )`;
+}
+
+function checkRegexp(x: string, regexp: AjvKeywordsRegexp): string {
+  const { pattern, flags } = getRegexpObject(regexp);
+  const patternLiteral = JSON.stringify(pattern);
+  const flagsLiteral = JSON.stringify(flags);
+  return `( typeof x !== 'string' || ${x}.match(RegExp(${patternLiteral}, ${flagsLiteral})) !== null )`;
 }
 
 function checkMinLength(x: string, minLength: number): string {
@@ -300,6 +349,9 @@ function checkUniqueItems(x: string): string {
 function generateChecks(x: string, schema: JSONSchema7): string {
   const checks: Array<string> = [
     ...(schema.pattern ? [checkPattern(x, schema.pattern)] : []),
+    ...((schema as AjvSchema).regexp
+      ? [checkRegexp(x, (schema as AjvSchema).regexp)]
+      : []),
     ...(schema.minLength ? [checkMinLength(x, schema.minLength)] : []),
     ...(schema.maxLength ? [checkMaxLength(x, schema.maxLength)] : []),
     ...(schema.minimum ? [checkMinimum(x, schema.minimum)] : []),
@@ -758,7 +810,8 @@ function constructDefs(defInputs: Array<DefInput>): Array<Def> {
       info('missing description');
     }
     if (examples.length > 0) {
-      imps.add("import * as t from 'io-ts';");
+      imps.add("import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';");
+      imps.add("import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';");
     }
     return {
       typeName,
@@ -814,6 +867,7 @@ log('');
 helpers.forEach(log);
 log('');
 log(`export const schemaId = '${inputSchema.$id}';`);
+log('');
 
 // eslint-disable-next-line
 for (const def of defs) {
@@ -833,18 +887,22 @@ for (const def of defs) {
   if (examples.length > 0) {
     const examplesName = `examples${typeName}`;
     const jsonName = `${examplesName}Json`;
-    log(`export const ${jsonName}: Array<unknown> = ${JSON.stringify(examples)};`);
-    log(`export const ${examplesName} = t.array(${typeName}).decode(${jsonName});`);
+    log(`/** ${examplesName} // => { _tag: 'Right', right: ${jsonName} } */`);
+    log(
+      `export const ${jsonName}: NonEmptyArray<unknown> = ${JSON.stringify(examples)};`,
+    );
+    log(`export const ${examplesName} = nonEmptyArray(${typeName}).decode(${jsonName});`);
   }
   if (typeof defaultValue !== 'undefined') {
     const defaultName = `default${typeName}`;
     const jsonName = `${defaultName}Json`;
+    log(`/** ${defaultName} // => { _tag: 'Right', right: ${jsonName} } */`);
     log(`export const ${jsonName}: unknown = ${JSON.stringify(defaultValue)};`);
     log(`export const ${defaultName} = ${typeName}.decode(${jsonName});`);
   }
+  log('');
 }
 
-log('');
 exps.forEach(log);
 log('');
 log('// Success');

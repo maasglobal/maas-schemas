@@ -15,6 +15,7 @@ import * as TravelMode_ from 'maas-schemas-ts/core/components/travel-mode';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 
 export const schemaId = 'http://maasglobal.com/core/components/station.json';
+
 // Id
 // The purpose of this remains a mystery
 export type Id = t.Branded<string, IdBrand>;
@@ -27,6 +28,7 @@ export const Id = t.brand(
 export interface IdBrand {
   readonly Id: unique symbol;
 }
+
 // Code
 // The purpose of this remains a mystery
 export type Code = t.Branded<string, CodeBrand>;
@@ -38,6 +40,7 @@ export const Code = t.brand(
 export interface CodeBrand {
   readonly Code: unique symbol;
 }
+
 // Name
 // The purpose of this remains a mystery
 export type Name = t.Branded<string, NameBrand>;
@@ -49,26 +52,32 @@ export const Name = t.brand(
 export interface NameBrand {
   readonly Name: unique symbol;
 }
+
 // Location
 // The purpose of this remains a mystery
 export type Location = UnitsGeo_.ShortLocationString;
 export const Location = UnitsGeo_.ShortLocationString;
+
 // Address
 // The purpose of this remains a mystery
 export type Address = Address_.Address;
 export const Address = Address_.Address;
+
 // City
 // The purpose of this remains a mystery
 export type City = Address_.City;
 export const City = Address_.City;
+
 // Country
 // The purpose of this remains a mystery
 export type Country = Address_.Country;
 export const Country = Address_.Country;
+
 // AgencyId
 // The purpose of this remains a mystery
 export type AgencyId = Common_.AgencyId;
 export const AgencyId = Common_.AgencyId;
+
 // OpeningHours
 // Opening hour of the station, object format is left for TSP to decide
 export type OpeningHours = t.Branded<{}, OpeningHoursBrand>;
@@ -80,6 +89,7 @@ export const OpeningHours = t.brand(
 export interface OpeningHoursBrand {
   readonly OpeningHours: unique symbol;
 }
+
 // Facilities
 // Station facilities, including services and features
 export type Facilities = t.Branded<Array<string>, FacilitiesBrand>;
@@ -91,6 +101,7 @@ export const Facilities = t.brand(
 export interface FacilitiesBrand {
   readonly Facilities: unique symbol;
 }
+
 // Services
 // What agency and mode of transport will occupy this station
 export type Services = t.Branded<Array<TravelMode_.Default>, ServicesBrand>;
@@ -102,6 +113,7 @@ export const Services = t.brand(
 export interface ServicesBrand {
   readonly Services: unique symbol;
 }
+
 // Timetables
 // Timetable for passing by / originating transports
 export type Timetables = t.Branded<
@@ -147,6 +159,7 @@ export const Timetables = t.brand(
 export interface TimetablesBrand {
   readonly Timetables: unique symbol;
 }
+
 // Zone
 // Geofencing zone defined by provider that the station is within
 export type Zone = t.Branded<number | string, ZoneBrand>;
@@ -158,6 +171,7 @@ export const Zone = t.brand(
 export interface ZoneBrand {
   readonly Zone: unique symbol;
 }
+
 // PlatformCode
 // Platform number
 export type PlatformCode = t.Branded<number | string, PlatformCodeBrand>;
@@ -169,6 +183,7 @@ export const PlatformCode = t.brand(
 export interface PlatformCodeBrand {
   readonly PlatformCode: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<{}, DefaultBrand>;

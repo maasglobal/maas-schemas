@@ -26,6 +26,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/components/units-geo.json';
+
 // Latitude
 // Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
 export type Latitude = t.Branded<number, LatitudeBrand>;
@@ -38,6 +39,7 @@ export const Latitude = t.brand(
 export interface LatitudeBrand {
   readonly Latitude: unique symbol;
 }
+
 // Longitude
 // Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
 export type Longitude = t.Branded<number, LongitudeBrand>;
@@ -50,6 +52,7 @@ export const Longitude = t.brand(
 export interface LongitudeBrand {
   readonly Longitude: unique symbol;
 }
+
 // RelaxedLatitude
 // No-numeric precision version of MaaS core latitude
 export type RelaxedLatitude = t.Branded<number, RelaxedLatitudeBrand>;
@@ -62,6 +65,7 @@ export const RelaxedLatitude = t.brand(
 export interface RelaxedLatitudeBrand {
   readonly RelaxedLatitude: unique symbol;
 }
+
 // RelaxedLongitude
 // No-numeric precision version of MaaS core longitude
 export type RelaxedLongitude = t.Branded<number, RelaxedLongitudeBrand>;
@@ -74,6 +78,7 @@ export const RelaxedLongitude = t.brand(
 export interface RelaxedLongitudeBrand {
   readonly RelaxedLongitude: unique symbol;
 }
+
 // Distance
 // Distance in meters
 export type Distance = t.Branded<number, DistanceBrand>;
@@ -86,6 +91,7 @@ export const Distance = t.brand(
 export interface DistanceBrand {
   readonly Distance: unique symbol;
 }
+
 // Polyline
 // Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm
 export type Polyline = t.Branded<string, PolylineBrand>;
@@ -93,7 +99,7 @@ export const Polyline = t.brand(
   t.string,
   (x): x is t.Branded<string, PolylineBrand> =>
     (typeof x !== 'string' ||
-      x.match(RegExp('^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$', 'u')) !== null) &&
+      x.match(RegExp('^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$')) !== null) &&
     (typeof x !== 'string' || x.length >= 3) &&
     (typeof x !== 'string' || x.length <= 65535),
   'Polyline',
@@ -101,6 +107,7 @@ export const Polyline = t.brand(
 export interface PolylineBrand {
   readonly Polyline: unique symbol;
 }
+
 // Location
 // Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
 export type Location = t.Branded<
@@ -141,6 +148,7 @@ export const Location = t.brand(
 export interface LocationBrand {
   readonly Location: unique symbol;
 }
+
 // RelaxedLocation
 // No-numeric precision version of MaaS core location
 export type RelaxedLocation = t.Branded<
@@ -181,6 +189,7 @@ export const RelaxedLocation = t.brand(
 export interface RelaxedLocationBrand {
   readonly RelaxedLocation: unique symbol;
 }
+
 // ShortLocation
 // Geographic latitude-longitude number-pair array in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
 export type ShortLocation = t.Branded<[Latitude, Longitude], ShortLocationBrand>;
@@ -192,6 +201,7 @@ export const ShortLocation = t.brand(
 export interface ShortLocationBrand {
   readonly ShortLocation: unique symbol;
 }
+
 // ShortLocationString
 // Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
 export type ShortLocationString = t.Branded<string, ShortLocationStringBrand>;
@@ -199,8 +209,7 @@ export const ShortLocationString = t.brand(
   t.string,
   (x): x is t.Branded<string, ShortLocationStringBrand> =>
     (typeof x !== 'string' ||
-      x.match(RegExp('^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$', 'u')) !==
-        null) &&
+      x.match(RegExp('^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$')) !== null) &&
     (typeof x !== 'string' || x.length >= 1) &&
     (typeof x !== 'string' || x.length <= 64),
   'ShortLocationString',
@@ -208,6 +217,7 @@ export const ShortLocationString = t.brand(
 export interface ShortLocationStringBrand {
   readonly ShortLocationString: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

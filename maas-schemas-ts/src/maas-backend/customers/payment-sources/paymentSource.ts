@@ -29,6 +29,7 @@ const Defined = t.union([
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json';
+
 // PaymentSourceId
 // The purpose of this remains a mystery
 export type PaymentSourceId = t.Branded<string, PaymentSourceIdBrand>;
@@ -41,6 +42,7 @@ export const PaymentSourceId = t.brand(
 export interface PaymentSourceIdBrand {
   readonly PaymentSourceId: unique symbol;
 }
+
 // GatewayName
 // The purpose of this remains a mystery
 export type GatewayName = t.Branded<string, GatewayNameBrand>;
@@ -54,6 +56,7 @@ export const GatewayName = t.brand(
 export interface GatewayNameBrand {
   readonly GatewayName: unique symbol;
 }
+
 // Type
 // The purpose of this remains a mystery
 export type Type = t.Branded<string, TypeBrand>;
@@ -67,6 +70,7 @@ export const Type = t.brand(
 export interface TypeBrand {
   readonly Type: unique symbol;
 }
+
 // Alias
 // The purpose of this remains a mystery
 export type Alias = t.Branded<string, AliasBrand>;
@@ -80,6 +84,7 @@ export const Alias = t.brand(
 export interface AliasBrand {
   readonly Alias: unique symbol;
 }
+
 // Status
 // The purpose of this remains a mystery
 export type Status = t.Branded<string, StatusBrand>;
@@ -93,6 +98,7 @@ export const Status = t.brand(
 export interface StatusBrand {
   readonly Status: unique symbol;
 }
+
 // SetupIntentId
 // The purpose of this remains a mystery
 export type SetupIntentId = t.Branded<string, SetupIntentIdBrand>;
@@ -106,6 +112,7 @@ export const SetupIntentId = t.brand(
 export interface SetupIntentIdBrand {
   readonly SetupIntentId: unique symbol;
 }
+
 // PaymentSource
 // Payment source
 export type PaymentSource = t.Branded<
@@ -191,6 +198,7 @@ export const PaymentSource = t.brand(
 export interface PaymentSourceBrand {
   readonly PaymentSource: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

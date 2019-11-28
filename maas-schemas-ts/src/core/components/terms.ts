@@ -29,6 +29,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/components/terms.json';
+
 // Seat
 // Ticket's seat information for long distance trains, coaches or flights
 export type Seat = t.Branded<
@@ -60,6 +61,7 @@ export const Seat = t.brand(
 export interface SeatBrand {
   readonly Seat: unique symbol;
 }
+
 // Cancellation
 // The purpose of this remains a mystery
 export type Cancellation = t.Branded<
@@ -106,6 +108,7 @@ export const Cancellation = t.brand(
 export interface CancellationBrand {
   readonly Cancellation: unique symbol;
 }
+
 // Amendment
 // The purpose of this remains a mystery
 export type Amendment = t.Branded<
@@ -146,6 +149,7 @@ export const Amendment = t.brand(
 export interface AmendmentBrand {
   readonly Amendment: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<
