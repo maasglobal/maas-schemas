@@ -89,24 +89,7 @@
     "tslint": "^5.20.0",
     "tslint-no-circular-imports": "^0.7.0",
     "ttypescript": "^1.5.7",
-    "typescript": "^3.5.3"
-  },
-  "jest": {
-    "globals": {
-      "ts-jest": {
-        "tsConfig": "tsconfig.json",
-        "diagnostics": {
-          "ignoreCodes": [6133, 6196]
-        }
-      }
-    },
-    "testMatch": ["**/*.doctest.ts", "**/*.spec.ts"],
-    "moduleNameMapper": {
-      "maas-schemas-ts/(.*)": "<rootDir>/src/$1"
-    },
-    "transform": {
-      "^.+\\.(t|j)sx?$": "ts-jest"
-    },
-    "roots": ["."]
+    "typescript": "^3.5.3",
+    "ruins-ts": "^0.0.1"
   }
 }

@@ -7,7 +7,7 @@ module.exports = {
       },
     },
   },
-  testMatch: ['**/*.doctest.ts'],
+  testMatch: ['**/*.doctest.ts', '**/*.spec.ts'],
   moduleNameMapper: {
     'maas-schemas-ts/(.*)': '<rootDir>/src/$1',
   },
