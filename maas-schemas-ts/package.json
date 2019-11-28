@@ -39,7 +39,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maasglobal/maas-schemas-ts.git"
+    "url": "git+https://github.com/maasglobal/maas-schemas.git"
   },
   "keywords": [
     "schemas",
@@ -50,9 +50,9 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/maasglobal/maas-schemas-ts/issues"
+    "url": "https://github.com/maasglobal/maas-schemas/issues"
   },
-  "homepage": "https://github.com/maasglobal/maas-schemas-ts#readme",
+  "homepage": "https://github.com/maasglobal/maas-schemas/",
   "peerDependencies": {
     "io-ts": "^2.0.1",
     "io-ts-types": "^0.5.2"
