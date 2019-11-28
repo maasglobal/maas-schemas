@@ -743,6 +743,11 @@ io-ts-codegen@^0.4.2:
   resolved "https://registry.yarnpkg.com/io-ts-codegen/-/io-ts-codegen-0.4.2.tgz#b30513490587cd9d420c542c548d1083c3f5d74d"
   integrity sha512-UnTF3TfIFCPK2wlaZO0cNweeOIUjeCXzE3gfYOd7QY8W1xyQz1b69ggWIvqKuDx29SbSMjnvG3IR4MjmrWfIWg==
 
+io-ts-types@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/io-ts-types/-/io-ts-types-0.5.2.tgz#ff884926678a0418d36eb85045b0cf014698e554"
+  integrity sha512-ebIXH/Pf7IC/M4qa5wnQecJCs6MXZMZWaiZNWNzEP7tw+Hl8wapAI/tzBXn1LSGrpkVe0NIsFeL7yy6Byi3h+g==
+
 io-ts@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-2.0.1.tgz#1261c12f915c2f48d16393a36966636b48a45aa1"
@@ -917,6 +922,11 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
+monocle-ts@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/monocle-ts/-/monocle-ts-2.0.0.tgz#f695dbfb5b017846d95f0c377bd4c8acb10f7e02"
+  integrity sha512-vPM02WypUz0Xo2MtLUPgvdelCRn70VT05pdAB7qmHJSNY4CAoQt3ClpH77AG3yZk7PY8CA6++ezHcENUDOiuEA==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -936,6 +946,11 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
+
+newtype-ts@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/newtype-ts/-/newtype-ts-0.3.2.tgz#a25db880f9c601b4ea8fc61658ffa399d60f62e2"
+  integrity sha512-1F5ff8LdXtMgcuy+t2F0q6b8VCt26YiXCw/YCSLacBBGH5N+fkFzNoRzvvP6JAjmFCb1Zcfyn0ZyJOCJIpTkKQ==
 
 nice-try@^1.0.4:
   version "1.0.5"

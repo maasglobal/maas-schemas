@@ -13,6 +13,8 @@ import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as Address_ from 'maas-schemas-ts/core/components/address';
 import * as I18n_ from 'maas-schemas-ts/core/components/i18n';
 import * as Fare_ from 'maas-schemas-ts/core/components/fare';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 type Defined =
   | Record<string, unknown>
@@ -209,7 +211,7 @@ export const Default = t.brand(
 export interface DefaultBrand {
   readonly Default: unique symbol;
 }
-export const examplesDefaultJson: Array<unknown> = [
+export const examplesDefaultJson: NonEmptyArray<unknown> = [
   {
     identityId: 'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
     id: 1234,
@@ -272,7 +274,7 @@ export const examplesDefaultJson: Array<unknown> = [
     balance: 1234,
   },
 ];
-export const examplesDefault = t.array(Default).decode(examplesDefaultJson);
+export const examplesDefault = nonEmptyArray(Default).decode(examplesDefaultJson);
 
 export default Default;
 
