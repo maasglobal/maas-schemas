@@ -309,6 +309,7 @@ export const Default = t.brand(
 export interface DefaultBrand {
   readonly Default: unique symbol;
 }
+/** examplesDefault // => { _tag: 'Right', right: examplesDefaultJson } */
 export const examplesDefaultJson: NonEmptyArray<unknown> = [
   {
     id: '12345678-ABCD-1234-ABCD-123456789ABC',

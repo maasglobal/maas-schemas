@@ -211,6 +211,7 @@ export const Default = t.brand(
 export interface DefaultBrand {
   readonly Default: unique symbol;
 }
+/** examplesDefault // => { _tag: 'Right', right: examplesDefaultJson } */
 export const examplesDefaultJson: NonEmptyArray<unknown> = [
   {
     identityId: 'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
