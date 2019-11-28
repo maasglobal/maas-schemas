@@ -13,6 +13,7 @@ import * as Address_ from 'maas-schemas-ts/core/components/address';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 
 export const schemaId = 'http://maasglobal.com/maas-backend/customers/personalData.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

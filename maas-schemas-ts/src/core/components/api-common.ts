@@ -10,6 +10,7 @@ Common definitions for API schemas
 import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/core/components/api-common.json';
+
 // AcceptHeader
 // SemVer versioning schemas for versioning our resources
 export type AcceptHeader = t.Branded<string, AcceptHeaderBrand>;
@@ -27,6 +28,7 @@ export const AcceptHeader = t.brand(
 export interface AcceptHeaderBrand {
   readonly AcceptHeader: unique symbol;
 }
+
 // UserAgentHeader
 // The purpose of this remains a mystery
 export type UserAgentHeader = t.Branded<string, UserAgentHeaderBrand>;
@@ -39,6 +41,7 @@ export const UserAgentHeader = t.brand(
 export interface UserAgentHeaderBrand {
   readonly UserAgentHeader: unique symbol;
 }
+
 // Headers
 // The purpose of this remains a mystery
 export type Headers = t.Branded<
@@ -67,6 +70,7 @@ export const Headers = t.brand(
 export interface HeadersBrand {
   readonly Headers: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

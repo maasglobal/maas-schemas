@@ -10,6 +10,7 @@ Response schema for reverse geocoding providers
 import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/maas-backend/provider/sms/response.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

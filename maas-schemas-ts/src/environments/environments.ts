@@ -28,6 +28,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/environments/environments.json';
+
 // Developer
 // The purpose of this remains a mystery
 export type Developer = t.Branded<
@@ -65,6 +66,7 @@ export const Developer = t.brand(
 export interface DeveloperBrand {
   readonly Developer: unique symbol;
 }
+
 // EnvironmentId
 // The purpose of this remains a mystery
 export type EnvironmentId = t.Branded<string, EnvironmentIdBrand>;
@@ -76,6 +78,7 @@ export const EnvironmentId = t.brand(
 export interface EnvironmentIdBrand {
   readonly EnvironmentId: unique symbol;
 }
+
 // EnvironmentUrl
 // The purpose of this remains a mystery
 export type EnvironmentUrl = t.Branded<string & Units_.Url, EnvironmentUrlBrand>;
@@ -88,6 +91,7 @@ export const EnvironmentUrl = t.brand(
 export interface EnvironmentUrlBrand {
   readonly EnvironmentUrl: unique symbol;
 }
+
 // EnvironmentLive
 // Live environments are connected to actual payment and TSP services
 export type EnvironmentLive = t.Branded<boolean, EnvironmentLiveBrand>;
@@ -99,6 +103,7 @@ export const EnvironmentLive = t.brand(
 export interface EnvironmentLiveBrand {
   readonly EnvironmentLive: unique symbol;
 }
+
 // EnvironmentName
 // The purpose of this remains a mystery
 export type EnvironmentName = t.Branded<string, EnvironmentNameBrand>;
@@ -110,6 +115,7 @@ export const EnvironmentName = t.brand(
 export interface EnvironmentNameBrand {
   readonly EnvironmentName: unique symbol;
 }
+
 // EnvironmentDescription
 // The purpose of this remains a mystery
 export type EnvironmentDescription = t.Branded<string, EnvironmentDescriptionBrand>;
@@ -121,6 +127,7 @@ export const EnvironmentDescription = t.brand(
 export interface EnvironmentDescriptionBrand {
   readonly EnvironmentDescription: unique symbol;
 }
+
 // Environment
 // The purpose of this remains a mystery
 export type Environment = t.Branded<
@@ -189,6 +196,7 @@ export const examplesEnvironmentJson: Array<unknown> = [
   },
 ];
 export const examplesEnvironment = t.array(Environment).decode(examplesEnvironmentJson);
+
 // DevEnvironment
 // The purpose of this remains a mystery
 export type DevEnvironment = t.Branded<
@@ -240,6 +248,7 @@ export const examplesDevEnvironmentJson: Array<unknown> = [
 export const examplesDevEnvironment = t
   .array(DevEnvironment)
   .decode(examplesDevEnvironmentJson);
+
 // EnvironmentGroupName
 // The purpose of this remains a mystery
 export type EnvironmentGroupName = t.Branded<string, EnvironmentGroupNameBrand>;
@@ -251,6 +260,7 @@ export const EnvironmentGroupName = t.brand(
 export interface EnvironmentGroupNameBrand {
   readonly EnvironmentGroupName: unique symbol;
 }
+
 // EnvironmentGroupDescription
 // The purpose of this remains a mystery
 export type EnvironmentGroupDescription = t.Branded<
@@ -265,6 +275,7 @@ export const EnvironmentGroupDescription = t.brand(
 export interface EnvironmentGroupDescriptionBrand {
   readonly EnvironmentGroupDescription: unique symbol;
 }
+
 // EnvironmentGroup
 // The purpose of this remains a mystery
 export type EnvironmentGroup = t.Branded<
@@ -308,6 +319,7 @@ export const EnvironmentGroup = t.brand(
 export interface EnvironmentGroupBrand {
   readonly EnvironmentGroup: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

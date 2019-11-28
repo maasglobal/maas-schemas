@@ -12,6 +12,7 @@ import * as Product_ from 'maas-schemas-ts/core/product';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/vehicle/vehicle-alert/request.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

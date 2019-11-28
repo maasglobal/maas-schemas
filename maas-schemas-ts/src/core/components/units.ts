@@ -10,6 +10,7 @@ MaaS common units that are used consistently within our own objects
 import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/core/components/units.json';
+
 // Uuid
 // Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier
 export type Uuid = t.Branded<string, UuidBrand>;
@@ -25,6 +26,7 @@ export interface UuidBrand {
 }
 export const examplesUuidJson: Array<unknown> = ['4828507e-683f-41bf-9d87-689808fbf958'];
 export const examplesUuid = t.array(Uuid).decode(examplesUuidJson);
+
 // Url
 // Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex
 export type Url = t.Branded<string, UrlBrand>;
@@ -38,6 +40,7 @@ export const Url = t.brand(
 export interface UrlBrand {
   readonly Url: unique symbol;
 }
+
 // Arn
 // The purpose of this remains a mystery
 export type Arn = t.Branded<string, ArnBrand>;
@@ -55,6 +58,7 @@ export const Arn = t.brand(
 export interface ArnBrand {
   readonly Arn: unique symbol;
 }
+
 // ObsoleteIdentityId
 // The purpose of this remains a mystery
 export type ObsoleteIdentityId = t.Branded<string, ObsoleteIdentityIdBrand>;
@@ -76,6 +80,7 @@ export const examplesObsoleteIdentityIdJson: Array<unknown> = [
 export const examplesObsoleteIdentityId = t
   .array(ObsoleteIdentityId)
   .decode(examplesObsoleteIdentityIdJson);
+
 // IdentityId
 // The purpose of this remains a mystery
 export type IdentityId = t.Branded<ObsoleteIdentityId | Uuid, IdentityIdBrand>;
@@ -92,6 +97,7 @@ export const examplesIdentityIdJson: Array<unknown> = [
   '4828507e-683f-41bf-9d87-689808fbf958',
 ];
 export const examplesIdentityId = t.array(IdentityId).decode(examplesIdentityIdJson);
+
 // Currency
 // Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1
 export type Currency = t.Branded<
@@ -116,6 +122,7 @@ export const Currency = t.brand(
 export interface CurrencyBrand {
   readonly Currency: unique symbol;
 }
+
 // Time
 // POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time
 export type Time = t.Branded<number, TimeBrand>;
@@ -130,6 +137,7 @@ export const Time = t.brand(
 export interface TimeBrand {
   readonly Time: unique symbol;
 }
+
 // Duration
 // duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time
 export type Duration = t.Branded<number, DurationBrand>;
@@ -144,6 +152,7 @@ export const Duration = t.brand(
 export interface DurationBrand {
   readonly Duration: unique symbol;
 }
+
 // IsoDate
 // A date in the form YYYY-MM-DD without a time component
 export type IsoDate = t.Branded<string, IsoDateBrand>;
@@ -156,6 +165,7 @@ export const IsoDate = t.brand(
 export interface IsoDateBrand {
   readonly IsoDate: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

@@ -12,6 +12,7 @@ import * as Profile_ from 'maas-schemas-ts/core/profile';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/profile/profile-favoriteLocations-delete/response.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

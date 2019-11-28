@@ -17,6 +17,7 @@ import * as Common_ from 'maas-schemas-ts/core/components/common';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/itineraries/itinerary-create/request.json';
+
 // OutwardReturnWrapper
 // The purpose of this remains a mystery
 export type OutwardReturnWrapper = t.Branded<
@@ -56,6 +57,7 @@ export const OutwardReturnWrapper = t.brand(
 export interface OutwardReturnWrapperBrand {
   readonly OutwardReturnWrapper: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

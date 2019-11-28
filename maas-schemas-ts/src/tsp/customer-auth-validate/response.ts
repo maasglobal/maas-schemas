@@ -29,6 +29,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/tsp/customer-auth-validate/response.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

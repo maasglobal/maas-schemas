@@ -14,6 +14,7 @@ import * as Yaband_ from 'maas-schemas-ts/maas-backend/webhooks/webhooks-payment
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/webhooks/webhooks-payments/request.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

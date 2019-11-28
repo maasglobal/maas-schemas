@@ -26,6 +26,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId = 'http://maasglobal.com/core/components/fare.json';
+
 // TokenId
 // The purpose of this remains a mystery
 export type TokenId = t.Branded<string, TokenIdBrand>;
@@ -38,6 +39,7 @@ export const TokenId = t.brand(
 export interface TokenIdBrand {
   readonly TokenId: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

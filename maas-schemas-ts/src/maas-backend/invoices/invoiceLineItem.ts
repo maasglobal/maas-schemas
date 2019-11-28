@@ -30,6 +30,7 @@ const Defined = t.union([
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json';
+
 // InvoiceLineItem
 // Invoice line item
 export type InvoiceLineItem = t.Branded<
@@ -120,6 +121,7 @@ export const InvoiceLineItem = t.brand(
 export interface InvoiceLineItemBrand {
   readonly InvoiceLineItem: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<unknown, DefaultBrand>;

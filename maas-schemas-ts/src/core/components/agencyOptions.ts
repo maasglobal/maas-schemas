@@ -15,6 +15,7 @@ import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
 import * as Address_ from 'maas-schemas-ts/core/components/address';
 
 export const schemaId = 'http://maasglobal.com/core/components/agencyOptions.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

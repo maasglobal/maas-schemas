@@ -14,6 +14,7 @@ import * as Station_ from 'maas-schemas-ts/core/components/station';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 
 export const schemaId = 'http://maasglobal.com/tsp/journey-planner/request.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

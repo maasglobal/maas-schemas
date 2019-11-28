@@ -11,6 +11,7 @@ import * as t from 'io-ts';
 import * as Station_ from 'maas-schemas-ts/core/components/station';
 
 export const schemaId = 'http://maasglobal.com/tsp/stations-retrieve/request.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

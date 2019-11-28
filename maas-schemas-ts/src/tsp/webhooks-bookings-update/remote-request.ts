@@ -30,6 +30,7 @@ const Defined = t.union([
 
 export const schemaId =
   'http://maasglobal.com/tsp/webhooks-bookings-update/remote-request.json';
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<

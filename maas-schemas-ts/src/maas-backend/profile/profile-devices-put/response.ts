@@ -28,6 +28,7 @@ const Defined = t.union([
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/profile/profile-devices-put/response.json';
+
 // Device
 // The purpose of this remains a mystery
 export type Device = t.Branded<
@@ -77,6 +78,7 @@ export const Device = t.brand(
 export interface DeviceBrand {
   readonly Device: unique symbol;
 }
+
 // Default
 // The default export. More information at the top.
 export type Default = t.Branded<
