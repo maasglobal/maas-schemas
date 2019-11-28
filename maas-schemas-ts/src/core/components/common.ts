@@ -84,7 +84,7 @@ export const PersonalName = t.brand(
   t.string,
   (x): x is t.Branded<string, PersonalNameBrand> =>
     (typeof x !== 'string' ||
-      x.match(RegExp("/^[\\p{L}\\s`'´\\-\\.,]+$/gui")) !== null) &&
+      x.match(RegExp("^[\\p{L}\\s`'´\\-\\.,]+$", 'gui')) !== null) &&
     (typeof x !== 'string' || x.length >= 1) &&
     (typeof x !== 'string' || x.length <= 255),
   'PersonalName',
@@ -105,6 +105,7 @@ export const Phone = t.brand(
 export interface PhoneBrand {
   readonly Phone: unique symbol;
 }
+/** examplesPhone // => { _tag: 'Right', right: examplesPhoneJson } */
 export const examplesPhoneJson: NonEmptyArray<unknown> = ['+358401234567'];
 export const examplesPhone = nonEmptyArray(Phone).decode(examplesPhoneJson);
 
@@ -134,6 +135,7 @@ export const Email = t.brand(
 export interface EmailBrand {
   readonly Email: unique symbol;
 }
+/** examplesEmail // => { _tag: 'Right', right: examplesEmailJson } */
 export const examplesEmailJson: NonEmptyArray<unknown> = ['joe.customer@example.com'];
 export const examplesEmail = nonEmptyArray(Email).decode(examplesEmailJson);
 

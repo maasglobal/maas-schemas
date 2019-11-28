@@ -26,6 +26,7 @@ export const Uuid = t.brand(
 export interface UuidBrand {
   readonly Uuid: unique symbol;
 }
+/** examplesUuid // => { _tag: 'Right', right: examplesUuidJson } */
 export const examplesUuidJson: NonEmptyArray<unknown> = [
   '4828507e-683f-41bf-9d87-689808fbf958',
 ];
@@ -78,6 +79,7 @@ export const ObsoleteIdentityId = t.brand(
 export interface ObsoleteIdentityIdBrand {
   readonly ObsoleteIdentityId: unique symbol;
 }
+/** examplesObsoleteIdentityId // => { _tag: 'Right', right: examplesObsoleteIdentityIdJson } */
 export const examplesObsoleteIdentityIdJson: NonEmptyArray<unknown> = [
   'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
 ];
@@ -96,6 +98,7 @@ export const IdentityId = t.brand(
 export interface IdentityIdBrand {
   readonly IdentityId: unique symbol;
 }
+/** examplesIdentityId // => { _tag: 'Right', right: examplesIdentityIdJson } */
 export const examplesIdentityIdJson: NonEmptyArray<unknown> = [
   'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
   '4828507e-683f-41bf-9d87-689808fbf958',
