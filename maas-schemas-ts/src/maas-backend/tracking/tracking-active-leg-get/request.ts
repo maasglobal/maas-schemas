@@ -12,18 +12,18 @@ import * as t from 'io-ts';
 export const schemaId =
   'http://maasglobal.com/maas-backend/tracking/tracking-active-leg-get/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
+export type Request = t.Branded<unknown, RequestBrand>;
+export const Request = t.brand(
   t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<unknown, RequestBrand> => true,
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

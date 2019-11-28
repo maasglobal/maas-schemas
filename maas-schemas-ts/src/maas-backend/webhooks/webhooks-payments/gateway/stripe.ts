@@ -158,18 +158,18 @@ export interface RequestBrand {
   readonly Request: unique symbol;
 }
 
-// Default
+// Stripe
 // The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
+export type Stripe = t.Branded<unknown, StripeBrand>;
+export const Stripe = t.brand(
   t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<unknown, StripeBrand> => true,
+  'Stripe',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface StripeBrand {
+  readonly Stripe: unique symbol;
 }
 
-export default Default;
+export default Stripe;
 
 // Success

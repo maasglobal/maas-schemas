@@ -11,18 +11,18 @@ import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/core/components/point-cost.json';
 
-// Default
+// PointCost
 // The default export. More information at the top.
-export type Default = t.Branded<number, DefaultBrand>;
-export const Default = t.brand(
+export type PointCost = t.Branded<number, PointCostBrand>;
+export const PointCost = t.brand(
   t.number,
-  (x): x is t.Branded<number, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<number, PointCostBrand> => true,
+  'PointCost',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface PointCostBrand {
+  readonly PointCost: unique symbol;
 }
 
-export default Default;
+export default PointCost;
 
 // Success

@@ -88,16 +88,16 @@ export interface PolygonBrand {
   readonly Polygon: unique symbol;
 }
 
-// Default
+// Geometry
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Geometry = t.Branded<
   {} & {
     type: Defined;
     coordinates: Defined;
   } & (unknown | unknown | unknown | unknown | unknown | unknown),
-  DefaultBrand
+  GeometryBrand
 >;
-export const Default = t.brand(
+export const Geometry = t.brand(
   t.intersection([
     t.type({}),
     t.type({
@@ -113,14 +113,14 @@ export const Default = t.brand(
       type: Defined;
       coordinates: Defined;
     } & (unknown | unknown | unknown | unknown | unknown | unknown),
-    DefaultBrand
+    GeometryBrand
   > => true,
-  'Default',
+  'Geometry',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface GeometryBrand {
+  readonly Geometry: unique symbol;
 }
 
-export default Default;
+export default Geometry;
 
 // Success

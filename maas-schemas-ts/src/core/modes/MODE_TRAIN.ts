@@ -11,18 +11,18 @@ import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_TRAIN.json';
 
-// Default
+// MODE_TRAIN
 // The default export. More information at the top.
-export type Default = t.Branded<{}, DefaultBrand>;
-export const Default = t.brand(
+export type MODE_TRAIN = t.Branded<{}, MODE_TRAINBrand>;
+export const MODE_TRAIN = t.brand(
   t.type({}),
-  (x): x is t.Branded<{}, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<{}, MODE_TRAINBrand> => true,
+  'MODE_TRAIN',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface MODE_TRAINBrand {
+  readonly MODE_TRAIN: unique symbol;
 }
 
-export default Default;
+export default MODE_TRAIN;
 
 // Success

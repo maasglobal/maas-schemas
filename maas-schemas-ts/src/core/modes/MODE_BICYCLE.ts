@@ -28,12 +28,12 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_BICYCLE.json';
 
-// Default
+// MODE_BICYCLE
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type MODE_BICYCLE = t.Branded<
   {
-    pickupStation?: BikeStation_.Default;
-    returnStation?: BikeStation_.Default;
+    pickupStation?: BikeStation_.BikeStation;
+    returnStation?: BikeStation_.BikeStation;
     pickupStationId?: string;
     returnStationId?: string;
     bike?: {
@@ -43,12 +43,12 @@ export type Default = t.Branded<
       id: Defined;
     };
   },
-  DefaultBrand
+  MODE_BICYCLEBrand
 >;
-export const Default = t.brand(
+export const MODE_BICYCLE = t.brand(
   t.partial({
-    pickupStation: BikeStation_.Default,
-    returnStation: BikeStation_.Default,
+    pickupStation: BikeStation_.BikeStation,
+    returnStation: BikeStation_.BikeStation,
     pickupStationId: t.string,
     returnStationId: t.string,
     bike: t.intersection([
@@ -65,8 +65,8 @@ export const Default = t.brand(
     x,
   ): x is t.Branded<
     {
-      pickupStation?: BikeStation_.Default;
-      returnStation?: BikeStation_.Default;
+      pickupStation?: BikeStation_.BikeStation;
+      returnStation?: BikeStation_.BikeStation;
       pickupStationId?: string;
       returnStationId?: string;
       bike?: {
@@ -76,14 +76,14 @@ export const Default = t.brand(
         id: Defined;
       };
     },
-    DefaultBrand
+    MODE_BICYCLEBrand
   > => true,
-  'Default',
+  'MODE_BICYCLE',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface MODE_BICYCLEBrand {
+  readonly MODE_BICYCLE: unique symbol;
 }
 
-export default Default;
+export default MODE_BICYCLE;
 
 // Success

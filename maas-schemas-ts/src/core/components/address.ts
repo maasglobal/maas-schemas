@@ -64,11 +64,11 @@ export type Email = Common_.Email;
 export const Email = Common_.Email;
 
 // Address
-// Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html
-export type Address = t.Branded<string, AddressBrand>;
+// The default export. More information at the top.
+export type Address = t.Branded<unknown, AddressBrand>;
 export const Address = t.brand(
-  t.string,
-  (x): x is t.Branded<string, AddressBrand> => typeof x !== 'string' || x.length >= 2,
+  t.unknown,
+  (x): x is t.Branded<unknown, AddressBrand> => true,
   'Address',
 );
 export interface AddressBrand {
@@ -127,18 +127,6 @@ export interface CityBrand {
   readonly City: unique symbol;
 }
 
-// Default
-// The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
-);
-export interface DefaultBrand {
-  readonly Default: unique symbol;
-}
-
-export default Default;
+export default Address;
 
 // Success

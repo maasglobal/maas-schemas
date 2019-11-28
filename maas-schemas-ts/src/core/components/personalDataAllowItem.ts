@@ -12,16 +12,16 @@ import * as t from 'io-ts';
 export const schemaId =
   'http://maasglobal.com/core/components/personalDataAllowItem.json';
 
-// Default
+// PersonalDataAllowItem
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type PersonalDataAllowItem = t.Branded<
   {
     type?: 'allOf' | 'anyOf';
     items?: Array<string>;
   },
-  DefaultBrand
+  PersonalDataAllowItemBrand
 >;
-export const Default = t.brand(
+export const PersonalDataAllowItem = t.brand(
   t.partial({
     type: t.union([t.literal('allOf'), t.literal('anyOf')]),
     items: t.array(t.string),
@@ -33,14 +33,14 @@ export const Default = t.brand(
       type?: 'allOf' | 'anyOf';
       items?: Array<string>;
     },
-    DefaultBrand
+    PersonalDataAllowItemBrand
   > => true,
-  'Default',
+  'PersonalDataAllowItem',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface PersonalDataAllowItemBrand {
+  readonly PersonalDataAllowItem: unique symbol;
 }
 
-export default Default;
+export default PersonalDataAllowItem;
 
 // Success

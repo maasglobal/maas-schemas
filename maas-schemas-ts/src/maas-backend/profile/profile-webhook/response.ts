@@ -13,35 +13,35 @@ import * as Profile_ from 'maas-schemas-ts/core/profile';
 export const schemaId =
   'http://maasglobal.com/maas-backend/profile/profile-webhook/response.json';
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Response = t.Branded<
   {
-    profile?: Profile_.Default;
+    profile?: Profile_.Profile;
     maas?: {};
   },
-  DefaultBrand
+  ResponseBrand
 >;
-export const Default = t.brand(
+export const Response = t.brand(
   t.partial({
-    profile: Profile_.Default,
+    profile: Profile_.Profile,
     maas: t.type({}),
   }),
   (
     x,
   ): x is t.Branded<
     {
-      profile?: Profile_.Default;
+      profile?: Profile_.Profile;
       maas?: {};
     },
-    DefaultBrand
+    ResponseBrand
   > => true,
-  'Default',
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success

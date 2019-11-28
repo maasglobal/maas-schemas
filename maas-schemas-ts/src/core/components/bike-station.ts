@@ -28,9 +28,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/components/bike-station.json';
 
-// Default
+// BikeStation
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type BikeStation = t.Branded<
   {
     id?: string;
     name?: string;
@@ -49,9 +49,9 @@ export type Default = t.Branded<
     name: Defined;
     location: Defined;
   },
-  DefaultBrand
+  BikeStationBrand
 >;
-export const Default = t.brand(
+export const BikeStation = t.brand(
   t.intersection([
     t.partial({
       id: t.string,
@@ -97,14 +97,14 @@ export const Default = t.brand(
       name: Defined;
       location: Defined;
     },
-    DefaultBrand
+    BikeStationBrand
   > => true,
-  'Default',
+  'BikeStation',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface BikeStationBrand {
+  readonly BikeStation: unique symbol;
 }
 
-export default Default;
+export default BikeStation;
 
 // Success

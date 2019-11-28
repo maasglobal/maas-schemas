@@ -14,9 +14,9 @@ import * as Common_ from 'maas-schemas-ts/core/components/common';
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_TAXI.json';
 
-// Default
+// MODE_TAXI
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type MODE_TAXI = t.Branded<
   {
     vehicleId?: string;
     noShowReportedByDriver?: boolean;
@@ -35,9 +35,9 @@ export type Default = t.Branded<
       phone?: Common_.Phone;
     };
   },
-  DefaultBrand
+  MODE_TAXIBrand
 >;
-export const Default = t.brand(
+export const MODE_TAXI = t.brand(
   t.partial({
     vehicleId: t.string,
     noShowReportedByDriver: t.boolean,
@@ -77,14 +77,14 @@ export const Default = t.brand(
         phone?: Common_.Phone;
       };
     },
-    DefaultBrand
+    MODE_TAXIBrand
   > => true,
-  'Default',
+  'MODE_TAXI',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface MODE_TAXIBrand {
+  readonly MODE_TAXI: unique symbol;
 }
 
-export default Default;
+export default MODE_TAXI;
 
 // Success

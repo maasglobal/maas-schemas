@@ -11,18 +11,18 @@ import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_TRANSIT.json';
 
-// Default
+// MODE_TRANSIT
 // The default export. More information at the top.
-export type Default = t.Branded<{}, DefaultBrand>;
-export const Default = t.brand(
+export type MODE_TRANSIT = t.Branded<{}, MODE_TRANSITBrand>;
+export const MODE_TRANSIT = t.brand(
   t.type({}),
-  (x): x is t.Branded<{}, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<{}, MODE_TRANSITBrand> => true,
+  'MODE_TRANSIT',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface MODE_TRANSITBrand {
+  readonly MODE_TRANSIT: unique symbol;
 }
 
-export default Default;
+export default MODE_TRANSIT;
 
 // Success

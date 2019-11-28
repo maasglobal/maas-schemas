@@ -104,18 +104,18 @@ export interface BookingStateTransitionBrand {
   readonly BookingStateTransition: unique symbol;
 }
 
-// Default
+// StateLog
 // The default export. More information at the top.
-export type Default = t.Branded<Array<BookingStateTransition>, DefaultBrand>;
-export const Default = t.brand(
+export type StateLog = t.Branded<Array<BookingStateTransition>, StateLogBrand>;
+export const StateLog = t.brand(
   t.array(BookingStateTransition),
-  (x): x is t.Branded<Array<BookingStateTransition>, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<Array<BookingStateTransition>, StateLogBrand> => true,
+  'StateLog',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface StateLogBrand {
+  readonly StateLog: unique symbol;
 }
 
-export default Default;
+export default StateLog;
 
 // Success

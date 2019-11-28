@@ -11,18 +11,18 @@ import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_GONDOLA.json';
 
-// Default
+// MODE_GONDOLA
 // The default export. More information at the top.
-export type Default = t.Branded<{}, DefaultBrand>;
-export const Default = t.brand(
+export type MODE_GONDOLA = t.Branded<{}, MODE_GONDOLABrand>;
+export const MODE_GONDOLA = t.brand(
   t.type({}),
-  (x): x is t.Branded<{}, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<{}, MODE_GONDOLABrand> => true,
+  'MODE_GONDOLA',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface MODE_GONDOLABrand {
+  readonly MODE_GONDOLA: unique symbol;
 }
 
-export default Default;
+export default MODE_GONDOLA;
 
 // Success

@@ -54,10 +54,10 @@ export type WithConfigurator = t.Branded<
     identityId?: Units_.IdentityId;
     bookingId?: Units_.Uuid;
     ref?: Ref;
-    product?: Product_.Default;
-    terms?: Terms_.Default;
-    meta?: BookingMeta_.Default;
-    configurator?: Configurator_.Default;
+    product?: Product_.Product;
+    terms?: Terms_.Terms;
+    meta?: BookingMeta_.BookingMeta;
+    configurator?: Configurator_.Configurator;
     customer?: BookingOption_.Customer;
   } & {
     ref: Defined;
@@ -73,10 +73,10 @@ export const WithConfigurator = t.brand(
       identityId: Units_.IdentityId,
       bookingId: Units_.Uuid,
       ref: Ref,
-      product: Product_.Default,
-      terms: Terms_.Default,
-      meta: BookingMeta_.Default,
-      configurator: Configurator_.Default,
+      product: Product_.Product,
+      terms: Terms_.Terms,
+      meta: BookingMeta_.BookingMeta,
+      configurator: Configurator_.Configurator,
       customer: BookingOption_.Customer,
     }),
     t.type({
@@ -93,10 +93,10 @@ export const WithConfigurator = t.brand(
       identityId?: Units_.IdentityId;
       bookingId?: Units_.Uuid;
       ref?: Ref;
-      product?: Product_.Default;
-      terms?: Terms_.Default;
-      meta?: BookingMeta_.Default;
-      configurator?: Configurator_.Default;
+      product?: Product_.Product;
+      terms?: Terms_.Terms;
+      meta?: BookingMeta_.BookingMeta;
+      configurator?: Configurator_.Configurator;
       customer?: BookingOption_.Customer;
     } & {
       ref: Defined;
@@ -119,10 +119,10 @@ export type WithFares = t.Branded<
     identityId?: Units_.IdentityId;
     bookingId?: Units_.Uuid;
     ref?: number;
-    product?: Product_.Default;
-    fares?: Array<Fare_.Default>;
-    terms?: Terms_.Default;
-    meta?: BookingMeta_.Default;
+    product?: Product_.Product;
+    fares?: Array<Fare_.Fare>;
+    terms?: Terms_.Terms;
+    meta?: BookingMeta_.BookingMeta;
     customer?: BookingOption_.Customer;
   } & {
     ref: Defined;
@@ -138,10 +138,10 @@ export const WithFares = t.brand(
       identityId: Units_.IdentityId,
       bookingId: Units_.Uuid,
       ref: t.number,
-      product: Product_.Default,
-      fares: t.array(Fare_.Default),
-      terms: Terms_.Default,
-      meta: BookingMeta_.Default,
+      product: Product_.Product,
+      fares: t.array(Fare_.Fare),
+      terms: Terms_.Terms,
+      meta: BookingMeta_.BookingMeta,
       customer: BookingOption_.Customer,
     }),
     t.type({
@@ -158,10 +158,10 @@ export const WithFares = t.brand(
       identityId?: Units_.IdentityId;
       bookingId?: Units_.Uuid;
       ref?: number;
-      product?: Product_.Default;
-      fares?: Array<Fare_.Default>;
-      terms?: Terms_.Default;
-      meta?: BookingMeta_.Default;
+      product?: Product_.Product;
+      fares?: Array<Fare_.Fare>;
+      terms?: Terms_.Terms;
+      meta?: BookingMeta_.BookingMeta;
       customer?: BookingOption_.Customer;
     } & {
       ref: Defined;
@@ -184,10 +184,10 @@ export type WithCost = t.Branded<
     identityId?: Units_.IdentityId;
     bookingId?: Units_.Uuid;
     ref?: number;
-    product?: Product_.Default;
-    cost?: Cost_.Default;
-    terms?: Terms_.Default;
-    meta?: BookingMeta_.Default;
+    product?: Product_.Product;
+    cost?: Cost_.Cost;
+    terms?: Terms_.Terms;
+    meta?: BookingMeta_.BookingMeta;
     customer?: BookingOption_.Customer;
   } & {
     ref: Defined;
@@ -203,10 +203,10 @@ export const WithCost = t.brand(
       identityId: Units_.IdentityId,
       bookingId: Units_.Uuid,
       ref: t.number,
-      product: Product_.Default,
-      cost: Cost_.Default,
-      terms: Terms_.Default,
-      meta: BookingMeta_.Default,
+      product: Product_.Product,
+      cost: Cost_.Cost,
+      terms: Terms_.Terms,
+      meta: BookingMeta_.BookingMeta,
       customer: BookingOption_.Customer,
     }),
     t.type({
@@ -223,10 +223,10 @@ export const WithCost = t.brand(
       identityId?: Units_.IdentityId;
       bookingId?: Units_.Uuid;
       ref?: number;
-      product?: Product_.Default;
-      cost?: Cost_.Default;
-      terms?: Terms_.Default;
-      meta?: BookingMeta_.Default;
+      product?: Product_.Product;
+      cost?: Cost_.Cost;
+      terms?: Terms_.Terms;
+      meta?: BookingMeta_.BookingMeta;
       customer?: BookingOption_.Customer;
     } & {
       ref: Defined;
@@ -242,18 +242,22 @@ export interface WithCostBrand {
   readonly WithCost: unique symbol;
 }
 
-// Default
+// ProductOption
 // The default export. More information at the top.
-export type Default = t.Branded<WithConfigurator | WithFares | WithCost, DefaultBrand>;
-export const Default = t.brand(
+export type ProductOption = t.Branded<
+  WithConfigurator | WithFares | WithCost,
+  ProductOptionBrand
+>;
+export const ProductOption = t.brand(
   t.union([WithConfigurator, WithFares, WithCost]),
-  (x): x is t.Branded<WithConfigurator | WithFares | WithCost, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<WithConfigurator | WithFares | WithCost, ProductOptionBrand> =>
+    true,
+  'ProductOption',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ProductOptionBrand {
+  readonly ProductOption: unique symbol;
 }
 
-export default Default;
+export default ProductOption;
 
 // Success

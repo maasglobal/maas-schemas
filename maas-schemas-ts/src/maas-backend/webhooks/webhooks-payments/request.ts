@@ -15,26 +15,26 @@ import * as Yaband_ from 'maas-schemas-ts/maas-backend/webhooks/webhooks-payment
 export const schemaId =
   'http://maasglobal.com/maas-backend/webhooks/webhooks-payments/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   Avainpay_.Request | Stripe_.Request | Yaband_.Request,
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.union([Avainpay_.Request, Stripe_.Request, Yaband_.Request]),
   (
     x,
   ): x is t.Branded<
     Avainpay_.Request | Stripe_.Request | Yaband_.Request,
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

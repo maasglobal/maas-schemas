@@ -366,18 +366,18 @@ export interface ContactResponseBrand {
   readonly ContactResponse: unique symbol;
 }
 
-// Default
+// Contact
 // The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
+export type Contact = t.Branded<unknown, ContactBrand>;
+export const Contact = t.brand(
   t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<unknown, ContactBrand> => true,
+  'Contact',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ContactBrand {
+  readonly Contact: unique symbol;
 }
 
-export default Default;
+export default Contact;
 
 // Success

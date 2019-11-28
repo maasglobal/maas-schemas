@@ -30,9 +30,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/components/place.json';
 
-// Default
+// Place
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Place = t.Branded<
   {} & {
     lat: Defined;
     lon: Defined;
@@ -47,9 +47,9 @@ export type Default = t.Branded<
       openingHours?: Station_.OpeningHours;
       zone?: Station_.Zone;
     }),
-  DefaultBrand
+  PlaceBrand
 >;
-export const Default = t.brand(
+export const Place = t.brand(
   t.intersection([
     t.type({}),
     t.type({
@@ -88,14 +88,14 @@ export const Default = t.brand(
         openingHours?: Station_.OpeningHours;
         zone?: Station_.Zone;
       }),
-    DefaultBrand
+    PlaceBrand
   > => true,
-  'Default',
+  'Place',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface PlaceBrand {
+  readonly Place: unique symbol;
 }
 
-export default Default;
+export default Place;
 
 // Success

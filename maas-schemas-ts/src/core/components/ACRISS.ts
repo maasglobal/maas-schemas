@@ -11,22 +11,22 @@ import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/core/components/ACRISS.json';
 
-// Default
+// ACRISS
 // The default export. More information at the top.
-export type Default = t.Branded<string, DefaultBrand>;
-export const Default = t.brand(
+export type ACRISS = t.Branded<string, ACRISSBrand>;
+export const ACRISS = t.brand(
   t.string,
-  (x): x is t.Branded<string, DefaultBrand> =>
+  (x): x is t.Branded<string, ACRISSBrand> =>
     typeof x !== 'string' ||
     x.match(
       RegExp('[MNEHCDIJSRFGPULWOX][BCDWVLSTFJXPQZEMRHYNGK][MNCABD][RNDQHIECLSABMFVZUX]'),
     ) !== null,
-  'Default',
+  'ACRISS',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ACRISSBrand {
+  readonly ACRISS: unique symbol;
 }
 
-export default Default;
+export default ACRISS;
 
 // Success

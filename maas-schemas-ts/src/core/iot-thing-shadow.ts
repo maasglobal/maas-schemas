@@ -14,9 +14,9 @@ import * as State_ from 'maas-schemas-ts/core/components/state';
 
 export const schemaId = 'http://maasglobal.com/core/iot-thing-shadow.json';
 
-// Default
+// IotThingShadow
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type IotThingShadow = t.Branded<
   {
     desired?: {};
     reported?: {
@@ -33,9 +33,9 @@ export type Default = t.Branded<
       };
     };
   },
-  DefaultBrand
+  IotThingShadowBrand
 >;
-export const Default = t.brand(
+export const IotThingShadow = t.brand(
   t.partial({
     desired: t.partial({}),
     reported: t.partial({
@@ -71,14 +71,14 @@ export const Default = t.brand(
         };
       };
     },
-    DefaultBrand
+    IotThingShadowBrand
   > => true,
-  'Default',
+  'IotThingShadow',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface IotThingShadowBrand {
+  readonly IotThingShadow: unique symbol;
 }
 
-export default Default;
+export default IotThingShadow;
 
 // Success

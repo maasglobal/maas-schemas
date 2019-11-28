@@ -29,22 +29,22 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_RAIL.json';
 
-// Default
+// MODE_RAIL
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type MODE_RAIL = t.Branded<
   {
     outward?: {
       id?: string;
-      from?: Place_.Default;
-      to?: Place_.Default;
+      from?: Place_.Place;
+      to?: Place_.Place;
     } & {
       from: Defined;
       to: Defined;
     };
     return?: {
       id?: string;
-      from?: Place_.Default;
-      to?: Place_.Default;
+      from?: Place_.Place;
+      to?: Place_.Place;
     } & {
       from: Defined;
       to: Defined;
@@ -55,15 +55,15 @@ export type Default = t.Branded<
       alternativeCollections?: string;
     };
   },
-  DefaultBrand
+  MODE_RAILBrand
 >;
-export const Default = t.brand(
+export const MODE_RAIL = t.brand(
   t.partial({
     outward: t.intersection([
       t.partial({
         id: t.string,
-        from: Place_.Default,
-        to: Place_.Default,
+        from: Place_.Place,
+        to: Place_.Place,
       }),
       t.type({
         from: Defined,
@@ -73,8 +73,8 @@ export const Default = t.brand(
     return: t.intersection([
       t.partial({
         id: t.string,
-        from: Place_.Default,
-        to: Place_.Default,
+        from: Place_.Place,
+        to: Place_.Place,
       }),
       t.type({
         from: Defined,
@@ -93,16 +93,16 @@ export const Default = t.brand(
     {
       outward?: {
         id?: string;
-        from?: Place_.Default;
-        to?: Place_.Default;
+        from?: Place_.Place;
+        to?: Place_.Place;
       } & {
         from: Defined;
         to: Defined;
       };
       return?: {
         id?: string;
-        from?: Place_.Default;
-        to?: Place_.Default;
+        from?: Place_.Place;
+        to?: Place_.Place;
       } & {
         from: Defined;
         to: Defined;
@@ -113,14 +113,14 @@ export const Default = t.brand(
         alternativeCollections?: string;
       };
     },
-    DefaultBrand
+    MODE_RAILBrand
   > => true,
-  'Default',
+  'MODE_RAIL',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface MODE_RAILBrand {
+  readonly MODE_RAIL: unique symbol;
 }
 
-export default Default;
+export default MODE_RAIL;
 
 // Success

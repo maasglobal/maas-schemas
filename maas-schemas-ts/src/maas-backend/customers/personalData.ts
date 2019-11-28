@@ -14,9 +14,9 @@ import * as Units_ from 'maas-schemas-ts/core/components/units';
 
 export const schemaId = 'http://maasglobal.com/maas-backend/customers/personalData.json';
 
-// Default
+// PersonalData
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type PersonalData = t.Branded<
   {
     firstName?: Common_.PersonalName;
     lastName?: Common_.PersonalName;
@@ -31,9 +31,9 @@ export type Default = t.Branded<
     subscriberType?: string;
     profileImageUrl?: string;
   } & {},
-  DefaultBrand
+  PersonalDataBrand
 >;
-export const Default = t.brand(
+export const PersonalData = t.brand(
   t.intersection([
     t.partial({
       firstName: Common_.PersonalName,
@@ -68,14 +68,14 @@ export const Default = t.brand(
       subscriberType?: string;
       profileImageUrl?: string;
     } & {},
-    DefaultBrand
+    PersonalDataBrand
   > => true,
-  'Default',
+  'PersonalData',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface PersonalDataBrand {
+  readonly PersonalData: unique symbol;
 }
 
-export default Default;
+export default PersonalData;
 
 // Success

@@ -27,9 +27,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_SCOOTER.json';
 
-// Default
+// MODE_SCOOTER
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type MODE_SCOOTER = t.Branded<
   {
     scooter?: {
       id?: string;
@@ -37,9 +37,9 @@ export type Default = t.Branded<
       id: Defined;
     };
   },
-  DefaultBrand
+  MODE_SCOOTERBrand
 >;
-export const Default = t.brand(
+export const MODE_SCOOTER = t.brand(
   t.partial({
     scooter: t.intersection([
       t.partial({
@@ -60,14 +60,14 @@ export const Default = t.brand(
         id: Defined;
       };
     },
-    DefaultBrand
+    MODE_SCOOTERBrand
   > => true,
-  'Default',
+  'MODE_SCOOTER',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface MODE_SCOOTERBrand {
+  readonly MODE_SCOOTER: unique symbol;
 }
 
-export default Default;
+export default MODE_SCOOTER;
 
 // Success

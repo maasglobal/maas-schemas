@@ -40,11 +40,11 @@ export const schemaId = 'http://maasglobal.com/core/booking-option.json';
 // A subset of the standard leg (../core/leg.json)
 export type Leg = t.Branded<
   {
-    mode?: TravelMode_.Default;
+    mode?: TravelMode_.TravelMode;
     startTime?: Units_.Time;
     endTime?: Units_.Time;
-    from?: Place_.Default;
-    to?: Place_.Default;
+    from?: Place_.Place;
+    to?: Place_.Place;
     departureDelay?: Units_.Duration;
     agencyId?: Common_.AgencyId;
   } & {
@@ -59,11 +59,11 @@ export type Leg = t.Branded<
 export const Leg = t.brand(
   t.intersection([
     t.partial({
-      mode: TravelMode_.Default,
+      mode: TravelMode_.TravelMode,
       startTime: Units_.Time,
       endTime: Units_.Time,
-      from: Place_.Default,
-      to: Place_.Default,
+      from: Place_.Place,
+      to: Place_.Place,
       departureDelay: Units_.Duration,
       agencyId: Common_.AgencyId,
     }),
@@ -79,11 +79,11 @@ export const Leg = t.brand(
     x,
   ): x is t.Branded<
     {
-      mode?: TravelMode_.Default;
+      mode?: TravelMode_.TravelMode;
       startTime?: Units_.Time;
       endTime?: Units_.Time;
-      from?: Place_.Default;
-      to?: Place_.Default;
+      from?: Place_.Place;
+      to?: Place_.Place;
       departureDelay?: Units_.Duration;
       agencyId?: Common_.AgencyId;
     } & {
@@ -138,18 +138,18 @@ export interface TspProductBrand {
 
 // Customer
 // The purpose of this remains a mystery
-export type Customer = Customer_.Default;
-export const Customer = Customer_.Default;
+export type Customer = Customer_.Customer;
+export const Customer = Customer_.Customer;
 
 // ContentWithCost
 // The purpose of this remains a mystery
 export type ContentWithCost = t.Branded<
   {
     leg?: Leg;
-    terms?: Terms_.Default;
-    meta?: BookingMeta_.Default;
+    terms?: Terms_.Terms;
+    meta?: BookingMeta_.BookingMeta;
     tspProduct?: TspProduct;
-    cost?: Cost_.Default;
+    cost?: Cost_.Cost;
     customer?: Customer;
   } & {
     leg: Defined;
@@ -164,10 +164,10 @@ export const ContentWithCost = t.brand(
   t.intersection([
     t.partial({
       leg: Leg,
-      terms: Terms_.Default,
-      meta: BookingMeta_.Default,
+      terms: Terms_.Terms,
+      meta: BookingMeta_.BookingMeta,
       tspProduct: TspProduct,
-      cost: Cost_.Default,
+      cost: Cost_.Cost,
       customer: Customer,
     }),
     t.type({
@@ -183,10 +183,10 @@ export const ContentWithCost = t.brand(
   ): x is t.Branded<
     {
       leg?: Leg;
-      terms?: Terms_.Default;
-      meta?: BookingMeta_.Default;
+      terms?: Terms_.Terms;
+      meta?: BookingMeta_.BookingMeta;
       tspProduct?: TspProduct;
-      cost?: Cost_.Default;
+      cost?: Cost_.Cost;
       customer?: Customer;
     } & {
       leg: Defined;
@@ -208,10 +208,10 @@ export interface ContentWithCostBrand {
 export type ContentWithConfigurator = t.Branded<
   {
     leg?: Leg;
-    terms?: Terms_.Default;
-    meta?: BookingMeta_.Default;
+    terms?: Terms_.Terms;
+    meta?: BookingMeta_.BookingMeta;
     tspProduct?: TspProduct;
-    configurator?: Configurator_.Default;
+    configurator?: Configurator_.Configurator;
     customer?: Customer;
   } & {
     leg: Defined;
@@ -226,10 +226,10 @@ export const ContentWithConfigurator = t.brand(
   t.intersection([
     t.partial({
       leg: Leg,
-      terms: Terms_.Default,
-      meta: BookingMeta_.Default,
+      terms: Terms_.Terms,
+      meta: BookingMeta_.BookingMeta,
       tspProduct: TspProduct,
-      configurator: Configurator_.Default,
+      configurator: Configurator_.Configurator,
       customer: Customer,
     }),
     t.type({
@@ -245,10 +245,10 @@ export const ContentWithConfigurator = t.brand(
   ): x is t.Branded<
     {
       leg?: Leg;
-      terms?: Terms_.Default;
-      meta?: BookingMeta_.Default;
+      terms?: Terms_.Terms;
+      meta?: BookingMeta_.BookingMeta;
       tspProduct?: TspProduct;
-      configurator?: Configurator_.Default;
+      configurator?: Configurator_.Configurator;
       customer?: Customer;
     } & {
       leg: Defined;
@@ -269,34 +269,34 @@ export interface ContentWithConfiguratorBrand {
 // A leg delta, containing any subset of the valid properties
 export type LegDelta = t.Branded<
   {
-    mode?: TravelMode_.Default;
+    mode?: TravelMode_.TravelMode;
     startTime?: Units_.Time;
     endTime?: Units_.Time;
     departureDelay?: Units_.Duration;
-    from?: Place_.Default;
-    to?: Place_.Default;
+    from?: Place_.Place;
+    to?: Place_.Place;
   },
   LegDeltaBrand
 >;
 export const LegDelta = t.brand(
   t.partial({
-    mode: TravelMode_.Default,
+    mode: TravelMode_.TravelMode,
     startTime: Units_.Time,
     endTime: Units_.Time,
     departureDelay: Units_.Duration,
-    from: Place_.Default,
-    to: Place_.Default,
+    from: Place_.Place,
+    to: Place_.Place,
   }),
   (
     x,
   ): x is t.Branded<
     {
-      mode?: TravelMode_.Default;
+      mode?: TravelMode_.TravelMode;
       startTime?: Units_.Time;
       endTime?: Units_.Time;
       departureDelay?: Units_.Duration;
-      from?: Place_.Default;
-      to?: Place_.Default;
+      from?: Place_.Place;
+      to?: Place_.Place;
     },
     LegDeltaBrand
   > => true,
@@ -306,18 +306,22 @@ export interface LegDeltaBrand {
   readonly LegDelta: unique symbol;
 }
 
-// Default
+// BookingOption
 // The default export. More information at the top.
-export type Default = t.Branded<ContentWithCost | ContentWithConfigurator, DefaultBrand>;
-export const Default = t.brand(
+export type BookingOption = t.Branded<
+  ContentWithCost | ContentWithConfigurator,
+  BookingOptionBrand
+>;
+export const BookingOption = t.brand(
   t.union([ContentWithCost, ContentWithConfigurator]),
-  (x): x is t.Branded<ContentWithCost | ContentWithConfigurator, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<ContentWithCost | ContentWithConfigurator, BookingOptionBrand> =>
+    true,
+  'BookingOption',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface BookingOptionBrand {
+  readonly BookingOption: unique symbol;
 }
 
-export default Default;
+export default BookingOption;
 
 // Success

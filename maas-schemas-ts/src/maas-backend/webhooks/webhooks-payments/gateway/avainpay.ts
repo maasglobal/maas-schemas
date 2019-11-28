@@ -135,18 +135,18 @@ export interface RequestBrand {
   readonly Request: unique symbol;
 }
 
-// Default
+// Avainpay
 // The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
+export type Avainpay = t.Branded<unknown, AvainpayBrand>;
+export const Avainpay = t.brand(
   t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<unknown, AvainpayBrand> => true,
+  'Avainpay',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface AvainpayBrand {
+  readonly Avainpay: unique symbol;
 }
 
-export default Default;
+export default Avainpay;
 
 // Success

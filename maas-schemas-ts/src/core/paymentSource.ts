@@ -29,9 +29,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/paymentSource.json';
 
-// Default
+// PaymentSource
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type PaymentSource = t.Branded<
   {
     id?: string;
     customerId?: Units_.IdentityId;
@@ -50,14 +50,14 @@ export type Default = t.Branded<
     temporaryToken?: string;
     status?: string;
     valid?: boolean;
-    card?: Card_.Default;
+    card?: Card_.Card;
   } & {
     customerId: Defined;
     type: Defined;
   },
-  DefaultBrand
+  PaymentSourceBrand
 >;
-export const Default = t.brand(
+export const PaymentSource = t.brand(
   t.intersection([
     t.partial({
       id: t.string,
@@ -80,7 +80,7 @@ export const Default = t.brand(
       temporaryToken: t.string,
       status: t.string,
       valid: t.boolean,
-      card: Card_.Default,
+      card: Card_.Card,
     }),
     t.type({
       customerId: Defined,
@@ -108,19 +108,19 @@ export const Default = t.brand(
       temporaryToken?: string;
       status?: string;
       valid?: boolean;
-      card?: Card_.Default;
+      card?: Card_.Card;
     } & {
       customerId: Defined;
       type: Defined;
     },
-    DefaultBrand
+    PaymentSourceBrand
   > => true,
-  'Default',
+  'PaymentSource',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface PaymentSourceBrand {
+  readonly PaymentSource: unique symbol;
 }
 
-export default Default;
+export default PaymentSource;
 
 // Success

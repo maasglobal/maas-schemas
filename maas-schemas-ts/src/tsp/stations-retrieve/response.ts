@@ -28,9 +28,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/tsp/stations-retrieve/response.json';
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Response = t.Branded<
   {
     station?: {
       id?: Station_.Id;
@@ -53,9 +53,9 @@ export type Default = t.Branded<
       agencyId: Defined;
     };
   },
-  DefaultBrand
+  ResponseBrand
 >;
-export const Default = t.brand(
+export const Response = t.brand(
   t.partial({
     station: t.intersection([
       t.partial({
@@ -106,14 +106,14 @@ export const Default = t.brand(
         agencyId: Defined;
       };
     },
-    DefaultBrand
+    ResponseBrand
   > => true,
-  'Default',
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success

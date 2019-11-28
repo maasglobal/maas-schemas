@@ -42,9 +42,9 @@ export interface IdBrand {
   readonly Id: unique symbol;
 }
 
-// Default
+// Product
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Product = t.Branded<
   {
     id?: Id;
     name?: string;
@@ -59,9 +59,9 @@ export type Default = t.Branded<
     tspProductId: Defined;
     name: Defined;
   },
-  DefaultBrand
+  ProductBrand
 >;
-export const Default = t.brand(
+export const Product = t.brand(
   t.intersection([
     t.partial({
       id: Id,
@@ -96,14 +96,14 @@ export const Default = t.brand(
       tspProductId: Defined;
       name: Defined;
     },
-    DefaultBrand
+    ProductBrand
   > => true,
-  'Default',
+  'Product',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ProductBrand {
+  readonly Product: unique symbol;
 }
 
-export default Default;
+export default Product;
 
 // Success

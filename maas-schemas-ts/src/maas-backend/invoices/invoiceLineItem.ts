@@ -32,108 +32,17 @@ export const schemaId =
   'http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json';
 
 // InvoiceLineItem
-// Invoice line item
-export type InvoiceLineItem = t.Branded<
-  {
-    id?: InvoiceUnits_.InvoiceLineItemId;
-    gatewayId?: string;
-    invoiceId?: InvoiceUnits_.InvoiceId;
-    type?: string & ('authorization' | 'capture' | 'charge' | 'refund');
-    paymentSourceId?: string;
-    date?: Units_.Time;
-    description?: string;
-    amount?: number;
-    currency?: Units_.Currency;
-    referenceInvoiceLineItemId?: InvoiceUnits_.InvoiceLineItemId;
-    tokenId?: Fare_.TokenId;
-    token?: {};
-  } & {
-    id: Defined;
-    gatewayId: Defined;
-    description: Defined;
-    amount: Defined;
-    currency: Defined;
-    type: Defined;
-  },
-  InvoiceLineItemBrand
->;
+// The default export. More information at the top.
+export type InvoiceLineItem = t.Branded<unknown, InvoiceLineItemBrand>;
 export const InvoiceLineItem = t.brand(
-  t.intersection([
-    t.partial({
-      id: InvoiceUnits_.InvoiceLineItemId,
-      gatewayId: t.string,
-      invoiceId: InvoiceUnits_.InvoiceId,
-      type: t.intersection([
-        t.string,
-        t.union([
-          t.literal('authorization'),
-          t.literal('capture'),
-          t.literal('charge'),
-          t.literal('refund'),
-        ]),
-      ]),
-      paymentSourceId: t.string,
-      date: Units_.Time,
-      description: t.string,
-      amount: t.number,
-      currency: Units_.Currency,
-      referenceInvoiceLineItemId: InvoiceUnits_.InvoiceLineItemId,
-      tokenId: Fare_.TokenId,
-      token: t.type({}),
-    }),
-    t.type({
-      id: Defined,
-      gatewayId: Defined,
-      description: Defined,
-      amount: Defined,
-      currency: Defined,
-      type: Defined,
-    }),
-  ]),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      id?: InvoiceUnits_.InvoiceLineItemId;
-      gatewayId?: string;
-      invoiceId?: InvoiceUnits_.InvoiceId;
-      type?: string & ('authorization' | 'capture' | 'charge' | 'refund');
-      paymentSourceId?: string;
-      date?: Units_.Time;
-      description?: string;
-      amount?: number;
-      currency?: Units_.Currency;
-      referenceInvoiceLineItemId?: InvoiceUnits_.InvoiceLineItemId;
-      tokenId?: Fare_.TokenId;
-      token?: {};
-    } & {
-      id: Defined;
-      gatewayId: Defined;
-      description: Defined;
-      amount: Defined;
-      currency: Defined;
-      type: Defined;
-    },
-    InvoiceLineItemBrand
-  > => true,
+  t.unknown,
+  (x): x is t.Branded<unknown, InvoiceLineItemBrand> => true,
   'InvoiceLineItem',
 );
 export interface InvoiceLineItemBrand {
   readonly InvoiceLineItem: unique symbol;
 }
 
-// Default
-// The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
-);
-export interface DefaultBrand {
-  readonly Default: unique symbol;
-}
-
-export default Default;
+export default InvoiceLineItem;
 
 // Success

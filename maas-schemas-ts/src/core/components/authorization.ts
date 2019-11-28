@@ -29,9 +29,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/components/authorization.json';
 
-// Default
+// Authorization
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Authorization = t.Branded<
   {
     agencyId?: Common_.AgencyId;
     state?: string & ('VALID' | 'INVALID');
@@ -44,9 +44,9 @@ export type Default = t.Branded<
     validTo: Defined;
     created: Defined;
   },
-  DefaultBrand
+  AuthorizationBrand
 >;
-export const Default = t.brand(
+export const Authorization = t.brand(
   t.intersection([
     t.partial({
       agencyId: Common_.AgencyId,
@@ -80,14 +80,14 @@ export const Default = t.brand(
       validTo: Defined;
       created: Defined;
     },
-    DefaultBrand
+    AuthorizationBrand
   > => true,
-  'Default',
+  'Authorization',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface AuthorizationBrand {
+  readonly Authorization: unique symbol;
 }
 
-export default Default;
+export default Authorization;
 
 // Success

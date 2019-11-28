@@ -32,9 +32,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/maas-backend/provider/routes/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   ({
     identityId?: Units_.IdentityId;
     from?: UnitsGeo_.ShortLocation;
@@ -47,7 +47,7 @@ export type Default = t.Branded<
     toStationId?: Station_.Id;
     leaveAt?: Units_.Time;
     arriveBy?: Units_.Time;
-    modes?: TravelMode_.Default;
+    modes?: TravelMode_.TravelMode;
   } & Record<
     string,
     | Units_.IdentityId
@@ -61,15 +61,15 @@ export type Default = t.Branded<
     | Station_.Id
     | Units_.Time
     | Units_.Time
-    | TravelMode_.Default
+    | TravelMode_.TravelMode
     | (string | number | boolean)
   >) & {
     from: Defined;
     to: Defined;
   },
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.intersection([
     t.intersection([
       t.partial({
@@ -84,7 +84,7 @@ export const Default = t.brand(
         toStationId: Station_.Id,
         leaveAt: Units_.Time,
         arriveBy: Units_.Time,
-        modes: TravelMode_.Default,
+        modes: TravelMode_.TravelMode,
       }),
       t.record(
         t.string,
@@ -100,7 +100,7 @@ export const Default = t.brand(
           Station_.Id,
           Units_.Time,
           Units_.Time,
-          TravelMode_.Default,
+          TravelMode_.TravelMode,
           t.union([t.string, t.number, t.boolean]),
         ]),
       ),
@@ -125,7 +125,7 @@ export const Default = t.brand(
       toStationId?: Station_.Id;
       leaveAt?: Units_.Time;
       arriveBy?: Units_.Time;
-      modes?: TravelMode_.Default;
+      modes?: TravelMode_.TravelMode;
     } & Record<
       string,
       | Units_.IdentityId
@@ -139,20 +139,20 @@ export const Default = t.brand(
       | Station_.Id
       | Units_.Time
       | Units_.Time
-      | TravelMode_.Default
+      | TravelMode_.TravelMode
       | (string | number | boolean)
     >) & {
       from: Defined;
       to: Defined;
     },
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

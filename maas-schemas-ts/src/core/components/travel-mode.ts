@@ -151,13 +151,13 @@ export interface PrivateTransitModeBrand {
   readonly PrivateTransitMode: unique symbol;
 }
 
-// Default
+// TravelMode
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type TravelMode = t.Branded<
   WaitingMode | TransferMode | PersonalMode | PublicTransitMode | PrivateTransitMode,
-  DefaultBrand
+  TravelModeBrand
 >;
-export const Default = t.brand(
+export const TravelMode = t.brand(
   t.union([
     WaitingMode,
     TransferMode,
@@ -169,14 +169,14 @@ export const Default = t.brand(
     x,
   ): x is t.Branded<
     WaitingMode | TransferMode | PersonalMode | PublicTransitMode | PrivateTransitMode,
-    DefaultBrand
+    TravelModeBrand
   > => true,
-  'Default',
+  'TravelMode',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface TravelModeBrand {
+  readonly TravelMode: unique symbol;
 }
 
-export default Default;
+export default TravelMode;
 
 // Success

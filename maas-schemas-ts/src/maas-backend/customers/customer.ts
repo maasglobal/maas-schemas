@@ -33,17 +33,17 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/maas-backend/customers/customer.json';
 
-// Default
+// Customer
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Customer = t.Branded<
   {
     identityId?: Units_.IdentityId;
     profileImageUrl?: string;
-    personalData?: PersonalData_.Default;
+    personalData?: PersonalData_.PersonalData;
     paymentSources?: Array<PaymentSource_.PaymentSource>;
-    balances?: Array<Fare_.Default>;
-    region?: Region_.Default;
-    authorizations?: Array<Authorization_.Default>;
+    balances?: Array<Fare_.Fare>;
+    region?: Region_.Region;
+    authorizations?: Array<Authorization_.Authorization>;
     favoriteLocations?: Array<{}>;
   } & {
     personalData: Defined;
@@ -52,18 +52,18 @@ export type Default = t.Branded<
     region: Defined;
     authorizations: Defined;
   },
-  DefaultBrand
+  CustomerBrand
 >;
-export const Default = t.brand(
+export const Customer = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
       profileImageUrl: t.string,
-      personalData: PersonalData_.Default,
+      personalData: PersonalData_.PersonalData,
       paymentSources: t.array(PaymentSource_.PaymentSource),
-      balances: t.array(Fare_.Default),
-      region: Region_.Default,
-      authorizations: t.array(Authorization_.Default),
+      balances: t.array(Fare_.Fare),
+      region: Region_.Region,
+      authorizations: t.array(Authorization_.Authorization),
       favoriteLocations: t.array(t.type({})),
     }),
     t.type({
@@ -80,11 +80,11 @@ export const Default = t.brand(
     {
       identityId?: Units_.IdentityId;
       profileImageUrl?: string;
-      personalData?: PersonalData_.Default;
+      personalData?: PersonalData_.PersonalData;
       paymentSources?: Array<PaymentSource_.PaymentSource>;
-      balances?: Array<Fare_.Default>;
-      region?: Region_.Default;
-      authorizations?: Array<Authorization_.Default>;
+      balances?: Array<Fare_.Fare>;
+      region?: Region_.Region;
+      authorizations?: Array<Authorization_.Authorization>;
       favoriteLocations?: Array<{}>;
     } & {
       personalData: Defined;
@@ -93,14 +93,14 @@ export const Default = t.brand(
       region: Defined;
       authorizations: Defined;
     },
-    DefaultBrand
+    CustomerBrand
   > => true,
-  'Default',
+  'Customer',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface CustomerBrand {
+  readonly Customer: unique symbol;
 }
 
-export default Default;
+export default Customer;
 
 // Success

@@ -1120,8 +1120,6 @@ WARNING: default field not supported outside top-level definitions
   in ./maas-backend/geocoding/geocoding-reverse/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/invoices/invoice.json
-INFO: missing description
-  in ./maas-backend/invoices/invoice.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/invoices/invoiceLineItem.json
 WARNING: minLength field not supported outside top-level definitions
@@ -1446,10 +1444,6 @@ INFO: missing description
   in ./maas-backend/subscriptions/subscription.json
 INFO: missing description
   in ./maas-backend/subscriptions/subscription.json
-INFO: missing description
-  in ./maas-backend/subscriptions/subscription.json
-INFO: missing description
-  in ./maas-backend/subscriptions/subscriptionAddress.json
 WARNING: minItems field not supported outside top-level definitions
   in ./maas-backend/subscriptions/subscriptionOption.json
 INFO: missing description

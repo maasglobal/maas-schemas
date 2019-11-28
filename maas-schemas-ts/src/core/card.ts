@@ -28,9 +28,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/card.json';
 
-// Default
+// Card
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Card = t.Branded<
   {
     issuer?: string;
     expiryMonth?: number;
@@ -47,9 +47,9 @@ export type Default = t.Branded<
     status: Defined;
     valid: Defined;
   },
-  DefaultBrand
+  CardBrand
 >;
-export const Default = t.brand(
+export const Card = t.brand(
   t.intersection([
     t.partial({
       issuer: t.string,
@@ -96,14 +96,14 @@ export const Default = t.brand(
       status: Defined;
       valid: Defined;
     },
-    DefaultBrand
+    CardBrand
   > => true,
-  'Default',
+  'Card',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface CardBrand {
+  readonly Card: unique symbol;
 }
 
-export default Default;
+export default Card;
 
 // Success

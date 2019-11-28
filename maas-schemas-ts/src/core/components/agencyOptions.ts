@@ -16,11 +16,11 @@ import * as Address_ from 'maas-schemas-ts/core/components/address';
 
 export const schemaId = 'http://maasglobal.com/core/components/agencyOptions.json';
 
-// Default
+// AgencyOptions
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type AgencyOptions = t.Branded<
   {
-    mode?: TravelMode_.Default;
+    mode?: TravelMode_.TravelMode;
     agencyId?: Common_.AgencyId;
     startTime?: Units_.Time;
     endTime?: Units_.Time;
@@ -33,11 +33,11 @@ export type Default = t.Branded<
     toAddress?: Address_.ComponentAddress;
     toRadius?: UnitsGeo_.Distance;
   },
-  DefaultBrand
+  AgencyOptionsBrand
 >;
-export const Default = t.brand(
+export const AgencyOptions = t.brand(
   t.partial({
-    mode: TravelMode_.Default,
+    mode: TravelMode_.TravelMode,
     agencyId: Common_.AgencyId,
     startTime: Units_.Time,
     endTime: Units_.Time,
@@ -54,7 +54,7 @@ export const Default = t.brand(
     x,
   ): x is t.Branded<
     {
-      mode?: TravelMode_.Default;
+      mode?: TravelMode_.TravelMode;
       agencyId?: Common_.AgencyId;
       startTime?: Units_.Time;
       endTime?: Units_.Time;
@@ -67,14 +67,14 @@ export const Default = t.brand(
       toAddress?: Address_.ComponentAddress;
       toRadius?: UnitsGeo_.Distance;
     },
-    DefaultBrand
+    AgencyOptionsBrand
   > => true,
-  'Default',
+  'AgencyOptions',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface AgencyOptionsBrand {
+  readonly AgencyOptions: unique symbol;
 }
 
-export default Default;
+export default AgencyOptions;
 
 // Success

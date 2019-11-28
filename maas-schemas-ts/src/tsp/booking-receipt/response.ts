@@ -27,16 +27,16 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/tsp/bookings-receipt/response.json';
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Response = t.Branded<
   {
     tspId: Defined;
     cost: Defined;
   },
-  DefaultBrand
+  ResponseBrand
 >;
-export const Default = t.brand(
+export const Response = t.brand(
   t.type({
     tspId: Defined,
     cost: Defined,
@@ -48,14 +48,14 @@ export const Default = t.brand(
       tspId: Defined;
       cost: Defined;
     },
-    DefaultBrand
+    ResponseBrand
   > => true,
-  'Default',
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success
