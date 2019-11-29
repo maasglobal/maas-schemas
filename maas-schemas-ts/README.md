@@ -1,6 +1,6 @@
 # MaaS Schemas TypeScript Support
 
-This repostory contains [io-ts](https://github.com/gcanti/io-ts) validators that match the [JSON Schema](https://json-schema.org/) definitions from the [maas-schemas](https://github.com/maasglobal/maas-schemas) package. The validators work with any JavaScript compatible language. However, the main benefit of io-ts validators is their compatibility with TypeScript's static type system.
+This repostory contains [io-ts](https://github.com/gcanti/io-ts) validators that match the [JSON Schema](https://json-schema.org/) definitions from the [maas-schemas](https://github.com/maasglobal/maas-schemas/tree/develop/maas-schemas) package. The validators work with any JavaScript compatible language. However, the main benefit of io-ts validators is their compatibility with TypeScript's static type system.
 
 Beware! The validators defined in this package are a bit looser than the corresponding JSON schema definitions. The definitions in this package may also be incomplete or out of date because of the manual work involved. 
 
@@ -54,10 +54,12 @@ interface YourBooking {
   type: 'booking',
   booking: Booking,
 }
+
 interface YourError {
   type: 'error',
   error: Array<string>
 }
+
 type YourType = YourBooking|YourError
 
 function validate(json: unknown): YourType {

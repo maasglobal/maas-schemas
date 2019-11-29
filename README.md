@@ -10,17 +10,10 @@ The code is divided into several independent npm packages.
 * [maas-schemas](maas-schemas) contains language independent JSON Schema type definitions
 * [maas-schemas-ts](maas-schemas-ts) contains corresponding TypeScript types and validators
 
+
 ## Documentation
 
-To generate documentation from JSON Schemas, execute:
-
-```bash
-npm run build
-npm run docs
-```
-
-After that, documentation will be available in Markdown format in docs/ folder
-and in HTML format in \_docs/ folder.
+Markdown and HTML documentation can be generated from JSON Schemas. Refer to [maas-schemas](maas-schemas)  for more information.
 
 ## Automatic Conversion
 
@@ -28,8 +21,7 @@ The maas-schemas-ts package is generated automatically from the maas-schemas pac
 Travis won't accept any changes to maas-schemas unless you run the converter.
 You can run the converter as follows.
 
-```
-npm install -g yarn                     # install yarn
+```bash
 yarn --cwd maas-schemas-ts              # install dependencies
 yarn --cwd maas-schemas-ts convert-all  # run the converter
 ```
@@ -38,7 +30,7 @@ yarn --cwd maas-schemas-ts convert-all  # run the converter
 
 The following commands should work in all packages where applicable.
 
-```
+```bash
 yarn                              # install dependencies
 yarn ci                           # perform a local CI test run
 ```
