@@ -13,17 +13,17 @@ import * as Units_ from 'maas-schemas-ts/core/components/units';
 
 export const schemaId = 'http://maasglobal.com/core/stop.json';
 
-// Default
+// Stop
 // The default export. More information at the top.
-export type Default = t.Branded<
-  Place_.Default & {
+export type Stop = t.Branded<
+  Place_.Place & {
     startTime?: Units_.Time;
   },
-  DefaultBrand
+  StopBrand
 >;
-export const Default = t.brand(
+export const Stop = t.brand(
   t.intersection([
-    Place_.Default,
+    Place_.Place,
     t.partial({
       startTime: Units_.Time,
     }),
@@ -31,17 +31,17 @@ export const Default = t.brand(
   (
     x,
   ): x is t.Branded<
-    Place_.Default & {
+    Place_.Place & {
       startTime?: Units_.Time;
     },
-    DefaultBrand
+    StopBrand
   > => true,
-  'Default',
+  'Stop',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface StopBrand {
+  readonly Stop: unique symbol;
 }
 
-export default Default;
+export default Stop;
 
 // Success

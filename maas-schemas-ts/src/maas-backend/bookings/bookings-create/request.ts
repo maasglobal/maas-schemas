@@ -32,29 +32,29 @@ const Defined = t.union([
 export const schemaId =
   'http://maasglobal.com/maas-backend/bookings/bookings-create/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
     payload?: {
       booking?: Response_.Option;
-      customerSelection?: CustomerSelection_.Default;
+      customerSelection?: CustomerSelection_.CustomerSelection;
     };
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
     payload: Defined;
   },
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
       payload: t.partial({
         booking: Response_.Option,
-        customerSelection: CustomerSelection_.Default,
+        customerSelection: CustomerSelection_.CustomerSelection,
       }),
       headers: ApiCommon_.Headers,
     }),
@@ -70,21 +70,21 @@ export const Default = t.brand(
       identityId?: Units_.IdentityId;
       payload?: {
         booking?: Response_.Option;
-        customerSelection?: CustomerSelection_.Default;
+        customerSelection?: CustomerSelection_.CustomerSelection;
       };
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;
       payload: Defined;
     },
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

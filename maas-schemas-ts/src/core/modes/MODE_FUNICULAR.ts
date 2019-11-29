@@ -11,18 +11,18 @@ import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_FUNICULAR.json';
 
-// Default
+// MODE_FUNICULAR
 // The default export. More information at the top.
-export type Default = t.Branded<{}, DefaultBrand>;
-export const Default = t.brand(
+export type MODE_FUNICULAR = t.Branded<{}, MODE_FUNICULARBrand>;
+export const MODE_FUNICULAR = t.brand(
   t.type({}),
-  (x): x is t.Branded<{}, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<{}, MODE_FUNICULARBrand> => true,
+  'MODE_FUNICULAR',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface MODE_FUNICULARBrand {
+  readonly MODE_FUNICULAR: unique symbol;
 }
 
-export default Default;
+export default MODE_FUNICULAR;
 
 // Success

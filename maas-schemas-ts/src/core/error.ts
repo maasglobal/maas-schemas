@@ -27,9 +27,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/error.json';
 
-// Default
+// Error
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Error = t.Branded<
   {
     message?: string;
     code?: string;
@@ -37,9 +37,9 @@ export type Default = t.Branded<
     message: Defined;
     code: Defined;
   },
-  DefaultBrand
+  ErrorBrand
 >;
-export const Default = t.brand(
+export const Error = t.brand(
   t.intersection([
     t.partial({
       message: t.string,
@@ -60,14 +60,14 @@ export const Default = t.brand(
       message: Defined;
       code: Defined;
     },
-    DefaultBrand
+    ErrorBrand
   > => true,
-  'Default',
+  'Error',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ErrorBrand {
+  readonly Error: unique symbol;
 }
 
-export default Default;
+export default Error;
 
 // Success

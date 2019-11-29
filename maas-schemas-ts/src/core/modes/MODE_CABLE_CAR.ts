@@ -11,18 +11,18 @@ import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_CABLE_CAR.json';
 
-// Default
+// MODE_CABLE_CAR
 // The default export. More information at the top.
-export type Default = t.Branded<{}, DefaultBrand>;
-export const Default = t.brand(
+export type MODE_CABLE_CAR = t.Branded<{}, MODE_CABLE_CARBrand>;
+export const MODE_CABLE_CAR = t.brand(
   t.type({}),
-  (x): x is t.Branded<{}, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<{}, MODE_CABLE_CARBrand> => true,
+  'MODE_CABLE_CAR',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface MODE_CABLE_CARBrand {
+  readonly MODE_CABLE_CAR: unique symbol;
 }
 
-export default Default;
+export default MODE_CABLE_CAR;
 
 // Success

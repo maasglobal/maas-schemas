@@ -28,9 +28,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/tsp/bookings-ticket/response.json';
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Response = t.Branded<
   {
     ticket?: string;
     type?: string & ('html' | 'pdf' | 'svg');
@@ -41,9 +41,9 @@ export type Default = t.Branded<
     type: Defined;
     contentType: Defined;
   },
-  DefaultBrand
+  ResponseBrand
 >;
-export const Default = t.brand(
+export const Response = t.brand(
   t.intersection([
     t.partial({
       ticket: t.string,
@@ -80,14 +80,14 @@ export const Default = t.brand(
       type: Defined;
       contentType: Defined;
     },
-    DefaultBrand
+    ResponseBrand
   > => true,
-  'Default',
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success

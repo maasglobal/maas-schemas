@@ -326,17 +326,17 @@ export interface EnvironmentGroupBrand {
   readonly EnvironmentGroup: unique symbol;
 }
 
-// Default
+// Environments
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Environments = t.Branded<
   {
     index?: Array<EnvironmentGroup>;
   } & {
     index: Defined;
   },
-  DefaultBrand
+  EnvironmentsBrand
 >;
-export const Default = t.brand(
+export const Environments = t.brand(
   t.intersection([
     t.partial({
       index: t.array(EnvironmentGroup),
@@ -353,15 +353,15 @@ export const Default = t.brand(
     } & {
       index: Defined;
     },
-    DefaultBrand
+    EnvironmentsBrand
   > => true,
-  'Default',
+  'Environments',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface EnvironmentsBrand {
+  readonly Environments: unique symbol;
 }
-/** examplesDefault // => { _tag: 'Right', right: examplesDefaultJson } */
-export const examplesDefaultJson: NonEmptyArray<unknown> = [
+/** examplesEnvironments // => { _tag: 'Right', right: examplesEnvironmentsJson } */
+export const examplesEnvironmentsJson: NonEmptyArray<unknown> = [
   {
     index: [
       {
@@ -399,8 +399,10 @@ export const examplesDefaultJson: NonEmptyArray<unknown> = [
     ],
   },
 ];
-export const examplesDefault = nonEmptyArray(Default).decode(examplesDefaultJson);
+export const examplesEnvironments = nonEmptyArray(Environments).decode(
+  examplesEnvironmentsJson,
+);
 
-export default Default;
+export default Environments;
 
 // Success

@@ -11,18 +11,18 @@ import * as t from 'io-ts';
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_SUBWAY.json';
 
-// Default
+// MODE_SUBWAY
 // The default export. More information at the top.
-export type Default = t.Branded<{}, DefaultBrand>;
-export const Default = t.brand(
+export type MODE_SUBWAY = t.Branded<{}, MODE_SUBWAYBrand>;
+export const MODE_SUBWAY = t.brand(
   t.type({}),
-  (x): x is t.Branded<{}, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<{}, MODE_SUBWAYBrand> => true,
+  'MODE_SUBWAY',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface MODE_SUBWAYBrand {
+  readonly MODE_SUBWAY: unique symbol;
 }
 
-export default Default;
+export default MODE_SUBWAY;
 
 // Success

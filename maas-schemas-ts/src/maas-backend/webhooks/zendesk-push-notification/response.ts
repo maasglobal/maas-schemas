@@ -28,9 +28,9 @@ const Defined = t.union([
 export const schemaId =
   'http://maasglobal.com/maas-backend/webhooks/zendesk-push-notification/response.json';
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Response = t.Branded<
   {
     results?: {
       successCount: Defined;
@@ -39,9 +39,9 @@ export type Default = t.Branded<
   } & {
     results: Defined;
   },
-  DefaultBrand
+  ResponseBrand
 >;
-export const Default = t.brand(
+export const Response = t.brand(
   t.intersection([
     t.partial({
       results: t.type({
@@ -64,14 +64,14 @@ export const Default = t.brand(
     } & {
       results: Defined;
     },
-    DefaultBrand
+    ResponseBrand
   > => true,
-  'Default',
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success

@@ -11,11 +11,11 @@ import * as CarRental_ from 'maas-schemas-ts/core/components/car-rental';
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_SHARED_CAR.json';
 
-// Default
+// MODE_SHARED_CAR
 // The default export. More information at the top.
-export type Default = CarRental_.Default;
-export const Default = CarRental_.Default;
+export type MODE_SHARED_CAR = CarRental_.CarRental;
+export const MODE_SHARED_CAR = CarRental_.CarRental;
 
-export default Default;
+export default MODE_SHARED_CAR;
 
 // Success

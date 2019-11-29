@@ -29,9 +29,9 @@ const Defined = t.union([
 export const schemaId =
   'http://maasglobal.com/core/components/subscriptionChangeState.json';
 
-// Default
+// SubscriptionChangeState
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type SubscriptionChangeState = t.Branded<
   {
     id?: Units_.Uuid;
     state?: string & ('IN_PROGRESS' | 'COMPLETED' | 'FAILED');
@@ -41,9 +41,9 @@ export type Default = t.Branded<
     id: Defined;
     state: Defined;
   },
-  DefaultBrand
+  SubscriptionChangeStateBrand
 >;
-export const Default = t.brand(
+export const SubscriptionChangeState = t.brand(
   t.intersection([
     t.partial({
       id: Units_.Uuid,
@@ -78,14 +78,14 @@ export const Default = t.brand(
       id: Defined;
       state: Defined;
     },
-    DefaultBrand
+    SubscriptionChangeStateBrand
   > => true,
-  'Default',
+  'SubscriptionChangeState',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface SubscriptionChangeStateBrand {
+  readonly SubscriptionChangeState: unique symbol;
 }
 
-export default Default;
+export default SubscriptionChangeState;
 
 // Success

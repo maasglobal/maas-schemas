@@ -40,9 +40,9 @@ export interface TokenIdBrand {
   readonly TokenId: unique symbol;
 }
 
-// Default
+// Fare
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Fare = t.Branded<
   {
     amount?: number | null;
     currency?: string & ('WMP' | 'TOKEN');
@@ -54,9 +54,9 @@ export type Default = t.Branded<
     amount: Defined;
     currency: Defined;
   },
-  DefaultBrand
+  FareBrand
 >;
-export const Default = t.brand(
+export const Fare = t.brand(
   t.intersection([
     t.partial({
       amount: t.union([t.number, t.null]),
@@ -91,14 +91,14 @@ export const Default = t.brand(
       amount: Defined;
       currency: Defined;
     },
-    DefaultBrand
+    FareBrand
   > => true,
-  'Default',
+  'Fare',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface FareBrand {
+  readonly Fare: unique symbol;
 }
 
-export default Default;
+export default Fare;
 
 // Success

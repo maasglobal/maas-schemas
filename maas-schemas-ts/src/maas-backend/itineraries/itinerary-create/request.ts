@@ -22,21 +22,21 @@ export const schemaId =
 // The purpose of this remains a mystery
 export type OutwardReturnWrapper = t.Branded<
   {
-    itinerary?: Itinerary_.Default;
+    itinerary?: Itinerary_.Itinerary;
     customerSelections?: Array<{
       ref?: ProductOption_.Ref;
-      customerSelection?: CustomerSelection_.Default;
+      customerSelection?: CustomerSelection_.CustomerSelection;
     }>;
   },
   OutwardReturnWrapperBrand
 >;
 export const OutwardReturnWrapper = t.brand(
   t.partial({
-    itinerary: Itinerary_.Default,
+    itinerary: Itinerary_.Itinerary,
     customerSelections: t.array(
       t.partial({
         ref: ProductOption_.Ref,
-        customerSelection: CustomerSelection_.Default,
+        customerSelection: CustomerSelection_.CustomerSelection,
       }),
     ),
   }),
@@ -44,10 +44,10 @@ export const OutwardReturnWrapper = t.brand(
     x,
   ): x is t.Branded<
     {
-      itinerary?: Itinerary_.Default;
+      itinerary?: Itinerary_.Itinerary;
       customerSelections?: Array<{
         ref?: ProductOption_.Ref;
-        customerSelection?: CustomerSelection_.Default;
+        customerSelection?: CustomerSelection_.CustomerSelection;
       }>;
     },
     OutwardReturnWrapperBrand
@@ -58,27 +58,27 @@ export interface OutwardReturnWrapperBrand {
   readonly OutwardReturnWrapper: unique symbol;
 }
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
     headers?: ApiCommon_.Headers;
     payload?: {
-      itinerary?: Itinerary_.Default;
+      itinerary?: Itinerary_.Itinerary;
       paymentSourceId?: Common_.PaymentSourceId;
       outward?: OutwardReturnWrapper;
       return?: OutwardReturnWrapper;
     };
   },
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.partial({
     identityId: Units_.IdentityId,
     headers: ApiCommon_.Headers,
     payload: t.partial({
-      itinerary: Itinerary_.Default,
+      itinerary: Itinerary_.Itinerary,
       paymentSourceId: Common_.PaymentSourceId,
       outward: OutwardReturnWrapper,
       return: OutwardReturnWrapper,
@@ -91,20 +91,20 @@ export const Default = t.brand(
       identityId?: Units_.IdentityId;
       headers?: ApiCommon_.Headers;
       payload?: {
-        itinerary?: Itinerary_.Default;
+        itinerary?: Itinerary_.Itinerary;
         paymentSourceId?: Common_.PaymentSourceId;
         outward?: OutwardReturnWrapper;
         return?: OutwardReturnWrapper;
       };
     },
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

@@ -29,9 +29,9 @@ const Defined = t.union([
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/verification/media/list/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
     customerId?: Units_.IdentityId;
@@ -39,9 +39,9 @@ export type Default = t.Branded<
     identityId: Defined;
     customerId: Defined;
   },
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
@@ -62,14 +62,14 @@ export const Default = t.brand(
       identityId: Defined;
       customerId: Defined;
     },
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

@@ -27,9 +27,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_SHARED_BICYCLE.json';
 
-// Default
+// MODE_SHARED_BICYCLE
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type MODE_SHARED_BICYCLE = t.Branded<
   {
     bike?: {
       id?: string;
@@ -38,9 +38,9 @@ export type Default = t.Branded<
       id: Defined;
     };
   },
-  DefaultBrand
+  MODE_SHARED_BICYCLEBrand
 >;
-export const Default = t.brand(
+export const MODE_SHARED_BICYCLE = t.brand(
   t.partial({
     bike: t.intersection([
       t.partial({
@@ -63,14 +63,14 @@ export const Default = t.brand(
         id: Defined;
       };
     },
-    DefaultBrand
+    MODE_SHARED_BICYCLEBrand
   > => true,
-  'Default',
+  'MODE_SHARED_BICYCLE',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface MODE_SHARED_BICYCLEBrand {
+  readonly MODE_SHARED_BICYCLE: unique symbol;
 }
 
-export default Default;
+export default MODE_SHARED_BICYCLE;
 
 // Success

@@ -38,7 +38,7 @@ export type Option = t.Branded<
     fares?: Booking_.Fares;
     cost?: Booking_.Cost;
     leg?: Booking_.Leg;
-    meta?: BookingMeta_.Default;
+    meta?: BookingMeta_.BookingMeta;
     terms?: Booking_.Terms;
     tspProduct?: {
       id?: string;
@@ -65,7 +65,7 @@ export const Option = t.brand(
       fares: Booking_.Fares,
       cost: Booking_.Cost,
       leg: Booking_.Leg,
-      meta: BookingMeta_.Default,
+      meta: BookingMeta_.BookingMeta,
       terms: Booking_.Terms,
       tspProduct: t.partial({
         id: t.string,
@@ -94,7 +94,7 @@ export const Option = t.brand(
       fares?: Booking_.Fares;
       cost?: Booking_.Cost;
       leg?: Booking_.Leg;
-      meta?: BookingMeta_.Default;
+      meta?: BookingMeta_.BookingMeta;
       terms?: Booking_.Terms;
       tspProduct?: {
         id?: string;
@@ -121,26 +121,26 @@ export interface OptionBrand {
   readonly Option: unique symbol;
 }
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Response = t.Branded<
   {
     options?: Array<Option>;
     additional?: {
-      bikeStations?: Array<BikeStation_.Default>;
+      bikeStations?: Array<BikeStation_.BikeStation>;
     };
     debug?: {};
   } & {
     options: Defined;
   },
-  DefaultBrand
+  ResponseBrand
 >;
-export const Default = t.brand(
+export const Response = t.brand(
   t.intersection([
     t.partial({
       options: t.array(Option),
       additional: t.partial({
-        bikeStations: t.array(BikeStation_.Default),
+        bikeStations: t.array(BikeStation_.BikeStation),
       }),
       debug: t.type({}),
     }),
@@ -154,20 +154,20 @@ export const Default = t.brand(
     {
       options?: Array<Option>;
       additional?: {
-        bikeStations?: Array<BikeStation_.Default>;
+        bikeStations?: Array<BikeStation_.BikeStation>;
       };
       debug?: {};
     } & {
       options: Defined;
     },
-    DefaultBrand
+    ResponseBrand
   > => true,
-  'Default',
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success

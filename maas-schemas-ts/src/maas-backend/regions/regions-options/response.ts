@@ -29,21 +29,21 @@ const Defined = t.union([
 export const schemaId =
   'http://maasglobal.com/maas-backend/regions/regions-options/response.json';
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Response = t.Branded<
   {
-    options?: Array<Region_.Default>;
+    options?: Array<Region_.Region>;
     debug?: {};
   } & {
     options: Defined;
   },
-  DefaultBrand
+  ResponseBrand
 >;
-export const Default = t.brand(
+export const Response = t.brand(
   t.intersection([
     t.partial({
-      options: t.array(Region_.Default),
+      options: t.array(Region_.Region),
       debug: t.type({}),
     }),
     t.type({
@@ -54,19 +54,19 @@ export const Default = t.brand(
     x,
   ): x is t.Branded<
     {
-      options?: Array<Region_.Default>;
+      options?: Array<Region_.Region>;
       debug?: {};
     } & {
       options: Defined;
     },
-    DefaultBrand
+    ResponseBrand
   > => true,
-  'Default',
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success

@@ -15,20 +15,20 @@ import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
 export const schemaId =
   'http://maasglobal.com/maas-backend/profile/profile-favoriteLocations-add/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
-    payload?: Place_.Default;
+    payload?: Place_.Place;
     headers?: ApiCommon_.Headers;
   },
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.partial({
     identityId: Units_.IdentityId,
-    payload: Place_.Default,
+    payload: Place_.Place,
     headers: ApiCommon_.Headers,
   }),
   (
@@ -36,17 +36,17 @@ export const Default = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
-      payload?: Place_.Default;
+      payload?: Place_.Place;
       headers?: ApiCommon_.Headers;
     },
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

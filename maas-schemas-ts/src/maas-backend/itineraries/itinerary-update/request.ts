@@ -34,28 +34,28 @@ const Defined = t.union([
 export const schemaId =
   'http://maasglobal.com/maas-backend/itineraries/itinerary-update/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
     itineraryId?: Itinerary_.Id;
     headers?: ApiCommon_.Headers;
     payload?: {
       paymentSourceId?: Common_.PaymentSourceId;
-      itinerary?: Itinerary_.Default;
+      itinerary?: Itinerary_.Itinerary;
       customerSelections?: Array<{
         ref?: ProductOption_.Ref;
-        customerSelection?: CustomerSelection_.Default;
+        customerSelection?: CustomerSelection_.CustomerSelection;
       }>;
     } & {
       itinerary: Defined;
       customerSelections: Defined;
     };
   },
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.partial({
     identityId: Units_.IdentityId,
     itineraryId: Itinerary_.Id,
@@ -63,11 +63,11 @@ export const Default = t.brand(
     payload: t.intersection([
       t.partial({
         paymentSourceId: Common_.PaymentSourceId,
-        itinerary: Itinerary_.Default,
+        itinerary: Itinerary_.Itinerary,
         customerSelections: t.array(
           t.partial({
             ref: ProductOption_.Ref,
-            customerSelection: CustomerSelection_.Default,
+            customerSelection: CustomerSelection_.CustomerSelection,
           }),
         ),
       }),
@@ -86,24 +86,24 @@ export const Default = t.brand(
       headers?: ApiCommon_.Headers;
       payload?: {
         paymentSourceId?: Common_.PaymentSourceId;
-        itinerary?: Itinerary_.Default;
+        itinerary?: Itinerary_.Itinerary;
         customerSelections?: Array<{
           ref?: ProductOption_.Ref;
-          customerSelection?: CustomerSelection_.Default;
+          customerSelection?: CustomerSelection_.CustomerSelection;
         }>;
       } & {
         itinerary: Defined;
         customerSelections: Defined;
       };
     },
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

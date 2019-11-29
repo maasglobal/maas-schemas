@@ -38,7 +38,7 @@ export type LineItem = t.Branded<
     type?: string;
     description?: string;
     quantity?: number;
-    unitPrice?: Cost_.Default;
+    unitPrice?: Cost_.Cost;
   } & {
     id: Defined;
     type: Defined;
@@ -55,7 +55,7 @@ export const LineItem = t.brand(
       type: t.string,
       description: t.string,
       quantity: t.number,
-      unitPrice: Cost_.Default,
+      unitPrice: Cost_.Cost,
     }),
     t.type({
       id: Defined,
@@ -73,7 +73,7 @@ export const LineItem = t.brand(
       type?: string;
       description?: string;
       quantity?: number;
-      unitPrice?: Cost_.Default;
+      unitPrice?: Cost_.Cost;
     } & {
       id: Defined;
       type: Defined;
@@ -94,7 +94,7 @@ export interface LineItemBrand {
 export type Discount = t.Branded<
   {
     description?: string;
-    discount?: Cost_.Default;
+    discount?: Cost_.Cost;
   } & {
     description: Defined;
     discount: Defined;
@@ -105,7 +105,7 @@ export const Discount = t.brand(
   t.intersection([
     t.partial({
       description: t.string,
-      discount: Cost_.Default,
+      discount: Cost_.Cost,
     }),
     t.type({
       description: Defined,
@@ -117,7 +117,7 @@ export const Discount = t.brand(
   ): x is t.Branded<
     {
       description?: string;
-      discount?: Cost_.Default;
+      discount?: Cost_.Cost;
     } & {
       description: Defined;
       discount: Defined;
@@ -186,26 +186,26 @@ export interface TermsBrand {
   readonly Terms: unique symbol;
 }
 
-// Default
+// Pricing
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Pricing = t.Branded<
   {
     lineItems?: Array<LineItem>;
     discounts?: Array<Discount>;
-    total?: Cost_.Default;
+    total?: Cost_.Cost;
     terms?: Terms;
   } & {
     lineItems: Defined;
     total: Defined;
   },
-  DefaultBrand
+  PricingBrand
 >;
-export const Default = t.brand(
+export const Pricing = t.brand(
   t.intersection([
     t.partial({
       lineItems: t.array(LineItem),
       discounts: t.array(Discount),
-      total: Cost_.Default,
+      total: Cost_.Cost,
       terms: Terms,
     }),
     t.type({
@@ -219,20 +219,20 @@ export const Default = t.brand(
     {
       lineItems?: Array<LineItem>;
       discounts?: Array<Discount>;
-      total?: Cost_.Default;
+      total?: Cost_.Cost;
       terms?: Terms;
     } & {
       lineItems: Defined;
       total: Defined;
     },
-    DefaultBrand
+    PricingBrand
   > => true,
-  'Default',
+  'Pricing',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface PricingBrand {
+  readonly Pricing: unique symbol;
 }
 
-export default Default;
+export default Pricing;
 
 // Success

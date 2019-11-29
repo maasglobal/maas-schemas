@@ -29,18 +29,18 @@ const Defined = t.union([
 export const schemaId =
   'http://maasglobal.com/maas-backend/subscriptions/subscriptions-customer-update/response.json';
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Response = t.Branded<
   {
     customer?: Contact_.ContactResponse;
     debug?: {};
   } & {
     customer: Defined;
   },
-  DefaultBrand
+  ResponseBrand
 >;
-export const Default = t.brand(
+export const Response = t.brand(
   t.intersection([
     t.partial({
       customer: Contact_.ContactResponse,
@@ -59,14 +59,14 @@ export const Default = t.brand(
     } & {
       customer: Defined;
     },
-    DefaultBrand
+    ResponseBrand
   > => true,
-  'Default',
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success

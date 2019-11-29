@@ -25,18 +25,18 @@ export interface LocaleBrand {
   readonly Locale: unique symbol;
 }
 
-// Default
+// I18n
 // The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
+export type I18n = t.Branded<unknown, I18nBrand>;
+export const I18n = t.brand(
   t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<unknown, I18nBrand> => true,
+  'I18n',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface I18nBrand {
+  readonly I18n: unique symbol;
 }
 
-export default Default;
+export default I18n;
 
 // Success

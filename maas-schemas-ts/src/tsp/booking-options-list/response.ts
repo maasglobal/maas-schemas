@@ -29,25 +29,25 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/tsp/bookings-options-list/response.json';
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Response = t.Branded<
   {
-    options?: Array<BookingOption_.Default>;
+    options?: Array<BookingOption_.BookingOption>;
     additional?: {
-      bikeStations?: Array<BikeStation_.Default>;
+      bikeStations?: Array<BikeStation_.BikeStation>;
     };
   } & {
     options: Defined;
   },
-  DefaultBrand
+  ResponseBrand
 >;
-export const Default = t.brand(
+export const Response = t.brand(
   t.intersection([
     t.partial({
-      options: t.array(BookingOption_.Default),
+      options: t.array(BookingOption_.BookingOption),
       additional: t.partial({
-        bikeStations: t.array(BikeStation_.Default),
+        bikeStations: t.array(BikeStation_.BikeStation),
       }),
     }),
     t.type({
@@ -58,21 +58,21 @@ export const Default = t.brand(
     x,
   ): x is t.Branded<
     {
-      options?: Array<BookingOption_.Default>;
+      options?: Array<BookingOption_.BookingOption>;
       additional?: {
-        bikeStations?: Array<BikeStation_.Default>;
+        bikeStations?: Array<BikeStation_.BikeStation>;
       };
     } & {
       options: Defined;
     },
-    DefaultBrand
+    ResponseBrand
   > => true,
-  'Default',
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success

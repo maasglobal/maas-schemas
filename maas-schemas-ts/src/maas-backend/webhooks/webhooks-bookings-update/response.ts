@@ -12,11 +12,11 @@ import * as RemoteResponse_ from 'maas-schemas-ts/tsp/webhooks-bookings-update/r
 export const schemaId =
   'http://maasglobal.com/maas-backend/webhooks/webhooks-bookings-update/response.json';
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = RemoteResponse_.Default;
-export const Default = RemoteResponse_.Default;
+export type Response = RemoteResponse_.RemoteResponse;
+export const Response = RemoteResponse_.RemoteResponse;
 
-export default Default;
+export default Response;
 
 // Success

@@ -36,18 +36,18 @@ export interface InvoiceLineItemIdBrand {
   readonly InvoiceLineItemId: unique symbol;
 }
 
-// Default
+// InvoiceUnits
 // The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
+export type InvoiceUnits = t.Branded<unknown, InvoiceUnitsBrand>;
+export const InvoiceUnits = t.brand(
   t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<unknown, InvoiceUnitsBrand> => true,
+  'InvoiceUnits',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface InvoiceUnitsBrand {
+  readonly InvoiceUnits: unique symbol;
 }
 
-export default Default;
+export default InvoiceUnits;
 
 // Success

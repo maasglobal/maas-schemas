@@ -28,9 +28,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/components/cost.json';
 
-// Default
+// Cost
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Cost = t.Branded<
   {
     amount?: number | null;
     originalAmount?: number | null;
@@ -41,9 +41,9 @@ export type Default = t.Branded<
     amount: Defined;
     currency: Defined;
   },
-  DefaultBrand
+  CostBrand
 >;
-export const Default = t.brand(
+export const Cost = t.brand(
   t.intersection([
     t.partial({
       amount: t.union([t.number, t.null]),
@@ -70,14 +70,14 @@ export const Default = t.brand(
       amount: Defined;
       currency: Defined;
     },
-    DefaultBrand
+    CostBrand
   > => true,
-  'Default',
+  'Cost',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface CostBrand {
+  readonly Cost: unique symbol;
 }
 
-export default Default;
+export default Cost;
 
 // Success

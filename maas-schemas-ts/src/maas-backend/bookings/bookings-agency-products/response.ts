@@ -41,7 +41,7 @@ export type Product = t.Branded<
     name?: string;
     meta?: {};
     icon?: Units_.Url;
-    fares?: Array<Fare_.Default>;
+    fares?: Array<Fare_.Fare>;
     description?: string;
   } & {
     id: Defined;
@@ -63,7 +63,7 @@ export const Product = t.brand(
       name: t.string,
       meta: t.type({}),
       icon: Units_.Url,
-      fares: t.array(Fare_.Default),
+      fares: t.array(Fare_.Fare),
       description: t.string,
     }),
     t.type({
@@ -86,7 +86,7 @@ export const Product = t.brand(
       name?: string;
       meta?: {};
       icon?: Units_.Url;
-      fares?: Array<Fare_.Default>;
+      fares?: Array<Fare_.Fare>;
       description?: string;
     } & {
       id: Defined;
@@ -105,9 +105,9 @@ export interface ProductBrand {
   readonly Product: unique symbol;
 }
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Response = t.Branded<
   {
     agencyId?: Common_.AgencyId;
     products?: Array<Product>;
@@ -115,9 +115,9 @@ export type Default = t.Branded<
     agencyId: Defined;
     products: Defined;
   },
-  DefaultBrand
+  ResponseBrand
 >;
-export const Default = t.brand(
+export const Response = t.brand(
   t.intersection([
     t.partial({
       agencyId: Common_.AgencyId,
@@ -138,14 +138,14 @@ export const Default = t.brand(
       agencyId: Defined;
       products: Defined;
     },
-    DefaultBrand
+    ResponseBrand
   > => true,
-  'Default',
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success

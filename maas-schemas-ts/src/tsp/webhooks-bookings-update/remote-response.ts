@@ -41,7 +41,7 @@ export type BookingDelta = t.Branded<
     cost?: Booking_.Cost;
     state?: 'RESERVED' | 'CONFIRMED' | 'ACTIVATED' | 'EXPIRED' | 'CANCELLED' | 'REJECTED';
     leg?: BookingOption_.Leg;
-    meta?: BookingMeta_.Default;
+    meta?: BookingMeta_.BookingMeta;
     terms?: Booking_.Terms;
     token?: Booking_.Token;
     customer?: BookingOption_.Customer;
@@ -66,7 +66,7 @@ export const BookingDelta = t.brand(
         t.literal('REJECTED'),
       ]),
       leg: BookingOption_.Leg,
-      meta: BookingMeta_.Default,
+      meta: BookingMeta_.BookingMeta,
       terms: Booking_.Terms,
       token: Booking_.Token,
       customer: BookingOption_.Customer,
@@ -91,7 +91,7 @@ export const BookingDelta = t.brand(
         | 'CANCELLED'
         | 'REJECTED';
       leg?: BookingOption_.Leg;
-      meta?: BookingMeta_.Default;
+      meta?: BookingMeta_.BookingMeta;
       terms?: Booking_.Terms;
       token?: Booking_.Token;
       customer?: BookingOption_.Customer;
@@ -107,16 +107,16 @@ export interface BookingDeltaBrand {
   readonly BookingDelta: unique symbol;
 }
 
-// Default
+// RemoteResponse
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type RemoteResponse = t.Branded<
   {
     booking?: BookingDelta;
     debug?: {};
   },
-  DefaultBrand
+  RemoteResponseBrand
 >;
-export const Default = t.brand(
+export const RemoteResponse = t.brand(
   t.partial({
     booking: BookingDelta,
     debug: t.type({}),
@@ -128,14 +128,14 @@ export const Default = t.brand(
       booking?: BookingDelta;
       debug?: {};
     },
-    DefaultBrand
+    RemoteResponseBrand
   > => true,
-  'Default',
+  'RemoteResponse',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RemoteResponseBrand {
+  readonly RemoteResponse: unique symbol;
 }
 
-export default Default;
+export default RemoteResponse;
 
 // Success

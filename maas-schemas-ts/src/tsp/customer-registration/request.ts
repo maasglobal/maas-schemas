@@ -28,20 +28,20 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/tsp/customer-registration/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   {
-    customer?: Customer_.Default;
+    customer?: Customer_.Customer;
   } & {
     customer: Defined;
   },
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.intersection([
     t.partial({
-      customer: Customer_.Default,
+      customer: Customer_.Customer,
     }),
     t.type({
       customer: Defined,
@@ -51,18 +51,18 @@ export const Default = t.brand(
     x,
   ): x is t.Branded<
     {
-      customer?: Customer_.Default;
+      customer?: Customer_.Customer;
     } & {
       customer: Defined;
     },
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

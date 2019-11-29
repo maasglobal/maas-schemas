@@ -33,20 +33,20 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/tsp/bookings-create/response.json';
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Response = t.Branded<
   {
     tspId?: Booking_.TspId;
     state?: State_.BookingState;
     cost?: Booking_.Cost;
     leg?: BookingOption_.Leg;
-    meta?: BookingMeta_.Default;
+    meta?: BookingMeta_.BookingMeta;
     terms?: Booking_.Terms;
     token?: Booking_.Token;
     tspProduct?: BookingOption_.TspProduct;
-    configurator?: Configurator_.Default;
-    customerSelection?: CustomerSelection_.Default;
+    configurator?: Configurator_.Configurator;
+    customerSelection?: CustomerSelection_.CustomerSelection;
     customer?: BookingOption_.Customer;
   } & {
     tspId: Defined;
@@ -56,21 +56,21 @@ export type Default = t.Branded<
     token: Defined;
     tspProduct: Defined;
   },
-  DefaultBrand
+  ResponseBrand
 >;
-export const Default = t.brand(
+export const Response = t.brand(
   t.intersection([
     t.partial({
       tspId: Booking_.TspId,
       state: State_.BookingState,
       cost: Booking_.Cost,
       leg: BookingOption_.Leg,
-      meta: BookingMeta_.Default,
+      meta: BookingMeta_.BookingMeta,
       terms: Booking_.Terms,
       token: Booking_.Token,
       tspProduct: BookingOption_.TspProduct,
-      configurator: Configurator_.Default,
-      customerSelection: CustomerSelection_.Default,
+      configurator: Configurator_.Configurator,
+      customerSelection: CustomerSelection_.CustomerSelection,
       customer: BookingOption_.Customer,
     }),
     t.type({
@@ -90,12 +90,12 @@ export const Default = t.brand(
       state?: State_.BookingState;
       cost?: Booking_.Cost;
       leg?: BookingOption_.Leg;
-      meta?: BookingMeta_.Default;
+      meta?: BookingMeta_.BookingMeta;
       terms?: Booking_.Terms;
       token?: Booking_.Token;
       tspProduct?: BookingOption_.TspProduct;
-      configurator?: Configurator_.Default;
-      customerSelection?: CustomerSelection_.Default;
+      configurator?: Configurator_.Configurator;
+      customerSelection?: CustomerSelection_.CustomerSelection;
       customer?: BookingOption_.Customer;
     } & {
       tspId: Defined;
@@ -105,14 +105,14 @@ export const Default = t.brand(
       token: Defined;
       tspProduct: Defined;
     },
-    DefaultBrand
+    ResponseBrand
   > => true,
-  'Default',
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success

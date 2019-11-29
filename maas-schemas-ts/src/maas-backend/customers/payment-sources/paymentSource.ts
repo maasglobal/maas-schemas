@@ -114,103 +114,17 @@ export interface SetupIntentIdBrand {
 }
 
 // PaymentSource
-// Payment source
-export type PaymentSource = t.Branded<
-  {
-    paymentSourceId?: PaymentSourceId;
-    gatewayName?: GatewayName;
-    type?: Type;
-    expiryYear?: number;
-    expiryMonth?: number;
-    cardNumbers?: string;
-    issuer?: string;
-    billingCountry?: Station_.Country;
-    billingZip?: Address_.ZipCode;
-    isValid?: boolean;
-    isDefault?: boolean;
-    alias?: Alias;
-    status?: Status;
-    setupIntentId?: SetupIntentId;
-  } & {
-    paymentSourceId: Defined;
-    gatewayName: Defined;
-    type: Defined;
-    isDefault: Defined;
-    status: Defined;
-  },
-  PaymentSourceBrand
->;
+// The default export. More information at the top.
+export type PaymentSource = t.Branded<unknown, PaymentSourceBrand>;
 export const PaymentSource = t.brand(
-  t.intersection([
-    t.partial({
-      paymentSourceId: PaymentSourceId,
-      gatewayName: GatewayName,
-      type: Type,
-      expiryYear: t.number,
-      expiryMonth: t.number,
-      cardNumbers: t.string,
-      issuer: t.string,
-      billingCountry: Station_.Country,
-      billingZip: Address_.ZipCode,
-      isValid: t.boolean,
-      isDefault: t.boolean,
-      alias: Alias,
-      status: Status,
-      setupIntentId: SetupIntentId,
-    }),
-    t.type({
-      paymentSourceId: Defined,
-      gatewayName: Defined,
-      type: Defined,
-      isDefault: Defined,
-      status: Defined,
-    }),
-  ]),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      paymentSourceId?: PaymentSourceId;
-      gatewayName?: GatewayName;
-      type?: Type;
-      expiryYear?: number;
-      expiryMonth?: number;
-      cardNumbers?: string;
-      issuer?: string;
-      billingCountry?: Station_.Country;
-      billingZip?: Address_.ZipCode;
-      isValid?: boolean;
-      isDefault?: boolean;
-      alias?: Alias;
-      status?: Status;
-      setupIntentId?: SetupIntentId;
-    } & {
-      paymentSourceId: Defined;
-      gatewayName: Defined;
-      type: Defined;
-      isDefault: Defined;
-      status: Defined;
-    },
-    PaymentSourceBrand
-  > => true,
+  t.unknown,
+  (x): x is t.Branded<unknown, PaymentSourceBrand> => true,
   'PaymentSource',
 );
 export interface PaymentSourceBrand {
   readonly PaymentSource: unique symbol;
 }
 
-// Default
-// The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
-);
-export interface DefaultBrand {
-  readonly Default: unique symbol;
-}
-
-export default Default;
+export default PaymentSource;
 
 // Success

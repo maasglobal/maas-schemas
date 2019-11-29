@@ -28,17 +28,17 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/tsp/bookings-cancel/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   {
     tspId?: Booking_.TspId;
   } & {
     tspId: Defined;
   },
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.intersection([
     t.partial({
       tspId: Booking_.TspId,
@@ -55,14 +55,14 @@ export const Default = t.brand(
     } & {
       tspId: Defined;
     },
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success
