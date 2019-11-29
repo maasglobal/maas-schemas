@@ -1,5 +1,5 @@
-import { Default as BookingCreateRequest } from '../src/tsp/booking-create/request';
-import { Default as BookingCreateResponse } from '../src/tsp/booking-create/response';
+import { Request } from '../src/tsp/booking-create/request';
+import { Response } from '../src/tsp/booking-create/response';
 
 import { decode } from 'io-ts-promise';
 import { readFileSync } from 'fs';
@@ -8,7 +8,7 @@ describe('Check booking create payloads', () => {
   describe('taxi', () => {
     it('booking-create-request.json', () => {
       return decode(
-        BookingCreateRequest,
+        Request,
         JSON.parse(
           readFileSync('./test/booking-create-request.json', { encoding: 'utf-8' }),
         ),
@@ -17,7 +17,7 @@ describe('Check booking create payloads', () => {
 
     it('booking-create-response.json', () => {
       return decode(
-        BookingCreateResponse,
+        Response,
         JSON.parse(
           readFileSync('./test/booking-create-response.json', { encoding: 'utf-8' }),
         ),
