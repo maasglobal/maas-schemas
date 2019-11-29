@@ -36,9 +36,9 @@ export interface TextInputSelectionBrand {
   readonly TextInputSelection: unique symbol;
 }
 
-// Default
+// CustomerSelection
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type CustomerSelection = t.Branded<
   {
     seatDirection?: ConfigChoiceSelection;
     seatPosition?: ConfigChoiceSelection;
@@ -50,9 +50,9 @@ export type Default = t.Branded<
     freeReturn?: ConfigChoiceSelection;
     ticketCollectionPoint?: TextInputSelection;
   },
-  DefaultBrand
+  CustomerSelectionBrand
 >;
-export const Default = t.brand(
+export const CustomerSelection = t.brand(
   t.partial({
     seatDirection: ConfigChoiceSelection,
     seatPosition: ConfigChoiceSelection,
@@ -78,14 +78,14 @@ export const Default = t.brand(
       freeReturn?: ConfigChoiceSelection;
       ticketCollectionPoint?: TextInputSelection;
     },
-    DefaultBrand
+    CustomerSelectionBrand
   > => true,
-  'Default',
+  'CustomerSelection',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface CustomerSelectionBrand {
+  readonly CustomerSelection: unique symbol;
 }
 
-export default Default;
+export default CustomerSelection;
 
 // Success

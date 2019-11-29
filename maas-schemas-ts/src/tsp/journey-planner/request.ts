@@ -15,9 +15,9 @@ import * as Units_ from 'maas-schemas-ts/core/components/units';
 
 export const schemaId = 'http://maasglobal.com/tsp/journey-planner/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   {
     payload?: {
       from?: UnitsGeo_.ShortLocationString;
@@ -53,9 +53,9 @@ export type Default = t.Branded<
       }
     | (string | number | boolean)
   >,
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.intersection([
     t.partial({
       payload: t.partial({
@@ -134,14 +134,14 @@ export const Default = t.brand(
         }
       | (string | number | boolean)
     >,
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

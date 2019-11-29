@@ -28,9 +28,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/region.json';
 
-// Default
+// Region
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Region = t.Branded<
   {
     id?: string;
     name?: string;
@@ -42,9 +42,9 @@ export type Default = t.Branded<
     countryCode: Defined;
     zipCode: Defined;
   },
-  DefaultBrand
+  RegionBrand
 >;
-export const Default = t.brand(
+export const Region = t.brand(
   t.intersection([
     t.partial({
       id: t.string,
@@ -73,14 +73,14 @@ export const Default = t.brand(
       countryCode: Defined;
       zipCode: Defined;
     },
-    DefaultBrand
+    RegionBrand
   > => true,
-  'Default',
+  'Region',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RegionBrand {
+  readonly Region: unique symbol;
 }
 
-export default Default;
+export default Region;
 
 // Success

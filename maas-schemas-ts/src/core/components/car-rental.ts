@@ -31,9 +31,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/components/car-rental.json';
 
-// Default
+// CarRental
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type CarRental = t.Branded<
   {
     id?: string;
     name?: string;
@@ -55,7 +55,7 @@ export type Default = t.Branded<
         | 'lpg'
         | 'multifuel'
         | null;
-      classification?: ACRISS_.Default | null;
+      classification?: ACRISS_.ACRISS | null;
       registrationPlate?: string;
       damage?: string;
       fuelLevel?: number;
@@ -71,9 +71,9 @@ export type Default = t.Branded<
     description: Defined;
     image: Defined;
   },
-  DefaultBrand
+  CarRentalBrand
 >;
-export const Default = t.brand(
+export const CarRental = t.brand(
   t.intersection([
     t.partial({
       id: t.string,
@@ -98,7 +98,7 @@ export const Default = t.brand(
             t.literal('multifuel'),
             t.null,
           ]),
-          classification: t.union([ACRISS_.Default, t.null]),
+          classification: t.union([ACRISS_.ACRISS, t.null]),
           registrationPlate: t.string,
           damage: t.string,
           fuelLevel: t.number,
@@ -142,7 +142,7 @@ export const Default = t.brand(
           | 'lpg'
           | 'multifuel'
           | null;
-        classification?: ACRISS_.Default | null;
+        classification?: ACRISS_.ACRISS | null;
         registrationPlate?: string;
         damage?: string;
         fuelLevel?: number;
@@ -158,14 +158,14 @@ export const Default = t.brand(
       description: Defined;
       image: Defined;
     },
-    DefaultBrand
+    CarRentalBrand
   > => true,
-  'Default',
+  'CarRental',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface CarRentalBrand {
+  readonly CarRental: unique symbol;
 }
 
-export default Default;
+export default CarRental;
 
 // Success

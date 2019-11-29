@@ -12,18 +12,18 @@ import * as t from 'io-ts';
 export const schemaId =
   'http://maasglobal.com/maas-backend/tracking/tracking-update-user-location/response.json';
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
+export type Response = t.Branded<unknown, ResponseBrand>;
+export const Response = t.brand(
   t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<unknown, ResponseBrand> => true,
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success

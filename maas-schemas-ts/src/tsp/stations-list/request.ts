@@ -28,9 +28,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/tsp/stations-list/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   | ({
       location?: UnitsGeo_.ShortLocationString;
       radius?: UnitsGeo_.Distance;
@@ -45,9 +45,9 @@ export type Default = t.Branded<
       name: Defined;
       type: Defined;
     }),
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.union([
     t.intersection([
       t.partial({
@@ -91,14 +91,14 @@ export const Default = t.brand(
         name: Defined;
         type: Defined;
       }),
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

@@ -34,9 +34,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/customer.json';
 
-// Default
+// Customer
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Customer = t.Branded<
   {
     identityId?: Units_.IdentityId;
     firstName?: Common_.PersonalName;
@@ -85,9 +85,9 @@ export type Default = t.Branded<
     subscriberType?: string;
     authToken?: Common_.EncodedQueryParam;
   },
-  DefaultBrand
+  CustomerBrand
 >;
-export const Default = t.brand(
+export const Customer = t.brand(
   t.partial({
     identityId: Units_.IdentityId,
     firstName: Common_.PersonalName,
@@ -204,15 +204,15 @@ export const Default = t.brand(
       subscriberType?: string;
       authToken?: Common_.EncodedQueryParam;
     },
-    DefaultBrand
+    CustomerBrand
   > => true,
-  'Default',
+  'Customer',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface CustomerBrand {
+  readonly Customer: unique symbol;
 }
-/** examplesDefault // => { _tag: 'Right', right: examplesDefaultJson } */
-export const examplesDefaultJson: NonEmptyArray<unknown> = [
+/** examplesCustomer // => { _tag: 'Right', right: examplesCustomerJson } */
+export const examplesCustomerJson: NonEmptyArray<unknown> = [
   {
     identityId: 'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
     id: 1234,
@@ -275,8 +275,8 @@ export const examplesDefaultJson: NonEmptyArray<unknown> = [
     balance: 1234,
   },
 ];
-export const examplesDefault = nonEmptyArray(Default).decode(examplesDefaultJson);
+export const examplesCustomer = nonEmptyArray(Customer).decode(examplesCustomerJson);
 
-export default Default;
+export default Customer;
 
 // Success

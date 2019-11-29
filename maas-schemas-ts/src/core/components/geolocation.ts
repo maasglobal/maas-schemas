@@ -214,18 +214,18 @@ export interface FeatureCollectionBrand {
   readonly FeatureCollection: unique symbol;
 }
 
-// Default
+// Geolocation
 // The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
+export type Geolocation = t.Branded<unknown, GeolocationBrand>;
+export const Geolocation = t.brand(
   t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<unknown, GeolocationBrand> => true,
+  'Geolocation',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface GeolocationBrand {
+  readonly Geolocation: unique symbol;
 }
 
-export default Default;
+export default Geolocation;
 
 // Success

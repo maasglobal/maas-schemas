@@ -30,9 +30,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/maas-backend/products/provider.json';
 
-// Default
+// Provider
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Provider = t.Branded<
   {
     name?: string;
     agencyId?: Common_.AgencyId;
@@ -75,8 +75,8 @@ export type Default = t.Branded<
         maxIntervalUntilBooking: Defined;
       };
     };
-    personalDataOptionsAllow?: Array<PersonalDataAllowItem_.Default>;
-    personalDataCreateAllow?: Array<PersonalDataAllowItem_.Default>;
+    personalDataOptionsAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
+    personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
     optionalParameters?: Array<
       {
         id?: string;
@@ -112,9 +112,9 @@ export type Default = t.Branded<
     personalDataCreateAllow: Defined;
     optionalParameters: Defined;
   },
-  DefaultBrand
+  ProviderBrand
 >;
-export const Default = t.brand(
+export const Provider = t.brand(
   t.intersection([
     t.partial({
       name: t.string,
@@ -170,8 +170,8 @@ export const Default = t.brand(
           }),
         ]),
       }),
-      personalDataOptionsAllow: t.array(PersonalDataAllowItem_.Default),
-      personalDataCreateAllow: t.array(PersonalDataAllowItem_.Default),
+      personalDataOptionsAllow: t.array(PersonalDataAllowItem_.PersonalDataAllowItem),
+      personalDataCreateAllow: t.array(PersonalDataAllowItem_.PersonalDataAllowItem),
       optionalParameters: t.array(
         t.intersection([
           t.partial({
@@ -271,8 +271,8 @@ export const Default = t.brand(
           maxIntervalUntilBooking: Defined;
         };
       };
-      personalDataOptionsAllow?: Array<PersonalDataAllowItem_.Default>;
-      personalDataCreateAllow?: Array<PersonalDataAllowItem_.Default>;
+      personalDataOptionsAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
+      personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
       optionalParameters?: Array<
         {
           id?: string;
@@ -308,14 +308,14 @@ export const Default = t.brand(
       personalDataCreateAllow: Defined;
       optionalParameters: Defined;
     },
-    DefaultBrand
+    ProviderBrand
   > => true,
-  'Default',
+  'Provider',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ProviderBrand {
+  readonly Provider: unique symbol;
 }
 
-export default Default;
+export default Provider;
 
 // Success

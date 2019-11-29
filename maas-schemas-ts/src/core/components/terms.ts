@@ -67,8 +67,8 @@ export interface SeatBrand {
 export type Cancellation = t.Branded<
   {
     cancellable?: boolean;
-    cost?: Cost_.Default;
-    fare?: Fare_.Default;
+    cost?: Cost_.Cost;
+    fare?: Fare_.Fare;
     refunded?: boolean;
   } & {
     cancellable: Defined;
@@ -80,8 +80,8 @@ export const Cancellation = t.brand(
   t.intersection([
     t.partial({
       cancellable: t.boolean,
-      cost: Cost_.Default,
-      fare: Fare_.Default,
+      cost: Cost_.Cost,
+      fare: Fare_.Fare,
       refunded: t.boolean,
     }),
     t.type({
@@ -94,8 +94,8 @@ export const Cancellation = t.brand(
   ): x is t.Branded<
     {
       cancellable?: boolean;
-      cost?: Cost_.Default;
-      fare?: Fare_.Default;
+      cost?: Cost_.Cost;
+      fare?: Fare_.Fare;
       refunded?: boolean;
     } & {
       cancellable: Defined;
@@ -114,8 +114,8 @@ export interface CancellationBrand {
 export type Amendment = t.Branded<
   {
     amendable?: boolean;
-    cost?: Cost_.Default;
-    fare?: Fare_.Default;
+    cost?: Cost_.Cost;
+    fare?: Fare_.Fare;
   } & {
     amendable: Defined;
   },
@@ -125,8 +125,8 @@ export const Amendment = t.brand(
   t.intersection([
     t.partial({
       amendable: t.boolean,
-      cost: Cost_.Default,
-      fare: Fare_.Default,
+      cost: Cost_.Cost,
+      fare: Fare_.Fare,
     }),
     t.type({
       amendable: Defined,
@@ -137,8 +137,8 @@ export const Amendment = t.brand(
   ): x is t.Branded<
     {
       amendable?: boolean;
-      cost?: Cost_.Default;
-      fare?: Fare_.Default;
+      cost?: Cost_.Cost;
+      fare?: Fare_.Fare;
     } & {
       amendable: Defined;
     },
@@ -150,9 +150,9 @@ export interface AmendmentBrand {
   readonly Amendment: unique symbol;
 }
 
-// Default
+// Terms
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Terms = t.Branded<
   {
     type?: string;
     seatings?: Array<Seat>;
@@ -194,9 +194,9 @@ export type Default = t.Branded<
       }
     >;
   },
-  DefaultBrand
+  TermsBrand
 >;
-export const Default = t.brand(
+export const Terms = t.brand(
   t.partial({
     type: t.string,
     seatings: t.array(Seat),
@@ -292,14 +292,14 @@ export const Default = t.brand(
         }
       >;
     },
-    DefaultBrand
+    TermsBrand
   > => true,
-  'Default',
+  'Terms',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface TermsBrand {
+  readonly Terms: unique symbol;
 }
 
-export default Default;
+export default Terms;
 
 // Success

@@ -33,17 +33,17 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/tsp/bookings-create/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   {
     leg?: BookingOption_.Leg;
-    meta?: BookingMeta_.Default;
+    meta?: BookingMeta_.BookingMeta;
     terms?: Booking_.Terms;
-    customer?: Customer_.Default;
+    customer?: Customer_.Customer;
     tspProduct?: BookingOption_.TspProduct;
-    configurator?: Configurator_.Default;
-    customerSelection?: CustomerSelection_.Default;
+    configurator?: Configurator_.Configurator;
+    customerSelection?: CustomerSelection_.CustomerSelection;
   } & {
     leg: Defined;
     meta: Defined;
@@ -51,18 +51,18 @@ export type Default = t.Branded<
     customer: Defined;
     tspProduct: Defined;
   },
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.intersection([
     t.partial({
       leg: BookingOption_.Leg,
-      meta: BookingMeta_.Default,
+      meta: BookingMeta_.BookingMeta,
       terms: Booking_.Terms,
-      customer: Customer_.Default,
+      customer: Customer_.Customer,
       tspProduct: BookingOption_.TspProduct,
-      configurator: Configurator_.Default,
-      customerSelection: CustomerSelection_.Default,
+      configurator: Configurator_.Configurator,
+      customerSelection: CustomerSelection_.CustomerSelection,
     }),
     t.type({
       leg: Defined,
@@ -77,12 +77,12 @@ export const Default = t.brand(
   ): x is t.Branded<
     {
       leg?: BookingOption_.Leg;
-      meta?: BookingMeta_.Default;
+      meta?: BookingMeta_.BookingMeta;
       terms?: Booking_.Terms;
-      customer?: Customer_.Default;
+      customer?: Customer_.Customer;
       tspProduct?: BookingOption_.TspProduct;
-      configurator?: Configurator_.Default;
-      customerSelection?: CustomerSelection_.Default;
+      configurator?: Configurator_.Configurator;
+      customerSelection?: CustomerSelection_.CustomerSelection;
     } & {
       leg: Defined;
       meta: Defined;
@@ -90,14 +90,14 @@ export const Default = t.brand(
       customer: Defined;
       tspProduct: Defined;
     },
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

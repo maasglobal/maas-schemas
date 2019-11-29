@@ -245,18 +245,18 @@ export interface WhimDeepLinkBrand {
   readonly WhimDeepLink: unique symbol;
 }
 
-// Default
+// Common
 // The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
+export type Common = t.Branded<unknown, CommonBrand>;
+export const Common = t.brand(
   t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<unknown, CommonBrand> => true,
+  'Common',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface CommonBrand {
+  readonly Common: unique symbol;
 }
 
-export default Default;
+export default Common;
 
 // Success

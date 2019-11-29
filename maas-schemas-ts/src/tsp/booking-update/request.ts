@@ -31,22 +31,22 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/tsp/bookings-update/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   {
     tspId?: Booking_.TspId;
     state?: 'RESERVED' | 'ACTIVATED' | 'ON_HOLD' | 'EXPIRED';
-    configurator?: Configurator_.Default;
-    meta?: BookingMeta_.Default;
+    configurator?: Configurator_.Configurator;
+    meta?: BookingMeta_.BookingMeta;
     terms?: Booking_.Terms;
-    customerSelection?: CustomerSelection_.Default;
+    customerSelection?: CustomerSelection_.CustomerSelection;
   } & {
     tspId: Defined;
   },
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.intersection([
     t.partial({
       tspId: Booking_.TspId,
@@ -56,10 +56,10 @@ export const Default = t.brand(
         t.literal('ON_HOLD'),
         t.literal('EXPIRED'),
       ]),
-      configurator: Configurator_.Default,
-      meta: BookingMeta_.Default,
+      configurator: Configurator_.Configurator,
+      meta: BookingMeta_.BookingMeta,
       terms: Booking_.Terms,
-      customerSelection: CustomerSelection_.Default,
+      customerSelection: CustomerSelection_.CustomerSelection,
     }),
     t.type({
       tspId: Defined,
@@ -71,21 +71,21 @@ export const Default = t.brand(
     {
       tspId?: Booking_.TspId;
       state?: 'RESERVED' | 'ACTIVATED' | 'ON_HOLD' | 'EXPIRED';
-      configurator?: Configurator_.Default;
-      meta?: BookingMeta_.Default;
+      configurator?: Configurator_.Configurator;
+      meta?: BookingMeta_.BookingMeta;
       terms?: Booking_.Terms;
-      customerSelection?: CustomerSelection_.Default;
+      customerSelection?: CustomerSelection_.CustomerSelection;
     } & {
       tspId: Defined;
     },
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

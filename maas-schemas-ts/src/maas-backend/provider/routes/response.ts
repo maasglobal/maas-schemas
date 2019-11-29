@@ -32,10 +32,10 @@ export const schemaId =
 
 // Itineraries
 // The purpose of this remains a mystery
-export type Itineraries = t.Branded<Array<Itinerary_.Default>, ItinerariesBrand>;
+export type Itineraries = t.Branded<Array<Itinerary_.Itinerary>, ItinerariesBrand>;
 export const Itineraries = t.brand(
-  t.array(Itinerary_.Default),
-  (x): x is t.Branded<Array<Itinerary_.Default>, ItinerariesBrand> => true,
+  t.array(Itinerary_.Itinerary),
+  (x): x is t.Branded<Array<Itinerary_.Itinerary>, ItinerariesBrand> => true,
   'Itineraries',
 );
 export interface ItinerariesBrand {
@@ -46,7 +46,7 @@ export interface ItinerariesBrand {
 // The purpose of this remains a mystery
 export type Plan1 = t.Branded<
   {
-    from?: Place_.Default;
+    from?: Place_.Place;
     outwards?: Itineraries;
     returns?: Itineraries;
   } & {
@@ -59,7 +59,7 @@ export type Plan1 = t.Branded<
 export const Plan1 = t.brand(
   t.intersection([
     t.partial({
-      from: Place_.Default,
+      from: Place_.Place,
       outwards: Itineraries,
       returns: Itineraries,
     }),
@@ -73,7 +73,7 @@ export const Plan1 = t.brand(
     x,
   ): x is t.Branded<
     {
-      from?: Place_.Default;
+      from?: Place_.Place;
       outwards?: Itineraries;
       returns?: Itineraries;
     } & {
@@ -93,7 +93,7 @@ export interface Plan1Brand {
 // The purpose of this remains a mystery
 export type Plan2 = t.Branded<
   {
-    from?: Place_.Default;
+    from?: Place_.Place;
     itineraries?: Itineraries;
   } & {
     from: Defined;
@@ -104,7 +104,7 @@ export type Plan2 = t.Branded<
 export const Plan2 = t.brand(
   t.intersection([
     t.partial({
-      from: Place_.Default,
+      from: Place_.Place,
       itineraries: Itineraries,
     }),
     t.type({
@@ -116,7 +116,7 @@ export const Plan2 = t.brand(
     x,
   ): x is t.Branded<
     {
-      from?: Place_.Default;
+      from?: Place_.Place;
       itineraries?: Itineraries;
     } & {
       from: Defined;
@@ -130,15 +130,15 @@ export interface Plan2Brand {
   readonly Plan2: unique symbol;
 }
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Response = t.Branded<
   {
     plan?: Plan1 | Plan2;
   },
-  DefaultBrand
+  ResponseBrand
 >;
-export const Default = t.brand(
+export const Response = t.brand(
   t.partial({
     plan: t.union([Plan1, Plan2]),
   }),
@@ -148,14 +148,14 @@ export const Default = t.brand(
     {
       plan?: Plan1 | Plan2;
     },
-    DefaultBrand
+    ResponseBrand
   > => true,
-  'Default',
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success

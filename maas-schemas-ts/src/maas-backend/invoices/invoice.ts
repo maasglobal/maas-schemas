@@ -31,70 +31,17 @@ const Defined = t.union([
 export const schemaId = 'http://maasglobal.com/maas-backend/invoices/invoice.json';
 
 // Invoice
-// The purpose of this remains a mystery
-export type Invoice = t.Branded<
-  {
-    id?: InvoiceUnits_.InvoiceId;
-    customerId?: Units_.IdentityId;
-    bookingId?: Units_.Uuid;
-    lineItems?: Array<InvoiceLineItem_.InvoiceLineItem>;
-  } & {
-    id: Defined;
-    customerId: Defined;
-    bookingId: Defined;
-    lineItems: Defined;
-  },
-  InvoiceBrand
->;
+// The default export. More information at the top.
+export type Invoice = t.Branded<unknown, InvoiceBrand>;
 export const Invoice = t.brand(
-  t.intersection([
-    t.partial({
-      id: InvoiceUnits_.InvoiceId,
-      customerId: Units_.IdentityId,
-      bookingId: Units_.Uuid,
-      lineItems: t.array(InvoiceLineItem_.InvoiceLineItem),
-    }),
-    t.type({
-      id: Defined,
-      customerId: Defined,
-      bookingId: Defined,
-      lineItems: Defined,
-    }),
-  ]),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      id?: InvoiceUnits_.InvoiceId;
-      customerId?: Units_.IdentityId;
-      bookingId?: Units_.Uuid;
-      lineItems?: Array<InvoiceLineItem_.InvoiceLineItem>;
-    } & {
-      id: Defined;
-      customerId: Defined;
-      bookingId: Defined;
-      lineItems: Defined;
-    },
-    InvoiceBrand
-  > => true,
+  t.unknown,
+  (x): x is t.Branded<unknown, InvoiceBrand> => true,
   'Invoice',
 );
 export interface InvoiceBrand {
   readonly Invoice: unique symbol;
 }
 
-// Default
-// The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
-);
-export interface DefaultBrand {
-  readonly Default: unique symbol;
-}
-
-export default Default;
+export default Invoice;
 
 // Success

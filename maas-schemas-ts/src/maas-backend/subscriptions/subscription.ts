@@ -35,6 +35,18 @@ const Defined = t.union([
 export const schemaId =
   'http://maasglobal.com/maas-backend/subscriptions/subscription.json';
 
+// Subscription
+// The default export. More information at the top.
+export type Subscription = t.Branded<unknown, SubscriptionBrand>;
+export const Subscription = t.brand(
+  t.unknown,
+  (x): x is t.Branded<unknown, SubscriptionBrand> => true,
+  'Subscription',
+);
+export interface SubscriptionBrand {
+  readonly Subscription: unique symbol;
+}
+
 // SubscriptionItemId
 // Identifier for matching the plans (Chargebee compat.)
 export type SubscriptionItemId = t.Branded<string, SubscriptionItemIdBrand>;
@@ -50,8 +62,8 @@ export interface SubscriptionItemIdBrand {
 
 // Price
 // The purpose of this remains a mystery
-export type Price = Cost_.Default;
-export const Price = Cost_.Default;
+export type Price = Cost_.Cost;
+export const Price = Cost_.Cost;
 
 // Plan
 // Customer subscription plan
@@ -266,9 +278,9 @@ export type SubscriptionBase = t.Branded<
     addons?: Array<Addon>;
     coupons?: Array<Coupon>;
     terms?: Terms;
-    pointCost?: PointCost_.Default;
-    region?: Region_.Default;
-    shippingAddress?: SubscriptionAddress_.Default;
+    pointCost?: PointCost_.PointCost;
+    region?: Region_.Region;
+    shippingAddress?: SubscriptionAddress_.SubscriptionAddress;
     availability?: {};
     name?: string;
     description?: string;
@@ -279,7 +291,7 @@ export type SubscriptionBase = t.Branded<
     hidden?: boolean;
     selectable?: boolean;
     topUpId?: string;
-    changeState?: SubscriptionChangeState_.Default;
+    changeState?: SubscriptionChangeState_.SubscriptionChangeState;
   },
   SubscriptionBaseBrand
 >;
@@ -291,9 +303,9 @@ export const SubscriptionBase = t.brand(
     addons: t.array(Addon),
     coupons: t.array(Coupon),
     terms: Terms,
-    pointCost: PointCost_.Default,
-    region: Region_.Default,
-    shippingAddress: SubscriptionAddress_.Default,
+    pointCost: PointCost_.PointCost,
+    region: Region_.Region,
+    shippingAddress: SubscriptionAddress_.SubscriptionAddress,
     availability: t.type({}),
     name: t.string,
     description: t.string,
@@ -304,7 +316,7 @@ export const SubscriptionBase = t.brand(
     hidden: t.boolean,
     selectable: t.boolean,
     topUpId: t.string,
-    changeState: SubscriptionChangeState_.Default,
+    changeState: SubscriptionChangeState_.SubscriptionChangeState,
   }),
   (
     x,
@@ -316,9 +328,9 @@ export const SubscriptionBase = t.brand(
       addons?: Array<Addon>;
       coupons?: Array<Coupon>;
       terms?: Terms;
-      pointCost?: PointCost_.Default;
-      region?: Region_.Default;
-      shippingAddress?: SubscriptionAddress_.Default;
+      pointCost?: PointCost_.PointCost;
+      region?: Region_.Region;
+      shippingAddress?: SubscriptionAddress_.SubscriptionAddress;
       availability?: {};
       name?: string;
       description?: string;
@@ -329,7 +341,7 @@ export const SubscriptionBase = t.brand(
       hidden?: boolean;
       selectable?: boolean;
       topUpId?: string;
-      changeState?: SubscriptionChangeState_.Default;
+      changeState?: SubscriptionChangeState_.SubscriptionChangeState;
     },
     SubscriptionBaseBrand
   > => true,
@@ -338,11 +350,6 @@ export const SubscriptionBase = t.brand(
 export interface SubscriptionBaseBrand {
   readonly SubscriptionBase: unique symbol;
 }
-
-// Subscription
-// The purpose of this remains a mystery
-export type Subscription = SubscriptionBase;
-export const Subscription = SubscriptionBase;
 
 // SubscriptionCreatePayload
 // The purpose of this remains a mystery
@@ -354,18 +361,6 @@ export const SubscriptionCreatePayload = SubscriptionBase;
 export type SubscriptionUpdatePayload = SubscriptionBase;
 export const SubscriptionUpdatePayload = SubscriptionBase;
 
-// Default
-// The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
-);
-export interface DefaultBrand {
-  readonly Default: unique symbol;
-}
-
-export default Default;
+export default Subscription;
 
 // Success

@@ -13,16 +13,16 @@ import * as Product_ from 'maas-schemas-ts/core/product';
 export const schemaId =
   'http://maasglobal.com/maas-backend/vehicle/vehicle-alert/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   {
     vehicleId?: string;
     productId?: Product_.Id;
   },
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.partial({
     vehicleId: t.string,
     productId: Product_.Id,
@@ -34,14 +34,14 @@ export const Default = t.brand(
       vehicleId?: string;
       productId?: Product_.Id;
     },
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

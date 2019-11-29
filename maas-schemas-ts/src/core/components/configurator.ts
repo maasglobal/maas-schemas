@@ -38,9 +38,9 @@ export type Choice = t.Branded<
     name?: string;
     description?: string;
     default?: boolean;
-    cost?: Cost_.Default;
-    fares?: Array<Fare_.Default>;
-    terms?: Terms_.Default;
+    cost?: Cost_.Cost;
+    fares?: Array<Fare_.Fare>;
+    terms?: Terms_.Terms;
     meta?: {};
   } & {
     id: Defined;
@@ -56,9 +56,9 @@ export const Choice = t.brand(
       name: t.string,
       description: t.string,
       default: t.boolean,
-      cost: Cost_.Default,
-      fares: t.array(Fare_.Default),
-      terms: Terms_.Default,
+      cost: Cost_.Cost,
+      fares: t.array(Fare_.Fare),
+      terms: Terms_.Terms,
       meta: t.type({}),
     }),
     t.type({
@@ -75,9 +75,9 @@ export const Choice = t.brand(
       name?: string;
       description?: string;
       default?: boolean;
-      cost?: Cost_.Default;
-      fares?: Array<Fare_.Default>;
-      terms?: Terms_.Default;
+      cost?: Cost_.Cost;
+      fares?: Array<Fare_.Fare>;
+      terms?: Terms_.Terms;
       meta?: {};
     } & {
       id: Defined;
@@ -195,9 +195,9 @@ export interface TextBrand {
   readonly Text: unique symbol;
 }
 
-// Default
+// Configurator
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Configurator = t.Branded<
   {
     seatDirection?: Config;
     seatPosition?: Config;
@@ -209,9 +209,9 @@ export type Default = t.Branded<
     freeReturn?: Config;
     ticketCollectionPoint?: Text;
   },
-  DefaultBrand
+  ConfiguratorBrand
 >;
-export const Default = t.brand(
+export const Configurator = t.brand(
   t.partial({
     seatDirection: Config,
     seatPosition: Config,
@@ -237,14 +237,14 @@ export const Default = t.brand(
       freeReturn?: Config;
       ticketCollectionPoint?: Text;
     },
-    DefaultBrand
+    ConfiguratorBrand
   > => true,
-  'Default',
+  'Configurator',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ConfiguratorBrand {
+  readonly Configurator: unique symbol;
 }
 
-export default Default;
+export default Configurator;
 
 // Success

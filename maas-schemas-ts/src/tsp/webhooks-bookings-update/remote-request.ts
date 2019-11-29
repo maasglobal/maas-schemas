@@ -31,24 +31,24 @@ const Defined = t.union([
 export const schemaId =
   'http://maasglobal.com/tsp/webhooks-bookings-update/remote-request.json';
 
-// Default
+// RemoteRequest
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type RemoteRequest = t.Branded<
   {
     tspId?: Booking_.TspId;
     cost?: Booking_.Cost;
     state?: 'RESERVED' | 'CONFIRMED' | 'ACTIVATED' | 'EXPIRED' | 'CANCELLED' | 'REJECTED';
     leg?: BookingOption_.LegDelta;
-    meta?: BookingMeta_.Default;
+    meta?: BookingMeta_.BookingMeta;
     terms?: Booking_.Terms;
     token?: Booking_.Token;
   } & {
     tspId: Defined;
     state: Defined;
   },
-  DefaultBrand
+  RemoteRequestBrand
 >;
-export const Default = t.brand(
+export const RemoteRequest = t.brand(
   t.intersection([
     t.partial({
       tspId: Booking_.TspId,
@@ -62,7 +62,7 @@ export const Default = t.brand(
         t.literal('REJECTED'),
       ]),
       leg: BookingOption_.LegDelta,
-      meta: BookingMeta_.Default,
+      meta: BookingMeta_.BookingMeta,
       terms: Booking_.Terms,
       token: Booking_.Token,
     }),
@@ -85,21 +85,21 @@ export const Default = t.brand(
         | 'CANCELLED'
         | 'REJECTED';
       leg?: BookingOption_.LegDelta;
-      meta?: BookingMeta_.Default;
+      meta?: BookingMeta_.BookingMeta;
       terms?: Booking_.Terms;
       token?: Booking_.Token;
     } & {
       tspId: Defined;
       state: Defined;
     },
-    DefaultBrand
+    RemoteRequestBrand
   > => true,
-  'Default',
+  'RemoteRequest',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RemoteRequestBrand {
+  readonly RemoteRequest: unique symbol;
 }
 
-export default Default;
+export default RemoteRequest;
 
 // Success

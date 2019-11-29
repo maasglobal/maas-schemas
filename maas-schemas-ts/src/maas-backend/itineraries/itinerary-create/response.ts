@@ -77,29 +77,29 @@ export interface PaymentParametersBrand {
   readonly PaymentParameters: unique symbol;
 }
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Response = t.Branded<
   | ({
-      itinerary?: Itinerary_.Default;
+      itinerary?: Itinerary_.Itinerary;
       paymentParameters?: PaymentParameters;
     } & {
       itinerary: Defined;
     })
   | ({
-      outward?: Itinerary_.Default;
-      return?: Itinerary_.Default;
+      outward?: Itinerary_.Itinerary;
+      return?: Itinerary_.Itinerary;
       paymentParameters?: PaymentParameters;
     } & {
       outward: Defined;
     }),
-  DefaultBrand
+  ResponseBrand
 >;
-export const Default = t.brand(
+export const Response = t.brand(
   t.union([
     t.intersection([
       t.partial({
-        itinerary: Itinerary_.Default,
+        itinerary: Itinerary_.Itinerary,
         paymentParameters: PaymentParameters,
       }),
       t.type({
@@ -108,8 +108,8 @@ export const Default = t.brand(
     ]),
     t.intersection([
       t.partial({
-        outward: Itinerary_.Default,
-        return: Itinerary_.Default,
+        outward: Itinerary_.Itinerary,
+        return: Itinerary_.Itinerary,
         paymentParameters: PaymentParameters,
       }),
       t.type({
@@ -121,26 +121,26 @@ export const Default = t.brand(
     x,
   ): x is t.Branded<
     | ({
-        itinerary?: Itinerary_.Default;
+        itinerary?: Itinerary_.Itinerary;
         paymentParameters?: PaymentParameters;
       } & {
         itinerary: Defined;
       })
     | ({
-        outward?: Itinerary_.Default;
-        return?: Itinerary_.Default;
+        outward?: Itinerary_.Itinerary;
+        return?: Itinerary_.Itinerary;
         paymentParameters?: PaymentParameters;
       } & {
         outward: Defined;
       }),
-    DefaultBrand
+    ResponseBrand
   > => true,
-  'Default',
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success

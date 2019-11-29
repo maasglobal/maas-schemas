@@ -175,18 +175,18 @@ export interface IsoDateBrand {
   readonly IsoDate: unique symbol;
 }
 
-// Default
+// Units
 // The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
+export type Units = t.Branded<unknown, UnitsBrand>;
+export const Units = t.brand(
   t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<unknown, UnitsBrand> => true,
+  'Units',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface UnitsBrand {
+  readonly Units: unique symbol;
 }
 
-export default Default;
+export default Units;
 
 // Success

@@ -50,7 +50,7 @@ export type SubscriptionInstance = t.Branded<
     wmpGrant?: number;
     level?: number;
     active?: boolean;
-    pointCost?: PointCost_.Default;
+    pointCost?: PointCost_.PointCost;
     description?: string;
     availability?: number;
   } & {
@@ -79,7 +79,7 @@ export const SubscriptionInstance = t.brand(
       wmpGrant: t.number,
       level: t.number,
       active: t.boolean,
-      pointCost: PointCost_.Default,
+      pointCost: PointCost_.PointCost,
       description: t.string,
       availability: t.number,
     }),
@@ -106,7 +106,7 @@ export const SubscriptionInstance = t.brand(
       wmpGrant?: number;
       level?: number;
       active?: boolean;
-      pointCost?: PointCost_.Default;
+      pointCost?: PointCost_.PointCost;
       description?: string;
       availability?: number;
     } & {
@@ -123,9 +123,9 @@ export interface SubscriptionInstanceBrand {
   readonly SubscriptionInstance: unique symbol;
 }
 
-// Default
+// Profile
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Profile = t.Branded<
   {
     id?: number;
     identityId?: Units_.IdentityId;
@@ -137,9 +137,9 @@ export type Default = t.Branded<
     country?: Address_.Country;
     zipCode?: Address_.ZipCode;
     regionId?: string;
-    region?: Region_.Default;
+    region?: Region_.Region;
     profileImageUrl?: string;
-    favoriteLocations?: Array<Place_.Default>;
+    favoriteLocations?: Array<Place_.Place>;
     paymentMethod?: {
       type?: string & ('unknown' | 'card' | 'stripe');
       valid?: boolean;
@@ -153,7 +153,7 @@ export type Default = t.Branded<
     subscription?: {};
     subscriptionInstance?: SubscriptionInstance;
     balance?: number;
-    balances?: Array<Fare_.Default>;
+    balances?: Array<Fare_.Fare>;
     created?: Units_.Time;
     modified?: Units_.Time;
   } & {
@@ -165,9 +165,9 @@ export type Default = t.Branded<
     subscriptionInstance: Defined;
     balances: Defined;
   },
-  DefaultBrand
+  ProfileBrand
 >;
-export const Default = t.brand(
+export const Profile = t.brand(
   t.intersection([
     t.partial({
       id: t.number,
@@ -180,9 +180,9 @@ export const Default = t.brand(
       country: Address_.Country,
       zipCode: Address_.ZipCode,
       regionId: t.string,
-      region: Region_.Default,
+      region: Region_.Region,
       profileImageUrl: t.string,
-      favoriteLocations: t.array(Place_.Default),
+      favoriteLocations: t.array(Place_.Place),
       paymentMethod: t.intersection([
         t.partial({
           type: t.intersection([
@@ -202,7 +202,7 @@ export const Default = t.brand(
       subscription: t.type({}),
       subscriptionInstance: SubscriptionInstance,
       balance: t.number,
-      balances: t.array(Fare_.Default),
+      balances: t.array(Fare_.Fare),
       created: Units_.Time,
       modified: Units_.Time,
     }),
@@ -230,9 +230,9 @@ export const Default = t.brand(
       country?: Address_.Country;
       zipCode?: Address_.ZipCode;
       regionId?: string;
-      region?: Region_.Default;
+      region?: Region_.Region;
       profileImageUrl?: string;
-      favoriteLocations?: Array<Place_.Default>;
+      favoriteLocations?: Array<Place_.Place>;
       paymentMethod?: {
         type?: string & ('unknown' | 'card' | 'stripe');
         valid?: boolean;
@@ -246,7 +246,7 @@ export const Default = t.brand(
       subscription?: {};
       subscriptionInstance?: SubscriptionInstance;
       balance?: number;
-      balances?: Array<Fare_.Default>;
+      balances?: Array<Fare_.Fare>;
       created?: Units_.Time;
       modified?: Units_.Time;
     } & {
@@ -258,14 +258,14 @@ export const Default = t.brand(
       subscriptionInstance: Defined;
       balances: Defined;
     },
-    DefaultBrand
+    ProfileBrand
   > => true,
-  'Default',
+  'Profile',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ProfileBrand {
+  readonly Profile: unique symbol;
 }
 
-export default Default;
+export default Profile;
 
 // Success

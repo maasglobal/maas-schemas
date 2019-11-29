@@ -83,26 +83,26 @@ export interface SubscriptionAdditionsBrand {
   readonly SubscriptionAdditions: unique symbol;
 }
 
-// Default
+// SubscriptionOption
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type SubscriptionOption = t.Branded<
   Subscription_.SubscriptionBase & SubscriptionAdditions,
-  DefaultBrand
+  SubscriptionOptionBrand
 >;
-export const Default = t.brand(
+export const SubscriptionOption = t.brand(
   t.intersection([Subscription_.SubscriptionBase, SubscriptionAdditions]),
   (
     x,
   ): x is t.Branded<
     Subscription_.SubscriptionBase & SubscriptionAdditions,
-    DefaultBrand
+    SubscriptionOptionBrand
   > => true,
-  'Default',
+  'SubscriptionOption',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface SubscriptionOptionBrand {
+  readonly SubscriptionOption: unique symbol;
 }
 
-export default Default;
+export default SubscriptionOption;
 
 // Success

@@ -40,9 +40,9 @@ export type Payload = t.Branded<
   {
     paymentSourceId?: Common_.PaymentSourceId;
     productId?: Product_.Id;
-    customerSelection?: CustomerSelection_.Default;
+    customerSelection?: CustomerSelection_.CustomerSelection;
     autoPurchaseId?: Units_.Uuid;
-    agencyOptions?: AgencyOptions_.Default;
+    agencyOptions?: AgencyOptions_.AgencyOptions;
   },
   PayloadBrand
 >;
@@ -50,9 +50,9 @@ export const Payload = t.brand(
   t.partial({
     paymentSourceId: Common_.PaymentSourceId,
     productId: Product_.Id,
-    customerSelection: CustomerSelection_.Default,
+    customerSelection: CustomerSelection_.CustomerSelection,
     autoPurchaseId: Units_.Uuid,
-    agencyOptions: AgencyOptions_.Default,
+    agencyOptions: AgencyOptions_.AgencyOptions,
   }),
   (
     x,
@@ -60,9 +60,9 @@ export const Payload = t.brand(
     {
       paymentSourceId?: Common_.PaymentSourceId;
       productId?: Product_.Id;
-      customerSelection?: CustomerSelection_.Default;
+      customerSelection?: CustomerSelection_.CustomerSelection;
       autoPurchaseId?: Units_.Uuid;
-      agencyOptions?: AgencyOptions_.Default;
+      agencyOptions?: AgencyOptions_.AgencyOptions;
     },
     PayloadBrand
   > => true,
@@ -72,9 +72,9 @@ export interface PayloadBrand {
   readonly Payload: unique symbol;
 }
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
     payload?: Payload;
@@ -84,9 +84,9 @@ export type Default = t.Branded<
     payload: Defined;
     headers: Defined;
   },
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
@@ -111,14 +111,14 @@ export const Default = t.brand(
       payload: Defined;
       headers: Defined;
     },
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

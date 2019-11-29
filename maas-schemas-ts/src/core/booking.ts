@@ -49,10 +49,10 @@ export const Id = Units_.Uuid;
 
 // Fares
 // The purpose of this remains a mystery
-export type Fares = t.Branded<Array<Fare_.Default>, FaresBrand>;
+export type Fares = t.Branded<Array<Fare_.Fare>, FaresBrand>;
 export const Fares = t.brand(
-  t.array(Fare_.Default),
-  (x): x is t.Branded<Array<Fare_.Default>, FaresBrand> => true,
+  t.array(Fare_.Fare),
+  (x): x is t.Branded<Array<Fare_.Fare>, FaresBrand> => true,
   'Fares',
 );
 export interface FaresBrand {
@@ -61,13 +61,13 @@ export interface FaresBrand {
 
 // Cost
 // The purpose of this remains a mystery
-export type Cost = Cost_.Default;
-export const Cost = Cost_.Default;
+export type Cost = Cost_.Cost;
+export const Cost = Cost_.Cost;
 
 // Configurator
 // The purpose of this remains a mystery
-export type Configurator = Configurator_.Default;
-export const Configurator = Configurator_.Default;
+export type Configurator = Configurator_.Configurator;
+export const Configurator = Configurator_.Configurator;
 
 // TspId
 // The purpose of this remains a mystery
@@ -162,8 +162,8 @@ export interface LegBrand {
 
 // Terms
 // The purpose of this remains a mystery
-export type Terms = Terms_.Default;
-export const Terms = Terms_.Default;
+export type Terms = Terms_.Terms;
+export const Terms = Terms_.Terms;
 
 // Token
 // The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.
@@ -206,27 +206,27 @@ export interface TokenBrand {
   readonly Token: unique symbol;
 }
 
-// Default
+// Booking
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Booking = t.Branded<
   {
     id?: Id;
     tspId?: TspId;
     state?: State_.BookingState;
-    stateLog?: StateLog_.Default;
+    stateLog?: StateLog_.StateLog;
     fares?: Fares;
     cost?: Cost;
     leg?: Leg;
     token?: Token;
-    meta?: BookingMeta_.Default;
+    meta?: BookingMeta_.BookingMeta;
     terms?: Terms;
-    customer?: Customer_.Default & {
+    customer?: Customer_.Customer & {
       identityId: Defined;
     };
-    product?: Product_.Default;
+    product?: Product_.Product;
     signature?: Common_.Signature;
     configurator?: Configurator;
-    customerSelection?: CustomerSelection_.Default;
+    customerSelection?: CustomerSelection_.CustomerSelection;
   } & {
     id: Defined;
     state: Defined;
@@ -236,31 +236,31 @@ export type Default = t.Branded<
     token: Defined;
     customer: Defined;
   },
-  DefaultBrand
+  BookingBrand
 >;
-export const Default = t.brand(
+export const Booking = t.brand(
   t.intersection([
     t.partial({
       id: Id,
       tspId: TspId,
       state: State_.BookingState,
-      stateLog: StateLog_.Default,
+      stateLog: StateLog_.StateLog,
       fares: Fares,
       cost: Cost,
       leg: Leg,
       token: Token,
-      meta: BookingMeta_.Default,
+      meta: BookingMeta_.BookingMeta,
       terms: Terms,
       customer: t.intersection([
-        Customer_.Default,
+        Customer_.Customer,
         t.type({
           identityId: Defined,
         }),
       ]),
-      product: Product_.Default,
+      product: Product_.Product,
       signature: Common_.Signature,
       configurator: Configurator,
-      customerSelection: CustomerSelection_.Default,
+      customerSelection: CustomerSelection_.CustomerSelection,
     }),
     t.type({
       id: Defined,
@@ -279,20 +279,20 @@ export const Default = t.brand(
       id?: Id;
       tspId?: TspId;
       state?: State_.BookingState;
-      stateLog?: StateLog_.Default;
+      stateLog?: StateLog_.StateLog;
       fares?: Fares;
       cost?: Cost;
       leg?: Leg;
       token?: Token;
-      meta?: BookingMeta_.Default;
+      meta?: BookingMeta_.BookingMeta;
       terms?: Terms;
-      customer?: Customer_.Default & {
+      customer?: Customer_.Customer & {
         identityId: Defined;
       };
-      product?: Product_.Default;
+      product?: Product_.Product;
       signature?: Common_.Signature;
       configurator?: Configurator;
-      customerSelection?: CustomerSelection_.Default;
+      customerSelection?: CustomerSelection_.CustomerSelection;
     } & {
       id: Defined;
       state: Defined;
@@ -302,15 +302,15 @@ export const Default = t.brand(
       token: Defined;
       customer: Defined;
     },
-    DefaultBrand
+    BookingBrand
   > => true,
-  'Default',
+  'Booking',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface BookingBrand {
+  readonly Booking: unique symbol;
 }
-/** examplesDefault // => { _tag: 'Right', right: examplesDefaultJson } */
-export const examplesDefaultJson: NonEmptyArray<unknown> = [
+/** examplesBooking // => { _tag: 'Right', right: examplesBookingJson } */
+export const examplesBookingJson: NonEmptyArray<unknown> = [
   {
     id: '12345678-ABCD-1234-ABCD-123456789ABC',
     state: 'EXPIRED',
@@ -432,8 +432,8 @@ export const examplesDefaultJson: NonEmptyArray<unknown> = [
     customer: { identityId: 'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958' },
   },
 ];
-export const examplesDefault = nonEmptyArray(Default).decode(examplesDefaultJson);
+export const examplesBooking = nonEmptyArray(Booking).decode(examplesBookingJson);
 
-export default Default;
+export default Booking;
 
 // Success

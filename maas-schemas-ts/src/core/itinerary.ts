@@ -39,9 +39,9 @@ export const schemaId = 'http://maasglobal.com/core/itinerary.json';
 export type Id = Units_.Uuid;
 export const Id = Units_.Uuid;
 
-// Default
+// Itinerary
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Itinerary = t.Branded<
   {
     id?: Id;
     sourcePlanId?: Units_.Uuid;
@@ -52,19 +52,19 @@ export type Default = t.Branded<
     startTime?: Units_.Time;
     endTime?: Units_.Time;
     co2?: number;
-    fares?: Array<Fare_.Default>;
-    legs?: Array<Leg_.Default>;
-    productOptions?: Array<ProductOption_.Default>;
+    fares?: Array<Fare_.Fare>;
+    legs?: Array<Leg_.Leg>;
+    productOptions?: Array<ProductOption_.ProductOption>;
     type?: 'outward' | 'return';
-    bookings?: Array<Booking_.Default>;
+    bookings?: Array<Booking_.Booking>;
   } & {
     startTime: Defined;
     endTime: Defined;
     legs: Defined;
   },
-  DefaultBrand
+  ItineraryBrand
 >;
-export const Default = t.brand(
+export const Itinerary = t.brand(
   t.intersection([
     t.partial({
       id: Id,
@@ -76,11 +76,11 @@ export const Default = t.brand(
       startTime: Units_.Time,
       endTime: Units_.Time,
       co2: t.number,
-      fares: t.array(Fare_.Default),
-      legs: t.array(Leg_.Default),
-      productOptions: t.array(ProductOption_.Default),
+      fares: t.array(Fare_.Fare),
+      legs: t.array(Leg_.Leg),
+      productOptions: t.array(ProductOption_.ProductOption),
       type: t.union([t.literal('outward'), t.literal('return')]),
-      bookings: t.array(Booking_.Default),
+      bookings: t.array(Booking_.Booking),
     }),
     t.type({
       startTime: Defined,
@@ -101,24 +101,24 @@ export const Default = t.brand(
       startTime?: Units_.Time;
       endTime?: Units_.Time;
       co2?: number;
-      fares?: Array<Fare_.Default>;
-      legs?: Array<Leg_.Default>;
-      productOptions?: Array<ProductOption_.Default>;
+      fares?: Array<Fare_.Fare>;
+      legs?: Array<Leg_.Leg>;
+      productOptions?: Array<ProductOption_.ProductOption>;
       type?: 'outward' | 'return';
-      bookings?: Array<Booking_.Default>;
+      bookings?: Array<Booking_.Booking>;
     } & {
       startTime: Defined;
       endTime: Defined;
       legs: Defined;
     },
-    DefaultBrand
+    ItineraryBrand
   > => true,
-  'Default',
+  'Itinerary',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ItineraryBrand {
+  readonly Itinerary: unique symbol;
 }
 
-export default Default;
+export default Itinerary;
 
 // Success

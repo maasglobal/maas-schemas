@@ -38,7 +38,7 @@ export const schemaId =
 // The purpose of this remains a mystery
 export type Payload = t.Branded<
   {
-    mode?: TravelMode_.Default;
+    mode?: TravelMode_.TravelMode;
     agencyId?: Common_.AgencyId;
     startTime?: Units_.Time;
     endTime?: Units_.Time;
@@ -53,7 +53,7 @@ export type Payload = t.Branded<
     bookingIdToExtend?: Units_.Uuid;
   } & Record<
     string,
-    | TravelMode_.Default
+    | TravelMode_.TravelMode
     | Common_.AgencyId
     | Units_.Time
     | Units_.Time
@@ -73,7 +73,7 @@ export type Payload = t.Branded<
 export const Payload = t.brand(
   t.intersection([
     t.partial({
-      mode: TravelMode_.Default,
+      mode: TravelMode_.TravelMode,
       agencyId: Common_.AgencyId,
       startTime: Units_.Time,
       endTime: Units_.Time,
@@ -90,7 +90,7 @@ export const Payload = t.brand(
     t.record(
       t.string,
       t.union([
-        TravelMode_.Default,
+        TravelMode_.TravelMode,
         Common_.AgencyId,
         Units_.Time,
         Units_.Time,
@@ -111,7 +111,7 @@ export const Payload = t.brand(
     x,
   ): x is t.Branded<
     {
-      mode?: TravelMode_.Default;
+      mode?: TravelMode_.TravelMode;
       agencyId?: Common_.AgencyId;
       startTime?: Units_.Time;
       endTime?: Units_.Time;
@@ -126,7 +126,7 @@ export const Payload = t.brand(
       bookingIdToExtend?: Units_.Uuid;
     } & Record<
       string,
-      | TravelMode_.Default
+      | TravelMode_.TravelMode
       | Common_.AgencyId
       | Units_.Time
       | Units_.Time
@@ -149,9 +149,9 @@ export interface PayloadBrand {
   readonly Payload: unique symbol;
 }
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
     payload?: Payload;
@@ -161,9 +161,9 @@ export type Default = t.Branded<
     payload: Defined;
     headers: Defined;
   },
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
@@ -188,14 +188,14 @@ export const Default = t.brand(
       payload: Defined;
       headers: Defined;
     },
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

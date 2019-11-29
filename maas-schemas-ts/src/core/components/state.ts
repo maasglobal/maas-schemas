@@ -153,18 +153,18 @@ export interface ItineraryStateBrand {
   readonly ItineraryState: unique symbol;
 }
 
-// Default
+// State
 // The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
+export type State = t.Branded<unknown, StateBrand>;
+export const State = t.brand(
   t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<unknown, StateBrand> => true,
+  'State',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface StateBrand {
+  readonly State: unique symbol;
 }
 
-export default Default;
+export default State;
 
 // Success

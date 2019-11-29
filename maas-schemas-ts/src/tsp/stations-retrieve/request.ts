@@ -12,16 +12,16 @@ import * as Station_ from 'maas-schemas-ts/core/components/station';
 
 export const schemaId = 'http://maasglobal.com/tsp/stations-retrieve/request.json';
 
-// Default
+// Request
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Request = t.Branded<
   {
     id?: Station_.Id;
     agencyId?: Station_.AgencyId;
   },
-  DefaultBrand
+  RequestBrand
 >;
-export const Default = t.brand(
+export const Request = t.brand(
   t.partial({
     id: Station_.Id,
     agencyId: Station_.AgencyId,
@@ -33,14 +33,14 @@ export const Default = t.brand(
       id?: Station_.Id;
       agencyId?: Station_.AgencyId;
     },
-    DefaultBrand
+    RequestBrand
   > => true,
-  'Default',
+  'Request',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface RequestBrand {
+  readonly Request: unique symbol;
 }
 
-export default Default;
+export default Request;
 
 // Success

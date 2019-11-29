@@ -158,18 +158,18 @@ export interface VerificationBrand {
   readonly Verification: unique symbol;
 }
 
-// Default
+// VerificationObject
 // The default export. More information at the top.
-export type Default = t.Branded<unknown, DefaultBrand>;
-export const Default = t.brand(
+export type VerificationObject = t.Branded<unknown, VerificationObjectBrand>;
+export const VerificationObject = t.brand(
   t.unknown,
-  (x): x is t.Branded<unknown, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<unknown, VerificationObjectBrand> => true,
+  'VerificationObject',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface VerificationObjectBrand {
+  readonly VerificationObject: unique symbol;
 }
 
-export default Default;
+export default VerificationObject;
 
 // Success

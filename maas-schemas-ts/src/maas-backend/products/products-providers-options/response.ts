@@ -29,20 +29,20 @@ const Defined = t.union([
 export const schemaId =
   'http://maasglobal.com/maas-backend/products/products-providers-options/response.json';
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Response = t.Branded<
   {
-    providers?: Array<Provider_.Default>;
+    providers?: Array<Provider_.Provider>;
   } & {
     providers: Defined;
   },
-  DefaultBrand
+  ResponseBrand
 >;
-export const Default = t.brand(
+export const Response = t.brand(
   t.intersection([
     t.partial({
-      providers: t.array(Provider_.Default),
+      providers: t.array(Provider_.Provider),
     }),
     t.type({
       providers: Defined,
@@ -52,18 +52,18 @@ export const Default = t.brand(
     x,
   ): x is t.Branded<
     {
-      providers?: Array<Provider_.Default>;
+      providers?: Array<Provider_.Provider>;
     } & {
       providers: Defined;
     },
-    DefaultBrand
+    ResponseBrand
   > => true,
-  'Default',
+  'Response',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface ResponseBrand {
+  readonly Response: unique symbol;
 }
 
-export default Default;
+export default Response;
 
 // Success

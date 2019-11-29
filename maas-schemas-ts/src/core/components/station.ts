@@ -104,10 +104,10 @@ export interface FacilitiesBrand {
 
 // Services
 // What agency and mode of transport will occupy this station
-export type Services = t.Branded<Array<TravelMode_.Default>, ServicesBrand>;
+export type Services = t.Branded<Array<TravelMode_.TravelMode>, ServicesBrand>;
 export const Services = t.brand(
-  t.array(TravelMode_.Default),
-  (x): x is t.Branded<Array<TravelMode_.Default>, ServicesBrand> => true,
+  t.array(TravelMode_.TravelMode),
+  (x): x is t.Branded<Array<TravelMode_.TravelMode>, ServicesBrand> => true,
   'Services',
 );
 export interface ServicesBrand {
@@ -119,7 +119,7 @@ export interface ServicesBrand {
 export type Timetables = t.Branded<
   Array<{
     id?: string;
-    mode?: TravelMode_.Default;
+    mode?: TravelMode_.TravelMode;
     name?: string;
     longName?: string;
     schedule?: Units_.Time;
@@ -132,7 +132,7 @@ export const Timetables = t.brand(
   t.array(
     t.partial({
       id: t.string,
-      mode: TravelMode_.Default,
+      mode: TravelMode_.TravelMode,
       name: t.string,
       longName: t.string,
       schedule: Units_.Time,
@@ -145,7 +145,7 @@ export const Timetables = t.brand(
   ): x is t.Branded<
     Array<{
       id?: string;
-      mode?: TravelMode_.Default;
+      mode?: TravelMode_.TravelMode;
       name?: string;
       longName?: string;
       schedule?: Units_.Time;
@@ -184,18 +184,18 @@ export interface PlatformCodeBrand {
   readonly PlatformCode: unique symbol;
 }
 
-// Default
+// Station
 // The default export. More information at the top.
-export type Default = t.Branded<{}, DefaultBrand>;
-export const Default = t.brand(
+export type Station = t.Branded<{}, StationBrand>;
+export const Station = t.brand(
   t.type({}),
-  (x): x is t.Branded<{}, DefaultBrand> => true,
-  'Default',
+  (x): x is t.Branded<{}, StationBrand> => true,
+  'Station',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface StationBrand {
+  readonly Station: unique symbol;
 }
 
-export default Default;
+export default Station;
 
 // Success

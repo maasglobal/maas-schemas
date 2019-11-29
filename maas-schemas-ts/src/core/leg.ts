@@ -42,13 +42,13 @@ export const State = State_.LegState;
 
 // From
 // The purpose of this remains a mystery
-export type From = Place_.Default;
-export const From = Place_.Default;
+export type From = Place_.Place;
+export const From = Place_.Place;
 
 // To
 // The purpose of this remains a mystery
-export type To = Place_.Default;
-export const To = Place_.Default;
+export type To = Place_.Place;
+export const To = Place_.Place;
 
 // StartTime
 // The purpose of this remains a mystery
@@ -90,10 +90,10 @@ export interface ModeBrand {
 
 // Stops
 // The purpose of this remains a mystery
-export type Stops = t.Branded<Array<Stop_.Default>, StopsBrand>;
+export type Stops = t.Branded<Array<Stop_.Stop>, StopsBrand>;
 export const Stops = t.brand(
-  t.array(Stop_.Default),
-  (x): x is t.Branded<Array<Stop_.Default>, StopsBrand> => true,
+  t.array(Stop_.Stop),
+  (x): x is t.Branded<Array<Stop_.Stop>, StopsBrand> => true,
   'Stops',
 );
 export interface StopsBrand {
@@ -425,13 +425,13 @@ export interface TransferLegBrand {
   readonly TransferLeg: unique symbol;
 }
 
-// Default
+// Leg
 // The default export. More information at the top.
-export type Default = t.Branded<
+export type Leg = t.Branded<
   {} & (LegExtensions & (LegCore | WaitingLeg | TransferLeg)),
-  DefaultBrand
+  LegBrand
 >;
-export const Default = t.brand(
+export const Leg = t.brand(
   t.intersection([
     t.type({}),
     t.intersection([LegExtensions, t.union([LegCore, WaitingLeg, TransferLeg])]),
@@ -440,14 +440,14 @@ export const Default = t.brand(
     x,
   ): x is t.Branded<
     {} & (LegExtensions & (LegCore | WaitingLeg | TransferLeg)),
-    DefaultBrand
+    LegBrand
   > => true,
-  'Default',
+  'Leg',
 );
-export interface DefaultBrand {
-  readonly Default: unique symbol;
+export interface LegBrand {
+  readonly Leg: unique symbol;
 }
 
-export default Default;
+export default Leg;
 
 // Success

@@ -11,11 +11,11 @@ import * as Response_ from 'maas-schemas-ts/maas-backend/provider/routes/respons
 
 export const schemaId = 'http://maasglobal.com/tsp/journey-planner/response.json';
 
-// Default
+// Response
 // The default export. More information at the top.
-export type Default = Response_.Default;
-export const Default = Response_.Default;
+export type Response = Response_.Response;
+export const Response = Response_.Response;
 
-export default Default;
+export default Response;
 
 // Success
