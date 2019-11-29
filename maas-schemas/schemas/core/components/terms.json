@@ -170,7 +170,7 @@
           "$ref": "http://maasglobal.com/core/components/cost.json"
         },
         "fare": {
-          "$ref": "http://maasglobal.com/core/components/fare.json"
+          "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/fare"
         },
         "refunded": {
           "type": "boolean",
@@ -190,7 +190,7 @@
           "$ref": "http://maasglobal.com/core/components/cost.json"
         },
         "fare": {
-          "$ref": "http://maasglobal.com/core/components/fare.json"
+          "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/fare"
         }
       },
       "required": ["amendable"]

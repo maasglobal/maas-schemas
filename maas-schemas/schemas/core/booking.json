@@ -63,10 +63,7 @@
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
     },
     "fares": {
-      "type": "array",
-      "items": {
-        "$ref": "http://maasglobal.com/core/components/fare.json"
-      }
+      "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/fareArray"
     },
     "cost": {
       "$ref": "http://maasglobal.com/core/components/cost.json"

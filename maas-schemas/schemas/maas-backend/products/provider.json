@@ -76,14 +76,13 @@
               "multipleOf": 0.01
             },
             "fixedFareCurrency": {
+              "description": "The currency of the maximum fixed fare",
               "oneOf": [
                 {
-                  "description": "The currency of the maximum fixed fare",
                   "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
                 },
                 {
-                  "type": "string",
-                  "enum": ["WMP", "TOKEN"]
+                  "$ref": "http://maasglobal.com/core/components/units.json#/definitions/metaCurrency"
                 }
               ]
             },

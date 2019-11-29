@@ -38,10 +38,7 @@
       "minimum": 0
     },
     "fares": {
-      "type": "array",
-      "items": {
-        "$ref": "http://maasglobal.com/core/components/fare.json"
-      }
+      "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/fareArray"
     },
     "legs": {
       "type": "array",

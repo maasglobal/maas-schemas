@@ -62,10 +62,7 @@
           "$ref": "http://maasglobal.com/core/product.json"
         },
         "fares": {
-          "type": "array",
-          "items": {
-            "$ref": "http://maasglobal.com/core/components/fare.json"
-          }
+          "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/fareArray"
         },
         "terms": {
           "$ref": "http://maasglobal.com/core/components/terms.json"

@@ -35,10 +35,27 @@
       ],
       "examples": ["eu-west-1:4828507e-683f-41bf-9d87-689808fbf958", "4828507e-683f-41bf-9d87-689808fbf958"]
     },
+    "currencyEUR": { "const": "EUR" },
+    "currencyGBP": { "const": "GBP" },
+    "currencySGD": { "const": "SGD" },
+    "currencyUSD": { "const": "USD" },
+    "currencyJPY": { "const": "JPY" },
     "currency": {
       "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
       "type": "string",
-      "enum": ["EUR", "GBP", "SGD", "USD", "JPY"]
+      "oneOf": [
+        { "$ref": "#/definitions/currencyEUR" },
+        { "$ref": "#/definitions/currencyGBP" },
+        { "$ref": "#/definitions/currencySGD" },
+        { "$ref": "#/definitions/currencyUSD" },
+        { "$ref": "#/definitions/currencyJPY" }
+      ]
+    },
+    "metaCurrencyWMP": { "const": "WMP" },
+    "metaCurrencyTOKEN": { "const": "TOKEN" },
+    "metaCurrency": {
+      "type": "string",
+      "oneOf": [{ "$ref": "#/definitions/metaCurrencyWMP" }, { "$ref": "#/definitions/metaCurrencyTOKEN" }]
     },
     "time": {
       "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",

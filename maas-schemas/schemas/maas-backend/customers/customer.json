@@ -20,12 +20,7 @@
         "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/paymentSource"
       }
     },
-    "balances": {
-      "type": "array",
-      "items": {
-        "$ref": "http://maasglobal.com/core/components/fare.json"
-      }
-    },
+    "balances": { "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/balancesArray" },
     "region": {
       "$ref": "http://maasglobal.com/core/region.json"
     },

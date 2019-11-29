@@ -1,38 +1,172 @@
 {
   "$id": "http://maasglobal.com/core/components/fare.json",
-  "description": "A fare/price as billed to the user in WMPs or in tokens",
-  "type": "object",
   "definitions": {
     "tokenId": {
       "type": "string",
       "pattern": "^[a-z]+(-[a-z]+)*-[a-z0-9_]+$"
+    },
+    "fareTypeCHARGE": { "const": "charge" },
+    "fareTypeREFUND": { "const": "refund" },
+    "fareType": {
+      "oneOf": [{ "$ref": "#/definitions/fareTypeCHARGE" }, { "$ref": "#/definitions/fareTypeREFUND" }]
+    },
+    "wmpAmount": {
+      "description": "An amount of in-app credits",
+      "type": "integer",
+      "minimum": 0,
+      "multipleOf": 1,
+      "examples": [1234]
+    },
+    "tokenAmount": {
+      "description": "An amount of in-app tokens",
+      "type": "integer",
+      "minimum": 0,
+      "examples": [1]
+    },
+    "wmpFields": {
+      "description": "collection of in-app credit fields shared by fare and balance",
+      "type": "object",
+      "properties": {
+        "currency": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/metaCurrencyWMP" },
+        "amount": { "$ref": "#/definitions/wmpAmount" },
+        "originalAmount": {
+          "$ref": "#/definitions/wmpAmount"
+        },
+        "productionAmount": {
+          "$ref": "#/definitions/wmpAmount"
+        }
+      }
+    },
+    "tokenFields": {
+      "description": "collection of token fields shared by fare and balance",
+      "type": "object",
+      "properties": {
+        "currency": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/metaCurrencyTOKEN" },
+        "tokenId": {
+          "$ref": "#/definitions/tokenId"
+        },
+        "amount": { "$ref": "#/definitions/tokenAmount" },
+        "originalAmount": {
+          "$ref": "#/definitions/tokenAmount"
+        },
+        "productionAmount": {
+          "$ref": "#/definitions/tokenAmount"
+        }
+      },
+      "required": ["tokenId"]
+    },
+    "abstractBalance": {
+      "type": "object",
+      "properties": {
+        "currency": { "$comment": "placeholder" },
+        "tokenId": { "$comment": "placeholder" },
+        "amount": { "$comment": "placeholder" }
+      },
+      "required": ["currency", "amount"],
+      "additionalProperties": false
+    },
+    "wmpBalance": {
+      "description": "An amount of in-app credits with type information",
+      "allOf": [{ "$ref": "#/definitions/abstractBalance" }, { "$ref": "#/definitions/wmpFields" }],
+      "examples": [
+        {
+          "currency": "WMP",
+          "amount": 1234
+        }
+      ]
+    },
+    "tokenBalance": {
+      "description": "An amount of in-app tokens with type information",
+      "allOf": [{ "$ref": "#/definitions/abstractBalance" }, { "$ref": "#/definitions/tokenFields" }],
+      "examples": [
+        {
+          "currency": "TOKEN",
+          "tokenId": "cx-test-token_v2",
+          "amount": 1
+        }
+      ]
+    },
+    "balance": {
+      "oneOf": [{ "$ref": "#/definitions/wmpBalance" }, { "$ref": "#/definitions/tokenBalance" }]
+    },
+    "balancesArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/balance"
+      }
+    },
+    "balancesObject": {
+      "description": "A summary of in-app credit and tokens",
+      "type": "object",
+      "properties": {
+        "WMP": { "$ref": "#/definitions/wmpBalance" }
+      },
+      "patternProperties": {
+        "^[a-z]+(-[a-z]+)*-[a-z0-9_]+$": { "$ref": "#/definitions/tokenBalance" }
+      },
+      "required": ["WMP"],
+      "additionalProperties": false,
+      "examples": [
+        {
+          "WMP": {
+            "currency": "WMP",
+            "amount": 1234,
+            "type": "charge"
+          },
+          "cx-test-token_v2": {
+            "currency": "TOKEN",
+            "tokenId": "cx-test-token_v2",
+            "amount": 1,
+            "type": "charge"
+          }
+        }
+      ]
+    },
+    "abstractFare": {
+      "type": "object",
+      "properties": {
+        "type": { "$ref": "#/definitions/fareType" },
+        "currency": { "$comment": "placeholder" },
+        "tokenId": { "$comment": "placeholder" },
+        "amount": { "$comment": "placeholder" },
+        "originalAmount": { "$comment": "placeholder" },
+        "productionAmount": { "$comment": "placeholder" }
+      },
+      "required": ["type", "currency", "amount"],
+      "additionalProperties": false
+    },
+    "wmpFare": {
+      "description": "The cost of a booking in in-app credits",
+      "allOf": [{ "$ref": "#/definitions/abstractFare" }, { "$ref": "#/definitions/wmpFields" }],
+      "examples": [
+        {
+          "currency": "WMP",
+          "amount": 1234,
+          "type": "charge"
+        }
+      ]
+    },
+    "tokenFare": {
+      "description": "The cost of a booking in in-app tokens",
+      "allOf": [{ "$ref": "#/definitions/abstractFare" }, { "$ref": "#/definitions/tokenFields" }],
+      "examples": [
+        {
+          "currency": "TOKEN",
+          "tokenId": "cx-test-token_v2",
+          "amount": 1,
+          "type": "charge"
+        }
+      ]
+    },
+    "fare": {
+      "description": "A fare/price as billed to the user in WMPs or in tokens",
+      "oneOf": [{ "$ref": "#/definitions/wmpFare" }, { "$ref": "#/definitions/tokenFare" }]
+    },
+    "fareArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/fare"
+      }
     }
-  },
-  "properties": {
-    "amount": {
-      "type": ["integer", "null"],
-      "minimum": 0
-    },
-    "currency": {
-      "type": "string",
-      "enum": ["WMP", "TOKEN"]
-    },
-    "tokenId": {
-      "$ref": "#/definitions/tokenId"
-    },
-    "originalAmount": {
-      "type": ["integer", "null"],
-      "minimum": 0
-    },
-    "productionAmount": {
-      "type": ["integer", "null"],
-      "minimum": 0
-    },
-    "type": {
-      "type": "string",
-      "enum": ["charge", "refund"]
-    }
-  },
-  "required": ["amount", "currency"],
-  "additionalProperties": false
+  }
 }

@@ -90,43 +90,7 @@
         "$ref": "http://maasglobal.com/core/personal-document.json"
       }
     },
-    "balances": {
-      "type": "object",
-      "properties": {
-        "WMP": {
-          "type": "object",
-          "properties": {
-            "currency": { "const": "WMP" },
-            "amount": {
-              "type": "integer",
-              "minimum": 0
-            }
-          },
-          "required": ["currency", "amount"],
-          "additionalProperties": true
-        }
-      },
-      "patternProperties": {
-        "^[a-z]+(-[a-z]+)*-[a-z0-9_]+$": {
-          "type": "object",
-          "description": "key would typically match tokenId",
-          "properties": {
-            "currency": { "const": "TOKEN" },
-            "tokenId": {
-              "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/tokenId"
-            },
-            "amount": {
-              "type": ["integer", "null"],
-              "minimum": 0
-            }
-          },
-          "required": ["currency", "tokenId", "amount"],
-          "additionalProperties": true
-        }
-      },
-      "required": ["WMP"],
-      "additionalProperties": false
-    },
+    "balances": { "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/balancesObject" },
     "subscriberType": {
       "description": "Subscriber Type",
       "type": "string"

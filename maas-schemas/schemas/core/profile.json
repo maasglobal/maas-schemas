@@ -88,10 +88,7 @@
       "$ref": "#/definitions/subscriptionInstance"
     },
     "balances": {
-      "type": "array",
-      "items": {
-        "$ref": "http://maasglobal.com/core/components/fare.json"
-      }
+      "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/balancesObject"
     },
     "created": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
