@@ -45,6 +45,7 @@ function init() {
     useDefaults: true,
     validateSchema: false,
     verbose: true,
+    $data: true,
   });
   require('ajv-merge-patch')(ajv);
   require('ajv-keywords')(ajv);
@@ -53,6 +54,8 @@ function init() {
     const schema = registry[key];
     ajv.addSchema(schema);
   });
+
+  return ajv;
 }
 
 /**
