@@ -12,6 +12,7 @@ describe('Check modes', () => {
         taxiCenter: { name: 'More Taxi 123', phone: '+358401234567' },
       };
       const mode = ruins.fromEither(MODE_TAXI.decode(inputMode));
+      return expect(mode).toEqual(inputMode);
     });
 
     it('should decode only taxiCenter', () => {
@@ -19,7 +20,7 @@ describe('Check modes', () => {
         taxiCenter: { name: 'Some taxi', phone: '+358401234567' },
       };
       const mode = ruins.fromEither(MODE_TAXI.decode(inputMode));
-      expect(mode).toEqual(inputMode);
+      return expect(mode).toEqual(inputMode);
     });
 
     it('should allow extra', () => {
@@ -29,7 +30,7 @@ describe('Check modes', () => {
         more: 'More values',
       };
       const mode = ruins.fromEither(MODE_TAXI.decode(inputMode));
-      expect(mode).toEqual(inputMode);
+      return expect(mode).toEqual(inputMode);
     });
   });
 });
