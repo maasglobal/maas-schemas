@@ -78,6 +78,7 @@
     "io-ts": "^2.0.1",
     "io-ts-codegen": "^0.4.2",
     "io-ts-types": "^0.5.2",
+    "io-ts-promise": "^2.0.1",
     "jest": "^24.9.0",
     "monocle-ts": "^2.0.0",
     "newtype-ts": "^0.3.2",
@@ -87,6 +88,7 @@
     "tslint": "^5.20.0",
     "tslint-no-circular-imports": "^0.7.0",
     "ttypescript": "^1.5.7",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "ruins-ts": "^0.0.1"
   }
 }
