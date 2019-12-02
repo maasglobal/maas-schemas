@@ -26,5 +26,61 @@
     }
   },
   "required": ["leg", "meta", "terms", "customer", "tspProduct"],
-  "additionalProperties": true
+  "additionalProperties": true,
+  "examples": [
+    {
+      "leg": {
+        "to": {
+          "lat": 60.1769789,
+          "lon": 24.9504135,
+          "name": "Ida Aalbergin tie 3, Helsinki",
+          "address": "streetName:Ida%20Aalbergin%20tie|streetNumber:1|city:Helsinki|zipCode:00400|country:Suomi"
+        },
+        "from": {
+          "lat": 60.177252,
+          "lon": 24.950388,
+          "name": "Siltasaarenkatu 1, Helsinki",
+          "address": "streetName:Siltasaarenkatu|streetNumber:1|city:Helsinki|zipCode:00530|country:Suomi"
+        },
+        "mode": "TAXI",
+        "endTime": 1572441571838,
+        "agencyId": "Test1",
+        "startTime": 1572440451838
+      },
+      "customer": {
+        "email": "test@example.com",
+        "phone": "+358400001010",
+        "locale": "en",
+        "clientId": "whim",
+        "lastName": "Tester",
+        "opaqueId": "cafecaca",
+        "firstName": "Test"
+      },
+      "meta": {
+        "MODE_TAXI": {
+          "driver": {},
+          "taxiCenter": {
+            "name": "Taksi",
+            "phone": "+358100000011"
+          },
+          "vehicleType": "any"
+        }
+      },
+      "terms": {
+        "reusable": false,
+        "validity": {
+          "endTime": 1572355249017,
+          "startTime": 1572355193128
+        },
+        "reconcilable": false
+      },
+      "configurator": {},
+      "customerSelection": {},
+      "cost": null,
+      "tspId": null,
+      "tspProduct": {
+        "id": "testtaxi1-product1"
+      }
+    }
+  ]
 }
