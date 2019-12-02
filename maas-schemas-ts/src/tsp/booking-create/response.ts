@@ -14,6 +14,8 @@ import * as BookingOption_ from 'maas-schemas-ts/core/booking-option';
 import * as BookingMeta_ from 'maas-schemas-ts/core/booking-meta';
 import * as Configurator_ from 'maas-schemas-ts/core/components/configurator';
 import * as CustomerSelection_ from 'maas-schemas-ts/core/components/customerSelection';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 type Defined =
   | Record<string, unknown>
@@ -112,6 +114,59 @@ export const Response = t.brand(
 export interface ResponseBrand {
   readonly Response: unique symbol;
 }
+/** examplesResponse // => { _tag: 'Right', right: examplesResponseJson } */
+export const examplesResponseJson: NonEmptyArray<unknown> = [
+  {
+    leg: {
+      from: {
+        name: 'Siltasaarenkatu 1, Helsinki',
+        address:
+          'streetName:Siltasaarenkatu|streetNumber:1|city:Helsinki|zipCode:00530|country:Suomi',
+        lat: 60.177252,
+        lon: 24.950388,
+      },
+      to: {
+        name: 'Ida Aalbergin tie 3, Helsinki',
+        address:
+          'streetName:Ida%20Aalbergin%20tie|streetNumber:1|city:Helsinki|zipCode:00400|country:Suomi',
+        lat: 60.231538,
+        lon: 24.892568,
+      },
+      startTime: 1572440451838,
+      endTime: 1572441571838,
+      mode: 'TAXI',
+      departureDelay: 900000,
+    },
+    customer: {
+      email: 'test@example.com',
+      phone: '+358400001010',
+      locale: 'en',
+      clientId: 'whim',
+      lastName: 'Tester',
+      opaqueId: 'cafecaca',
+      firstName: 'Test',
+    },
+    state: 'RESERVED',
+    tspId: 'deadbeefdeadbeefdeadcafebeef',
+    terms: {
+      reusable: false,
+      validity: { endTime: 1572355249017, startTime: 1572355193128 },
+      reconcilable: false,
+    },
+    tspProduct: { id: 'testtaxi1-product1' },
+    meta: {
+      MODE_TAXI: {
+        driver: {},
+        taxiCenter: { name: 'Taksi Test1', phone: '+358400001010' },
+        vehicleType: 'any',
+      },
+    },
+    cost: { amount: 22, currency: 'EUR' },
+    tspProductId: 'testtaxi1-product1',
+    token: {},
+  },
+];
+export const examplesResponse = nonEmptyArray(Response).decode(examplesResponseJson);
 
 export default Response;
 
