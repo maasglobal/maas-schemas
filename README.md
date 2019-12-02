@@ -10,6 +10,18 @@ The code is divided into several independent npm packages.
 * [maas-schemas](maas-schemas) contains language independent JSON Schema type definitions
 * [maas-schemas-ts](maas-schemas-ts) contains corresponding TypeScript types and validators
 
+## Documentation
+
+To generate documentation from JSON Schemas, execute:
+
+```bash
+npm run build
+npm run docs
+```
+
+After that, documentation will be available in Markdown format in docs/ folder
+and in HTML format in \_docs/ folder.
+
 ## Automatic Conversion
 
 The maas-schemas-ts package is generated automatically from the maas-schemas package.
