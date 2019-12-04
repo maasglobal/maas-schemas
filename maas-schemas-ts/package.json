@@ -26,7 +26,7 @@
     "convert-all": "yarn clean-src && yarn lint && yarn build-converter && (yarn run-converter 2> translation.log ; e=$? ; yarn get-problems ; exit $e ) && yarn typecheck && yarn prettify",
     "complain": "git diff && echo 'Please run \"yarn convert-all\" in maas-schemas-ts directory' && yarn get-unexpected && false",
     "update-git-index": "git status > /dev/null",
-    "verify-conversion": "yarn convert-all && yarn update-git-index && (git diff-index --exit-code HEAD . || yarn complain)",
+    "verify-conversion": "yarn convert-all && yarn update-git-index && (git diff-index --exit-code HEAD src translation.log || yarn complain)",
     "get-info-culprits": "cat translation.log|grep INFO -A 1|grep '  in'|sort|uniq -c|sort||true",
     "get-warning-culprits": "cat translation.log|grep WARNING -A 1|grep '  in'|sort|uniq -c|sort||true",
     "get-error-culprits": "cat translation.log|grep ERROR -A 1|grep '  in'|sort|uniq -c|sort||true",
