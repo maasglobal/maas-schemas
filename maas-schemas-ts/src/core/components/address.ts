@@ -9,6 +9,8 @@ MaaS schema for address related information
 
 import * as t from 'io-ts';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export const schemaId = 'http://maasglobal.com/core/components/address.json';
 
@@ -21,7 +23,7 @@ export const ComponentAddress = t.brand(
     typeof x !== 'string' ||
     x.match(
       RegExp(
-        "(streetName:(\\p{L}|\\p{N}|-|\\/| (?=\\p{L}|&|\\p{N})|[#.,;:'&°’])+\\|?)|(city:(\\p{L}|['-]| (?=\\p{L}))+\\|?)|(state:(\\p{L}| (?=\\p{L}))+\\|?)|(zipCode:(\\p{L}|\\p{N}|-)+\\|?)|(country:(\\p{L}| (?=\\p{L}))+)\\|?|(streetNumber:(\\p{L}|\\p{N}|-|-|\\/)+)\\|?|(ward:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?|(district:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?",
+        "(streetName:(\\p{L}|\\p{N}|-|\\/| (?=\\p{L}|&|\\p{N})|[#.,;:'&°’])+\\|?)|(city:(\\p{L}|['-]| (?=\\p{L}))+\\|?)|(state:(\\p{L}|[-]| (?=\\p{L}))+\\|?)|(zipCode:(\\p{L}|\\p{N}|-)+\\|?)|(country:(\\p{L}| (?=\\p{L}))+)\\|?|(streetNumber:(\\p{L}|\\p{N}|-|-|\\/)+)\\|?|(ward:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?|(district:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?",
         'gui',
       ),
     ) !== null,
@@ -30,6 +32,31 @@ export const ComponentAddress = t.brand(
 export interface ComponentAddressBrand {
   readonly ComponentAddress: unique symbol;
 }
+/** examplesComponentAddress // => { _tag: 'Right', right: examplesComponentAddressJson } */
+export const examplesComponentAddressJson: NonEmptyArray<unknown> = [
+  'state:Tōkyō-to|district:Kanda Nishikichō 3-chōme|streetNumber:4-パレステュディオ御茶ノ水駿河台参番館|zipCode:101-0054|city:Chiyoda-City|country:Japan',
+  "streetName:Tarkk'ampujänkätu|city:Helsinki|country:Finland|state:Uusimaa|streetNumber:1|zipCode:00100|district:Tapiola",
+  "streetName:Hämeentie Töölöntori Lähettilääntie Tarkk'ampujänkätu",
+  'streetName:Brädgårdsgatan',
+  'streetName:Żółkiewskiego',
+  'streetName:Øster Allé',
+  'streetName:شارع حمدان بن محمد',
+  'streetName:Karl-Marx-Straße',
+  'streetName:Küçük Ayasofya|city:İstanbul|district:Fatih',
+  'streetName:11 Avenue d’Ostende',
+  'streetName:Küçük Ayasofya, Küçük Ayasofya Cami Sk.',
+  "streetName:Kasumi'gaseki",
+  "streetName:St Martin's Lane",
+  'country:Åland',
+  'country:Puerto Rico',
+  'country:français',
+  'country:skandinavisk',
+  'streetNumber:1-1',
+  'streetNumber:1/2-d2',
+];
+export const examplesComponentAddress = nonEmptyArray(ComponentAddress).decode(
+  examplesComponentAddressJson,
+);
 
 // PlaceName
 // Place name (given in autocomplete)
