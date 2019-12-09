@@ -102,6 +102,7 @@ const definedHelper = createHelper(
 const Defined = gen.customCombinator('Defined', 'Defined');
 
 const supportedEverywhere = [
+  '$comment',
   '$ref',
   '$id',
   'title',
