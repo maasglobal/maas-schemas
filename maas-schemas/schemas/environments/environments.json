@@ -1,0 +1,143 @@
+{
+  "$id": "http://maasglobal.com/environments/environments.json",
+  "definitions": {
+    "developer": {
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName" },
+        "email": { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email" }
+      },
+      "required": ["name"],
+      "additionalProperties": false
+    },
+    "environmentId": { "type": "string" },
+    "environmentUrl": {
+      "type": "string",
+      "pattern": "^https:",
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
+    },
+    "environmentLive": {
+      "description": "Live environments are connected to actual payment and TSP services",
+      "type": "boolean"
+    },
+    "environmentName": {
+      "type": "string"
+    },
+    "environmentDescription": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "#/definitions/environmentId" },
+        "api": { "$ref": "#/definitions/environmentUrl" },
+        "live": { "$ref": "#/definitions/environmentLive" },
+        "contact": { "$ref": "#/definitions/developer" },
+        "name": { "$ref": "#/definitions/environmentName" },
+        "description": { "$ref": "#/definitions/environmentDescription" }
+      },
+      "required": ["id", "api", "live", "contact"],
+      "additionalProperties": false,
+      "examples": [
+        {
+          "id": "production",
+          "api": "https://production.example.com/api/",
+          "live": true,
+          "contact": { "name": "Alisha Admin", "email": "admin@example.com" },
+          "description": "Production environment"
+        }
+      ]
+    },
+    "devEnvironment": {
+      "allOf": [
+        { "$ref": "#/definitions/environment" },
+        {
+          "type": "object",
+          "properties": {
+            "live": {
+              "const": false
+            }
+          },
+          "required": ["live"],
+          "additionalProperties": true
+        }
+      ],
+      "examples": [
+        {
+          "id": "testing",
+          "api": "https://testing.example.com/api/",
+          "live": false,
+          "contact": { "name": "Alisha Admin" },
+          "description": "Testing environment"
+        }
+      ]
+    },
+    "environmentGroupName": {
+      "type": "string"
+    },
+    "environmentGroupDescription": {
+      "type": "string"
+    },
+    "environmentGroup": {
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "#/definitions/environmentGroupName" },
+        "envs": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/environment" }
+        },
+        "description": { "$ref": "#/definitions/environmentGroupDescription" }
+      },
+      "required": ["name", "envs"],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "description": "The base environments object with several environment groups and related meta data",
+  "properties": {
+    "index": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/environmentGroup" }
+    }
+  },
+  "required": ["index"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "index": [
+        {
+          "name": "Core Environments",
+          "envs": [
+            {
+              "id": "production",
+              "api": "https://production.example.com/api/",
+              "live": true,
+              "contact": { "name": "Alisha Admin", "email": "admin@example.com" },
+              "description": "Production environment"
+            },
+            {
+              "id": "testing",
+              "api": "https://testing.example.com/api/",
+              "live": false,
+              "contact": { "name": "Alisha Admin" },
+              "description": "Testing environment"
+            }
+          ]
+        },
+        {
+          "name": "Development Environments",
+          "envs": [
+            {
+              "id": "fantasyTopping",
+              "api": "https://fantasy.example.com/api/",
+              "live": false,
+              "contact": { "name": "Dennis Developer" },
+              "name": "Fantasy Topping",
+              "description": "Add support for pizza customization"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

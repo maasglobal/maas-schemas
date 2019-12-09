@@ -1,0 +1,45 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/provider/routes/response.json",
+  "description": "Response schema for routes providers, subset of routes-query response schema",
+  "type": "object",
+  "properties": {
+    "plan": {
+      "oneOf": [{ "$ref": "#/definitions/plan1" }, { "$ref": "#/definitions/plan2" }]
+    }
+  },
+  "definitions": {
+    "plan1": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "$ref": "http://maasglobal.com/core/components/place.json"
+        },
+        "outwards": {
+          "$ref": "#/definitions/itineraries"
+        },
+        "returns": {
+          "$ref": "#/definitions/itineraries"
+        }
+      },
+      "required": ["from", "outwards", "returns"]
+    },
+    "plan2": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "$ref": "http://maasglobal.com/core/components/place.json"
+        },
+        "itineraries": {
+          "$ref": "#/definitions/itineraries"
+        }
+      },
+      "required": ["from", "itineraries"]
+    },
+    "itineraries": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/core/itinerary.json"
+      }
+    }
+  }
+}

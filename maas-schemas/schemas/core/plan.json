@@ -1,0 +1,46 @@
+{
+  "$id": "http://maasglobal.com/core/plan.json",
+  "description": "OpenTripPlanner compatible format for plans, extended with id for legs and itineraries",
+  "oneOf": [{ "$ref": "#/definitions/plan1" }, { "$ref": "#/definitions/plan2" }],
+  "definitions": {
+    "plan1": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "$ref": "http://maasglobal.com/core/components/place.json"
+        },
+        "planId": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+        },
+        "outwards": {
+          "$ref": "#/definitions/itineraries"
+        },
+        "returns": {
+          "$ref": "#/definitions/itineraries"
+        }
+      },
+      "required": ["from", "planId", "outwards", "returns"]
+    },
+    "plan2": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "$ref": "http://maasglobal.com/core/components/place.json"
+        },
+        "planId": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+        },
+        "itineraries": {
+          "$ref": "#/definitions/itineraries"
+        }
+      },
+      "required": ["from", "planId", "itineraries"]
+    },
+    "itineraries": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/core/itinerary.json"
+      }
+    }
+  }
+}

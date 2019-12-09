@@ -1,0 +1,38 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-payments/response.json",
+  "description": "Response for MaaS webhook to receive payment status updates from payment gateways.",
+  "oneOf": [{ "$ref": "#/definitions/avainpayResponse" }],
+  "definitions": {
+    "avainpayResponse": {
+      "type": "object",
+      "properties": {
+        "action_str": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 256
+        },
+        "data_type": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 256
+        },
+        "log_list": {
+          "type": "array"
+        },
+        "trans_map": {
+          "type": "object",
+          "properties": {
+            "system_time": { "type": "integer" },
+            "nonce": { "type": "string" },
+            "signature": { "type": "string" }
+          }
+        },
+        "response_map": {
+          "type": "object"
+        }
+      },
+      "required": ["action_str", "data_type"],
+      "additionalProperties": true
+    }
+  }
+}

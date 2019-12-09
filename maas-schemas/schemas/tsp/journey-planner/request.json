@@ -1,0 +1,58 @@
+{
+  "$id": "http://maasglobal.com/tsp/journey-planner/request.json",
+  "description": "Request schema for getting journey options from a TSP adapter.",
+  "type": "object",
+  "patternProperties": {
+    "^(optionalParameters).+": {
+      "type": ["string", "number", "boolean"]
+    }
+  },
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
+        },
+        "fromName": {
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+        },
+        "fromAddress": {
+          "description": "Componentized from address",
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+        },
+        "fromStationId": {
+          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+        },
+        "to": {
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
+        },
+        "toName": {
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+        },
+        "toAddress": {
+          "description": "Componentized to address",
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+        },
+        "toStationId": {
+          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+        },
+        "leaveAt": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        "arriveBy": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        "leaveAtReturn": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        "arriveByReturn": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        "mode": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

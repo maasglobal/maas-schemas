@@ -1,0 +1,38 @@
+{
+  "$id": "http://maasglobal.com/core/components/travel-mode.json",
+  "description": "Transfer modes used for MaaS internal services",
+  "anyOf": [
+    { "$ref": "#/definitions/waitingMode" },
+    { "$ref": "#/definitions/transferMode" },
+    { "$ref": "#/definitions/personalMode" },
+    { "$ref": "#/definitions/publicTransitMode" },
+    { "$ref": "#/definitions/privateTransitMode" }
+  ],
+  "definitions": {
+    "waitingMode": {
+      "description": "A mode that only involves waiting in the current location",
+      "type": "string",
+      "enum": ["WAIT"]
+    },
+    "transferMode": {
+      "description": "A mode that involves changing transports",
+      "type": "string",
+      "enum": ["LEG_SWITCH", "TRANSFER"]
+    },
+    "personalMode": {
+      "description": "A mode that involves using your personal vehicle or legs",
+      "type": "string",
+      "enum": ["BICYCLE", "CAR", "SCOOTER", "SHARED_BICYCLE", "WALK"]
+    },
+    "publicTransitMode": {
+      "description": "A mode that involves transit with fixed schedules",
+      "type": "string",
+      "enum": ["AEROPLANE", "BUS", "FERRY", "RAIL", "SUBWAY", "TRAIN", "TRAM", "TRANSIT"]
+    },
+    "privateTransitMode": {
+      "description": "A mode that is available on-demand for your personal use",
+      "type": "string",
+      "enum": ["BUSISH", "CABLE_CAR", "CAR", "FUNICULAR", "GONDOLA", "SHARED_CAR", "TAXI", "TRAINISH"]
+    }
+  }
+}

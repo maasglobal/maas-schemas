@@ -1,0 +1,77 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/bookings/bookings-agency-options/response.json",
+  "description": "Response schema for bookings-agency-options",
+  "type": "object",
+  "properties": {
+    "options": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/option"
+      }
+    },
+    "additional": {
+      "type": "object",
+      "properties": {
+        "bikeStations": {
+          "type": "array",
+          "items": {
+            "$ref": "http://maasglobal.com/core/components/bike-station.json"
+          }
+        }
+      }
+    },
+    "debug": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": ["options"],
+  "additionalProperties": false,
+  "definitions": {
+    "option": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "fares": {
+              "$ref": "http://maasglobal.com/core/booking.json#/definitions/fares"
+            },
+            "cost": {
+              "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
+            },
+            "leg": {
+              "$ref": "http://maasglobal.com/core/booking.json#/definitions/leg"
+            },
+            "meta": {
+              "$ref": "http://maasglobal.com/core/booking-meta.json"
+            },
+            "terms": {
+              "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+            },
+            "tspProduct": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                }
+              }
+            },
+            "configurator": {
+              "$ref": "http://maasglobal.com/core/booking.json#/definitions/configurator"
+            }
+          }
+        },
+        {
+          "oneOf": [
+            {
+              "required": ["leg", "terms", "product", "fares"]
+            },
+            {
+              "required": ["leg", "terms", "product", "configurator"]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

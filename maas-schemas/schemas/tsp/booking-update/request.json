@@ -1,0 +1,27 @@
+{
+  "$id": "http://maasglobal.com/tsp/bookings-update/request.json",
+  "description": "Request schema for update a state of a specific booking with a TSP ID from a TSP adapter",
+  "type": "object",
+  "properties": {
+    "tspId": {
+      "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+    },
+    "state": {
+      "enum": ["RESERVED", "ACTIVATED", "ON_HOLD", "EXPIRED"]
+    },
+    "configurator": {
+      "$ref": "http://maasglobal.com/core/components/configurator.json"
+    },
+    "meta": {
+      "$ref": "http://maasglobal.com/core/booking-meta.json"
+    },
+    "terms": {
+      "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+    },
+    "customerSelection": {
+      "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+    }
+  },
+  "required": ["tspId"],
+  "additionalProperties": true
+}

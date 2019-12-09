@@ -1,0 +1,6 @@
+{
+  "$id": "http://maasglobal.com/tsp/vehicle-alert/response.json",
+  "description": "Request vehicle to alert itself to users",
+  "type": "object",
+  "properties": {}
+}

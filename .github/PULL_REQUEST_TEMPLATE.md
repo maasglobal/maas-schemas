@@ -1,7 +1,9 @@
 ## What has been implemented?
 
 ## Todos:
-* [ ] Write tests
+
+- [ ] Write tests
 
 ## Versioning:
-* [ ] Breaking change
+
+- [ ] Breaking change

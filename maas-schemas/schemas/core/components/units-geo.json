@@ -1,0 +1,90 @@
+{
+  "$id": "http://maasglobal.com/core/components/units-geo.json",
+  "description": "MaaS common geolocaion units that are used consistently within our own objects",
+  "definitions": {
+    "latitude": {
+      "description": "Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+      "type": "number",
+      "minimum": -90,
+      "maximum": 90
+    },
+    "longitude": {
+      "description": "Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+      "type": "number",
+      "minimum": -180,
+      "maximum": 180
+    },
+    "relaxedLatitude": {
+      "description": "No-numeric precision version of MaaS core latitude",
+      "type": "number",
+      "minimum": -90,
+      "maximum": 90
+    },
+    "relaxedLongitude": {
+      "description": "No-numeric precision version of MaaS core longitude",
+      "type": "number",
+      "minimum": -180,
+      "maximum": 180
+    },
+    "distance": {
+      "description": "Distance in meters",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 40075000,
+      "multipleOf": 1
+    },
+    "polyline": {
+      "type": "string",
+      "description": "Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm",
+      "minLength": 3,
+      "maxLength": 65535,
+      "pattern": "^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$"
+    },
+    "location": {
+      "description": "Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+      "type": "object",
+      "properties": {
+        "lat": {
+          "$ref": "#/definitions/latitude"
+        },
+        "lon": {
+          "$ref": "#/definitions/longitude"
+        }
+      },
+      "required": ["lat", "lon"]
+    },
+    "relaxedLocation": {
+      "description": "No-numeric precision version of MaaS core location",
+      "type": "object",
+      "properties": {
+        "lat": {
+          "$ref": "#/definitions/relaxedLatitude"
+        },
+        "lon": {
+          "$ref": "#/definitions/relaxedLongitude"
+        }
+      },
+      "required": ["lat", "lon"]
+    },
+    "shortLocation": {
+      "description": "Geographic latitude-longitude number-pair array in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+      "type": "array",
+      "items": [
+        {
+          "$ref": "#/definitions/latitude"
+        },
+        {
+          "$ref": "#/definitions/longitude"
+        }
+      ],
+      "additionalItems": false
+    },
+    "shortLocationString": {
+      "description": "Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System",
+      "type": "string",
+      "pattern": "^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$",
+      "minLength": 1,
+      "maxLength": 64
+    }
+  }
+}

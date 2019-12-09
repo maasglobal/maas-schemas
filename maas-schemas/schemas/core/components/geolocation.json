@@ -1,0 +1,88 @@
+{
+  "$id": "http://maasglobal.com/core/components/geolocation.json",
+  "description": "Partial (Points only) GeoJSON Schema",
+  "definitions": {
+    "featureCollection": {
+      "type": "object",
+      "properties": {
+        "type": { "enum": ["FeatureCollection"] },
+        "features": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/feature"
+          }
+        }
+      },
+      "required": ["type", "features"]
+    },
+    "feature": {
+      "type": "object",
+      "properties": {
+        "type": { "enum": ["Feature"] },
+        "geometry": {
+          "$ref": "#/definitions/geometry"
+        },
+        "properties": {
+          "$ref": "#/definitions/properties"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["type", "geometry", "properties"]
+    },
+    "geometry": {
+      "type": "object",
+      "properties": {
+        "type": { "enum": ["Point"] },
+        "coordinates": {
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocation"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["type", "coordinates"]
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "streetNumber": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 16
+        },
+        "streetName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "city": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "country": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "countryCode": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "houseNumber": {
+          "type": "integer",
+          "minLength": 1,
+          "maxLength": 16
+        },
+        "zipcode": {
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+        }
+      },
+      "required": ["name"]
+    }
+  }
+}

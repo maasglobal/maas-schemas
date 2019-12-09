@@ -1,0 +1,18 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/response.json",
+  "description": "Response schema for autocomplete",
+  "type": "object",
+  "properties": {
+    "suggestions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "debug": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["suggestions"]
+}

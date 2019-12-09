@@ -1,0 +1,21 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/payment-sources/delete/request.json",
+  "description": "MaaS customer retrieve",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identityId", "customerId", "headers"],
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "customerId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "paymentSourceId": {
+      "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/paymentSourceId"
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  }
+}

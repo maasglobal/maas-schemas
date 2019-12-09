@@ -1,0 +1,16 @@
+{
+  "$id": "http://maasglobal.com/core/stop.json",
+  "allOf": [
+    {
+      "$ref": "http://maasglobal.com/core/components/place.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "startTime": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        }
+      }
+    }
+  ]
+}

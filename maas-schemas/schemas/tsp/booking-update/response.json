@@ -1,0 +1,33 @@
+{
+  "$id": "http://maasglobal.com/tsp/bookings-update/response.json",
+  "description": "Response schema for updating state of a specific booking with a TSP ID from a TSP adapter",
+  "type": "object",
+  "properties": {
+    "tspId": {
+      "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+    },
+    "cost": {
+      "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
+    },
+    "state": {
+      "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState"
+    },
+    "leg": {
+      "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/legDelta"
+    },
+    "meta": {
+      "$ref": "http://maasglobal.com/core/booking-meta.json"
+    },
+    "terms": {
+      "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+    },
+    "token": {
+      "$ref": "http://maasglobal.com/core/booking.json#/definitions/token"
+    },
+    "tspProduct": {
+      "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/tspProduct"
+    }
+  },
+  "required": ["tspId", "state"],
+  "additionalProperties": false
+}

@@ -1,0 +1,15 @@
+{
+  "$id": "http://maasglobal.com/core/modes/MODE_SCOOTER.json",
+  "type": "object",
+  "properties": {
+    "scooter": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": ["id"]
+    }
+  }
+}

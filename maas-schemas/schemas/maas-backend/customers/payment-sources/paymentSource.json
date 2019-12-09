@@ -1,0 +1,92 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json",
+  "description": "MaaS payment source schema",
+  "definitions": {
+    "paymentSourceId": {
+      "type": "string",
+      "minLength": 2
+    },
+    "gatewayName": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 255
+    },
+    "type": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 100
+    },
+    "alias": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 100
+    },
+    "status": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 255
+    },
+    "setupIntentId": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 255
+    },
+    "paymentSource": {
+      "description": "Payment source",
+      "type": "object",
+      "properties": {
+        "paymentSourceId": {
+          "$ref": "#/definitions/paymentSourceId"
+        },
+        "gatewayName": {
+          "$ref": "#/definitions/gatewayName"
+        },
+        "type": {
+          "$ref": "#/definitions/type"
+        },
+        "expiryYear": {
+          "type": "number",
+          "minimum": 2018,
+          "multipleOf": 1
+        },
+        "expiryMonth": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 12,
+          "multipleOf": 1
+        },
+        "cardNumbers": {
+          "type": "string",
+          "minLength": 10
+        },
+        "issuer": {
+          "type": "string",
+          "minLength": 2
+        },
+        "billingCountry": {
+          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/country"
+        },
+        "billingZip": {
+          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+        },
+        "isValid": {
+          "type": "boolean"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "alias": {
+          "$ref": "#/definitions/alias"
+        },
+        "status": {
+          "$ref": "#/definitions/status"
+        },
+        "setupIntentId": {
+          "$ref": "#/definitions/setupIntentId"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["paymentSourceId", "gatewayName", "type", "isDefault", "status"]
+    }
+  }
+}

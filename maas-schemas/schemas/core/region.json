@@ -1,0 +1,29 @@
+{
+  "$id": "http://maasglobal.com/core/region.json",
+  "description": "MaaS region schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 255
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "countryCode": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
+    },
+    "zipCode": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+    },
+    "availability": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": ["id", "countryCode", "zipCode"],
+  "additionalProperties": true
+}

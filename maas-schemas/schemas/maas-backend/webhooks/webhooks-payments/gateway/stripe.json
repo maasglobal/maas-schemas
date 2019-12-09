@@ -1,0 +1,97 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-payments/gateway/stripe.json",
+  "description": "Stripe payment webhook schema",
+  "definitions": {
+    "request": {
+      "type": "object",
+      "properties": {
+        "payload": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 256
+            },
+            "type": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 256
+            },
+            "data": {
+              "type": "object",
+              "properties": {
+                "object": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 3,
+                      "maxLength": 256
+                    },
+                    "amount": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "amount_capturable": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "amount_received": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "charges": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "minLength": 3,
+                                "maxLength": 256
+                              },
+                              "object": {
+                                "type": "string",
+                                "minLength": 3,
+                                "maxLength": 256
+                              },
+                              "amount": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "amount_refunded": {
+                                "type": "number",
+                                "minimum": 0
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": ["type", "id", "data"],
+          "additionalProperties": true
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "gatewayName": {
+              "type": "string",
+              "enum": ["stripe"]
+            }
+          },
+          "required": ["gatewayName"]
+        }
+      },
+      "required": ["params", "payload"]
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$id": "http://maasglobal.com/core/components/fare.json",
+  "description": "A fare/price as billed to the user in WMPs or in tokens",
+  "type": "object",
+  "definitions": {
+    "tokenId": {
+      "type": "string",
+      "pattern": "^[a-z]+(-[a-z]+)*-[a-z0-9_]+$"
+    }
+  },
+  "properties": {
+    "amount": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "currency": {
+      "type": "string",
+      "enum": ["WMP", "TOKEN"]
+    },
+    "tokenId": {
+      "$ref": "#/definitions/tokenId"
+    },
+    "originalAmount": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "productionAmount": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "type": {
+      "type": "string",
+      "enum": ["charge", "refund"]
+    }
+  },
+  "required": ["amount", "currency"],
+  "additionalProperties": false
+}

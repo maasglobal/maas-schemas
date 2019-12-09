@@ -1,0 +1,41 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/booking-option-create/request.json",
+  "description": "Request schema for booking-option-create",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identityId", "payload", "headers"],
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "$ref": "#/definitions/payload"
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  },
+  "definitions": {
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "paymentSourceId": {
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
+        },
+        "productId": {
+          "$ref": "http://maasglobal.com/core/product.json#/definitions/id"
+        },
+        "customerSelection": {
+          "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+        },
+        "autoPurchaseId": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+        },
+        "agencyOptions": {
+          "$ref": "http://maasglobal.com/core/components/agencyOptions.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/payment-sources/create/request.json",
+  "description": "MaaS customer payment sources create",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identityId", "customerId", "payload", "headers"],
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "customerId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "paymentSource": {
+          "type": "object",
+          "properties": {
+            "gatewayName": {
+              "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/gatewayName"
+            },
+            "type": {
+              "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/type"
+            },
+            "temporaryToken": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 255
+            },
+            "isDefault": {
+              "type": "boolean"
+            },
+            "alias": {
+              "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias"
+            }
+          },
+          "required": ["type", "gatewayName", "temporaryToken", "isDefault"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["paymentSource"]
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/bookings/bookings-list/request.json",
+  "description": "Request schema for bookings-list",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "startTime": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        "endTime": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        "states": {
+          "type": "string",
+          "pattern": "^([A-Ö]+,)*[A-Ö]+$"
+        },
+        "modes": {
+          "type": "string",
+          "pattern": "^([A-Ö,_]+,)*[A-Ö,_]+$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  },
+  "required": ["identityId"],
+  "additionalProperties": false
+}

@@ -1,0 +1,72 @@
+{
+  "$id": "http://maasglobal.com/core/itinerary.json",
+  "description": "OpenTripPlanner itinerary, augmented with leg bookings per leg",
+  "type": "object",
+  "definitions": {
+    "id": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+    }
+  },
+  "properties": {
+    "id": {
+      "$ref": "#/definitions/id"
+    },
+    "sourcePlanId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+    },
+    "isOvertaken": {
+      "type": "boolean"
+    },
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "signature": {
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/signature"
+    },
+    "state": {
+      "$ref": "http://maasglobal.com/core/components/state.json#/definitions/itineraryState"
+    },
+    "startTime": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+    },
+    "endTime": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+    },
+    "co2": {
+      "description": "Grams of CO2 as a byproduct by the trip",
+      "type": "number",
+      "minimum": 0
+    },
+    "fares": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/core/components/fare.json"
+      }
+    },
+    "legs": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "http://maasglobal.com/core/leg.json"
+      }
+    },
+    "productOptions": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "http://maasglobal.com/core/product-option.json"
+      }
+    },
+    "type": {
+      "enum": ["outward", "return"]
+    },
+    "bookings": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/core/booking.json"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": ["startTime", "endTime", "legs"]
+}

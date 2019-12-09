@@ -1,0 +1,61 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json",
+  "description": "Avainpay payment webhook schema",
+  "definitions": {
+    "request": {
+      "type": "object",
+      "properties": {
+        "payload": {
+          "type": "object",
+          "properties": {
+            "action_str": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 256
+            },
+            "data_type": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 256
+            },
+            "log_list": {
+              "type": "array"
+            },
+            "trans_map": {
+              "type": "object",
+              "properties": {
+                "system_time": { "type": "integer" },
+                "nonce": { "type": "string" },
+                "signature": { "type": "string" }
+              }
+            },
+            "request_map": {
+              "type": "object"
+            }
+          },
+          "required": ["action_str", "data_type"],
+          "additionalProperties": true
+        },
+        "headers": {
+          "type": "object",
+          "properties": {
+            "Set-Cookie": {
+              "type": "string"
+            }
+          }
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "gatewayName": {
+              "type": "string",
+              "enum": ["avainpay"]
+            }
+          },
+          "required": ["gatewayName"]
+        }
+      },
+      "required": ["params", "payload"]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-update/request.json",
+  "description": "Maas Itinerary update request",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "itineraryId": {
+      "$ref": "http://maasglobal.com/core/itinerary.json#/definitions/id"
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "paymentSourceId": {
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
+        },
+        "itinerary": {
+          "$ref": "http://maasglobal.com/core/itinerary.json"
+        },
+        "customerSelections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ref": {
+                "$ref": "http://maasglobal.com/core/product-option.json#/definitions/ref"
+              },
+              "customerSelection": {
+                "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+              }
+            }
+          }
+        }
+      },
+      "required": ["itinerary", "customerSelections"],
+      "additionalProperties": false
+    }
+  }
+}

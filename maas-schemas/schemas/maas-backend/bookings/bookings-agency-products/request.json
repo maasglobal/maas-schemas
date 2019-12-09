@@ -1,0 +1,29 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/bookings/bookings-agency-products/request.json",
+  "description": "Request schema for bookings-agency-products",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "$ref": "#/definitions/payload"
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  },
+  "required": ["identityId", "payload"],
+  "additionalProperties": false,
+  "definitions": {
+    "payload": {
+      "type": "object",
+      "required": ["agencyId"],
+      "properties": {
+        "agencyId": {
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+        }
+      }
+    }
+  }
+}
