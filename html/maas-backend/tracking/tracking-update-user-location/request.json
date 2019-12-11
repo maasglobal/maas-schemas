@@ -1,0 +1,6 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/tracking/tracking-update-user-location/request.json",
+    "description": "Request schema for updating user location",
+    "meta:status": "Develop",
+    "title": "request"
+}

@@ -1,0 +1,43 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/profile/profile-favoriteLocations-delete/request.json",
+    "description": "Request schema for profile-favoriteLocations-delete",
+    "type": "object",
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "payload": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                }
+            },
+            "required": [
+                "name"
+            ]
+        },
+        "headers": {
+            "type": "object",
+            "properties": {
+                "Accept": {
+                    "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/acceptHeader",
+                    "$linkVal": "acceptHeader",
+                    "$linkPath": "api-common.md"
+                },
+                "X-Whim-User-Agent": {
+                    "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/userAgentHeader",
+                    "$linkVal": "userAgentHeader",
+                    "$linkPath": "api-common.md"
+                }
+            }
+        }
+    },
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

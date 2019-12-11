@@ -1,0 +1,27 @@
+{
+    "$id": "http://maasglobal.com/tsp/bookings-receipt/response.json",
+    "description": "Response schema for getting a receipt for specific booking",
+    "properties": {
+        "tspId": {
+            "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId",
+            "$linkVal": "tspId",
+            "$linkPath": "booking.md"
+        },
+        "cost": {
+            "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost",
+            "$linkVal": "cost",
+            "$linkPath": "booking.md"
+        },
+        "receipt": {
+            "type": "object",
+            "description": "Receipt as received from TSP, could be stored for future reference."
+        }
+    },
+    "required": [
+        "tspId",
+        "cost"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

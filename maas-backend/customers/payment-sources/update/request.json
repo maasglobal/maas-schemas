@@ -1,0 +1,73 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/payment-sources/update/request.json",
+    "description": "MaaS customer payment sources update",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "identityId",
+        "customerId",
+        "paymentSourceId",
+        "payload",
+        "headers"
+    ],
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "customerId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "paymentSourceId": {
+            "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/paymentSourceId",
+            "$linkVal": "paymentSourceId",
+            "$linkPath": "paymentSource.md"
+        },
+        "payload": {
+            "type": "object",
+            "properties": {
+                "paymentSource": {
+                    "type": "object",
+                    "properties": {
+                        "isDefault": {
+                            "enum": [
+                                true
+                            ]
+                        },
+                        "alias": {
+                            "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias",
+                            "$linkVal": "alias",
+                            "$linkPath": "paymentSource.md"
+                        }
+                    },
+                    "anyOf": [
+                        {
+                            "required": [
+                                "isDefault"
+                            ]
+                        },
+                        {
+                            "required": [
+                                "alias"
+                            ]
+                        }
+                    ],
+                    "additionalProperties": false
+                }
+            },
+            "required": [
+                "paymentSource"
+            ]
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "meta:status": "Develop",
+    "title": "request"
+}

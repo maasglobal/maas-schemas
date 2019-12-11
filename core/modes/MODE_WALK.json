@@ -1,0 +1,7 @@
+{
+    "$id": "http://maasglobal.com/core/modes/MODE_WALK.json",
+    "description": "Schema for MODE_WALK meta field",
+    "type": "object",
+    "meta:status": "Develop",
+    "title": "MODE_WALK"
+}

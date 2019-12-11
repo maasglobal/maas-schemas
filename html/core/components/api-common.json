@@ -1,0 +1,33 @@
+{
+    "$id": "http://maasglobal.com/core/components/api-common.json",
+    "description": "Common definitions for API schemas",
+    "definitions": {
+        "headers": {
+            "type": "object",
+            "properties": {
+                "Accept": {
+                    "$ref": "#/definitions/acceptHeader",
+                    "$linkVal": "acceptHeader",
+                    "$linkPath": "api-common.md"
+                },
+                "X-Whim-User-Agent": {
+                    "$ref": "#/definitions/userAgentHeader",
+                    "$linkVal": "userAgentHeader",
+                    "$linkPath": "api-common.md"
+                }
+            },
+            "additionalProperties": true
+        },
+        "acceptHeader": {
+            "description": "SemVer versioning schemas for versioning our resources",
+            "type": "string",
+            "pattern": "\\bapplication/json[;,]\\s*version=((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?(?:\\+[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?)\\b"
+        },
+        "userAgentHeader": {
+            "type": "string",
+            "minLength": 1
+        }
+    },
+    "meta:status": "Develop",
+    "title": "api-common"
+}

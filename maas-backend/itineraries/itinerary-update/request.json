@@ -1,0 +1,63 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-update/request.json",
+    "description": "Maas Itinerary update request",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "itineraryId": {
+            "$ref": "http://maasglobal.com/core/itinerary.json#/definitions/id",
+            "$linkVal": "id",
+            "$linkPath": "itinerary.md"
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        },
+        "payload": {
+            "type": "object",
+            "properties": {
+                "paymentSourceId": {
+                    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId",
+                    "$linkVal": "paymentSourceId",
+                    "$linkPath": "common.md"
+                },
+                "itinerary": {
+                    "$ref": "http://maasglobal.com/core/itinerary.json",
+                    "$linkVal": "itinerary",
+                    "$linkPath": "itinerary.md"
+                },
+                "customerSelections": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "ref": {
+                                "$ref": "http://maasglobal.com/core/product-option.json#/definitions/ref",
+                                "$linkVal": "ref",
+                                "$linkPath": "product-option.md"
+                            },
+                            "customerSelection": {
+                                "$ref": "http://maasglobal.com/core/components/customerSelection.json",
+                                "$linkVal": "customerSelection",
+                                "$linkPath": "customerSelection.md"
+                            }
+                        }
+                    }
+                }
+            },
+            "required": [
+                "itinerary",
+                "customerSelections"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "meta:status": "Develop",
+    "title": "request"
+}

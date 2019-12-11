@@ -1,0 +1,47 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/geocoding/geocoding-reverse/response.json",
+    "description": "MaaS.fi geocoding (GeoJSON) response schema",
+    "type": "object",
+    "properties": {
+        "type": {
+            "enum": [
+                "FeatureCollection"
+            ]
+        },
+        "features": {
+            "type": "array",
+            "items": {
+                "allOf": [
+                    {
+                        "$ref": "http://maasglobal.com/core/components/geolocation.json#/definitions/feature",
+                        "$linkVal": "feature",
+                        "$linkPath": "geolocation.md"
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "properties": {
+                                "type": "object",
+                                "required": [
+                                    "city",
+                                    "country",
+                                    "countryCode"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "debug": {
+            "type": "object"
+        }
+    },
+    "required": [
+        "type",
+        "features"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

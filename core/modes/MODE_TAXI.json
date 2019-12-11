@@ -1,0 +1,80 @@
+{
+    "$id": "http://maasglobal.com/core/modes/MODE_TAXI.json",
+    "description": "Schema for MODE_TAXI meta field",
+    "type": "object",
+    "properties": {
+        "vehicleId": {
+            "description": "The taxi id (in the taxi number plate on top of the vehicle)",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+        },
+        "noShowReportedByDriver": {
+            "type": "boolean"
+        },
+        "vehicleLocation": {
+            "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location",
+            "$linkVal": "location",
+            "$linkPath": "units-geo.md"
+        },
+        "vehicleType": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+        },
+        "vehicleDescription": {
+            "description": "An arbitrary description of the vehicle, e.g. 'Black Jaguar'",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+        },
+        "driver": {
+            "description": "Driver information",
+            "type": "object",
+            "properties": {
+                "phone": {
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Driver name, e.g. 'Sergey' or 'Jane S.'",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                },
+                "image": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url",
+                    "$linkVal": "url",
+                    "$linkPath": "units.md"
+                }
+            }
+        },
+        "dispatchOrderId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+        },
+        "eta": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+            "$linkVal": "time",
+            "$linkPath": "units.md"
+        },
+        "taxiCenter": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                },
+                "phone": {
+                    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone",
+                    "$linkVal": "phone",
+                    "$linkPath": "common.md"
+                }
+            }
+        }
+    },
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "MODE_TAXI"
+}

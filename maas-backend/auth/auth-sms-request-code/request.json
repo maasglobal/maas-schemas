@@ -1,0 +1,32 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/auth/auth-sms-request.code/request.json",
+    "description": "Request schema for auth-sms-request-code",
+    "type": "object",
+    "properties": {
+        "payload": {
+            "type": "object",
+            "properties": {
+                "phone": {
+                    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/rawPhone",
+                    "$linkVal": "rawPhone",
+                    "$linkPath": "common.md"
+                }
+            },
+            "required": [
+                "phone"
+            ],
+            "additionalProperties": false
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "required": [
+        "payload"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

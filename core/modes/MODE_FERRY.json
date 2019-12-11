@@ -1,0 +1,7 @@
+{
+    "$id": "http://maasglobal.com/core/modes/MODE_FERRY.json",
+    "description": "Schema for MODE_FERRY meta field",
+    "type": "object",
+    "meta:status": "Develop",
+    "title": "MODE_FERRY"
+}

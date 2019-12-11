@@ -1,0 +1,104 @@
+{
+    "$id": "http://maasglobal.com/core/booking-meta.json",
+    "description": "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
+    "type": "object",
+    "properties": {
+        "MODE_WALK": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_WALK.json",
+            "$linkVal": "MODE_WALK",
+            "$linkPath": "MODE_WALK.md"
+        },
+        "MODE_BICYCLE": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_BICYCLE.json",
+            "$linkVal": "MODE_BICYCLE",
+            "$linkPath": "MODE_BICYCLE.md"
+        },
+        "MODE_CAR": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_CAR.json",
+            "$linkVal": "MODE_CAR",
+            "$linkPath": "MODE_CAR.md"
+        },
+        "MODE_TRAM": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_TRAM.json",
+            "$linkVal": "MODE_TRAM",
+            "$linkPath": "MODE_TRAM.md"
+        },
+        "MODE_SUBWAY": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_SUBWAY.json",
+            "$linkVal": "MODE_SUBWAY",
+            "$linkPath": "MODE_SUBWAY.md"
+        },
+        "MODE_RAIL": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_RAIL.json",
+            "$linkVal": "MODE_RAIL",
+            "$linkPath": "MODE_RAIL.md"
+        },
+        "MODE_BUS": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_BUS.json",
+            "$linkVal": "MODE_BUS",
+            "$linkPath": "MODE_BUS.md"
+        },
+        "MODE_FERRY": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_FERRY.json",
+            "$linkVal": "MODE_FERRY",
+            "$linkPath": "MODE_FERRY.md"
+        },
+        "MODE_CABLE_CAR": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_CABLE_CAR.json",
+            "$linkVal": "MODE_CABLE_CAR",
+            "$linkPath": "MODE_CABLE_CAR.md"
+        },
+        "MODE_GONDOLA": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_GONDOLA.json",
+            "$linkVal": "MODE_GONDOLA",
+            "$linkPath": "MODE_GONDOLA.md"
+        },
+        "MODE_FUNICULAR": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_FUNICULAR.json",
+            "$linkVal": "MODE_FUNICULAR",
+            "$linkPath": "MODE_FUNICULAR.md"
+        },
+        "MODE_SHARED_BICYCLE": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_SHARED_BICYCLE.json",
+            "$linkVal": "MODE_SHARED_BICYCLE",
+            "$linkPath": "MODE_SHARED_BICYCLE.md"
+        },
+        "MODE_SHARED_CAR": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_SHARED_CAR.json",
+            "$linkVal": "MODE_SHARED_CAR",
+            "$linkPath": "MODE_SHARED_CAR.md"
+        },
+        "MODE_TRANSIT": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_TRANSIT.json",
+            "$linkVal": "MODE_TRANSIT",
+            "$linkPath": "MODE_TRANSIT.md"
+        },
+        "MODE_TRAIN": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_TRAIN.json",
+            "$linkVal": "MODE_TRAIN",
+            "$linkPath": "MODE_TRAIN.md"
+        },
+        "MODE_TRAINISH": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_TRAINISH.json",
+            "$linkVal": "MODE_TRAINISH",
+            "$linkPath": "MODE_TRAINISH.md"
+        },
+        "MODE_BUSISH": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_BUSISH.json",
+            "$linkVal": "MODE_BUSISH",
+            "$linkPath": "MODE_BUSISH.md"
+        },
+        "MODE_TAXI": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_TAXI.json",
+            "$linkVal": "MODE_TAXI",
+            "$linkPath": "MODE_TAXI.md"
+        },
+        "MODE_SCOOTER": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_SCOOTER.json",
+            "$linkVal": "MODE_SCOOTER",
+            "$linkPath": "MODE_SCOOTER.md"
+        }
+    },
+    "meta:status": "Develop",
+    "title": "booking-meta"
+}

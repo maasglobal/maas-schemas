@@ -1,0 +1,26 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-update/response.json",
+    "description": "Response schema for subscriptions-update",
+    "type": "object",
+    "properties": {
+        "subscription": {
+            "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscription",
+            "$linkVal": "subscription",
+            "$linkPath": "subscription.md"
+        },
+        "immediateUpdate": {
+            "description": "If a given subscription change will be immediate or not",
+            "type": "boolean"
+        },
+        "debug": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "required": [
+        "subscription"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

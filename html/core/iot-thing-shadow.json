@@ -1,0 +1,63 @@
+{
+    "$id": "http://maasglobal.com/core/iot-thing-shadow.json",
+    "description": "Schema for MaaS thing shadow",
+    "type": "object",
+    "properties": {
+        "desired": {
+            "type": "object",
+            "properties": {}
+        },
+        "reported": {
+            "type": "object",
+            "properties": {
+                "location": {
+                    "type": "object",
+                    "properties": {
+                        "lat": {
+                            "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/latitude",
+                            "$linkVal": "latitude",
+                            "$linkPath": "units-geo.md"
+                        },
+                        "lon": {
+                            "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/longitude",
+                            "$linkVal": "longitude",
+                            "$linkPath": "units-geo.md"
+                        },
+                        "timestamp": {
+                            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                            "$linkVal": "time",
+                            "$linkPath": "units.md"
+                        },
+                        "legId": {
+                            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+                            "$linkVal": "uuid",
+                            "$linkPath": "units.md"
+                        }
+                    }
+                },
+                "leg": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+                            "$linkVal": "uuid",
+                            "$linkPath": "units.md"
+                        },
+                        "timestamp": {
+                            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                            "$linkVal": "time",
+                            "$linkPath": "units.md"
+                        },
+                        "state": {
+                            "$ref": "http://maasglobal.com/core/components/state.json#/definitions/legState",
+                            "$linkVal": "legState",
+                            "$linkPath": "state.md"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "meta:status": "Develop",
+    "title": "iot-thing-shadow"
+}

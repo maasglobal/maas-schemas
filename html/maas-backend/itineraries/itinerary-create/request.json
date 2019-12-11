@@ -1,0 +1,76 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-create/request.json",
+    "description": "Request schema for itineraries-create",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        },
+        "payload": {
+            "type": "object",
+            "properties": {
+                "itinerary": {
+                    "$ref": "http://maasglobal.com/core/itinerary.json",
+                    "$linkVal": "itinerary",
+                    "$linkPath": "itinerary.md"
+                },
+                "paymentSourceId": {
+                    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId",
+                    "$linkVal": "paymentSourceId",
+                    "$linkPath": "common.md"
+                },
+                "outward": {
+                    "$ref": "#/definitions/outwardReturnWrapper",
+                    "$linkVal": "outwardReturnWrapper",
+                    "$linkPath": "request.md"
+                },
+                "return": {
+                    "$ref": "#/definitions/outwardReturnWrapper",
+                    "$linkVal": "outwardReturnWrapper",
+                    "$linkPath": "request.md"
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "definitions": {
+        "outwardReturnWrapper": {
+            "type": "object",
+            "properties": {
+                "itinerary": {
+                    "$ref": "http://maasglobal.com/core/itinerary.json",
+                    "$linkVal": "itinerary",
+                    "$linkPath": "itinerary.md"
+                },
+                "customerSelections": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "ref": {
+                                "$ref": "http://maasglobal.com/core/product-option.json#/definitions/ref",
+                                "$linkVal": "ref",
+                                "$linkPath": "product-option.md"
+                            },
+                            "customerSelection": {
+                                "$ref": "http://maasglobal.com/core/components/customerSelection.json",
+                                "$linkVal": "customerSelection",
+                                "$linkPath": "customerSelection.md"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "meta:status": "Develop",
+    "title": "request"
+}

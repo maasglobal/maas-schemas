@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /*! ADAPTED
+    Typeplate : Starter Kit
+    URL ........... http://typeplate.com
+    Version ....... 3.0.2
+    Github ........ https://github.com/typeplate/starter-kit
+    Authors ....... Dennis Gaebel (@gryghostvisuals) & Zachary Kain (@zakkain)
+    License ....... Creative Commmons Attribution 3.0
+    License URL ... https://github.com/typeplate/starter-kit/blob/master/license.txt
+    */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        text-rendering: optimizeLegibility;
+        line-height: 1;
+        margin-top: 0;
+        color: #222;
+      }
+
+      blockquote + figcaption cite {
+        display: block;
+        font-size: inherit;
+        text-align: right;
+      }
+
+      body {
+        word-wrap: break-word;
+      }
+
+      pre code {
+        word-wrap: normal;
+      }
+
+      body {
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        color: #444;
+      }
+
+      h1 {
+        font-size: 2em;
+        /* 2*16 = 32 */
+      }
+
+      h2 {
+        font-size: 1.5em;
+        /* 1.5*16 = 24 */
+      }
+
+      h3 {
+        font-size: 1.17em;
+        /* 1.17*16 = 18.72 */
+      }
+
+      h4 {
+        font-size: 1em;
+        /* 1*16 = 16 */
+      }
+
+      h5 {
+        font-size: 0.83em;
+        /* 0.83*16 = 13.28 */
+      }
+
+      h6 {
+        font-size: 0.75em;
+        /* 0.75*16 = 12 */
+      }
+
+      h1 {
+        margin: 2.42424rem 0 1.454544rem;
+      }
+
+      h2 {
+        margin: 2.0202rem 0 1.21212rem;
+      }
+
+      h3 {
+        margin: 1.61616rem 0 1rem;
+      }
+
+      h4 {
+        margin: 1.21212rem 0 1;
+      }
+
+      h5 {
+        margin: 0.80808rem 0;
+      }
+
+      h6 {
+        margin: 0.70707rem 0;
+      }
+
+      p {
+        margin: auto auto 1.5rem;
+      }
+
+      small {
+        font-size: 65%;
+      }
+
+      input,
+      abbr,
+      acronym,
+      blockquote,
+      code,
+      kbd,
+      q,
+      samp,
+      var {
+        -webkit-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+      }
+
+      pre {
+        white-space: pre;
+      }
+
+      pre code {
+        white-space: -moz-pre-wrap;
+        white-space: pre-wrap;
+      }
+
+      code {
+        white-space: pre;
+        font-family: SF Mono, Consolas, Dejavu Sans Mono, Menlo, monospace;
+      }
+
+      abbr {
+        -webkit-font-variant: small-caps;
+        -moz-font-variant: small-caps;
+        -ms-font-variant: small-caps;
+        font-variant: small-caps;
+        font-weight: 600;
+        text-transform: lowercase;
+        color: gray;
+      }
+
+      abbr[title]:hover {
+        cursor: help;
+      }
+
+      /* FROM http://purecss.io/layouts/side-menu/  adapted to remove pure classes*/
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+        color: #444;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: auto;
+      }
+
+      code,
+      pre {
+        background-color: #f5f5f5;
+        color: #444;
+        border-radius: 2px;
+        text-shadow: 0px 1px 0px white;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+      }
+
+      pre code {
+        border: none;
+        box-shadow: none;
+      }
+
+      pre {
+        padding: 0.5em;
+      }
+
+      code {
+        display: inline-block;
+        padding: 0 0.5em;
+        line-height: 1.4;
+        font-size: 0.9em;
+      }
+
+      table {
+        border-spacing: 0;
+        margin-bottom: 1.5rem;
+      }
+
+      table th,
+      table td {
+        padding: 0.3em 0.7em;
+      }
+
+      table th {
+        background-color: #f4f4f4;
+        border-bottom: 2px solid #444;
+      }
+
+      table td {
+        border: 1px solid #f5f5f5;
+      }
+
+      /* Add transition to containers so they can push in and out. */
+
+      #layout,
+      #menu,
+      .menu-link {
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -ms-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+      }
+
+      /* This is the parent `<div>` that contains the menu and the content area. */
+
+      #layout {
+        position: relative;
+        padding-left: 0;
+      }
+
+      #layout.active #menu {
+        left: 250px;
+        width: 250px;
+      }
+
+      #layout.active .menu-link {
+        left: 250px;
+      }
+
+      /* The content `<div>` is where all your content goes. */
+
+      .content {
+        margin: 50px auto;
+        padding: 0 2em;
+        max-width: 80ex;
+        line-height: 1.6em;
+      }
+
+      /*
+      The `#menu` `<div>` is the parent `<div>` that contains the menu that
+      appears on the left side of the page.
+      */
+
+      #menu {
+        margin-left: -250px;
+        /* "#menu" width */
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        /* so the menu or its navicon stays above all content */
+        background: #f4f4f4;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        font-size: 0.9em;
+      }
+
+      a,
+      a * {
+        text-decoration: none;
+        color: #2483cc;
+      }
+
+      a:visited {
+        text-decoration: none;
+        color: #2483cc;
+      }
+
+      /* All anchors inside the menu should be styled like this. */
+
+      #menu a {
+        display: block;
+        padding: 0.5em 0.5em;
+      }
+
+      #menu a:first-letter {
+        text-transform: capitalize;
+      }
+
+      #menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 1em 0.5em;
+      }
+
+      #menu ul ul {
+        margin-top: 0.5em;
+        margin-left: 0.5em;
+        border-left: 4px solid rgba(255, 255, 255, 0.5);
+      }
+
+      /* Change color of the anchor links on hover/focus. */
+
+      #menu li a:hover,
+      #menu li a:focus {
+        background: rgba(255, 255, 255, 0.4);
+      }
+
+      /* This styles the selected menu item `<li>`. */
+
+      #menu li a.active {
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      /* This styles a link within a selected menu item `<li>`. */
+
+      #menu li a.active {
+        color: #222;
+      }
+
+      /* This styles the menu heading. */
+
+      #menu li.heading {
+        font-size: 0.9em;
+        text-transform: uppercase;
+        color: #000;
+      }
+
+      #menu li.heading > * {
+        padding: 0.5em;
+        display: block;
+      }
+
+      #menu li.heading a {
+        color: #0c68af;
+      }
+
+      /* -- Dynamic Button For Responsive Menu -------------------------------------*/
+
+      /*
+      `.menu-link` represents the responsive menu toggle that shows/hides on
+      small screens.
+      */
+
+      .menu-link {
+        position: fixed;
+        display: block;
+        /* show this only on small screens */
+        top: 0;
+        left: 0;
+        /* "#menu width" */
+        font-size: 10px;
+        /* change this value to increase/decrease button size */
+        z-index: 10;
+        width: 2em;
+        height: auto;
+        padding: 1.6em 1.2em;
+        border-radius: 0 2px 2px 0;
+      }
+
+      .menu-link:hover {
+        background: #f4f4f4;
+      }
+
+      .menu-link span {
+        position: relative;
+        display: block;
+      }
+
+      .menu-link span,
+      .menu-link span:before,
+      .menu-link span:after {
+        background-color: #555;
+        width: 100%;
+        height: 0.2em;
+        border-radius: 1em;
+      }
+
+      .menu-link span:before,
+      .menu-link span:after {
+        position: absolute;
+        margin-top: -0.6em;
+        content: " ";
+      }
+
+      .menu-link span:after {
+        margin-top: 0.6em;
+      }
+
+      /* Hides the menu at `48em`, but modify this based on your app's needs. */
+
+      @media (min-width: 48em) {
+        .header,
+        .content {
+          padding-left: 2em;
+          padding-right: 2em;
+        }
+
+        #layout {
+          padding-left: 250px;
+          /* left col width "#menu" */
+          left: 0;
+        }
+        #menu {
+          left: 250px;
+        }
+
+        .menu-link {
+          position: fixed;
+          left: 250px;
+          display: none;
+        }
+
+        #layout.active .menu-link {
+          left: 250px;
+        }
+      }
+
+      @media (max-width: 48em) {
+        /* Only apply this when the window is small. Otherwise, the following case results in extra padding on the left:
+         * Make the window small.
+         * Tap the menu to trigger the active state.
+         * Make the window large again.
+         */
+        #layout.active {
+          position: relative;
+          left: 250px;
+        }
+      }
+
+      /* Heading anchors and permalinks */
+      h1[id],
+      h2[id],
+      h3[id],
+      h4[id],
+      h5[id],
+      h6[id] {
+        position: relative;
+      }
+      .heading-anchor-permalink {
+        /* Position the permalink to the left of the title */
+        position: absolute;
+        right: 100%;
+        /* Add some spacing as padding to not lose the hover */
+        padding-right: 0.6rem;
+        /* Make it only visible on heading hover, see below */
+        opacity: 0;
+      }
+      h1[id]:hover .heading-anchor-permalink,
+      h2[id]:hover .heading-anchor-permalink,
+      h3[id]:hover .heading-anchor-permalink,
+      h4[id]:hover .heading-anchor-permalink,
+      h5[id]:hover .heading-anchor-permalink,
+      h6[id]:hover .heading-anchor-permalink {
+        opacity: 0.5;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <div id="layout">
+      <!-- Menu toggle -->
+      <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+      </a>
+      <nav id="menu">
+        <ul>
+<li><a class="" href="../../README.html">README</a></li>
+<li class="heading"><span>core</span></li>
+<ul>
+<li><a class="" href="../../core/booking-meta.html">booking meta</a></li>
+<li><a class="" href="../../core/booking-option.html">booking option</a></li>
+<li><a class="" href="../../core/booking.html">booking</a></li>
+<li><a class="" href="../../core/card.html">card</a></li>
+<li class="heading"><span>components</span></li>
+<ul>
+<li><a class="" href="../../core/components/ACRISS.html">ACRISS</a></li>
+<li><a class="" href="../../core/components/address.html">address</a></li>
+<li><a class="" href="../../core/components/agencyOptions.html">agencyOptions</a></li>
+<li><a class="" href="../../core/components/api-common.html">api common</a></li>
+<li><a class="" href="../../core/components/authorization.html">authorization</a></li>
+<li><a class="" href="../../core/components/bike-station.html">bike station</a></li>
+<li><a class="" href="../../core/components/car-rental.html">car rental</a></li>
+<li><a class="" href="../../core/components/common.html">common</a></li>
+<li><a class="" href="../../core/components/configurator.html">configurator</a></li>
+<li><a class="" href="../../core/components/cost.html">cost</a></li>
+<li><a class="" href="../../core/components/customerSelection.html">customerSelection</a></li>
+<li><a class="" href="../../core/components/fare.html">fare</a></li>
+<li><a class="" href="../../core/components/geolocation.html">geolocation</a></li>
+<li><a class="" href="../../core/components/geometry.html">geometry</a></li>
+<li><a class="" href="../../core/components/i18n.html">i18n</a></li>
+<li><a class="" href="../../core/components/payment-parameters.html">payment parameters</a></li>
+<li><a class="" href="../../core/components/personalDataAllowItem.html">personalDataAllowItem</a></li>
+<li><a class="" href="../../core/components/place.html">place</a></li>
+<li><a class="" href="../../core/components/point-cost.html">point cost</a></li>
+<li><a class="" href="../../core/components/state-log.html">state log</a></li>
+<li><a class="" href="../../core/components/state.html">state</a></li>
+<li><a class="" href="../../core/components/station.html">station</a></li>
+<li><a class="" href="../../core/components/subscriptionChangeState.html">subscriptionChangeState</a></li>
+<li><a class="" href="../../core/components/terms.html">terms</a></li>
+<li><a class="" href="../../core/components/travel-mode.html">travel mode</a></li>
+<li><a class="" href="../../core/components/units-geo.html">units geo</a></li>
+<li><a class="" href="../../core/components/units.html">units</a></li>
+</ul>
+<li><a class="" href="../../core/customer.html">customer</a></li>
+<li><a class="" href="../../core/error.html">error</a></li>
+<li><a class="" href="../../core/iot-thing-shadow.html">iot thing shadow</a></li>
+<li><a class="" href="../../core/itinerary.html">itinerary</a></li>
+<li><a class="" href="../../core/leg.html">leg</a></li>
+<li class="heading"><span>modes</span></li>
+<ul>
+<li><a class="" href="../../core/modes/MODE_BICYCLE.html">MODE BICYCLE</a></li>
+<li><a class="" href="../../core/modes/MODE_BUS.html">MODE BUS</a></li>
+<li><a class="" href="../../core/modes/MODE_BUSISH.html">MODE BUSISH</a></li>
+<li><a class="" href="../../core/modes/MODE_CABLE_CAR.html">MODE CABLE CAR</a></li>
+<li><a class="" href="../../core/modes/MODE_CAR.html">MODE CAR</a></li>
+<li><a class="" href="../../core/modes/MODE_FERRY.html">MODE FERRY</a></li>
+<li><a class="" href="../../core/modes/MODE_FUNICULAR.html">MODE FUNICULAR</a></li>
+<li><a class="" href="../../core/modes/MODE_GONDOLA.html">MODE GONDOLA</a></li>
+<li><a class="" href="../../core/modes/MODE_RAIL.html">MODE RAIL</a></li>
+<li><a class="" href="../../core/modes/MODE_SCOOTER.html">MODE SCOOTER</a></li>
+<li><a class="" href="../../core/modes/MODE_SHARED_BICYCLE.html">MODE SHARED BICYCLE</a></li>
+<li><a class="" href="../../core/modes/MODE_SHARED_CAR.html">MODE SHARED CAR</a></li>
+<li><a class="" href="../../core/modes/MODE_SUBWAY.html">MODE SUBWAY</a></li>
+<li><a class="" href="../../core/modes/MODE_TAXI.html">MODE TAXI</a></li>
+<li><a class="" href="../../core/modes/MODE_TRAIN.html">MODE TRAIN</a></li>
+<li><a class="" href="../../core/modes/MODE_TRAINISH.html">MODE TRAINISH</a></li>
+<li><a class="" href="../../core/modes/MODE_TRAM.html">MODE TRAM</a></li>
+<li><a class="" href="../../core/modes/MODE_TRANSIT.html">MODE TRANSIT</a></li>
+<li><a class="" href="../../core/modes/MODE_WALK.html">MODE WALK</a></li>
+</ul>
+<li><a class="" href="../../core/paymentSource.html">paymentSource</a></li>
+<li><a class="" href="../../core/plan.html">plan</a></li>
+<li><a class="" href="../../core/product-option.html">product option</a></li>
+<li><a class="" href="../../core/product.html">product</a></li>
+<li><a class="" href="../../core/profile.html">profile</a></li>
+<li><a class="" href="../../core/region.html">region</a></li>
+<li><a class="" href="../../core/stop.html">stop</a></li>
+</ul>
+<li class="heading"><span>environments</span></li>
+<ul>
+<li><a class="" href="../../environments/environments.html">environments</a></li>
+</ul>
+<li class="heading"><span>geojson</span></li>
+<ul>
+<li><a class="" href="../../geojson/geometry.html">geometry</a></li>
+</ul>
+<li class="heading"><span>maas backend</span></li>
+<ul>
+<li class="heading"><span>auth</span></li>
+<ul>
+<li class="heading"><span>auth sms login</span></li>
+<ul>
+<li><a class="" href="../auth/auth-sms-login/request.html">request</a></li>
+</ul>
+<li class="heading"><span>auth sms request code</span></li>
+<ul>
+<li><a class="" href="../auth/auth-sms-request-code/request.html">request</a></li>
+</ul>
+</ul>
+<li class="heading"><span>autocomplete</span></li>
+<ul>
+<li class="heading"><span>autocomplete query</span></li>
+<ul>
+<li><a class="" href="../autocomplete/autocomplete-query/request.html">request</a></li>
+<li><a class="" href="../autocomplete/autocomplete-query/response.html">response</a></li>
+</ul>
+</ul>
+<li class="heading"><span>booking option create</span></li>
+<ul>
+<li><a class="" href="../booking-option-create/request.html">request</a></li>
+<li><a class="" href="../booking-option-create/response.html">response</a></li>
+</ul>
+<li class="heading"><span>bookings</span></li>
+<ul>
+<li class="heading"><span>bookings agency options</span></li>
+<ul>
+<li><a class="" href="../bookings/bookings-agency-options/request.html">request</a></li>
+<li><a class="" href="../bookings/bookings-agency-options/response.html">response</a></li>
+</ul>
+<li class="heading"><span>bookings agency products</span></li>
+<ul>
+<li><a class="" href="../bookings/bookings-agency-products/request.html">request</a></li>
+<li><a class="" href="../bookings/bookings-agency-products/response.html">response</a></li>
+</ul>
+<li class="heading"><span>bookings cancel</span></li>
+<ul>
+<li><a class="" href="../bookings/bookings-cancel/request.html">request</a></li>
+<li><a class="" href="../bookings/bookings-cancel/response.html">response</a></li>
+</ul>
+<li class="heading"><span>bookings create</span></li>
+<ul>
+<li><a class="" href="../bookings/bookings-create/request.html">request</a></li>
+<li><a class="" href="../bookings/bookings-create/response.html">response</a></li>
+</ul>
+<li class="heading"><span>bookings list</span></li>
+<ul>
+<li><a class="" href="../bookings/bookings-list/request.html">request</a></li>
+<li><a class="" href="../bookings/bookings-list/response.html">response</a></li>
+</ul>
+<li class="heading"><span>bookings retrieve</span></li>
+<ul>
+<li><a class="" href="../bookings/bookings-retrieve/request.html">request</a></li>
+<li><a class="" href="../bookings/bookings-retrieve/response.html">response</a></li>
+</ul>
+<li class="heading"><span>bookings update</span></li>
+<ul>
+<li><a class="" href="../bookings/bookings-update/request.html">request</a></li>
+<li><a class="" href="../bookings/bookings-update/response.html">response</a></li>
+</ul>
+<li class="heading"><span>v2</span></li>
+<ul>
+<li class="heading"><span>bookings create</span></li>
+<ul>
+<li><a class="" href="../bookings/v2/bookings-create/request.html">request</a></li>
+<li><a class="" href="../bookings/v2/bookings-create/response.html">response</a></li>
+</ul>
+</ul>
+</ul>
+<li class="heading"><span>customers</span></li>
+<ul>
+<li><a class="" href="../customers/customer.html">customer</a></li>
+<li class="heading"><span>payment sources</span></li>
+<ul>
+<li class="heading"><span>create</span></li>
+<ul>
+<li><a class="" href="../customers/payment-sources/create/request.html">request</a></li>
+</ul>
+<li class="heading"><span>delete</span></li>
+<ul>
+<li><a class="" href="../customers/payment-sources/delete/request.html">request</a></li>
+</ul>
+<li><a class="" href="../customers/payment-sources/paymentSource.html">paymentSource</a></li>
+<li class="heading"><span>setup intent</span></li>
+<ul>
+<li><a class="" href="../customers/payment-sources/setup-intent/request.html">request</a></li>
+<li><a class="" href="../customers/payment-sources/setup-intent/response.html">response</a></li>
+</ul>
+<li class="heading"><span>update</span></li>
+<ul>
+<li><a class="" href="../customers/payment-sources/update/request.html">request</a></li>
+<li><a class="" href="../customers/payment-sources/update/response.html">response</a></li>
+</ul>
+</ul>
+<li class="heading"><span>personal data delete</span></li>
+<ul>
+<li><a class="" href="../customers/personal-data-delete/request.html">request</a></li>
+</ul>
+<li><a class="" href="../customers/personalData.html">personalData</a></li>
+<li class="heading"><span>retrieve</span></li>
+<ul>
+<li><a class="" href="../customers/retrieve/request.html">request</a></li>
+<li><a class="" href="../customers/retrieve/response.html">response</a></li>
+</ul>
+<li class="heading"><span>stats</span></li>
+<ul>
+<li><a class="" href="../customers/stats/request.html">request</a></li>
+<li><a class="" href="../customers/stats/response.html">response</a></li>
+</ul>
+<li class="heading"><span>update</span></li>
+<ul>
+<li><a class="" href="../customers/update/request.html">request</a></li>
+<li><a class="" href="../customers/update/response.html">response</a></li>
+</ul>
+<li class="heading"><span>verification</span></li>
+<ul>
+<li class="heading"><span>initiate</span></li>
+<ul>
+<li><a class="" href="../customers/verification/initiate/request.html">request</a></li>
+<li><a class="" href="../customers/verification/initiate/response.html">response</a></li>
+</ul>
+<li class="heading"><span>media</span></li>
+<ul>
+<li class="heading"><span>get</span></li>
+<ul>
+<li><a class="" href="../customers/verification/media/get/request.html">request</a></li>
+</ul>
+<li class="heading"><span>list</span></li>
+<ul>
+<li><a class="" href="../customers/verification/media/list/request.html">request</a></li>
+</ul>
+</ul>
+<li class="heading"><span>register</span></li>
+<ul>
+<li><a class="" href="../customers/verification/register/request.html">request</a></li>
+<li><a class="" href="../customers/verification/register/response.html">response</a></li>
+</ul>
+<li class="heading"><span>status</span></li>
+<ul>
+<li><a class="" href="../customers/verification/status/response.html">response</a></li>
+</ul>
+<li><a class="" href="../customers/verification/verification-object.html">verification object</a></li>
+</ul>
+</ul>
+<li class="heading"><span>geocoding</span></li>
+<ul>
+<li class="heading"><span>geocoding query</span></li>
+<ul>
+<li><a class="" href="../geocoding/geocoding-query/request.html">request</a></li>
+<li><a class="" href="../geocoding/geocoding-query/response.html">response</a></li>
+</ul>
+<li class="heading"><span>geocoding reverse</span></li>
+<ul>
+<li><a class="" href="../geocoding/geocoding-reverse/request.html">request</a></li>
+<li><a class="" href="../geocoding/geocoding-reverse/response.html">response</a></li>
+</ul>
+</ul>
+<li class="heading"><span>invoices</span></li>
+<ul>
+<li><a class="" href="invoice.html">invoice</a></li>
+<li><a class="active" href="invoiceLineItem.html">invoiceLineItem</a></li>
+<li><a class="" href="invoiceUnits.html">invoiceUnits</a></li>
+</ul>
+<li class="heading"><span>itineraries</span></li>
+<ul>
+<li class="heading"><span>itinerary cancel</span></li>
+<ul>
+<li><a class="" href="../itineraries/itinerary-cancel/request.html">request</a></li>
+<li><a class="" href="../itineraries/itinerary-cancel/response.html">response</a></li>
+</ul>
+<li class="heading"><span>itinerary create</span></li>
+<ul>
+<li><a class="" href="../itineraries/itinerary-create/request.html">request</a></li>
+<li><a class="" href="../itineraries/itinerary-create/response.html">response</a></li>
+</ul>
+<li class="heading"><span>itinerary list</span></li>
+<ul>
+<li><a class="" href="../itineraries/itinerary-list/request.html">request</a></li>
+<li><a class="" href="../itineraries/itinerary-list/response.html">response</a></li>
+</ul>
+<li class="heading"><span>itinerary retrieve</span></li>
+<ul>
+<li><a class="" href="../itineraries/itinerary-retrieve/request.html">request</a></li>
+<li><a class="" href="../itineraries/itinerary-retrieve/response.html">response</a></li>
+</ul>
+<li class="heading"><span>itinerary update</span></li>
+<ul>
+<li><a class="" href="../itineraries/itinerary-update/request.html">request</a></li>
+<li><a class="" href="../itineraries/itinerary-update/response.html">response</a></li>
+</ul>
+</ul>
+<li class="heading"><span>products</span></li>
+<ul>
+<li class="heading"><span>products providers options</span></li>
+<ul>
+<li><a class="" href="../products/products-providers-options/request.html">request</a></li>
+<li><a class="" href="../products/products-providers-options/response.html">response</a></li>
+</ul>
+<li class="heading"><span>products providers retrieve</span></li>
+<ul>
+<li><a class="" href="../products/products-providers-retrieve/request.html">request</a></li>
+<li><a class="" href="../products/products-providers-retrieve/response.html">response</a></li>
+</ul>
+<li><a class="" href="../products/provider.html">provider</a></li>
+</ul>
+<li class="heading"><span>profile</span></li>
+<ul>
+<li class="heading"><span>profile devices put</span></li>
+<ul>
+<li><a class="" href="../profile/profile-devices-put/request.html">request</a></li>
+<li><a class="" href="../profile/profile-devices-put/response.html">response</a></li>
+</ul>
+<li class="heading"><span>profile edit</span></li>
+<ul>
+<li><a class="" href="../profile/profile-edit/request.html">request</a></li>
+<li><a class="" href="../profile/profile-edit/response.html">response</a></li>
+</ul>
+<li class="heading"><span>profile favoriteLocations add</span></li>
+<ul>
+<li><a class="" href="../profile/profile-favoriteLocations-add/request.html">request</a></li>
+<li><a class="" href="../profile/profile-favoriteLocations-add/response.html">response</a></li>
+</ul>
+<li class="heading"><span>profile favoriteLocations delete</span></li>
+<ul>
+<li><a class="" href="../profile/profile-favoriteLocations-delete/request.html">request</a></li>
+<li><a class="" href="../profile/profile-favoriteLocations-delete/response.html">response</a></li>
+</ul>
+<li class="heading"><span>profile info</span></li>
+<ul>
+<li><a class="" href="../profile/profile-info/request.html">request</a></li>
+<li><a class="" href="../profile/profile-info/response.html">response</a></li>
+</ul>
+<li class="heading"><span>profile webhook</span></li>
+<ul>
+<li><a class="" href="../profile/profile-webhook/request.html">request</a></li>
+<li><a class="" href="../profile/profile-webhook/response.html">response</a></li>
+</ul>
+</ul>
+<li class="heading"><span>provider</span></li>
+<ul>
+<li class="heading"><span>autocomplete</span></li>
+<ul>
+<li><a class="" href="../provider/autocomplete/request.html">request</a></li>
+<li><a class="" href="../provider/autocomplete/response.html">response</a></li>
+</ul>
+<li class="heading"><span>geocoding reverse</span></li>
+<ul>
+<li><a class="" href="../provider/geocoding-reverse/request.html">request</a></li>
+<li><a class="" href="../provider/geocoding-reverse/response.html">response</a></li>
+</ul>
+<li class="heading"><span>geocoding</span></li>
+<ul>
+<li><a class="" href="../provider/geocoding/request.html">request</a></li>
+<li><a class="" href="../provider/geocoding/response.html">response</a></li>
+</ul>
+<li class="heading"><span>routes</span></li>
+<ul>
+<li><a class="" href="../provider/routes/request.html">request</a></li>
+<li><a class="" href="../provider/routes/response.html">response</a></li>
+</ul>
+<li class="heading"><span>sms</span></li>
+<ul>
+<li><a class="" href="../provider/sms/request.html">request</a></li>
+<li><a class="" href="../provider/sms/response.html">response</a></li>
+</ul>
+</ul>
+<li class="heading"><span>push notification</span></li>
+<ul>
+<li><a class="" href="../push-notification/request.html">request</a></li>
+<li><a class="" href="../push-notification/response.html">response</a></li>
+</ul>
+<li class="heading"><span>regions</span></li>
+<ul>
+<li class="heading"><span>regions options</span></li>
+<ul>
+<li><a class="" href="../regions/regions-options/request.html">request</a></li>
+<li><a class="" href="../regions/regions-options/response.html">response</a></li>
+</ul>
+</ul>
+<li class="heading"><span>routes</span></li>
+<ul>
+<li class="heading"><span>routes query</span></li>
+<ul>
+<li><a class="" href="../routes/routes-query/request.html">request</a></li>
+<li><a class="" href="../routes/routes-query/response.html">response</a></li>
+</ul>
+</ul>
+<li class="heading"><span>stations</span></li>
+<ul>
+<li class="heading"><span>stations list</span></li>
+<ul>
+<li><a class="" href="../stations/stations-list/request.html">request</a></li>
+<li><a class="" href="../stations/stations-list/response.html">response</a></li>
+</ul>
+<li class="heading"><span>stations retrieve</span></li>
+<ul>
+<li><a class="" href="../stations/stations-retrieve/request.html">request</a></li>
+<li><a class="" href="../stations/stations-retrieve/response.html">response</a></li>
+</ul>
+</ul>
+<li class="heading"><span>subscriptions</span></li>
+<ul>
+<li><a class="" href="../subscriptions/contact.html">contact</a></li>
+<li><a class="" href="../subscriptions/pricing.html">pricing</a></li>
+<li><a class="" href="../subscriptions/subscription.html">subscription</a></li>
+<li><a class="" href="../subscriptions/subscriptionAddress.html">subscriptionAddress</a></li>
+<li><a class="" href="../subscriptions/subscriptionOption.html">subscriptionOption</a></li>
+<li class="heading"><span>subscriptions change state</span></li>
+<ul>
+<li><a class="" href="../subscriptions/subscriptions-change-state/request.html">request</a></li>
+<li><a class="" href="../subscriptions/subscriptions-change-state/response.html">response</a></li>
+</ul>
+<li class="heading"><span>subscriptions create</span></li>
+<ul>
+<li><a class="" href="../subscriptions/subscriptions-create/request.html">request</a></li>
+<li><a class="" href="../subscriptions/subscriptions-create/response.html">response</a></li>
+</ul>
+<li class="heading"><span>subscriptions customer retrieve</span></li>
+<ul>
+<li><a class="" href="../subscriptions/subscriptions-customer-retrieve/request.html">request</a></li>
+<li><a class="" href="../subscriptions/subscriptions-customer-retrieve/response.html">response</a></li>
+</ul>
+<li class="heading"><span>subscriptions customer update</span></li>
+<ul>
+<li><a class="" href="../subscriptions/subscriptions-customer-update/request.html">request</a></li>
+<li><a class="" href="../subscriptions/subscriptions-customer-update/response.html">response</a></li>
+</ul>
+<li class="heading"><span>subscriptions estimate</span></li>
+<ul>
+<li><a class="" href="../subscriptions/subscriptions-estimate/request.html">request</a></li>
+<li><a class="" href="../subscriptions/subscriptions-estimate/response.html">response</a></li>
+</ul>
+<li class="heading"><span>subscriptions options</span></li>
+<ul>
+<li><a class="" href="../subscriptions/subscriptions-options/request.html">request</a></li>
+<li><a class="" href="../subscriptions/subscriptions-options/response.html">response</a></li>
+</ul>
+<li class="heading"><span>subscriptions retrieve</span></li>
+<ul>
+<li><a class="" href="../subscriptions/subscriptions-retrieve/request.html">request</a></li>
+<li><a class="" href="../subscriptions/subscriptions-retrieve/response.html">response</a></li>
+</ul>
+<li class="heading"><span>subscriptions update</span></li>
+<ul>
+<li><a class="" href="../subscriptions/subscriptions-update/request.html">request</a></li>
+<li><a class="" href="../subscriptions/subscriptions-update/response.html">response</a></li>
+</ul>
+</ul>
+<li class="heading"><span>tracking</span></li>
+<ul>
+<li class="heading"><span>tracking active itinerary get</span></li>
+<ul>
+<li><a class="" href="../tracking/tracking-active-itinerary-get/request.html">request</a></li>
+<li><a class="" href="../tracking/tracking-active-itinerary-get/response.html">response</a></li>
+</ul>
+<li class="heading"><span>tracking active itinerary set</span></li>
+<ul>
+<li><a class="" href="../tracking/tracking-active-itinerary-set/request.html">request</a></li>
+<li><a class="" href="../tracking/tracking-active-itinerary-set/response.html">response</a></li>
+</ul>
+<li class="heading"><span>tracking active leg get</span></li>
+<ul>
+<li><a class="" href="../tracking/tracking-active-leg-get/request.html">request</a></li>
+<li><a class="" href="../tracking/tracking-active-leg-get/response.html">response</a></li>
+</ul>
+<li class="heading"><span>tracking active leg set</span></li>
+<ul>
+<li><a class="" href="../tracking/tracking-active-leg-set/request.html">request</a></li>
+<li><a class="" href="../tracking/tracking-active-leg-set/response.html">response</a></li>
+</ul>
+<li class="heading"><span>tracking cancel active itinerary</span></li>
+<ul>
+<li><a class="" href="../tracking/tracking-cancel-active-itinerary/request.html">request</a></li>
+<li><a class="" href="../tracking/tracking-cancel-active-itinerary/response.html">response</a></li>
+</ul>
+<li class="heading"><span>tracking update user location</span></li>
+<ul>
+<li><a class="" href="../tracking/tracking-update-user-location/request.html">request</a></li>
+<li><a class="" href="../tracking/tracking-update-user-location/response.html">response</a></li>
+</ul>
+</ul>
+<li class="heading"><span>tsp auth</span></li>
+<ul>
+<li class="heading"><span>init</span></li>
+<ul>
+<li><a class="" href="../tsp-auth/init/request.html">request</a></li>
+<li><a class="" href="../tsp-auth/init/response.html">response</a></li>
+</ul>
+<li class="heading"><span>validate</span></li>
+<ul>
+<li><a class="" href="../tsp-auth/validate/request.html">request</a></li>
+<li><a class="" href="../tsp-auth/validate/response.html">response</a></li>
+</ul>
+</ul>
+<li class="heading"><span>vehicle</span></li>
+<ul>
+<li class="heading"><span>vehicle alert</span></li>
+<ul>
+<li><a class="" href="../vehicle/vehicle-alert/request.html">request</a></li>
+<li><a class="" href="../vehicle/vehicle-alert/response.html">response</a></li>
+</ul>
+</ul>
+<li class="heading"><span>webhooks</span></li>
+<ul>
+<li class="heading"><span>webhooks bookings update</span></li>
+<ul>
+<li><a class="" href="../webhooks/webhooks-bookings-update/request.html">request</a></li>
+<li><a class="" href="../webhooks/webhooks-bookings-update/response.html">response</a></li>
+</ul>
+<li class="heading"><span>webhooks payments</span></li>
+<ul>
+<li class="heading"><span>gateway</span></li>
+<ul>
+<li><a class="" href="../webhooks/webhooks-payments/gateway/avainpay.html">avainpay</a></li>
+<li><a class="" href="../webhooks/webhooks-payments/gateway/stripe.html">stripe</a></li>
+<li><a class="" href="../webhooks/webhooks-payments/gateway/yaband.html">yaband</a></li>
+</ul>
+<li><a class="" href="../webhooks/webhooks-payments/request.html">request</a></li>
+<li><a class="" href="../webhooks/webhooks-payments/response.html">response</a></li>
+</ul>
+<li class="heading"><span>zendesk push notification</span></li>
+<ul>
+<li><a class="" href="../webhooks/zendesk-push-notification/request.html">request</a></li>
+<li><a class="" href="../webhooks/zendesk-push-notification/response.html">response</a></li>
+</ul>
+</ul>
+</ul>
+<li class="heading"><span>tsp</span></li>
+<ul>
+<li class="heading"><span>booking cancel</span></li>
+<ul>
+<li><a class="" href="../../tsp/booking-cancel/request.html">request</a></li>
+<li><a class="" href="../../tsp/booking-cancel/response.html">response</a></li>
+</ul>
+<li class="heading"><span>booking create</span></li>
+<ul>
+<li><a class="" href="../../tsp/booking-create/request.html">request</a></li>
+<li><a class="" href="../../tsp/booking-create/response.html">response</a></li>
+</ul>
+<li class="heading"><span>booking options list</span></li>
+<ul>
+<li><a class="" href="../../tsp/booking-options-list/request.html">request</a></li>
+<li><a class="" href="../../tsp/booking-options-list/response.html">response</a></li>
+</ul>
+<li class="heading"><span>booking read by id</span></li>
+<ul>
+<li><a class="" href="../../tsp/booking-read-by-id/request.html">request</a></li>
+<li><a class="" href="../../tsp/booking-read-by-id/response.html">response</a></li>
+</ul>
+<li class="heading"><span>booking receipt</span></li>
+<ul>
+<li><a class="" href="../../tsp/booking-receipt/request.html">request</a></li>
+<li><a class="" href="../../tsp/booking-receipt/response.html">response</a></li>
+</ul>
+<li class="heading"><span>booking ticket</span></li>
+<ul>
+<li><a class="" href="../../tsp/booking-ticket/request.html">request</a></li>
+<li><a class="" href="../../tsp/booking-ticket/response.html">response</a></li>
+</ul>
+<li class="heading"><span>booking update</span></li>
+<ul>
+<li><a class="" href="../../tsp/booking-update/request.html">request</a></li>
+<li><a class="" href="../../tsp/booking-update/response.html">response</a></li>
+</ul>
+<li class="heading"><span>customer auth validate</span></li>
+<ul>
+<li><a class="" href="../../tsp/customer-auth-validate/request.html">request</a></li>
+<li><a class="" href="../../tsp/customer-auth-validate/response.html">response</a></li>
+</ul>
+<li class="heading"><span>customer auth</span></li>
+<ul>
+<li><a class="" href="../../tsp/customer-auth/request.html">request</a></li>
+<li><a class="" href="../../tsp/customer-auth/response.html">response</a></li>
+</ul>
+<li class="heading"><span>customer registration</span></li>
+<ul>
+<li><a class="" href="../../tsp/customer-registration/request.html">request</a></li>
+<li><a class="" href="../../tsp/customer-registration/response.html">response</a></li>
+</ul>
+<li class="heading"><span>journey planner</span></li>
+<ul>
+<li><a class="" href="../../tsp/journey-planner/request.html">request</a></li>
+<li><a class="" href="../../tsp/journey-planner/response.html">response</a></li>
+</ul>
+<li class="heading"><span>stations list</span></li>
+<ul>
+<li><a class="" href="../../tsp/stations-list/request.html">request</a></li>
+<li><a class="" href="../../tsp/stations-list/response.html">response</a></li>
+</ul>
+<li class="heading"><span>stations retrieve</span></li>
+<ul>
+<li><a class="" href="../../tsp/stations-retrieve/request.html">request</a></li>
+<li><a class="" href="../../tsp/stations-retrieve/response.html">response</a></li>
+</ul>
+<li class="heading"><span>vehicle alert</span></li>
+<ul>
+<li><a class="" href="../../tsp/vehicle-alert/request.html">request</a></li>
+<li><a class="" href="../../tsp/vehicle-alert/response.html">response</a></li>
+</ul>
+<li class="heading"><span>webhooks bookings update</span></li>
+<ul>
+<li><a class="" href="../../tsp/webhooks-bookings-update/remote-request.html">remote request</a></li>
+<li><a class="" href="../../tsp/webhooks-bookings-update/remote-response.html">remote response</a></li>
+</ul>
+</ul>
+</ul>
+      </nav>
+      <article id="main" class="content">
+        <h1 id="invoicelineitem-schema">invoiceLineItem Schema <a class="heading-anchor-permalink" href="#invoicelineitem-schema">#</a></h1>
+<pre><code>http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json
+</code></pre>
+<p>MaaS InvoiceLineItem schema</p>
+<table>
+<thead>
+<tr>
+<th>Abstract</th>
+<th>Extensible</th>
+<th>Status</th>
+<th>Identifiable</th>
+<th>Custom Properties</th>
+<th>Additional Properties</th>
+<th>Defined In</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cannot be instantiated</td>
+<td>Yes</td>
+<td>Develop</td>
+<td>No</td>
+<td>Forbidden</td>
+<td>Permitted</td>
+<td><a href="invoiceLineItem.json">maas-backend/invoices/invoiceLineItem.json</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="invoicelineitem-definitions">invoiceLineItem Definitions <a class="heading-anchor-permalink" href="#invoicelineitem-definitions">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Group</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#amount">amount</a></td>
+<td><code>number</code></td>
+<td><code>http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem</code></td>
+</tr>
+<tr>
+<td><a href="#currency">currency</a></td>
+<td>currency</td>
+<td><code>http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem</code></td>
+</tr>
+<tr>
+<td><a href="#date">date</a></td>
+<td>time</td>
+<td><code>http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem</code></td>
+</tr>
+<tr>
+<td><a href="#description">description</a></td>
+<td><code>string</code></td>
+<td><code>http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem</code></td>
+</tr>
+<tr>
+<td><a href="#gatewayid">gatewayId</a></td>
+<td><code>string</code></td>
+<td><code>http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem</code></td>
+</tr>
+<tr>
+<td><a href="#id">id</a></td>
+<td>InvoiceLineItemId</td>
+<td><code>http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem</code></td>
+</tr>
+<tr>
+<td><a href="#invoiceid">invoiceId</a></td>
+<td>InvoiceId</td>
+<td><code>http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem</code></td>
+</tr>
+<tr>
+<td><a href="#paymentsourceid">paymentSourceId</a></td>
+<td><code>string</code></td>
+<td><code>http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem</code></td>
+</tr>
+<tr>
+<td><a href="#referenceinvoicelineitemid">referenceInvoiceLineItemId</a></td>
+<td>InvoiceLineItemId</td>
+<td><code>http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem</code></td>
+</tr>
+<tr>
+<td><a href="#token">token</a></td>
+<td><code>object</code></td>
+<td><code>http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem</code></td>
+</tr>
+<tr>
+<td><a href="#tokenid">tokenId</a></td>
+<td>tokenId</td>
+<td><code>http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem</code></td>
+</tr>
+<tr>
+<td><a href="#type">type</a></td>
+<td><code>enum</code></td>
+<td><code>http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="amount">amount <a class="heading-anchor-permalink" href="#amount">#</a></h2>
+<p><code>amount</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>number</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="amount-type">amount Type <a class="heading-anchor-permalink" href="#amount-type">#</a></h3>
+<p><code>number</code></p>
+<ul>
+<li>minimum value: <code>0</code></li>
+<li>must be a multiple of <code>0.01</code></li>
+</ul>
+<h2 id="currency">currency <a class="heading-anchor-permalink" href="#currency">#</a></h2>
+<p><code>currency</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: currency</li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="currency-type">currency Type <a class="heading-anchor-permalink" href="#currency-type">#</a></h3>
+<ul>
+<li><a href="units.html">currency</a> – <code>http://maasglobal.com/core/components/units.json#/definitions/currency</code></li>
+</ul>
+<h2 id="date">date <a class="heading-anchor-permalink" href="#date">#</a></h2>
+<p><code>date</code></p>
+<ul>
+<li>is optional</li>
+<li>type: time</li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="date-type">date Type <a class="heading-anchor-permalink" href="#date-type">#</a></h3>
+<ul>
+<li><a href="units.html">time</a> – <code>http://maasglobal.com/core/components/units.json#/definitions/time</code></li>
+</ul>
+<h2 id="description">description <a class="heading-anchor-permalink" href="#description">#</a></h2>
+<p><code>description</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="description-type">description Type <a class="heading-anchor-permalink" href="#description-type">#</a></h3>
+<p><code>string</code></p>
+<ul>
+<li>minimum length: 1 characters</li>
+</ul>
+<h2 id="gatewayid">gatewayId <a class="heading-anchor-permalink" href="#gatewayid">#</a></h2>
+<p><code>gatewayId</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="gatewayid-type">gatewayId Type <a class="heading-anchor-permalink" href="#gatewayid-type">#</a></h3>
+<p><code>string</code></p>
+<ul>
+<li>minimum length: 4 characters</li>
+</ul>
+<h2 id="id">id <a class="heading-anchor-permalink" href="#id">#</a></h2>
+<p><code>id</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: InvoiceLineItemId</li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="id-type">id Type <a class="heading-anchor-permalink" href="#id-type">#</a></h3>
+<ul>
+<li><a href="invoiceUnits.html">InvoiceLineItemId</a> –
+<code>http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceLineItemId</code></li>
+</ul>
+<h2 id="invoiceid">invoiceId <a class="heading-anchor-permalink" href="#invoiceid">#</a></h2>
+<p><code>invoiceId</code></p>
+<ul>
+<li>is optional</li>
+<li>type: InvoiceId</li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="invoiceid-type">invoiceId Type <a class="heading-anchor-permalink" href="#invoiceid-type">#</a></h3>
+<ul>
+<li><a href="invoiceUnits.html">InvoiceId</a> – <code>http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceId</code></li>
+</ul>
+<h2 id="paymentsourceid">paymentSourceId <a class="heading-anchor-permalink" href="#paymentsourceid">#</a></h2>
+<p><code>paymentSourceId</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>string</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="paymentsourceid-type">paymentSourceId Type <a class="heading-anchor-permalink" href="#paymentsourceid-type">#</a></h3>
+<p><code>string</code></p>
+<ul>
+<li>minimum length: 4 characters</li>
+</ul>
+<h2 id="referenceinvoicelineitemid">referenceInvoiceLineItemId <a class="heading-anchor-permalink" href="#referenceinvoicelineitemid">#</a></h2>
+<p><code>referenceInvoiceLineItemId</code></p>
+<ul>
+<li>is optional</li>
+<li>type: InvoiceLineItemId</li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="referenceinvoicelineitemid-type">referenceInvoiceLineItemId Type <a class="heading-anchor-permalink" href="#referenceinvoicelineitemid-type">#</a></h3>
+<ul>
+<li><a href="invoiceUnits.html">InvoiceLineItemId</a> –
+<code>http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceLineItemId</code></li>
+</ul>
+<h2 id="token">token <a class="heading-anchor-permalink" href="#token">#</a></h2>
+<p>Arbitrary token data, e.g. payment parameters for async payment gateways</p>
+<p><code>token</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>object</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="token-type">token Type <a class="heading-anchor-permalink" href="#token-type">#</a></h3>
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<h2 id="tokenid">tokenId <a class="heading-anchor-permalink" href="#tokenid">#</a></h2>
+<p><code>tokenId</code></p>
+<ul>
+<li>is optional</li>
+<li>type: tokenId</li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="tokenid-type">tokenId Type <a class="heading-anchor-permalink" href="#tokenid-type">#</a></h3>
+<ul>
+<li><a href="fare.html">tokenId</a> – <code>http://maasglobal.com/core/components/fare.json#/definitions/tokenId</code></li>
+</ul>
+<h2 id="type">type <a class="heading-anchor-permalink" href="#type">#</a></h2>
+<p><code>type</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>enum</code></li>
+<li>defined in this schema</li>
+</ul>
+<p>The value of this property <strong>must</strong> be equal to one of the <a href="#type-known-values">known values below</a>.</p>
+<h3 id="type-known-values">type Known Values <a class="heading-anchor-permalink" href="#type-known-values">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>authorization</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>capture</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>charge</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>refund</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+      </article>
+    </div>
+    <script>
+      // Load contents.json if you need it
+    </script>
+    <script>
+      // FROM http://purecss.io/js/ui.js
+      (function(window, document) {
+        var layout = document.getElementById("layout"),
+          menu = document.getElementById("menu"),
+          menuLink = document.getElementById("menuLink");
+
+        function toggleClass(element, className) {
+          var classes = element.className.split(/\s+/),
+            length = classes.length,
+            i = 0;
+
+          for (; i < length; i++) {
+            if (classes[i] === className) {
+              classes.splice(i, 1);
+              break;
+            }
+          }
+          // The className is not found
+          if (length === classes.length) {
+            classes.push(className);
+          }
+
+          element.className = classes.join(" ");
+        }
+
+        menuLink.onclick = function(e) {
+          var active = "active";
+
+          e.preventDefault();
+          toggleClass(layout, active);
+          toggleClass(menu, active);
+          toggleClass(menuLink, active);
+        };
+      })(this, this.document);
+    </script>
+  </body>
+</html>

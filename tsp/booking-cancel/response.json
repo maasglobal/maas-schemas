@@ -1,0 +1,56 @@
+{
+    "$id": "http://maasglobal.com/tsp/bookings-cancel/response.json",
+    "description": "Response schema for canceling a booking through a TSP adapter",
+    "type": "object",
+    "properties": {
+        "tspId": {
+            "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId",
+            "$linkVal": "tspId",
+            "$linkPath": "booking.md"
+        },
+        "state": {
+            "description": "For normal full cancellation, end state would be CANCELLED. For booking that has multi tickets, if not all of them are cancelled, response state will be RESERVED",
+            "enum": [
+                "CANCELLED",
+                "RESERVED"
+            ]
+        },
+        "cost": {
+            "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost",
+            "$linkVal": "cost",
+            "$linkPath": "booking.md"
+        },
+        "leg": {
+            "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/leg",
+            "$linkVal": "leg",
+            "$linkPath": "booking-option.md"
+        },
+        "meta": {
+            "$ref": "http://maasglobal.com/core/booking-meta.json",
+            "$linkVal": "booking-meta",
+            "$linkPath": "booking-meta.md"
+        },
+        "terms": {
+            "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms",
+            "$linkVal": "terms",
+            "$linkPath": "booking.md"
+        },
+        "token": {
+            "$ref": "http://maasglobal.com/core/booking.json#/definitions/token",
+            "$linkVal": "token",
+            "$linkPath": "booking.md"
+        },
+        "tspProduct": {
+            "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/tspProduct",
+            "$linkVal": "tspProduct",
+            "$linkPath": "booking-option.md"
+        }
+    },
+    "required": [
+        "tspId",
+        "state"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

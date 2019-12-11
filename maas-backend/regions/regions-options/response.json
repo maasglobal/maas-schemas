@@ -1,0 +1,25 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/regions/regions-options/response.json",
+    "description": "Response schema for regions-options",
+    "type": "object",
+    "properties": {
+        "options": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/region.json",
+                "$linkVal": "region",
+                "$linkPath": "region.md"
+            }
+        },
+        "debug": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "required": [
+        "options"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

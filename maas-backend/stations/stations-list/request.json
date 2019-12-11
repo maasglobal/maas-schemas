@@ -1,0 +1,98 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/stations/stations-list/request.json",
+    "description": "Request schema for stations list",
+    "type": "object",
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "payload": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "description": "Query by radius",
+                    "properties": {
+                        "agencyId": {
+                            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId",
+                            "$linkVal": "agencyId",
+                            "$linkPath": "common.md"
+                        },
+                        "lat": {
+                            "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude",
+                            "$linkVal": "relaxedLatitude",
+                            "$linkPath": "units-geo.md"
+                        },
+                        "lon": {
+                            "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude",
+                            "$linkVal": "relaxedLatitude",
+                            "$linkPath": "units-geo.md"
+                        },
+                        "radius": {
+                            "type": "integer",
+                            "minimum": 0
+                        },
+                        "type": {
+                            "enum": [
+                                "origin",
+                                "destination",
+                                "viaAvoid"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "agencyId",
+                        "lat",
+                        "lon",
+                        "type"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "description": "Query by name",
+                    "properties": {
+                        "agencyId": {
+                            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId",
+                            "$linkVal": "agencyId",
+                            "$linkPath": "common.md"
+                        },
+                        "name": {
+                            "type": "string",
+                            "minLength": 3
+                        },
+                        "count": {
+                            "type": "integer",
+                            "minimum": 1
+                        },
+                        "type": {
+                            "enum": [
+                                "origin",
+                                "destination",
+                                "viaAvoid"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "agencyId",
+                        "name",
+                        "count",
+                        "type"
+                    ]
+                }
+            ]
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "required": [
+        "identityId",
+        "payload"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

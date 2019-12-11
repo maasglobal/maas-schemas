@@ -1,0 +1,6 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/profile/profile-info/request.json",
+    "description": "Request schema for profile-info",
+    "meta:status": "Develop",
+    "title": "request"
+}

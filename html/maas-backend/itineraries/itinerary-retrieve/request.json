@@ -1,0 +1,26 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-retrieve/request.json",
+    "description": "Request schema for itinerary-retrieve",
+    "type": "object",
+    "properties": {
+        "itineraryId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+            "$linkVal": "uuid",
+            "$linkPath": "units.md"
+        },
+        "originalFare": {
+            "type": "string"
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "required": [
+        "itineraryId"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

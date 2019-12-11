@@ -1,0 +1,72 @@
+{
+    "$id": "http://maasglobal.com/core/components/customerSelection.json",
+    "description": "Customer Selection for Configurator",
+    "type": "object",
+    "properties": {
+        "seatDirection": {
+            "$ref": "#/definitions/configChoiceSelection",
+            "$linkVal": "configChoiceSelection",
+            "$linkPath": "customerSelection.md"
+        },
+        "seatPosition": {
+            "$ref": "#/definitions/configChoiceSelection",
+            "$linkVal": "configChoiceSelection",
+            "$linkPath": "customerSelection.md"
+        },
+        "seatType": {
+            "$ref": "#/definitions/configChoiceSelection",
+            "$linkVal": "configChoiceSelection",
+            "$linkPath": "customerSelection.md"
+        },
+        "seatFeatures": {
+            "$ref": "#/definitions/configChoiceSelection",
+            "$linkVal": "configChoiceSelection",
+            "$linkPath": "customerSelection.md"
+        },
+        "outboundSingle": {
+            "$ref": "#/definitions/configChoiceSelection",
+            "$linkVal": "configChoiceSelection",
+            "$linkPath": "customerSelection.md"
+        },
+        "inboundSingle": {
+            "$ref": "#/definitions/configChoiceSelection",
+            "$linkVal": "configChoiceSelection",
+            "$linkPath": "customerSelection.md"
+        },
+        "openReturn": {
+            "$ref": "#/definitions/configChoiceSelection",
+            "$linkVal": "configChoiceSelection",
+            "$linkPath": "customerSelection.md"
+        },
+        "freeReturn": {
+            "$ref": "#/definitions/configChoiceSelection",
+            "$linkVal": "configChoiceSelection",
+            "$linkPath": "customerSelection.md"
+        },
+        "ticketCollectionPoint": {
+            "$ref": "#/definitions/textInputSelection",
+            "$linkVal": "textInputSelection",
+            "$linkPath": "customerSelection.md"
+        }
+    },
+    "additionalProperties": false,
+    "definitions": {
+        "configChoiceSelection": {
+            "description": "customerSelection format for configurator config type - choice",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 8192
+            }
+        },
+        "textInputSelection": {
+            "description": "customerSelection format for configurator config type - text",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 8192
+        }
+    },
+    "meta:status": "Develop",
+    "title": "customerSelection"
+}

@@ -1,0 +1,30 @@
+{
+    "$id": "http://maasglobal.com/tsp/customer-auth/request.json",
+    "description": "Request schema for initiating customer authorization for TSP",
+    "type": "object",
+    "properties": {
+        "nonce": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam",
+            "$linkVal": "encodedQueryParam",
+            "$linkPath": "common.md"
+        },
+        "returnUrl": {
+            "description": "URL where client is returned after authorization flow is completed.",
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url",
+            "$linkVal": "url",
+            "$linkPath": "units.md"
+        },
+        "locale": {
+            "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale",
+            "$linkVal": "locale",
+            "$linkPath": "i18n.md"
+        }
+    },
+    "required": [
+        "nonce",
+        "returnUrl"
+    ],
+    "additionalProperties": true,
+    "meta:status": "Develop",
+    "title": "request"
+}

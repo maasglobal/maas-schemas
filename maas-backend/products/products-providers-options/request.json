@@ -1,0 +1,50 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/products/products-providers-options/request.json",
+    "description": "Request schema for products-providers-options",
+    "type": "object",
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "payload": {
+            "$ref": "#/definitions/payload",
+            "$linkVal": "payload",
+            "$linkPath": "request.md"
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "required": [
+        "identityId",
+        "payload"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "payload": {
+            "type": "object",
+            "properties": {
+                "lat": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude",
+                    "$linkVal": "relaxedLatitude",
+                    "$linkPath": "units-geo.md"
+                },
+                "lon": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude",
+                    "$linkVal": "relaxedLongitude",
+                    "$linkPath": "units-geo.md"
+                }
+            },
+            "required": [
+                "lat",
+                "lon"
+            ]
+        }
+    },
+    "meta:status": "Develop",
+    "title": "request"
+}

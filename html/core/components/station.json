@@ -1,0 +1,114 @@
+{
+    "$id": "http://maasglobal.com/core/components/station.json",
+    "description": "MaaS station schemas",
+    "type": "object",
+    "definitions": {
+        "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+        },
+        "code": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "location": {
+            "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
+        },
+        "address": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/address"
+        },
+        "city": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
+        },
+        "country": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
+        },
+        "agencyId": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+        },
+        "openingHours": {
+            "description": "Opening hour of the station, object format is left for TSP to decide",
+            "type": "object"
+        },
+        "facilities": {
+            "description": "Station facilities, including services and features",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "services": {
+            "description": "What agency and mode of transport will occupy this station",
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/components/travel-mode.json",
+                "$linkVal": "travel-mode",
+                "$linkPath": "travel-mode.md"
+            }
+        },
+        "timetables": {
+            "description": "Timetable for passing by / originating transports",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "mode": {
+                        "$ref": "http://maasglobal.com/core/components/travel-mode.json",
+                        "$linkVal": "travel-mode",
+                        "$linkPath": "travel-mode.md"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "longName": {
+                        "type": "string"
+                    },
+                    "schedule": {
+                        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                        "$linkVal": "time",
+                        "$linkPath": "units.md"
+                    },
+                    "realtime": {
+                        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                        "$linkVal": "time",
+                        "$linkPath": "units.md"
+                    },
+                    "isRealtime": {
+                        "type": "boolean",
+                        "description": "A flag indicating whether this transport mode is realtime or not"
+                    }
+                }
+            }
+        },
+        "zone": {
+            "description": "Geofencing zone defined by provider that the station is within",
+            "anyOf": [
+                {
+                    "type": "number"
+                },
+                {
+                    "type": "string"
+                }
+            ]
+        },
+        "platformCode": {
+            "description": "Platform number",
+            "anyOf": [
+                {
+                    "type": "number"
+                },
+                {
+                    "type": "string"
+                }
+            ]
+        }
+    },
+    "meta:status": "Develop",
+    "title": "station"
+}

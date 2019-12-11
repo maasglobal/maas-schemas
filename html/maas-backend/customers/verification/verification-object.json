@@ -1,0 +1,96 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/verification/verification-object.json",
+    "description": "MaaS verification schema",
+    "definitions": {
+        "verification": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255,
+                    "description": "Unique ID"
+                },
+                "identityId": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+                    "$linkVal": "identityId",
+                    "$linkPath": "units.md"
+                },
+                "details": {
+                    "type": "object",
+                    "properties": {
+                        "url": {
+                            "type": "string"
+                        },
+                        "sessionToken": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "url",
+                        "sessionToken"
+                    ],
+                    "additionalProperties": true
+                },
+                "validFrom": {
+                    "type": "string"
+                },
+                "validTo": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "stateLog": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string"
+                            },
+                            "timestamp": {
+                                "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                                "$linkVal": "time",
+                                "$linkPath": "units.md"
+                            }
+                        },
+                        "required": [
+                            "status",
+                            "timestamp"
+                        ]
+                    }
+                },
+                "created": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "modified": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "agencyId": {
+                    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId",
+                    "$linkVal": "agencyId",
+                    "$linkPath": "common.md"
+                }
+            },
+            "required": [
+                "id",
+                "identityId",
+                "details",
+                "status",
+                "type",
+                "stateLog"
+            ]
+        }
+    },
+    "meta:status": "Develop",
+    "title": "verification-object"
+}

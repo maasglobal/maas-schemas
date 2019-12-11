@@ -1,0 +1,86 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/bookings/bookings-agency-products/response.json",
+    "description": "Response schema for bookings-agency-products",
+    "type": "object",
+    "properties": {
+        "agencyId": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId",
+            "$linkVal": "agencyId",
+            "$linkPath": "common.md"
+        },
+        "products": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/product",
+                "$linkVal": "product",
+                "$linkPath": "response.md"
+            }
+        }
+    },
+    "definitions": {
+        "product": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
+                },
+                "agencyId": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
+                },
+                "tspProductId": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
+                },
+                "name": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
+                },
+                "meta": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "icon": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url",
+                    "$linkVal": "url",
+                    "$linkPath": "units.md"
+                },
+                "fares": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "http://maasglobal.com/core/components/fare.json",
+                        "$linkVal": "fare",
+                        "$linkPath": "fare.md"
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 2000
+                }
+            },
+            "required": [
+                "id",
+                "agencyId",
+                "tspProductId",
+                "name",
+                "description",
+                "icon",
+                "fares"
+            ],
+            "additionalProperties": true
+        }
+    },
+    "required": [
+        "agencyId",
+        "products"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

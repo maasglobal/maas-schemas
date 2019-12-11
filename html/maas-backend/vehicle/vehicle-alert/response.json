@@ -1,0 +1,8 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/vehicle/vehicle-alert/response.json",
+    "description": "",
+    "type": "object",
+    "properties": {},
+    "meta:status": "Develop",
+    "title": "response"
+}

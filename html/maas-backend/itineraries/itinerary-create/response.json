@@ -1,0 +1,86 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-create/response.json",
+    "description": "Response schema for itineraries-create",
+    "oneOf": [
+        {
+            "type": "object",
+            "properties": {
+                "itinerary": {
+                    "$ref": "http://maasglobal.com/core/itinerary.json",
+                    "$linkVal": "itinerary",
+                    "$linkPath": "itinerary.md"
+                },
+                "paymentParameters": {
+                    "description": "Payment parameters for asynchronous payment methods",
+                    "$ref": "#/definitions/paymentParameters",
+                    "$linkVal": "paymentParameters",
+                    "$linkPath": "response.md"
+                }
+            },
+            "required": [
+                "itinerary"
+            ]
+        },
+        {
+            "type": "object",
+            "properties": {
+                "outward": {
+                    "$ref": "http://maasglobal.com/core/itinerary.json",
+                    "$linkVal": "itinerary",
+                    "$linkPath": "itinerary.md"
+                },
+                "return": {
+                    "$ref": "http://maasglobal.com/core/itinerary.json",
+                    "$linkVal": "itinerary",
+                    "$linkPath": "itinerary.md"
+                },
+                "paymentParameters": {
+                    "description": "Payment parameters for asynchronous payment methods",
+                    "$ref": "#/definitions/paymentParameters",
+                    "$linkVal": "paymentParameters",
+                    "$linkPath": "response.md"
+                }
+            },
+            "required": [
+                "outward"
+            ]
+        }
+    ],
+    "definitions": {
+        "paymentParameter": {
+            "type": "object",
+            "properties": {
+                "avainpay": {
+                    "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/avainpayPaymentParameters",
+                    "$linkVal": "avainpayPaymentParameters",
+                    "$linkPath": "payment-parameters.md"
+                },
+                "stripe": {
+                    "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/stripePaymentParameters",
+                    "$linkVal": "stripePaymentParameters",
+                    "$linkPath": "payment-parameters.md"
+                }
+            }
+        },
+        "paymentParameters": {
+            "description": "Payment parameters for asynchronous payment methods",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/paymentParameter",
+                    "$linkVal": "paymentParameter",
+                    "$linkPath": "response.md"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/paymentParameter",
+                        "$linkVal": "paymentParameter",
+                        "$linkPath": "response.md"
+                    }
+                }
+            ]
+        }
+    },
+    "meta:status": "Develop",
+    "title": "response"
+}

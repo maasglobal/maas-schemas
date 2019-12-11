@@ -1,0 +1,287 @@
+{
+    "$id": "http://maasglobal.com/core/leg.json",
+    "type": "object",
+    "description": "The base leg object with all fields, to be inherited",
+    "definitions": {
+        "state": {
+            "$ref": "http://maasglobal.com/core/components/state.json#/definitions/legState"
+        },
+        "from": {
+            "$ref": "http://maasglobal.com/core/components/place.json"
+        },
+        "to": {
+            "$ref": "http://maasglobal.com/core/components/place.json"
+        },
+        "startTime": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        "endTime": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        "mode": {
+            "anyOf": [
+                {
+                    "$ref": "http://maasglobal.com/core/components/travel-mode.json#/definitions/personalMode",
+                    "$linkVal": "personalMode",
+                    "$linkPath": "travel-mode.md"
+                },
+                {
+                    "$ref": "http://maasglobal.com/core/components/travel-mode.json#/definitions/publicTransitMode",
+                    "$linkVal": "publicTransitMode",
+                    "$linkPath": "travel-mode.md"
+                },
+                {
+                    "$ref": "http://maasglobal.com/core/components/travel-mode.json#/definitions/privateTransitMode",
+                    "$linkVal": "privateTransitMode",
+                    "$linkPath": "travel-mode.md"
+                }
+            ]
+        },
+        "stops": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/stop.json",
+                "$linkVal": "stop",
+                "$linkPath": "stop.md"
+            }
+        },
+        "departureDelay": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/duration"
+        },
+        "arrivalDelay": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/duration"
+        },
+        "distance": {
+            "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
+        },
+        "route": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+        },
+        "routeShortName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+        },
+        "routeLongName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+        },
+        "agencyId": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+        },
+        "legGeometry": {
+            "type": "object",
+            "properties": {
+                "points": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/polyline",
+                    "$linkVal": "polyline",
+                    "$linkPath": "units-geo.md"
+                }
+            }
+        },
+        "tspProduct": {
+            "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/tspProduct"
+        },
+        "productOption": {
+            "description": "Index of the productOption used in the itinerary's productOptions",
+            "type": "integer",
+            "minimum": 0
+        },
+        "legExtensions": {
+            "type": "object",
+            "description": "MaaS specific leg extensions",
+            "properties": {
+                "id": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+                    "$linkVal": "uuid",
+                    "$linkPath": "units.md"
+                },
+                "signature": {
+                    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/signature",
+                    "$linkVal": "signature",
+                    "$linkPath": "common.md"
+                }
+            }
+        },
+        "legCore": {
+            "type": "object",
+            "properties": {
+                "state": {
+                    "$ref": "#/definitions/state",
+                    "$linkVal": "state",
+                    "$linkPath": "leg.md"
+                },
+                "from": {
+                    "$ref": "#/definitions/from",
+                    "$linkVal": "from",
+                    "$linkPath": "leg.md"
+                },
+                "to": {
+                    "$ref": "#/definitions/to",
+                    "$linkVal": "to",
+                    "$linkPath": "leg.md"
+                },
+                "startTime": {
+                    "$ref": "#/definitions/startTime",
+                    "$linkVal": "startTime",
+                    "$linkPath": "leg.md"
+                },
+                "endTime": {
+                    "$ref": "#/definitions/endTime",
+                    "$linkVal": "endTime",
+                    "$linkPath": "leg.md"
+                },
+                "mode": {
+                    "$ref": "#/definitions/mode",
+                    "$linkVal": "mode",
+                    "$linkPath": "leg.md"
+                },
+                "stops": {
+                    "$ref": "#/definitions/stops",
+                    "$linkVal": "stops",
+                    "$linkPath": "leg.md"
+                },
+                "departureDelay": {
+                    "$ref": "#/definitions/departureDelay",
+                    "$linkVal": "departureDelay",
+                    "$linkPath": "leg.md"
+                },
+                "arrivalDelay": {
+                    "$ref": "#/definitions/arrivalDelay",
+                    "$linkVal": "arrivalDelay",
+                    "$linkPath": "leg.md"
+                },
+                "distance": {
+                    "$ref": "#/definitions/distance",
+                    "$linkVal": "distance",
+                    "$linkPath": "leg.md"
+                },
+                "route": {
+                    "$ref": "#/definitions/route",
+                    "$linkVal": "route",
+                    "$linkPath": "leg.md"
+                },
+                "routeShortName": {
+                    "$ref": "#/definitions/routeShortName",
+                    "$linkVal": "routeShortName",
+                    "$linkPath": "leg.md"
+                },
+                "routeLongName": {
+                    "$ref": "#/definitions/routeLongName",
+                    "$linkVal": "routeLongName",
+                    "$linkPath": "leg.md"
+                },
+                "agencyId": {
+                    "$ref": "#/definitions/agencyId",
+                    "$linkVal": "agencyId",
+                    "$linkPath": "leg.md"
+                },
+                "legGeometry": {
+                    "$ref": "#/definitions/legGeometry",
+                    "$linkVal": "legGeometry",
+                    "$linkPath": "leg.md"
+                },
+                "tspProduct": {
+                    "$ref": "#/definitions/tspProduct",
+                    "$linkVal": "tspProduct",
+                    "$linkPath": "leg.md"
+                },
+                "productOption": {
+                    "$ref": "#/definitions/productOption",
+                    "$linkVal": "productOption",
+                    "$linkPath": "leg.md"
+                }
+            },
+            "required": [
+                "from",
+                "to",
+                "mode",
+                "startTime",
+                "endTime",
+                "legGeometry"
+            ],
+            "additionalProperties": false
+        },
+        "waitingLeg": {
+            "type": "object",
+            "properties": {
+                "startTime": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "endTime": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "mode": {
+                    "$ref": "http://maasglobal.com/core/components/travel-mode.json#/definitions/waitingMode",
+                    "$linkVal": "waitingMode",
+                    "$linkPath": "travel-mode.md"
+                }
+            },
+            "required": [
+                "mode",
+                "startTime",
+                "endTime"
+            ]
+        },
+        "transferLeg": {
+            "type": "object",
+            "properties": {
+                "startTime": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "endTime": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "mode": {
+                    "$ref": "http://maasglobal.com/core/components/travel-mode.json#/definitions/transferMode",
+                    "$linkVal": "transferMode",
+                    "$linkPath": "travel-mode.md"
+                }
+            },
+            "required": [
+                "mode",
+                "startTime",
+                "endTime"
+            ]
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "#/definitions/legExtensions",
+            "$linkVal": "legExtensions",
+            "$linkPath": "leg.md"
+        },
+        {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/legCore",
+                    "$linkVal": "legCore",
+                    "$linkPath": "leg.md"
+                },
+                {
+                    "$ref": "#/definitions/waitingLeg",
+                    "$linkVal": "waitingLeg",
+                    "$linkPath": "leg.md"
+                },
+                {
+                    "$ref": "#/definitions/transferLeg",
+                    "$linkVal": "transferLeg",
+                    "$linkPath": "leg.md"
+                }
+            ]
+        }
+    ],
+    "meta:status": "Develop",
+    "title": "leg"
+}

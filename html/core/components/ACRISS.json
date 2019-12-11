@@ -1,0 +1,8 @@
+{
+    "$id": "http://maasglobal.com/core/components/ACRISS.json",
+    "description": "ACRISS classification of the car, see https://en.wikipedia.org/wiki/ACRISS_Car_Classification_Code",
+    "type": "string",
+    "pattern": "[MNEHCDIJSRFGPULWOX][BCDWVLSTFJXPQZEMRHYNGK][MNCABD][RNDQHIECLSABMFVZUX]",
+    "meta:status": "Develop",
+    "title": "ACRISS"
+}

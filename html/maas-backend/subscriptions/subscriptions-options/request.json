@@ -1,0 +1,34 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-options/request.json",
+    "description": "Request schema for subscriptions-options",
+    "type": "object",
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "payload": {
+            "type": "object",
+            "properties": {
+                "regionId": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 255
+                }
+            }
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "required": [
+        "identityId",
+        "payload"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

@@ -1,0 +1,9 @@
+{
+    "$id": "http://maasglobal.com/core/modes/MODE_SHARED_CAR.json",
+    "description": "Schemas for MODE_SHARED_CAR meta field",
+    "$ref": "http://maasglobal.com/core/components/car-rental.json",
+    "meta:status": "Develop",
+    "title": "MODE_SHARED_CAR",
+    "$linkVal": "car-rental",
+    "$linkPath": "car-rental.md"
+}

@@ -1,0 +1,8 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/stations/stations-list/response.json",
+    "$ref": "http://maasglobal.com/tsp/stations-list/response.json",
+    "meta:status": "Develop",
+    "title": "response",
+    "$linkVal": "response",
+    "$linkPath": "response.md"
+}

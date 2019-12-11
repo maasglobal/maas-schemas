@@ -1,0 +1,117 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/bookings/bookings-agency-options/request.json",
+    "description": "Request schema for bookings-agency-options",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "identityId",
+        "payload",
+        "headers"
+    ],
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "payload": {
+            "$ref": "#/definitions/payload",
+            "$linkVal": "payload",
+            "$linkPath": "request.md"
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "definitions": {
+        "payload": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "mode": {
+                    "$ref": "http://maasglobal.com/core/components/travel-mode.json",
+                    "$linkVal": "travel-mode",
+                    "$linkPath": "travel-mode.md"
+                },
+                "agencyId": {
+                    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId",
+                    "$linkVal": "agencyId",
+                    "$linkPath": "common.md"
+                },
+                "startTime": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "endTime": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "from": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString",
+                    "$linkVal": "shortLocationString",
+                    "$linkPath": "units-geo.md"
+                },
+                "to": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString",
+                    "$linkVal": "shortLocationString",
+                    "$linkPath": "units-geo.md"
+                },
+                "fromName": {
+                    "description": "The human understandable name for 'from'",
+                    "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName",
+                    "$linkVal": "placeName",
+                    "$linkPath": "address.md"
+                },
+                "fromAddress": {
+                    "description": "Componentized from address",
+                    "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress",
+                    "$linkVal": "componentAddress",
+                    "$linkPath": "address.md"
+                },
+                "fromRadius": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance",
+                    "$linkVal": "distance",
+                    "$linkPath": "units-geo.md"
+                },
+                "toName": {
+                    "description": "The human understandable name for 'to'",
+                    "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName",
+                    "$linkVal": "placeName",
+                    "$linkPath": "address.md"
+                },
+                "toAddress": {
+                    "description": "Componentized to address",
+                    "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress",
+                    "$linkVal": "componentAddress",
+                    "$linkPath": "address.md"
+                },
+                "toRadius": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance",
+                    "$linkVal": "distance",
+                    "$linkPath": "units-geo.md"
+                },
+                "bookingIdToExtend": {
+                    "description": "bookingId to fetch possible extension options for",
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+                    "$linkVal": "uuid",
+                    "$linkPath": "units.md"
+                }
+            },
+            "patternProperties": {
+                "^(optionalParameters).+": {
+                    "type": [
+                        "string",
+                        "number",
+                        "boolean"
+                    ]
+                }
+            }
+        }
+    },
+    "meta:status": "Develop",
+    "title": "request"
+}

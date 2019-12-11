@@ -1,0 +1,22 @@
+{
+    "$id": "http://maasglobal.com/tsp/bookings-read-by-id/request.json",
+    "description": "Request schema for getting a specific booking with a TSP ID from a TSP adapter",
+    "type": "object",
+    "properties": {
+        "tspId": {
+            "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId",
+            "$linkVal": "tspId",
+            "$linkPath": "booking.md"
+        },
+        "query": {
+            "type": "object",
+            "description": "Debug info"
+        }
+    },
+    "required": [
+        "tspId"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

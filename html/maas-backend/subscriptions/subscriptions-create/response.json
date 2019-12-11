@@ -1,0 +1,22 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-create/response.json",
+    "description": "Response schema for subscriptions-create",
+    "type": "object",
+    "properties": {
+        "subscription": {
+            "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscription",
+            "$linkVal": "subscription",
+            "$linkPath": "subscription.md"
+        },
+        "debug": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "required": [
+        "subscription"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

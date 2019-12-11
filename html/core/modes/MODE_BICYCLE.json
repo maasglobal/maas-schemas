@@ -1,0 +1,38 @@
+{
+    "$id": "http://maasglobal.com/core/modes/MODE_BICYCLE.json",
+    "type": "object",
+    "properties": {
+        "pickupStation": {
+            "$ref": "http://maasglobal.com/core/components/bike-station.json",
+            "$linkVal": "bike-station",
+            "$linkPath": "bike-station.md"
+        },
+        "returnStation": {
+            "$ref": "http://maasglobal.com/core/components/bike-station.json",
+            "$linkVal": "bike-station",
+            "$linkPath": "bike-station.md"
+        },
+        "pickupStationId": {
+            "type": "string"
+        },
+        "returnStationId": {
+            "type": "string"
+        },
+        "bike": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ]
+        }
+    },
+    "meta:status": "Develop",
+    "title": "MODE_BICYCLE"
+}

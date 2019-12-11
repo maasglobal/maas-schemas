@@ -1,0 +1,132 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/subscriptions/pricing.json",
+    "description": "MaaS pricing schema",
+    "type": "object",
+    "properties": {
+        "lineItems": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/lineItem",
+                "$linkVal": "lineItem",
+                "$linkPath": "pricing.md"
+            }
+        },
+        "discounts": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/discount",
+                "$linkVal": "discount",
+                "$linkPath": "pricing.md"
+            }
+        },
+        "total": {
+            "description": "Sum of the quantity * unitPrice - sum of discounts",
+            "$ref": "http://maasglobal.com/core/components/cost.json",
+            "$linkVal": "cost",
+            "$linkPath": "cost.md"
+        },
+        "terms": {
+            "$ref": "#/definitions/terms",
+            "$linkVal": "terms",
+            "$linkPath": "pricing.md"
+        }
+    },
+    "required": [
+        "lineItems",
+        "total"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "lineItem": {
+            "description": "An item that is priced with it summaries",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscriptionItemId",
+                    "$linkVal": "subscriptionItemId",
+                    "$linkPath": "subscription.md"
+                },
+                "type": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "description": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "quantity": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 100000,
+                    "default": 0
+                },
+                "unitPrice": {
+                    "description": "Price of one unit after all taxes & discounts",
+                    "$ref": "http://maasglobal.com/core/components/cost.json",
+                    "$linkVal": "cost",
+                    "$linkPath": "cost.md"
+                }
+            },
+            "required": [
+                "id",
+                "type",
+                "description",
+                "quantity",
+                "unitPrice"
+            ],
+            "additionalProperties": false
+        },
+        "discount": {
+            "description": "A discount from coupon or such",
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "discount": {
+                    "description": "Price of one unit after all taxes & discounts",
+                    "$ref": "http://maasglobal.com/core/components/cost.json",
+                    "$linkVal": "cost",
+                    "$linkPath": "cost.md"
+                }
+            },
+            "required": [
+                "description",
+                "discount"
+            ],
+            "additionalProperties": false
+        },
+        "terms": {
+            "description": "Terms related to this subscription",
+            "type": "object",
+            "properties": {
+                "validity": {
+                    "description": "Subscription validity conditions",
+                    "type": "object",
+                    "properties": {
+                        "startTime": {
+                            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                            "$linkVal": "time",
+                            "$linkPath": "units.md"
+                        },
+                        "endTime": {
+                            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                            "$linkVal": "time",
+                            "$linkPath": "units.md"
+                        }
+                    },
+                    "required": [
+                        "startTime",
+                        "endTime"
+                    ]
+                }
+            },
+            "required": [
+                "validity"
+            ]
+        }
+    },
+    "meta:status": "Develop",
+    "title": "pricing"
+}

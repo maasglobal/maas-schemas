@@ -1,0 +1,42 @@
+{
+    "$id": "http://maasglobal.com/core/components/subscriptionChangeState.json",
+    "description": "MaaS state schemas",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "Subscription change state id",
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+            "$linkVal": "uuid",
+            "$linkPath": "units.md"
+        },
+        "state": {
+            "description": "State enum",
+            "type": "string",
+            "enum": [
+                "IN_PROGRESS",
+                "COMPLETED",
+                "FAILED"
+            ]
+        },
+        "created": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+            "$linkVal": "time",
+            "$linkPath": "units.md"
+        },
+        "failureKey": {
+            "description": "Failure key enum, identifying reason for the failure",
+            "type": "string",
+            "enum": [
+                "UNKNOWN_ERROR",
+                "NOT_ELIGIBLE",
+                "EXISTING_TICKET"
+            ]
+        }
+    },
+    "required": [
+        "id",
+        "state"
+    ],
+    "meta:status": "Develop",
+    "title": "subscriptionChangeState"
+}

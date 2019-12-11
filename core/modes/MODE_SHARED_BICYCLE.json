@@ -1,0 +1,22 @@
+{
+    "$id": "http://maasglobal.com/core/modes/MODE_SHARED_BICYCLE.json",
+    "type": "object",
+    "properties": {
+        "bike": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ]
+        }
+    },
+    "meta:status": "Develop",
+    "title": "MODE_SHARED_BICYCLE"
+}

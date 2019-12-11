@@ -1,0 +1,9 @@
+{
+    "$id": "http://maasglobal.com/tsp/journey-planner/response.json",
+    "description": "Response schema for getting journey options from a TSP adapter.",
+    "$ref": "http://maasglobal.com/maas-backend/provider/routes/response.json",
+    "meta:status": "Develop",
+    "title": "response",
+    "$linkVal": "response",
+    "$linkPath": "response.md"
+}

@@ -1,0 +1,103 @@
+{
+    "$id": "http://maasglobal.com/core/itinerary.json",
+    "description": "OpenTripPlanner itinerary, augmented with leg bookings per leg",
+    "type": "object",
+    "definitions": {
+        "id": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+        }
+    },
+    "properties": {
+        "id": {
+            "$ref": "#/definitions/id",
+            "$linkVal": "id",
+            "$linkPath": "itinerary.md"
+        },
+        "sourcePlanId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+            "$linkVal": "uuid",
+            "$linkPath": "units.md"
+        },
+        "isOvertaken": {
+            "type": "boolean"
+        },
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "signature": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/signature",
+            "$linkVal": "signature",
+            "$linkPath": "common.md"
+        },
+        "state": {
+            "$ref": "http://maasglobal.com/core/components/state.json#/definitions/itineraryState",
+            "$linkVal": "itineraryState",
+            "$linkPath": "state.md"
+        },
+        "startTime": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+            "$linkVal": "time",
+            "$linkPath": "units.md"
+        },
+        "endTime": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+            "$linkVal": "time",
+            "$linkPath": "units.md"
+        },
+        "co2": {
+            "description": "Grams of CO2 as a byproduct by the trip",
+            "type": "number",
+            "minimum": 0
+        },
+        "fares": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/components/fare.json",
+                "$linkVal": "fare",
+                "$linkPath": "fare.md"
+            }
+        },
+        "legs": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "$ref": "http://maasglobal.com/core/leg.json",
+                "$linkVal": "leg",
+                "$linkPath": "leg.md"
+            }
+        },
+        "productOptions": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "$ref": "http://maasglobal.com/core/product-option.json",
+                "$linkVal": "product-option",
+                "$linkPath": "product-option.md"
+            }
+        },
+        "type": {
+            "enum": [
+                "outward",
+                "return"
+            ]
+        },
+        "bookings": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/booking.json",
+                "$linkVal": "booking",
+                "$linkPath": "booking.md"
+            }
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "startTime",
+        "endTime",
+        "legs"
+    ],
+    "meta:status": "Develop",
+    "title": "itinerary"
+}

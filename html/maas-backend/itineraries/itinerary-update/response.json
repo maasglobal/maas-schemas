@@ -1,0 +1,18 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-update/response.json",
+    "description": "Maas Itinerary update request",
+    "type": "object",
+    "properties": {
+        "itinerary": {
+            "$ref": "http://maasglobal.com/core/itinerary.json",
+            "$linkVal": "itinerary",
+            "$linkPath": "itinerary.md"
+        }
+    },
+    "required": [
+        "itinerary"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

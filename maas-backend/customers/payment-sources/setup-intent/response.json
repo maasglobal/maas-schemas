@@ -1,0 +1,59 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/payment-sources/setup-intent/response.json",
+    "description": "MaaS customer payment sources setup intent create response",
+    "type": "object",
+    "properties": {
+        "setupIntent": {
+            "type": "object",
+            "properties": {
+                "setupIntentId": {
+                    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId",
+                    "$linkVal": "paymentSourceId",
+                    "$linkPath": "common.md"
+                },
+                "type": {
+                    "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/type",
+                    "$linkVal": "type",
+                    "$linkPath": "paymentSource.md"
+                },
+                "gatewayName": {
+                    "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/gatewayName",
+                    "$linkVal": "gatewayName",
+                    "$linkPath": "paymentSource.md"
+                },
+                "clientSecret": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 255
+                },
+                "isDefault": {
+                    "type": "boolean"
+                },
+                "alias": {
+                    "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias",
+                    "$linkVal": "alias",
+                    "$linkPath": "paymentSource.md"
+                },
+                "status": {
+                    "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/status",
+                    "$linkVal": "status",
+                    "$linkPath": "paymentSource.md"
+                }
+            },
+            "required": [
+                "setupIntentId",
+                "type",
+                "gatewayName",
+                "isDefault",
+                "status"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "setupIntent"
+    ],
+    "meta:status": "Develop",
+    "title": "response"
+}

@@ -1,0 +1,40 @@
+{
+    "$id": "http://maasglobal.com/tsp/bookings-ticket/response.json",
+    "description": "Response schema for retrieving a ticket from booking through a TSP adapter",
+    "type": "object",
+    "properties": {
+        "ticket": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "html",
+                "pdf",
+                "svg"
+            ]
+        },
+        "contentType": {
+            "type": "string",
+            "enum": [
+                "application/pdf",
+                "image/svg+xml",
+                "text/html"
+            ]
+        },
+        "refreshAt": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+            "description": "Epoch when the ticket needs to be refreshed",
+            "$linkVal": "time",
+            "$linkPath": "units.md"
+        }
+    },
+    "required": [
+        "ticket",
+        "type",
+        "contentType"
+    ],
+    "additionalProperties": true,
+    "meta:status": "Develop",
+    "title": "response"
+}

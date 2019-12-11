@@ -1,0 +1,20 @@
+{
+    "$id": "http://maasglobal.com/tsp/stations-retrieve/request.json",
+    "description": "MaaS stations retrieve request schema",
+    "type": "object",
+    "properties": {
+        "id": {
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id",
+            "$linkVal": "id",
+            "$linkPath": "station.md"
+        },
+        "agencyId": {
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/agencyId",
+            "$linkVal": "agencyId",
+            "$linkPath": "station.md"
+        }
+    },
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

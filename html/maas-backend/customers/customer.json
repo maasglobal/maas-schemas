@@ -1,0 +1,67 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/customer.json",
+    "description": "MaaS customer schema",
+    "type": "object",
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "profileImageUrl": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 1024
+        },
+        "personalData": {
+            "$ref": "http://maasglobal.com/maas-backend/customers/personalData.json",
+            "$linkVal": "personalData",
+            "$linkPath": "personalData.md"
+        },
+        "paymentSources": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/paymentSource",
+                "$linkVal": "paymentSource",
+                "$linkPath": "paymentSource.md"
+            }
+        },
+        "balances": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/components/fare.json",
+                "$linkVal": "fare",
+                "$linkPath": "fare.md"
+            }
+        },
+        "region": {
+            "$ref": "http://maasglobal.com/core/region.json",
+            "$linkVal": "region",
+            "$linkPath": "region.md"
+        },
+        "authorizations": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/components/authorization.json",
+                "$linkVal": "authorization",
+                "$linkPath": "authorization.md"
+            }
+        },
+        "favoriteLocations": {
+            "type": "array",
+            "items": {
+                "type": "object"
+            }
+        }
+    },
+    "required": [
+        "personalData",
+        "paymentSources",
+        "balances",
+        "region",
+        "authorizations"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "customer"
+}

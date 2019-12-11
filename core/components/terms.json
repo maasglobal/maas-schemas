@@ -1,0 +1,238 @@
+{
+    "$id": "http://maasglobal.com/core/components/terms.json",
+    "description": "MaaS booking terms and condition for its business engine",
+    "type": "object",
+    "properties": {
+        "type": {
+            "description": "A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. 'Single ticket / Lähiseutu 2'. When reusing the tickets in maas-backend, the 'type' field is checked for equality.",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 64
+        },
+        "seatings": {
+            "description": "In 1 booking for a journey, it can be valid for many of the journey's leg. Each item of seating is a seat on 1 specific route",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/seat",
+                "$linkVal": "seat",
+                "$linkPath": "terms.md"
+            }
+        },
+        "validity": {
+            "description": "Booking validity conditions",
+            "type": "object",
+            "properties": {
+                "startTime": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "description": "Epoch when the outbound ticket will be valid",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "endTime": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "description": "Epoch when the outbound ticket will be invalid",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "startTimeReturn": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "description": "Epoch when the return ticket will be valid",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "endTimeReturn": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "description": "Epoch when the return ticket will be invalid",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                }
+            },
+            "required": [
+                "startTime",
+                "endTime"
+            ]
+        },
+        "reusable": {
+            "type": "boolean",
+            "description": "A flag indicating whether this booking can be reused for another trip within the validity period"
+        },
+        "reconcilable": {
+            "type": "boolean",
+            "description": "A flag indicating whether this booking will be reconciled once the trip has finished"
+        },
+        "restrictions": {
+            "type": "object",
+            "description": "Booking restrictions",
+            "properties": {
+                "singleDevice": {
+                    "type": "boolean",
+                    "description": "A flag indicating whether this booking can be viewed in multiple devices at the same time"
+                },
+                "skipRestrictionCheck": {
+                    "type": "boolean",
+                    "description": "A flag indicating whether restriction check should be run"
+                },
+                "freeTicket": {
+                    "type": "object",
+                    "description": "A JSON schema object which defines restriction rules for free ticket"
+                }
+            }
+        },
+        "cancellation": {
+            "type": "object",
+            "properties": {
+                "cancellationFormActionUrl": {
+                    "description": "User will fill in this form to cancel their ticket should programmed cancellation does not function. Edge case support",
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url",
+                    "$linkVal": "url",
+                    "$linkPath": "units.md"
+                },
+                "outward": {
+                    "$ref": "#/definitions/cancellation",
+                    "$linkVal": "cancellation",
+                    "$linkPath": "terms.md"
+                },
+                "return": {
+                    "$ref": "#/definitions/cancellation",
+                    "$linkVal": "cancellation",
+                    "$linkPath": "terms.md"
+                }
+            }
+        },
+        "amendment": {
+            "type": "object",
+            "properties": {
+                "outward": {
+                    "$ref": "#/definitions/amendment",
+                    "$linkVal": "amendment",
+                    "$linkPath": "terms.md"
+                },
+                "return": {
+                    "$ref": "#/definitions/amendment",
+                    "$linkVal": "amendment",
+                    "$linkPath": "terms.md"
+                }
+            }
+        },
+        "fareRates": {
+            "type": "array",
+            "items": {
+                "description": "Booking fare rate",
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "minimum": 0,
+                        "multipleOf": 0.01
+                    },
+                    "currency": {
+                        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency",
+                        "$linkVal": "currency",
+                        "$linkPath": "units.md"
+                    },
+                    "timeInterval": {
+                        "description": "Amount of seconds that fare rate is applied to",
+                        "type": "number",
+                        "minimum": 1,
+                        "multipleOf": 1
+                    },
+                    "startAt": {
+                        "description": "Amount of seconds after this fare rate should be applied to",
+                        "type": "number",
+                        "minimum": 0,
+                        "multipleOf": 1
+                    },
+                    "type": {
+                        "enum": [
+                            "maxRate",
+                            "missedReturnPenalty",
+                            "extra"
+                        ]
+                    }
+                },
+                "required": [
+                    "amount",
+                    "currency"
+                ]
+            }
+        }
+    },
+    "additionalProperties": true,
+    "definitions": {
+        "seat": {
+            "description": "Ticket's seat information for long distance trains, coaches or flights",
+            "type": "object",
+            "properties": {
+                "route": {
+                    "description": "The leg's route number that this seat info belongs",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "number": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "coach": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                }
+            }
+        },
+        "cancellation": {
+            "type": "object",
+            "properties": {
+                "cancellable": {
+                    "type": "boolean",
+                    "description": "A flag indicating whether this booking can be cancelled in 'RESERVED' state"
+                },
+                "cost": {
+                    "$ref": "http://maasglobal.com/core/components/cost.json",
+                    "$linkVal": "cost",
+                    "$linkPath": "cost.md"
+                },
+                "fare": {
+                    "$ref": "http://maasglobal.com/core/components/fare.json",
+                    "$linkVal": "fare",
+                    "$linkPath": "fare.md"
+                },
+                "refunded": {
+                    "type": "boolean",
+                    "description": "Whether this part of the booking has been refunded"
+                }
+            },
+            "required": [
+                "cancellable",
+                "refunded"
+            ]
+        },
+        "amendment": {
+            "type": "object",
+            "properties": {
+                "amendable": {
+                    "type": "boolean",
+                    "description": "A flag indicating whether this booking can be amended"
+                },
+                "cost": {
+                    "$ref": "http://maasglobal.com/core/components/cost.json",
+                    "$linkVal": "cost",
+                    "$linkPath": "cost.md"
+                },
+                "fare": {
+                    "$ref": "http://maasglobal.com/core/components/fare.json",
+                    "$linkVal": "fare",
+                    "$linkPath": "fare.md"
+                }
+            },
+            "required": [
+                "amendable"
+            ]
+        }
+    },
+    "meta:status": "Develop",
+    "title": "terms"
+}

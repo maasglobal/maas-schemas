@@ -1,0 +1,34 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/tsp-auth/validate/request.json",
+    "description": "Request schema for tsp-auth validate. Leaving as much flexibility as possible to be resilient for different TSPs",
+    "type": "object",
+    "properties": {
+        "agencyId": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId",
+            "$linkVal": "agencyId",
+            "$linkPath": "common.md"
+        },
+        "token": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam",
+            "$linkVal": "encodedQueryParam",
+            "$linkPath": "common.md"
+        },
+        "encodedData": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam",
+            "$linkVal": "encodedQueryParam",
+            "$linkPath": "common.md"
+        },
+        "error": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/errorKey",
+            "$linkVal": "errorKey",
+            "$linkPath": "common.md"
+        },
+        "headers": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

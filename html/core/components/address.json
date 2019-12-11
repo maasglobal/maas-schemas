@@ -1,0 +1,82 @@
+{
+    "$id": "http://maasglobal.com/core/components/address.json",
+    "description": "MaaS schema for address related information",
+    "definitions": {
+        "componentAddress": {
+            "description": "Encoded address components. Check the regexr examples. Check https://regexr.com/4ofcq. In streetNumber, there are 2 dashes - they have 2 different unicodes, do not remove",
+            "type": "string",
+            "regexp": "/(streetName:(\\p{L}|\\p{N}|-|\\/| (?=\\p{L}|&|\\p{N})|[#.,;:'&°’])+\\|?)|(city:(\\p{L}|['-]| (?=\\p{L}))+\\|?)|(state:(\\p{L}|[-]| (?=\\p{L}))+\\|?)|(zipCode:(\\p{L}|\\p{N}|-)+\\|?)|(country:(\\p{L}| (?=\\p{L}))+)\\|?|(streetNumber:(\\p{L}|\\p{N}|-|-|\\/)+)\\|?|(ward:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?|(district:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?/gui",
+            "examples": [
+                "state:Tōkyō-to|district:Kanda Nishikichō 3-chōme|streetNumber:4-パレステュディオ御茶ノ水駿河台参番館|zipCode:101-0054|city:Chiyoda-City|country:Japan",
+                "streetName:Tarkk'ampujänkätu|city:Helsinki|country:Finland|state:Uusimaa|streetNumber:1|zipCode:00100|district:Tapiola",
+                "streetName:Hämeentie Töölöntori Lähettilääntie Tarkk'ampujänkätu",
+                "streetName:Brädgårdsgatan",
+                "streetName:Żółkiewskiego",
+                "streetName:Øster Allé",
+                "streetName:شارع حمدان بن محمد",
+                "streetName:Karl-Marx-Straße",
+                "streetName:Küçük Ayasofya|city:İstanbul|district:Fatih",
+                "streetName:11 Avenue d’Ostende",
+                "streetName:Küçük Ayasofya, Küçük Ayasofya Cami Sk.",
+                "streetName:Kasumi'gaseki",
+                "streetName:St Martin's Lane",
+                "country:Åland",
+                "country:Puerto Rico",
+                "country:français",
+                "country:skandinavisk",
+                "streetNumber:1-1",
+                "streetNumber:1/2-d2"
+            ]
+        },
+        "placeName": {
+            "description": "Place name (given in autocomplete)",
+            "type": "string",
+            "minLength": 1
+        },
+        "firstName": {
+            "description": "First name of the customer (e.g. John)",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+        },
+        "lastName": {
+            "description": "Last name of the customer (e.g. Doe)",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+        },
+        "phone": {
+            "description": "ITU-T E.164 phone number",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone"
+        },
+        "email": {
+            "description": "Rough validation of a valid e-mail address",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
+        },
+        "address": {
+            "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",
+            "type": "string",
+            "minLength": 2
+        },
+        "zipCode": {
+            "description": "Numeric zip code, see https://en.wikipedia.org/wiki/Postal_code",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 64
+        },
+        "countryName": {
+            "description": "Alphabetic country name",
+            "type": "string",
+            "regexp": "/^(?:\\p{L}|\\s|')+$/gui",
+            "maxLength": 64
+        },
+        "country": {
+            "description": "ISO 3166-1 alpha-2 country code, see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2",
+            "type": "string",
+            "pattern": "^[A-Z]{2,2}$"
+        },
+        "city": {
+            "description": "Alphabetic city name",
+            "type": "string",
+            "minLength": 1
+        }
+    },
+    "meta:status": "Develop",
+    "title": "address"
+}

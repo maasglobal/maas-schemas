@@ -1,0 +1,72 @@
+{
+    "$id": "http://maasglobal.com/core/components/place.json",
+    "description": "A place, as a location-name pair with name and address",
+    "type": "object",
+    "additionalProperties": true,
+    "allOf": [
+        {
+            "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLocation",
+            "$linkVal": "relaxedLocation",
+            "$linkPath": "units-geo.md"
+        },
+        {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "name": {
+                    "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName",
+                    "$linkVal": "placeName",
+                    "$linkPath": "address.md"
+                },
+                "address": {
+                    "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress",
+                    "$linkVal": "componentAddress",
+                    "$linkPath": "address.md"
+                },
+                "localeAddress": {
+                    "type": "string",
+                    "description": "Country specific formatted address"
+                },
+                "stopId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                },
+                "stopCode": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                },
+                "stationId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                },
+                "facilities": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 80
+                    }
+                },
+                "openingHours": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/openingHours",
+                    "$linkVal": "openingHours",
+                    "$linkPath": "station.md"
+                },
+                "zone": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/zone",
+                    "$linkVal": "zone",
+                    "$linkPath": "station.md"
+                }
+            }
+        }
+    ],
+    "required": [
+        "lat",
+        "lon"
+    ],
+    "meta:status": "Develop",
+    "title": "place"
+}

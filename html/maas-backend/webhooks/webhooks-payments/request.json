@@ -1,0 +1,23 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-payments/request.json",
+    "description": "MaaS webhook to receive payment status updates from payment gateways.",
+    "oneOf": [
+        {
+            "$ref": "http://maasglobal.com/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json#/definitions/request",
+            "$linkVal": "request",
+            "$linkPath": "avainpay.md"
+        },
+        {
+            "$ref": "http://maasglobal.com/maas-backend/webhooks/webhooks-payments/gateway/stripe.json#/definitions/request",
+            "$linkVal": "request",
+            "$linkPath": "stripe.md"
+        },
+        {
+            "$ref": "http://maasglobal.com/maas-backend/webhooks/webhooks-payments/gateway/yaband.json#/definitions/request",
+            "$linkVal": "request",
+            "$linkPath": "yaband.md"
+        }
+    ],
+    "meta:status": "Develop",
+    "title": "request"
+}

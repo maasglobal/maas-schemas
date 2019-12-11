@@ -1,0 +1,18 @@
+{
+    "$id": "http://maasglobal.com/tsp/customer-auth/response.json",
+    "description": "Response schema for initiating customer authorization for TSP",
+    "type": "object",
+    "properties": {
+        "authUrl": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url",
+            "$linkVal": "url",
+            "$linkPath": "units.md"
+        }
+    },
+    "required": [
+        "authUrl"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

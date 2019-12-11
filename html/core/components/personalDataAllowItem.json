@@ -1,0 +1,22 @@
+{
+    "$id": "http://maasglobal.com/core/components/personalDataAllowItem.json",
+    "description": "MaaS personal data permissions specification",
+    "type": "object",
+    "properties": {
+        "type": {
+            "enum": [
+                "allOf",
+                "anyOf"
+            ]
+        },
+        "items": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "minLength": 1
+            }
+        }
+    },
+    "meta:status": "Develop",
+    "title": "personalDataAllowItem"
+}

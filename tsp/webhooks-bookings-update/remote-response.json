@@ -1,0 +1,81 @@
+{
+    "$id": "http://maasglobal.com/tsp/webhooks-bookings-update/remote-response.json",
+    "description": "Remote response schema, e.g. how MaaS-backend responds back to TSP",
+    "type": "object",
+    "properties": {
+        "booking": {
+            "$ref": "#/definitions/bookingDelta",
+            "$linkVal": "bookingDelta",
+            "$linkPath": "remote-response.md"
+        },
+        "debug": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "additionalProperties": false,
+    "definitions": {
+        "bookingDelta": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+                    "$linkVal": "uuid",
+                    "$linkPath": "units.md"
+                },
+                "tspId": {
+                    "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId",
+                    "$linkVal": "tspId",
+                    "$linkPath": "booking.md"
+                },
+                "cost": {
+                    "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost",
+                    "$linkVal": "cost",
+                    "$linkPath": "booking.md"
+                },
+                "state": {
+                    "enum": [
+                        "RESERVED",
+                        "CONFIRMED",
+                        "ACTIVATED",
+                        "EXPIRED",
+                        "CANCELLED",
+                        "REJECTED"
+                    ]
+                },
+                "leg": {
+                    "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/leg",
+                    "$linkVal": "leg",
+                    "$linkPath": "booking-option.md"
+                },
+                "meta": {
+                    "$ref": "http://maasglobal.com/core/booking-meta.json",
+                    "$linkVal": "booking-meta",
+                    "$linkPath": "booking-meta.md"
+                },
+                "terms": {
+                    "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms",
+                    "$linkVal": "terms",
+                    "$linkPath": "booking.md"
+                },
+                "token": {
+                    "$ref": "http://maasglobal.com/core/booking.json#/definitions/token",
+                    "$linkVal": "token",
+                    "$linkPath": "booking.md"
+                },
+                "customer": {
+                    "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/customer",
+                    "$linkVal": "customer",
+                    "$linkPath": "booking-option.md"
+                }
+            },
+            "required": [
+                "tspId",
+                "state"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "meta:status": "Develop",
+    "title": "remote-response"
+}

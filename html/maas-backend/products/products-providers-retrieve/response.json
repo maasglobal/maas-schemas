@@ -1,0 +1,18 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/products/products-providers-retrieve/response.json",
+    "description": "Response schema for products-providers-retrieve",
+    "type": "object",
+    "properties": {
+        "provider": {
+            "$ref": "http://maasglobal.com/maas-backend/products/provider.json",
+            "$linkVal": "provider",
+            "$linkPath": "provider.md"
+        }
+    },
+    "required": [
+        "provider"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

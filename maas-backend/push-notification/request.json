@@ -1,0 +1,116 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/push-notification/request.json",
+    "description": "MaaS push notification request schema.",
+    "type": "object",
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50
+        },
+        "message": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 256
+        },
+        "badge": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9999
+        },
+        "sound": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 256
+        },
+        "severity": {
+            "enum": [
+                "Alert",
+                "Warning",
+                "Information"
+            ]
+        },
+        "type": {
+            "enum": [
+                "ObjectChange",
+                "TripActivate",
+                "InfoMessage",
+                "ZendeskReply",
+                "VerificationUpdate"
+            ]
+        },
+        "data": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "objectType": {
+                            "enum": [
+                                "Itinerary",
+                                "Booking"
+                            ]
+                        },
+                        "ids": {
+                            "type": "array",
+                            "minItems": 1,
+                            "maxItems": 99,
+                            "items": {
+                                "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+                                "$linkVal": "uuid",
+                                "$linkPath": "units.md"
+                            }
+                        }
+                    },
+                    "required": [
+                        "objectType",
+                        "ids"
+                    ],
+                    "additionalProperties": false
+                },
+                {
+                    "type": "null"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "objectType": {
+                            "enum": [
+                                "Profile",
+                                "Subscription"
+                            ]
+                        },
+                        "ids": {
+                            "type": "array",
+                            "minItems": 1,
+                            "maxItems": 1,
+                            "items": {
+                                "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+                                "$linkVal": "identityId",
+                                "$linkPath": "units.md"
+                            }
+                        }
+                    },
+                    "required": [
+                        "objectType",
+                        "ids"
+                    ],
+                    "additionalProperties": false
+                }
+            ]
+        }
+    },
+    "required": [
+        "identityId",
+        "severity",
+        "badge",
+        "type"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

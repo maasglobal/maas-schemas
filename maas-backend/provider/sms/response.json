@@ -1,0 +1,6 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/provider/sms/response.json",
+    "description": "Response schema for reverse geocoding providers",
+    "meta:status": "Develop",
+    "title": "response"
+}

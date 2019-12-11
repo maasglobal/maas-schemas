@@ -1,0 +1,83 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json",
+    "description": "MaaS InvoiceLineItem schema",
+    "definitions": {
+        "InvoiceLineItem": {
+            "description": "Invoice line item",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceLineItemId",
+                    "$linkVal": "InvoiceLineItemId",
+                    "$linkPath": "invoiceUnits.md"
+                },
+                "gatewayId": {
+                    "type": "string",
+                    "minLength": 4
+                },
+                "invoiceId": {
+                    "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceId",
+                    "$linkVal": "InvoiceId",
+                    "$linkPath": "invoiceUnits.md"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "authorization",
+                        "capture",
+                        "charge",
+                        "refund"
+                    ]
+                },
+                "paymentSourceId": {
+                    "type": "string",
+                    "minLength": 4
+                },
+                "date": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "description": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "amount": {
+                    "type": "number",
+                    "minimum": 0,
+                    "multipleOf": 0.01
+                },
+                "currency": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency",
+                    "$linkVal": "currency",
+                    "$linkPath": "units.md"
+                },
+                "referenceInvoiceLineItemId": {
+                    "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceLineItemId",
+                    "$linkVal": "InvoiceLineItemId",
+                    "$linkPath": "invoiceUnits.md"
+                },
+                "tokenId": {
+                    "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/tokenId",
+                    "$linkVal": "tokenId",
+                    "$linkPath": "fare.md"
+                },
+                "token": {
+                    "description": "Arbitrary token data, e.g. payment parameters for async payment gateways",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "id",
+                "gatewayId",
+                "description",
+                "amount",
+                "currency",
+                "type"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "meta:status": "Develop",
+    "title": "invoiceLineItem"
+}

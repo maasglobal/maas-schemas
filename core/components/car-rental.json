@@ -1,0 +1,145 @@
+{
+    "$id": "http://maasglobal.com/core/components/car-rental.json",
+    "description": "Base schema for MODE_CAR* metas",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+        },
+        "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+        },
+        "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+        },
+        "image": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url",
+            "$linkVal": "url",
+            "$linkPath": "units.md"
+        },
+        "terms": {},
+        "car": {
+            "type": "object",
+            "properties": {
+                "passengers": {
+                    "description": "The number of passengers this vehicle will be able to transport",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 200
+                },
+                "doors": {
+                    "description": "The number of doors this car model may have - an array of min & max",
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 10
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                },
+                "luggage": {
+                    "description": "The number of luggage this vehicle will be able to transport - an array of [big, small] luggage",
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 200
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                },
+                "transmission": {
+                    "enum": [
+                        "manual",
+                        "automatic",
+                        null
+                    ]
+                },
+                "fuel": {
+                    "enum": [
+                        "diesel",
+                        "electric",
+                        "ethanol",
+                        "gasoline",
+                        "hybrid",
+                        "hydrogen",
+                        "lpg",
+                        "multifuel",
+                        null
+                    ]
+                },
+                "classification": {
+                    "oneOf": [
+                        {
+                            "$ref": "http://maasglobal.com/core/components/ACRISS.json",
+                            "$linkVal": "ACRISS",
+                            "$linkPath": "ACRISS.md"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "registrationPlate": {
+                    "description": "Registration plate (e.g. if we know the actual car already)",
+                    "type": "string",
+                    "pattern": "[A-Z\\-0-9]"
+                },
+                "damage": {
+                    "description": "Any reported damages to the car (if available)",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "fuelLevel": {
+                    "description": "The percentage of fuel the car has at the moment",
+                    "type": "number",
+                    "minLength": 0,
+                    "maxLength": 100
+                },
+                "location": {
+                    "description": "Current geo location",
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location",
+                    "$linkVal": "location",
+                    "$linkPath": "units-geo.md"
+                }
+            },
+            "required": [
+                "classification"
+            ]
+        },
+        "pickupInfo": {
+            "description": "Pickup instructions in HTML format",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/htmlBlock",
+            "$linkVal": "htmlBlock",
+            "$linkPath": "common.md"
+        },
+        "returnInfo": {
+            "description": "Return Instructions in HTML format",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/htmlBlock",
+            "$linkVal": "htmlBlock",
+            "$linkPath": "common.md"
+        },
+        "startEndGeoRegionUrl": {
+            "description": "Region in which car can be rented and returned. Url to GeoJSON file",
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url",
+            "$linkVal": "url",
+            "$linkPath": "units.md"
+        }
+    },
+    "required": [
+        "name",
+        "description",
+        "image"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "car-rental"
+}

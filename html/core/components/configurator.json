@@ -1,0 +1,175 @@
+{
+    "$id": "http://maasglobal.com/core/components/configurator.json",
+    "description": "Configurator schema to customize a booking option",
+    "type": "object",
+    "properties": {
+        "seatDirection": {
+            "$ref": "#/definitions/config",
+            "$linkVal": "config",
+            "$linkPath": "configurator.md"
+        },
+        "seatPosition": {
+            "$ref": "#/definitions/config",
+            "$linkVal": "config",
+            "$linkPath": "configurator.md"
+        },
+        "seatType": {
+            "$ref": "#/definitions/config",
+            "$linkVal": "config",
+            "$linkPath": "configurator.md"
+        },
+        "seatFeatures": {
+            "$ref": "#/definitions/config",
+            "$linkVal": "config",
+            "$linkPath": "configurator.md"
+        },
+        "outboundSingle": {
+            "description": "Single ticket for outwardJourney",
+            "$ref": "#/definitions/config",
+            "$linkVal": "config",
+            "$linkPath": "configurator.md"
+        },
+        "inboundSingle": {
+            "description": "Single ticket for return journey, go as a pair with outboundSingle",
+            "$ref": "#/definitions/config",
+            "$linkVal": "config",
+            "$linkPath": "configurator.md"
+        },
+        "openReturn": {
+            "description": "Open return ticket can be used for both outward and return journeys",
+            "$ref": "#/definitions/config",
+            "$linkVal": "config",
+            "$linkPath": "configurator.md"
+        },
+        "freeReturn": {
+            "description": "Going as a pair with open return, providing options for clients to choose return journey for it's open return tickets",
+            "$ref": "#/definitions/config",
+            "$linkVal": "config",
+            "$linkPath": "configurator.md"
+        },
+        "ticketCollectionPoint": {
+            "$ref": "#/definitions/text",
+            "$linkVal": "text",
+            "$linkPath": "configurator.md"
+        }
+    },
+    "additionalProperties": false,
+    "definitions": {
+        "config": {
+            "type": "object",
+            "description": "A customization to the booking option",
+            "properties": {
+                "type": {
+                    "description": "Describe the possible combination of choices user can make",
+                    "enum": [
+                        "oneOf",
+                        "someOf",
+                        "allOf",
+                        "oneOrNoneOf",
+                        "someOrNoneOf"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
+                },
+                "description": {
+                    "type": "string"
+                },
+                "choices": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "description": "Set of choices for one customization",
+                    "items": {
+                        "$ref": "#/definitions/choice",
+                        "$linkVal": "choice",
+                        "$linkPath": "configurator.md"
+                    }
+                }
+            },
+            "required": [
+                "type",
+                "name",
+                "choices"
+            ]
+        },
+        "choice": {
+            "type": "object",
+            "description": "A choice for one customization",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "minLength": 0
+                },
+                "name": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
+                },
+                "description": {
+                    "type": "string"
+                },
+                "default": {
+                    "type": "boolean"
+                },
+                "cost": {
+                    "$ref": "http://maasglobal.com/core/components/cost.json",
+                    "$linkVal": "cost",
+                    "$linkPath": "cost.md"
+                },
+                "fares": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "http://maasglobal.com/core/components/fare.json",
+                        "$linkVal": "fare",
+                        "$linkPath": "fare.md"
+                    }
+                },
+                "terms": {
+                    "$ref": "http://maasglobal.com/core/components/terms.json",
+                    "$linkVal": "terms",
+                    "$linkPath": "terms.md"
+                },
+                "meta": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "default"
+            ]
+        },
+        "text": {
+            "type": "object",
+            "description": "Generic text field to pass information from user",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "text"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
+                },
+                "description": {
+                    "type": "string"
+                },
+                "input": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 8192
+                }
+            },
+            "required": [
+                "type",
+                "name"
+            ]
+        }
+    },
+    "meta:status": "Develop",
+    "title": "configurator"
+}

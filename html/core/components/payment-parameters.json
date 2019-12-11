@@ -1,0 +1,161 @@
+{
+    "$id": "http://maasglobal.com/core/components/payment-parameters.json",
+    "description": "MaaS payment parameters for completing booking payment",
+    "definitions": {
+        "stripePaymentParameters": {
+            "type": "object",
+            "properties": {
+                "bookingId": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+                    "$linkVal": "uuid",
+                    "$linkPath": "units.md"
+                },
+                "clientSecret": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1024
+                }
+            }
+        },
+        "avainpayPaymentParameters": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "description": "JSAPI payment parameters @ v1.0.2",
+                    "properties": {
+                        "return_code": {
+                            "description": "The return code, usually 'SUCCESS'",
+                            "type": "string"
+                        },
+                        "appid": {
+                            "description": "App Id",
+                            "type": "string"
+                        },
+                        "sub_appid": {
+                            "description": "Submerchant app ID",
+                            "type": "string"
+                        },
+                        "mch_id": {
+                            "description": "Merchant ID",
+                            "type": "string"
+                        },
+                        "sub_mch_id": {
+                            "description": "Submerchant ID",
+                            "type": "string"
+                        },
+                        "nonce_str": {
+                            "description": "Nonce string",
+                            "type": "string"
+                        },
+                        "result_code": {
+                            "description": "The result code, usually 'SUCCESS'",
+                            "type": "string"
+                        },
+                        "prepay_id": {
+                            "description": "WeChat's prepay ID",
+                            "type": "string"
+                        },
+                        "trade_type": {
+                            "description": "Trade type",
+                            "type": "string"
+                        },
+                        "code_url": {
+                            "description": "WeChat's code URL",
+                            "type": "string"
+                        },
+                        "sign": {
+                            "description": "WeChat's message signature",
+                            "type": "string"
+                        },
+                        "paySign": {
+                            "description": "WeChat's payment signature",
+                            "type": "string"
+                        },
+                        "timeStamp": {
+                            "description": "Timestamp",
+                            "type": "string"
+                        }
+                    }
+                },
+                {
+                    "type": "object",
+                    "description": "JSAPI payment parameters",
+                    "properties": {
+                        "appId": {
+                            "description": "App ID",
+                            "type": "string"
+                        },
+                        "timeStamp": {
+                            "description": "Timestamp",
+                            "type": "string"
+                        },
+                        "nonceStr": {
+                            "description": "Nonce string",
+                            "type": "string"
+                        },
+                        "package": {
+                            "description": "Package",
+                            "type": "string"
+                        },
+                        "signType": {
+                            "description": "Signature type",
+                            "type": "string"
+                        },
+                        "paySign": {
+                            "description": "Payment signature",
+                            "type": "string"
+                        }
+                    }
+                },
+                {
+                    "type": "object",
+                    "description": "APP payment parameters",
+                    "properties": {
+                        "return_code": {
+                            "description": "The return code, usually 'SUCCESS'",
+                            "type": "string"
+                        },
+                        "appid": {
+                            "description": "App ID",
+                            "type": "string"
+                        },
+                        "mch_id": {
+                            "description": "Merchant ID",
+                            "type": "string"
+                        },
+                        "sub_mch_id": {
+                            "description": "Sub-merchant ID",
+                            "type": "string"
+                        },
+                        "nonce_str": {
+                            "description": "Nonce",
+                            "type": "string"
+                        },
+                        "result_code": {
+                            "description": "The result code, usually 'SUCCESS'",
+                            "type": "string"
+                        },
+                        "prepay_id": {
+                            "description": "WeChat's prepay ID",
+                            "type": "string"
+                        },
+                        "trade_type": {
+                            "description": "The trade type, usually 'APP'",
+                            "type": "string"
+                        },
+                        "code_url": {
+                            "description": "WeChat's code URL",
+                            "type": "string"
+                        },
+                        "sign": {
+                            "description": "WeChat's message signature",
+                            "type": "string"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "meta:status": "Develop",
+    "title": "payment-parameters"
+}

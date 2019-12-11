@@ -1,0 +1,41 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-update/request.json",
+    "description": "Request schema for subscriptions-update",
+    "type": "object",
+    "properties": {
+        "customerId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "userId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "replace": {
+            "type": "boolean"
+        },
+        "immediate": {
+            "type": "boolean"
+        },
+        "payload": {
+            "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscriptionUpdatePayload",
+            "$linkVal": "subscriptionUpdatePayload",
+            "$linkPath": "subscription.md"
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "required": [
+        "customerId",
+        "userId",
+        "payload"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

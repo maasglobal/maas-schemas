@@ -1,0 +1,6 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/tracking/tracking-active-leg-get/response.json",
+    "description": "Response schema for getting active leg tracking object",
+    "meta:status": "Develop",
+    "title": "response"
+}

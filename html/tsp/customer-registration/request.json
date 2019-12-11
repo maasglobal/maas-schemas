@@ -1,0 +1,18 @@
+{
+    "$id": "http://maasglobal.com/tsp/customer-registration/request.json",
+    "description": "Request schema for customer registration",
+    "type": "object",
+    "properties": {
+        "customer": {
+            "$ref": "http://maasglobal.com/core/customer.json",
+            "$linkVal": "customer",
+            "$linkPath": "customer.md"
+        }
+    },
+    "required": [
+        "customer"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

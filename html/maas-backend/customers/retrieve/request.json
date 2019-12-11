@@ -1,0 +1,30 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/retrieve/request.json",
+    "description": "MaaS customer retrieve",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "identityId",
+        "customerId",
+        "headers"
+    ],
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "customerId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "meta:status": "Develop",
+    "title": "request"
+}

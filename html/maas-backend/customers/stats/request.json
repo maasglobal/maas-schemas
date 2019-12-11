@@ -1,0 +1,30 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/stats/request.json",
+    "description": "MaaS customer stats. Give lifetime stats of customer e.g total number of bookings and itineraries",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "identityId",
+        "customerId",
+        "headers"
+    ],
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "customerId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "meta:status": "Develop",
+    "title": "request"
+}

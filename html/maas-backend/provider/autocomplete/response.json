@@ -1,0 +1,6 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/provider/autocomplete/response.json",
+    "description": "Response schema for autocomplete providers",
+    "meta:status": "Develop",
+    "title": "response"
+}

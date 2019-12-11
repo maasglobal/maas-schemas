@@ -1,0 +1,43 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/verification/initiate/request.json",
+    "additionalProperties": false,
+    "description": "MaaS customer verification initiate",
+    "properties": {
+        "customerId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        },
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "payload": {
+            "properties": {
+                "type": {
+                    "minLength": 2,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type"
+            ],
+            "type": "object"
+        }
+    },
+    "required": [
+        "identityId",
+        "customerId",
+        "payload",
+        "headers"
+    ],
+    "type": "object",
+    "meta:status": "Develop",
+    "title": "request"
+}

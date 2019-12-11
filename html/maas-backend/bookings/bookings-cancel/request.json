@@ -1,0 +1,24 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/bookings/bookings-cancel/request.json",
+    "description": "Request schema for bookings-cancel",
+    "type": "object",
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "bookingId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+            "$linkVal": "uuid",
+            "$linkPath": "units.md"
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "meta:status": "Develop",
+    "title": "request"
+}

@@ -1,0 +1,60 @@
+{
+    "$id": "http://maasglobal.com/core/card.json",
+    "description": "MaaS region schema",
+    "type": "object",
+    "properties": {
+        "issuer": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 255
+        },
+        "expiryMonth": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 12
+        },
+        "expiryYear": {
+            "type": "number",
+            "minimum": 2000
+        },
+        "maskedNumber": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 255
+        },
+        "fundingType": {
+            "type": "string",
+            "enum": [
+                "credit",
+                "debit",
+                "prepaid",
+                "not_known",
+                "not_applicable"
+            ]
+        },
+        "billingCity": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city",
+            "$linkVal": "city",
+            "$linkPath": "address.md"
+        },
+        "billingCountry": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country",
+            "$linkVal": "country",
+            "$linkPath": "address.md"
+        },
+        "billingZip": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode",
+            "$linkVal": "zipCode",
+            "$linkPath": "address.md"
+        }
+    },
+    "required": [
+        "id",
+        "customerId",
+        "status",
+        "valid"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "card"
+}

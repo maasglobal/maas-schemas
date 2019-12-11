@@ -1,0 +1,26 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-list/response.json",
+    "description": "Response schema for itineraries-list",
+    "type": "object",
+    "properties": {
+        "itineraries": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "$ref": "http://maasglobal.com/core/itinerary.json",
+                "$linkVal": "itinerary",
+                "$linkPath": "itinerary.md"
+            }
+        },
+        "maas": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "required": [
+        "itineraries"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

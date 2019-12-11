@@ -1,0 +1,59 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/webhooks/zendesk-push-notification/request.json",
+    "description": "MaaS Zendesk push notification forwarder request schema.",
+    "type": "object",
+    "properties": {
+        "devices": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 50,
+            "items": {
+                "properties": {
+                    "identifier": {
+                        "$ref": "http://maasglobal.com/core/components/common.json#/definitions/deviceToken",
+                        "$linkVal": "deviceToken",
+                        "$linkPath": "common.md"
+                    },
+                    "type": {
+                        "enum": [
+                            "ios",
+                            "android"
+                        ]
+                    }
+                },
+                "required": [
+                    "identifier",
+                    "type"
+                ],
+                "additionalProperties": false
+            }
+        },
+        "notification": {
+            "type": "object",
+            "properties": {
+                "body": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1024
+                },
+                "title": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                },
+                "ticket_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                }
+            }
+        }
+    },
+    "required": [
+        "devices",
+        "notification"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

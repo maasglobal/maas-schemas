@@ -1,0 +1,45 @@
+{
+    "$id": "http://maasglobal.com/core/components/authorization.json",
+    "description": "MaaS information about an authorization required to use a particular TSP",
+    "type": "object",
+    "properties": {
+        "agencyId": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId",
+            "$linkVal": "agencyId",
+            "$linkPath": "common.md"
+        },
+        "state": {
+            "description": "The state of an authorization",
+            "type": "string",
+            "enum": [
+                "VALID",
+                "INVALID"
+            ]
+        },
+        "validTo": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+            "description": "Epoch when the authorization will be invalid",
+            "$linkVal": "time",
+            "$linkPath": "units.md"
+        },
+        "created": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+            "$linkVal": "time",
+            "$linkPath": "units.md"
+        },
+        "modified": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+            "$linkVal": "time",
+            "$linkPath": "units.md"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "agencyId",
+        "state",
+        "validTo",
+        "created"
+    ],
+    "meta:status": "Develop",
+    "title": "authorization"
+}

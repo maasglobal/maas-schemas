@@ -1,0 +1,18 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/update/response.json",
+    "description": "MaaS customer update",
+    "type": "object",
+    "properties": {
+        "customer": {
+            "$ref": "http://maasglobal.com/maas-backend/customers/customer.json",
+            "$linkVal": "customer",
+            "$linkPath": "customer.md"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "customer"
+    ],
+    "meta:status": "Develop",
+    "title": "response"
+}

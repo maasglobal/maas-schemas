@@ -1,0 +1,45 @@
+{
+    "$id": "http://maasglobal.com/tsp/customer-auth-validate/response.json",
+    "description": "Response schema for completing customer authorization for TSP",
+    "type": "object",
+    "properties": {
+        "authToken": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam",
+            "$linkVal": "encodedQueryParam",
+            "$linkPath": "common.md"
+        },
+        "validTo": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+            "$linkVal": "time",
+            "$linkPath": "units.md"
+        },
+        "nonce": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam",
+            "$linkVal": "encodedQueryParam",
+            "$linkPath": "common.md"
+        },
+        "error": {
+            "$ref": "http://maasglobal.com/core/error.json",
+            "$linkVal": "error",
+            "$linkPath": "error.md"
+        }
+    },
+    "additionalProperties": false,
+    "anyOf": [
+        {
+            "required": [
+                "authToken",
+                "nonce",
+                "validTo"
+            ]
+        },
+        {
+            "required": [
+                "error",
+                "nonce"
+            ]
+        }
+    ],
+    "meta:status": "Develop",
+    "title": "response"
+}

@@ -1,0 +1,20 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/routes/routes-query/response.json",
+    "description": "MaaS.fi routes-query response schema",
+    "properties": {
+        "plan": {
+            "$ref": "http://maasglobal.com/core/plan.json",
+            "$linkVal": "plan",
+            "$linkPath": "plan.md"
+        },
+        "debug": {
+            "type": "object"
+        }
+    },
+    "required": [
+        "plan"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

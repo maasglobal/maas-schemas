@@ -1,0 +1,107 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/bookings/bookings-agency-options/response.json",
+    "description": "Response schema for bookings-agency-options",
+    "type": "object",
+    "properties": {
+        "options": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/option",
+                "$linkVal": "option",
+                "$linkPath": "response.md"
+            }
+        },
+        "additional": {
+            "type": "object",
+            "properties": {
+                "bikeStations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "http://maasglobal.com/core/components/bike-station.json",
+                        "$linkVal": "bike-station",
+                        "$linkPath": "bike-station.md"
+                    }
+                }
+            }
+        },
+        "debug": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "required": [
+        "options"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "option": {
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "fares": {
+                            "$ref": "http://maasglobal.com/core/booking.json#/definitions/fares",
+                            "$linkVal": "fares",
+                            "$linkPath": "booking.md"
+                        },
+                        "cost": {
+                            "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost",
+                            "$linkVal": "cost",
+                            "$linkPath": "booking.md"
+                        },
+                        "leg": {
+                            "$ref": "http://maasglobal.com/core/booking.json#/definitions/leg",
+                            "$linkVal": "leg",
+                            "$linkPath": "booking.md"
+                        },
+                        "meta": {
+                            "$ref": "http://maasglobal.com/core/booking-meta.json",
+                            "$linkVal": "booking-meta",
+                            "$linkPath": "booking-meta.md"
+                        },
+                        "terms": {
+                            "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms",
+                            "$linkVal": "terms",
+                            "$linkPath": "booking.md"
+                        },
+                        "tspProduct": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "configurator": {
+                            "$ref": "http://maasglobal.com/core/booking.json#/definitions/configurator",
+                            "$linkVal": "configurator",
+                            "$linkPath": "booking.md"
+                        }
+                    }
+                },
+                {
+                    "oneOf": [
+                        {
+                            "required": [
+                                "leg",
+                                "terms",
+                                "product",
+                                "fares"
+                            ]
+                        },
+                        {
+                            "required": [
+                                "leg",
+                                "terms",
+                                "product",
+                                "configurator"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "meta:status": "Develop",
+    "title": "response"
+}

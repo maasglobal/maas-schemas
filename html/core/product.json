@@ -1,0 +1,58 @@
+{
+    "$id": "http://maasglobal.com/core/product.json",
+    "description": "Product in core which encapsulates at least an id, name and a tspProductId",
+    "type": "object",
+    "properties": {
+        "id": {
+            "$ref": "#/definitions/id",
+            "$linkVal": "id",
+            "$linkPath": "product.md"
+        },
+        "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+        },
+        "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+        },
+        "icon": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+        },
+        "priority": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "agencyId": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId",
+            "$linkVal": "agencyId",
+            "$linkPath": "common.md"
+        },
+        "tspProductId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+        },
+        "allowFinishTrip": {
+            "type": "boolean"
+        }
+    },
+    "definitions": {
+        "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+        }
+    },
+    "required": [
+        "id",
+        "tspProductId",
+        "name"
+    ],
+    "meta:status": "Develop",
+    "title": "product"
+}

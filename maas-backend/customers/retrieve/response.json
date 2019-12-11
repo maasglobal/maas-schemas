@@ -1,0 +1,18 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/retrieve/response.json",
+    "description": "MaaS customer retrieve",
+    "type": "object",
+    "properties": {
+        "customer": {
+            "$ref": "http://maasglobal.com/maas-backend/customers/customer.json",
+            "$linkVal": "customer",
+            "$linkPath": "customer.md"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "customer"
+    ],
+    "meta:status": "Develop",
+    "title": "response"
+}

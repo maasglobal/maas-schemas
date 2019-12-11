@@ -1,0 +1,48 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/profile/profile-devices-put/request.json",
+    "description": "Request schema for profile-active-plan-put",
+    "type": "object",
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "payload": {
+            "type": "object",
+            "properties": {
+                "devicePushToken": {
+                    "description": "Push token - 32 chars in iOS, up to 255 in Android",
+                    "type": "string",
+                    "pattern": "^.{32,255}$"
+                },
+                "deviceIdentifier": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+                    "$linkVal": "uuid",
+                    "$linkPath": "units.md"
+                },
+                "deviceType": {
+                    "type": "string",
+                    "enum": [
+                        "iOS",
+                        "Android"
+                    ]
+                }
+            },
+            "required": [
+                "devicePushToken",
+                "deviceIdentifier",
+                "deviceType"
+            ],
+            "additionalProperties": false
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

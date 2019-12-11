@@ -1,0 +1,50 @@
+{
+    "$id": "http://maasglobal.com/tsp/stations-list/request.json",
+    "description": "MaaS stations query request schema",
+    "oneOf": [
+        {
+            "type": "object",
+            "properties": {
+                "location": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString",
+                    "$linkVal": "shortLocationString",
+                    "$linkPath": "units-geo.md"
+                },
+                "radius": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance",
+                    "$linkVal": "distance",
+                    "$linkPath": "units-geo.md"
+                }
+            },
+            "required": [
+                "location"
+            ]
+        },
+        {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 3
+                },
+                "count": {
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "type": {
+                    "enum": [
+                        "origin",
+                        "destination",
+                        "viaAvoid"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "type"
+            ]
+        }
+    ],
+    "meta:status": "Develop",
+    "title": "request"
+}

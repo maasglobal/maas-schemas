@@ -1,0 +1,124 @@
+{
+    "$id": "http://maasglobal.com/core/components/geolocation.json",
+    "description": "Partial (Points only) GeoJSON Schema",
+    "definitions": {
+        "featureCollection": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "FeatureCollection"
+                    ]
+                },
+                "features": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/feature",
+                        "$linkVal": "feature",
+                        "$linkPath": "geolocation.md"
+                    }
+                }
+            },
+            "required": [
+                "type",
+                "features"
+            ]
+        },
+        "feature": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "Feature"
+                    ]
+                },
+                "geometry": {
+                    "$ref": "#/definitions/geometry",
+                    "$linkVal": "geometry",
+                    "$linkPath": "geolocation.md"
+                },
+                "properties": {
+                    "$ref": "#/definitions/properties",
+                    "$linkVal": "properties",
+                    "$linkPath": "geolocation.md"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type",
+                "geometry",
+                "properties"
+            ]
+        },
+        "geometry": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "Point"
+                    ]
+                },
+                "coordinates": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocation",
+                    "$linkVal": "shortLocation",
+                    "$linkPath": "units-geo.md"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type",
+                "coordinates"
+            ]
+        },
+        "properties": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                },
+                "streetNumber": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 16
+                },
+                "streetName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                },
+                "city": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                },
+                "country": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                },
+                "countryCode": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                },
+                "houseNumber": {
+                    "type": "integer",
+                    "minLength": 1,
+                    "maxLength": 16
+                },
+                "zipcode": {
+                    "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode",
+                    "$linkVal": "zipCode",
+                    "$linkPath": "address.md"
+                }
+            },
+            "required": [
+                "name"
+            ]
+        }
+    },
+    "meta:status": "Develop",
+    "title": "geolocation"
+}

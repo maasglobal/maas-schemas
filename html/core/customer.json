@@ -1,0 +1,254 @@
+{
+    "$id": "http://maasglobal.com/core/customer.json",
+    "description": "MaaS customer schema",
+    "type": "object",
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "firstName": {
+            "description": "First name of the customer (e.g. John)",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName",
+            "$linkVal": "personalName",
+            "$linkPath": "common.md"
+        },
+        "lastName": {
+            "description": "Last name of the customer (e.g. Doe)",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName",
+            "$linkVal": "personalName",
+            "$linkPath": "common.md"
+        },
+        "phone": {
+            "description": "ITU-T E.164 phone number",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone",
+            "$linkVal": "phone",
+            "$linkPath": "common.md"
+        },
+        "email": {
+            "description": "Rough validation of a valid e-mail address",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email",
+            "$linkVal": "email",
+            "$linkPath": "common.md"
+        },
+        "address": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/address",
+            "$linkVal": "address",
+            "$linkPath": "address.md"
+        },
+        "city": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city",
+            "$linkVal": "city",
+            "$linkPath": "address.md"
+        },
+        "country": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country",
+            "$linkVal": "country",
+            "$linkPath": "address.md"
+        },
+        "zipCode": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode",
+            "$linkVal": "zipCode",
+            "$linkPath": "address.md"
+        },
+        "locale": {
+            "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale",
+            "$linkVal": "locale",
+            "$linkPath": "i18n.md"
+        },
+        "appInstanceId": {
+            "description": "An id specific to a user device",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/appInstanceId",
+            "$linkVal": "appInstanceId",
+            "$linkPath": "common.md"
+        },
+        "opaqueId": {
+            "description": "Typically the hash of the identityId",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/opaqueId",
+            "$linkVal": "opaqueId",
+            "$linkPath": "common.md"
+        },
+        "clientId": {
+            "description": "An id indicating the source of the client",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/clientId",
+            "$linkVal": "clientId",
+            "$linkPath": "common.md"
+        },
+        "dob": {
+            "description": "The customer's date of birth or boolean indicating if the value is already in DB",
+            "anyOf": [
+                {
+                    "type": "boolean"
+                },
+                {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate",
+                    "$linkVal": "isoDate",
+                    "$linkPath": "units.md"
+                }
+            ]
+        },
+        "ssid": {
+            "description": "Social Security ID",
+            "anyOf": [
+                {
+                    "type": "boolean"
+                },
+                {
+                    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/ssid",
+                    "$linkVal": "ssid",
+                    "$linkPath": "common.md"
+                }
+            ]
+        },
+        "balances": {
+            "type": "object",
+            "properties": {
+                "WMP": {
+                    "type": "object",
+                    "properties": {
+                        "currency": {
+                            "const": "WMP"
+                        },
+                        "amount": {
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    },
+                    "required": [
+                        "currency",
+                        "amount"
+                    ],
+                    "additionalProperties": true
+                }
+            },
+            "patternProperties": {
+                "^[a-z]+(-[a-z]+)*-[a-z0-9_]+$": {
+                    "type": "object",
+                    "description": "key would typically match tokenId",
+                    "properties": {
+                        "currency": {
+                            "const": "TOKEN"
+                        },
+                        "tokenId": {
+                            "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/tokenId",
+                            "$linkVal": "tokenId",
+                            "$linkPath": "fare.md"
+                        },
+                        "amount": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 0
+                        }
+                    },
+                    "required": [
+                        "currency",
+                        "tokenId",
+                        "amount"
+                    ],
+                    "additionalProperties": true
+                }
+            },
+            "required": [
+                "WMP"
+            ],
+            "additionalProperties": false
+        },
+        "subscriberType": {
+            "description": "Subscriber Type",
+            "type": "string"
+        },
+        "authToken": {
+            "description": "Authentication Token",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam",
+            "$linkVal": "encodedQueryParam",
+            "$linkPath": "common.md"
+        }
+    },
+    "additionalProperties": false,
+    "examples": [
+        {
+            "identityId": "eu-west-1:4828507e-683f-41bf-9d87-689808fbf958",
+            "id": 1234,
+            "favoriteLocations": [],
+            "phone": "+358407654321",
+            "email": "bob.customer@example.com",
+            "firstName": "Bob",
+            "lastName": "Customer",
+            "created": 1553687004207,
+            "modified": 1553688004207,
+            "paymentMethod": {
+                "type": "unknown",
+                "valid": false
+            },
+            "subscriptionInstance": {
+                "id": 10,
+                "name": "Whim to Go",
+                "plan": {
+                    "id": "fi-whim-payg_v2"
+                },
+                "addons": {
+                    "0": "eur-whim-rollover-100_v1",
+                    "1": "fi-whim-car"
+                },
+                "region": {
+                    "id": "fi-helsinki",
+                    "name": "Helsinki Region",
+                    "active": true,
+                    "hidden": false,
+                    "created": "2019-03-27T14:00:00.12345+00:00",
+                    "zipCode": "00100",
+                    "currency": "EUR",
+                    "location": {
+                        "lat": 60.1699,
+                        "lon": 24.9384
+                    },
+                    "geometryId": 2,
+                    "countryCode": "FI",
+                    "countryDefault": true
+                },
+                "coupons": [],
+                "topUpId": "fi-whim-top-up",
+                "wmpGrant": 0,
+                "pointCost": 0.01,
+                "description": "Pay for each trip as you go"
+            },
+            "balances": {
+                "WMP": {
+                    "currency": "WMP",
+                    "amount": 1234,
+                    "type": "charge"
+                },
+                "cx-test-token_v2": {
+                    "currency": "TOKEN",
+                    "tokenId": "cx-test-token_v2",
+                    "amount": 1,
+                    "type": "charge"
+                }
+            },
+            "regionId": "fi-helsinki",
+            "region": {
+                "id": "fi-helsinki",
+                "name": "Helsinki Region",
+                "countryCode": "FI",
+                "countryDefault": true,
+                "zipCode": "00100",
+                "location": {
+                    "lat": 60.1699,
+                    "lon": 24.9384
+                },
+                "active": true,
+                "hidden": false,
+                "geometryId": 2,
+                "created": 1553687004207,
+                "modified": 0,
+                "currency": "EUR"
+            },
+            "balance": 1234
+        }
+    ],
+    "meta:status": "Develop",
+    "title": "customer"
+}

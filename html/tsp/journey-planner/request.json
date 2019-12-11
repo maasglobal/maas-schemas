@@ -1,0 +1,88 @@
+{
+    "$id": "http://maasglobal.com/tsp/journey-planner/request.json",
+    "description": "Request schema for getting journey options from a TSP adapter.",
+    "type": "object",
+    "patternProperties": {
+        "^(optionalParameters).+": {
+            "type": [
+                "string",
+                "number",
+                "boolean"
+            ]
+        }
+    },
+    "properties": {
+        "payload": {
+            "type": "object",
+            "properties": {
+                "from": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString",
+                    "$linkVal": "shortLocationString",
+                    "$linkPath": "units-geo.md"
+                },
+                "fromName": {
+                    "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName",
+                    "$linkVal": "placeName",
+                    "$linkPath": "address.md"
+                },
+                "fromAddress": {
+                    "description": "Componentized from address",
+                    "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress",
+                    "$linkVal": "componentAddress",
+                    "$linkPath": "address.md"
+                },
+                "fromStationId": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id",
+                    "$linkVal": "id",
+                    "$linkPath": "station.md"
+                },
+                "to": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString",
+                    "$linkVal": "shortLocationString",
+                    "$linkPath": "units-geo.md"
+                },
+                "toName": {
+                    "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName",
+                    "$linkVal": "placeName",
+                    "$linkPath": "address.md"
+                },
+                "toAddress": {
+                    "description": "Componentized to address",
+                    "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress",
+                    "$linkVal": "componentAddress",
+                    "$linkPath": "address.md"
+                },
+                "toStationId": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id",
+                    "$linkVal": "id",
+                    "$linkPath": "station.md"
+                },
+                "leaveAt": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "arriveBy": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "leaveAtReturn": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "arriveByReturn": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "mode": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "meta:status": "Develop",
+    "title": "request"
+}

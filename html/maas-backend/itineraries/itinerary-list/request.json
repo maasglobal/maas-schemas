@@ -1,0 +1,51 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-list/request.json",
+    "description": "Request schema for itinerary-list",
+    "type": "object",
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "payload": {
+            "type": "object",
+            "properties": {
+                "startTime": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "endTime": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                },
+                "states": {
+                    "type": "string",
+                    "pattern": "^([A-Ö]+,)*[A-Ö]+$"
+                },
+                "bookingId": {
+                    "$ref": "http://maasglobal.com/core/booking.json#/definitions/id",
+                    "$linkVal": "id",
+                    "$linkPath": "booking.md"
+                },
+                "originalFare": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "required": [
+        "identityId"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

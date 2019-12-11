@@ -1,0 +1,39 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/bookings/v2/bookings-create/response.json",
+    "description": "Response schema for bookings-create v2",
+    "type": "object",
+    "properties": {
+        "booking": {
+            "$ref": "http://maasglobal.com/core/booking.json",
+            "$linkVal": "booking",
+            "$linkPath": "booking.md"
+        },
+        "paymentParameters": {
+            "description": "Payment parameters for asynchronous payment methods",
+            "type": "object",
+            "properties": {
+                "avainpay": {
+                    "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/avainpayPaymentParameters",
+                    "$linkVal": "avainpayPaymentParameters",
+                    "$linkPath": "payment-parameters.md"
+                },
+                "stripe": {
+                    "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/stripePaymentParameters",
+                    "$linkVal": "stripePaymentParameters",
+                    "$linkPath": "payment-parameters.md"
+                }
+            },
+            "additionalProperties": false
+        },
+        "debug": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "required": [
+        "booking"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

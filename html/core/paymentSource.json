@@ -1,0 +1,65 @@
+{
+    "$id": "http://maasglobal.com/core/paymentSource.json",
+    "description": "MaaS region schema",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 255
+        },
+        "customerId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "card",
+                "paypal_express_checkout",
+                "amazon_payments",
+                "direct_debit",
+                "generic",
+                "alipay",
+                "unionpay",
+                "apple_pay"
+            ]
+        },
+        "gateway": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 255
+        },
+        "gatewayId": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 255
+        },
+        "temporaryToken": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 255
+        },
+        "status": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 255
+        },
+        "valid": {
+            "type": "boolean"
+        },
+        "card": {
+            "$ref": "http://maasglobal.com/core/card.json",
+            "$linkVal": "card",
+            "$linkPath": "card.md"
+        }
+    },
+    "required": [
+        "customerId",
+        "type"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "paymentSource"
+}

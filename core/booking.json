@@ -1,0 +1,425 @@
+{
+    "$id": "http://maasglobal.com/core/booking.json#",
+    "type": "object",
+    "description": "The base booking object with all fields, to be inherited",
+    "properties": {
+        "id": {
+            "$ref": "#/definitions/id",
+            "$linkVal": "id",
+            "$linkPath": "booking.md"
+        },
+        "tspId": {
+            "$ref": "#/definitions/tspId",
+            "$linkVal": "tspId",
+            "$linkPath": "booking.md"
+        },
+        "state": {
+            "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState",
+            "$linkVal": "bookingState",
+            "$linkPath": "state.md"
+        },
+        "stateLog": {
+            "$ref": "http://maasglobal.com/core/components/state-log.json",
+            "$linkVal": "state-log",
+            "$linkPath": "state-log.md"
+        },
+        "fares": {
+            "$ref": "#/definitions/fares",
+            "$linkVal": "fares",
+            "$linkPath": "booking.md"
+        },
+        "cost": {
+            "$ref": "#/definitions/cost",
+            "$linkVal": "cost",
+            "$linkPath": "booking.md"
+        },
+        "leg": {
+            "$ref": "#/definitions/leg",
+            "$linkVal": "leg",
+            "$linkPath": "booking.md"
+        },
+        "token": {
+            "$ref": "#/definitions/token",
+            "$linkVal": "token",
+            "$linkPath": "booking.md"
+        },
+        "meta": {
+            "$ref": "http://maasglobal.com/core/booking-meta.json",
+            "$linkVal": "booking-meta",
+            "$linkPath": "booking-meta.md"
+        },
+        "terms": {
+            "$ref": "#/definitions/terms",
+            "$linkVal": "terms",
+            "$linkPath": "booking.md"
+        },
+        "customer": {
+            "description": "MaaS booking customer",
+            "allOf": [
+                {
+                    "$ref": "http://maasglobal.com/core/customer.json",
+                    "$linkVal": "customer",
+                    "$linkPath": "customer.md"
+                },
+                {
+                    "required": [
+                        "identityId"
+                    ]
+                }
+            ]
+        },
+        "product": {
+            "$ref": "http://maasglobal.com/core/product.json",
+            "$linkVal": "product",
+            "$linkPath": "product.md"
+        },
+        "signature": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/signature",
+            "$linkVal": "signature",
+            "$linkPath": "common.md"
+        },
+        "configurator": {
+            "$ref": "#/definitions/configurator",
+            "$linkVal": "configurator",
+            "$linkPath": "booking.md"
+        },
+        "customerSelection": {
+            "$ref": "http://maasglobal.com/core/components/customerSelection.json",
+            "$linkVal": "customerSelection",
+            "$linkPath": "customerSelection.md"
+        }
+    },
+    "required": [
+        "id",
+        "state",
+        "leg",
+        "meta",
+        "terms",
+        "token",
+        "customer"
+    ],
+    "definitions": {
+        "id": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+        },
+        "fares": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/components/fare.json",
+                "$linkVal": "fare",
+                "$linkPath": "fare.md"
+            }
+        },
+        "cost": {
+            "$ref": "http://maasglobal.com/core/components/cost.json"
+        },
+        "configurator": {
+            "$ref": "http://maasglobal.com/core/components/configurator.json"
+        },
+        "tspId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+        },
+        "leg": {
+            "type": "object",
+            "description": "MaaS response may return any subset of legCore",
+            "properties": {
+                "signature": {
+                    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/signature",
+                    "$linkVal": "signature",
+                    "$linkPath": "common.md"
+                },
+                "state": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/state",
+                    "$linkVal": "state",
+                    "$linkPath": "leg.md"
+                },
+                "from": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/from",
+                    "$linkVal": "from",
+                    "$linkPath": "leg.md"
+                },
+                "to": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/to",
+                    "$linkVal": "to",
+                    "$linkPath": "leg.md"
+                },
+                "startTime": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/startTime",
+                    "$linkVal": "startTime",
+                    "$linkPath": "leg.md"
+                },
+                "endTime": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/endTime",
+                    "$linkVal": "endTime",
+                    "$linkPath": "leg.md"
+                },
+                "mode": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/mode",
+                    "$linkVal": "mode",
+                    "$linkPath": "leg.md"
+                },
+                "stops": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/stops",
+                    "$linkVal": "stops",
+                    "$linkPath": "leg.md"
+                },
+                "departureDelay": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/departureDelay",
+                    "$linkVal": "departureDelay",
+                    "$linkPath": "leg.md"
+                },
+                "arrivalDelay": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/arrivalDelay",
+                    "$linkVal": "arrivalDelay",
+                    "$linkPath": "leg.md"
+                },
+                "distance": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/distance",
+                    "$linkVal": "distance",
+                    "$linkPath": "leg.md"
+                },
+                "route": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/route",
+                    "$linkVal": "route",
+                    "$linkPath": "leg.md"
+                },
+                "routeShortName": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/routeShortName",
+                    "$linkVal": "routeShortName",
+                    "$linkPath": "leg.md"
+                },
+                "routeLongName": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/routeLongName",
+                    "$linkVal": "routeLongName",
+                    "$linkPath": "leg.md"
+                },
+                "agencyId": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/agencyId",
+                    "$linkVal": "agencyId",
+                    "$linkPath": "leg.md"
+                },
+                "legGeometry": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/legGeometry",
+                    "$linkVal": "legGeometry",
+                    "$linkPath": "leg.md"
+                },
+                "tspProduct": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/tspProduct",
+                    "$linkVal": "tspProduct",
+                    "$linkPath": "leg.md"
+                },
+                "productOption": {
+                    "$ref": "http://maasglobal.com/core/leg.json#/definitions/productOption",
+                    "$linkVal": "productOption",
+                    "$linkPath": "leg.md"
+                }
+            },
+            "additionalProperties": false
+        },
+        "terms": {
+            "$ref": "http://maasglobal.com/core/components/terms.json"
+        },
+        "token": {
+            "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
+            "type": "object",
+            "properties": {
+                "validityDuration": {
+                    "description": "The rules that MaaS will interpret to schedule, re-validate or cancel the booking.",
+                    "type": "object",
+                    "properties": {
+                        "startTime": {
+                            "description": "The starting time from which the ticket is valid",
+                            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                            "$linkVal": "time",
+                            "$linkPath": "units.md"
+                        },
+                        "endTime": {
+                            "description": "The finishing time the ticket is valid for",
+                            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                            "$linkVal": "time",
+                            "$linkPath": "units.md"
+                        }
+                    }
+                },
+                "data": {
+                    "description": "Arbitrary ticket data for the client",
+                    "type": "object"
+                },
+                "meta": {
+                    "description": "Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)",
+                    "type": "object"
+                }
+            }
+        }
+    },
+    "examples": [
+        {
+            "id": "12345678-ABCD-1234-ABCD-123456789ABC",
+            "state": "EXPIRED",
+            "leg": {
+                "to": {
+                    "lat": 60.184333,
+                    "lon": 24.835972,
+                    "name": "Otaranta 6, Espoo",
+                    "address": "streetName:Otaranta|streetNumber:6|city:Espoo|zipCode:02150|country:Suomi"
+                },
+                "from": {
+                    "lat": 60.168442,
+                    "lon": 24.932205,
+                    "name": "Urho Kekkosen katu 1, Helsinki",
+                    "address": "streetName:Urho Kekkosen katu|streetNumber:1|city:Helsinki|zipCode:00100|country:Suomi"
+                },
+                "mode": "TAXI",
+                "endTime": 1553092978009,
+                "agencyId": "Valopilkku",
+                "startTime": 1553092978009,
+                "departureDelay": 123456
+            },
+            "token": {
+                "type": "SECURITY_CODE",
+                "value": "12345"
+            },
+            "terms": {
+                "reusable": false,
+                "validity": {
+                    "endTime": 1553092978009,
+                    "startTime": 1553092978009
+                },
+                "reconcilable": false
+            },
+            "meta": {
+                "raw": {
+                    "data": {
+                        "lat": 60.168442,
+                        "lon": 24.932205,
+                        "vehicle_id": "123"
+                    },
+                    "order_id": 12345,
+                    "timestamp": "2019-03-20T10:10:12+00:00",
+                    "localized_description": "Tilaus on valmis."
+                },
+                "MODE_TAXI": {
+                    "vehicleId": "123",
+                    "taxiCenter": {
+                        "name": "Lähitaksi",
+                        "phone": "+3581007300"
+                    },
+                    "vehicleType": "any",
+                    "vehicleLocation": {
+                        "lat": 60.245254,
+                        "lon": 24.989604
+                    }
+                },
+                "timestamp": 1553092978009,
+                "valopilkku": {
+                    "prepaid": true,
+                    "locations": [
+                        {
+                            "type": "pickup",
+                            "address": {
+                                "city": "Helsinki",
+                                "street_address": "Urho Kekkosen katu 1"
+                            },
+                            "contacts": [
+                                {
+                                    "name": "John Doe",
+                                    "passenger_count": 1,
+                                    "provider_order_id": "MaaS-12345"
+                                }
+                            ],
+                            "coordinate": {
+                                "lat": 60.168442,
+                                "lon": 24.932205
+                            },
+                            "passenger_count": 1
+                        },
+                        {
+                            "type": "destination",
+                            "address": {
+                                "city": "Espoo",
+                                "street_address": "Otaranta 6"
+                            },
+                            "drop_off": [
+                                "MaaS-12345"
+                            ],
+                            "coordinate": {
+                                "lat": 60.184333,
+                                "lon": 24.835972
+                            },
+                            "passenger_count": 1
+                        }
+                    ],
+                    "submitted": "2019-03-21T11:13:19.753Z"
+                },
+                "description": "Tilaus on valmis."
+            },
+            "created": "2019-03-20 10:10:12.123456",
+            "modified": "2019-03-20 18:30:12.123456",
+            "cost": {
+                "amount": 0,
+                "currency": "EUR"
+            },
+            "stateLog": [
+                {
+                    "reason": {},
+                    "invalid": false,
+                    "newState": "PENDING",
+                    "oldState": "START",
+                    "timestamp": 1553092178009
+                },
+                {
+                    "reason": {},
+                    "invalid": false,
+                    "newState": "PAID",
+                    "oldState": "PENDING",
+                    "timestamp": 1553092278009
+                },
+                {
+                    "reason": {},
+                    "invalid": false,
+                    "newState": "RESERVED",
+                    "oldState": "PAID",
+                    "timestamp": 1553092378009
+                },
+                {
+                    "reason": {},
+                    "invalid": false,
+                    "newState": "CONFIRMED",
+                    "oldState": "RESERVED",
+                    "timestamp": 1553092478009
+                },
+                {
+                    "reason": {},
+                    "invalid": false,
+                    "newState": "ACTIVATED",
+                    "oldState": "CONFIRMED",
+                    "timestamp": 1553092578009
+                },
+                {
+                    "reason": {},
+                    "invalid": false,
+                    "newState": "EXPIRED",
+                    "oldState": "ACTIVATED",
+                    "timestamp": 1553092678009
+                }
+            ],
+            "productId": "valopilkku-any",
+            "fares": [
+                {
+                    "type": "charge",
+                    "amount": 1000,
+                    "currency": "WMP",
+                    "productionAmount": 1234
+                }
+            ],
+            "cancelling": false,
+            "customer": {
+                "identityId": "eu-west-1:4828507e-683f-41bf-9d87-689808fbf958"
+            }
+        }
+    ],
+    "meta:status": "Develop",
+    "title": "booking"
+}

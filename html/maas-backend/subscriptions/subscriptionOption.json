@@ -1,0 +1,47 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptionOption.json",
+    "description": "MaaS subscription option schema",
+    "allOf": [
+        {
+            "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscriptionBase",
+            "$linkVal": "subscriptionBase",
+            "$linkPath": "subscription.md"
+        },
+        {
+            "$ref": "#/definitions/subscriptionAdditions",
+            "$linkVal": "subscriptionAdditions",
+            "$linkPath": "subscriptionOption.md"
+        }
+    ],
+    "definitions": {
+        "subscriptionAdditions": {
+            "type": "object",
+            "properties": {
+                "discounts": {
+                    "type": "array"
+                },
+                "requiredAuthorizations": {
+                    "description": "Authorizations needed for the user before this subscription can be fulfilled",
+                    "type": "array",
+                    "items": {
+                        "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId",
+                        "$linkVal": "agencyId",
+                        "$linkPath": "common.md"
+                    },
+                    "minItems": 0
+                }
+            },
+            "required": [
+                "plan",
+                "wmpGrant",
+                "pointCost",
+                "addons",
+                "coupons",
+                "requiredAuthorizations"
+            ],
+            "additionalProperties": true
+        }
+    },
+    "meta:status": "Develop",
+    "title": "subscriptionOption"
+}

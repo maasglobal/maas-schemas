@@ -1,0 +1,25 @@
+{
+    "$id": "http://maasglobal.com/core/error.json",
+    "description": "MaaS event response error object. An error that the service may send.",
+    "type": "object",
+    "required": [
+        "message",
+        "code"
+    ],
+    "properties": {
+        "message": {
+            "type": "string",
+            "description": "A human readable error message (preferrably in English)",
+            "minLength": 1,
+            "maxLength": 256
+        },
+        "code": {
+            "type": "string",
+            "description": "An internal error code, used for reference",
+            "minLength": 1,
+            "maxLength": 64
+        }
+    },
+    "meta:status": "Develop",
+    "title": "error"
+}

@@ -1,0 +1,51 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/profile/profile-devices-put/response.json",
+    "description": "Response schema for profile-devices-put",
+    "type": "object",
+    "properties": {
+        "device": {
+            "$ref": "#/definitions/device",
+            "$linkVal": "device",
+            "$linkPath": "response.md"
+        },
+        "debug": {
+            "type": "object"
+        }
+    },
+    "required": [
+        "device"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "device": {
+            "type": "object",
+            "properties": {
+                "devicePushToken": {
+                    "description": "Push token - 32 chars in iOS, up to 255 in Android",
+                    "type": "string",
+                    "pattern": "^.{32,255}$"
+                },
+                "deviceIdentifier": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+                    "$linkVal": "uuid",
+                    "$linkPath": "units.md"
+                },
+                "deviceType": {
+                    "type": "string",
+                    "enum": [
+                        "iOS",
+                        "Android"
+                    ]
+                }
+            },
+            "required": [
+                "devicePushToken",
+                "deviceIdentifier",
+                "deviceType"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "meta:status": "Develop",
+    "title": "response"
+}

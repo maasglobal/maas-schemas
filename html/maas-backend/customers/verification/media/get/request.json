@@ -1,0 +1,37 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/verification/media/get/request.json",
+    "additionalProperties": false,
+    "description": "MaaS customer verification media get",
+    "properties": {
+        "customerId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "payload": {
+            "properties": {
+                "side": {
+                    "minLength": 2,
+                    "type": "string"
+                },
+                "type": {
+                    "minLength": 2,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "side"
+            ],
+            "type": "object"
+        }
+    },
+    "type": "object",
+    "meta:status": "Develop",
+    "title": "request"
+}

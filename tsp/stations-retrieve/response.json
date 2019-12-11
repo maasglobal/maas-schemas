@@ -1,0 +1,91 @@
+{
+    "$id": "http://maasglobal.com/tsp/stations-retrieve/response.json",
+    "description": "MaaS stations query response schema",
+    "type": "object",
+    "properties": {
+        "station": {
+            "type": "object",
+            "description": "Detailed station schema, coming as stations-retrieve response",
+            "properties": {
+                "id": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id",
+                    "$linkVal": "id",
+                    "$linkPath": "station.md"
+                },
+                "code": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/code",
+                    "$linkVal": "code",
+                    "$linkPath": "station.md"
+                },
+                "name": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/name",
+                    "$linkVal": "name",
+                    "$linkPath": "station.md"
+                },
+                "location": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/location",
+                    "$linkVal": "location",
+                    "$linkPath": "station.md"
+                },
+                "agencyId": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/agencyId",
+                    "$linkVal": "agencyId",
+                    "$linkPath": "station.md"
+                },
+                "address": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/address",
+                    "$linkVal": "address",
+                    "$linkPath": "station.md"
+                },
+                "city": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/city",
+                    "$linkVal": "city",
+                    "$linkPath": "station.md"
+                },
+                "country": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/country",
+                    "$linkVal": "country",
+                    "$linkPath": "station.md"
+                },
+                "openingHours": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/openingHours",
+                    "$linkVal": "openingHours",
+                    "$linkPath": "station.md"
+                },
+                "facilities": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/facilities",
+                    "$linkVal": "facilities",
+                    "$linkPath": "station.md"
+                },
+                "timetables": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/timetables",
+                    "$linkVal": "timetables",
+                    "$linkPath": "station.md"
+                },
+                "zone": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/zone",
+                    "$linkVal": "zone",
+                    "$linkPath": "station.md"
+                },
+                "services": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/services",
+                    "$linkVal": "services",
+                    "$linkPath": "station.md"
+                },
+                "platformCode": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/platformCode",
+                    "$linkVal": "platformCode",
+                    "$linkPath": "station.md"
+                }
+            },
+            "required": [
+                "id",
+                "location",
+                "agencyId"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "meta:status": "Develop",
+    "title": "response"
+}

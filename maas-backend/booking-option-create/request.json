@@ -1,0 +1,63 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/booking-option-create/request.json",
+    "description": "Request schema for booking-option-create",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "identityId",
+        "payload",
+        "headers"
+    ],
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "payload": {
+            "$ref": "#/definitions/payload",
+            "$linkVal": "payload",
+            "$linkPath": "request.md"
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "definitions": {
+        "payload": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "paymentSourceId": {
+                    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId",
+                    "$linkVal": "paymentSourceId",
+                    "$linkPath": "common.md"
+                },
+                "productId": {
+                    "$ref": "http://maasglobal.com/core/product.json#/definitions/id",
+                    "$linkVal": "id",
+                    "$linkPath": "product.md"
+                },
+                "customerSelection": {
+                    "$ref": "http://maasglobal.com/core/components/customerSelection.json",
+                    "$linkVal": "customerSelection",
+                    "$linkPath": "customerSelection.md"
+                },
+                "autoPurchaseId": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+                    "$linkVal": "uuid",
+                    "$linkPath": "units.md"
+                },
+                "agencyOptions": {
+                    "$ref": "http://maasglobal.com/core/components/agencyOptions.json",
+                    "$linkVal": "agencyOptions",
+                    "$linkPath": "agencyOptions.md"
+                }
+            }
+        }
+    },
+    "meta:status": "Develop",
+    "title": "request"
+}

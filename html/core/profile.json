@@ -1,0 +1,232 @@
+{
+    "$id": "http://maasglobal.com/core/profile.json",
+    "description": "MaaS user profiles as returned by our API",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "phone": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone",
+            "$linkVal": "phone",
+            "$linkPath": "common.md"
+        },
+        "email": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email",
+            "$linkVal": "email",
+            "$linkPath": "common.md"
+        },
+        "firstName": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName",
+            "$linkVal": "personalName",
+            "$linkPath": "common.md"
+        },
+        "lastName": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName",
+            "$linkVal": "personalName",
+            "$linkPath": "common.md"
+        },
+        "city": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city",
+            "$linkVal": "city",
+            "$linkPath": "address.md"
+        },
+        "country": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country",
+            "$linkVal": "country",
+            "$linkPath": "address.md"
+        },
+        "zipCode": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode",
+            "$linkVal": "zipCode",
+            "$linkPath": "address.md"
+        },
+        "regionId": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 256
+        },
+        "region": {
+            "$ref": "http://maasglobal.com/core/region.json",
+            "$linkVal": "region",
+            "$linkPath": "region.md"
+        },
+        "profileImageUrl": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+        },
+        "favoriteLocations": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/components/place.json",
+                "$linkVal": "place",
+                "$linkPath": "place.md"
+            }
+        },
+        "paymentMethod": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "unknown",
+                        "card",
+                        "stripe"
+                    ]
+                },
+                "valid": {
+                    "description": "Whether the payment method is valid and working",
+                    "type": "boolean"
+                },
+                "maskedNumber": {
+                    "description": "Typically the credit card number with all but the last four digits obfuscated",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                },
+                "issuer": {
+                    "description": "The card issuer, e.g. 'Visa'",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                },
+                "expiry": {
+                    "description": "When this payment method expires",
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                }
+            },
+            "required": [
+                "type",
+                "valid"
+            ]
+        },
+        "subscription": {
+            "type": "object",
+            "description": "TODO Delete this legacy version of subscription (replaced by subscriptionInstance)"
+        },
+        "subscriptionInstance": {
+            "$ref": "#/definitions/subscriptionInstance",
+            "$linkVal": "subscriptionInstance",
+            "$linkPath": "profile.md"
+        },
+        "balance": {
+            "type": "integer",
+            "minimum": 0,
+            "multipleOf": 1
+        },
+        "balances": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/components/fare.json",
+                "$linkVal": "fare",
+                "$linkPath": "fare.md"
+            }
+        },
+        "created": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+            "$linkVal": "time",
+            "$linkPath": "units.md"
+        },
+        "modified": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+            "$linkVal": "time",
+            "$linkPath": "units.md"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "identityId",
+        "phone",
+        "favoriteLocations",
+        "balance",
+        "paymentMethod",
+        "subscriptionInstance",
+        "balances"
+    ],
+    "definitions": {
+        "subscriptionInstance": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "plan": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 255
+                        }
+                    },
+                    "required": [
+                        "id"
+                    ],
+                    "additionalProperties": false
+                },
+                "addons": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    }
+                },
+                "coupons": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    }
+                },
+                "wmpGrant": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "level": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "active": {
+                    "type": "boolean"
+                },
+                "pointCost": {
+                    "$ref": "http://maasglobal.com/core/components/point-cost.json",
+                    "$linkVal": "point-cost",
+                    "$linkPath": "point-cost.md"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "availability": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            },
+            "required": [
+                "plan",
+                "addons",
+                "coupons",
+                "pointCost"
+            ]
+        }
+    },
+    "meta:status": "Develop",
+    "title": "profile"
+}

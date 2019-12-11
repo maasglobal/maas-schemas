@@ -1,0 +1,68 @@
+{
+    "$id": "http://maasglobal.com/core/components/state-log.json",
+    "description": "Set of booking state transitions",
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/bookingStateTransition",
+        "$linkVal": "bookingStateTransition",
+        "$linkPath": "state-log.md"
+    },
+    "definitions": {
+        "obsoleteTime": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+        },
+        "bookingStateTransition": {
+            "type": "object",
+            "properties": {
+                "timestamp": {
+                    "anyOf": [
+                        {
+                            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                            "$linkVal": "time",
+                            "$linkPath": "units.md"
+                        },
+                        {
+                            "$ref": "#/definitions/obsoleteTime",
+                            "$linkVal": "obsoleteTime",
+                            "$linkPath": "state-log.md"
+                        }
+                    ]
+                },
+                "oldState": {
+                    "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState",
+                    "$linkVal": "bookingState",
+                    "$linkPath": "state.md"
+                },
+                "newState": {
+                    "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState",
+                    "$linkVal": "bookingState",
+                    "$linkPath": "state.md"
+                },
+                "invalid": {
+                    "type": "boolean"
+                },
+                "reason": {
+                    "type": "object",
+                    "properties": {
+                        "text": {
+                            "type": "string"
+                        },
+                        "errorCode": {
+                            "type": "number"
+                        }
+                    },
+                    "additionalProperties": true
+                }
+            },
+            "required": [
+                "newState",
+                "oldState",
+                "timestamp"
+            ],
+            "additionalProperties": true
+        }
+    },
+    "meta:status": "Develop",
+    "title": "state-log"
+}

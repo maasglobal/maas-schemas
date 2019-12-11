@@ -1,0 +1,26 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-estimate/response.json",
+    "description": "Response schema for subscriptions-estimate",
+    "type": "object",
+    "properties": {
+        "estimate": {
+            "$ref": "http://maasglobal.com/maas-backend/subscriptions/pricing.json",
+            "$linkVal": "pricing",
+            "$linkPath": "pricing.md"
+        },
+        "immediateUpdate": {
+            "description": "If a given subscription change will be immediate or not",
+            "type": "boolean"
+        },
+        "debug": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "required": [
+        "estimate"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

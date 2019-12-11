@@ -1,0 +1,41 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-estimate/request.json",
+    "description": "Request schema for subscriptions-estimate",
+    "type": "object",
+    "properties": {
+        "customerId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "userId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "immediate": {
+            "type": "boolean"
+        },
+        "replace": {
+            "type": "boolean"
+        },
+        "payload": {
+            "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscriptionUpdatePayload",
+            "$linkVal": "subscriptionUpdatePayload",
+            "$linkPath": "subscription.md"
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "required": [
+        "customerId",
+        "userId",
+        "payload"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

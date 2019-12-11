@@ -1,0 +1,77 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/provider/routes/response.json",
+    "description": "Response schema for routes providers, subset of routes-query response schema",
+    "type": "object",
+    "properties": {
+        "plan": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/plan1",
+                    "$linkVal": "plan1",
+                    "$linkPath": "response.md"
+                },
+                {
+                    "$ref": "#/definitions/plan2",
+                    "$linkVal": "plan2",
+                    "$linkPath": "response.md"
+                }
+            ]
+        }
+    },
+    "definitions": {
+        "plan1": {
+            "type": "object",
+            "properties": {
+                "from": {
+                    "$ref": "http://maasglobal.com/core/components/place.json",
+                    "$linkVal": "place",
+                    "$linkPath": "place.md"
+                },
+                "outwards": {
+                    "$ref": "#/definitions/itineraries",
+                    "$linkVal": "itineraries",
+                    "$linkPath": "response.md"
+                },
+                "returns": {
+                    "$ref": "#/definitions/itineraries",
+                    "$linkVal": "itineraries",
+                    "$linkPath": "response.md"
+                }
+            },
+            "required": [
+                "from",
+                "outwards",
+                "returns"
+            ]
+        },
+        "plan2": {
+            "type": "object",
+            "properties": {
+                "from": {
+                    "$ref": "http://maasglobal.com/core/components/place.json",
+                    "$linkVal": "place",
+                    "$linkPath": "place.md"
+                },
+                "itineraries": {
+                    "$ref": "#/definitions/itineraries",
+                    "$linkVal": "itineraries",
+                    "$linkPath": "response.md"
+                }
+            },
+            "required": [
+                "from",
+                "itineraries"
+            ]
+        },
+        "itineraries": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/itinerary.json",
+                "$linkVal": "itinerary",
+                "$linkPath": "itinerary.md"
+            }
+        }
+    },
+    "meta:status": "Develop",
+    "title": "response"
+}

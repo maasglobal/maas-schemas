@@ -1,0 +1,7 @@
+{
+    "$id": "http://maasglobal.com/core/modes/MODE_SUBWAY.json",
+    "description": "Schema for MODE_SUBWAY meta field",
+    "type": "object",
+    "meta:status": "Develop",
+    "title": "MODE_SUBWAY"
+}

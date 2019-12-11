@@ -1,0 +1,22 @@
+{
+    "$id": "http://maasglobal.com/core/stop.json",
+    "allOf": [
+        {
+            "$ref": "http://maasglobal.com/core/components/place.json",
+            "$linkVal": "place",
+            "$linkPath": "place.md"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "startTime": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+                    "$linkVal": "time",
+                    "$linkPath": "units.md"
+                }
+            }
+        }
+    ],
+    "meta:status": "Develop",
+    "title": "stop"
+}

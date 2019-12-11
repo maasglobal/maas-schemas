@@ -1,0 +1,6 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/tracking/tracking-cancel-active-itinerary/request.json",
+    "description": "Request schema for cancelling active itinerary",
+    "meta:status": "Develop",
+    "title": "request"
+}

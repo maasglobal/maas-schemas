@@ -1,0 +1,80 @@
+{
+    "$id": "http://maasglobal.com/core/components/units.json",
+    "description": "MaaS common units that are used consistently within our own objects",
+    "definitions": {
+        "uuid": {
+            "description": "Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier",
+            "type": "string",
+            "pattern": "^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$",
+            "examples": [
+                "4828507e-683f-41bf-9d87-689808fbf958"
+            ]
+        },
+        "url": {
+            "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
+            "type": "string",
+            "pattern": "^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$"
+        },
+        "arn": {
+            "type": "string",
+            "pattern": "^arn:aws:[a-z]+:[\\w\\-]*:\\d{12}:[ \\w\\-]+(\\/[\\w\\- \\/]+)*",
+            "minLength": 1,
+            "maxLength": 256
+        },
+        "obsoleteIdentityId": {
+            "type": "string",
+            "pattern": "^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$",
+            "examples": [
+                "eu-west-1:4828507e-683f-41bf-9d87-689808fbf958"
+            ]
+        },
+        "identityId": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/obsoleteIdentityId",
+                    "$linkVal": "obsoleteIdentityId",
+                    "$linkPath": "units.md"
+                },
+                {
+                    "$ref": "#/definitions/uuid",
+                    "$linkVal": "uuid",
+                    "$linkPath": "units.md"
+                }
+            ],
+            "examples": [
+                "eu-west-1:4828507e-683f-41bf-9d87-689808fbf958",
+                "4828507e-683f-41bf-9d87-689808fbf958"
+            ]
+        },
+        "currency": {
+            "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
+            "type": "string",
+            "enum": [
+                "EUR",
+                "GBP",
+                "SGD",
+                "USD",
+                "JPY"
+            ]
+        },
+        "time": {
+            "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+            "type": "integer",
+            "maximum": 9007199254740991,
+            "minimum": 1451606400
+        },
+        "duration": {
+            "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
+            "type": "integer",
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991
+        },
+        "isoDate": {
+            "description": "A date in the form YYYY-MM-DD without a time component",
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+        }
+    },
+    "meta:status": "Develop",
+    "title": "units"
+}

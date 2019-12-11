@@ -1,0 +1,6 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/profile/profile-webhook/request.json",
+    "description": "Request schema for profile-webhook",
+    "meta:status": "Develop",
+    "title": "request"
+}

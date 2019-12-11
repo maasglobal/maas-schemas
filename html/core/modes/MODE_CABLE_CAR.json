@@ -1,0 +1,7 @@
+{
+    "$id": "http://maasglobal.com/core/modes/MODE_CABLE_CAR.json",
+    "description": "Schema for MODE_CABLE_CAR meta field",
+    "type": "object",
+    "meta:status": "Develop",
+    "title": "MODE_CABLE_CAR"
+}

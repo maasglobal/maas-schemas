@@ -1,0 +1,40 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/auth/auth-sms-login/request.json",
+    "description": "Request schema for auth-sms-login",
+    "type": "object",
+    "properties": {
+        "payload": {
+            "type": "object",
+            "properties": {
+                "phone": {
+                    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/rawPhone",
+                    "$linkVal": "rawPhone",
+                    "$linkPath": "common.md"
+                },
+                "code": {
+                    "description": "TOPT login verification code",
+                    "type": "string",
+                    "pattern": "^\\d+$",
+                    "minLength": 4,
+                    "maxLength": 7
+                }
+            },
+            "required": [
+                "phone",
+                "code"
+            ],
+            "additionalProperties": false
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "required": [
+        "payload"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

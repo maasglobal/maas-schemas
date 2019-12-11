@@ -1,0 +1,18 @@
+{
+    "$id": "http://maasglobal.com/tsp/bookings-cancel/request.json",
+    "description": "Request schema for cancelling a booking through a TSP adapter",
+    "type": "object",
+    "properties": {
+        "tspId": {
+            "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId",
+            "$linkVal": "tspId",
+            "$linkPath": "booking.md"
+        }
+    },
+    "required": [
+        "tspId"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

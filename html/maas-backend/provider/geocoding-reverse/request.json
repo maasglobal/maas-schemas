@@ -1,0 +1,6 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/provider/geocoding-reverse/request.json",
+    "description": "Request schema for reverse geocoding providers",
+    "meta:status": "Develop",
+    "title": "request"
+}

@@ -1,0 +1,84 @@
+{
+    "$id": "http://maasglobal.com/core/plan.json",
+    "description": "OpenTripPlanner compatible format for plans, extended with id for legs and itineraries",
+    "oneOf": [
+        {
+            "$ref": "#/definitions/plan1",
+            "$linkVal": "plan1",
+            "$linkPath": "plan.md"
+        },
+        {
+            "$ref": "#/definitions/plan2",
+            "$linkVal": "plan2",
+            "$linkPath": "plan.md"
+        }
+    ],
+    "definitions": {
+        "plan1": {
+            "type": "object",
+            "properties": {
+                "from": {
+                    "$ref": "http://maasglobal.com/core/components/place.json",
+                    "$linkVal": "place",
+                    "$linkPath": "place.md"
+                },
+                "planId": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+                    "$linkVal": "uuid",
+                    "$linkPath": "units.md"
+                },
+                "outwards": {
+                    "$ref": "#/definitions/itineraries",
+                    "$linkVal": "itineraries",
+                    "$linkPath": "plan.md"
+                },
+                "returns": {
+                    "$ref": "#/definitions/itineraries",
+                    "$linkVal": "itineraries",
+                    "$linkPath": "plan.md"
+                }
+            },
+            "required": [
+                "from",
+                "planId",
+                "outwards",
+                "returns"
+            ]
+        },
+        "plan2": {
+            "type": "object",
+            "properties": {
+                "from": {
+                    "$ref": "http://maasglobal.com/core/components/place.json",
+                    "$linkVal": "place",
+                    "$linkPath": "place.md"
+                },
+                "planId": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+                    "$linkVal": "uuid",
+                    "$linkPath": "units.md"
+                },
+                "itineraries": {
+                    "$ref": "#/definitions/itineraries",
+                    "$linkVal": "itineraries",
+                    "$linkPath": "plan.md"
+                }
+            },
+            "required": [
+                "from",
+                "planId",
+                "itineraries"
+            ]
+        },
+        "itineraries": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/itinerary.json",
+                "$linkVal": "itinerary",
+                "$linkPath": "itinerary.md"
+            }
+        }
+    },
+    "meta:status": "Develop",
+    "title": "plan"
+}

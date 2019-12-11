@@ -1,0 +1,7 @@
+{
+    "$id": "http://maasglobal.com/core/modes/MODE_FUNICULAR.json",
+    "description": "Schema for MODE_FUNICULAR meta field",
+    "type": "object",
+    "meta:status": "Develop",
+    "title": "MODE_FUNICULAR"
+}

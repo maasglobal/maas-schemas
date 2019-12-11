@@ -1,0 +1,248 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/products/provider.json",
+    "description": "MaaS product provider schema",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+        },
+        "agencyId": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId",
+            "$linkVal": "agencyId",
+            "$linkPath": "common.md"
+        },
+        "groupId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+        },
+        "hidden": {
+            "type": "boolean"
+        },
+        "branding": {
+            "type": "object",
+            "properties": {
+                "primaryColor": {
+                    "description": "Primary brand color, used in backgrounds etc.",
+                    "type": "string",
+                    "pattern": "^#(?:[0-9A-Fa-f]{3}){1,2}$"
+                },
+                "secondaryColor": {
+                    "description": "Secondary brand color, used in accent parts of the app.",
+                    "type": "string",
+                    "pattern": "^#(?:[0-9A-Fa-f]{3}){1,2}$"
+                },
+                "icon": {
+                    "description": "Icon shown in whim wheel, url to 240x240 png",
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url",
+                    "$linkVal": "url",
+                    "$linkPath": "units.md"
+                },
+                "logoSolidColor": {
+                    "description": "Icon that can be shown against dark or light background, url to ???x105 png",
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url",
+                    "$linkVal": "url",
+                    "$linkPath": "units.md"
+                },
+                "logoFullColor": {
+                    "description": "Icon that retains the providers brand identity, url to ???x105 png",
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url",
+                    "$linkVal": "url",
+                    "$linkPath": "units.md"
+                }
+            }
+        },
+        "features": {
+            "type": "object",
+            "description": "Boolean properties indicating which features are supported by the provider",
+            "properties": {
+                "ticket": {
+                    "type": "boolean"
+                },
+                "stationsList": {
+                    "type": "boolean"
+                },
+                "stationsRetrieve": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "ticket",
+                "stationsList",
+                "stationsRetrieve"
+            ],
+            "additionalProperties": false
+        },
+        "extra": {
+            "type": "object",
+            "properties": {
+                "radius": {
+                    "type": "object",
+                    "properties": {
+                        "fixedFareAmount": {
+                            "description": "The amount of the maximum fixed fare",
+                            "type": "number",
+                            "minimum": 0,
+                            "multipleOf": 0.01
+                        },
+                        "fixedFareCurrency": {
+                            "oneOf": [
+                                {
+                                    "description": "The currency of the maximum fixed fare",
+                                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency",
+                                    "$linkVal": "currency",
+                                    "$linkPath": "units.md"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "WMP",
+                                        "TOKEN"
+                                    ]
+                                }
+                            ]
+                        },
+                        "maxRadiusMetres": {
+                            "description": "The maximum radius to which the maximum fixed fare applies, in metres",
+                            "type": "integer",
+                            "minimum": 0
+                        },
+                        "description": {
+                            "description": "User facing description of the radius rule",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "fixedFareAmount",
+                        "fixedFareCurrency",
+                        "maxRadiusMetres"
+                    ],
+                    "additionalProperties": false
+                },
+                "prebooking": {
+                    "type": "object",
+                    "properties": {
+                        "isSupported": {
+                            "description": "Is pre-booking supported",
+                            "type": "boolean"
+                        },
+                        "minIntervalUntilBooking": {
+                            "description": "Minimum amount of milliseconds before the taxi can be prebooked in the future",
+                            "type": "number"
+                        },
+                        "maxIntervalUntilBooking": {
+                            "description": "Maximum amount of milliseconds before the taxi can be prebooked in the future",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "isSupported",
+                        "minIntervalUntilBooking",
+                        "maxIntervalUntilBooking"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "personalDataOptionsAllow": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/components/personalDataAllowItem.json",
+                "$linkVal": "personalDataAllowItem",
+                "$linkPath": "personalDataAllowItem.md"
+            }
+        },
+        "personalDataCreateAllow": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/components/personalDataAllowItem.json",
+                "$linkVal": "personalDataAllowItem",
+                "$linkPath": "personalDataAllowItem.md"
+            }
+        },
+        "optionalParameters": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "enum": [
+                            "oneOf",
+                            "someOf",
+                            "allOf",
+                            "oneOrNoneOf",
+                            "someOrNoneOf"
+                        ]
+                    },
+                    "userSelectable": {
+                        "type": "boolean"
+                    },
+                    "inputs": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "enum": [
+                                        "string",
+                                        "number",
+                                        "boolean",
+                                        "station"
+                                    ]
+                                },
+                                "default": {
+                                    "type": [
+                                        "string",
+                                        "number",
+                                        "boolean"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "name",
+                                "type"
+                            ],
+                            "additionalProperties": false
+                        },
+                        "minItems": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "inputs"
+                ],
+                "additionalProperties": false
+            }
+        }
+    },
+    "required": [
+        "name",
+        "agencyId",
+        "groupId",
+        "branding",
+        "hidden",
+        "features",
+        "personalDataOptionsAllow",
+        "personalDataCreateAllow",
+        "optionalParameters"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "provider"
+}

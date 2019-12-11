@@ -1,0 +1,71 @@
+{
+    "$id": "http://maasglobal.com/core/modes/MODE_RAIL.json",
+    "description": "Schema for MODE_RAIL meta field",
+    "type": "object",
+    "properties": {
+        "outward": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Arbitrary outward journey id given by either TSP or map provider",
+                    "type": "string"
+                },
+                "from": {
+                    "$ref": "http://maasglobal.com/core/components/place.json",
+                    "$linkVal": "place",
+                    "$linkPath": "place.md"
+                },
+                "to": {
+                    "$ref": "http://maasglobal.com/core/components/place.json",
+                    "$linkVal": "place",
+                    "$linkPath": "place.md"
+                }
+            },
+            "required": [
+                "from",
+                "to"
+            ]
+        },
+        "return": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Arbitrary return journey id given by either TSP or map provider",
+                    "type": "string"
+                },
+                "from": {
+                    "$ref": "http://maasglobal.com/core/components/place.json",
+                    "$linkVal": "place",
+                    "$linkPath": "place.md"
+                },
+                "to": {
+                    "$ref": "http://maasglobal.com/core/components/place.json",
+                    "$linkVal": "place",
+                    "$linkPath": "place.md"
+                }
+            },
+            "required": [
+                "from",
+                "to"
+            ]
+        },
+        "deliveryMethod": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "stationId": {
+                    "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id",
+                    "$linkVal": "id",
+                    "$linkPath": "station.md"
+                },
+                "alternativeCollections": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "meta:status": "Develop",
+    "title": "MODE_RAIL"
+}

@@ -1,0 +1,34 @@
+{
+    "$id": "http://maasglobal.com/tsp/bookings-options-list/response.json",
+    "description": "Response schema for getting options from a TSP adapter",
+    "type": "object",
+    "properties": {
+        "options": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/booking-option.json",
+                "$linkVal": "booking-option",
+                "$linkPath": "booking-option.md"
+            }
+        },
+        "additional": {
+            "type": "object",
+            "properties": {
+                "bikeStations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "http://maasglobal.com/core/components/bike-station.json",
+                        "$linkVal": "bike-station",
+                        "$linkPath": "bike-station.md"
+                    }
+                }
+            }
+        }
+    },
+    "required": [
+        "options"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

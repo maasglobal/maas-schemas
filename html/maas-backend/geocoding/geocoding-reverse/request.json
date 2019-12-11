@@ -1,0 +1,60 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/geocoding/geocoding-reverse/request.json",
+    "description": "MaaS geocoding query request schema.",
+    "type": "object",
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "payload": {
+            "type": "object",
+            "properties": {
+                "lat": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude",
+                    "$linkVal": "relaxedLatitude",
+                    "$linkPath": "units-geo.md"
+                },
+                "lon": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude",
+                    "$linkVal": "relaxedLongitude",
+                    "$linkPath": "units-geo.md"
+                },
+                "count": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 5
+                },
+                "radius": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance",
+                    "$linkVal": "distance",
+                    "$linkPath": "units-geo.md"
+                },
+                "locale": {
+                    "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale",
+                    "default": "fi-FI",
+                    "$linkVal": "locale",
+                    "$linkPath": "i18n.md"
+                }
+            },
+            "required": [
+                "lat",
+                "lon"
+            ],
+            "additionalProperties": false
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "required": [
+        "payload"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

@@ -1,0 +1,7 @@
+{
+    "$id": "http://maasglobal.com/core/modes/MODE_TRAIN.json",
+    "description": "Schema for MODE_TRAIN meta field",
+    "type": "object",
+    "meta:status": "Develop",
+    "title": "MODE_TRAIN"
+}

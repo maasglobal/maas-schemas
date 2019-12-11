@@ -1,0 +1,19 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/vehicle/vehicle-alert/request.json",
+    "description": "Request to vehicle",
+    "type": "object",
+    "properties": {
+        "vehicleId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+        },
+        "productId": {
+            "$ref": "http://maasglobal.com/core/product.json#/definitions/id",
+            "$linkVal": "id",
+            "$linkPath": "product.md"
+        }
+    },
+    "meta:status": "Develop",
+    "title": "request"
+}

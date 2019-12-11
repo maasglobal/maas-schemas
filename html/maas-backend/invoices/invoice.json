@@ -1,0 +1,45 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/invoices/invoice.json",
+    "description": "MaaS Invoice schema",
+    "definitions": {
+        "Invoice": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceId",
+                    "$linkVal": "InvoiceId",
+                    "$linkPath": "invoiceUnits.md"
+                },
+                "customerId": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+                    "$linkVal": "identityId",
+                    "$linkPath": "units.md"
+                },
+                "bookingId": {
+                    "description": "bookingId of the requested booking",
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid",
+                    "$linkVal": "uuid",
+                    "$linkPath": "units.md"
+                },
+                "lineItems": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem",
+                        "$linkVal": "InvoiceLineItem",
+                        "$linkPath": "invoiceLineItem.md"
+                    },
+                    "minLength": 1
+                }
+            },
+            "required": [
+                "id",
+                "customerId",
+                "bookingId",
+                "lineItems"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "meta:status": "Develop",
+    "title": "invoice"
+}

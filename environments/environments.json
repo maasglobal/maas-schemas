@@ -1,0 +1,231 @@
+{
+    "$id": "http://maasglobal.com/environments/environments.json",
+    "definitions": {
+        "developer": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName",
+                    "$linkVal": "personalName",
+                    "$linkPath": "common.md"
+                },
+                "email": {
+                    "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email",
+                    "$linkVal": "email",
+                    "$linkPath": "common.md"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "environmentId": {
+            "type": "string"
+        },
+        "environmentUrl": {
+            "type": "string",
+            "pattern": "^https:",
+            "allOf": [
+                {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url",
+                    "$linkVal": "url",
+                    "$linkPath": "units.md"
+                }
+            ]
+        },
+        "environmentLive": {
+            "description": "Live environments are connected to actual payment and TSP services",
+            "type": "boolean"
+        },
+        "environmentName": {
+            "type": "string"
+        },
+        "environmentDescription": {
+            "type": "string"
+        },
+        "environment": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "#/definitions/environmentId",
+                    "$linkVal": "environmentId",
+                    "$linkPath": "environments.md"
+                },
+                "api": {
+                    "$ref": "#/definitions/environmentUrl",
+                    "$linkVal": "environmentUrl",
+                    "$linkPath": "environments.md"
+                },
+                "live": {
+                    "$ref": "#/definitions/environmentLive",
+                    "$linkVal": "environmentLive",
+                    "$linkPath": "environments.md"
+                },
+                "contact": {
+                    "$ref": "#/definitions/developer",
+                    "$linkVal": "developer",
+                    "$linkPath": "environments.md"
+                },
+                "name": {
+                    "$ref": "#/definitions/environmentName",
+                    "$linkVal": "environmentName",
+                    "$linkPath": "environments.md"
+                },
+                "description": {
+                    "$ref": "#/definitions/environmentDescription",
+                    "$linkVal": "environmentDescription",
+                    "$linkPath": "environments.md"
+                }
+            },
+            "required": [
+                "id",
+                "api",
+                "live",
+                "contact"
+            ],
+            "additionalProperties": false,
+            "examples": [
+                {
+                    "id": "production",
+                    "api": "https://production.example.com/api/",
+                    "live": true,
+                    "contact": {
+                        "name": "Alisha Admin",
+                        "email": "admin@example.com"
+                    },
+                    "description": "Production environment"
+                }
+            ]
+        },
+        "devEnvironment": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/environment",
+                    "$linkVal": "environment",
+                    "$linkPath": "environments.md"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "live": {
+                            "const": false
+                        }
+                    },
+                    "required": [
+                        "live"
+                    ],
+                    "additionalProperties": true
+                }
+            ],
+            "examples": [
+                {
+                    "id": "testing",
+                    "api": "https://testing.example.com/api/",
+                    "live": false,
+                    "contact": {
+                        "name": "Alisha Admin"
+                    },
+                    "description": "Testing environment"
+                }
+            ]
+        },
+        "environmentGroupName": {
+            "type": "string"
+        },
+        "environmentGroupDescription": {
+            "type": "string"
+        },
+        "environmentGroup": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "$ref": "#/definitions/environmentGroupName",
+                    "$linkVal": "environmentGroupName",
+                    "$linkPath": "environments.md"
+                },
+                "envs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/environment",
+                        "$linkVal": "environment",
+                        "$linkPath": "environments.md"
+                    }
+                },
+                "description": {
+                    "$ref": "#/definitions/environmentGroupDescription",
+                    "$linkVal": "environmentGroupDescription",
+                    "$linkPath": "environments.md"
+                }
+            },
+            "required": [
+                "name",
+                "envs"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "type": "object",
+    "description": "The base environments object with several environment groups and related meta data",
+    "properties": {
+        "index": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/environmentGroup",
+                "$linkVal": "environmentGroup",
+                "$linkPath": "environments.md"
+            }
+        }
+    },
+    "required": [
+        "index"
+    ],
+    "additionalProperties": false,
+    "examples": [
+        {
+            "index": [
+                {
+                    "name": "Core Environments",
+                    "envs": [
+                        {
+                            "id": "production",
+                            "api": "https://production.example.com/api/",
+                            "live": true,
+                            "contact": {
+                                "name": "Alisha Admin",
+                                "email": "admin@example.com"
+                            },
+                            "description": "Production environment"
+                        },
+                        {
+                            "id": "testing",
+                            "api": "https://testing.example.com/api/",
+                            "live": false,
+                            "contact": {
+                                "name": "Alisha Admin"
+                            },
+                            "description": "Testing environment"
+                        }
+                    ]
+                },
+                {
+                    "name": "Development Environments",
+                    "envs": [
+                        {
+                            "id": "fantasyTopping",
+                            "api": "https://fantasy.example.com/api/",
+                            "live": false,
+                            "contact": {
+                                "name": "Dennis Developer"
+                            },
+                            "name": "Fantasy Topping",
+                            "description": "Add support for pizza customization"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "meta:status": "Develop",
+    "title": "environments"
+}

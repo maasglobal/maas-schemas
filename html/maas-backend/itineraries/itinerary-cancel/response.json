@@ -1,0 +1,6 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-cancel/response.json",
+    "description": "Maas Itinerary cancellation response",
+    "meta:status": "Develop",
+    "title": "response"
+}

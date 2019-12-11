@@ -1,0 +1,30 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/verification/initiate/response.json",
+    "description": "MaaS customer verification initiate",
+    "type": "object",
+    "properties": {
+        "customer": {
+            "type": "object",
+            "properties": {
+                "verification": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "http://maasglobal.com/maas-backend/customers/verification/verification-object.json#/definitions/verification",
+                        "$linkVal": "verification",
+                        "$linkPath": "verification-object.md"
+                    }
+                }
+            },
+            "required": [
+                "verification"
+            ]
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "customer"
+    ],
+    "meta:status": "Develop",
+    "title": "response"
+}

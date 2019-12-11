@@ -1,0 +1,40 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/booking-option-create/response.json",
+    "description": "Response schema for booking-option-create",
+    "oneOf": [
+        {
+            "type": "object",
+            "properties": {
+                "booking": {
+                    "$ref": "http://maasglobal.com/core/booking.json",
+                    "$linkVal": "booking",
+                    "$linkPath": "booking.md"
+                }
+            },
+            "required": [
+                "booking"
+            ]
+        },
+        {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string",
+                            "description": "A human readable error message (preferably in English)",
+                            "minLength": 1,
+                            "maxLength": 255
+                        }
+                    }
+                }
+            },
+            "required": [
+                "error"
+            ]
+        }
+    ],
+    "meta:status": "Develop",
+    "title": "response"
+}

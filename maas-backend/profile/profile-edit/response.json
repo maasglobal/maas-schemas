@@ -1,0 +1,19 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/profile/profile-edit/response.json",
+    "description": "Response schema for profile-edit",
+    "type": "object",
+    "properties": {
+        "profile": {
+            "$ref": "http://maasglobal.com/core/profile.json",
+            "$linkVal": "profile",
+            "$linkPath": "profile.md"
+        },
+        "debug": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}
