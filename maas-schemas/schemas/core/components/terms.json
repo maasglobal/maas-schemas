@@ -212,6 +212,10 @@
         "currency": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
         },
+        "percentage": {
+          "description": "Surcharge percentage over the original fee",
+          "type": "number"
+        },
         "minAmount": {
           "description": "The minimum amount in currency",
           "type": "number",
