@@ -157,6 +157,7 @@ export type Surcharge = t.Branded<
     isChargedUpfront?: boolean;
     amount?: number;
     currency?: Units_.Currency;
+    percentage?: number;
     minAmount?: number;
     maxAmount?: number;
   },
@@ -167,6 +168,7 @@ export const Surcharge = t.brand(
     isChargedUpfront: t.boolean,
     amount: t.number,
     currency: Units_.Currency,
+    percentage: t.number,
     minAmount: t.number,
     maxAmount: t.number,
   }),
@@ -177,6 +179,7 @@ export const Surcharge = t.brand(
       isChargedUpfront?: boolean;
       amount?: number;
       currency?: Units_.Currency;
+      percentage?: number;
       minAmount?: number;
       maxAmount?: number;
     },
