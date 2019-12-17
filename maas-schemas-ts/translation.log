@@ -760,6 +760,12 @@ INFO: missing description
   in ./core/plan.json
 INFO: missing description
   in ./core/plan.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./core/product.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./core/product.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in ./core/product.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/product.json
 WARNING: minLength field not supported outside top-level definitions
@@ -787,6 +793,8 @@ INFO: primitive type "string" used outside top-level definitions
 WARNING: minLength field not supported outside top-level definitions
   in ./core/product.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./core/product.json
+INFO: missing description
   in ./core/product.json
 INFO: missing description
   in ./core/product.json
