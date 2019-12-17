@@ -42,26 +42,27 @@ export const Id = t.brand(
 export interface IdBrand {
   readonly Id: unique symbol;
 }
+
 // PreAuthBuffer
 // The purpose of this remains a mystery
 export type PreAuthBuffer = t.Branded<
   {
     percentageExtra?: number;
-    minimumExtra?: Fare_.Default;
+    minimumExtra?: Fare_.Fare;
   },
   PreAuthBufferBrand
 >;
 export const PreAuthBuffer = t.brand(
   t.partial({
     percentageExtra: t.number,
-    minimumExtra: Fare_.Default,
+    minimumExtra: Fare_.Fare,
   }),
   (
     x,
   ): x is t.Branded<
     {
       percentageExtra?: number;
-      minimumExtra?: Fare_.Default;
+      minimumExtra?: Fare_.Fare;
     },
     PreAuthBufferBrand
   > => true,
@@ -70,7 +71,8 @@ export const PreAuthBuffer = t.brand(
 export interface PreAuthBufferBrand {
   readonly PreAuthBuffer: unique symbol;
 }
-// Default
+
+// Product
 // The default export. More information at the top.
 export type Product = t.Branded<
   {
