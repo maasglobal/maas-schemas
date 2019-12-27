@@ -106,15 +106,7 @@
     }
   },
   "additionalProperties": false,
-  "required": [
-    "identityId",
-    "phone",
-    "favoriteLocations",
-    "balance",
-    "paymentMethod",
-    "subscriptionInstance",
-    "balances"
-  ],
+  "required": ["identityId", "phone", "favoriteLocations", "paymentMethod", "subscriptionInstance", "balances"],
   "definitions": {
     "subscriptionInstance": {
       "type": "object",
