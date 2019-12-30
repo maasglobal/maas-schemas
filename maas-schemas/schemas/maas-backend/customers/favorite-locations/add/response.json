@@ -4,16 +4,9 @@
   "type": "object",
   "properties": {
     "favoriteLocation": {
-      "allOf": [
-        {
-          "$ref": "http://maasglobal.com/core/components/partialFavoriteLocation.json"
-        },
-        {
-          "required": ["type", "name", "location", "id", "identityId"]
-        }
-      ]
-    },
-    "additionalProperties": false
+      "$ref": "http://maasglobal.com/core/partialFavoriteLocation.json",
+      "required": ["type", "name", "location", "id", "identityId"]
+    }
   },
   "additionalProperties": false
 }

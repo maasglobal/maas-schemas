@@ -8,7 +8,7 @@
       "items": {
         "allOf": [
           {
-            "$ref": "http://maasglobal.com/core/components/partialFavoriteLocation.json"
+            "$ref": "http://maasglobal.com/core/partialFavoriteLocation.json"
           },
           {
             "required": ["type", "name", "location", "id", "identityId"]
