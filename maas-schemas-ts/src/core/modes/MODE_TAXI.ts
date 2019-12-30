@@ -27,6 +27,7 @@ export type MODE_TAXI = t.Branded<
       phone?: string;
       name?: string;
       image?: Units_.Url;
+      rating?: number;
     };
     dispatchOrderId?: string;
     eta?: Units_.Time;
@@ -48,6 +49,7 @@ export const MODE_TAXI = t.brand(
       phone: t.string,
       name: t.string,
       image: Units_.Url,
+      rating: t.number,
     }),
     dispatchOrderId: t.string,
     eta: Units_.Time,
@@ -69,6 +71,7 @@ export const MODE_TAXI = t.brand(
         phone?: string;
         name?: string;
         image?: Units_.Url;
+        rating?: number;
       };
       dispatchOrderId?: string;
       eta?: Units_.Time;
