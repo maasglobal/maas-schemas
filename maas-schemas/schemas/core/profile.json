@@ -87,11 +87,6 @@
     "subscriptionInstance": {
       "$ref": "#/definitions/subscriptionInstance"
     },
-    "balance": {
-      "type": "integer",
-      "minimum": 0,
-      "multipleOf": 1
-    },
     "balances": {
       "type": "array",
       "items": {
