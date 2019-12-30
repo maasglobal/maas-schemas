@@ -160,7 +160,6 @@ export type Profile = t.Branded<
     identityId: Defined;
     phone: Defined;
     favoriteLocations: Defined;
-    balance: Defined;
     paymentMethod: Defined;
     subscriptionInstance: Defined;
     balances: Defined;
@@ -210,7 +209,6 @@ export const Profile = t.brand(
       identityId: Defined,
       phone: Defined,
       favoriteLocations: Defined,
-      balance: Defined,
       paymentMethod: Defined,
       subscriptionInstance: Defined,
       balances: Defined,
@@ -253,7 +251,6 @@ export const Profile = t.brand(
       identityId: Defined;
       phone: Defined;
       favoriteLocations: Defined;
-      balance: Defined;
       paymentMethod: Defined;
       subscriptionInstance: Defined;
       balances: Defined;
