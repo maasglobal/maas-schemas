@@ -1,0 +1,22 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/favorite-locations/add/request.json",
+  "description": "MaaS customer favorite locations adding",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identityId", "customerId", "payload", "headers"],
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "customerId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "$ref": "http://maasglobal.com/core/partialFavoriteLocation.json",
+      "required": ["type", "name", "location"]
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  }
+}

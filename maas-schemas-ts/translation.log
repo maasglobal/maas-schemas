@@ -724,6 +724,18 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/modes/MODE_TAXI.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/modes/MODE_TAXI.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./core/partialFavoriteLocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/partialFavoriteLocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/partialFavoriteLocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/partialFavoriteLocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/partialFavoriteLocation.json
+INFO: missing description
+  in ./core/partialFavoriteLocation.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/paymentSource.json
 WARNING: minLength field not supported outside top-level definitions
@@ -1010,6 +1022,10 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/customers/customer.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/customers/customer.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./maas-backend/customers/favorite-locations/delete/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./maas-backend/customers/favorite-locations/update/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/payment-sources/create/request.json
 WARNING: minLength field not supported outside top-level definitions
