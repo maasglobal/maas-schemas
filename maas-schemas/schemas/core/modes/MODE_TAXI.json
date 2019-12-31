@@ -39,6 +39,9 @@
         },
         "image": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+        },
+        "rating": {
+          "type": "number"
         }
       }
     },
