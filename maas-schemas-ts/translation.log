@@ -880,12 +880,6 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/profile.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/profile.json
-INFO: primitive type "integer" used outside top-level definitions
-  in ./core/profile.json
-WARNING: minimum field not supported outside top-level definitions
-  in ./core/profile.json
-WARNING: multipleOf field not supported outside top-level definitions
-  in ./core/profile.json
 INFO: missing description
   in ./core/profile.json
 INFO: primitive type "string" used outside top-level definitions
