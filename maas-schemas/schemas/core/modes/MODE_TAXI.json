@@ -54,6 +54,9 @@
     "taxiCenter": {
       "type": "object",
       "properties": {
+        "image": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+        },
         "name": {
           "type": "string",
           "minLength": 1,
