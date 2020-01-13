@@ -27,10 +27,12 @@ export type MODE_TAXI = t.Branded<
       phone?: string;
       name?: string;
       image?: Units_.Url;
+      rating?: number;
     };
     dispatchOrderId?: string;
     eta?: Units_.Time;
     taxiCenter?: {
+      image?: Units_.Url;
       name?: string;
       phone?: Common_.Phone;
     };
@@ -48,10 +50,12 @@ export const MODE_TAXI = t.brand(
       phone: t.string,
       name: t.string,
       image: Units_.Url,
+      rating: t.number,
     }),
     dispatchOrderId: t.string,
     eta: Units_.Time,
     taxiCenter: t.partial({
+      image: Units_.Url,
       name: t.string,
       phone: Common_.Phone,
     }),
@@ -69,10 +73,12 @@ export const MODE_TAXI = t.brand(
         phone?: string;
         name?: string;
         image?: Units_.Url;
+        rating?: number;
       };
       dispatchOrderId?: string;
       eta?: Units_.Time;
       taxiCenter?: {
+        image?: Units_.Url;
         name?: string;
         phone?: Common_.Phone;
       };

@@ -272,7 +272,6 @@ export const examplesCustomerJson: NonEmptyArray<unknown> = [
       modified: 0,
       currency: 'EUR',
     },
-    balance: 1234,
   },
 ];
 export const examplesCustomer = nonEmptyArray(Customer).decode(examplesCustomerJson);
