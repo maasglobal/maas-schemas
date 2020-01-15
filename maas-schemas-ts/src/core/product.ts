@@ -8,6 +8,7 @@ Product in core which encapsulates at least an id, name and a tspProductId
 */
 
 import * as t from 'io-ts';
+import * as Fare_ from 'maas-schemas-ts/core/components/fare';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 
 type Defined =
@@ -42,6 +43,35 @@ export interface IdBrand {
   readonly Id: unique symbol;
 }
 
+// PreAuthBuffer
+// The purpose of this remains a mystery
+export type PreAuthBuffer = t.Branded<
+  {
+    percentageExtra?: number;
+    minimumExtra?: Fare_.Fare;
+  },
+  PreAuthBufferBrand
+>;
+export const PreAuthBuffer = t.brand(
+  t.partial({
+    percentageExtra: t.number,
+    minimumExtra: Fare_.Fare,
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      percentageExtra?: number;
+      minimumExtra?: Fare_.Fare;
+    },
+    PreAuthBufferBrand
+  > => true,
+  'PreAuthBuffer',
+);
+export interface PreAuthBufferBrand {
+  readonly PreAuthBuffer: unique symbol;
+}
+
 // Product
 // The default export. More information at the top.
 export type Product = t.Branded<
@@ -54,6 +84,7 @@ export type Product = t.Branded<
     agencyId?: Common_.AgencyId;
     tspProductId?: string;
     allowFinishTrip?: boolean;
+    preAuthBuffer?: PreAuthBuffer;
   } & {
     id: Defined;
     tspProductId: Defined;
@@ -72,6 +103,7 @@ export const Product = t.brand(
       agencyId: Common_.AgencyId,
       tspProductId: t.string,
       allowFinishTrip: t.boolean,
+      preAuthBuffer: PreAuthBuffer,
     }),
     t.type({
       id: Defined,
@@ -91,6 +123,7 @@ export const Product = t.brand(
       agencyId?: Common_.AgencyId;
       tspProductId?: string;
       allowFinishTrip?: boolean;
+      preAuthBuffer?: PreAuthBuffer;
     } & {
       id: Defined;
       tspProductId: Defined;
