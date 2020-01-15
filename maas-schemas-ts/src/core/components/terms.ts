@@ -150,6 +150,47 @@ export interface AmendmentBrand {
   readonly Amendment: unique symbol;
 }
 
+// Surcharge
+// The additional fee that will be added if booking is in night time
+export type Surcharge = t.Branded<
+  {
+    isChargedUpfront?: boolean;
+    amount?: number;
+    currency?: Units_.Currency;
+    percentage?: number;
+    minAmount?: number;
+    maxAmount?: number;
+  },
+  SurchargeBrand
+>;
+export const Surcharge = t.brand(
+  t.partial({
+    isChargedUpfront: t.boolean,
+    amount: t.number,
+    currency: Units_.Currency,
+    percentage: t.number,
+    minAmount: t.number,
+    maxAmount: t.number,
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      isChargedUpfront?: boolean;
+      amount?: number;
+      currency?: Units_.Currency;
+      percentage?: number;
+      minAmount?: number;
+      maxAmount?: number;
+    },
+    SurchargeBrand
+  > => true,
+  'Surcharge',
+);
+export interface SurchargeBrand {
+  readonly Surcharge: unique symbol;
+}
+
 // Terms
 // The default export. More information at the top.
 export type Terms = t.Branded<
@@ -171,6 +212,10 @@ export type Terms = t.Branded<
       singleDevice?: boolean;
       skipRestrictionCheck?: boolean;
       freeTicket?: {};
+    };
+    surcharges?: {
+      midnight?: Surcharge;
+      pickup?: Surcharge;
     };
     cancellation?: {
       cancellationFormActionUrl?: Units_.Url;
@@ -218,6 +263,10 @@ export const Terms = t.brand(
       singleDevice: t.boolean,
       skipRestrictionCheck: t.boolean,
       freeTicket: t.type({}),
+    }),
+    surcharges: t.partial({
+      midnight: Surcharge,
+      pickup: Surcharge,
     }),
     cancellation: t.partial({
       cancellationFormActionUrl: Units_.Url,
@@ -269,6 +318,10 @@ export const Terms = t.brand(
         singleDevice?: boolean;
         skipRestrictionCheck?: boolean;
         freeTicket?: {};
+      };
+      surcharges?: {
+        midnight?: Surcharge;
+        pickup?: Surcharge;
       };
       cancellation?: {
         cancellationFormActionUrl?: Units_.Url;

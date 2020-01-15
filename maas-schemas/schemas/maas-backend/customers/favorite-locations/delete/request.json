@@ -1,0 +1,21 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/favorite-locations/delete/request.json",
+  "description": "MaaS customer favorite locations deletion",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identityId", "customerId", "favoriteLocationId", "headers"],
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "customerId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "favoriteLocationId": {
+      "type": "number"
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  }
+}

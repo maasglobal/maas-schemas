@@ -1,0 +1,18 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/favorite-locations/update/response.json",
+  "description": "MaaS customer favorite location updating response",
+  "type": "object",
+  "properties": {
+    "favoriteLocation": {
+      "allOf": [
+        {
+          "$ref": "http://maasglobal.com/core/partialFavoriteLocation.json"
+        },
+        {
+          "required": ["type", "name", "location", "id", "identityId"]
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}
