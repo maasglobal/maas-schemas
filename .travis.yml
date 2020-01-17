@@ -26,11 +26,10 @@ jobs:
       script:
         - cd maas-schemas
         - sh scripts/deploy-docs.sh 
-      before_deploy: cd maas-schemas
       deploy:
         provider: npm
         email: tech@maas.global
         skip_cleanup: true
         api_key: $NPM_TOKEN
-      after_deploy: ./maas-schemas/scripts/tag.sh
+      after_deploy: ./scripts/tag.sh
 
