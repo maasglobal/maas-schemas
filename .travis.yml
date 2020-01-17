@@ -23,17 +23,14 @@ jobs:
         - yarn --cwd maas-schemas ci
         - yarn --cwd maas-schemas-ts ci
     - stage: deploy
-      script:
-        - yarn --cwd maas-schemas build
-        - yarn --cwd maas-schemas docs
-        - echo Deploying docs to GitHub pages of ${TRAVIS_REPO_SLUG}
-        - git remote add origin-pages https://${GITHUB_API_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
-        - yarn --cwd maas-schemas gh-pages -o origin-pages
       before_deploy:
         - cd maas-schemas
       deploy:
-        provider: npm
-        email: tech@maas.global
-        skip_cleanup: true
-        api_key: $NPM_TOKEN
+        - provider: script
+          script: scripts/deploy-docs.sh
+          skip_cleanup: true
+        - provider: npm
+          email: tech@maas.global
+          skip_cleanup: true
+          api_key: $NPM_TOKEN
       after_deploy: ./maas-schemas/scripts/tag.sh
