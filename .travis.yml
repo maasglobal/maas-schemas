@@ -23,6 +23,7 @@ jobs:
         - yarn --cwd maas-schemas ci
         - yarn --cwd maas-schemas-ts ci
     - stage: deploy
+      script: skip
       before_deploy:
         - cd maas-schemas
       deploy:
