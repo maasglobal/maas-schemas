@@ -23,12 +23,14 @@ jobs:
         - yarn --cwd maas-schemas ci
         - yarn --cwd maas-schemas-ts ci
     - stage: deploy
-      script: skip
       before_deploy:
         - cd maas-schemas
       deploy:
-        provider: npm
-        email: tech@maas.global
-        skip_cleanup: true
-        api_key: $NPM_TOKEN
+        - provider: script
+          script: scripts/deploy-docs.sh
+          skip_cleanup: true
+        - provider: npm
+          email: tech@maas.global
+          skip_cleanup: true
+          api_key: $NPM_TOKEN
       after_deploy: ./maas-schemas/scripts/tag.sh
