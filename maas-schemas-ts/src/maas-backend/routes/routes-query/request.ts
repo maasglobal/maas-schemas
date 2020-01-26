@@ -8,12 +8,12 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as UnitsGeo_ from '../../../core/components/units-geo';
-import * as Address_ from '../../../core/components/address';
-import * as Station_ from '../../../core/components/station';
-import * as Units_ from '../../../core/components/units';
-import * as ApiCommon_ from '../../../core/components/api-common';
+import * as t from "io-ts";
+import * as UnitsGeo_ from "../../../core/components/units-geo";
+import * as Address_ from "../../../core/components/address";
+import * as Station_ from "../../../core/components/station";
+import * as Units_ from "../../../core/components/units";
+import * as ApiCommon_ from "../../../core/components/api-common";
 
 type Defined =
   | Record<string, unknown>
@@ -32,7 +32,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/routes/routes-query/request.json';
+  "http://maasglobal.com/maas-backend/routes/routes-query/request.json";
 
 // Payload
 // The purpose of this remains a mystery
@@ -50,11 +50,11 @@ export type Payload = t.Branded<
     arriveBy?: Units_.Time;
     leaveAtReturn?: Units_.Time;
     arriveByReturn?: Units_.Time;
-    modes?: string &
-      ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT');
-    transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
+    modes?: string;
+    transitMode?: string & ("TRAIN" | "BUS" | "SUBWAY" | "TRAM" | "RAIL");
     options?: {};
     bookingIdToExtend?: Units_.Uuid;
+    requestId?: Common_.RequestId;
   } & Record<
     string,
     | UnitsGeo_.ShortLocationString
@@ -69,10 +69,11 @@ export type Payload = t.Branded<
     | Units_.Time
     | Units_.Time
     | Units_.Time
-    | (string & ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT'))
-    | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
+    | string
+    | (string & ("TRAIN" | "BUS" | "SUBWAY" | "TRAM" | "RAIL"))
     | {}
     | Units_.Uuid
+    | Common_.RequestId
     | (string | number | boolean)
   >) & {
     from: Defined;
@@ -96,29 +97,20 @@ export const Payload = t.brand(
         arriveBy: Units_.Time,
         leaveAtReturn: Units_.Time,
         arriveByReturn: Units_.Time,
-        modes: t.intersection([
-          t.string,
-          t.union([
-            t.literal('PUBLIC_TRANSIT'),
-            t.literal('TAXI'),
-            t.literal('CAR'),
-            t.literal('WALK'),
-            t.literal('BICYCLE'),
-            t.literal('BICYCLE_RENT'),
-          ]),
-        ]),
+        modes: t.string,
         transitMode: t.intersection([
           t.string,
           t.union([
-            t.literal('TRAIN'),
-            t.literal('BUS'),
-            t.literal('SUBWAY'),
-            t.literal('TRAM'),
-            t.literal('RAIL'),
+            t.literal("TRAIN"),
+            t.literal("BUS"),
+            t.literal("SUBWAY"),
+            t.literal("TRAM"),
+            t.literal("RAIL"),
           ]),
         ]),
         options: t.type({}),
         bookingIdToExtend: Units_.Uuid,
+        requestId: Common_.RequestId,
       }),
       t.record(
         t.string,
@@ -135,31 +127,22 @@ export const Payload = t.brand(
           Units_.Time,
           Units_.Time,
           Units_.Time,
+          t.string,
           t.intersection([
             t.string,
             t.union([
-              t.literal('PUBLIC_TRANSIT'),
-              t.literal('TAXI'),
-              t.literal('CAR'),
-              t.literal('WALK'),
-              t.literal('BICYCLE'),
-              t.literal('BICYCLE_RENT'),
-            ]),
-          ]),
-          t.intersection([
-            t.string,
-            t.union([
-              t.literal('TRAIN'),
-              t.literal('BUS'),
-              t.literal('SUBWAY'),
-              t.literal('TRAM'),
-              t.literal('RAIL'),
+              t.literal("TRAIN"),
+              t.literal("BUS"),
+              t.literal("SUBWAY"),
+              t.literal("TRAM"),
+              t.literal("RAIL"),
             ]),
           ]),
           t.type({}),
           Units_.Uuid,
+          Common_.RequestId,
           t.union([t.string, t.number, t.boolean]),
-        ]),
+        ])
       ),
     ]),
     t.type({
@@ -168,7 +151,7 @@ export const Payload = t.brand(
     }),
   ]),
   (
-    x,
+    x
   ): x is t.Branded<
     ({
       from?: UnitsGeo_.ShortLocationString;
@@ -183,11 +166,11 @@ export const Payload = t.brand(
       arriveBy?: Units_.Time;
       leaveAtReturn?: Units_.Time;
       arriveByReturn?: Units_.Time;
-      modes?: string &
-        ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT');
-      transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
+      modes?: string;
+      transitMode?: string & ("TRAIN" | "BUS" | "SUBWAY" | "TRAM" | "RAIL");
       options?: {};
       bookingIdToExtend?: Units_.Uuid;
+      requestId?: Common_.RequestId;
     } & Record<
       string,
       | UnitsGeo_.ShortLocationString
@@ -202,11 +185,11 @@ export const Payload = t.brand(
       | Units_.Time
       | Units_.Time
       | Units_.Time
-      | (string &
-          ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT'))
-      | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
+      | string
+      | (string & ("TRAIN" | "BUS" | "SUBWAY" | "TRAM" | "RAIL"))
       | {}
       | Units_.Uuid
+      | Common_.RequestId
       | (string | number | boolean)
     >) & {
       from: Defined;
@@ -214,7 +197,7 @@ export const Payload = t.brand(
     },
     PayloadBrand
   > => true,
-  'Payload',
+  "Payload"
 );
 export interface PayloadBrand {
   readonly Payload: unique symbol;
@@ -246,7 +229,7 @@ export const Request = t.brand(
     }),
   ]),
   (
-    x,
+    x
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
@@ -258,7 +241,7 @@ export const Request = t.brand(
     },
     RequestBrand
   > => true,
-  'Request',
+  "Request"
 );
 export interface RequestBrand {
   readonly Request: unique symbol;

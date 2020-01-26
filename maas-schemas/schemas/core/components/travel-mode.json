@@ -33,6 +33,11 @@
       "description": "A mode that is available on-demand for your personal use",
       "type": "string",
       "enum": ["BUSISH", "CABLE_CAR", "CAR", "FUNICULAR", "GONDOLA", "SHARED_CAR", "TAXI", "TRAINISH"]
+    },
+    "superMode": {
+      "description": "A more general mode that abstracts more specific sub-modes",
+      "type": "string",
+      "enum": ["WALK", "PUBLIC_TRANSIT", "TAXI", "CAR", "BICYCLE", "BICYCLE_RENT", "UNKNOWN"]
     }
   }
 }

@@ -3,6 +3,10 @@
   "description": "OpenTripPlanner compatible format for plans, extended with id for legs and itineraries",
   "oneOf": [{ "$ref": "#/definitions/plan1" }, { "$ref": "#/definitions/plan2" }],
   "definitions": {
+    "planProgress": {
+      "type": "string",
+      "enum": ["IN_PROGRESS", "FINISHED", "FAILED"]
+    },
     "plan1": {
       "type": "object",
       "properties": {
@@ -11,6 +15,12 @@
         },
         "planId": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+        },
+        "requestId": {
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/requestId"
+        },
+        "progress": {
+          "$ref": "#/definitions/planProgress"
         },
         "outwards": {
           "$ref": "#/definitions/itineraries"
