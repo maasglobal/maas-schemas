@@ -534,6 +534,7 @@
 <li><a class="" href="../modes/MODE_TRANSIT.html">MODE TRANSIT</a></li>
 <li><a class="" href="../modes/MODE_WALK.html">MODE WALK</a></li>
 </ul>
+<li><a class="" href="../partialFavoriteLocation.html">partialFavoriteLocation</a></li>
 <li><a class="" href="../paymentSource.html">paymentSource</a></li>
 <li><a class="" href="../plan.html">plan</a></li>
 <li><a class="" href="../product-option.html">product option</a></li>
@@ -625,6 +626,28 @@
 <li class="heading"><span>customers</span></li>
 <ul>
 <li><a class="" href="../../maas-backend/customers/customer.html">customer</a></li>
+<li class="heading"><span>favorite locations</span></li>
+<ul>
+<li class="heading"><span>add</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/customers/favorite-locations/add/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/customers/favorite-locations/add/response.html">response</a></li>
+</ul>
+<li class="heading"><span>delete</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/customers/favorite-locations/delete/request.html">request</a></li>
+</ul>
+<li class="heading"><span>list</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/customers/favorite-locations/list/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/customers/favorite-locations/list/response.html">response</a></li>
+</ul>
+<li class="heading"><span>update</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/customers/favorite-locations/update/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/customers/favorite-locations/update/response.html">response</a></li>
+</ul>
+</ul>
 <li class="heading"><span>payment sources</span></li>
 <ul>
 <li class="heading"><span>create</span></li>
@@ -1105,6 +1128,11 @@
 <td><code>http://maasglobal.com/core/components/terms.json#/definitions/amendment</code></td>
 </tr>
 <tr>
+<td><a href="#amount">amount</a></td>
+<td><code>number</code></td>
+<td><code>http://maasglobal.com/core/components/terms.json#/definitions/surcharge</code></td>
+</tr>
+<tr>
 <td><a href="#cancellable">cancellable</a></td>
 <td><code>boolean</code></td>
 <td><code>http://maasglobal.com/core/components/terms.json#/definitions/cancellation</code></td>
@@ -1120,14 +1148,39 @@
 <td><code>http://maasglobal.com/core/components/terms.json#/definitions/amendment</code></td>
 </tr>
 <tr>
+<td><a href="#currency">currency</a></td>
+<td>currency</td>
+<td><code>http://maasglobal.com/core/components/terms.json#/definitions/surcharge</code></td>
+</tr>
+<tr>
 <td><a href="#fare">fare</a></td>
 <td>fare</td>
 <td><code>http://maasglobal.com/core/components/terms.json#/definitions/amendment</code></td>
 </tr>
 <tr>
+<td><a href="#ischargedupfront">isChargedUpfront</a></td>
+<td><code>boolean</code></td>
+<td><code>http://maasglobal.com/core/components/terms.json#/definitions/surcharge</code></td>
+</tr>
+<tr>
+<td><a href="#maxamount">maxAmount</a></td>
+<td><code>number</code></td>
+<td><code>http://maasglobal.com/core/components/terms.json#/definitions/surcharge</code></td>
+</tr>
+<tr>
+<td><a href="#minamount">minAmount</a></td>
+<td><code>number</code></td>
+<td><code>http://maasglobal.com/core/components/terms.json#/definitions/surcharge</code></td>
+</tr>
+<tr>
 <td><a href="#number">number</a></td>
 <td>multiple</td>
 <td><code>http://maasglobal.com/core/components/terms.json#/definitions/seat</code></td>
+</tr>
+<tr>
+<td><a href="#percentage">percentage</a></td>
+<td><code>number</code></td>
+<td><code>http://maasglobal.com/core/components/terms.json#/definitions/surcharge</code></td>
 </tr>
 <tr>
 <td><a href="#refunded">refunded</a></td>
@@ -1151,6 +1204,20 @@
 </ul>
 <h3 id="amendable-type">amendable Type <a class="heading-anchor-permalink" href="#amendable-type">#</a></h3>
 <p><code>boolean</code></p>
+<h2 id="amount">amount <a class="heading-anchor-permalink" href="#amount">#</a></h2>
+<p>The amount in currency</p>
+<p><code>amount</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>number</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="amount-type">amount Type <a class="heading-anchor-permalink" href="#amount-type">#</a></h3>
+<p><code>number</code></p>
+<ul>
+<li>minimum value: <code>0</code></li>
+<li>must be a multiple of <code>0.01</code></li>
+</ul>
 <h2 id="cancellable">cancellable <a class="heading-anchor-permalink" href="#cancellable">#</a></h2>
 <p>A flag indicating whether this booking can be cancelled in ‘RESERVED’ state</p>
 <p><code>cancellable</code></p>
@@ -1185,6 +1252,17 @@
 <ul>
 <li><a href="cost.html">cost</a> – <code>http://maasglobal.com/core/components/cost.json</code></li>
 </ul>
+<h2 id="currency">currency <a class="heading-anchor-permalink" href="#currency">#</a></h2>
+<p><code>currency</code></p>
+<ul>
+<li>is optional</li>
+<li>type: currency</li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="currency-type">currency Type <a class="heading-anchor-permalink" href="#currency-type">#</a></h3>
+<ul>
+<li><a href="units.html">currency</a> – <code>http://maasglobal.com/core/components/units.json#/definitions/currency</code></li>
+</ul>
 <h2 id="fare">fare <a class="heading-anchor-permalink" href="#fare">#</a></h2>
 <p><code>fare</code></p>
 <ul>
@@ -1195,6 +1273,44 @@
 <h3 id="fare-type">fare Type <a class="heading-anchor-permalink" href="#fare-type">#</a></h3>
 <ul>
 <li><a href="fare.html">fare</a> – <code>http://maasglobal.com/core/components/fare.json</code></li>
+</ul>
+<h2 id="ischargedupfront">isChargedUpfront <a class="heading-anchor-permalink" href="#ischargedupfront">#</a></h2>
+<p>Whether this is charged upfront or during reconciliation phase</p>
+<p><code>isChargedUpfront</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>boolean</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="ischargedupfront-type">isChargedUpfront Type <a class="heading-anchor-permalink" href="#ischargedupfront-type">#</a></h3>
+<p><code>boolean</code></p>
+<h2 id="maxamount">maxAmount <a class="heading-anchor-permalink" href="#maxamount">#</a></h2>
+<p>The maximum amount in currency</p>
+<p><code>maxAmount</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>number</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="maxamount-type">maxAmount Type <a class="heading-anchor-permalink" href="#maxamount-type">#</a></h3>
+<p><code>number</code></p>
+<ul>
+<li>minimum value: <code>0</code></li>
+<li>must be a multiple of <code>0.01</code></li>
+</ul>
+<h2 id="minamount">minAmount <a class="heading-anchor-permalink" href="#minamount">#</a></h2>
+<p>The minimum amount in currency</p>
+<p><code>minAmount</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>number</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="minamount-type">minAmount Type <a class="heading-anchor-permalink" href="#minamount-type">#</a></h3>
+<p><code>number</code></p>
+<ul>
+<li>minimum value: <code>0</code></li>
+<li>must be a multiple of <code>0.01</code></li>
 </ul>
 <h2 id="number">number <a class="heading-anchor-permalink" href="#number">#</a></h2>
 <p><code>number</code></p>
@@ -1209,6 +1325,16 @@
 <li><code>string</code></li>
 <li><code>number</code></li>
 </ul>
+<h2 id="percentage">percentage <a class="heading-anchor-permalink" href="#percentage">#</a></h2>
+<p>Surcharge percentage over the original fee</p>
+<p><code>percentage</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>number</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="percentage-type">percentage Type <a class="heading-anchor-permalink" href="#percentage-type">#</a></h3>
+<p><code>number</code></p>
 <h2 id="refunded">refunded <a class="heading-anchor-permalink" href="#refunded">#</a></h2>
 <p>Whether this part of the booking has been refunded</p>
 <p><code>refunded</code></p>
@@ -1290,6 +1416,13 @@
 <tr>
 <td><a href="#seatings">seatings</a></td>
 <td>seat</td>
+<td>Optional</td>
+<td>No</td>
+<td>terms (this schema)</td>
+</tr>
+<tr>
+<td><a href="#surcharges">surcharges</a></td>
+<td><code>object</code></td>
 <td>Optional</td>
 <td>No</td>
 <td>terms (this schema)</td>
@@ -1481,25 +1614,25 @@
 </tr>
 </tbody>
 </table>
-<h4 id="amount">amount <a class="heading-anchor-permalink" href="#amount">#</a></h4>
+<h4 id="amount-2">amount <a class="heading-anchor-permalink" href="#amount-2">#</a></h4>
 <p><code>amount</code></p>
 <ul>
 <li>is <strong>required</strong></li>
 <li>type: <code>number</code></li>
 </ul>
-<h5 id="amount-type">amount Type <a class="heading-anchor-permalink" href="#amount-type">#</a></h5>
+<h5 id="amount-type-2">amount Type <a class="heading-anchor-permalink" href="#amount-type-2">#</a></h5>
 <p><code>number</code></p>
 <ul>
 <li>minimum value: <code>0</code></li>
 <li>must be a multiple of <code>0.01</code></li>
 </ul>
-<h4 id="currency">currency <a class="heading-anchor-permalink" href="#currency">#</a></h4>
+<h4 id="currency-2">currency <a class="heading-anchor-permalink" href="#currency-2">#</a></h4>
 <p><code>currency</code></p>
 <ul>
 <li>is <strong>required</strong></li>
 <li>type: currency</li>
 </ul>
-<h5 id="currency-type">currency Type <a class="heading-anchor-permalink" href="#currency-type">#</a></h5>
+<h5 id="currency-type-2">currency Type <a class="heading-anchor-permalink" href="#currency-type-2">#</a></h5>
 <ul>
 <li><a href="units.html">currency</a> – <code>http://maasglobal.com/core/components/units.json#/definitions/currency</code></li>
 </ul>
@@ -1667,6 +1800,59 @@ route</p>
 <p>All items must be of the type:</p>
 <ul>
 <li><a href="terms.html">seat</a> – <code>#/definitions/seat</code></li>
+</ul>
+<h2 id="surcharges">surcharges <a class="heading-anchor-permalink" href="#surcharges">#</a></h2>
+<p>Surcharges that have been added to the cost/fare of the booking under certain conditions</p>
+<p><code>surcharges</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>object</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="surcharges-type">surcharges Type <a class="heading-anchor-permalink" href="#surcharges-type">#</a></h3>
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>midnight</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>pickup</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h4 id="midnight">midnight <a class="heading-anchor-permalink" href="#midnight">#</a></h4>
+<p>Fee for booking during night time</p>
+<p><code>midnight</code></p>
+<ul>
+<li>is optional</li>
+<li>type: surcharge</li>
+</ul>
+<h5 id="midnight-type">midnight Type <a class="heading-anchor-permalink" href="#midnight-type">#</a></h5>
+<ul>
+<li><a href="terms.html">surcharge</a> – <code>#/definitions/surcharge</code></li>
+</ul>
+<h4 id="pickup">pickup <a class="heading-anchor-permalink" href="#pickup">#</a></h4>
+<p>Fee for pickup, usually for TAXI bookings</p>
+<p><code>pickup</code></p>
+<ul>
+<li>is optional</li>
+<li>type: surcharge</li>
+</ul>
+<h5 id="pickup-type">pickup Type <a class="heading-anchor-permalink" href="#pickup-type">#</a></h5>
+<ul>
+<li><a href="terms.html">surcharge</a> – <code>#/definitions/surcharge</code></li>
 </ul>
 <h2 id="type-2">type <a class="heading-anchor-permalink" href="#type-2">#</a></h2>
 <p>A type of ticket/product that this booking is valid for - should be unique within a given region, e.g. ‘Single ticket /

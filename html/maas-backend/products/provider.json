@@ -229,6 +229,10 @@
                 ],
                 "additionalProperties": false
             }
+        },
+        "disruption": {
+            "description": "Disruption detail in JSON. For usage such as off-season products",
+            "type": "object"
         }
     },
     "required": [

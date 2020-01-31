@@ -97,8 +97,7 @@ MaaS customer schema
     "created": 1553687004207,
     "modified": 0,
     "currency": "EUR"
-  },
-  "balance": 1234
+  }
 }
 ```
 

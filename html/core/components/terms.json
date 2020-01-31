@@ -78,6 +78,24 @@
                 }
             }
         },
+        "surcharges": {
+            "type": "object",
+            "description": "Surcharges that have been added to the cost/fare of the booking under certain conditions",
+            "properties": {
+                "midnight": {
+                    "description": "Fee for booking during night time",
+                    "$ref": "#/definitions/surcharge",
+                    "$linkVal": "surcharge",
+                    "$linkPath": "terms.md"
+                },
+                "pickup": {
+                    "description": "Fee for pickup, usually for TAXI bookings",
+                    "$ref": "#/definitions/surcharge",
+                    "$linkVal": "surcharge",
+                    "$linkPath": "terms.md"
+                }
+            }
+        },
         "cancellation": {
             "type": "object",
             "properties": {
@@ -231,6 +249,44 @@
             "required": [
                 "amendable"
             ]
+        },
+        "surcharge": {
+            "type": "object",
+            "description": "The additional fee that will be added if booking is in night time",
+            "properties": {
+                "isChargedUpfront": {
+                    "description": "Whether this is charged upfront or during reconciliation phase",
+                    "type": "boolean"
+                },
+                "amount": {
+                    "description": "The amount in currency",
+                    "type": "number",
+                    "minimum": 0,
+                    "multipleOf": 0.01
+                },
+                "currency": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency",
+                    "$linkVal": "currency",
+                    "$linkPath": "units.md"
+                },
+                "percentage": {
+                    "description": "Surcharge percentage over the original fee",
+                    "type": "number"
+                },
+                "minAmount": {
+                    "description": "The minimum amount in currency",
+                    "type": "number",
+                    "minimum": 0,
+                    "multipleOf": 0.01
+                },
+                "maxAmount": {
+                    "description": "The maximum amount in currency",
+                    "type": "number",
+                    "minimum": 0,
+                    "multipleOf": 0.01
+                }
+            },
+            "additionalProperties": false
         }
     },
     "meta:status": "Develop",

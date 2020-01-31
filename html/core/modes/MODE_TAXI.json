@@ -45,6 +45,9 @@
                     "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url",
                     "$linkVal": "url",
                     "$linkPath": "units.md"
+                },
+                "rating": {
+                    "type": "number"
                 }
             }
         },
@@ -61,6 +64,11 @@
         "taxiCenter": {
             "type": "object",
             "properties": {
+                "image": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url",
+                    "$linkVal": "url",
+                    "$linkPath": "units.md"
+                },
                 "name": {
                     "type": "string",
                     "minLength": 1,

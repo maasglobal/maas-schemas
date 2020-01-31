@@ -1,0 +1,31 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/favorite-locations/list/response.json",
+    "description": "MaaS customer favorite location listing response",
+    "type": "object",
+    "properties": {
+        "favoriteLocations": {
+            "type": "array",
+            "items": {
+                "allOf": [
+                    {
+                        "$ref": "http://maasglobal.com/core/partialFavoriteLocation.json",
+                        "$linkVal": "partialFavoriteLocation",
+                        "$linkPath": "partialFavoriteLocation.md"
+                    },
+                    {
+                        "required": [
+                            "type",
+                            "name",
+                            "location",
+                            "id",
+                            "identityId"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

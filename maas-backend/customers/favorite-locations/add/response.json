@@ -1,0 +1,22 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/favorite-locations/add/response.json",
+    "description": "MaaS customer favorite location adding response",
+    "type": "object",
+    "properties": {
+        "favoriteLocation": {
+            "$ref": "http://maasglobal.com/core/partialFavoriteLocation.json",
+            "required": [
+                "type",
+                "name",
+                "location",
+                "id",
+                "identityId"
+            ],
+            "$linkVal": "partialFavoriteLocation",
+            "$linkPath": "partialFavoriteLocation.md"
+        }
+    },
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "response"
+}

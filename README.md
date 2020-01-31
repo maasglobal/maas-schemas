@@ -11,6 +11,8 @@
 - [iot-thing-shadow](./core/iot-thing-shadow.md) – `http://maasglobal.com/core/iot-thing-shadow.json` (Develop)
 - [itinerary](./core/itinerary.md) – `http://maasglobal.com/core/itinerary.json` (Develop)
 - [leg](./core/leg.md) – `http://maasglobal.com/core/leg.json` (Develop)
+- [partialFavoriteLocation](./core/partialFavoriteLocation.md) –
+  `http://maasglobal.com/core/partialFavoriteLocation.json` (Develop)
 - [paymentSource](./core/paymentSource.md) – `http://maasglobal.com/core/paymentSource.json` (Develop)
 - [plan](./core/plan.md) – `http://maasglobal.com/core/plan.json` (Develop)
 - [product](./core/product.md) – `http://maasglobal.com/core/product.json` (Develop)
@@ -638,6 +640,32 @@
   `http://maasglobal.com/maas-backend/bookings/v2/bookings-create/request.json` (Develop)
 - [response](./maas-backend/bookings/v2/bookings-create/response.md) –
   `http://maasglobal.com/maas-backend/bookings/v2/bookings-create/response.json` (Develop)
+
+## /maas-backend/customers/favorite-locations/add/
+
+- [request](./maas-backend/customers/favorite-locations/add/request.md) –
+  `http://maasglobal.com/maas-backend/customers/favorite-locations/add/request.json` (Develop)
+- [response](./maas-backend/customers/favorite-locations/add/response.md) –
+  `http://maasglobal.com/maas-backend/customers/favorite-locations/add/response.json` (Develop)
+
+## /maas-backend/customers/favorite-locations/delete/
+
+- [request](./maas-backend/customers/favorite-locations/delete/request.md) –
+  `http://maasglobal.com/maas-backend/customers/favorite-locations/delete/request.json` (Develop)
+
+## /maas-backend/customers/favorite-locations/list/
+
+- [request](./maas-backend/customers/favorite-locations/list/request.md) –
+  `http://maasglobal.com/maas-backend/customers/favorite-locations/list/request.json` (Develop)
+- [response](./maas-backend/customers/favorite-locations/list/response.md) –
+  `http://maasglobal.com/maas-backend/customers/favorite-locations/list/response.json` (Develop)
+
+## /maas-backend/customers/favorite-locations/update/
+
+- [request](./maas-backend/customers/favorite-locations/update/request.md) –
+  `http://maasglobal.com/maas-backend/customers/favorite-locations/update/request.json` (Develop)
+- [response](./maas-backend/customers/favorite-locations/update/response.md) –
+  `http://maasglobal.com/maas-backend/customers/favorite-locations/update/response.json` (Develop)
 
 ## /maas-backend/customers/payment-sources/create/
 

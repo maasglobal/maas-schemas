@@ -1,0 +1,76 @@
+{
+    "$id": "http://maasglobal.com/core/partialFavoriteLocation.json",
+    "description": "Customer's favorite location",
+    "type": "object",
+    "definitions": {
+        "favoriteLocationTypes": {
+            "type": "string",
+            "enum": [
+                "ADDRESS",
+                "STOP"
+            ]
+        }
+    },
+    "properties": {
+        "id": {
+            "type": "number"
+        },
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "type": {
+            "$ref": "#/definitions/favoriteLocationTypes",
+            "$linkVal": "favoriteLocationTypes",
+            "$linkPath": "partialFavoriteLocation.md"
+        },
+        "name": {
+            "type": "string",
+            "minLength": 1
+        },
+        "location": {
+            "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location",
+            "$linkVal": "location",
+            "$linkPath": "units-geo.md"
+        },
+        "streetName": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName",
+            "$linkVal": "placeName",
+            "$linkPath": "address.md"
+        },
+        "streetNumber": {
+            "type": "string"
+        },
+        "city": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city",
+            "$linkVal": "city",
+            "$linkPath": "address.md"
+        },
+        "country": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/countryName",
+            "$linkVal": "countryName",
+            "$linkPath": "address.md"
+        },
+        "zipCode": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode",
+            "$linkVal": "zipCode",
+            "$linkPath": "address.md"
+        },
+        "agencyId": {
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId",
+            "$linkVal": "agencyId",
+            "$linkPath": "common.md"
+        },
+        "stopId": {
+            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id",
+            "$linkVal": "id",
+            "$linkPath": "station.md"
+        },
+        "lineId": {
+            "type": "string"
+        }
+    },
+    "meta:status": "Develop",
+    "title": "partialFavoriteLocation"
+}

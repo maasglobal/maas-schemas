@@ -21,6 +21,7 @@ MaaS product provider schema
 | ----------------------------------------------------- | --------------------- | ------------ | -------- | ---------------------- |
 | [agencyId](#agencyid)                                 | `string`              | **Required** | No       | provider (this schema) |
 | [branding](#branding)                                 | `object`              | **Required** | No       | provider (this schema) |
+| [disruption](#disruption)                             | `object`              | Optional     | No       | provider (this schema) |
 | [extra](#extra)                                       | `object`              | Optional     | No       | provider (this schema) |
 | [features](#features)                                 | `object`              | **Required** | No       | provider (this schema) |
 | [groupId](#groupid)                                   | `string`              | **Required** | No       | provider (this schema) |
@@ -164,6 +165,24 @@ All instances must conform to this regular expression (test examples
 ```regex
 ^#(?:[0-9A-Fa-f]{3}){1,2}$
 ```
+
+## disruption
+
+Disruption detail in JSON. For usage such as off-season products
+
+`disruption`
+
+- is optional
+- type: `object`
+- defined in this schema
+
+### disruption Type
+
+`object` with following properties:
+
+| Property | Type | Required |
+| -------- | ---- | -------- |
+
 
 ## extra
 

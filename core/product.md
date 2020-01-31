@@ -15,6 +15,45 @@ Product in core which encapsulates at least an id, name and a tspProductId
 - product `http://maasglobal.com/core/product.json`
   - [common](components/common.md) `http://maasglobal.com/core/components/common.json`
 
+# product Definitions
+
+| Property                            | Type     | Group                                                                |
+| ----------------------------------- | -------- | -------------------------------------------------------------------- |
+| [minimumExtra](#minimumextra)       | fare     | `http://maasglobal.com/core/product.json#/definitions/preAuthBuffer` |
+| [percentageExtra](#percentageextra) | `number` | `http://maasglobal.com/core/product.json#/definitions/preAuthBuffer` |
+
+## minimumExtra
+
+Minimum amount, expressed as a fare, that will be added as a safety margin to the estimated fare
+
+`minimumExtra`
+
+- is optional
+- type: fare
+- defined in this schema
+
+### minimumExtra Type
+
+- [fare](fare.md) – `http://maasglobal.com/core/components/fare.json`
+
+## percentageExtra
+
+Percentage of the fare which is added as a safety margin when pre-authorizing; e.g. if 20% is added as a safety margin,
+this value would be 0.2
+
+`percentageExtra`
+
+- is optional
+- type: `number`
+- defined in this schema
+
+### percentageExtra Type
+
+`number`
+
+- minimum value: `0`
+- must be a multiple of `0.01`
+
 # product Properties
 
 | Property                            | Type      | Required     | Nullable | Defined by                                 |
@@ -25,6 +64,7 @@ Product in core which encapsulates at least an id, name and a tspProductId
 | [icon](#icon)                       | `string`  | Optional     | No       | product (this schema)                      |
 | [id](#id)                           | `string`  | **Required** | No       | product (this schema)                      |
 | [name](#name)                       | `string`  | **Required** | No       | product (this schema)                      |
+| [preAuthBuffer](#preauthbuffer)     | `object`  | Optional     | No       | product (this schema)                      |
 | [priority](#priority)               | `integer` | Optional     | No       | product (this schema)                      |
 | [tspProductId](#tspproductid)       | `string`  | **Required** | No       | product (this schema)                      |
 | `*`                                 | any       | Additional   | Yes      | this schema _allows_ additional properties |
@@ -115,6 +155,53 @@ Product in core which encapsulates at least an id, name and a tspProductId
 
 - minimum length: 1 characters
 - maximum length: 255 characters
+
+## preAuthBuffer
+
+`preAuthBuffer`
+
+- is optional
+- type: `object`
+- defined in this schema
+
+### preAuthBuffer Type
+
+`object` with following properties:
+
+| Property          | Type   | Required |
+| ----------------- | ------ | -------- |
+| `minimumExtra`    |        | Optional |
+| `percentageExtra` | number | Optional |
+
+#### minimumExtra
+
+Minimum amount, expressed as a fare, that will be added as a safety margin to the estimated fare
+
+`minimumExtra`
+
+- is optional
+- type: fare
+
+##### minimumExtra Type
+
+- [fare](fare.md) – `http://maasglobal.com/core/components/fare.json`
+
+#### percentageExtra
+
+Percentage of the fare which is added as a safety margin when pre-authorizing; e.g. if 20% is added as a safety margin,
+this value would be 0.2
+
+`percentageExtra`
+
+- is optional
+- type: `number`
+
+##### percentageExtra Type
+
+`number`
+
+- minimum value: `0`
+- must be a multiple of `0.01`
 
 ## priority
 

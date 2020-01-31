@@ -12,16 +12,22 @@ MaaS booking terms and condition for its business engine
 
 # terms Definitions
 
-| Property                    | Type      | Group                                                                        |
-| --------------------------- | --------- | ---------------------------------------------------------------------------- |
-| [amendable](#amendable)     | `boolean` | `http://maasglobal.com/core/components/terms.json#/definitions/amendment`    |
-| [cancellable](#cancellable) | `boolean` | `http://maasglobal.com/core/components/terms.json#/definitions/cancellation` |
-| [coach](#coach)             | multiple  | `http://maasglobal.com/core/components/terms.json#/definitions/seat`         |
-| [cost](#cost)               | cost      | `http://maasglobal.com/core/components/terms.json#/definitions/amendment`    |
-| [fare](#fare)               | fare      | `http://maasglobal.com/core/components/terms.json#/definitions/amendment`    |
-| [number](#number)           | multiple  | `http://maasglobal.com/core/components/terms.json#/definitions/seat`         |
-| [refunded](#refunded)       | `boolean` | `http://maasglobal.com/core/components/terms.json#/definitions/cancellation` |
-| [route](#route)             | `string`  | `http://maasglobal.com/core/components/terms.json#/definitions/seat`         |
+| Property                              | Type      | Group                                                                        |
+| ------------------------------------- | --------- | ---------------------------------------------------------------------------- |
+| [amendable](#amendable)               | `boolean` | `http://maasglobal.com/core/components/terms.json#/definitions/amendment`    |
+| [amount](#amount)                     | `number`  | `http://maasglobal.com/core/components/terms.json#/definitions/surcharge`    |
+| [cancellable](#cancellable)           | `boolean` | `http://maasglobal.com/core/components/terms.json#/definitions/cancellation` |
+| [coach](#coach)                       | multiple  | `http://maasglobal.com/core/components/terms.json#/definitions/seat`         |
+| [cost](#cost)                         | cost      | `http://maasglobal.com/core/components/terms.json#/definitions/amendment`    |
+| [currency](#currency)                 | currency  | `http://maasglobal.com/core/components/terms.json#/definitions/surcharge`    |
+| [fare](#fare)                         | fare      | `http://maasglobal.com/core/components/terms.json#/definitions/amendment`    |
+| [isChargedUpfront](#ischargedupfront) | `boolean` | `http://maasglobal.com/core/components/terms.json#/definitions/surcharge`    |
+| [maxAmount](#maxamount)               | `number`  | `http://maasglobal.com/core/components/terms.json#/definitions/surcharge`    |
+| [minAmount](#minamount)               | `number`  | `http://maasglobal.com/core/components/terms.json#/definitions/surcharge`    |
+| [number](#number)                     | multiple  | `http://maasglobal.com/core/components/terms.json#/definitions/seat`         |
+| [percentage](#percentage)             | `number`  | `http://maasglobal.com/core/components/terms.json#/definitions/surcharge`    |
+| [refunded](#refunded)                 | `boolean` | `http://maasglobal.com/core/components/terms.json#/definitions/cancellation` |
+| [route](#route)                       | `string`  | `http://maasglobal.com/core/components/terms.json#/definitions/seat`         |
 
 ## amendable
 
@@ -36,6 +42,23 @@ A flag indicating whether this booking can be amended
 ### amendable Type
 
 `boolean`
+
+## amount
+
+The amount in currency
+
+`amount`
+
+- is optional
+- type: `number`
+- defined in this schema
+
+### amount Type
+
+`number`
+
+- minimum value: `0`
+- must be a multiple of `0.01`
 
 ## cancellable
 
@@ -78,6 +101,18 @@ Either one of:
 
 - [cost](cost.md) – `http://maasglobal.com/core/components/cost.json`
 
+## currency
+
+`currency`
+
+- is optional
+- type: currency
+- defined in this schema
+
+### currency Type
+
+- [currency](units.md) – `http://maasglobal.com/core/components/units.json#/definitions/currency`
+
 ## fare
 
 `fare`
@@ -89,6 +124,54 @@ Either one of:
 ### fare Type
 
 - [fare](fare.md) – `http://maasglobal.com/core/components/fare.json`
+
+## isChargedUpfront
+
+Whether this is charged upfront or during reconciliation phase
+
+`isChargedUpfront`
+
+- is optional
+- type: `boolean`
+- defined in this schema
+
+### isChargedUpfront Type
+
+`boolean`
+
+## maxAmount
+
+The maximum amount in currency
+
+`maxAmount`
+
+- is optional
+- type: `number`
+- defined in this schema
+
+### maxAmount Type
+
+`number`
+
+- minimum value: `0`
+- must be a multiple of `0.01`
+
+## minAmount
+
+The minimum amount in currency
+
+`minAmount`
+
+- is optional
+- type: `number`
+- defined in this schema
+
+### minAmount Type
+
+`number`
+
+- minimum value: `0`
+- must be a multiple of `0.01`
 
 ## number
 
@@ -104,6 +187,20 @@ Either one of:
 
 - `string`
 - `number`
+
+## percentage
+
+Surcharge percentage over the original fee
+
+`percentage`
+
+- is optional
+- type: `number`
+- defined in this schema
+
+### percentage Type
+
+`number`
 
 ## refunded
 
@@ -147,6 +244,7 @@ The leg's route number that this seat info belongs
 | [restrictions](#restrictions) | `object`   | Optional   | No       | terms (this schema)                        |
 | [reusable](#reusable)         | `boolean`  | Optional   | No       | terms (this schema)                        |
 | [seatings](#seatings)         | seat       | Optional   | No       | terms (this schema)                        |
+| [surcharges](#surcharges)     | `object`   | Optional   | No       | terms (this schema)                        |
 | [type](#type)                 | `string`   | Optional   | No       | terms (this schema)                        |
 | [validity](#validity)         | `object`   | Optional   | No       | terms (this schema)                        |
 | `*`                           | any        | Additional | Yes      | this schema _allows_ additional properties |
@@ -457,6 +555,51 @@ Array type: seat
 All items must be of the type:
 
 - [seat](terms.md) – `#/definitions/seat`
+
+## surcharges
+
+Surcharges that have been added to the cost/fare of the booking under certain conditions
+
+`surcharges`
+
+- is optional
+- type: `object`
+- defined in this schema
+
+### surcharges Type
+
+`object` with following properties:
+
+| Property   | Type | Required |
+| ---------- | ---- | -------- |
+| `midnight` |      | Optional |
+| `pickup`   |      | Optional |
+
+#### midnight
+
+Fee for booking during night time
+
+`midnight`
+
+- is optional
+- type: surcharge
+
+##### midnight Type
+
+- [surcharge](terms.md) – `#/definitions/surcharge`
+
+#### pickup
+
+Fee for pickup, usually for TAXI bookings
+
+`pickup`
+
+- is optional
+- type: surcharge
+
+##### pickup Type
+
+- [surcharge](terms.md) – `#/definitions/surcharge`
 
 ## type
 

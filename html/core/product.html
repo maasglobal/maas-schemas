@@ -534,6 +534,7 @@
 <li><a class="" href="modes/MODE_TRANSIT.html">MODE TRANSIT</a></li>
 <li><a class="" href="modes/MODE_WALK.html">MODE WALK</a></li>
 </ul>
+<li><a class="" href="partialFavoriteLocation.html">partialFavoriteLocation</a></li>
 <li><a class="" href="paymentSource.html">paymentSource</a></li>
 <li><a class="" href="plan.html">plan</a></li>
 <li><a class="" href="product-option.html">product option</a></li>
@@ -625,6 +626,28 @@
 <li class="heading"><span>customers</span></li>
 <ul>
 <li><a class="" href="../maas-backend/customers/customer.html">customer</a></li>
+<li class="heading"><span>favorite locations</span></li>
+<ul>
+<li class="heading"><span>add</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/favorite-locations/add/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/favorite-locations/add/response.html">response</a></li>
+</ul>
+<li class="heading"><span>delete</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/favorite-locations/delete/request.html">request</a></li>
+</ul>
+<li class="heading"><span>list</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/favorite-locations/list/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/favorite-locations/list/response.html">response</a></li>
+</ul>
+<li class="heading"><span>update</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/favorite-locations/update/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/favorite-locations/update/response.html">response</a></li>
+</ul>
+</ul>
 <li class="heading"><span>payment sources</span></li>
 <ul>
 <li class="heading"><span>create</span></li>
@@ -1097,6 +1120,55 @@
 </ul>
 </li>
 </ul>
+<h1 id="product-definitions">product Definitions <a class="heading-anchor-permalink" href="#product-definitions">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Group</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#minimumextra">minimumExtra</a></td>
+<td>fare</td>
+<td><code>http://maasglobal.com/core/product.json#/definitions/preAuthBuffer</code></td>
+</tr>
+<tr>
+<td><a href="#percentageextra">percentageExtra</a></td>
+<td><code>number</code></td>
+<td><code>http://maasglobal.com/core/product.json#/definitions/preAuthBuffer</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="minimumextra">minimumExtra <a class="heading-anchor-permalink" href="#minimumextra">#</a></h2>
+<p>Minimum amount, expressed as a fare, that will be added as a safety margin to the estimated fare</p>
+<p><code>minimumExtra</code></p>
+<ul>
+<li>is optional</li>
+<li>type: fare</li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="minimumextra-type">minimumExtra Type <a class="heading-anchor-permalink" href="#minimumextra-type">#</a></h3>
+<ul>
+<li><a href="fare.html">fare</a> – <code>http://maasglobal.com/core/components/fare.json</code></li>
+</ul>
+<h2 id="percentageextra">percentageExtra <a class="heading-anchor-permalink" href="#percentageextra">#</a></h2>
+<p>Percentage of the fare which is added as a safety margin when pre-authorizing; e.g. if 20% is added as a safety margin,
+this value would be 0.2</p>
+<p><code>percentageExtra</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>number</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="percentageextra-type">percentageExtra Type <a class="heading-anchor-permalink" href="#percentageextra-type">#</a></h3>
+<p><code>number</code></p>
+<ul>
+<li>minimum value: <code>0</code></li>
+<li>must be a multiple of <code>0.01</code></li>
+</ul>
 <h1 id="product-properties">product Properties <a class="heading-anchor-permalink" href="#product-properties">#</a></h1>
 <table>
 <thead>
@@ -1148,6 +1220,13 @@
 <td><a href="#name">name</a></td>
 <td><code>string</code></td>
 <td><strong>Required</strong></td>
+<td>No</td>
+<td>product (this schema)</td>
+</tr>
+<tr>
+<td><a href="#preauthbuffer">preAuthBuffer</a></td>
+<td><code>object</code></td>
+<td>Optional</td>
 <td>No</td>
 <td>product (this schema)</td>
 </tr>
@@ -1247,6 +1326,61 @@
 <ul>
 <li>minimum length: 1 characters</li>
 <li>maximum length: 255 characters</li>
+</ul>
+<h2 id="preauthbuffer">preAuthBuffer <a class="heading-anchor-permalink" href="#preauthbuffer">#</a></h2>
+<p><code>preAuthBuffer</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>object</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="preauthbuffer-type">preAuthBuffer Type <a class="heading-anchor-permalink" href="#preauthbuffer-type">#</a></h3>
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>minimumExtra</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>percentageExtra</code></td>
+<td>number</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h4 id="minimumextra-2">minimumExtra <a class="heading-anchor-permalink" href="#minimumextra-2">#</a></h4>
+<p>Minimum amount, expressed as a fare, that will be added as a safety margin to the estimated fare</p>
+<p><code>minimumExtra</code></p>
+<ul>
+<li>is optional</li>
+<li>type: fare</li>
+</ul>
+<h5 id="minimumextra-type-2">minimumExtra Type <a class="heading-anchor-permalink" href="#minimumextra-type-2">#</a></h5>
+<ul>
+<li><a href="fare.html">fare</a> – <code>http://maasglobal.com/core/components/fare.json</code></li>
+</ul>
+<h4 id="percentageextra-2">percentageExtra <a class="heading-anchor-permalink" href="#percentageextra-2">#</a></h4>
+<p>Percentage of the fare which is added as a safety margin when pre-authorizing; e.g. if 20% is added as a safety margin,
+this value would be 0.2</p>
+<p><code>percentageExtra</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>number</code></li>
+</ul>
+<h5 id="percentageextra-type-2">percentageExtra Type <a class="heading-anchor-permalink" href="#percentageextra-type-2">#</a></h5>
+<p><code>number</code></p>
+<ul>
+<li>minimum value: <code>0</code></li>
+<li>must be a multiple of <code>0.01</code></li>
 </ul>
 <h2 id="priority">priority <a class="heading-anchor-permalink" href="#priority">#</a></h2>
 <p><code>priority</code></p>

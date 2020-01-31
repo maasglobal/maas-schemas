@@ -534,6 +534,7 @@
 <li><a class="" href="modes/MODE_TRANSIT.html">MODE TRANSIT</a></li>
 <li><a class="" href="modes/MODE_WALK.html">MODE WALK</a></li>
 </ul>
+<li><a class="" href="partialFavoriteLocation.html">partialFavoriteLocation</a></li>
 <li><a class="" href="paymentSource.html">paymentSource</a></li>
 <li><a class="" href="plan.html">plan</a></li>
 <li><a class="" href="product-option.html">product option</a></li>
@@ -625,6 +626,28 @@
 <li class="heading"><span>customers</span></li>
 <ul>
 <li><a class="" href="../maas-backend/customers/customer.html">customer</a></li>
+<li class="heading"><span>favorite locations</span></li>
+<ul>
+<li class="heading"><span>add</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/favorite-locations/add/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/favorite-locations/add/response.html">response</a></li>
+</ul>
+<li class="heading"><span>delete</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/favorite-locations/delete/request.html">request</a></li>
+</ul>
+<li class="heading"><span>list</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/favorite-locations/list/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/favorite-locations/list/response.html">response</a></li>
+</ul>
+<li class="heading"><span>update</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/favorite-locations/update/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/favorite-locations/update/response.html">response</a></li>
+</ul>
+</ul>
 <li class="heading"><span>payment sources</span></li>
 <ul>
 <li class="heading"><span>create</span></li>
@@ -1318,13 +1341,6 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="#balance">balance</a></td>
-<td><code>integer</code></td>
-<td><strong>Required</strong></td>
-<td>No</td>
-<td>profile (this schema)</td>
-</tr>
-<tr>
 <td><a href="#balances">balances</a></td>
 <td>fare</td>
 <td><strong>Required</strong></td>
@@ -1459,19 +1475,6 @@
 </tr>
 </tbody>
 </table>
-<h2 id="balance">balance <a class="heading-anchor-permalink" href="#balance">#</a></h2>
-<p><code>balance</code></p>
-<ul>
-<li>is <strong>required</strong></li>
-<li>type: <code>integer</code></li>
-<li>defined in this schema</li>
-</ul>
-<h3 id="balance-type">balance Type <a class="heading-anchor-permalink" href="#balance-type">#</a></h3>
-<p><code>integer</code></p>
-<ul>
-<li>minimum value: <code>0</code></li>
-<li>must be a multiple of <code>1</code></li>
-</ul>
 <h2 id="balances">balances <a class="heading-anchor-permalink" href="#balances">#</a></h2>
 <p><code>balances</code></p>
 <ul>

@@ -118,11 +118,6 @@
             "$linkVal": "subscriptionInstance",
             "$linkPath": "profile.md"
         },
-        "balance": {
-            "type": "integer",
-            "minimum": 0,
-            "multipleOf": 1
-        },
         "balances": {
             "type": "array",
             "items": {
@@ -147,7 +142,6 @@
         "identityId",
         "phone",
         "favoriteLocations",
-        "balance",
         "paymentMethod",
         "subscriptionInstance",
         "balances"

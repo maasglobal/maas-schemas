@@ -64,6 +64,7 @@ Driver information
 | `image`  | string | Optional |
 | `name`   | string | Optional |
 | `phone`  | string | Optional |
+| `rating` | number | Optional |
 
 #### image
 
@@ -113,6 +114,17 @@ Driver name, e.g. 'Sergey' or 'Jane S.'
 
 `string`
 
+#### rating
+
+`rating`
+
+- is optional
+- type: `number`
+
+##### rating Type
+
+`number`
+
 ## eta
 
 POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time
@@ -156,8 +168,30 @@ POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time
 
 | Property | Type   | Required |
 | -------- | ------ | -------- |
+| `image`  | string | Optional |
 | `name`   | string | Optional |
 | `phone`  | string | Optional |
+
+#### image
+
+Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and
+https://mathiasbynens.be/demo/url-regex
+
+`image`
+
+- is optional
+- type: url
+
+##### image Type
+
+`string`
+
+All instances must conform to this regular expression (test examples
+[here](<https://regexr.com/?expression=%5E(https%3F%7Cftp)%3A%5C%2F%5C%2F%5B%5E%5Cs%2F%24.%3F%23%5D.%5B%5E%5Cs%5D*%24>)):
+
+```regex
+^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$
+```
 
 #### name
 

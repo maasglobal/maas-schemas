@@ -39,6 +39,11 @@
         },
         "allowFinishTrip": {
             "type": "boolean"
+        },
+        "preAuthBuffer": {
+            "$ref": "#/definitions/preAuthBuffer",
+            "$linkVal": "preAuthBuffer",
+            "$linkPath": "product.md"
         }
     },
     "definitions": {
@@ -46,6 +51,24 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 255
+        },
+        "preAuthBuffer": {
+            "type": "object",
+            "properties": {
+                "percentageExtra": {
+                    "description": "Percentage of the fare which is added as a safety margin when pre-authorizing; e.g. if 20% is added as a safety margin, this value would be 0.2",
+                    "type": "number",
+                    "minimum": 0,
+                    "multipleOf": 0.01
+                },
+                "minimumExtra": {
+                    "description": "Minimum amount, expressed as a fare, that will be added as a safety margin to the estimated fare",
+                    "$ref": "http://maasglobal.com/core/components/fare.json",
+                    "$linkVal": "fare",
+                    "$linkPath": "fare.md"
+                }
+            },
+            "additionalProperties": false
         }
     },
     "required": [

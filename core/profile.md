@@ -194,7 +194,6 @@ All items must be of the type: `string`
 
 | Property                                      | Type      | Required     | Nullable | Defined by            |
 | --------------------------------------------- | --------- | ------------ | -------- | --------------------- |
-| [balance](#balance)                           | `integer` | **Required** | No       | profile (this schema) |
 | [balances](#balances)                         | fare      | **Required** | No       | profile (this schema) |
 | [city](#city)                                 | `string`  | Optional     | No       | profile (this schema) |
 | [country](#country)                           | `string`  | Optional     | No       | profile (this schema) |
@@ -214,21 +213,6 @@ All items must be of the type: `string`
 | [subscription](#subscription)                 | `object`  | Optional     | No       | profile (this schema) |
 | [subscriptionInstance](#subscriptioninstance) | `object`  | **Required** | No       | profile (this schema) |
 | [zipCode](#zipcode)                           | `string`  | Optional     | No       | profile (this schema) |
-
-## balance
-
-`balance`
-
-- is **required**
-- type: `integer`
-- defined in this schema
-
-### balance Type
-
-`integer`
-
-- minimum value: `0`
-- must be a multiple of `1`
 
 ## balances
 

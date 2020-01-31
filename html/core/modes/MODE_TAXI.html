@@ -534,6 +534,7 @@
 <li><a class="" href="MODE_TRANSIT.html">MODE TRANSIT</a></li>
 <li><a class="" href="MODE_WALK.html">MODE WALK</a></li>
 </ul>
+<li><a class="" href="../partialFavoriteLocation.html">partialFavoriteLocation</a></li>
 <li><a class="" href="../paymentSource.html">paymentSource</a></li>
 <li><a class="" href="../plan.html">plan</a></li>
 <li><a class="" href="../product-option.html">product option</a></li>
@@ -625,6 +626,28 @@
 <li class="heading"><span>customers</span></li>
 <ul>
 <li><a class="" href="../../maas-backend/customers/customer.html">customer</a></li>
+<li class="heading"><span>favorite locations</span></li>
+<ul>
+<li class="heading"><span>add</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/customers/favorite-locations/add/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/customers/favorite-locations/add/response.html">response</a></li>
+</ul>
+<li class="heading"><span>delete</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/customers/favorite-locations/delete/request.html">request</a></li>
+</ul>
+<li class="heading"><span>list</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/customers/favorite-locations/list/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/customers/favorite-locations/list/response.html">response</a></li>
+</ul>
+<li class="heading"><span>update</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/customers/favorite-locations/update/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/customers/favorite-locations/update/response.html">response</a></li>
+</ul>
+</ul>
 <li class="heading"><span>payment sources</span></li>
 <ul>
 <li class="heading"><span>create</span></li>
@@ -1222,6 +1245,11 @@
 <td>string</td>
 <td>Optional</td>
 </tr>
+<tr>
+<td><code>rating</code></td>
+<td>number</td>
+<td>Optional</td>
+</tr>
 </tbody>
 </table>
 <h4 id="image">image <a class="heading-anchor-permalink" href="#image">#</a></h4>
@@ -1259,6 +1287,14 @@
 </ul>
 <h5 id="phone-type">phone Type <a class="heading-anchor-permalink" href="#phone-type">#</a></h5>
 <p><code>string</code></p>
+<h4 id="rating">rating <a class="heading-anchor-permalink" href="#rating">#</a></h4>
+<p><code>rating</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>number</code></li>
+</ul>
+<h5 id="rating-type">rating Type <a class="heading-anchor-permalink" href="#rating-type">#</a></h5>
+<p><code>number</code></p>
 <h2 id="eta">eta <a class="heading-anchor-permalink" href="#eta">#</a></h2>
 <p>POSIX time in milliseconds, <a href="https://en.wikipedia.org/wiki/Unix_time">https://en.wikipedia.org/wiki/Unix_time</a></p>
 <p><code>eta</code></p>
@@ -1301,6 +1337,11 @@
 </thead>
 <tbody>
 <tr>
+<td><code>image</code></td>
+<td>string</td>
+<td>Optional</td>
+</tr>
+<tr>
 <td><code>name</code></td>
 <td>string</td>
 <td>Optional</td>
@@ -1312,6 +1353,20 @@
 </tr>
 </tbody>
 </table>
+<h4 id="image-2">image <a class="heading-anchor-permalink" href="#image-2">#</a></h4>
+<p>Uniform resource locator, see <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Locator">https://en.wikipedia.org/wiki/Uniform_Resource_Locator</a> and
+<a href="https://mathiasbynens.be/demo/url-regex">https://mathiasbynens.be/demo/url-regex</a></p>
+<p><code>image</code></p>
+<ul>
+<li>is optional</li>
+<li>type: url</li>
+</ul>
+<h5 id="image-type-2">image Type <a class="heading-anchor-permalink" href="#image-type-2">#</a></h5>
+<p><code>string</code></p>
+<p>All instances must conform to this regular expression (test examples
+<a href="https://regexr.com/?expression=%5E(https%3F%7Cftp)%3A%5C%2F%5C%2F%5B%5E%5Cs%2F%24.%3F%23%5D.%5B%5E%5Cs%5D*%24">here</a>):</p>
+<pre><code class="language-regex">^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$
+</code></pre>
 <h4 id="name-2">name <a class="heading-anchor-permalink" href="#name-2">#</a></h4>
 <p><code>name</code></p>
 <ul>
