@@ -1,4 +1,5 @@
 language: node_js
+version: 1.0
 node_js: "12"
 cache:
   directories:
@@ -32,6 +33,7 @@ jobs:
         - yarn gh-pages -o origin-pages
       deploy:
         provider: npm
+        edge: true
         email: tech@maas.global
         skip_cleanup: true
         api_key: $NPM_TOKEN
