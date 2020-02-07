@@ -21,6 +21,13 @@
     "image": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
     },
+    "vendor": {
+      "type": "object",
+      "description": "Some fields have a vendor specific format, but appear in all, or most TSPs",
+      "properties": {
+        "voucher": {}
+      }
+    },
     "terms": {},
     "car": {
       "type": "object",
