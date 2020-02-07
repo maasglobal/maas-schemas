@@ -33,8 +33,9 @@ export const schemaId = 'http://maasglobal.com/tsp/bookings-ticket/response.json
 export type Response = t.Branded<
   {
     ticket?: string;
-    type?: string & ('html' | 'pdf' | 'svg');
-    contentType?: string & ('application/pdf' | 'image/svg+xml' | 'text/html');
+    type?: string & ('html' | 'pdf' | 'svg' | 'png');
+    contentType?: string &
+      ('application/pdf' | 'image/svg+xml' | 'image/png' | 'text/html');
     refreshAt?: Units_.Time;
   } & {
     ticket: Defined;
@@ -49,13 +50,19 @@ export const Response = t.brand(
       ticket: t.string,
       type: t.intersection([
         t.string,
-        t.union([t.literal('html'), t.literal('pdf'), t.literal('svg')]),
+        t.union([
+          t.literal('html'),
+          t.literal('pdf'),
+          t.literal('svg'),
+          t.literal('png'),
+        ]),
       ]),
       contentType: t.intersection([
         t.string,
         t.union([
           t.literal('application/pdf'),
           t.literal('image/svg+xml'),
+          t.literal('image/png'),
           t.literal('text/html'),
         ]),
       ]),
@@ -72,8 +79,9 @@ export const Response = t.brand(
   ): x is t.Branded<
     {
       ticket?: string;
-      type?: string & ('html' | 'pdf' | 'svg');
-      contentType?: string & ('application/pdf' | 'image/svg+xml' | 'text/html');
+      type?: string & ('html' | 'pdf' | 'svg' | 'png');
+      contentType?: string &
+        ('application/pdf' | 'image/svg+xml' | 'image/png' | 'text/html');
       refreshAt?: Units_.Time;
     } & {
       ticket: Defined;
