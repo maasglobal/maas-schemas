@@ -23,6 +23,7 @@ jobs:
       script:
         - yarn --cwd maas-schemas ci
         - yarn --cwd maas-schemas-ts ci
+        - node check-versions
     - stage: deploy
       script:
         - cd maas-schemas
