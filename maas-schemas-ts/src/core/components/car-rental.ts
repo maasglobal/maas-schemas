@@ -39,6 +39,9 @@ export type CarRental = t.Branded<
     name?: string;
     description?: string;
     image?: Units_.Url;
+    vendor?: {
+      voucher?: unknown;
+    };
     terms?: unknown;
     car?: {
       passengers?: number;
@@ -80,6 +83,9 @@ export const CarRental = t.brand(
       name: t.string,
       description: t.string,
       image: Units_.Url,
+      vendor: t.partial({
+        voucher: t.unknown,
+      }),
       terms: t.unknown,
       car: t.intersection([
         t.partial({
@@ -126,6 +132,9 @@ export const CarRental = t.brand(
       name?: string;
       description?: string;
       image?: Units_.Url;
+      vendor?: {
+        voucher?: unknown;
+      };
       terms?: unknown;
       car?: {
         passengers?: number;
