@@ -41,7 +41,6 @@ The value of this property **must** be equal to one of the [known values below](
 | ----------------- | ----------- |
 | `application/pdf` |             |
 | `image/svg+xml`   |             |
-| `image/png`       |             |
 | `text/html`       |             |
 
 ## refreshAt
@@ -90,4 +89,3 @@ The value of this property **must** be equal to one of the [known values below](
 | `html` |             |
 | `pdf`  |             |
 | `svg`  |             |
-| `png`  |             |
