@@ -267,6 +267,13 @@
         font-size: 0.9em;
       }
 
+      @media print {
+        #menu,
+        .menu-link {
+          display: none !important;
+        }
+      }
+
       a,
       a * {
         text-decoration: none;
@@ -1162,6 +1169,13 @@
 <td>MODE_TAXI (this schema)</td>
 </tr>
 <tr>
+<td><a href="#pickupidentificationcode">pickupIdentificationCode</a></td>
+<td><code>string</code></td>
+<td>Optional</td>
+<td>No</td>
+<td>MODE_TAXI (this schema)</td>
+</tr>
+<tr>
 <td><a href="#taxicenter">taxiCenter</a></td>
 <td><code>object</code></td>
 <td>Optional</td>
@@ -1199,6 +1213,7 @@
 </tbody>
 </table>
 <h2 id="dispatchorderid">dispatchOrderId <a class="heading-anchor-permalink" href="#dispatchorderid">#</a></h2>
+<p>An internal use only number identifying the dispatch id for inspection</p>
 <p><code>dispatchOrderId</code></p>
 <ul>
 <li>is optional</li>
@@ -1318,6 +1333,21 @@
 </ul>
 <h3 id="noshowreportedbydriver-type">noShowReportedByDriver Type <a class="heading-anchor-permalink" href="#noshowreportedbydriver-type">#</a></h3>
 <p><code>boolean</code></p>
+<h2 id="pickupidentificationcode">pickupIdentificationCode <a class="heading-anchor-permalink" href="#pickupidentificationcode">#</a></h2>
+<p>Any code that the user can show/tell to the driver to confirm legitimacy of the ride (name, letters, numbers - depends
+on the service provider)</p>
+<p><code>pickupIdentificationCode</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>string</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="pickupidentificationcode-type">pickupIdentificationCode Type <a class="heading-anchor-permalink" href="#pickupidentificationcode-type">#</a></h3>
+<p><code>string</code></p>
+<ul>
+<li>minimum length: 1 characters</li>
+<li>maximum length: 8 characters</li>
+</ul>
 <h2 id="taxicenter">taxiCenter <a class="heading-anchor-permalink" href="#taxicenter">#</a></h2>
 <p><code>taxiCenter</code></p>
 <ul>

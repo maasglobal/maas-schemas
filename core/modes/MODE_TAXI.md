@@ -18,19 +18,22 @@ Schema for MODE_TAXI meta field
 
 # MODE_TAXI Properties
 
-| Property                                          | Type      | Required | Nullable | Defined by              |
-| ------------------------------------------------- | --------- | -------- | -------- | ----------------------- |
-| [dispatchOrderId](#dispatchorderid)               | `string`  | Optional | No       | MODE_TAXI (this schema) |
-| [driver](#driver)                                 | `object`  | Optional | No       | MODE_TAXI (this schema) |
-| [eta](#eta)                                       | `integer` | Optional | No       | MODE_TAXI (this schema) |
-| [noShowReportedByDriver](#noshowreportedbydriver) | `boolean` | Optional | No       | MODE_TAXI (this schema) |
-| [taxiCenter](#taxicenter)                         | `object`  | Optional | No       | MODE_TAXI (this schema) |
-| [vehicleDescription](#vehicledescription)         | `string`  | Optional | No       | MODE_TAXI (this schema) |
-| [vehicleId](#vehicleid)                           | `string`  | Optional | No       | MODE_TAXI (this schema) |
-| [vehicleLocation](#vehiclelocation)               | `object`  | Optional | No       | MODE_TAXI (this schema) |
-| [vehicleType](#vehicletype)                       | `string`  | Optional | No       | MODE_TAXI (this schema) |
+| Property                                              | Type      | Required | Nullable | Defined by              |
+| ----------------------------------------------------- | --------- | -------- | -------- | ----------------------- |
+| [dispatchOrderId](#dispatchorderid)                   | `string`  | Optional | No       | MODE_TAXI (this schema) |
+| [driver](#driver)                                     | `object`  | Optional | No       | MODE_TAXI (this schema) |
+| [eta](#eta)                                           | `integer` | Optional | No       | MODE_TAXI (this schema) |
+| [noShowReportedByDriver](#noshowreportedbydriver)     | `boolean` | Optional | No       | MODE_TAXI (this schema) |
+| [pickupIdentificationCode](#pickupidentificationcode) | `string`  | Optional | No       | MODE_TAXI (this schema) |
+| [taxiCenter](#taxicenter)                             | `object`  | Optional | No       | MODE_TAXI (this schema) |
+| [vehicleDescription](#vehicledescription)             | `string`  | Optional | No       | MODE_TAXI (this schema) |
+| [vehicleId](#vehicleid)                               | `string`  | Optional | No       | MODE_TAXI (this schema) |
+| [vehicleLocation](#vehiclelocation)                   | `object`  | Optional | No       | MODE_TAXI (this schema) |
+| [vehicleType](#vehicletype)                           | `string`  | Optional | No       | MODE_TAXI (this schema) |
 
 ## dispatchOrderId
+
+An internal use only number identifying the dispatch id for inspection
 
 `dispatchOrderId`
 
@@ -153,6 +156,24 @@ POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time
 ### noShowReportedByDriver Type
 
 `boolean`
+
+## pickupIdentificationCode
+
+Any code that the user can show/tell to the driver to confirm legitimacy of the ride (name, letters, numbers - depends
+on the service provider)
+
+`pickupIdentificationCode`
+
+- is optional
+- type: `string`
+- defined in this schema
+
+### pickupIdentificationCode Type
+
+`string`
+
+- minimum length: 1 characters
+- maximum length: 8 characters
 
 ## taxiCenter
 
