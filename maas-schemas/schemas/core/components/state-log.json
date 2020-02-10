@@ -39,7 +39,7 @@
               "type": "string"
             },
             "errorCode": {
-              "oneOf": [{ "type": "string" }, { "type": "number" }]
+              "anyOf": [{ "type": "string" }, { "type": "number" }]
             }
           },
           "additionalProperties": true
