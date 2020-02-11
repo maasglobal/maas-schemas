@@ -52,7 +52,7 @@ export type BookingStateTransition = t.Branded<
     invalid?: boolean;
     reason?: {
       text?: string;
-      errorCode?: number;
+      errorCode?: string | number;
     };
   } & {
     newState: Defined;
@@ -70,7 +70,7 @@ export const BookingStateTransition = t.brand(
       invalid: t.boolean,
       reason: t.partial({
         text: t.string,
-        errorCode: t.number,
+        errorCode: t.union([t.string, t.number]),
       }),
     }),
     t.type({
@@ -89,7 +89,7 @@ export const BookingStateTransition = t.brand(
       invalid?: boolean;
       reason?: {
         text?: string;
-        errorCode?: number;
+        errorCode?: string | number;
       };
     } & {
       newState: Defined;
