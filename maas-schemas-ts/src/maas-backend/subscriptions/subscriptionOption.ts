@@ -36,6 +36,7 @@ export type SubscriptionAdditions = t.Branded<
   {
     discounts?: Array<unknown>;
     requiredAuthorizations?: Array<Common_.AgencyId>;
+    regionDefault?: boolean;
   } & {
     plan: Defined;
     wmpGrant: Defined;
@@ -43,6 +44,7 @@ export type SubscriptionAdditions = t.Branded<
     addons: Defined;
     coupons: Defined;
     requiredAuthorizations: Defined;
+    regionDefault: Defined;
   },
   SubscriptionAdditionsBrand
 >;
@@ -51,6 +53,7 @@ export const SubscriptionAdditions = t.brand(
     t.partial({
       discounts: t.UnknownArray,
       requiredAuthorizations: t.array(Common_.AgencyId),
+      regionDefault: t.boolean,
     }),
     t.type({
       plan: Defined,
@@ -59,6 +62,7 @@ export const SubscriptionAdditions = t.brand(
       addons: Defined,
       coupons: Defined,
       requiredAuthorizations: Defined,
+      regionDefault: Defined,
     }),
   ]),
   (
@@ -67,6 +71,7 @@ export const SubscriptionAdditions = t.brand(
     {
       discounts?: Array<unknown>;
       requiredAuthorizations?: Array<Common_.AgencyId>;
+      regionDefault?: boolean;
     } & {
       plan: Defined;
       wmpGrant: Defined;
@@ -74,6 +79,7 @@ export const SubscriptionAdditions = t.brand(
       addons: Defined;
       coupons: Defined;
       requiredAuthorizations: Defined;
+      regionDefault: Defined;
     },
     SubscriptionAdditionsBrand
   > => true,
