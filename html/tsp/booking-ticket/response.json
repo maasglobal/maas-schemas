@@ -11,7 +11,8 @@
             "enum": [
                 "html",
                 "pdf",
-                "svg"
+                "svg",
+                "png"
             ]
         },
         "contentType": {
@@ -19,6 +20,7 @@
             "enum": [
                 "application/pdf",
                 "image/svg+xml",
+                "image/png",
                 "text/html"
             ]
         },

@@ -29,6 +29,7 @@ Base schema for MODE_CAR\* metas
 | [returnInfo](#returninfo)                     | `string` | Optional     | No       | car-rental (this schema) |
 | [startEndGeoRegionUrl](#startendgeoregionurl) | `string` | Optional     | No       | car-rental (this schema) |
 | [terms](#terms)                               | complex  | Optional     | No       | car-rental (this schema) |
+| [vendor](#vendor)                             | `object` | Optional     | No       | car-rental (this schema) |
 
 ## car
 
@@ -378,6 +379,41 @@ All instances must conform to this regular expression (test examples
 - defined in this schema
 
 ### terms Type
+
+Unknown type ``.
+
+```json
+{
+  "simpletype": "complex"
+}
+```
+
+## vendor
+
+Some fields have a vendor specific format, but appear in all, or most TSPs
+
+`vendor`
+
+- is optional
+- type: `object`
+- defined in this schema
+
+### vendor Type
+
+`object` with following properties:
+
+| Property  | Type | Required |
+| --------- | ---- | -------- |
+| `voucher` |      | Optional |
+
+#### voucher
+
+`voucher`
+
+- is optional
+- type: complex
+
+##### voucher Type
 
 Unknown type ``.
 
