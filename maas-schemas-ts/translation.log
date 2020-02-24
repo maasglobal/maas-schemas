@@ -1511,6 +1511,8 @@ WARNING: minLength field not supported outside top-level definitions
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/vehicle/vehicle-alert/request.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-bookings-create/request.json
+INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-bookings-update/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-bookings-update/request.json

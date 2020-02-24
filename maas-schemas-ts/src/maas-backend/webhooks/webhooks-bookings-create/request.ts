@@ -10,7 +10,8 @@ Request schema for webhooks-bookings-create
 import * as t from 'io-ts';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as I18n_ from 'maas-schemas-ts/core/components/i18n';
-import * as Response_ from 'maas-schemas-ts/maas-backend/bookings/bookings-agency-options/response';
+import * as Booking_ from 'maas-schemas-ts/core/booking';
+import * as BookingMeta_ from 'maas-schemas-ts/core/booking-meta';
 import * as CustomerSelection_ from 'maas-schemas-ts/core/components/customerSelection';
 import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
 
@@ -40,7 +41,29 @@ export type Request = t.Branded<
     payload?: {
       identityId?: Units_.IdentityId;
       locale?: I18n_.Locale;
-      option?: Response_.Option;
+      option?: {
+        cost?: Booking_.Cost;
+        leg?: Booking_.Leg;
+        meta?: BookingMeta_.BookingMeta;
+        terms?: Booking_.Terms;
+        tspProduct?: {
+          id?: string;
+        };
+        configurator?: Booking_.Configurator;
+      } & (
+        | {
+            leg: Defined;
+            terms: Defined;
+            cost: Defined;
+            meta: Defined;
+          }
+        | {
+            leg: Defined;
+            terms: Defined;
+            cost: Defined;
+            meta: Defined;
+            configurator: Defined;
+          });
       customerSelection?: CustomerSelection_.CustomerSelection;
     } & {
       option: Defined;
@@ -60,7 +83,33 @@ export const Request = t.brand(
         t.partial({
           identityId: Units_.IdentityId,
           locale: I18n_.Locale,
-          option: Response_.Option,
+          option: t.intersection([
+            t.partial({
+              cost: Booking_.Cost,
+              leg: Booking_.Leg,
+              meta: BookingMeta_.BookingMeta,
+              terms: Booking_.Terms,
+              tspProduct: t.partial({
+                id: t.string,
+              }),
+              configurator: Booking_.Configurator,
+            }),
+            t.union([
+              t.type({
+                leg: Defined,
+                terms: Defined,
+                cost: Defined,
+                meta: Defined,
+              }),
+              t.type({
+                leg: Defined,
+                terms: Defined,
+                cost: Defined,
+                meta: Defined,
+                configurator: Defined,
+              }),
+            ]),
+          ]),
           customerSelection: CustomerSelection_.CustomerSelection,
         }),
         t.type({
@@ -82,7 +131,29 @@ export const Request = t.brand(
       payload?: {
         identityId?: Units_.IdentityId;
         locale?: I18n_.Locale;
-        option?: Response_.Option;
+        option?: {
+          cost?: Booking_.Cost;
+          leg?: Booking_.Leg;
+          meta?: BookingMeta_.BookingMeta;
+          terms?: Booking_.Terms;
+          tspProduct?: {
+            id?: string;
+          };
+          configurator?: Booking_.Configurator;
+        } & (
+          | {
+              leg: Defined;
+              terms: Defined;
+              cost: Defined;
+              meta: Defined;
+            }
+          | {
+              leg: Defined;
+              terms: Defined;
+              cost: Defined;
+              meta: Defined;
+              configurator: Defined;
+            });
         customerSelection?: CustomerSelection_.CustomerSelection;
       } & {
         option: Defined;
