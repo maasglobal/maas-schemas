@@ -13,7 +13,46 @@
           "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale"
         },
         "option": {
-          "$ref": "http://maasglobal.com/maas-backend/bookings/bookings-agency-options/response.json#/definitions/option"
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "cost": {
+                  "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
+                },
+                "leg": {
+                  "$ref": "http://maasglobal.com/core/booking.json#/definitions/leg"
+                },
+                "meta": {
+                  "$ref": "http://maasglobal.com/core/booking-meta.json"
+                },
+                "terms": {
+                  "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+                },
+                "tspProduct": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "configurator": {
+                  "$ref": "http://maasglobal.com/core/booking.json#/definitions/configurator"
+                }
+              }
+            },
+            {
+              "oneOf": [
+                {
+                  "required": ["leg", "terms", "cost", "meta"]
+                },
+                {
+                  "required": ["leg", "terms", "cost", "meta", "configurator"]
+                }
+              ]
+            }
+          ]
         },
         "customerSelection": {
           "$ref": "http://maasglobal.com/core/components/customerSelection.json"
