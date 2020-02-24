@@ -117,6 +117,20 @@
             }
           },
           "required": ["isSupported", "minIntervalUntilBooking", "maxIntervalUntilBooking"]
+        },
+        "searchRadius": {
+          "description": "Search radius constraints which should be met by clients",
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "integer"
+            },
+            "max": {
+              "type": "integer"
+            }
+          },
+          "additionalProperties": false,
+          "required": ["min", "max"]
         }
       },
       "additionalProperties": false

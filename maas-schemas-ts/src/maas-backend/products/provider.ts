@@ -75,6 +75,13 @@ export type Provider = t.Branded<
         minIntervalUntilBooking: Defined;
         maxIntervalUntilBooking: Defined;
       };
+      searchRadius?: {
+        min?: number;
+        max?: number;
+      } & {
+        min: Defined;
+        max: Defined;
+      };
     };
     personalDataOptionsAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
     personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
@@ -172,6 +179,16 @@ export const Provider = t.brand(
             isSupported: Defined,
             minIntervalUntilBooking: Defined,
             maxIntervalUntilBooking: Defined,
+          }),
+        ]),
+        searchRadius: t.intersection([
+          t.partial({
+            min: t.number,
+            max: t.number,
+          }),
+          t.type({
+            min: Defined,
+            max: Defined,
           }),
         ]),
       }),
@@ -278,6 +295,13 @@ export const Provider = t.brand(
           isSupported: Defined;
           minIntervalUntilBooking: Defined;
           maxIntervalUntilBooking: Defined;
+        };
+        searchRadius?: {
+          min?: number;
+          max?: number;
+        } & {
+          min: Defined;
+          max: Defined;
         };
       };
       personalDataOptionsAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
