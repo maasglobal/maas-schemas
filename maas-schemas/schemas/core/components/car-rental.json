@@ -72,7 +72,7 @@
         "registrationPlate": {
           "description": "Registration plate (e.g. if we know the actual car already)",
           "type": "string",
-          "pattern": "[A-Z\\-0-9]"
+          "regexp": "/^[\\p{L}\\p{N} -]+$/u"
         },
         "damage": {
           "description": "Any reported damages to the car (if available)",

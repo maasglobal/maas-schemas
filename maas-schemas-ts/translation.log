@@ -160,7 +160,7 @@ WARNING: maximum field not supported outside top-level definitions
   in ./core/components/car-rental.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/car-rental.json
-WARNING: pattern field not supported outside top-level definitions
+WARNING: regexp field not supported outside top-level definitions
   in ./core/components/car-rental.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/car-rental.json
