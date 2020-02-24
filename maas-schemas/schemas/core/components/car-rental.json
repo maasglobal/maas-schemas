@@ -67,7 +67,14 @@
           "enum": ["diesel", "electric", "ethanol", "gasoline", "hybrid", "hydrogen", "lpg", "multifuel", null]
         },
         "classification": {
-          "oneOf": [{ "$ref": "http://maasglobal.com/core/components/ACRISS.json" }, { "type": "null" }]
+          "oneOf": [
+            {
+              "$ref": "http://maasglobal.com/core/components/ACRISS.json"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "registrationPlate": {
           "description": "Registration plate (e.g. if we know the actual car already)",
@@ -104,8 +111,43 @@
     "startEndGeoRegionUrl": {
       "description": "Region in which car can be rented and returned. Url to GeoJSON file",
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+    },
+    "instructions": {
+      "description": "Additional instruction sections displayed for booking",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/instruction"
+      }
     }
   },
   "required": ["name", "description", "image"],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "definitions": {
+    "instruction": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "icon": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+        },
+        "text": {
+          "type": "string"
+        },
+        "image": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+        }
+      },
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "required": ["title", "text"]
+        },
+        {
+          "required": ["title", "image"]
+        }
+      ]
+    }
+  }
 }

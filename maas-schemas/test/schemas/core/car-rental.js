@@ -13,3 +13,13 @@ describe('car-rental.registrationPlate', () => {
 
   generateTestCases(schema.properties.car.properties.registrationPlate, false, ['', '💩']);
 });
+
+describe('car-rental.instruction', () => {
+  generateTestCases(schema.definitions.instruction, true, [
+    { title: 'TITLE', text: 'DESCRIPTION' },
+    { title: 'TITLE', image: 'http://maasglobal.com/image.jpg' },
+    { title: 'TITLE', image: 'http://maasglobal.com/image.jpg', icon: 'http://maasglobal.com/image.jpg' },
+  ]);
+
+  generateTestCases(schema.definitions.instruction, false, [{ title: 'TITLE' }]);
+});
