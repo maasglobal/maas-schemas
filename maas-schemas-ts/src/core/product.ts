@@ -43,6 +43,32 @@ export interface IdBrand {
   readonly Id: unique symbol;
 }
 
+// Features
+// The purpose of this remains a mystery
+export type Features = t.Branded<
+  {
+    activationByUser?: boolean;
+  },
+  FeaturesBrand
+>;
+export const Features = t.brand(
+  t.partial({
+    activationByUser: t.boolean,
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      activationByUser?: boolean;
+    },
+    FeaturesBrand
+  > => true,
+  'Features',
+);
+export interface FeaturesBrand {
+  readonly Features: unique symbol;
+}
+
 // PreAuthBuffer
 // The purpose of this remains a mystery
 export type PreAuthBuffer = t.Branded<
@@ -84,6 +110,7 @@ export type Product = t.Branded<
     agencyId?: Common_.AgencyId;
     tspProductId?: string;
     allowFinishTrip?: boolean;
+    features?: Features;
     preAuthBuffer?: PreAuthBuffer;
   } & {
     id: Defined;
@@ -103,6 +130,7 @@ export const Product = t.brand(
       agencyId: Common_.AgencyId,
       tspProductId: t.string,
       allowFinishTrip: t.boolean,
+      features: Features,
       preAuthBuffer: PreAuthBuffer,
     }),
     t.type({
@@ -123,6 +151,7 @@ export const Product = t.brand(
       agencyId?: Common_.AgencyId;
       tspProductId?: string;
       allowFinishTrip?: boolean;
+      features?: Features;
       preAuthBuffer?: PreAuthBuffer;
     } & {
       id: Defined;

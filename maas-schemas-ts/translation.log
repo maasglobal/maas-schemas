@@ -860,6 +860,8 @@ INFO: missing description
   in ./core/product.json
 INFO: missing description
   in ./core/product.json
+INFO: missing description
+  in ./core/product.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./core/product-option.json
 WARNING: minimum field not supported outside top-level definitions
