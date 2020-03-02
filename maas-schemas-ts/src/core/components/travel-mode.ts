@@ -9,14 +9,110 @@ Transfer modes used for MaaS internal services
 
 import * as t from 'io-ts';
 
+export type WaitingMode_WAIT = 'WAIT';
+export const WaitingMode_WAIT = t.literal('WAIT');
+export const waitingMode_WAIT: WaitingMode_WAIT = 'WAIT';
+
+export type TransferMode_LEG_SWITCH = 'LEG_SWITCH';
+export const TransferMode_LEG_SWITCH = t.literal('LEG_SWITCH');
+export const transferMode_LEG_SWITCH: TransferMode_LEG_SWITCH = 'LEG_SWITCH';
+
+export type TransferMode_TRANSFER = 'TRANSFER';
+export const TransferMode_TRANSFER = t.literal('TRANSFER');
+export const transferMode_TRANSFER: TransferMode_TRANSFER = 'TRANSFER';
+
+export type PersonalMode_BICYCLE = 'BICYCLE';
+export const PersonalMode_BICYCLE = t.literal('BICYCLE');
+export const personalMode_BICYCLE: PersonalMode_BICYCLE = 'BICYCLE';
+
+export type PersonalMode_CAR = 'CAR';
+export const PersonalMode_CAR = t.literal('CAR');
+export const personalMode_CAR: PersonalMode_CAR = 'CAR';
+
+export type PersonalMode_SCOOTER = 'SCOOTER';
+export const PersonalMode_SCOOTER = t.literal('SCOOTER');
+export const personalMode_SCOOTER: PersonalMode_SCOOTER = 'SCOOTER';
+
+export type PersonalMode_SHARED_BICYCLE = 'SHARED_BICYCLE';
+export const PersonalMode_SHARED_BICYCLE = t.literal('SHARED_BICYCLE');
+export const personalMode_SHARED_BICYCLE: PersonalMode_SHARED_BICYCLE = 'SHARED_BICYCLE';
+
+export type PersonalMode_WALK = 'WALK';
+export const PersonalMode_WALK = t.literal('WALK');
+export const personalMode_WALK: PersonalMode_WALK = 'WALK';
+
+export type PublicTransitMode_AEROPLANE = 'AEROPLANE';
+export const PublicTransitMode_AEROPLANE = t.literal('AEROPLANE');
+export const publicTransitMode_AEROPLANE: PublicTransitMode_AEROPLANE = 'AEROPLANE';
+
+export type PublicTransitMode_BUS = 'BUS';
+export const PublicTransitMode_BUS = t.literal('BUS');
+export const publicTransitMode_BUS: PublicTransitMode_BUS = 'BUS';
+
+export type PublicTransitMode_FERRY = 'FERRY';
+export const PublicTransitMode_FERRY = t.literal('FERRY');
+export const publicTransitMode_FERRY: PublicTransitMode_FERRY = 'FERRY';
+
+export type PublicTransitMode_RAIL = 'RAIL';
+export const PublicTransitMode_RAIL = t.literal('RAIL');
+export const publicTransitMode_RAIL: PublicTransitMode_RAIL = 'RAIL';
+
+export type PublicTransitMode_SUBWAY = 'SUBWAY';
+export const PublicTransitMode_SUBWAY = t.literal('SUBWAY');
+export const publicTransitMode_SUBWAY: PublicTransitMode_SUBWAY = 'SUBWAY';
+
+export type PublicTransitMode_TRAIN = 'TRAIN';
+export const PublicTransitMode_TRAIN = t.literal('TRAIN');
+export const publicTransitMode_TRAIN: PublicTransitMode_TRAIN = 'TRAIN';
+
+export type PublicTransitMode_TRAM = 'TRAM';
+export const PublicTransitMode_TRAM = t.literal('TRAM');
+export const publicTransitMode_TRAM: PublicTransitMode_TRAM = 'TRAM';
+
+export type PublicTransitMode_TRANSIT = 'TRANSIT';
+export const PublicTransitMode_TRANSIT = t.literal('TRANSIT');
+export const publicTransitMode_TRANSIT: PublicTransitMode_TRANSIT = 'TRANSIT';
+
+export type PrivateTransitMode_BUSISH = 'BUSISH';
+export const PrivateTransitMode_BUSISH = t.literal('BUSISH');
+export const privateTransitMode_BUSISH: PrivateTransitMode_BUSISH = 'BUSISH';
+
+export type PrivateTransitMode_CABLE_CAR = 'CABLE_CAR';
+export const PrivateTransitMode_CABLE_CAR = t.literal('CABLE_CAR');
+export const privateTransitMode_CABLE_CAR: PrivateTransitMode_CABLE_CAR = 'CABLE_CAR';
+
+export type PrivateTransitMode_CAR = 'CAR';
+export const PrivateTransitMode_CAR = t.literal('CAR');
+export const privateTransitMode_CAR: PrivateTransitMode_CAR = 'CAR';
+
+export type PrivateTransitMode_FUNICULAR = 'FUNICULAR';
+export const PrivateTransitMode_FUNICULAR = t.literal('FUNICULAR');
+export const privateTransitMode_FUNICULAR: PrivateTransitMode_FUNICULAR = 'FUNICULAR';
+
+export type PrivateTransitMode_GONDOLA = 'GONDOLA';
+export const PrivateTransitMode_GONDOLA = t.literal('GONDOLA');
+export const privateTransitMode_GONDOLA: PrivateTransitMode_GONDOLA = 'GONDOLA';
+
+export type PrivateTransitMode_SHARED_CAR = 'SHARED_CAR';
+export const PrivateTransitMode_SHARED_CAR = t.literal('SHARED_CAR');
+export const privateTransitMode_SHARED_CAR: PrivateTransitMode_SHARED_CAR = 'SHARED_CAR';
+
+export type PrivateTransitMode_TAXI = 'TAXI';
+export const PrivateTransitMode_TAXI = t.literal('TAXI');
+export const privateTransitMode_TAXI: PrivateTransitMode_TAXI = 'TAXI';
+
+export type PrivateTransitMode_TRAINISH = 'TRAINISH';
+export const PrivateTransitMode_TRAINISH = t.literal('TRAINISH');
+export const privateTransitMode_TRAINISH: PrivateTransitMode_TRAINISH = 'TRAINISH';
+
 export const schemaId = 'http://maasglobal.com/core/components/travel-mode.json';
 
 // WaitingMode
 // A mode that only involves waiting in the current location
-export type WaitingMode = t.Branded<string & 'WAIT', WaitingModeBrand>;
+export type WaitingMode = t.Branded<string & WaitingMode_WAIT, WaitingModeBrand>;
 export const WaitingMode = t.brand(
-  t.intersection([t.string, t.literal('WAIT')]),
-  (x): x is t.Branded<string & 'WAIT', WaitingModeBrand> => true,
+  t.intersection([t.string, WaitingMode_WAIT]),
+  (x): x is t.Branded<string & WaitingMode_WAIT, WaitingModeBrand> => true,
   'WaitingMode',
 );
 export interface WaitingModeBrand {
@@ -26,12 +122,17 @@ export interface WaitingModeBrand {
 // TransferMode
 // A mode that involves changing transports
 export type TransferMode = t.Branded<
-  string & ('LEG_SWITCH' | 'TRANSFER'),
+  string & (TransferMode_LEG_SWITCH | TransferMode_TRANSFER),
   TransferModeBrand
 >;
 export const TransferMode = t.brand(
-  t.intersection([t.string, t.union([t.literal('LEG_SWITCH'), t.literal('TRANSFER')])]),
-  (x): x is t.Branded<string & ('LEG_SWITCH' | 'TRANSFER'), TransferModeBrand> => true,
+  t.intersection([t.string, t.union([TransferMode_LEG_SWITCH, TransferMode_TRANSFER])]),
+  (
+    x,
+  ): x is t.Branded<
+    string & (TransferMode_LEG_SWITCH | TransferMode_TRANSFER),
+    TransferModeBrand
+  > => true,
   'TransferMode',
 );
 export interface TransferModeBrand {
@@ -41,24 +142,36 @@ export interface TransferModeBrand {
 // PersonalMode
 // A mode that involves using your personal vehicle or legs
 export type PersonalMode = t.Branded<
-  string & ('BICYCLE' | 'CAR' | 'SCOOTER' | 'SHARED_BICYCLE' | 'WALK'),
+  string &
+    (
+      | PersonalMode_BICYCLE
+      | PersonalMode_CAR
+      | PersonalMode_SCOOTER
+      | PersonalMode_SHARED_BICYCLE
+      | PersonalMode_WALK),
   PersonalModeBrand
 >;
 export const PersonalMode = t.brand(
   t.intersection([
     t.string,
     t.union([
-      t.literal('BICYCLE'),
-      t.literal('CAR'),
-      t.literal('SCOOTER'),
-      t.literal('SHARED_BICYCLE'),
-      t.literal('WALK'),
+      PersonalMode_BICYCLE,
+      PersonalMode_CAR,
+      PersonalMode_SCOOTER,
+      PersonalMode_SHARED_BICYCLE,
+      PersonalMode_WALK,
     ]),
   ]),
   (
     x,
   ): x is t.Branded<
-    string & ('BICYCLE' | 'CAR' | 'SCOOTER' | 'SHARED_BICYCLE' | 'WALK'),
+    string &
+      (
+        | PersonalMode_BICYCLE
+        | PersonalMode_CAR
+        | PersonalMode_SCOOTER
+        | PersonalMode_SHARED_BICYCLE
+        | PersonalMode_WALK),
     PersonalModeBrand
   > => true,
   'PersonalMode',
@@ -71,28 +184,44 @@ export interface PersonalModeBrand {
 // A mode that involves transit with fixed schedules
 export type PublicTransitMode = t.Branded<
   string &
-    ('AEROPLANE' | 'BUS' | 'FERRY' | 'RAIL' | 'SUBWAY' | 'TRAIN' | 'TRAM' | 'TRANSIT'),
+    (
+      | PublicTransitMode_AEROPLANE
+      | PublicTransitMode_BUS
+      | PublicTransitMode_FERRY
+      | PublicTransitMode_RAIL
+      | PublicTransitMode_SUBWAY
+      | PublicTransitMode_TRAIN
+      | PublicTransitMode_TRAM
+      | PublicTransitMode_TRANSIT),
   PublicTransitModeBrand
 >;
 export const PublicTransitMode = t.brand(
   t.intersection([
     t.string,
     t.union([
-      t.literal('AEROPLANE'),
-      t.literal('BUS'),
-      t.literal('FERRY'),
-      t.literal('RAIL'),
-      t.literal('SUBWAY'),
-      t.literal('TRAIN'),
-      t.literal('TRAM'),
-      t.literal('TRANSIT'),
+      PublicTransitMode_AEROPLANE,
+      PublicTransitMode_BUS,
+      PublicTransitMode_FERRY,
+      PublicTransitMode_RAIL,
+      PublicTransitMode_SUBWAY,
+      PublicTransitMode_TRAIN,
+      PublicTransitMode_TRAM,
+      PublicTransitMode_TRANSIT,
     ]),
   ]),
   (
     x,
   ): x is t.Branded<
     string &
-      ('AEROPLANE' | 'BUS' | 'FERRY' | 'RAIL' | 'SUBWAY' | 'TRAIN' | 'TRAM' | 'TRANSIT'),
+      (
+        | PublicTransitMode_AEROPLANE
+        | PublicTransitMode_BUS
+        | PublicTransitMode_FERRY
+        | PublicTransitMode_RAIL
+        | PublicTransitMode_SUBWAY
+        | PublicTransitMode_TRAIN
+        | PublicTransitMode_TRAM
+        | PublicTransitMode_TRANSIT),
     PublicTransitModeBrand
   > => true,
   'PublicTransitMode',
@@ -106,28 +235,28 @@ export interface PublicTransitModeBrand {
 export type PrivateTransitMode = t.Branded<
   string &
     (
-      | 'BUSISH'
-      | 'CABLE_CAR'
-      | 'CAR'
-      | 'FUNICULAR'
-      | 'GONDOLA'
-      | 'SHARED_CAR'
-      | 'TAXI'
-      | 'TRAINISH'),
+      | PrivateTransitMode_BUSISH
+      | PrivateTransitMode_CABLE_CAR
+      | PrivateTransitMode_CAR
+      | PrivateTransitMode_FUNICULAR
+      | PrivateTransitMode_GONDOLA
+      | PrivateTransitMode_SHARED_CAR
+      | PrivateTransitMode_TAXI
+      | PrivateTransitMode_TRAINISH),
   PrivateTransitModeBrand
 >;
 export const PrivateTransitMode = t.brand(
   t.intersection([
     t.string,
     t.union([
-      t.literal('BUSISH'),
-      t.literal('CABLE_CAR'),
-      t.literal('CAR'),
-      t.literal('FUNICULAR'),
-      t.literal('GONDOLA'),
-      t.literal('SHARED_CAR'),
-      t.literal('TAXI'),
-      t.literal('TRAINISH'),
+      PrivateTransitMode_BUSISH,
+      PrivateTransitMode_CABLE_CAR,
+      PrivateTransitMode_CAR,
+      PrivateTransitMode_FUNICULAR,
+      PrivateTransitMode_GONDOLA,
+      PrivateTransitMode_SHARED_CAR,
+      PrivateTransitMode_TAXI,
+      PrivateTransitMode_TRAINISH,
     ]),
   ]),
   (
@@ -135,14 +264,14 @@ export const PrivateTransitMode = t.brand(
   ): x is t.Branded<
     string &
       (
-        | 'BUSISH'
-        | 'CABLE_CAR'
-        | 'CAR'
-        | 'FUNICULAR'
-        | 'GONDOLA'
-        | 'SHARED_CAR'
-        | 'TAXI'
-        | 'TRAINISH'),
+        | PrivateTransitMode_BUSISH
+        | PrivateTransitMode_CABLE_CAR
+        | PrivateTransitMode_CAR
+        | PrivateTransitMode_FUNICULAR
+        | PrivateTransitMode_GONDOLA
+        | PrivateTransitMode_SHARED_CAR
+        | PrivateTransitMode_TAXI
+        | PrivateTransitMode_TRAINISH),
     PrivateTransitModeBrand
   > => true,
   'PrivateTransitMode',

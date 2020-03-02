@@ -16,6 +16,16 @@ WARNING: skipping examples handling for $ref object
   in ./core/booking.json
 WARNING: skipping default value handling for $ref object
   in ./core/booking.json
+WARNING: enum defined outside top-level definitions
+  in ./core/booking.json
+WARNING: enum defined outside top-level definitions
+  in ./core/booking.json
+WARNING: enum defined outside top-level definitions
+  in ./core/booking.json
+WARNING: enum defined outside top-level definitions
+  in ./core/booking.json
+WARNING: enum defined outside top-level definitions
+  in ./core/booking.json
 INFO: missing description
   in ./core/booking.json
 INFO: missing description
@@ -38,6 +48,8 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/booking-option.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/booking-option.json
+WARNING: enum defined outside top-level definitions
+  in ./core/booking-option.json
 INFO: missing description
   in ./core/booking-option.json
 INFO: missing description
@@ -49,6 +61,8 @@ INFO: primitive type "string" used outside top-level definitions
 WARNING: minLength field not supported outside top-level definitions
   in ./core/card.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./core/card.json
+WARNING: enum defined outside top-level definitions
   in ./core/card.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/card.json
@@ -56,9 +70,13 @@ WARNING: minimum field not supported outside top-level definitions
   in ./core/card.json
 WARNING: maximum field not supported outside top-level definitions
   in ./core/card.json
+WARNING: enum defined outside top-level definitions
+  in ./core/card.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/card.json
 WARNING: minimum field not supported outside top-level definitions
+  in ./core/card.json
+WARNING: enum defined outside top-level definitions
   in ./core/card.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/card.json
@@ -66,7 +84,11 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/card.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/card.json
+WARNING: enum defined outside top-level definitions
+  in ./core/card.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/card.json
+WARNING: enum defined outside top-level definitions
   in ./core/card.json
 WARNING: skipping examples handling for $ref object
   in ./core/components/address.json
@@ -98,21 +120,35 @@ INFO: missing description
   in ./core/components/api-common.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/authorization.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/authorization.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/bike-station.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/bike-station.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/bike-station.json
-INFO: primitive type "number" used outside top-level definitions
-  in ./core/components/bike-station.json
-WARNING: minimum field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/bike-station.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/bike-station.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/components/bike-station.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/bike-station.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/bike-station.json
 WARNING: minimum field not supported outside top-level definitions
+  in ./core/components/bike-station.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/bike-station.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./core/components/bike-station.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./core/components/bike-station.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/bike-station.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/bike-station.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/car-rental.json
@@ -120,23 +156,37 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/components/car-rental.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/components/car-rental.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/components/car-rental.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/car-rental.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/car-rental.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/car-rental.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: maximum field not supported outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: minItems field not supported outside top-level definitions
   in ./core/components/car-rental.json
@@ -148,6 +198,10 @@ WARNING: minimum field not supported outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: maximum field not supported outside top-level definitions
   in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/car-rental.json
 WARNING: minItems field not supported outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: maxItems field not supported outside top-level definitions
@@ -157,16 +211,32 @@ INFO: primitive type "integer" used outside top-level definitions
 WARNING: minimum field not supported outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: maximum field not supported outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/car-rental.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: pattern field not supported outside top-level definitions
   in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/car-rental.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/car-rental.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/car-rental.json
@@ -174,33 +244,39 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/car-rental.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/car-rental.json
 INFO: missing description
   in ./core/components/common.json
 INFO: missing description
   in ./core/components/common.json
 INFO: missing description
   in ./core/components/common.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/configurator.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/configurator.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/components/configurator.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/components/configurator.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/configurator.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/configurator.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/configurator.json
 WARNING: uniqueItems field not supported outside top-level definitions
   in ./core/components/configurator.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/components/configurator.json
-WARNING: minLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/configurator.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/configurator.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/components/configurator.json
-WARNING: maxLength field not supported outside top-level definitions
-  in ./core/components/configurator.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/configurator.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/configurator.json
@@ -208,21 +284,51 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/components/configurator.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/components/configurator.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/configurator.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/configurator.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/configurator.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/configurator.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/configurator.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/configurator.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/configurator.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/configurator.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/components/configurator.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./core/components/configurator.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/configurator.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/configurator.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/configurator.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/configurator.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/components/configurator.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/components/configurator.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/configurator.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/components/cost.json
 WARNING: multipleOf field not supported outside top-level definitions
   in ./core/components/cost.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/cost.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/components/cost.json
 WARNING: multipleOf field not supported outside top-level definitions
+  in ./core/components/cost.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/cost.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/cost.json
@@ -230,11 +336,19 @@ WARNING: minimum field not supported outside top-level definitions
   in ./core/components/cost.json
 WARNING: multipleOf field not supported outside top-level definitions
   in ./core/components/cost.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/cost.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/cost.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/components/cost.json
 WARNING: multipleOf field not supported outside top-level definitions
+  in ./core/components/cost.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/cost.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/cost.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/cost.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/customerSelection.json
@@ -242,29 +356,37 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/components/customerSelection.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/components/customerSelection.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/customerSelection.json
 WARNING: minimum field not supported outside top-level definitions
+  in ./core/components/fare.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/fare.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/fare.json
-WARNING: minimum field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/fare.json
 WARNING: minimum field not supported outside top-level definitions
+  in ./core/components/fare.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/fare.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./core/components/fare.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/fare.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/fare.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/fare.json
 INFO: missing description
   in ./core/components/fare.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/geolocation.json
-WARNING: minLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/geolocation.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/geolocation.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/components/geolocation.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/components/geolocation.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/geolocation.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/geolocation.json
@@ -272,11 +394,7 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/components/geolocation.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/components/geolocation.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/components/geolocation.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/components/geolocation.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/geolocation.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/geolocation.json
@@ -284,11 +402,39 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/components/geolocation.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/components/geolocation.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/geolocation.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/geolocation.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/components/geolocation.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./core/components/geolocation.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/components/geolocation.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/components/geolocation.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/components/geolocation.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/geolocation.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./core/components/geolocation.json
@@ -296,6 +442,8 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/components/geolocation.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/components/geolocation.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/geolocation.json
 INFO: missing description
   in ./core/components/geolocation.json
 INFO: missing description
@@ -306,11 +454,31 @@ INFO: missing description
   in ./core/components/geolocation.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/geometry.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/geometry.json
-WARNING: minItems field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/geometry.json
 WARNING: minItems field not supported outside top-level definitions
+  in ./core/components/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/geometry.json
+WARNING: minItems field not supported outside top-level definitions
+  in ./core/components/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/geometry.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/geometry.json
 INFO: missing description
   in ./core/components/i18n.json
@@ -320,85 +488,147 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/components/payment-parameters.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/components/payment-parameters.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/payment-parameters.json
 INFO: missing description
   in ./core/components/payment-parameters.json
 INFO: missing description
   in ./core/components/payment-parameters.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/personalDataAllowItem.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/personalDataAllowItem.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/components/personalDataAllowItem.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/personalDataAllowItem.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/personalDataAllowItem.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/place.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/components/place.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/components/place.json
-WARNING: maxLength field not supported outside top-level definitions
-  in ./core/components/place.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/components/place.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/components/place.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/place.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/place.json
@@ -406,17 +636,55 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/components/place.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/components/place.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/place.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/place.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/components/place.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/components/place.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/place.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/place.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/components/place.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/components/place.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/place.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/place.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/components/place.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/components/place.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/place.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/place.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/place.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/state-log.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/state-log.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/state-log.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/state-log.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/state-log.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/state-log.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/state-log.json
 INFO: primitive type "number" used outside top-level definitions
+  in ./core/components/state-log.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/state-log.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/state-log.json
 INFO: missing description
   in ./core/components/state-log.json
@@ -444,19 +712,39 @@ WARNING: skipping default value handling for $ref object
   in ./core/components/station.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/station.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/station.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/station.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/station.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/station.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/station.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/station.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/station.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/station.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/station.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/station.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/station.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/station.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/station.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/station.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/station.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/station.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/station.json
 INFO: missing description
   in ./core/components/station.json
@@ -476,7 +764,11 @@ INFO: missing description
   in ./core/components/station.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/subscriptionChangeState.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/subscriptionChangeState.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/subscriptionChangeState.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/subscriptionChangeState.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/terms.json
@@ -484,13 +776,31 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/components/terms.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/terms.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/components/terms.json
 WARNING: multipleOf field not supported outside top-level definitions
   in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
 INFO: primitive type "number" used outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/terms.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/terms.json
@@ -498,11 +808,15 @@ WARNING: minimum field not supported outside top-level definitions
   in ./core/components/terms.json
 WARNING: multipleOf field not supported outside top-level definitions
   in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/terms.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/components/terms.json
 WARNING: multipleOf field not supported outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/terms.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/terms.json
@@ -510,23 +824,59 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/components/terms.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/terms.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/components/terms.json
 WARNING: multipleOf field not supported outside top-level definitions
   in ./core/components/terms.json
-INFO: primitive type "number" used outside top-level definitions
-  in ./core/components/terms.json
-WARNING: minimum field not supported outside top-level definitions
-  in ./core/components/terms.json
-WARNING: multipleOf field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/components/terms.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/terms.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/components/terms.json
 WARNING: multipleOf field not supported outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./core/components/terms.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./core/components/terms.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
+  in ./core/components/terms.json
+WARNING: enum defined outside top-level definitions
   in ./core/components/terms.json
 INFO: missing description
   in ./core/components/terms.json
@@ -538,19 +888,49 @@ INFO: missing description
   in ./core/components/units.json
 INFO: missing description
   in ./core/components/units.json
+WARNING: enum defined outside top-level definitions
+  in ./core/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./core/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./core/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./core/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./core/customer.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./core/customer.json
 WARNING: minimum field not supported outside top-level definitions
+  in ./core/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./core/customer.json
+WARNING: enum defined outside top-level definitions
   in ./core/customer.json
 WARNING: patternProperty support has limitations
   in ./core/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./core/customer.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./core/customer.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./core/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./core/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./core/customer.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./core/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./core/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./core/customer.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/customer.json
+WARNING: enum defined outside top-level definitions
   in ./core/customer.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/error.json
@@ -558,24 +938,50 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/error.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/error.json
+WARNING: enum defined outside top-level definitions
+  in ./core/error.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/error.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/error.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/error.json
+WARNING: enum defined outside top-level definitions
+  in ./core/error.json
+WARNING: enum defined outside top-level definitions
+  in ./core/iot-thing-shadow.json
+WARNING: enum defined outside top-level definitions
+  in ./core/iot-thing-shadow.json
+WARNING: enum defined outside top-level definitions
+  in ./core/iot-thing-shadow.json
+WARNING: enum defined outside top-level definitions
+  in ./core/iot-thing-shadow.json
 WARNING: skipping examples handling for $ref object
   in ./core/itinerary.json
 WARNING: skipping default value handling for $ref object
+  in ./core/itinerary.json
+WARNING: enum defined outside top-level definitions
   in ./core/itinerary.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/itinerary.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/itinerary.json
-WARNING: minItems field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
+  in ./core/itinerary.json
+WARNING: enum defined outside top-level definitions
   in ./core/itinerary.json
 WARNING: minItems field not supported outside top-level definitions
   in ./core/itinerary.json
+WARNING: enum defined outside top-level definitions
+  in ./core/itinerary.json
+WARNING: minItems field not supported outside top-level definitions
+  in ./core/itinerary.json
+WARNING: enum defined outside top-level definitions
+  in ./core/itinerary.json
+WARNING: enum defined outside top-level definitions
+  in ./core/itinerary.json
+WARNING: enum defined outside top-level definitions
+  in ./core/itinerary.json
 INFO: missing description
   in ./core/itinerary.json
 WARNING: skipping examples handling for $ref object
@@ -618,6 +1024,8 @@ WARNING: skipping examples handling for $ref object
   in ./core/leg.json
 WARNING: skipping default value handling for $ref object
   in ./core/leg.json
+WARNING: enum defined outside top-level definitions
+  in ./core/leg.json
 INFO: missing description
   in ./core/leg.json
 INFO: missing description
@@ -658,11 +1066,21 @@ INFO: missing description
   in ./core/leg.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/modes/MODE_BICYCLE.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/modes/MODE_BICYCLE.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/modes/MODE_BICYCLE.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_BICYCLE.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/modes/MODE_BICYCLE.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/modes/MODE_BICYCLE.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_BICYCLE.json
+WARNING: enum defined outside top-level definitions
   in ./core/modes/MODE_BICYCLE.json
 WARNING: skipping examples handling for $ref object
   in ./core/modes/MODE_CAR.json
@@ -670,17 +1088,41 @@ WARNING: skipping default value handling for $ref object
   in ./core/modes/MODE_CAR.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/modes/MODE_RAIL.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_RAIL.json
+WARNING: enum defined outside top-level definitions
   in ./core/modes/MODE_RAIL.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/modes/MODE_RAIL.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_RAIL.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_RAIL.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/modes/MODE_RAIL.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_RAIL.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/modes/MODE_RAIL.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_RAIL.json
+WARNING: enum defined outside top-level definitions
   in ./core/modes/MODE_RAIL.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/modes/MODE_SCOOTER.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_SCOOTER.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_SCOOTER.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/modes/MODE_SHARED_BICYCLE.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_SHARED_BICYCLE.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/modes/MODE_SHARED_BICYCLE.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_SHARED_BICYCLE.json
+WARNING: enum defined outside top-level definitions
   in ./core/modes/MODE_SHARED_BICYCLE.json
 WARNING: skipping examples handling for $ref object
   in ./core/modes/MODE_SHARED_CAR.json
@@ -692,11 +1134,9 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/modes/MODE_TAXI.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/modes/MODE_TAXI.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/modes/MODE_TAXI.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/modes/MODE_TAXI.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/modes/MODE_TAXI.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/modes/MODE_TAXI.json
@@ -704,21 +1144,33 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/modes/MODE_TAXI.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/modes/MODE_TAXI.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/modes/MODE_TAXI.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/modes/MODE_TAXI.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/modes/MODE_TAXI.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./core/modes/MODE_TAXI.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/modes/MODE_TAXI.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/modes/MODE_TAXI.json
+WARNING: enum defined outside top-level definitions
   in ./core/modes/MODE_TAXI.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/modes/MODE_TAXI.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/modes/MODE_TAXI.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/modes/MODE_TAXI.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/modes/MODE_TAXI.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/modes/MODE_TAXI.json
@@ -726,21 +1178,43 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/modes/MODE_TAXI.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/modes/MODE_TAXI.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_TAXI.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/modes/MODE_TAXI.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/modes/MODE_TAXI.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./core/modes/MODE_TAXI.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/modes/MODE_TAXI.json
+WARNING: enum defined outside top-level definitions
+  in ./core/modes/MODE_TAXI.json
+WARNING: enum defined outside top-level definitions
   in ./core/modes/MODE_TAXI.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/partialFavoriteLocation.json
+WARNING: enum defined outside top-level definitions
+  in ./core/partialFavoriteLocation.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/partialFavoriteLocation.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/partialFavoriteLocation.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/partialFavoriteLocation.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/partialFavoriteLocation.json
+WARNING: enum defined outside top-level definitions
+  in ./core/partialFavoriteLocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/partialFavoriteLocation.json
+WARNING: enum defined outside top-level definitions
   in ./core/partialFavoriteLocation.json
 INFO: missing description
   in ./core/partialFavoriteLocation.json
@@ -750,19 +1224,11 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/paymentSource.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/paymentSource.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/paymentSource.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/paymentSource.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/paymentSource.json
-WARNING: maxLength field not supported outside top-level definitions
-  in ./core/paymentSource.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/paymentSource.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/paymentSource.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/paymentSource.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/paymentSource.json
@@ -770,11 +1236,33 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/paymentSource.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/paymentSource.json
+WARNING: enum defined outside top-level definitions
+  in ./core/paymentSource.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/paymentSource.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/paymentSource.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./core/paymentSource.json
+WARNING: enum defined outside top-level definitions
+  in ./core/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/paymentSource.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/paymentSource.json
+WARNING: enum defined outside top-level definitions
+  in ./core/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/paymentSource.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/paymentSource.json
+WARNING: enum defined outside top-level definitions
+  in ./core/paymentSource.json
+WARNING: enum defined outside top-level definitions
   in ./core/paymentSource.json
 INFO: missing description
   in ./core/plan.json
@@ -788,11 +1276,7 @@ WARNING: minimum field not supported outside top-level definitions
   in ./core/product.json
 WARNING: multipleOf field not supported outside top-level definitions
   in ./core/product.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/product.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/product.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/product.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/product.json
@@ -800,21 +1284,39 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/product.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/product.json
+WARNING: enum defined outside top-level definitions
+  in ./core/product.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/product.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/product.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./core/product.json
+WARNING: enum defined outside top-level definitions
+  in ./core/product.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/product.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/product.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/product.json
+WARNING: enum defined outside top-level definitions
   in ./core/product.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./core/product.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/product.json
+WARNING: enum defined outside top-level definitions
+  in ./core/product.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/product.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/product.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./core/product.json
+WARNING: enum defined outside top-level definitions
+  in ./core/product.json
+WARNING: enum defined outside top-level definitions
   in ./core/product.json
 INFO: missing description
   in ./core/product.json
@@ -824,19 +1326,21 @@ INFO: primitive type "integer" used outside top-level definitions
   in ./core/product-option.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/product-option.json
+WARNING: enum defined outside top-level definitions
+  in ./core/product-option.json
+WARNING: enum defined outside top-level definitions
+  in ./core/product-option.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./core/product-option.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/product-option.json
+WARNING: enum defined outside top-level definitions
+  in ./core/product-option.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./core/profile.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/profile.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/profile.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/profile.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/profile.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/profile.json
@@ -844,49 +1348,67 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/profile.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/profile.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/profile.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/profile.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/profile.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/profile.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/profile.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
   in ./core/profile.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./core/profile.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/profile.json
-INFO: primitive type "integer" used outside top-level definitions
-  in ./core/profile.json
-WARNING: minimum field not supported outside top-level definitions
-  in ./core/profile.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/profile.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./core/profile.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./core/profile.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/profile.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/profile.json
-WARNING: minLength field not supported outside top-level definitions
+INFO: primitive type "integer" used outside top-level definitions
   in ./core/profile.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: minimum field not supported outside top-level definitions
   in ./core/profile.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/profile.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/profile.json
-WARNING: maxLength field not supported outside top-level definitions
-  in ./core/profile.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./core/profile.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/profile.json
@@ -894,11 +1416,45 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/profile.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/profile.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/profile.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
+  in ./core/profile.json
+WARNING: enum defined outside top-level definitions
   in ./core/profile.json
 INFO: missing description
   in ./core/profile.json
@@ -908,12 +1464,28 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/region.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/region.json
+WARNING: enum defined outside top-level definitions
+  in ./core/region.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/region.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/region.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/region.json
+WARNING: enum defined outside top-level definitions
+  in ./core/region.json
+WARNING: enum defined outside top-level definitions
+  in ./core/region.json
+WARNING: enum defined outside top-level definitions
+  in ./core/stop.json
+WARNING: enum defined outside top-level definitions
+  in ./environments/environments.json
+WARNING: enum defined outside top-level definitions
+  in ./environments/environments.json
+WARNING: enum defined outside top-level definitions
+  in ./environments/environments.json
+WARNING: enum defined outside top-level definitions
+  in ./environments/environments.json
 INFO: missing description
   in ./environments/environments.json
 INFO: missing description
@@ -936,11 +1508,31 @@ INFO: missing description
   in ./environments/environments.json
 INFO: primitive type "number" used outside top-level definitions
   in ./geojson/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./geojson/geometry.json
 INFO: primitive type "number" used outside top-level definitions
   in ./geojson/geometry.json
-WARNING: minItems field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./geojson/geometry.json
 WARNING: minItems field not supported outside top-level definitions
+  in ./geojson/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./geojson/geometry.json
+WARNING: minItems field not supported outside top-level definitions
+  in ./geojson/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./geojson/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./geojson/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./geojson/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./geojson/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./geojson/geometry.json
+WARNING: enum defined outside top-level definitions
+  in ./geojson/geometry.json
+WARNING: enum defined outside top-level definitions
   in ./geojson/geometry.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/auth/auth-sms-login/request.json
@@ -950,6 +1542,12 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/auth/auth-sms-login/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/auth/auth-sms-login/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/auth/auth-sms-login/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/auth/auth-sms-login/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/auth/auth-sms-request-code/request.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/autocomplete/autocomplete-query/request.json
 WARNING: minimum field not supported outside top-level definitions
@@ -958,15 +1556,47 @@ WARNING: maximum field not supported outside top-level definitions
   in ./maas-backend/autocomplete/autocomplete-query/request.json
 WARNING: default field not supported outside top-level definitions
   in ./maas-backend/autocomplete/autocomplete-query/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/autocomplete/autocomplete-query/request.json
 WARNING: default field not supported outside top-level definitions
+  in ./maas-backend/autocomplete/autocomplete-query/request.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/autocomplete/autocomplete-query/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/autocomplete/autocomplete-query/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/autocomplete/autocomplete-query/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/autocomplete/autocomplete-query/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/autocomplete/autocomplete-query/response.json
 WARNING: patternProperty support has limitations
+  in ./maas-backend/bookings/bookings-agency-options/request.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/bookings/bookings-agency-options/request.json
 INFO: missing description
   in ./maas-backend/bookings/bookings-agency-options/request.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-options/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-options/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-options/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-options/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-options/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-options/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-options/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-options/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-options/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-options/response.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/bookings/bookings-agency-options/response.json
 INFO: missing description
   in ./maas-backend/bookings/bookings-agency-options/response.json
@@ -978,11 +1608,7 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/bookings/bookings-agency-products/response.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/bookings/bookings-agency-products/response.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./maas-backend/bookings/bookings-agency-products/response.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./maas-backend/bookings/bookings-agency-products/response.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/bookings/bookings-agency-products/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/bookings/bookings-agency-products/response.json
@@ -990,61 +1616,151 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/bookings/bookings-agency-products/response.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/bookings/bookings-agency-products/response.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./maas-backend/bookings/bookings-agency-products/response.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./maas-backend/bookings/bookings-agency-products/response.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/bookings/bookings-agency-products/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/bookings/bookings-agency-products/response.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/bookings/bookings-agency-products/response.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-products/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-products/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-products/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-products/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-products/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-products/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-products/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-products/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-products/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-products/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-products/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-agency-products/response.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/bookings/bookings-agency-products/response.json
 INFO: missing description
   in ./maas-backend/bookings/bookings-agency-products/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-create/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-create/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/bookings/bookings-list/request.json
 WARNING: pattern field not supported outside top-level definitions
   in ./maas-backend/bookings/bookings-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-list/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/bookings/bookings-list/request.json
 WARNING: pattern field not supported outside top-level definitions
+  in ./maas-backend/bookings/bookings-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-list/request.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/bookings/bookings-list/request.json
 WARNING: minItems field not supported outside top-level definitions
   in ./maas-backend/bookings/bookings-list/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-list/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-list/response.json
 WARNING: default field not supported outside top-level definitions
   in ./maas-backend/bookings/bookings-retrieve/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-retrieve/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-retrieve/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/bookings-update/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/v2/bookings-create/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/v2/bookings-create/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/bookings/v2/bookings-create/response.json
 INFO: missing description
   in ./maas-backend/booking-option-create/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/booking-option-create/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/booking-option-create/response.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/booking-option-create/response.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/booking-option-create/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/booking-option-create/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/booking-option-create/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/booking-option-create/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/customer.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/customers/customer.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./maas-backend/customers/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/customer.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/customer.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/customers/customer.json
 INFO: primitive type "number" used outside top-level definitions
   in ./maas-backend/customers/favorite-locations/delete/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/favorite-locations/delete/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/favorite-locations/list/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/favorite-locations/list/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/favorite-locations/list/response.json
 INFO: primitive type "number" used outside top-level definitions
   in ./maas-backend/customers/favorite-locations/update/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/favorite-locations/update/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/favorite-locations/update/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/favorite-locations/update/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/payment-sources/create/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/customers/payment-sources/create/request.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./maas-backend/customers/payment-sources/create/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/create/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/create/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/create/request.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/customers/payment-sources/create/request.json
 INFO: primitive type "number" used outside top-level definitions
   in ./maas-backend/customers/payment-sources/paymentSource.json
 WARNING: minimum field not supported outside top-level definitions
   in ./maas-backend/customers/payment-sources/paymentSource.json
 WARNING: multipleOf field not supported outside top-level definitions
+  in ./maas-backend/customers/payment-sources/paymentSource.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/customers/payment-sources/paymentSource.json
 INFO: primitive type "number" used outside top-level definitions
   in ./maas-backend/customers/payment-sources/paymentSource.json
@@ -1054,15 +1770,23 @@ WARNING: maximum field not supported outside top-level definitions
   in ./maas-backend/customers/payment-sources/paymentSource.json
 WARNING: multipleOf field not supported outside top-level definitions
   in ./maas-backend/customers/payment-sources/paymentSource.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./maas-backend/customers/payment-sources/paymentSource.json
-WARNING: minLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/customers/payment-sources/paymentSource.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/payment-sources/paymentSource.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/customers/payment-sources/paymentSource.json
-INFO: missing description
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/payment-sources/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/customers/payment-sources/paymentSource.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/paymentSource.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/paymentSource.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/customers/payment-sources/paymentSource.json
 INFO: missing description
   in ./maas-backend/customers/payment-sources/paymentSource.json
@@ -1074,13 +1798,47 @@ INFO: missing description
   in ./maas-backend/customers/payment-sources/paymentSource.json
 INFO: missing description
   in ./maas-backend/customers/payment-sources/paymentSource.json
+INFO: missing description
+  in ./maas-backend/customers/payment-sources/paymentSource.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/setup-intent/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/setup-intent/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/setup-intent/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/payment-sources/setup-intent/response.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/customers/payment-sources/setup-intent/response.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/customers/payment-sources/setup-intent/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/setup-intent/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/setup-intent/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/setup-intent/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/update/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/update/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/update/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/update/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/payment-sources/update/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/personalData.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/personalData.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/personalData.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/personalData.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/personalData.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/customers/personalData.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/personalData.json
@@ -1088,33 +1846,67 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/customers/personalData.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/customers/personalData.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/personalData.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/personal-data-delete/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/customers/personal-data-delete/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/personal-data-delete/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/personal-data-delete/request.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/customers/stats/response.json
 WARNING: minimum field not supported outside top-level definitions
   in ./maas-backend/customers/stats/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/stats/response.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/customers/stats/response.json
 WARNING: minimum field not supported outside top-level definitions
   in ./maas-backend/customers/stats/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/stats/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/update/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/update/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/verification/initiate/request.json
 WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/customers/verification/initiate/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/verification/initiate/request.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/customers/verification/initiate/request.json
 WARNING: minItems field not supported outside top-level definitions
+  in ./maas-backend/customers/verification/initiate/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/verification/initiate/response.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/customers/verification/initiate/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/verification/media/get/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/customers/verification/media/get/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/verification/media/get/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/verification/media/get/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/customers/verification/media/get/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/verification/media/get/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/verification/media/get/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/verification/register/request.json
 WARNING: minItems field not supported outside top-level definitions
+  in ./maas-backend/customers/verification/status/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/verification/status/response.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/customers/verification/status/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/verification/verification-object.json
@@ -1122,21 +1914,43 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/customers/verification/verification-object.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/customers/verification/verification-object.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/customers/verification/verification-object.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/verification/verification-object.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/customers/verification/verification-object.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/verification/verification-object.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/verification/verification-object.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/customers/verification/verification-object.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/verification/verification-object.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/verification/verification-object.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/verification/verification-object.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/verification/verification-object.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/customers/verification/verification-object.json
 WARNING: minItems field not supported outside top-level definitions
   in ./maas-backend/customers/verification/verification-object.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/verification/verification-object.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/verification/verification-object.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/customers/verification/verification-object.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/customers/verification/verification-object.json
 INFO: missing description
   in ./maas-backend/customers/verification/verification-object.json
@@ -1146,6 +1960,8 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/geocoding/geocoding-query/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/geocoding/geocoding-query/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/geocoding/geocoding-query/request.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/geocoding/geocoding-query/request.json
 WARNING: minimum field not supported outside top-level definitions
@@ -1154,8 +1970,18 @@ WARNING: maximum field not supported outside top-level definitions
   in ./maas-backend/geocoding/geocoding-query/request.json
 WARNING: default field not supported outside top-level definitions
   in ./maas-backend/geocoding/geocoding-query/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/geocoding/geocoding-query/request.json
 WARNING: default field not supported outside top-level definitions
   in ./maas-backend/geocoding/geocoding-query/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/geocoding/geocoding-query/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/geocoding/geocoding-query/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/geocoding/geocoding-query/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/geocoding/geocoding-query/response.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/geocoding/geocoding-reverse/request.json
 WARNING: minimum field not supported outside top-level definitions
@@ -1164,23 +1990,49 @@ WARNING: maximum field not supported outside top-level definitions
   in ./maas-backend/geocoding/geocoding-reverse/request.json
 WARNING: default field not supported outside top-level definitions
   in ./maas-backend/geocoding/geocoding-reverse/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/geocoding/geocoding-reverse/request.json
 WARNING: default field not supported outside top-level definitions
   in ./maas-backend/geocoding/geocoding-reverse/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/geocoding/geocoding-reverse/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/geocoding/geocoding-reverse/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/geocoding/geocoding-reverse/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/geocoding/geocoding-reverse/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/geocoding/geocoding-reverse/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/geocoding/geocoding-reverse/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/geocoding/geocoding-reverse/response.json
 WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/invoices/invoice.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/invoices/invoice.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/invoices/invoiceLineItem.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/invoices/invoiceLineItem.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/invoices/invoiceLineItem.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/invoices/invoiceLineItem.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/invoices/invoiceLineItem.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/invoices/invoiceLineItem.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/invoices/invoiceLineItem.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/invoices/invoiceLineItem.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/invoices/invoiceLineItem.json
 WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/invoices/invoiceLineItem.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/invoices/invoiceLineItem.json
 INFO: primitive type "number" used outside top-level definitions
   in ./maas-backend/invoices/invoiceLineItem.json
@@ -1188,26 +2040,64 @@ WARNING: minimum field not supported outside top-level definitions
   in ./maas-backend/invoices/invoiceLineItem.json
 WARNING: multipleOf field not supported outside top-level definitions
   in ./maas-backend/invoices/invoiceLineItem.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/invoices/invoiceLineItem.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/invoices/invoiceLineItem.json
 INFO: missing description
   in ./maas-backend/invoices/invoiceUnits.json
 INFO: missing description
   in ./maas-backend/invoices/invoiceUnits.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-create/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-create/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-create/request.json
 INFO: missing description
   in ./maas-backend/itineraries/itinerary-create/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-create/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-create/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-create/response.json
 INFO: missing description
   in ./maas-backend/itineraries/itinerary-create/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/itineraries/itinerary-list/request.json
 WARNING: pattern field not supported outside top-level definitions
   in ./maas-backend/itineraries/itinerary-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-list/request.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-list/request.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/itineraries/itinerary-list/request.json
 WARNING: minItems field not supported outside top-level definitions
   in ./maas-backend/itineraries/itinerary-list/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-list/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-list/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/itineraries/itinerary-retrieve/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-retrieve/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-retrieve/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-update/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-update/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/itineraries/itinerary-update/request.json
 INFO: missing description
   in ./maas-backend/products/products-providers-options/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/products-providers-options/response.json
 INFO: missing description
   in ./maas-backend/products/products-providers-retrieve/request.json
 INFO: primitive type "string" used outside top-level definitions
@@ -1216,19 +2106,39 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/products/provider.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/products/provider.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/products/provider.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/products/provider.json
 WARNING: pattern field not supported outside top-level definitions
   in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/products/provider.json
 WARNING: pattern field not supported outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/products/provider.json
 INFO: primitive type "number" used outside top-level definitions
   in ./maas-backend/products/provider.json
@@ -1236,50 +2146,132 @@ WARNING: minimum field not supported outside top-level definitions
   in ./maas-backend/products/provider.json
 WARNING: multipleOf field not supported outside top-level definitions
   in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/products/provider.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/products/provider.json
 WARNING: minimum field not supported outside top-level definitions
   in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/products/provider.json
 INFO: primitive type "number" used outside top-level definitions
   in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
 INFO: primitive type "number" used outside top-level definitions
   in ./maas-backend/products/provider.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/products/provider.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/products/provider.json
 WARNING: minItems field not supported outside top-level definitions
   in ./maas-backend/products/provider.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/products/provider.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/products/provider.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/profile/profile-devices-put/request.json
 WARNING: pattern field not supported outside top-level definitions
   in ./maas-backend/profile/profile-devices-put/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/profile/profile-devices-put/request.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/profile/profile-devices-put/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/profile/profile-devices-put/request.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/profile/profile-devices-put/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/profile/profile-devices-put/response.json
 WARNING: pattern field not supported outside top-level definitions
   in ./maas-backend/profile/profile-devices-put/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/profile/profile-devices-put/response.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/profile/profile-devices-put/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/profile/profile-devices-put/response.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/profile/profile-devices-put/response.json
 INFO: missing description
   in ./maas-backend/profile/profile-devices-put/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/profile/profile-edit/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/profile/profile-favoriteLocations-add/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/profile/profile-favoriteLocations-delete/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/profile/profile-favoriteLocations-delete/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/profile/profile-favoriteLocations-delete/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/profile/profile-favoriteLocations-delete/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/profile/profile-favoriteLocations-delete/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/profile/profile-favoriteLocations-delete/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/profile/profile-favoriteLocations-delete/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/profile/profile-webhook/response.json
 WARNING: patternProperty support has limitations
   in ./maas-backend/provider/routes/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/provider/routes/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/provider/routes/response.json
 INFO: missing description
   in ./maas-backend/provider/routes/response.json
 INFO: missing description
@@ -1292,11 +2284,15 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/push-notification/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/push-notification/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/push-notification/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/push-notification/request.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/push-notification/request.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/push-notification/request.json
@@ -1304,43 +2300,103 @@ WARNING: minimum field not supported outside top-level definitions
   in ./maas-backend/push-notification/request.json
 WARNING: maximum field not supported outside top-level definitions
   in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/push-notification/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/push-notification/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/push-notification/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/push-notification/request.json
 WARNING: minItems field not supported outside top-level definitions
   in ./maas-backend/push-notification/request.json
 WARNING: maxItems field not supported outside top-level definitions
   in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/push-notification/request.json
 WARNING: minItems field not supported outside top-level definitions
   in ./maas-backend/push-notification/request.json
 WARNING: maxItems field not supported outside top-level definitions
   in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/push-notification/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/regions/regions-options/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/regions/regions-options/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/routes/routes-query/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/routes/routes-query/request.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/routes/routes-query/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/routes/routes-query/request.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/routes/routes-query/request.json
 WARNING: patternProperty support has limitations
   in ./maas-backend/routes/routes-query/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/routes/routes-query/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/routes/routes-query/request.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/routes/routes-query/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/routes/routes-query/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/routes/routes-query/request.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/routes/routes-query/request.json
 INFO: missing description
   in ./maas-backend/routes/routes-query/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/stations/stations-list/request.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/stations/stations-list/request.json
 WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/stations/stations-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/stations/stations-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/stations/stations-list/request.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/stations/stations-list/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/stations/stations-list/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/stations/stations-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/stations/stations-list/request.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/stations/stations-list/request.json
 WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/stations/stations-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/stations/stations-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/stations/stations-list/request.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/stations/stations-list/request.json
 WARNING: skipping examples handling for $ref object
   in ./maas-backend/stations/stations-list/response.json
@@ -1350,17 +2406,33 @@ INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/stations/stations-retrieve/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/stations/stations-retrieve/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/stations/stations-retrieve/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/stations/stations-retrieve/request.json
 WARNING: skipping examples handling for $ref object
   in ./maas-backend/stations/stations-retrieve/response.json
 WARNING: skipping default value handling for $ref object
   in ./maas-backend/stations/stations-retrieve/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
 WARNING: skipping examples handling for $ref object
   in ./maas-backend/subscriptions/contact.json
 WARNING: skipping default value handling for $ref object
   in ./maas-backend/subscriptions/contact.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/subscriptions/contact.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/subscriptions/contact.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/subscriptions/contact.json
@@ -1368,28 +2440,40 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/subscriptions/contact.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/subscriptions/contact.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/subscriptions/contact.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/subscriptions/contact.json
-WARNING: pattern field not supported outside top-level definitions
-  in ./maas-backend/subscriptions/contact.json
-INFO: primitive type "integer" used outside top-level definitions
-  in ./maas-backend/subscriptions/contact.json
-WARNING: minimum field not supported outside top-level definitions
-  in ./maas-backend/subscriptions/contact.json
-WARNING: maximum field not supported outside top-level definitions
-  in ./maas-backend/subscriptions/contact.json
-INFO: primitive type "integer" used outside top-level definitions
-  in ./maas-backend/subscriptions/contact.json
-WARNING: minimum field not supported outside top-level definitions
-  in ./maas-backend/subscriptions/contact.json
-WARNING: maximum field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/subscriptions/contact.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/subscriptions/contact.json
 WARNING: pattern field not supported outside top-level definitions
   in ./maas-backend/subscriptions/contact.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+WARNING: maximum field not supported outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+WARNING: maximum field not supported outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+WARNING: pattern field not supported outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/contact.json
 INFO: missing description
   in ./maas-backend/subscriptions/contact.json
 INFO: missing description
@@ -1406,9 +2490,13 @@ INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/subscriptions/pricing.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/subscriptions/pricing.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/pricing.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/subscriptions/pricing.json
 WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/subscriptions/pricing.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/subscriptions/pricing.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/subscriptions/pricing.json
@@ -1418,10 +2506,20 @@ WARNING: maximum field not supported outside top-level definitions
   in ./maas-backend/subscriptions/pricing.json
 WARNING: default field not supported outside top-level definitions
   in ./maas-backend/subscriptions/pricing.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/pricing.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/subscriptions/pricing.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/subscriptions/pricing.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/pricing.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/pricing.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/pricing.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/pricing.json
 WARNING: skipping examples handling for $ref object
   in ./maas-backend/subscriptions/subscription.json
 WARNING: skipping default value handling for $ref object
@@ -1433,36 +2531,68 @@ WARNING: skipping default value handling for $ref object
 WARNING: skipping examples handling for $ref object
   in ./maas-backend/subscriptions/subscription.json
 WARNING: skipping default value handling for $ref object
+  in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
 WARNING: minimum field not supported outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
 WARNING: minimum field not supported outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
-WARNING: minLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./maas-backend/subscriptions/subscription.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
@@ -1472,19 +2602,27 @@ WARNING: maximum field not supported outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
 WARNING: default field not supported outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
 WARNING: skipping examples handling for $ref object
   in ./maas-backend/subscriptions/subscription.json
 WARNING: skipping default value handling for $ref object
   in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscription.json
 WARNING: default field not supported outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
-INFO: missing description
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/subscriptions/subscription.json
 INFO: missing description
   in ./maas-backend/subscriptions/subscription.json
@@ -1492,29 +2630,75 @@ INFO: missing description
   in ./maas-backend/subscriptions/subscription.json
 INFO: missing description
   in ./maas-backend/subscriptions/subscription.json
+INFO: missing description
+  in ./maas-backend/subscriptions/subscription.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptionOption.json
 WARNING: minItems field not supported outside top-level definitions
   in ./maas-backend/subscriptions/subscriptionOption.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptionOption.json
 INFO: missing description
   in ./maas-backend/subscriptions/subscriptionOption.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-create/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-customer-retrieve/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-customer-update/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-estimate/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-estimate/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-estimate/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-estimate/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/subscriptions/subscriptions-options/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/subscriptions/subscriptions-options/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/subscriptions/subscriptions-options/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-options/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-options/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-options/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-options/response.json
 WARNING: default field not supported outside top-level definitions
   in ./maas-backend/subscriptions/subscriptions-retrieve/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-retrieve/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-retrieve/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-update/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-update/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-update/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/subscriptions/subscriptions-update/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/tsp-auth/validate/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/vehicle/vehicle-alert/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/vehicle/vehicle-alert/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/vehicle/vehicle-alert/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/vehicle/vehicle-alert/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-bookings-update/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-bookings-update/request.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-bookings-update/request.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-bookings-update/request.json
 WARNING: skipping examples handling for $ref object
   in ./maas-backend/webhooks/webhooks-bookings-update/response.json
@@ -1526,21 +2710,47 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
 INFO: missing description
   in ./maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
@@ -1550,11 +2760,7 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
@@ -1562,17 +2768,7 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
-INFO: primitive type "number" used outside top-level definitions
-  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
-WARNING: minimum field not supported outside top-level definitions
-  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
-INFO: primitive type "number" used outside top-level definitions
-  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
-WARNING: minimum field not supported outside top-level definitions
-  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
-INFO: primitive type "number" used outside top-level definitions
-  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
-WARNING: minimum field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
@@ -1580,21 +2776,71 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
-INFO: primitive type "number" used outside top-level definitions
-  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
-WARNING: minimum field not supported outside top-level definitions
-  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
-INFO: primitive type "number" used outside top-level definitions
-  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
-WARNING: minimum field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
 INFO: missing description
   in ./maas-backend/webhooks/webhooks-payments/gateway/stripe.json
@@ -1602,23 +2848,45 @@ INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
-WARNING: minLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
 INFO: missing description
   in ./maas-backend/webhooks/webhooks-payments/gateway/yaband.json
@@ -1628,17 +2896,33 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/response.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/response.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/response.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/response.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/response.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/response.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/response.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/response.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/webhooks-payments/response.json
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/webhooks-payments/response.json
 INFO: missing description
   in ./maas-backend/webhooks/webhooks-payments/response.json
@@ -1646,11 +2930,9 @@ WARNING: minItems field not supported outside top-level definitions
   in ./maas-backend/webhooks/zendesk-push-notification/request.json
 WARNING: maxItems field not supported outside top-level definitions
   in ./maas-backend/webhooks/zendesk-push-notification/request.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/zendesk-push-notification/request.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./maas-backend/webhooks/zendesk-push-notification/request.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./maas-backend/webhooks/zendesk-push-notification/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/zendesk-push-notification/request.json
@@ -1658,73 +2940,153 @@ WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/zendesk-push-notification/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/zendesk-push-notification/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/webhooks/zendesk-push-notification/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/zendesk-push-notification/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/zendesk-push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: enum defined outside top-level definitions
+  in ./maas-backend/webhooks/zendesk-push-notification/response.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-cancel/response.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/booking-options-list/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./tsp/booking-options-list/request.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./tsp/booking-options-list/request.json
-WARNING: maxLength field not supported outside top-level definitions
-  in ./tsp/booking-options-list/request.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./tsp/booking-options-list/request.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./tsp/booking-options-list/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/booking-options-list/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/booking-options-list/request.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
   in ./tsp/booking-options-list/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/booking-options-list/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/booking-options-list/request.json
 WARNING: minLength field not supported outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
   in ./tsp/booking-options-list/request.json
 WARNING: patternProperty support has limitations
   in ./tsp/booking-options-list/request.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./tsp/booking-options-list/request.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./tsp/booking-options-list/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/booking-options-list/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./tsp/booking-options-list/request.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./tsp/booking-options-list/request.json
-WARNING: maxLength field not supported outside top-level definitions
-  in ./tsp/booking-options-list/request.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./tsp/booking-options-list/request.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./tsp/booking-options-list/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/booking-options-list/request.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
   in ./tsp/booking-options-list/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/booking-options-list/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/booking-options-list/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/response.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/response.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-options-list/response.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-read-by-id/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-ticket/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/booking-ticket/request.json
 WARNING: pattern field not supported outside top-level definitions
+  in ./tsp/booking-ticket/request.json
+WARNING: enum defined outside top-level definitions
   in ./tsp/booking-ticket/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/booking-ticket/request.json
@@ -1732,35 +3094,87 @@ WARNING: pattern field not supported outside top-level definitions
   in ./tsp/booking-ticket/request.json
 WARNING: minimum field not supported outside top-level definitions
   in ./tsp/booking-ticket/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-ticket/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-ticket/request.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./tsp/booking-ticket/response.json
+WARNING: enum defined outside top-level definitions
   in ./tsp/booking-ticket/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/booking-ticket/response.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: enum defined outside top-level definitions
   in ./tsp/booking-ticket/response.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./tsp/booking-ticket/response.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-ticket/response.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/booking-update/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/customer-auth-validate/response.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/customer-auth-validate/response.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/customer-registration/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./tsp/journey-planner/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/journey-planner/request.json
+WARNING: enum defined outside top-level definitions
   in ./tsp/journey-planner/request.json
 WARNING: patternProperty support has limitations
   in ./tsp/journey-planner/request.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./tsp/journey-planner/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/journey-planner/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/journey-planner/request.json
+WARNING: enum defined outside top-level definitions
   in ./tsp/journey-planner/request.json
 WARNING: skipping examples handling for $ref object
   in ./tsp/journey-planner/response.json
 WARNING: skipping default value handling for $ref object
   in ./tsp/journey-planner/response.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/stations-list/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/stations-list/request.json
 WARNING: minLength field not supported outside top-level definitions
+  in ./tsp/stations-list/request.json
+WARNING: enum defined outside top-level definitions
   in ./tsp/stations-list/request.json
 INFO: primitive type "integer" used outside top-level definitions
   in ./tsp/stations-list/request.json
 WARNING: minimum field not supported outside top-level definitions
   in ./tsp/stations-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/stations-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/stations-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/stations-list/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/stations-list/response.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/stations-list/response.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/stations-retrieve/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/vehicle-alert/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ./tsp/vehicle-alert/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./tsp/vehicle-alert/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/vehicle-alert/request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/webhooks-bookings-update/remote-request.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/webhooks-bookings-update/remote-response.json
+WARNING: enum defined outside top-level definitions
+  in ./tsp/webhooks-bookings-update/remote-response.json
 INFO: missing description
   in ./tsp/webhooks-bookings-update/remote-response.json

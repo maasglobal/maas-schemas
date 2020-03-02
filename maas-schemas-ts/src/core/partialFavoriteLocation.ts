@@ -14,17 +14,33 @@ import * as Address_ from 'maas-schemas-ts/core/components/address';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as Station_ from 'maas-schemas-ts/core/components/station';
 
+export type FavoriteLocationTypes_ADDRESS = 'ADDRESS';
+export const FavoriteLocationTypes_ADDRESS = t.literal('ADDRESS');
+export const favoriteLocationTypes_ADDRESS: FavoriteLocationTypes_ADDRESS = 'ADDRESS';
+
+export type FavoriteLocationTypes_STOP = 'STOP';
+export const FavoriteLocationTypes_STOP = t.literal('STOP');
+export const favoriteLocationTypes_STOP: FavoriteLocationTypes_STOP = 'STOP';
+
 export const schemaId = 'http://maasglobal.com/core/partialFavoriteLocation.json';
 
 // FavoriteLocationTypes
 // The purpose of this remains a mystery
 export type FavoriteLocationTypes = t.Branded<
-  string & ('ADDRESS' | 'STOP'),
+  string & (FavoriteLocationTypes_ADDRESS | FavoriteLocationTypes_STOP),
   FavoriteLocationTypesBrand
 >;
 export const FavoriteLocationTypes = t.brand(
-  t.intersection([t.string, t.union([t.literal('ADDRESS'), t.literal('STOP')])]),
-  (x): x is t.Branded<string & ('ADDRESS' | 'STOP'), FavoriteLocationTypesBrand> => true,
+  t.intersection([
+    t.string,
+    t.union([FavoriteLocationTypes_ADDRESS, FavoriteLocationTypes_STOP]),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    string & (FavoriteLocationTypes_ADDRESS | FavoriteLocationTypes_STOP),
+    FavoriteLocationTypesBrand
+  > => true,
   'FavoriteLocationTypes',
 );
 export interface FavoriteLocationTypesBrand {

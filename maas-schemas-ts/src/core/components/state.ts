@@ -9,6 +9,111 @@ MaaS state schemas
 
 import * as t from 'io-ts';
 
+export type BookingState_START = 'START';
+export const BookingState_START = t.literal('START');
+export const bookingState_START: BookingState_START = 'START';
+
+export type BookingState_PENDING = 'PENDING';
+export const BookingState_PENDING = t.literal('PENDING');
+export const bookingState_PENDING: BookingState_PENDING = 'PENDING';
+
+export type BookingState_PAID = 'PAID';
+export const BookingState_PAID = t.literal('PAID');
+export const bookingState_PAID: BookingState_PAID = 'PAID';
+
+export type BookingState_RESERVED = 'RESERVED';
+export const BookingState_RESERVED = t.literal('RESERVED');
+export const bookingState_RESERVED: BookingState_RESERVED = 'RESERVED';
+
+export type BookingState_CONFIRMED = 'CONFIRMED';
+export const BookingState_CONFIRMED = t.literal('CONFIRMED');
+export const bookingState_CONFIRMED: BookingState_CONFIRMED = 'CONFIRMED';
+
+export type BookingState_ARRIVED = 'ARRIVED';
+export const BookingState_ARRIVED = t.literal('ARRIVED');
+export const bookingState_ARRIVED: BookingState_ARRIVED = 'ARRIVED';
+
+export type BookingState_ACTIVATED = 'ACTIVATED';
+export const BookingState_ACTIVATED = t.literal('ACTIVATED');
+export const bookingState_ACTIVATED: BookingState_ACTIVATED = 'ACTIVATED';
+
+export type BookingState_ON_HOLD = 'ON_HOLD';
+export const BookingState_ON_HOLD = t.literal('ON_HOLD');
+export const bookingState_ON_HOLD: BookingState_ON_HOLD = 'ON_HOLD';
+
+export type BookingState_CANCELLED = 'CANCELLED';
+export const BookingState_CANCELLED = t.literal('CANCELLED');
+export const bookingState_CANCELLED: BookingState_CANCELLED = 'CANCELLED';
+
+export type BookingState_EXPIRED = 'EXPIRED';
+export const BookingState_EXPIRED = t.literal('EXPIRED');
+export const bookingState_EXPIRED: BookingState_EXPIRED = 'EXPIRED';
+
+export type BookingState_REJECTED = 'REJECTED';
+export const BookingState_REJECTED = t.literal('REJECTED');
+export const bookingState_REJECTED: BookingState_REJECTED = 'REJECTED';
+
+export type BookingState_FINISHED = 'FINISHED';
+export const BookingState_FINISHED = t.literal('FINISHED');
+export const bookingState_FINISHED: BookingState_FINISHED = 'FINISHED';
+
+export type BookingState_UNKNOWN = 'UNKNOWN';
+export const BookingState_UNKNOWN = t.literal('UNKNOWN');
+export const bookingState_UNKNOWN: BookingState_UNKNOWN = 'UNKNOWN';
+
+export type LegState_START = 'START';
+export const LegState_START = t.literal('START');
+export const legState_START: LegState_START = 'START';
+
+export type LegState_PLANNED = 'PLANNED';
+export const LegState_PLANNED = t.literal('PLANNED');
+export const legState_PLANNED: LegState_PLANNED = 'PLANNED';
+
+export type LegState_PAID = 'PAID';
+export const LegState_PAID = t.literal('PAID');
+export const legState_PAID: LegState_PAID = 'PAID';
+
+export type LegState_ACTIVATED = 'ACTIVATED';
+export const LegState_ACTIVATED = t.literal('ACTIVATED');
+export const legState_ACTIVATED: LegState_ACTIVATED = 'ACTIVATED';
+
+export type LegState_CANCELLED = 'CANCELLED';
+export const LegState_CANCELLED = t.literal('CANCELLED');
+export const legState_CANCELLED: LegState_CANCELLED = 'CANCELLED';
+
+export type LegState_FINISHED = 'FINISHED';
+export const LegState_FINISHED = t.literal('FINISHED');
+export const legState_FINISHED: LegState_FINISHED = 'FINISHED';
+
+export type ItineraryState_START = 'START';
+export const ItineraryState_START = t.literal('START');
+export const itineraryState_START: ItineraryState_START = 'START';
+
+export type ItineraryState_PLANNED = 'PLANNED';
+export const ItineraryState_PLANNED = t.literal('PLANNED');
+export const itineraryState_PLANNED: ItineraryState_PLANNED = 'PLANNED';
+
+export type ItineraryState_PAID = 'PAID';
+export const ItineraryState_PAID = t.literal('PAID');
+export const itineraryState_PAID: ItineraryState_PAID = 'PAID';
+
+export type ItineraryState_ACTIVATED = 'ACTIVATED';
+export const ItineraryState_ACTIVATED = t.literal('ACTIVATED');
+export const itineraryState_ACTIVATED: ItineraryState_ACTIVATED = 'ACTIVATED';
+
+export type ItineraryState_CANCELLED = 'CANCELLED';
+export const ItineraryState_CANCELLED = t.literal('CANCELLED');
+export const itineraryState_CANCELLED: ItineraryState_CANCELLED = 'CANCELLED';
+
+export type ItineraryState_CANCELLED_WITH_ERRORS = 'CANCELLED_WITH_ERRORS';
+export const ItineraryState_CANCELLED_WITH_ERRORS = t.literal('CANCELLED_WITH_ERRORS');
+export const itineraryState_CANCELLED_WITH_ERRORS: ItineraryState_CANCELLED_WITH_ERRORS =
+  'CANCELLED_WITH_ERRORS';
+
+export type ItineraryState_FINISHED = 'FINISHED';
+export const ItineraryState_FINISHED = t.literal('FINISHED');
+export const itineraryState_FINISHED: ItineraryState_FINISHED = 'FINISHED';
+
 export const schemaId = 'http://maasglobal.com/core/components/state.json';
 
 // BookingState
@@ -16,38 +121,38 @@ export const schemaId = 'http://maasglobal.com/core/components/state.json';
 export type BookingState = t.Branded<
   string &
     (
-      | 'START'
-      | 'PENDING'
-      | 'PAID'
-      | 'RESERVED'
-      | 'CONFIRMED'
-      | 'ARRIVED'
-      | 'ACTIVATED'
-      | 'ON_HOLD'
-      | 'CANCELLED'
-      | 'EXPIRED'
-      | 'REJECTED'
-      | 'FINISHED'
-      | 'UNKNOWN'),
+      | BookingState_START
+      | BookingState_PENDING
+      | BookingState_PAID
+      | BookingState_RESERVED
+      | BookingState_CONFIRMED
+      | BookingState_ARRIVED
+      | BookingState_ACTIVATED
+      | BookingState_ON_HOLD
+      | BookingState_CANCELLED
+      | BookingState_EXPIRED
+      | BookingState_REJECTED
+      | BookingState_FINISHED
+      | BookingState_UNKNOWN),
   BookingStateBrand
 >;
 export const BookingState = t.brand(
   t.intersection([
     t.string,
     t.union([
-      t.literal('START'),
-      t.literal('PENDING'),
-      t.literal('PAID'),
-      t.literal('RESERVED'),
-      t.literal('CONFIRMED'),
-      t.literal('ARRIVED'),
-      t.literal('ACTIVATED'),
-      t.literal('ON_HOLD'),
-      t.literal('CANCELLED'),
-      t.literal('EXPIRED'),
-      t.literal('REJECTED'),
-      t.literal('FINISHED'),
-      t.literal('UNKNOWN'),
+      BookingState_START,
+      BookingState_PENDING,
+      BookingState_PAID,
+      BookingState_RESERVED,
+      BookingState_CONFIRMED,
+      BookingState_ARRIVED,
+      BookingState_ACTIVATED,
+      BookingState_ON_HOLD,
+      BookingState_CANCELLED,
+      BookingState_EXPIRED,
+      BookingState_REJECTED,
+      BookingState_FINISHED,
+      BookingState_UNKNOWN,
     ]),
   ]),
   (
@@ -55,19 +160,19 @@ export const BookingState = t.brand(
   ): x is t.Branded<
     string &
       (
-        | 'START'
-        | 'PENDING'
-        | 'PAID'
-        | 'RESERVED'
-        | 'CONFIRMED'
-        | 'ARRIVED'
-        | 'ACTIVATED'
-        | 'ON_HOLD'
-        | 'CANCELLED'
-        | 'EXPIRED'
-        | 'REJECTED'
-        | 'FINISHED'
-        | 'UNKNOWN'),
+        | BookingState_START
+        | BookingState_PENDING
+        | BookingState_PAID
+        | BookingState_RESERVED
+        | BookingState_CONFIRMED
+        | BookingState_ARRIVED
+        | BookingState_ACTIVATED
+        | BookingState_ON_HOLD
+        | BookingState_CANCELLED
+        | BookingState_EXPIRED
+        | BookingState_REJECTED
+        | BookingState_FINISHED
+        | BookingState_UNKNOWN),
     BookingStateBrand
   > => true,
   'BookingState',
@@ -79,25 +184,39 @@ export interface BookingStateBrand {
 // LegState
 // The life-cycle state of a leg
 export type LegState = t.Branded<
-  string & ('START' | 'PLANNED' | 'PAID' | 'ACTIVATED' | 'CANCELLED' | 'FINISHED'),
+  string &
+    (
+      | LegState_START
+      | LegState_PLANNED
+      | LegState_PAID
+      | LegState_ACTIVATED
+      | LegState_CANCELLED
+      | LegState_FINISHED),
   LegStateBrand
 >;
 export const LegState = t.brand(
   t.intersection([
     t.string,
     t.union([
-      t.literal('START'),
-      t.literal('PLANNED'),
-      t.literal('PAID'),
-      t.literal('ACTIVATED'),
-      t.literal('CANCELLED'),
-      t.literal('FINISHED'),
+      LegState_START,
+      LegState_PLANNED,
+      LegState_PAID,
+      LegState_ACTIVATED,
+      LegState_CANCELLED,
+      LegState_FINISHED,
     ]),
   ]),
   (
     x,
   ): x is t.Branded<
-    string & ('START' | 'PLANNED' | 'PAID' | 'ACTIVATED' | 'CANCELLED' | 'FINISHED'),
+    string &
+      (
+        | LegState_START
+        | LegState_PLANNED
+        | LegState_PAID
+        | LegState_ACTIVATED
+        | LegState_CANCELLED
+        | LegState_FINISHED),
     LegStateBrand
   > => true,
   'LegState',
@@ -111,26 +230,26 @@ export interface LegStateBrand {
 export type ItineraryState = t.Branded<
   string &
     (
-      | 'START'
-      | 'PLANNED'
-      | 'PAID'
-      | 'ACTIVATED'
-      | 'CANCELLED'
-      | 'CANCELLED_WITH_ERRORS'
-      | 'FINISHED'),
+      | ItineraryState_START
+      | ItineraryState_PLANNED
+      | ItineraryState_PAID
+      | ItineraryState_ACTIVATED
+      | ItineraryState_CANCELLED
+      | ItineraryState_CANCELLED_WITH_ERRORS
+      | ItineraryState_FINISHED),
   ItineraryStateBrand
 >;
 export const ItineraryState = t.brand(
   t.intersection([
     t.string,
     t.union([
-      t.literal('START'),
-      t.literal('PLANNED'),
-      t.literal('PAID'),
-      t.literal('ACTIVATED'),
-      t.literal('CANCELLED'),
-      t.literal('CANCELLED_WITH_ERRORS'),
-      t.literal('FINISHED'),
+      ItineraryState_START,
+      ItineraryState_PLANNED,
+      ItineraryState_PAID,
+      ItineraryState_ACTIVATED,
+      ItineraryState_CANCELLED,
+      ItineraryState_CANCELLED_WITH_ERRORS,
+      ItineraryState_FINISHED,
     ]),
   ]),
   (
@@ -138,13 +257,13 @@ export const ItineraryState = t.brand(
   ): x is t.Branded<
     string &
       (
-        | 'START'
-        | 'PLANNED'
-        | 'PAID'
-        | 'ACTIVATED'
-        | 'CANCELLED'
-        | 'CANCELLED_WITH_ERRORS'
-        | 'FINISHED'),
+        | ItineraryState_START
+        | ItineraryState_PLANNED
+        | ItineraryState_PAID
+        | ItineraryState_ACTIVATED
+        | ItineraryState_CANCELLED
+        | ItineraryState_CANCELLED_WITH_ERRORS
+        | ItineraryState_FINISHED),
     ItineraryStateBrand
   > => true,
   'ItineraryState',

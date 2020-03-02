@@ -11,6 +11,14 @@ import * as t from 'io-ts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
+export type ClientId_whim = 'whim';
+export const ClientId_whim = t.literal('whim');
+export const clientId_whim: ClientId_whim = 'whim';
+
+export type ClientId_wechat = 'wechat';
+export const ClientId_wechat = t.literal('wechat');
+export const clientId_wechat: ClientId_wechat = 'wechat';
+
 export const schemaId = 'http://maasglobal.com/core/components/common.json';
 
 // AgencyId
@@ -181,10 +189,13 @@ export interface OpaqueIdBrand {
 
 // ClientId
 // An id indicating the source of the client
-export type ClientId = t.Branded<string & ('whim' | 'wechat'), ClientIdBrand>;
+export type ClientId = t.Branded<
+  string & (ClientId_whim | ClientId_wechat),
+  ClientIdBrand
+>;
 export const ClientId = t.brand(
-  t.intersection([t.string, t.union([t.literal('whim'), t.literal('wechat')])]),
-  (x): x is t.Branded<string & ('whim' | 'wechat'), ClientIdBrand> => true,
+  t.intersection([t.string, t.union([ClientId_whim, ClientId_wechat])]),
+  (x): x is t.Branded<string & (ClientId_whim | ClientId_wechat), ClientIdBrand> => true,
   'ClientId',
 );
 export interface ClientIdBrand {

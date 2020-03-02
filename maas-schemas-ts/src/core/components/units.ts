@@ -11,6 +11,26 @@ import * as t from 'io-ts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
+export type Currency_EUR = 'EUR';
+export const Currency_EUR = t.literal('EUR');
+export const currency_EUR: Currency_EUR = 'EUR';
+
+export type Currency_GBP = 'GBP';
+export const Currency_GBP = t.literal('GBP');
+export const currency_GBP: Currency_GBP = 'GBP';
+
+export type Currency_SGD = 'SGD';
+export const Currency_SGD = t.literal('SGD');
+export const currency_SGD: Currency_SGD = 'SGD';
+
+export type Currency_USD = 'USD';
+export const Currency_USD = t.literal('USD');
+export const currency_USD: Currency_USD = 'USD';
+
+export type Currency_JPY = 'JPY';
+export const Currency_JPY = t.literal('JPY');
+export const currency_JPY: Currency_JPY = 'JPY';
+
 export const schemaId = 'http://maasglobal.com/core/components/units.json';
 
 // Uuid
@@ -110,22 +130,20 @@ export const examplesIdentityId = nonEmptyArray(IdentityId).decode(
 // Currency
 // Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1
 export type Currency = t.Branded<
-  string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY'),
+  string & (Currency_EUR | Currency_GBP | Currency_SGD | Currency_USD | Currency_JPY),
   CurrencyBrand
 >;
 export const Currency = t.brand(
   t.intersection([
     t.string,
-    t.union([
-      t.literal('EUR'),
-      t.literal('GBP'),
-      t.literal('SGD'),
-      t.literal('USD'),
-      t.literal('JPY'),
-    ]),
+    t.union([Currency_EUR, Currency_GBP, Currency_SGD, Currency_USD, Currency_JPY]),
   ]),
-  (x): x is t.Branded<string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY'), CurrencyBrand> =>
-    true,
+  (
+    x,
+  ): x is t.Branded<
+    string & (Currency_EUR | Currency_GBP | Currency_SGD | Currency_USD | Currency_JPY),
+    CurrencyBrand
+  > => true,
   'Currency',
 );
 export interface CurrencyBrand {
