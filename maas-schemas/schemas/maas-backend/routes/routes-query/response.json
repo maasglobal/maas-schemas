@@ -5,6 +5,12 @@
     "plan": {
       "$ref": "http://maasglobal.com/core/plan.json"
     },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/core/components/errors.json#/definitions/reason"
+      }
+    },
     "debug": { "type": "object" }
   },
   "required": ["plan"],
