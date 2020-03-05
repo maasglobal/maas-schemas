@@ -418,8 +418,6 @@ INFO: primitive type "string" used outside top-level definitions
   in ./core/components/reason.json
 INFO: primitive type "number" used outside top-level definitions
   in ./core/components/reason.json
-WARNING: contains field not supported
-  in ./core/components/reason.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/state-log.json
 INFO: primitive type "string" used outside top-level definitions

@@ -9,22 +9,6 @@ MaaS error reason definition
 
 import * as t from 'io-ts';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
-
 export const schemaId = 'http://maasglobal.com/core/components/reason.json';
 
 // Reason
@@ -33,9 +17,6 @@ export type Reason = t.Branded<
   {
     text?: string;
     errorCode?: string | number;
-    cause?: Array<unknown> & {
-      errorCode: Defined;
-    };
   },
   ReasonBrand
 >;
@@ -43,12 +24,6 @@ export const Reason = t.brand(
   t.partial({
     text: t.string,
     errorCode: t.union([t.string, t.number]),
-    cause: t.intersection([
-      t.UnknownArray,
-      t.type({
-        errorCode: Defined,
-      }),
-    ]),
   }),
   (
     x,
@@ -56,9 +31,6 @@ export const Reason = t.brand(
     {
       text?: string;
       errorCode?: string | number;
-      cause?: Array<unknown> & {
-        errorCode: Defined;
-      };
     },
     ReasonBrand
   > => true,

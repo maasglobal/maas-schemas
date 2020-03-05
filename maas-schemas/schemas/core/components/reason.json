@@ -8,17 +8,6 @@
     },
     "errorCode": {
       "anyOf": [{ "type": "string" }, { "type": "number" }]
-    },
-    "cause": {
-      "type": "array",
-      "contains": {
-        "type": "object",
-        "properties": {
-          "message": { "type": "string" },
-          "stack": { "type": "string" }
-        }
-      },
-      "required": ["errorCode"]
     }
   },
   "additionalProperties": false
