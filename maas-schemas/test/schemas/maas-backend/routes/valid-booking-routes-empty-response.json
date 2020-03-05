@@ -8,7 +8,7 @@
       "returns": [],
       "planId": "d2ac1de0-5edd-11ea-a5fd-b5d2f648464c"
   },
-  "reason": {
+  "reasons": [{
     "errorCode": "ERROR_TSP_UNSUPPORTED_AREA"
-  }
+  }]
 }
