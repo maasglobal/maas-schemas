@@ -5,6 +5,9 @@
     "plan": {
       "$ref": "http://maasglobal.com/core/plan.json"
     },
+    "reason": {
+      "$ref": "http://maasglobal.com/core/components/reason.json"
+    },
     "debug": { "type": "object" }
   },
   "required": ["plan"],

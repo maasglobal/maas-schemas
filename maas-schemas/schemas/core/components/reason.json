@@ -1,0 +1,25 @@
+{
+  "$id": "http://maasglobal.com/core/components/reason.json",
+  "description": "MaaS error reason definition",
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string"
+    },
+    "errorCode": {
+      "anyOf": [{ "type": "string" }, { "type": "number" }]
+    },
+    "cause": {
+      "type": "array",
+      "contains": {
+        "type": "object",
+        "properties": {
+          "message": { "type": "string" },
+          "stack": { "type": "string" }
+        }
+      },
+      "required": ["errorCode"]
+    }
+  },
+  "additionalProperties": false
+}
