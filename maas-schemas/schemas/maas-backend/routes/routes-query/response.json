@@ -6,7 +6,7 @@
       "$ref": "http://maasglobal.com/core/plan.json"
     },
     "reason": {
-      "$ref": "http://maasglobal.com/core/components/reason.json"
+      "$ref": "http://maasglobal.com/core/components/errors.json#/definitions/reason"
     },
     "debug": { "type": "object" }
   },
