@@ -1,5 +1,6 @@
 'use strict';
 
+const { expect } = require('chai');
 const validRoutesEmptyResponse = require('./valid-booking-routes-empty-response.json');
 const utils = require('../../../../');
 
