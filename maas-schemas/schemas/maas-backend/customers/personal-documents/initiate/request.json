@@ -12,7 +12,7 @@
       "type": "object",
       "properties": {
         "type": {
-          "type": "string"
+          "$ref": "http://maasglobal.com/core/personal-document.json#properties/type"
         },
         "location": {
           "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
