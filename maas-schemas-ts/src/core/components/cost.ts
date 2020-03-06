@@ -36,7 +36,7 @@ export type Cost = t.Branded<
     originalAmount?: number | null;
     discount?: number;
     taxes?: number;
-    tspFixedPrice?: boolean;
+    isFixedPrice?: boolean;
     currency?: Units_.Currency | null;
   } & {
     amount: Defined;
@@ -51,7 +51,7 @@ export const Cost = t.brand(
       originalAmount: t.union([t.number, t.null]),
       discount: t.number,
       taxes: t.number,
-      tspFixedPrice: t.boolean,
+      isFixedPrice: t.boolean,
       currency: t.union([Units_.Currency, t.null]),
     }),
     t.type({
@@ -67,7 +67,7 @@ export const Cost = t.brand(
       originalAmount?: number | null;
       discount?: number;
       taxes?: number;
-      tspFixedPrice?: boolean;
+      isFixedPrice?: boolean;
       currency?: Units_.Currency | null;
     } & {
       amount: Defined;
