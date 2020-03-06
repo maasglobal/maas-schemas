@@ -1,0 +1,7 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/personal-documents/revoke-consent/response.json",
+  "description": "Revoke user consent to send all document to a TSP",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {}
+}
