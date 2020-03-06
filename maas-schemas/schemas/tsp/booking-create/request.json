@@ -13,7 +13,21 @@
       "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
     },
     "customer": {
-      "$ref": "http://maasglobal.com/core/customer.json"
+      "allOf": [
+        { "$ref": "http://maasglobal.com/core/customer.json" },
+        {
+          "type": "object",
+          "properties": {
+            "documents": {
+              "type": "array",
+              "items": {
+                "$ref": "http://maasglobal.com/core/personal-document.json"
+              }
+            }
+          },
+          "required": ["documents"]
+        }
+      ]
     },
     "tspProduct": {
       "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/tspProduct"
