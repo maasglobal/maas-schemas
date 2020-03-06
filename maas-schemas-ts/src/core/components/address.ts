@@ -115,6 +115,20 @@ export interface ZipCodeBrand {
   readonly ZipCode: unique symbol;
 }
 
+// State
+// Alphabetic state name
+export type State = t.Branded<string, StateBrand>;
+export const State = t.brand(
+  t.string,
+  (x): x is t.Branded<string, StateBrand> =>
+    (typeof x !== 'string' || x.match(RegExp("^(?:\\p{L}|\\s|')+$", 'gui')) !== null) &&
+    (typeof x !== 'string' || x.length <= 64),
+  'State',
+);
+export interface StateBrand {
+  readonly State: unique symbol;
+}
+
 // CountryName
 // Alphabetic country name
 export type CountryName = t.Branded<string, CountryNameBrand>;
