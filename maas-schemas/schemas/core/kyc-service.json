@@ -10,7 +10,7 @@
       "description": "List of document types that this KYC service supports",
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/personal-document.json#properties/type"
+        "$ref": "http://maasglobal.com/core/personal-document.json#/properties/type"
       }
     }
   }
