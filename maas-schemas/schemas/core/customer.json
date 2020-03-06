@@ -6,6 +6,9 @@
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
+    "honorifics": {
+      "type": "string"
+    },
     "firstName": {
       "description": "First name of the customer (e.g. John)",
       "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
@@ -13,6 +16,17 @@
     "lastName": {
       "description": "Last name of the customer (e.g. Doe)",
       "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+    },
+    "firstNameLocalized": {
+      "description": "Localized first name of the customer (e.g. John)",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+    },
+    "lastNameLocalized": {
+      "description": "Localized last name of the customer (e.g. Doe)",
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+    },
+    "sex": {
+      "type": "string"
     },
     "phone": {
       "description": "ITU-T E.164 phone number",
@@ -27,6 +41,9 @@
     },
     "city": {
       "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
+    },
+    "state": {
+      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/state"
     },
     "country": {
       "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
@@ -121,6 +138,8 @@
       "favoriteLocations": [],
       "phone": "+358407654321",
       "email": "bob.customer@example.com",
+      "honorifics": "mr",
+      "sex": "male",
       "firstName": "Bob",
       "lastName": "Customer",
       "created": 1553687004207,
