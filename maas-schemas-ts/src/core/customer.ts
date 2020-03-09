@@ -39,12 +39,17 @@ export const schemaId = 'http://maasglobal.com/core/customer.json';
 export type Customer = t.Branded<
   {
     identityId?: Units_.IdentityId;
+    honorifics?: string;
     firstName?: Common_.PersonalName;
     lastName?: Common_.PersonalName;
+    firstNameLocalized?: Common_.PersonalName;
+    lastNameLocalized?: Common_.PersonalName;
+    sex?: string;
     phone?: Common_.Phone;
     email?: Common_.Email;
     address?: Address_.Address;
     city?: Address_.City;
+    state?: Address_.State;
     country?: Address_.Country;
     zipCode?: Address_.ZipCode;
     locale?: I18n_.Locale;
@@ -90,12 +95,17 @@ export type Customer = t.Branded<
 export const Customer = t.brand(
   t.partial({
     identityId: Units_.IdentityId,
+    honorifics: t.string,
     firstName: Common_.PersonalName,
     lastName: Common_.PersonalName,
+    firstNameLocalized: Common_.PersonalName,
+    lastNameLocalized: Common_.PersonalName,
+    sex: t.string,
     phone: Common_.Phone,
     email: Common_.Email,
     address: Address_.Address,
     city: Address_.City,
+    state: Address_.State,
     country: Address_.Country,
     zipCode: Address_.ZipCode,
     locale: I18n_.Locale,
@@ -158,12 +168,17 @@ export const Customer = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
+      honorifics?: string;
       firstName?: Common_.PersonalName;
       lastName?: Common_.PersonalName;
+      firstNameLocalized?: Common_.PersonalName;
+      lastNameLocalized?: Common_.PersonalName;
+      sex?: string;
       phone?: Common_.Phone;
       email?: Common_.Email;
       address?: Address_.Address;
       city?: Address_.City;
+      state?: Address_.State;
       country?: Address_.Country;
       zipCode?: Address_.ZipCode;
       locale?: I18n_.Locale;
@@ -219,6 +234,8 @@ export const examplesCustomerJson: NonEmptyArray<unknown> = [
     favoriteLocations: [],
     phone: '+358407654321',
     email: 'bob.customer@example.com',
+    honorifics: 'mr',
+    sex: 'male',
     firstName: 'Bob',
     lastName: 'Customer',
     created: 1553687004207,

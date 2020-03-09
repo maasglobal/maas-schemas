@@ -18,12 +18,17 @@ export const schemaId = 'http://maasglobal.com/maas-backend/customers/personalDa
 // The default export. More information at the top.
 export type PersonalData = t.Branded<
   {
+    honorifics?: string;
     firstName?: Common_.PersonalName;
     lastName?: Common_.PersonalName;
+    firstNameLocalized?: Common_.PersonalName;
+    lastNameLocalized?: Common_.PersonalName;
+    sex?: string;
     phone?: Common_.Phone;
     email?: Common_.Email;
     address?: Address_.Address;
     city?: Address_.City;
+    state?: Address_.State;
     country?: Address_.Country;
     zipCode?: Address_.ZipCode;
     dob?: boolean | Units_.IsoDate;
@@ -36,12 +41,17 @@ export type PersonalData = t.Branded<
 export const PersonalData = t.brand(
   t.intersection([
     t.partial({
+      honorifics: t.string,
       firstName: Common_.PersonalName,
       lastName: Common_.PersonalName,
+      firstNameLocalized: Common_.PersonalName,
+      lastNameLocalized: Common_.PersonalName,
+      sex: t.string,
       phone: Common_.Phone,
       email: Common_.Email,
       address: Address_.Address,
       city: Address_.City,
+      state: Address_.State,
       country: Address_.Country,
       zipCode: Address_.ZipCode,
       dob: t.union([t.boolean, Units_.IsoDate]),
@@ -55,12 +65,17 @@ export const PersonalData = t.brand(
     x,
   ): x is t.Branded<
     {
+      honorifics?: string;
       firstName?: Common_.PersonalName;
       lastName?: Common_.PersonalName;
+      firstNameLocalized?: Common_.PersonalName;
+      lastNameLocalized?: Common_.PersonalName;
+      sex?: string;
       phone?: Common_.Phone;
       email?: Common_.Email;
       address?: Address_.Address;
       city?: Address_.City;
+      state?: Address_.State;
       country?: Address_.Country;
       zipCode?: Address_.ZipCode;
       dob?: boolean | Units_.IsoDate;
