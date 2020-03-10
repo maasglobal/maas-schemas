@@ -909,20 +909,26 @@ for (const def of defs) {
   log(staticType);
   log(runtimeType);
   if (examples.length > 0) {
-    const examplesName = `examples${typeName}`;
-    const jsonName = `${examplesName}Json`;
-    log(`/** ${examplesName} // => { _tag: 'Right', right: ${jsonName} } */`);
+    const examplesName = 'examples'.concat(typeName);
     log(
-      `export const ${jsonName}: NonEmptyArray<unknown> = ${JSON.stringify(examples)};`,
+      `/** nonEmptyArray(${typeName}).decode(${examplesName}) // => { _tag: 'Right', right: ${examplesName} } */`,
     );
-    log(`export const ${examplesName} = nonEmptyArray(${typeName}).decode(${jsonName});`);
+    log(
+      `export const ${examplesName}: NonEmptyArray<${typeName}> = ${JSON.stringify(
+        examples,
+      )} as unknown as NonEmptyArray<${typeName}>;`,
+    );
   }
   if (typeof defaultValue !== 'undefined') {
-    const defaultName = `default${typeName}`;
-    const jsonName = `${defaultName}Json`;
-    log(`/** ${defaultName} // => { _tag: 'Right', right: ${jsonName} } */`);
-    log(`export const ${jsonName}: unknown = ${JSON.stringify(defaultValue)};`);
-    log(`export const ${defaultName} = ${typeName}.decode(${jsonName});`);
+    const defaultName = 'default'.concat(typeName);
+    log(
+      `/** ${typeName}.decode(${defaultName}) // => { _tag: 'Right', right: ${defaultName} } */`,
+    );
+    log(
+      `export const ${defaultName}: ${typeName} = ${JSON.stringify(
+        defaultValue,
+      )} as unknown as ${typeName};`,
+    );
   }
   log('');
 }
