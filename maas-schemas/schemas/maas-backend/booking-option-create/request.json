@@ -9,14 +9,15 @@
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "$ref": "#/definitions/payload"
+      "type": "array",
+      "$ref": "#/definitions/option"
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
   "definitions": {
-    "payload": {
+    "option": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
