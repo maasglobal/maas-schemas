@@ -42,10 +42,42 @@ export interface DocumentTypeBrand {
 
 // DocumentStatus
 // The purpose of this remains a mystery
-export type DocumentStatus = t.Branded<string, DocumentStatusBrand>;
+export type DocumentStatus = t.Branded<
+  string &
+    (
+      | 'PENDING'
+      | 'APPROVED'
+      | 'DECLINED'
+      | 'EXPIRED'
+      | 'RESUBMISSION_REQUESTED'
+      | 'ABANDONED'),
+  DocumentStatusBrand
+>;
 export const DocumentStatus = t.brand(
-  t.string,
-  (x): x is t.Branded<string, DocumentStatusBrand> => true,
+  t.intersection([
+    t.string,
+    t.union([
+      t.literal('PENDING'),
+      t.literal('APPROVED'),
+      t.literal('DECLINED'),
+      t.literal('EXPIRED'),
+      t.literal('RESUBMISSION_REQUESTED'),
+      t.literal('ABANDONED'),
+    ]),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    string &
+      (
+        | 'PENDING'
+        | 'APPROVED'
+        | 'DECLINED'
+        | 'EXPIRED'
+        | 'RESUBMISSION_REQUESTED'
+        | 'ABANDONED'),
+    DocumentStatusBrand
+  > => true,
   'DocumentStatus',
 );
 export interface DocumentStatusBrand {

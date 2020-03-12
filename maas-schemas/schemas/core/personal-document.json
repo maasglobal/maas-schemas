@@ -7,7 +7,8 @@
       "type": "string"
     },
     "documentStatus": {
-      "type": "string"
+      "type": "string",
+      "enum": ["PENDING", "APPROVED", "DECLINED", "EXPIRED", "RESUBMISSION_REQUESTED", "ABANDONED"]
     }
   },
   "properties": {
