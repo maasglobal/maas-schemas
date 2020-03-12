@@ -37,6 +37,9 @@
         },
         "agencyOptions": {
           "$ref": "http://maasglobal.com/core/components/agencyOptions.json"
+        },
+        "rollbackOnFailure": {
+          "type": "boolean"
         }
       }
     }

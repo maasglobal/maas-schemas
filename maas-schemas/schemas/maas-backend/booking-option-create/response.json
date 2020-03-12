@@ -3,10 +3,12 @@
   "description": "Response schema for booking-option-create",
   "oneOf": [
     {
-      "type": "object",
+      "type": "array",
       "properties": {
-        "booking": {
-          "$ref": "http://maasglobal.com/core/booking.json"
+        "bookings": {
+          "items": {
+            "$ref": "http://maasglobal.com/core/booking.json"
+          }
         }
       },
       "required": ["booking"]
