@@ -151,6 +151,7 @@ export const examplesRequest: NonEmptyArray<Request> = ([
       lastName: 'Tester',
       opaqueId: 'cafecaca',
       firstName: 'Test',
+      documents: [],
     },
     meta: {
       MODE_TAXI: {

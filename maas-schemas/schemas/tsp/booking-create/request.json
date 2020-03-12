@@ -14,7 +14,9 @@
     },
     "customer": {
       "allOf": [
-        { "$ref": "http://maasglobal.com/core/customer.json" },
+        {
+          "$ref": "http://maasglobal.com/core/customer.json"
+        },
         {
           "type": "object",
           "properties": {
@@ -68,7 +70,8 @@
         "clientId": "whim",
         "lastName": "Tester",
         "opaqueId": "cafecaca",
-        "firstName": "Test"
+        "firstName": "Test",
+        "documents": []
       },
       "meta": {
         "MODE_TAXI": {
