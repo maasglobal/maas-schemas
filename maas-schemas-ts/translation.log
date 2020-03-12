@@ -246,8 +246,6 @@ INFO: primitive type "string" used outside top-level definitions
   in ./core/components/errors.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/errors.json
-INFO: primitive type "number" used outside top-level definitions
-  in ./core/components/errors.json
 WARNING: minimum field not supported outside top-level definitions
   in ./core/components/fare.json
 INFO: primitive type "string" used outside top-level definitions
@@ -418,12 +416,6 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/components/place.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/components/place.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/components/state-log.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/components/state-log.json
-INFO: primitive type "number" used outside top-level definitions
-  in ./core/components/state-log.json
 INFO: missing description
   in ./core/components/state-log.json
 INFO: missing description
