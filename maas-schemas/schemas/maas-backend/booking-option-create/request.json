@@ -10,7 +10,9 @@
     },
     "payload": {
       "type": "array",
-      "$ref": "#/definitions/option"
+      "items": {
+        "$ref": "#/definitions/option"
+      }
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
