@@ -188,8 +188,8 @@ export const Environment = t.brand(
 export interface EnvironmentBrand {
   readonly Environment: unique symbol;
 }
-/** examplesEnvironment // => { _tag: 'Right', right: examplesEnvironmentJson } */
-export const examplesEnvironmentJson: NonEmptyArray<unknown> = [
+/** nonEmptyArray(Environment).decode(examplesEnvironment) // => { _tag: 'Right', right: examplesEnvironment } */
+export const examplesEnvironment: NonEmptyArray<Environment> = ([
   {
     id: 'production',
     api: 'https://production.example.com/api/',
@@ -197,10 +197,7 @@ export const examplesEnvironmentJson: NonEmptyArray<unknown> = [
     contact: { name: 'Alisha Admin', email: 'admin@example.com' },
     description: 'Production environment',
   },
-];
-export const examplesEnvironment = nonEmptyArray(Environment).decode(
-  examplesEnvironmentJson,
-);
+] as unknown) as NonEmptyArray<Environment>;
 
 // DevEnvironment
 // The purpose of this remains a mystery
@@ -241,8 +238,8 @@ export const DevEnvironment = t.brand(
 export interface DevEnvironmentBrand {
   readonly DevEnvironment: unique symbol;
 }
-/** examplesDevEnvironment // => { _tag: 'Right', right: examplesDevEnvironmentJson } */
-export const examplesDevEnvironmentJson: NonEmptyArray<unknown> = [
+/** nonEmptyArray(DevEnvironment).decode(examplesDevEnvironment) // => { _tag: 'Right', right: examplesDevEnvironment } */
+export const examplesDevEnvironment: NonEmptyArray<DevEnvironment> = ([
   {
     id: 'testing',
     api: 'https://testing.example.com/api/',
@@ -250,10 +247,7 @@ export const examplesDevEnvironmentJson: NonEmptyArray<unknown> = [
     contact: { name: 'Alisha Admin' },
     description: 'Testing environment',
   },
-];
-export const examplesDevEnvironment = nonEmptyArray(DevEnvironment).decode(
-  examplesDevEnvironmentJson,
-);
+] as unknown) as NonEmptyArray<DevEnvironment>;
 
 // EnvironmentGroupName
 // The purpose of this remains a mystery
@@ -360,8 +354,8 @@ export const Environments = t.brand(
 export interface EnvironmentsBrand {
   readonly Environments: unique symbol;
 }
-/** examplesEnvironments // => { _tag: 'Right', right: examplesEnvironmentsJson } */
-export const examplesEnvironmentsJson: NonEmptyArray<unknown> = [
+/** nonEmptyArray(Environments).decode(examplesEnvironments) // => { _tag: 'Right', right: examplesEnvironments } */
+export const examplesEnvironments: NonEmptyArray<Environments> = ([
   {
     index: [
       {
@@ -398,10 +392,7 @@ export const examplesEnvironmentsJson: NonEmptyArray<unknown> = [
       },
     ],
   },
-];
-export const examplesEnvironments = nonEmptyArray(Environments).decode(
-  examplesEnvironmentsJson,
-);
+] as unknown) as NonEmptyArray<Environments>;
 
 export default Environments;
 

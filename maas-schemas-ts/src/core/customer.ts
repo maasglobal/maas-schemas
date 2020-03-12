@@ -226,8 +226,8 @@ export const Customer = t.brand(
 export interface CustomerBrand {
   readonly Customer: unique symbol;
 }
-/** examplesCustomer // => { _tag: 'Right', right: examplesCustomerJson } */
-export const examplesCustomerJson: NonEmptyArray<unknown> = [
+/** nonEmptyArray(Customer).decode(examplesCustomer) // => { _tag: 'Right', right: examplesCustomer } */
+export const examplesCustomer: NonEmptyArray<Customer> = ([
   {
     identityId: 'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
     id: 1234,
@@ -290,8 +290,7 @@ export const examplesCustomerJson: NonEmptyArray<unknown> = [
       currency: 'EUR',
     },
   },
-];
-export const examplesCustomer = nonEmptyArray(Customer).decode(examplesCustomerJson);
+] as unknown) as NonEmptyArray<Customer>;
 
 export default Customer;
 
