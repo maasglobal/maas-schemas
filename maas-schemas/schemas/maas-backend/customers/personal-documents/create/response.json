@@ -4,10 +4,10 @@
   "type": "object",
   "properties": {
     "type": {
-      "$ref": "http://maasglobal.com/core/components/personal-document.json#/properties/type"
+      "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType"
     },
     "status": {
-      "$ref": "http://maasglobal.com/core/components/personal-document.json#/properties/status"
+      "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentStatus"
     }
   },
   "required": ["type", "status"]

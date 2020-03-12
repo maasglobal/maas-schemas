@@ -12,6 +12,7 @@ import * as BookingOption_ from 'maas-schemas-ts/core/booking-option';
 import * as BookingMeta_ from 'maas-schemas-ts/core/booking-meta';
 import * as Booking_ from 'maas-schemas-ts/core/booking';
 import * as Customer_ from 'maas-schemas-ts/core/customer';
+import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
 import * as Configurator_ from 'maas-schemas-ts/core/components/configurator';
 import * as CustomerSelection_ from 'maas-schemas-ts/core/components/customerSelection';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
@@ -42,7 +43,12 @@ export type Request = t.Branded<
     leg?: BookingOption_.Leg;
     meta?: BookingMeta_.BookingMeta;
     terms?: Booking_.Terms;
-    customer?: Customer_.Customer;
+    customer?: Customer_.Customer &
+      ({
+        documents?: Array<PersonalDocument_.PersonalDocument>;
+      } & {
+        documents: Defined;
+      });
     tspProduct?: BookingOption_.TspProduct;
     configurator?: Configurator_.Configurator;
     customerSelection?: CustomerSelection_.CustomerSelection;
@@ -61,7 +67,17 @@ export const Request = t.brand(
       leg: BookingOption_.Leg,
       meta: BookingMeta_.BookingMeta,
       terms: Booking_.Terms,
-      customer: Customer_.Customer,
+      customer: t.intersection([
+        Customer_.Customer,
+        t.intersection([
+          t.partial({
+            documents: t.array(PersonalDocument_.PersonalDocument),
+          }),
+          t.type({
+            documents: Defined,
+          }),
+        ]),
+      ]),
       tspProduct: BookingOption_.TspProduct,
       configurator: Configurator_.Configurator,
       customerSelection: CustomerSelection_.CustomerSelection,
@@ -81,7 +97,12 @@ export const Request = t.brand(
       leg?: BookingOption_.Leg;
       meta?: BookingMeta_.BookingMeta;
       terms?: Booking_.Terms;
-      customer?: Customer_.Customer;
+      customer?: Customer_.Customer &
+        ({
+          documents?: Array<PersonalDocument_.PersonalDocument>;
+        } & {
+          documents: Defined;
+        });
       tspProduct?: BookingOption_.TspProduct;
       configurator?: Configurator_.Configurator;
       customerSelection?: CustomerSelection_.CustomerSelection;

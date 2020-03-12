@@ -12,7 +12,7 @@
       "type": "object",
       "properties": {
         "type": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/properties/type"
+          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType"
         }
       },
       "required": ["type"]

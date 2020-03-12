@@ -2,12 +2,20 @@
   "$id": "http://maasglobal.com/core/personal-document.json",
   "type": "object",
   "description": "Personal document object",
+  "definitions": {
+    "documentType": {
+      "type": "string"
+    },
+    "documentStatus": {
+      "type": "string"
+    }
+  },
   "properties": {
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "type": {
-      "type": "string"
+      "$ref": "#/definitions/documentType"
     },
     "documentNumber": {
       "type": "string"
@@ -20,7 +28,7 @@
       "minLength": 2
     },
     "status": {
-      "type": "string"
+      "$ref": "#/definitions/documentStatus"
     },
     "validFrom": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
