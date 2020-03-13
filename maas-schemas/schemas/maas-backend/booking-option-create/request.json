@@ -39,7 +39,8 @@
           "$ref": "http://maasglobal.com/core/components/agencyOptions.json"
         },
         "rollbackOnFailure": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "If one of these is true, then all bookings will be cancelled"
         }
       }
     }
