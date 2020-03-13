@@ -43,6 +43,7 @@ export type Option = t.Branded<
     customerSelection?: CustomerSelection_.CustomerSelection;
     autoPurchaseId?: Units_.Uuid;
     agencyOptions?: AgencyOptions_.AgencyOptions;
+    rollbackOnFailure?: boolean;
   },
   OptionBrand
 >;
@@ -53,6 +54,7 @@ export const Option = t.brand(
     customerSelection: CustomerSelection_.CustomerSelection,
     autoPurchaseId: Units_.Uuid,
     agencyOptions: AgencyOptions_.AgencyOptions,
+    rollbackOnFailure: t.boolean,
   }),
   (
     x,
@@ -63,6 +65,7 @@ export const Option = t.brand(
       customerSelection?: CustomerSelection_.CustomerSelection;
       autoPurchaseId?: Units_.Uuid;
       agencyOptions?: AgencyOptions_.AgencyOptions;
+      rollbackOnFailure?: boolean;
     },
     OptionBrand
   > => true,

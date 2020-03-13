@@ -1021,12 +1021,6 @@ WARNING: default field not supported outside top-level definitions
 INFO: missing description
   in ./maas-backend/booking-option-create/request.json
 INFO: primitive type "string" used outside top-level definitions
-  in ./maas-backend/booking-option-create/response.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./maas-backend/booking-option-create/response.json
-WARNING: maxLength field not supported outside top-level definitions
-  in ./maas-backend/booking-option-create/response.json
-INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/customer.json
 WARNING: minLength field not supported outside top-level definitions
   in ./maas-backend/customers/customer.json
