@@ -34,25 +34,27 @@ const Defined = t.union([
 export const schemaId =
   'http://maasglobal.com/maas-backend/booking-option-create/request.json';
 
-// Payload
+// Option
 // The purpose of this remains a mystery
-export type Payload = t.Branded<
+export type Option = t.Branded<
   {
     paymentSourceId?: Common_.PaymentSourceId;
     productId?: Product_.Id;
     customerSelection?: CustomerSelection_.CustomerSelection;
     autoPurchaseId?: Units_.Uuid;
     agencyOptions?: AgencyOptions_.AgencyOptions;
+    rollbackOnFailure?: boolean;
   },
-  PayloadBrand
+  OptionBrand
 >;
-export const Payload = t.brand(
+export const Option = t.brand(
   t.partial({
     paymentSourceId: Common_.PaymentSourceId,
     productId: Product_.Id,
     customerSelection: CustomerSelection_.CustomerSelection,
     autoPurchaseId: Units_.Uuid,
     agencyOptions: AgencyOptions_.AgencyOptions,
+    rollbackOnFailure: t.boolean,
   }),
   (
     x,
@@ -63,13 +65,14 @@ export const Payload = t.brand(
       customerSelection?: CustomerSelection_.CustomerSelection;
       autoPurchaseId?: Units_.Uuid;
       agencyOptions?: AgencyOptions_.AgencyOptions;
+      rollbackOnFailure?: boolean;
     },
-    PayloadBrand
+    OptionBrand
   > => true,
-  'Payload',
+  'Option',
 );
-export interface PayloadBrand {
-  readonly Payload: unique symbol;
+export interface OptionBrand {
+  readonly Option: unique symbol;
 }
 
 // Request
@@ -77,7 +80,7 @@ export interface PayloadBrand {
 export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
-    payload?: Payload;
+    payload?: Array<Option>;
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
@@ -90,7 +93,7 @@ export const Request = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
-      payload: Payload,
+      payload: t.array(Option),
       headers: ApiCommon_.Headers,
     }),
     t.type({
@@ -104,7 +107,7 @@ export const Request = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
-      payload?: Payload;
+      payload?: Array<Option>;
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;

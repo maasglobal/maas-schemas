@@ -9,14 +9,17 @@
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "$ref": "#/definitions/payload"
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/option"
+      }
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
   "definitions": {
-    "payload": {
+    "option": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -34,6 +37,10 @@
         },
         "agencyOptions": {
           "$ref": "http://maasglobal.com/core/components/agencyOptions.json"
+        },
+        "rollbackOnFailure": {
+          "type": "boolean",
+          "description": "If one of these is true, then all bookings will be cancelled"
         }
       }
     }

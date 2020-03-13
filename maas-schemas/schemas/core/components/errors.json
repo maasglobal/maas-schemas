@@ -10,9 +10,7 @@
         "text": {
           "type": "string"
         },
-        "errorCode": {
-          "anyOf": [{ "type": "string" }, { "type": "number" }]
-        }
+        "errorCode": { "type": "string" }
       },
       "additionalProperties": false
     }

@@ -16,21 +16,21 @@ export const schemaId = 'http://maasglobal.com/core/components/errors.json';
 export type Reason = t.Branded<
   {
     text?: string;
-    errorCode?: string | number;
+    errorCode?: string;
   },
   ReasonBrand
 >;
 export const Reason = t.brand(
   t.partial({
     text: t.string,
-    errorCode: t.union([t.string, t.number]),
+    errorCode: t.string,
   }),
   (
     x,
   ): x is t.Branded<
     {
       text?: string;
-      errorCode?: string | number;
+      errorCode?: string;
     },
     ReasonBrand
   > => true,
