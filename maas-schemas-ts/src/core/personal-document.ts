@@ -94,8 +94,8 @@ export type PersonalDocument = t.Branded<
     nameOnDocument?: string;
     issuingCountry?: string;
     status?: DocumentStatus;
-    validFrom?: Units_.Time;
-    validTo?: Units_.Time;
+    validFrom?: Units_.IsoDate;
+    validTo?: Units_.IsoDate;
     details?: {
       category?: string;
     };
@@ -120,8 +120,8 @@ export const PersonalDocument = t.brand(
       nameOnDocument: t.string,
       issuingCountry: t.string,
       status: DocumentStatus,
-      validFrom: Units_.Time,
-      validTo: Units_.Time,
+      validFrom: Units_.IsoDate,
+      validTo: Units_.IsoDate,
       details: t.partial({
         category: t.string,
       }),
@@ -147,8 +147,8 @@ export const PersonalDocument = t.brand(
       nameOnDocument?: string;
       issuingCountry?: string;
       status?: DocumentStatus;
-      validFrom?: Units_.Time;
-      validTo?: Units_.Time;
+      validFrom?: Units_.IsoDate;
+      validTo?: Units_.IsoDate;
       details?: {
         category?: string;
       };

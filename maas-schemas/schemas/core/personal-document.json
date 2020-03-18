@@ -32,10 +32,10 @@
       "$ref": "#/definitions/documentStatus"
     },
     "validFrom": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
     },
     "validTo": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
     },
     "details": {
       "type": "object",
