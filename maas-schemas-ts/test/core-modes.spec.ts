@@ -1,4 +1,4 @@
-import * as ruins from 'ruins-ts';
+import { validator } from 'io-ts-validator';
 import { MODE_TAXI } from '../src/core/modes/MODE_TAXI';
 
 describe('Check modes', () => {
@@ -11,7 +11,7 @@ describe('Check modes', () => {
         vehicleDescription: 'proud-hand',
         taxiCenter: { name: 'More Taxi 123', phone: '+358401234567' },
       };
-      const mode = ruins.fromEither(MODE_TAXI.decode(inputMode));
+      const mode = validator(MODE_TAXI).decodeSync(inputMode);
       return expect(mode).toEqual(inputMode);
     });
 
@@ -19,7 +19,7 @@ describe('Check modes', () => {
       const inputMode = {
         taxiCenter: { name: 'Some taxi', phone: '+358401234567' },
       };
-      const mode = ruins.fromEither(MODE_TAXI.decode(inputMode));
+      const mode = validator(MODE_TAXI).decodeSync(inputMode);
       return expect(mode).toEqual(inputMode);
     });
 
@@ -29,7 +29,7 @@ describe('Check modes', () => {
         extra: { values: 1 },
         more: 'More values',
       };
-      const mode = ruins.fromEither(MODE_TAXI.decode(inputMode));
+      const mode = validator(MODE_TAXI).decodeSync(inputMode);
       return expect(mode).toEqual(inputMode);
     });
   });
