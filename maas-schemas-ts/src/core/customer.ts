@@ -226,7 +226,7 @@ export const Customer = t.brand(
 export interface CustomerBrand {
   readonly Customer: unique symbol;
 }
-/** nonEmptyArray(Customer).decode(examplesCustomer) // => { _tag: 'Right', right: examplesCustomer } */
+/** require('io-ts-validator').validator(nonEmptyArray(Customer)).decodeSync(examplesCustomer) // => examplesCustomer */
 export const examplesCustomer: NonEmptyArray<Customer> = ([
   {
     identityId: 'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',

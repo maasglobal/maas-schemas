@@ -26,7 +26,7 @@ export const Uuid = t.brand(
 export interface UuidBrand {
   readonly Uuid: unique symbol;
 }
-/** nonEmptyArray(Uuid).decode(examplesUuid) // => { _tag: 'Right', right: examplesUuid } */
+/** require('io-ts-validator').validator(nonEmptyArray(Uuid)).decodeSync(examplesUuid) // => examplesUuid */
 export const examplesUuid: NonEmptyArray<Uuid> = ([
   '4828507e-683f-41bf-9d87-689808fbf958',
 ] as unknown) as NonEmptyArray<Uuid>;
@@ -78,7 +78,7 @@ export const ObsoleteIdentityId = t.brand(
 export interface ObsoleteIdentityIdBrand {
   readonly ObsoleteIdentityId: unique symbol;
 }
-/** nonEmptyArray(ObsoleteIdentityId).decode(examplesObsoleteIdentityId) // => { _tag: 'Right', right: examplesObsoleteIdentityId } */
+/** require('io-ts-validator').validator(nonEmptyArray(ObsoleteIdentityId)).decodeSync(examplesObsoleteIdentityId) // => examplesObsoleteIdentityId */
 export const examplesObsoleteIdentityId: NonEmptyArray<ObsoleteIdentityId> = ([
   'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
 ] as unknown) as NonEmptyArray<ObsoleteIdentityId>;
@@ -94,7 +94,7 @@ export const IdentityId = t.brand(
 export interface IdentityIdBrand {
   readonly IdentityId: unique symbol;
 }
-/** nonEmptyArray(IdentityId).decode(examplesIdentityId) // => { _tag: 'Right', right: examplesIdentityId } */
+/** require('io-ts-validator').validator(nonEmptyArray(IdentityId)).decodeSync(examplesIdentityId) // => examplesIdentityId */
 export const examplesIdentityId: NonEmptyArray<IdentityId> = ([
   'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
   '4828507e-683f-41bf-9d87-689808fbf958',
