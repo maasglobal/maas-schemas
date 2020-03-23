@@ -23,6 +23,10 @@
       "minimum": 0,
       "multipleOf": 0.01
     },
+    "isFixedPrice": {
+      "type": "boolean",
+      "description": "A flag indicating whether TSP price is fixed"
+    },
     "currency": {
       "oneOf": [
         { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency" },
