@@ -133,6 +133,12 @@
         "$ref": "http://maasglobal.com/core/components/personalDataAllowItem.json"
       }
     },
+    "requiredPersonalDocuments": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/core/components/personalDocumentRequiredItem.json"
+      }
+    },
     "optionalParameters": {
       "type": "array",
       "items": {

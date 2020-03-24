@@ -1,0 +1,18 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/personal-documents/create/request.json",
+  "description": "Insert a pending verification personal document object",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identityId", "payload", "headers"],
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "$ref": "http://maasglobal.com/core/personal-document.json"
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  }
+}

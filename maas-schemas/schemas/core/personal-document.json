@@ -1,0 +1,60 @@
+{
+  "$id": "http://maasglobal.com/core/personal-document.json",
+  "type": "object",
+  "description": "Personal document object",
+  "definitions": {
+    "documentType": {
+      "type": "string"
+    },
+    "documentStatus": {
+      "type": "string",
+      "enum": ["PENDING", "APPROVED", "DECLINED", "EXPIRED", "RESUBMISSION_REQUESTED", "ABANDONED"]
+    }
+  },
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "type": {
+      "$ref": "#/definitions/documentType"
+    },
+    "documentNumber": {
+      "type": "string"
+    },
+    "nameOnDocument": {
+      "type": "string"
+    },
+    "issuingCountry": {
+      "type": "string",
+      "minLength": 2
+    },
+    "status": {
+      "$ref": "#/definitions/documentStatus"
+    },
+    "validFrom": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+    },
+    "validTo": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+    },
+    "details": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "type",
+    "documentNumber",
+    "nameOnDocument",
+    "issuingCountry",
+    "status",
+    "validFrom",
+    "validTo",
+    "details"
+  ]
+}

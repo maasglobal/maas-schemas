@@ -84,6 +84,12 @@
         }
       ]
     },
+    "documents": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/core/personal-document.json"
+      }
+    },
     "balances": {
       "type": "object",
       "properties": {

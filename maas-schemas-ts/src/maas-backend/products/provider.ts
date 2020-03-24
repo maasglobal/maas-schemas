@@ -11,6 +11,7 @@ import * as t from 'io-ts';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as PersonalDataAllowItem_ from 'maas-schemas-ts/core/components/personalDataAllowItem';
+import * as PersonalDocumentRequiredItem_ from 'maas-schemas-ts/core/components/personalDocumentRequiredItem';
 
 type Defined =
   | Record<string, unknown>
@@ -77,6 +78,9 @@ export type Provider = t.Branded<
     };
     personalDataOptionsAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
     personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
+    requiredPersonalDocuments?: Array<
+      PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
+    >;
     optionalParameters?: Array<
       {
         id?: string;
@@ -173,6 +177,9 @@ export const Provider = t.brand(
       }),
       personalDataOptionsAllow: t.array(PersonalDataAllowItem_.PersonalDataAllowItem),
       personalDataCreateAllow: t.array(PersonalDataAllowItem_.PersonalDataAllowItem),
+      requiredPersonalDocuments: t.array(
+        PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem,
+      ),
       optionalParameters: t.array(
         t.intersection([
           t.partial({
@@ -275,6 +282,9 @@ export const Provider = t.brand(
       };
       personalDataOptionsAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
       personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
+      requiredPersonalDocuments?: Array<
+        PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
+      >;
       optionalParameters?: Array<
         {
           id?: string;

@@ -54,7 +54,8 @@
         "clientId": "whim",
         "lastName": "Tester",
         "opaqueId": "cafecaca",
-        "firstName": "Test"
+        "firstName": "Test",
+        "documents": []
       },
       "meta": {
         "MODE_TAXI": {

@@ -12,6 +12,7 @@ import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as Address_ from 'maas-schemas-ts/core/components/address';
 import * as I18n_ from 'maas-schemas-ts/core/components/i18n';
+import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
 import * as Fare_ from 'maas-schemas-ts/core/components/fare';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
@@ -58,6 +59,7 @@ export type Customer = t.Branded<
     clientId?: Common_.ClientId;
     dob?: boolean | Units_.IsoDate;
     ssid?: boolean | Common_.Ssid;
+    documents?: Array<PersonalDocument_.PersonalDocument>;
     balances?: ({
       WMP?: {
         currency?: 'WMP';
@@ -114,6 +116,7 @@ export const Customer = t.brand(
     clientId: Common_.ClientId,
     dob: t.union([t.boolean, Units_.IsoDate]),
     ssid: t.union([t.boolean, Common_.Ssid]),
+    documents: t.array(PersonalDocument_.PersonalDocument),
     balances: t.intersection([
       t.intersection([
         t.partial({
@@ -187,6 +190,7 @@ export const Customer = t.brand(
       clientId?: Common_.ClientId;
       dob?: boolean | Units_.IsoDate;
       ssid?: boolean | Common_.Ssid;
+      documents?: Array<PersonalDocument_.PersonalDocument>;
       balances?: ({
         WMP?: {
           currency?: 'WMP';
