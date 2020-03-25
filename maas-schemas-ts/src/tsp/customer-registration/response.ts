@@ -9,63 +9,57 @@ Response schema for retrieving customer registration details
 
 import * as t from 'io-ts';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
-
+  t.null,
+]);
 
 export const schemaId = 'http://maasglobal.com/tsp/customer-registration/response.json';
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
+  {
+    customer?: {};
+  } & {
+    customer: Defined;
+  },
+  ResponseBrand
+>;
+export const Response = t.brand(
+  t.intersection([
+    t.partial({
+      customer: t.type({}),
+    }),
+    t.type({
+      customer: Defined,
+    }),
+  ]),
   (
-  & {
-  customer?: {
-
-  }
-}
-  & {
-  customer: Defined
-}
-  ), ResponseBrand>
-export const Response = t.brand(t.intersection([
-  t.partial({
-    customer: t.type({
-
-    })
-  }),
-  t.type({
-    customer: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  customer?: {
-
-  }
-}
-  & {
-  customer: Defined
-}
-  ), ResponseBrand> => true, 'Response')
+    x,
+  ): x is t.Branded<
+    {
+      customer?: {};
+    } & {
+      customer: Defined;
+    },
+    ResponseBrand
+  > => true,
+  'Response',
+);
 export interface ResponseBrand {
-  readonly Response: unique symbol
+  readonly Response: unique symbol;
 }
 
 export default Response;

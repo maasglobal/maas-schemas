@@ -10,118 +10,97 @@ MaaS.fi geocoding (GeoJSON) response schema
 import * as t from 'io-ts';
 import * as Geolocation_ from 'maas-schemas-ts/core/components/geolocation';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
+  t.null,
+]);
 
-
-export const schemaId = 'http://maasglobal.com/maas-backend/geocoding/geocoding-reverse/response.json';
+export const schemaId =
+  'http://maasglobal.com/maas-backend/geocoding/geocoding-reverse/response.json';
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  (
-  & {
-  type?: 'FeatureCollection',
-  features?: Array<
-    (
-    & Geolocation_.Feature
-    & {
-    properties?:
-      (
-      & {
-
-    }
-      & {
-      city: Defined,
-      country: Defined,
-      countryCode: Defined
-    }
-      )
-  }
-    )>,
-  debug?: {
-
-  }
-}
-  & {
-  type: Defined,
-  features: Defined
-}
-  ), ResponseBrand>
-export const Response = t.brand(t.intersection([
-  t.partial({
-    type: t.literal('FeatureCollection'),
-    features: t.array(t.intersection([
-      Geolocation_.Feature,
-      t.partial({
-        properties: t.intersection([
-          t.type({
-
+  {
+    type?: 'FeatureCollection';
+    features?: Array<
+      Geolocation_.Feature & {
+        properties?: {} & {
+          city: Defined;
+          country: Defined;
+          countryCode: Defined;
+        };
+      }
+    >;
+    debug?: {};
+  } & {
+    type: Defined;
+    features: Defined;
+  },
+  ResponseBrand
+>;
+export const Response = t.brand(
+  t.intersection([
+    t.partial({
+      type: t.literal('FeatureCollection'),
+      features: t.array(
+        t.intersection([
+          Geolocation_.Feature,
+          t.partial({
+            properties: t.intersection([
+              t.type({}),
+              t.type({
+                city: Defined,
+                country: Defined,
+                countryCode: Defined,
+              }),
+            ]),
           }),
-          t.type({
-            city: Defined,
-            country: Defined,
-            countryCode: Defined
-          })
-        ])
-      })
-    ])),
-    debug: t.type({
-
-    })
-  }),
-  t.type({
-    type: Defined,
-    features: Defined
-  })
-]), (x): x is t.Branded<
+        ]),
+      ),
+      debug: t.type({}),
+    }),
+    t.type({
+      type: Defined,
+      features: Defined,
+    }),
+  ]),
   (
-  & {
-  type?: 'FeatureCollection',
-  features?: Array<
-    (
-    & Geolocation_.Feature
-    & {
-    properties?:
-      (
-      & {
-
-    }
-      & {
-      city: Defined,
-      country: Defined,
-      countryCode: Defined
-    }
-      )
-  }
-    )>,
-  debug?: {
-
-  }
-}
-  & {
-  type: Defined,
-  features: Defined
-}
-  ), ResponseBrand> => true, 'Response')
+    x,
+  ): x is t.Branded<
+    {
+      type?: 'FeatureCollection';
+      features?: Array<
+        Geolocation_.Feature & {
+          properties?: {} & {
+            city: Defined;
+            country: Defined;
+            countryCode: Defined;
+          };
+        }
+      >;
+      debug?: {};
+    } & {
+      type: Defined;
+      features: Defined;
+    },
+    ResponseBrand
+  > => true,
+  'Response',
+);
 export interface ResponseBrand {
-  readonly Response: unique symbol
+  readonly Response: unique symbol;
 }
 
 export default Response;

@@ -10,24 +10,35 @@ MaaS stations retrieve request schema
 import * as t from 'io-ts';
 import * as Station_ from 'maas-schemas-ts/core/components/station';
 
-
 export const schemaId = 'http://maasglobal.com/tsp/stations-retrieve/request.json';
 
 // Request
 // The default export. More information at the top.
-export type Request = t.Branded<{
-  id?: Station_.Id,
-  agencyId?: Station_.AgencyId
-}, RequestBrand>
-export const Request = t.brand(t.partial({
-  id: Station_.Id,
-  agencyId: Station_.AgencyId
-}), (x): x is t.Branded<{
-  id?: Station_.Id,
-  agencyId?: Station_.AgencyId
-}, RequestBrand> => true, 'Request')
+export type Request = t.Branded<
+  {
+    id?: Station_.Id;
+    agencyId?: Station_.AgencyId;
+  },
+  RequestBrand
+>;
+export const Request = t.brand(
+  t.partial({
+    id: Station_.Id,
+    agencyId: Station_.AgencyId,
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      id?: Station_.Id;
+      agencyId?: Station_.AgencyId;
+    },
+    RequestBrand
+  > => true,
+  'Request',
+);
 export interface RequestBrand {
-  readonly Request: unique symbol
+  readonly Request: unique symbol;
 }
 
 export default Request;

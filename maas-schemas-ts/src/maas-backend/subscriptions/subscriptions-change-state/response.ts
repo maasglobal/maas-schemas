@@ -10,57 +10,58 @@ Response schema for subscriptions-change-state
 import * as t from 'io-ts';
 import * as SubscriptionChangeState_ from 'maas-schemas-ts/core/components/subscriptionChangeState';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
+  t.null,
+]);
 
-
-export const schemaId = 'http://maasglobal.com/maas-backend/subscriptions/subscriptions-change-state/response.json';
+export const schemaId =
+  'http://maasglobal.com/maas-backend/subscriptions/subscriptions-change-state/response.json';
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
+  {
+    changeState?: SubscriptionChangeState_.SubscriptionChangeState;
+  } & {
+    changeState: Defined;
+  },
+  ResponseBrand
+>;
+export const Response = t.brand(
+  t.intersection([
+    t.partial({
+      changeState: SubscriptionChangeState_.SubscriptionChangeState,
+    }),
+    t.type({
+      changeState: Defined,
+    }),
+  ]),
   (
-  & {
-  changeState?: SubscriptionChangeState_.SubscriptionChangeState
-}
-  & {
-  changeState: Defined
-}
-  ), ResponseBrand>
-export const Response = t.brand(t.intersection([
-  t.partial({
-    changeState: SubscriptionChangeState_.SubscriptionChangeState
-  }),
-  t.type({
-    changeState: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  changeState?: SubscriptionChangeState_.SubscriptionChangeState
-}
-  & {
-  changeState: Defined
-}
-  ), ResponseBrand> => true, 'Response')
+    x,
+  ): x is t.Branded<
+    {
+      changeState?: SubscriptionChangeState_.SubscriptionChangeState;
+    } & {
+      changeState: Defined;
+    },
+    ResponseBrand
+  > => true,
+  'Response',
+);
 export interface ResponseBrand {
-  readonly Response: unique symbol
+  readonly Response: unique symbol;
 }
 
 export default Response;

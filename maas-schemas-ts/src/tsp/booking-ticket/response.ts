@@ -10,128 +10,90 @@ Response schema for retrieving a ticket from booking through a TSP adapter
 import * as t from 'io-ts';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
-
+  t.null,
+]);
 
 export const schemaId = 'http://maasglobal.com/tsp/bookings-ticket/response.json';
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
+  {
+    ticket?: string;
+    type?: string & ('html' | 'pdf' | 'svg' | 'png');
+    contentType?: string &
+      ('application/pdf' | 'image/svg+xml' | 'image/png' | 'text/html');
+    refreshAt?: Units_.Time;
+  } & {
+    ticket: Defined;
+    type: Defined;
+    contentType: Defined;
+  },
+  ResponseBrand
+>;
+export const Response = t.brand(
+  t.intersection([
+    t.partial({
+      ticket: t.string,
+      type: t.intersection([
+        t.string,
+        t.union([
+          t.literal('html'),
+          t.literal('pdf'),
+          t.literal('svg'),
+          t.literal('png'),
+        ]),
+      ]),
+      contentType: t.intersection([
+        t.string,
+        t.union([
+          t.literal('application/pdf'),
+          t.literal('image/svg+xml'),
+          t.literal('image/png'),
+          t.literal('text/html'),
+        ]),
+      ]),
+      refreshAt: Units_.Time,
+    }),
+    t.type({
+      ticket: Defined,
+      type: Defined,
+      contentType: Defined,
+    }),
+  ]),
   (
-  & {
-  ticket?: string,
-  type?:
-    (
-    & string
-    & 
-    (
-    | 'html'
-    | 'pdf'
-    | 'svg'
-    | 'png'
-    )
-    ),
-  contentType?:
-    (
-    & string
-    & 
-    (
-    | 'application/pdf'
-    | 'image/svg+xml'
-    | 'image/png'
-    | 'text/html'
-    )
-    ),
-  refreshAt?: Units_.Time
-}
-  & {
-  ticket: Defined,
-  type: Defined,
-  contentType: Defined
-}
-  ), ResponseBrand>
-export const Response = t.brand(t.intersection([
-  t.partial({
-    ticket: t.string,
-    type: t.intersection([
-      t.string,
-      t.union([
-        t.literal('html'),
-        t.literal('pdf'),
-        t.literal('svg'),
-        t.literal('png')
-      ])
-    ]),
-    contentType: t.intersection([
-      t.string,
-      t.union([
-        t.literal('application/pdf'),
-        t.literal('image/svg+xml'),
-        t.literal('image/png'),
-        t.literal('text/html')
-      ])
-    ]),
-    refreshAt: Units_.Time
-  }),
-  t.type({
-    ticket: Defined,
-    type: Defined,
-    contentType: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  ticket?: string,
-  type?:
-    (
-    & string
-    & 
-    (
-    | 'html'
-    | 'pdf'
-    | 'svg'
-    | 'png'
-    )
-    ),
-  contentType?:
-    (
-    & string
-    & 
-    (
-    | 'application/pdf'
-    | 'image/svg+xml'
-    | 'image/png'
-    | 'text/html'
-    )
-    ),
-  refreshAt?: Units_.Time
-}
-  & {
-  ticket: Defined,
-  type: Defined,
-  contentType: Defined
-}
-  ), ResponseBrand> => true, 'Response')
+    x,
+  ): x is t.Branded<
+    {
+      ticket?: string;
+      type?: string & ('html' | 'pdf' | 'svg' | 'png');
+      contentType?: string &
+        ('application/pdf' | 'image/svg+xml' | 'image/png' | 'text/html');
+      refreshAt?: Units_.Time;
+    } & {
+      ticket: Defined;
+      type: Defined;
+      contentType: Defined;
+    },
+    ResponseBrand
+  > => true,
+  'Response',
+);
 export interface ResponseBrand {
-  readonly Response: unique symbol
+  readonly Response: unique symbol;
 }
 
 export default Response;

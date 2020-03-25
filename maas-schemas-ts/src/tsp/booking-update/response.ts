@@ -13,81 +13,81 @@ import * as State_ from 'maas-schemas-ts/core/components/state';
 import * as BookingOption_ from 'maas-schemas-ts/core/booking-option';
 import * as BookingMeta_ from 'maas-schemas-ts/core/booking-meta';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
-
+  t.null,
+]);
 
 export const schemaId = 'http://maasglobal.com/tsp/bookings-update/response.json';
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
+  {
+    tspId?: Booking_.TspId;
+    cost?: Booking_.Cost;
+    state?: State_.BookingState;
+    leg?: BookingOption_.LegDelta;
+    meta?: BookingMeta_.BookingMeta;
+    terms?: Booking_.Terms;
+    token?: Booking_.Token;
+    tspProduct?: BookingOption_.TspProduct;
+  } & {
+    tspId: Defined;
+    state: Defined;
+  },
+  ResponseBrand
+>;
+export const Response = t.brand(
+  t.intersection([
+    t.partial({
+      tspId: Booking_.TspId,
+      cost: Booking_.Cost,
+      state: State_.BookingState,
+      leg: BookingOption_.LegDelta,
+      meta: BookingMeta_.BookingMeta,
+      terms: Booking_.Terms,
+      token: Booking_.Token,
+      tspProduct: BookingOption_.TspProduct,
+    }),
+    t.type({
+      tspId: Defined,
+      state: Defined,
+    }),
+  ]),
   (
-  & {
-  tspId?: Booking_.TspId,
-  cost?: Booking_.Cost,
-  state?: State_.BookingState,
-  leg?: BookingOption_.LegDelta,
-  meta?: BookingMeta_.BookingMeta,
-  terms?: Booking_.Terms,
-  token?: Booking_.Token,
-  tspProduct?: BookingOption_.TspProduct
-}
-  & {
-  tspId: Defined,
-  state: Defined
-}
-  ), ResponseBrand>
-export const Response = t.brand(t.intersection([
-  t.partial({
-    tspId: Booking_.TspId,
-    cost: Booking_.Cost,
-    state: State_.BookingState,
-    leg: BookingOption_.LegDelta,
-    meta: BookingMeta_.BookingMeta,
-    terms: Booking_.Terms,
-    token: Booking_.Token,
-    tspProduct: BookingOption_.TspProduct
-  }),
-  t.type({
-    tspId: Defined,
-    state: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  tspId?: Booking_.TspId,
-  cost?: Booking_.Cost,
-  state?: State_.BookingState,
-  leg?: BookingOption_.LegDelta,
-  meta?: BookingMeta_.BookingMeta,
-  terms?: Booking_.Terms,
-  token?: Booking_.Token,
-  tspProduct?: BookingOption_.TspProduct
-}
-  & {
-  tspId: Defined,
-  state: Defined
-}
-  ), ResponseBrand> => true, 'Response')
+    x,
+  ): x is t.Branded<
+    {
+      tspId?: Booking_.TspId;
+      cost?: Booking_.Cost;
+      state?: State_.BookingState;
+      leg?: BookingOption_.LegDelta;
+      meta?: BookingMeta_.BookingMeta;
+      terms?: Booking_.Terms;
+      token?: Booking_.Token;
+      tspProduct?: BookingOption_.TspProduct;
+    } & {
+      tspId: Defined;
+      state: Defined;
+    },
+    ResponseBrand
+  > => true,
+  'Response',
+);
 export interface ResponseBrand {
-  readonly Response: unique symbol
+  readonly Response: unique symbol;
 }
 
 export default Response;

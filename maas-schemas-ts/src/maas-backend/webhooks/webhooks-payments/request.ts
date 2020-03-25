@@ -12,29 +12,27 @@ import * as Avainpay_ from 'maas-schemas-ts/maas-backend/webhooks/webhooks-payme
 import * as Stripe_ from 'maas-schemas-ts/maas-backend/webhooks/webhooks-payments/gateway/stripe';
 import * as Yaband_ from 'maas-schemas-ts/maas-backend/webhooks/webhooks-payments/gateway/yaband';
 
-
-export const schemaId = 'http://maasglobal.com/maas-backend/webhooks/webhooks-payments/request.json';
+export const schemaId =
+  'http://maasglobal.com/maas-backend/webhooks/webhooks-payments/request.json';
 
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
+  Avainpay_.Request | Stripe_.Request | Yaband_.Request,
+  RequestBrand
+>;
+export const Request = t.brand(
+  t.union([Avainpay_.Request, Stripe_.Request, Yaband_.Request]),
   (
-  | Avainpay_.Request
-  | Stripe_.Request
-  | Yaband_.Request
-  ), RequestBrand>
-export const Request = t.brand(t.union([
-  Avainpay_.Request,
-  Stripe_.Request,
-  Yaband_.Request
-]), (x): x is t.Branded<
-  (
-  | Avainpay_.Request
-  | Stripe_.Request
-  | Yaband_.Request
-  ), RequestBrand> => true, 'Request')
+    x,
+  ): x is t.Branded<
+    Avainpay_.Request | Stripe_.Request | Yaband_.Request,
+    RequestBrand
+  > => true,
+  'Request',
+);
 export interface RequestBrand {
-  readonly Request: unique symbol
+  readonly Request: unique symbol;
 }
 
 export default Request;

@@ -9,66 +9,67 @@ MaaS Zendesk push notification forwarder response schema.
 
 import * as t from 'io-ts';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
+  t.null,
+]);
 
-
-export const schemaId = 'http://maasglobal.com/maas-backend/webhooks/zendesk-push-notification/response.json';
+export const schemaId =
+  'http://maasglobal.com/maas-backend/webhooks/zendesk-push-notification/response.json';
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
+  {
+    results?: {
+      successCount: Defined;
+      failureCount: Defined;
+    };
+  } & {
+    results: Defined;
+  },
+  ResponseBrand
+>;
+export const Response = t.brand(
+  t.intersection([
+    t.partial({
+      results: t.type({
+        successCount: Defined,
+        failureCount: Defined,
+      }),
+    }),
+    t.type({
+      results: Defined,
+    }),
+  ]),
   (
-  & {
-  results?: {
-    successCount: Defined,
-    failureCount: Defined
-  }
-}
-  & {
-  results: Defined
-}
-  ), ResponseBrand>
-export const Response = t.brand(t.intersection([
-  t.partial({
-    results: t.type({
-      successCount: Defined,
-      failureCount: Defined
-    })
-  }),
-  t.type({
-    results: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  results?: {
-    successCount: Defined,
-    failureCount: Defined
-  }
-}
-  & {
-  results: Defined
-}
-  ), ResponseBrand> => true, 'Response')
+    x,
+  ): x is t.Branded<
+    {
+      results?: {
+        successCount: Defined;
+        failureCount: Defined;
+      };
+    } & {
+      results: Defined;
+    },
+    ResponseBrand
+  > => true,
+  'Response',
+);
 export interface ResponseBrand {
-  readonly Response: unique symbol
+  readonly Response: unique symbol;
 }
 
 export default Response;

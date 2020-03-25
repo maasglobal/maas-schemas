@@ -10,63 +10,64 @@ MaaS webhook to update bookings for tsp adapter callback request schema.
 import * as t from 'io-ts';
 import * as RemoteRequest_ from 'maas-schemas-ts/tsp/webhooks-bookings-update/remote-request';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
+  t.null,
+]);
 
-
-export const schemaId = 'http://maasglobal.com/maas-backend/webhooks/webhooks-bookings-update/request.json';
+export const schemaId =
+  'http://maasglobal.com/maas-backend/webhooks/webhooks-bookings-update/request.json';
 
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
+  {
+    agencyId?: string;
+    payload?: RemoteRequest_.RemoteRequest;
+  } & {
+    agencyId: Defined;
+    payload: Defined;
+  },
+  RequestBrand
+>;
+export const Request = t.brand(
+  t.intersection([
+    t.partial({
+      agencyId: t.string,
+      payload: RemoteRequest_.RemoteRequest,
+    }),
+    t.type({
+      agencyId: Defined,
+      payload: Defined,
+    }),
+  ]),
   (
-  & {
-  agencyId?: string,
-  payload?: RemoteRequest_.RemoteRequest
-}
-  & {
-  agencyId: Defined,
-  payload: Defined
-}
-  ), RequestBrand>
-export const Request = t.brand(t.intersection([
-  t.partial({
-    agencyId: t.string,
-    payload: RemoteRequest_.RemoteRequest
-  }),
-  t.type({
-    agencyId: Defined,
-    payload: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  agencyId?: string,
-  payload?: RemoteRequest_.RemoteRequest
-}
-  & {
-  agencyId: Defined,
-  payload: Defined
-}
-  ), RequestBrand> => true, 'Request')
+    x,
+  ): x is t.Branded<
+    {
+      agencyId?: string;
+      payload?: RemoteRequest_.RemoteRequest;
+    } & {
+      agencyId: Defined;
+      payload: Defined;
+    },
+    RequestBrand
+  > => true,
+  'Request',
+);
 export interface RequestBrand {
-  readonly Request: unique symbol
+  readonly Request: unique symbol;
 }
 
 export default Request;

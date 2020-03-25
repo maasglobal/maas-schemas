@@ -10,158 +10,164 @@ Personal document object
 import * as t from 'io-ts';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
-
+  t.null,
+]);
 
 export const schemaId = 'http://maasglobal.com/core/personal-document.json';
 
 // DocumentType
 // The purpose of this remains a mystery
-export type DocumentType = t.Branded<string, DocumentTypeBrand>
-export const DocumentType = t.brand(t.string, (x): x is t.Branded<string, DocumentTypeBrand> => true, 'DocumentType')
+export type DocumentType = t.Branded<string, DocumentTypeBrand>;
+export const DocumentType = t.brand(
+  t.string,
+  (x): x is t.Branded<string, DocumentTypeBrand> => true,
+  'DocumentType',
+);
 export interface DocumentTypeBrand {
-  readonly DocumentType: unique symbol
+  readonly DocumentType: unique symbol;
 }
 
 // DocumentStatus
 // The purpose of this remains a mystery
 export type DocumentStatus = t.Branded<
+  string &
+    (
+      | 'PENDING'
+      | 'APPROVED'
+      | 'DECLINED'
+      | 'EXPIRED'
+      | 'RESUBMISSION_REQUESTED'
+      | 'ABANDONED'),
+  DocumentStatusBrand
+>;
+export const DocumentStatus = t.brand(
+  t.intersection([
+    t.string,
+    t.union([
+      t.literal('PENDING'),
+      t.literal('APPROVED'),
+      t.literal('DECLINED'),
+      t.literal('EXPIRED'),
+      t.literal('RESUBMISSION_REQUESTED'),
+      t.literal('ABANDONED'),
+    ]),
+  ]),
   (
-  & string
-  & 
-  (
-  | 'PENDING'
-  | 'APPROVED'
-  | 'DECLINED'
-  | 'EXPIRED'
-  | 'RESUBMISSION_REQUESTED'
-  | 'ABANDONED'
-  )
-  ), DocumentStatusBrand>
-export const DocumentStatus = t.brand(t.intersection([
-  t.string,
-  t.union([
-    t.literal('PENDING'),
-    t.literal('APPROVED'),
-    t.literal('DECLINED'),
-    t.literal('EXPIRED'),
-    t.literal('RESUBMISSION_REQUESTED'),
-    t.literal('ABANDONED')
-  ])
-]), (x): x is t.Branded<
-  (
-  & string
-  & 
-  (
-  | 'PENDING'
-  | 'APPROVED'
-  | 'DECLINED'
-  | 'EXPIRED'
-  | 'RESUBMISSION_REQUESTED'
-  | 'ABANDONED'
-  )
-  ), DocumentStatusBrand> => true, 'DocumentStatus')
+    x,
+  ): x is t.Branded<
+    string &
+      (
+        | 'PENDING'
+        | 'APPROVED'
+        | 'DECLINED'
+        | 'EXPIRED'
+        | 'RESUBMISSION_REQUESTED'
+        | 'ABANDONED'),
+    DocumentStatusBrand
+  > => true,
+  'DocumentStatus',
+);
 export interface DocumentStatusBrand {
-  readonly DocumentStatus: unique symbol
+  readonly DocumentStatus: unique symbol;
 }
 
 // PersonalDocument
 // The default export. More information at the top.
 export type PersonalDocument = t.Branded<
+  {
+    identityId?: Units_.IdentityId;
+    type?: DocumentType;
+    documentNumber?: string;
+    nameOnDocument?: string;
+    issuingCountry?: string;
+    status?: DocumentStatus;
+    validFrom?: Units_.IsoDate;
+    validTo?: Units_.IsoDate;
+    details?: {
+      category?: string;
+    };
+  } & {
+    type: Defined;
+    documentNumber: Defined;
+    nameOnDocument: Defined;
+    issuingCountry: Defined;
+    status: Defined;
+    validFrom: Defined;
+    validTo: Defined;
+    details: Defined;
+  },
+  PersonalDocumentBrand
+>;
+export const PersonalDocument = t.brand(
+  t.intersection([
+    t.partial({
+      identityId: Units_.IdentityId,
+      type: DocumentType,
+      documentNumber: t.string,
+      nameOnDocument: t.string,
+      issuingCountry: t.string,
+      status: DocumentStatus,
+      validFrom: Units_.IsoDate,
+      validTo: Units_.IsoDate,
+      details: t.partial({
+        category: t.string,
+      }),
+    }),
+    t.type({
+      type: Defined,
+      documentNumber: Defined,
+      nameOnDocument: Defined,
+      issuingCountry: Defined,
+      status: Defined,
+      validFrom: Defined,
+      validTo: Defined,
+      details: Defined,
+    }),
+  ]),
   (
-  & {
-  identityId?: Units_.IdentityId,
-  type?: DocumentType,
-  documentNumber?: string,
-  nameOnDocument?: string,
-  issuingCountry?: string,
-  status?: DocumentStatus,
-  validFrom?: Units_.IsoDate,
-  validTo?: Units_.IsoDate,
-  details?: {
-    category?: string
-  }
-}
-  & {
-  type: Defined,
-  documentNumber: Defined,
-  nameOnDocument: Defined,
-  issuingCountry: Defined,
-  status: Defined,
-  validFrom: Defined,
-  validTo: Defined,
-  details: Defined
-}
-  ), PersonalDocumentBrand>
-export const PersonalDocument = t.brand(t.intersection([
-  t.partial({
-    identityId: Units_.IdentityId,
-    type: DocumentType,
-    documentNumber: t.string,
-    nameOnDocument: t.string,
-    issuingCountry: t.string,
-    status: DocumentStatus,
-    validFrom: Units_.IsoDate,
-    validTo: Units_.IsoDate,
-    details: t.partial({
-      category: t.string
-    })
-  }),
-  t.type({
-    type: Defined,
-    documentNumber: Defined,
-    nameOnDocument: Defined,
-    issuingCountry: Defined,
-    status: Defined,
-    validFrom: Defined,
-    validTo: Defined,
-    details: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  identityId?: Units_.IdentityId,
-  type?: DocumentType,
-  documentNumber?: string,
-  nameOnDocument?: string,
-  issuingCountry?: string,
-  status?: DocumentStatus,
-  validFrom?: Units_.IsoDate,
-  validTo?: Units_.IsoDate,
-  details?: {
-    category?: string
-  }
-}
-  & {
-  type: Defined,
-  documentNumber: Defined,
-  nameOnDocument: Defined,
-  issuingCountry: Defined,
-  status: Defined,
-  validFrom: Defined,
-  validTo: Defined,
-  details: Defined
-}
-  ), PersonalDocumentBrand> => true, 'PersonalDocument')
+    x,
+  ): x is t.Branded<
+    {
+      identityId?: Units_.IdentityId;
+      type?: DocumentType;
+      documentNumber?: string;
+      nameOnDocument?: string;
+      issuingCountry?: string;
+      status?: DocumentStatus;
+      validFrom?: Units_.IsoDate;
+      validTo?: Units_.IsoDate;
+      details?: {
+        category?: string;
+      };
+    } & {
+      type: Defined;
+      documentNumber: Defined;
+      nameOnDocument: Defined;
+      issuingCountry: Defined;
+      status: Defined;
+      validFrom: Defined;
+      validTo: Defined;
+      details: Defined;
+    },
+    PersonalDocumentBrand
+  > => true,
+  'PersonalDocument',
+);
 export interface PersonalDocumentBrand {
-  readonly PersonalDocument: unique symbol
+  readonly PersonalDocument: unique symbol;
 }
 
 export default PersonalDocument;

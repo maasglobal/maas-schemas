@@ -12,81 +12,82 @@ import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as Booking_ from 'maas-schemas-ts/core/booking';
 import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
+  t.null,
+]);
 
-
-export const schemaId = 'http://maasglobal.com/maas-backend/itineraries/itinerary-list/request.json';
+export const schemaId =
+  'http://maasglobal.com/maas-backend/itineraries/itinerary-list/request.json';
 
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  (
-  & {
-  identityId?: Units_.IdentityId,
-  payload?: {
-    startTime?: Units_.Time,
-    endTime?: Units_.Time,
-    states?: string,
-    bookingId?: Booking_.Id,
-    originalFare?: string
+  {
+    identityId?: Units_.IdentityId;
+    payload?: {
+      startTime?: Units_.Time;
+      endTime?: Units_.Time;
+      states?: string;
+      bookingId?: Booking_.Id;
+      originalFare?: string;
+    };
+    headers?: ApiCommon_.Headers;
+  } & {
+    identityId: Defined;
   },
-  headers?: ApiCommon_.Headers
-}
-  & {
-  identityId: Defined
-}
-  ), RequestBrand>
-export const Request = t.brand(t.intersection([
-  t.partial({
-    identityId: Units_.IdentityId,
-    payload: t.partial({
-      startTime: Units_.Time,
-      endTime: Units_.Time,
-      states: t.string,
-      bookingId: Booking_.Id,
-      originalFare: t.string
+  RequestBrand
+>;
+export const Request = t.brand(
+  t.intersection([
+    t.partial({
+      identityId: Units_.IdentityId,
+      payload: t.partial({
+        startTime: Units_.Time,
+        endTime: Units_.Time,
+        states: t.string,
+        bookingId: Booking_.Id,
+        originalFare: t.string,
+      }),
+      headers: ApiCommon_.Headers,
     }),
-    headers: ApiCommon_.Headers
-  }),
-  t.type({
-    identityId: Defined
-  })
-]), (x): x is t.Branded<
+    t.type({
+      identityId: Defined,
+    }),
+  ]),
   (
-  & {
-  identityId?: Units_.IdentityId,
-  payload?: {
-    startTime?: Units_.Time,
-    endTime?: Units_.Time,
-    states?: string,
-    bookingId?: Booking_.Id,
-    originalFare?: string
-  },
-  headers?: ApiCommon_.Headers
-}
-  & {
-  identityId: Defined
-}
-  ), RequestBrand> => true, 'Request')
+    x,
+  ): x is t.Branded<
+    {
+      identityId?: Units_.IdentityId;
+      payload?: {
+        startTime?: Units_.Time;
+        endTime?: Units_.Time;
+        states?: string;
+        bookingId?: Booking_.Id;
+        originalFare?: string;
+      };
+      headers?: ApiCommon_.Headers;
+    } & {
+      identityId: Defined;
+    },
+    RequestBrand
+  > => true,
+  'Request',
+);
 export interface RequestBrand {
-  readonly Request: unique symbol
+  readonly Request: unique symbol;
 }
 
 export default Request;

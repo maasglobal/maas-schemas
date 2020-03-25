@@ -12,66 +12,71 @@ import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as State_ from 'maas-schemas-ts/core/components/state';
 
-
 export const schemaId = 'http://maasglobal.com/core/iot-thing-shadow.json';
 
 // IotThingShadow
 // The default export. More information at the top.
-export type IotThingShadow = t.Branded<{
-  desired?: {
-
+export type IotThingShadow = t.Branded<
+  {
+    desired?: {};
+    reported?: {
+      location?: {
+        lat?: UnitsGeo_.Latitude;
+        lon?: UnitsGeo_.Longitude;
+        timestamp?: Units_.Time;
+        legId?: Units_.Uuid;
+      };
+      leg?: {
+        id?: Units_.Uuid;
+        timestamp?: Units_.Time;
+        state?: State_.LegState;
+      };
+    };
   },
-  reported?: {
-    location?: {
-      lat?: UnitsGeo_.Latitude,
-      lon?: UnitsGeo_.Longitude,
-      timestamp?: Units_.Time,
-      legId?: Units_.Uuid
-    },
-    leg?: {
-      id?: Units_.Uuid,
-      timestamp?: Units_.Time,
-      state?: State_.LegState
-    }
-  }
-}, IotThingShadowBrand>
-export const IotThingShadow = t.brand(t.partial({
-  desired: t.partial({
-
-  }),
-  reported: t.partial({
-    location: t.partial({
-      lat: UnitsGeo_.Latitude,
-      lon: UnitsGeo_.Longitude,
-      timestamp: Units_.Time,
-      legId: Units_.Uuid
+  IotThingShadowBrand
+>;
+export const IotThingShadow = t.brand(
+  t.partial({
+    desired: t.partial({}),
+    reported: t.partial({
+      location: t.partial({
+        lat: UnitsGeo_.Latitude,
+        lon: UnitsGeo_.Longitude,
+        timestamp: Units_.Time,
+        legId: Units_.Uuid,
+      }),
+      leg: t.partial({
+        id: Units_.Uuid,
+        timestamp: Units_.Time,
+        state: State_.LegState,
+      }),
     }),
-    leg: t.partial({
-      id: Units_.Uuid,
-      timestamp: Units_.Time,
-      state: State_.LegState
-    })
-  })
-}), (x): x is t.Branded<{
-  desired?: {
-
-  },
-  reported?: {
-    location?: {
-      lat?: UnitsGeo_.Latitude,
-      lon?: UnitsGeo_.Longitude,
-      timestamp?: Units_.Time,
-      legId?: Units_.Uuid
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      desired?: {};
+      reported?: {
+        location?: {
+          lat?: UnitsGeo_.Latitude;
+          lon?: UnitsGeo_.Longitude;
+          timestamp?: Units_.Time;
+          legId?: Units_.Uuid;
+        };
+        leg?: {
+          id?: Units_.Uuid;
+          timestamp?: Units_.Time;
+          state?: State_.LegState;
+        };
+      };
     },
-    leg?: {
-      id?: Units_.Uuid,
-      timestamp?: Units_.Time,
-      state?: State_.LegState
-    }
-  }
-}, IotThingShadowBrand> => true, 'IotThingShadow')
+    IotThingShadowBrand
+  > => true,
+  'IotThingShadow',
+);
 export interface IotThingShadowBrand {
-  readonly IotThingShadow: unique symbol
+  readonly IotThingShadow: unique symbol;
 }
 
 export default IotThingShadow;

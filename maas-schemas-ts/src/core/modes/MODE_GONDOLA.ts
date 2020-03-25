@@ -9,21 +9,18 @@ Schema for MODE_GONDOLA meta field
 
 import * as t from 'io-ts';
 
-
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_GONDOLA.json';
 
 // MODE_GONDOLA
 // The default export. More information at the top.
-export type MODE_GONDOLA = t.Branded<{
-
-}, MODE_GONDOLABrand>
-export const MODE_GONDOLA = t.brand(t.type({
-
-}), (x): x is t.Branded<{
-
-}, MODE_GONDOLABrand> => true, 'MODE_GONDOLA')
+export type MODE_GONDOLA = t.Branded<{}, MODE_GONDOLABrand>;
+export const MODE_GONDOLA = t.brand(
+  t.type({}),
+  (x): x is t.Branded<{}, MODE_GONDOLABrand> => true,
+  'MODE_GONDOLA',
+);
 export interface MODE_GONDOLABrand {
-  readonly MODE_GONDOLA: unique symbol
+  readonly MODE_GONDOLA: unique symbol;
 }
 
 export default MODE_GONDOLA;

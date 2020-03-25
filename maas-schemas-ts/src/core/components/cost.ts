@@ -10,108 +10,75 @@ MaaS common units that are used consistently within our own objects
 import * as t from 'io-ts';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
-
+  t.null,
+]);
 
 export const schemaId = 'http://maasglobal.com/core/components/cost.json';
 
 // Cost
 // The default export. More information at the top.
 export type Cost = t.Branded<
+  {
+    amount?: number | null;
+    originalAmount?: number | null;
+    discount?: number;
+    taxes?: number;
+    isFixedPrice?: boolean;
+    currency?: Units_.Currency | null;
+  } & {
+    amount: Defined;
+    currency: Defined;
+  },
+  CostBrand
+>;
+export const Cost = t.brand(
+  t.intersection([
+    t.partial({
+      amount: t.union([t.number, t.null]),
+      originalAmount: t.union([t.number, t.null]),
+      discount: t.number,
+      taxes: t.number,
+      isFixedPrice: t.boolean,
+      currency: t.union([Units_.Currency, t.null]),
+    }),
+    t.type({
+      amount: Defined,
+      currency: Defined,
+    }),
+  ]),
   (
-  & {
-  amount?:
-    (
-    | number
-    | null
-    ),
-  originalAmount?:
-    (
-    | number
-    | null
-    ),
-  discount?: number,
-  taxes?: number,
-  isFixedPrice?: boolean,
-  currency?:
-    (
-    | Units_.Currency
-    | null
-    )
-}
-  & {
-  amount: Defined,
-  currency: Defined
-}
-  ), CostBrand>
-export const Cost = t.brand(t.intersection([
-  t.partial({
-    amount: t.union([
-      t.number,
-      t.null
-    ]),
-    originalAmount: t.union([
-      t.number,
-      t.null
-    ]),
-    discount: t.number,
-    taxes: t.number,
-    isFixedPrice: t.boolean,
-    currency: t.union([
-      Units_.Currency,
-      t.null
-    ])
-  }),
-  t.type({
-    amount: Defined,
-    currency: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  amount?:
-    (
-    | number
-    | null
-    ),
-  originalAmount?:
-    (
-    | number
-    | null
-    ),
-  discount?: number,
-  taxes?: number,
-  isFixedPrice?: boolean,
-  currency?:
-    (
-    | Units_.Currency
-    | null
-    )
-}
-  & {
-  amount: Defined,
-  currency: Defined
-}
-  ), CostBrand> => true, 'Cost')
+    x,
+  ): x is t.Branded<
+    {
+      amount?: number | null;
+      originalAmount?: number | null;
+      discount?: number;
+      taxes?: number;
+      isFixedPrice?: boolean;
+      currency?: Units_.Currency | null;
+    } & {
+      amount: Defined;
+      currency: Defined;
+    },
+    CostBrand
+  > => true,
+  'Cost',
+);
 export interface CostBrand {
-  readonly Cost: unique symbol
+  readonly Cost: unique symbol;
 }
 
 export default Cost;

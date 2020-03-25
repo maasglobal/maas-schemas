@@ -17,239 +17,245 @@ import * as BookingOption_ from 'maas-schemas-ts/core/booking-option';
 import * as Fare_ from 'maas-schemas-ts/core/components/fare';
 import * as Cost_ from 'maas-schemas-ts/core/components/cost';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
-
+  t.null,
+]);
 
 export const schemaId = 'http://maasglobal.com/core/product-option.json';
 
 // Ref
 // numeric key for connecting productOption with leg.productOption
-export type Ref = t.Branded<number, RefBrand>
-export const Ref = t.brand(t.number, (x): x is t.Branded<number, RefBrand> => ( Number.isInteger(x) ), 'Ref')
+export type Ref = t.Branded<number, RefBrand>;
+export const Ref = t.brand(
+  t.number,
+  (x): x is t.Branded<number, RefBrand> => Number.isInteger(x),
+  'Ref',
+);
 export interface RefBrand {
-  readonly Ref: unique symbol
+  readonly Ref: unique symbol;
 }
 
 // WithConfigurator
 // Works with configurator
 export type WithConfigurator = t.Branded<
+  {
+    identityId?: Units_.IdentityId;
+    bookingId?: Units_.Uuid;
+    ref?: Ref;
+    product?: Product_.Product;
+    terms?: Terms_.Terms;
+    meta?: BookingMeta_.BookingMeta;
+    configurator?: Configurator_.Configurator;
+    customer?: BookingOption_.Customer;
+  } & {
+    ref: Defined;
+    terms: Defined;
+    meta: Defined;
+    configurator: Defined;
+  },
+  WithConfiguratorBrand
+>;
+export const WithConfigurator = t.brand(
+  t.intersection([
+    t.partial({
+      identityId: Units_.IdentityId,
+      bookingId: Units_.Uuid,
+      ref: Ref,
+      product: Product_.Product,
+      terms: Terms_.Terms,
+      meta: BookingMeta_.BookingMeta,
+      configurator: Configurator_.Configurator,
+      customer: BookingOption_.Customer,
+    }),
+    t.type({
+      ref: Defined,
+      terms: Defined,
+      meta: Defined,
+      configurator: Defined,
+    }),
+  ]),
   (
-  & {
-  identityId?: Units_.IdentityId,
-  bookingId?: Units_.Uuid,
-  ref?: Ref,
-  product?: Product_.Product,
-  terms?: Terms_.Terms,
-  meta?: BookingMeta_.BookingMeta,
-  configurator?: Configurator_.Configurator,
-  customer?: BookingOption_.Customer
-}
-  & {
-  ref: Defined,
-  terms: Defined,
-  meta: Defined,
-  configurator: Defined
-}
-  ), WithConfiguratorBrand>
-export const WithConfigurator = t.brand(t.intersection([
-  t.partial({
-    identityId: Units_.IdentityId,
-    bookingId: Units_.Uuid,
-    ref: Ref,
-    product: Product_.Product,
-    terms: Terms_.Terms,
-    meta: BookingMeta_.BookingMeta,
-    configurator: Configurator_.Configurator,
-    customer: BookingOption_.Customer
-  }),
-  t.type({
-    ref: Defined,
-    terms: Defined,
-    meta: Defined,
-    configurator: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  identityId?: Units_.IdentityId,
-  bookingId?: Units_.Uuid,
-  ref?: Ref,
-  product?: Product_.Product,
-  terms?: Terms_.Terms,
-  meta?: BookingMeta_.BookingMeta,
-  configurator?: Configurator_.Configurator,
-  customer?: BookingOption_.Customer
-}
-  & {
-  ref: Defined,
-  terms: Defined,
-  meta: Defined,
-  configurator: Defined
-}
-  ), WithConfiguratorBrand> => true, 'WithConfigurator')
+    x,
+  ): x is t.Branded<
+    {
+      identityId?: Units_.IdentityId;
+      bookingId?: Units_.Uuid;
+      ref?: Ref;
+      product?: Product_.Product;
+      terms?: Terms_.Terms;
+      meta?: BookingMeta_.BookingMeta;
+      configurator?: Configurator_.Configurator;
+      customer?: BookingOption_.Customer;
+    } & {
+      ref: Defined;
+      terms: Defined;
+      meta: Defined;
+      configurator: Defined;
+    },
+    WithConfiguratorBrand
+  > => true,
+  'WithConfigurator',
+);
 export interface WithConfiguratorBrand {
-  readonly WithConfigurator: unique symbol
+  readonly WithConfigurator: unique symbol;
 }
 
 // WithFares
 // Works with fares
 export type WithFares = t.Branded<
+  {
+    identityId?: Units_.IdentityId;
+    bookingId?: Units_.Uuid;
+    ref?: number;
+    product?: Product_.Product;
+    fares?: Array<Fare_.Fare>;
+    terms?: Terms_.Terms;
+    meta?: BookingMeta_.BookingMeta;
+    customer?: BookingOption_.Customer;
+  } & {
+    ref: Defined;
+    terms: Defined;
+    meta: Defined;
+    fares: Defined;
+  },
+  WithFaresBrand
+>;
+export const WithFares = t.brand(
+  t.intersection([
+    t.partial({
+      identityId: Units_.IdentityId,
+      bookingId: Units_.Uuid,
+      ref: t.number,
+      product: Product_.Product,
+      fares: t.array(Fare_.Fare),
+      terms: Terms_.Terms,
+      meta: BookingMeta_.BookingMeta,
+      customer: BookingOption_.Customer,
+    }),
+    t.type({
+      ref: Defined,
+      terms: Defined,
+      meta: Defined,
+      fares: Defined,
+    }),
+  ]),
   (
-  & {
-  identityId?: Units_.IdentityId,
-  bookingId?: Units_.Uuid,
-  ref?: number,
-  product?: Product_.Product,
-  fares?: Array<Fare_.Fare>,
-  terms?: Terms_.Terms,
-  meta?: BookingMeta_.BookingMeta,
-  customer?: BookingOption_.Customer
-}
-  & {
-  ref: Defined,
-  terms: Defined,
-  meta: Defined,
-  fares: Defined
-}
-  ), WithFaresBrand>
-export const WithFares = t.brand(t.intersection([
-  t.partial({
-    identityId: Units_.IdentityId,
-    bookingId: Units_.Uuid,
-    ref: t.number,
-    product: Product_.Product,
-    fares: t.array(Fare_.Fare),
-    terms: Terms_.Terms,
-    meta: BookingMeta_.BookingMeta,
-    customer: BookingOption_.Customer
-  }),
-  t.type({
-    ref: Defined,
-    terms: Defined,
-    meta: Defined,
-    fares: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  identityId?: Units_.IdentityId,
-  bookingId?: Units_.Uuid,
-  ref?: number,
-  product?: Product_.Product,
-  fares?: Array<Fare_.Fare>,
-  terms?: Terms_.Terms,
-  meta?: BookingMeta_.BookingMeta,
-  customer?: BookingOption_.Customer
-}
-  & {
-  ref: Defined,
-  terms: Defined,
-  meta: Defined,
-  fares: Defined
-}
-  ), WithFaresBrand> => true, 'WithFares')
+    x,
+  ): x is t.Branded<
+    {
+      identityId?: Units_.IdentityId;
+      bookingId?: Units_.Uuid;
+      ref?: number;
+      product?: Product_.Product;
+      fares?: Array<Fare_.Fare>;
+      terms?: Terms_.Terms;
+      meta?: BookingMeta_.BookingMeta;
+      customer?: BookingOption_.Customer;
+    } & {
+      ref: Defined;
+      terms: Defined;
+      meta: Defined;
+      fares: Defined;
+    },
+    WithFaresBrand
+  > => true,
+  'WithFares',
+);
 export interface WithFaresBrand {
-  readonly WithFares: unique symbol
+  readonly WithFares: unique symbol;
 }
 
 // WithCost
 // Works with cost
 export type WithCost = t.Branded<
+  {
+    identityId?: Units_.IdentityId;
+    bookingId?: Units_.Uuid;
+    ref?: number;
+    product?: Product_.Product;
+    cost?: Cost_.Cost;
+    terms?: Terms_.Terms;
+    meta?: BookingMeta_.BookingMeta;
+    customer?: BookingOption_.Customer;
+  } & {
+    ref: Defined;
+    terms: Defined;
+    meta: Defined;
+    cost: Defined;
+  },
+  WithCostBrand
+>;
+export const WithCost = t.brand(
+  t.intersection([
+    t.partial({
+      identityId: Units_.IdentityId,
+      bookingId: Units_.Uuid,
+      ref: t.number,
+      product: Product_.Product,
+      cost: Cost_.Cost,
+      terms: Terms_.Terms,
+      meta: BookingMeta_.BookingMeta,
+      customer: BookingOption_.Customer,
+    }),
+    t.type({
+      ref: Defined,
+      terms: Defined,
+      meta: Defined,
+      cost: Defined,
+    }),
+  ]),
   (
-  & {
-  identityId?: Units_.IdentityId,
-  bookingId?: Units_.Uuid,
-  ref?: number,
-  product?: Product_.Product,
-  cost?: Cost_.Cost,
-  terms?: Terms_.Terms,
-  meta?: BookingMeta_.BookingMeta,
-  customer?: BookingOption_.Customer
-}
-  & {
-  ref: Defined,
-  terms: Defined,
-  meta: Defined,
-  cost: Defined
-}
-  ), WithCostBrand>
-export const WithCost = t.brand(t.intersection([
-  t.partial({
-    identityId: Units_.IdentityId,
-    bookingId: Units_.Uuid,
-    ref: t.number,
-    product: Product_.Product,
-    cost: Cost_.Cost,
-    terms: Terms_.Terms,
-    meta: BookingMeta_.BookingMeta,
-    customer: BookingOption_.Customer
-  }),
-  t.type({
-    ref: Defined,
-    terms: Defined,
-    meta: Defined,
-    cost: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  identityId?: Units_.IdentityId,
-  bookingId?: Units_.Uuid,
-  ref?: number,
-  product?: Product_.Product,
-  cost?: Cost_.Cost,
-  terms?: Terms_.Terms,
-  meta?: BookingMeta_.BookingMeta,
-  customer?: BookingOption_.Customer
-}
-  & {
-  ref: Defined,
-  terms: Defined,
-  meta: Defined,
-  cost: Defined
-}
-  ), WithCostBrand> => true, 'WithCost')
+    x,
+  ): x is t.Branded<
+    {
+      identityId?: Units_.IdentityId;
+      bookingId?: Units_.Uuid;
+      ref?: number;
+      product?: Product_.Product;
+      cost?: Cost_.Cost;
+      terms?: Terms_.Terms;
+      meta?: BookingMeta_.BookingMeta;
+      customer?: BookingOption_.Customer;
+    } & {
+      ref: Defined;
+      terms: Defined;
+      meta: Defined;
+      cost: Defined;
+    },
+    WithCostBrand
+  > => true,
+  'WithCost',
+);
 export interface WithCostBrand {
-  readonly WithCost: unique symbol
+  readonly WithCost: unique symbol;
 }
 
 // ProductOption
 // The default export. More information at the top.
 export type ProductOption = t.Branded<
-  (
-  | WithConfigurator
-  | WithFares
-  | WithCost
-  ), ProductOptionBrand>
-export const ProductOption = t.brand(t.union([
-  WithConfigurator,
-  WithFares,
-  WithCost
-]), (x): x is t.Branded<
-  (
-  | WithConfigurator
-  | WithFares
-  | WithCost
-  ), ProductOptionBrand> => true, 'ProductOption')
+  WithConfigurator | WithFares | WithCost,
+  ProductOptionBrand
+>;
+export const ProductOption = t.brand(
+  t.union([WithConfigurator, WithFares, WithCost]),
+  (x): x is t.Branded<WithConfigurator | WithFares | WithCost, ProductOptionBrand> =>
+    true,
+  'ProductOption',
+);
 export interface ProductOptionBrand {
-  readonly ProductOption: unique symbol
+  readonly ProductOption: unique symbol;
 }
 
 export default ProductOption;

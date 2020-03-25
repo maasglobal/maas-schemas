@@ -15,90 +15,93 @@ import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as ProductOption_ from 'maas-schemas-ts/core/product-option';
 import * as CustomerSelection_ from 'maas-schemas-ts/core/components/customerSelection';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
+  t.null,
+]);
 
-
-export const schemaId = 'http://maasglobal.com/maas-backend/itineraries/itinerary-update/request.json';
+export const schemaId =
+  'http://maasglobal.com/maas-backend/itineraries/itinerary-update/request.json';
 
 // Request
 // The default export. More information at the top.
-export type Request = t.Branded<{
-  identityId?: Units_.IdentityId,
-  itineraryId?: Itinerary_.Id,
-  headers?: ApiCommon_.Headers,
-  payload?:
-    (
-    & {
-    paymentSourceId?: Common_.PaymentSourceId,
-    itinerary?: Itinerary_.Itinerary,
-    customerSelections?: Array<{
-      ref?: ProductOption_.Ref,
-      customerSelection?: CustomerSelection_.CustomerSelection
-    }>
-  }
-    & {
-    itinerary: Defined,
-    customerSelections: Defined
-  }
-    )
-}, RequestBrand>
-export const Request = t.brand(t.partial({
-  identityId: Units_.IdentityId,
-  itineraryId: Itinerary_.Id,
-  headers: ApiCommon_.Headers,
-  payload: t.intersection([
-    t.partial({
-      paymentSourceId: Common_.PaymentSourceId,
-      itinerary: Itinerary_.Itinerary,
-      customerSelections: t.array(t.partial({
-        ref: ProductOption_.Ref,
-        customerSelection: CustomerSelection_.CustomerSelection
-      }))
-    }),
-    t.type({
-      itinerary: Defined,
-      customerSelections: Defined
-    })
-  ])
-}), (x): x is t.Branded<{
-  identityId?: Units_.IdentityId,
-  itineraryId?: Itinerary_.Id,
-  headers?: ApiCommon_.Headers,
-  payload?:
-    (
-    & {
-    paymentSourceId?: Common_.PaymentSourceId,
-    itinerary?: Itinerary_.Itinerary,
-    customerSelections?: Array<{
-      ref?: ProductOption_.Ref,
-      customerSelection?: CustomerSelection_.CustomerSelection
-    }>
-  }
-    & {
-    itinerary: Defined,
-    customerSelections: Defined
-  }
-    )
-}, RequestBrand> => true, 'Request')
+export type Request = t.Branded<
+  {
+    identityId?: Units_.IdentityId;
+    itineraryId?: Itinerary_.Id;
+    headers?: ApiCommon_.Headers;
+    payload?: {
+      paymentSourceId?: Common_.PaymentSourceId;
+      itinerary?: Itinerary_.Itinerary;
+      customerSelections?: Array<{
+        ref?: ProductOption_.Ref;
+        customerSelection?: CustomerSelection_.CustomerSelection;
+      }>;
+    } & {
+      itinerary: Defined;
+      customerSelections: Defined;
+    };
+  },
+  RequestBrand
+>;
+export const Request = t.brand(
+  t.partial({
+    identityId: Units_.IdentityId,
+    itineraryId: Itinerary_.Id,
+    headers: ApiCommon_.Headers,
+    payload: t.intersection([
+      t.partial({
+        paymentSourceId: Common_.PaymentSourceId,
+        itinerary: Itinerary_.Itinerary,
+        customerSelections: t.array(
+          t.partial({
+            ref: ProductOption_.Ref,
+            customerSelection: CustomerSelection_.CustomerSelection,
+          }),
+        ),
+      }),
+      t.type({
+        itinerary: Defined,
+        customerSelections: Defined,
+      }),
+    ]),
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      identityId?: Units_.IdentityId;
+      itineraryId?: Itinerary_.Id;
+      headers?: ApiCommon_.Headers;
+      payload?: {
+        paymentSourceId?: Common_.PaymentSourceId;
+        itinerary?: Itinerary_.Itinerary;
+        customerSelections?: Array<{
+          ref?: ProductOption_.Ref;
+          customerSelection?: CustomerSelection_.CustomerSelection;
+        }>;
+      } & {
+        itinerary: Defined;
+        customerSelections: Defined;
+      };
+    },
+    RequestBrand
+  > => true,
+  'Request',
+);
 export interface RequestBrand {
-  readonly Request: unique symbol
+  readonly Request: unique symbol;
 }
 
 export default Request;

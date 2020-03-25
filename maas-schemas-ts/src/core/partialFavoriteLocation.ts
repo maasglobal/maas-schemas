@@ -14,87 +14,83 @@ import * as Address_ from 'maas-schemas-ts/core/components/address';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as Station_ from 'maas-schemas-ts/core/components/station';
 
-
 export const schemaId = 'http://maasglobal.com/core/partialFavoriteLocation.json';
 
 // FavoriteLocationTypes
 // The purpose of this remains a mystery
 export type FavoriteLocationTypes = t.Branded<
-  (
-  & string
-  & 
-  (
-  | 'ADDRESS'
-  | 'STOP'
-  )
-  ), FavoriteLocationTypesBrand>
-export const FavoriteLocationTypes = t.brand(t.intersection([
-  t.string,
-  t.union([
-    t.literal('ADDRESS'),
-    t.literal('STOP')
-  ])
-]), (x): x is t.Branded<
-  (
-  & string
-  & 
-  (
-  | 'ADDRESS'
-  | 'STOP'
-  )
-  ), FavoriteLocationTypesBrand> => true, 'FavoriteLocationTypes')
+  string & ('ADDRESS' | 'STOP'),
+  FavoriteLocationTypesBrand
+>;
+export const FavoriteLocationTypes = t.brand(
+  t.intersection([t.string, t.union([t.literal('ADDRESS'), t.literal('STOP')])]),
+  (x): x is t.Branded<string & ('ADDRESS' | 'STOP'), FavoriteLocationTypesBrand> => true,
+  'FavoriteLocationTypes',
+);
 export interface FavoriteLocationTypesBrand {
-  readonly FavoriteLocationTypes: unique symbol
+  readonly FavoriteLocationTypes: unique symbol;
 }
 
 // PartialFavoriteLocation
 // The default export. More information at the top.
-export type PartialFavoriteLocation = t.Branded<{
-  id?: number,
-  identityId?: Units_.IdentityId,
-  type?: FavoriteLocationTypes,
-  name?: string,
-  location?: UnitsGeo_.Location,
-  streetName?: Address_.PlaceName,
-  streetNumber?: string,
-  city?: Address_.City,
-  country?: Address_.CountryName,
-  zipCode?: Address_.ZipCode,
-  agencyId?: Common_.AgencyId,
-  stopId?: Station_.Id,
-  lineId?: string
-}, PartialFavoriteLocationBrand>
-export const PartialFavoriteLocation = t.brand(t.partial({
-  id: t.number,
-  identityId: Units_.IdentityId,
-  type: FavoriteLocationTypes,
-  name: t.string,
-  location: UnitsGeo_.Location,
-  streetName: Address_.PlaceName,
-  streetNumber: t.string,
-  city: Address_.City,
-  country: Address_.CountryName,
-  zipCode: Address_.ZipCode,
-  agencyId: Common_.AgencyId,
-  stopId: Station_.Id,
-  lineId: t.string
-}), (x): x is t.Branded<{
-  id?: number,
-  identityId?: Units_.IdentityId,
-  type?: FavoriteLocationTypes,
-  name?: string,
-  location?: UnitsGeo_.Location,
-  streetName?: Address_.PlaceName,
-  streetNumber?: string,
-  city?: Address_.City,
-  country?: Address_.CountryName,
-  zipCode?: Address_.ZipCode,
-  agencyId?: Common_.AgencyId,
-  stopId?: Station_.Id,
-  lineId?: string
-}, PartialFavoriteLocationBrand> => true, 'PartialFavoriteLocation')
+export type PartialFavoriteLocation = t.Branded<
+  {
+    id?: number;
+    identityId?: Units_.IdentityId;
+    type?: FavoriteLocationTypes;
+    name?: string;
+    location?: UnitsGeo_.Location;
+    streetName?: Address_.PlaceName;
+    streetNumber?: string;
+    city?: Address_.City;
+    country?: Address_.CountryName;
+    zipCode?: Address_.ZipCode;
+    agencyId?: Common_.AgencyId;
+    stopId?: Station_.Id;
+    lineId?: string;
+  },
+  PartialFavoriteLocationBrand
+>;
+export const PartialFavoriteLocation = t.brand(
+  t.partial({
+    id: t.number,
+    identityId: Units_.IdentityId,
+    type: FavoriteLocationTypes,
+    name: t.string,
+    location: UnitsGeo_.Location,
+    streetName: Address_.PlaceName,
+    streetNumber: t.string,
+    city: Address_.City,
+    country: Address_.CountryName,
+    zipCode: Address_.ZipCode,
+    agencyId: Common_.AgencyId,
+    stopId: Station_.Id,
+    lineId: t.string,
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      id?: number;
+      identityId?: Units_.IdentityId;
+      type?: FavoriteLocationTypes;
+      name?: string;
+      location?: UnitsGeo_.Location;
+      streetName?: Address_.PlaceName;
+      streetNumber?: string;
+      city?: Address_.City;
+      country?: Address_.CountryName;
+      zipCode?: Address_.ZipCode;
+      agencyId?: Common_.AgencyId;
+      stopId?: Station_.Id;
+      lineId?: string;
+    },
+    PartialFavoriteLocationBrand
+  > => true,
+  'PartialFavoriteLocation',
+);
 export interface PartialFavoriteLocationBrand {
-  readonly PartialFavoriteLocation: unique symbol
+  readonly PartialFavoriteLocation: unique symbol;
 }
 
 export default PartialFavoriteLocation;

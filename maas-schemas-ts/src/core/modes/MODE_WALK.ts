@@ -9,21 +9,18 @@ Schema for MODE_WALK meta field
 
 import * as t from 'io-ts';
 
-
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_WALK.json';
 
 // MODE_WALK
 // The default export. More information at the top.
-export type MODE_WALK = t.Branded<{
-
-}, MODE_WALKBrand>
-export const MODE_WALK = t.brand(t.type({
-
-}), (x): x is t.Branded<{
-
-}, MODE_WALKBrand> => true, 'MODE_WALK')
+export type MODE_WALK = t.Branded<{}, MODE_WALKBrand>;
+export const MODE_WALK = t.brand(
+  t.type({}),
+  (x): x is t.Branded<{}, MODE_WALKBrand> => true,
+  'MODE_WALK',
+);
 export interface MODE_WALKBrand {
-  readonly MODE_WALK: unique symbol
+  readonly MODE_WALK: unique symbol;
 }
 
 export default MODE_WALK;

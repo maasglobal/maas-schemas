@@ -12,108 +12,83 @@ import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as Address_ from 'maas-schemas-ts/core/components/address';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 
-
 export const schemaId = 'http://maasglobal.com/maas-backend/customers/personalData.json';
 
 // PersonalData
 // The default export. More information at the top.
 export type PersonalData = t.Branded<
+  {
+    honorifics?: string;
+    firstName?: Common_.PersonalName;
+    lastName?: Common_.PersonalName;
+    firstNameLocalized?: Common_.PersonalName;
+    lastNameLocalized?: Common_.PersonalName;
+    sex?: string;
+    phone?: Common_.Phone;
+    email?: Common_.Email;
+    address?: Address_.Address;
+    city?: Address_.City;
+    state?: Address_.State;
+    country?: Address_.Country;
+    zipCode?: Address_.ZipCode;
+    dob?: boolean | Units_.IsoDate;
+    ssid?: boolean | Common_.Ssid;
+    subscriberType?: string;
+    profileImageUrl?: string;
+  } & {},
+  PersonalDataBrand
+>;
+export const PersonalData = t.brand(
+  t.intersection([
+    t.partial({
+      honorifics: t.string,
+      firstName: Common_.PersonalName,
+      lastName: Common_.PersonalName,
+      firstNameLocalized: Common_.PersonalName,
+      lastNameLocalized: Common_.PersonalName,
+      sex: t.string,
+      phone: Common_.Phone,
+      email: Common_.Email,
+      address: Address_.Address,
+      city: Address_.City,
+      state: Address_.State,
+      country: Address_.Country,
+      zipCode: Address_.ZipCode,
+      dob: t.union([t.boolean, Units_.IsoDate]),
+      ssid: t.union([t.boolean, Common_.Ssid]),
+      subscriberType: t.string,
+      profileImageUrl: t.string,
+    }),
+    t.type({}),
+  ]),
   (
-  & {
-  honorifics?: string,
-  firstName?: Common_.PersonalName,
-  lastName?: Common_.PersonalName,
-  firstNameLocalized?: Common_.PersonalName,
-  lastNameLocalized?: Common_.PersonalName,
-  sex?: string,
-  phone?: Common_.Phone,
-  email?: Common_.Email,
-  address?: Address_.Address,
-  city?: Address_.City,
-  state?: Address_.State,
-  country?: Address_.Country,
-  zipCode?: Address_.ZipCode,
-  dob?:
-    (
-    | boolean
-    | Units_.IsoDate
-    ),
-  ssid?:
-    (
-    | boolean
-    | Common_.Ssid
-    ),
-  subscriberType?: string,
-  profileImageUrl?: string
-}
-  & {
-
-}
-  ), PersonalDataBrand>
-export const PersonalData = t.brand(t.intersection([
-  t.partial({
-    honorifics: t.string,
-    firstName: Common_.PersonalName,
-    lastName: Common_.PersonalName,
-    firstNameLocalized: Common_.PersonalName,
-    lastNameLocalized: Common_.PersonalName,
-    sex: t.string,
-    phone: Common_.Phone,
-    email: Common_.Email,
-    address: Address_.Address,
-    city: Address_.City,
-    state: Address_.State,
-    country: Address_.Country,
-    zipCode: Address_.ZipCode,
-    dob: t.union([
-      t.boolean,
-      Units_.IsoDate
-    ]),
-    ssid: t.union([
-      t.boolean,
-      Common_.Ssid
-    ]),
-    subscriberType: t.string,
-    profileImageUrl: t.string
-  }),
-  t.type({
-
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  honorifics?: string,
-  firstName?: Common_.PersonalName,
-  lastName?: Common_.PersonalName,
-  firstNameLocalized?: Common_.PersonalName,
-  lastNameLocalized?: Common_.PersonalName,
-  sex?: string,
-  phone?: Common_.Phone,
-  email?: Common_.Email,
-  address?: Address_.Address,
-  city?: Address_.City,
-  state?: Address_.State,
-  country?: Address_.Country,
-  zipCode?: Address_.ZipCode,
-  dob?:
-    (
-    | boolean
-    | Units_.IsoDate
-    ),
-  ssid?:
-    (
-    | boolean
-    | Common_.Ssid
-    ),
-  subscriberType?: string,
-  profileImageUrl?: string
-}
-  & {
-
-}
-  ), PersonalDataBrand> => true, 'PersonalData')
+    x,
+  ): x is t.Branded<
+    {
+      honorifics?: string;
+      firstName?: Common_.PersonalName;
+      lastName?: Common_.PersonalName;
+      firstNameLocalized?: Common_.PersonalName;
+      lastNameLocalized?: Common_.PersonalName;
+      sex?: string;
+      phone?: Common_.Phone;
+      email?: Common_.Email;
+      address?: Address_.Address;
+      city?: Address_.City;
+      state?: Address_.State;
+      country?: Address_.Country;
+      zipCode?: Address_.ZipCode;
+      dob?: boolean | Units_.IsoDate;
+      ssid?: boolean | Common_.Ssid;
+      subscriberType?: string;
+      profileImageUrl?: string;
+    } & {},
+    PersonalDataBrand
+  > => true,
+  'PersonalData',
+);
 export interface PersonalDataBrand {
-  readonly PersonalData: unique symbol
+  readonly PersonalData: unique symbol;
 }
 
 export default PersonalData;

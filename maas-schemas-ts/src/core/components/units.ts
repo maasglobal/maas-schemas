@@ -11,135 +11,173 @@ import * as t from 'io-ts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-
 export const schemaId = 'http://maasglobal.com/core/components/units.json';
 
 // Uuid
 // Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier
-export type Uuid = t.Branded<string, UuidBrand>
-export const Uuid = t.brand(t.string, (x): x is t.Branded<string, UuidBrand> => ( typeof x !== 'string' || x.match(RegExp("^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$")) !== null ), 'Uuid')
+export type Uuid = t.Branded<string, UuidBrand>;
+export const Uuid = t.brand(
+  t.string,
+  (x): x is t.Branded<string, UuidBrand> =>
+    typeof x !== 'string' ||
+    x.match(RegExp('^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$')) !== null,
+  'Uuid',
+);
 export interface UuidBrand {
-  readonly Uuid: unique symbol
+  readonly Uuid: unique symbol;
 }
 /** nonEmptyArray(Uuid).decode(examplesUuid) // => { _tag: 'Right', right: examplesUuid } */
-export const examplesUuid: NonEmptyArray<Uuid> = ["4828507e-683f-41bf-9d87-689808fbf958"] as unknown as NonEmptyArray<Uuid>;
+export const examplesUuid: NonEmptyArray<Uuid> = ([
+  '4828507e-683f-41bf-9d87-689808fbf958',
+] as unknown) as NonEmptyArray<Uuid>;
 
 // Url
 // Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex
-export type Url = t.Branded<string, UrlBrand>
-export const Url = t.brand(t.string, (x): x is t.Branded<string, UrlBrand> => ( typeof x !== 'string' || x.match(RegExp("^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$")) !== null ), 'Url')
+export type Url = t.Branded<string, UrlBrand>;
+export const Url = t.brand(
+  t.string,
+  (x): x is t.Branded<string, UrlBrand> =>
+    typeof x !== 'string' ||
+    x.match(RegExp('^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$')) !== null,
+  'Url',
+);
 export interface UrlBrand {
-  readonly Url: unique symbol
+  readonly Url: unique symbol;
 }
 
 // Arn
 // The purpose of this remains a mystery
-export type Arn = t.Branded<string, ArnBrand>
-export const Arn = t.brand(t.string, (x): x is t.Branded<string, ArnBrand> => ( typeof x !== 'string' || x.match(RegExp("^arn:aws:[a-z]+:[\\w\\-]*:\\d{12}:[ \\w\\-]+(\\/[\\w\\- \\/]+)*")) !== null ) && ( typeof x !== 'string' || x.length >= 1 ) && ( typeof x !== 'string' || x.length <= 256 ), 'Arn')
+export type Arn = t.Branded<string, ArnBrand>;
+export const Arn = t.brand(
+  t.string,
+  (x): x is t.Branded<string, ArnBrand> =>
+    (typeof x !== 'string' ||
+      x.match(
+        RegExp('^arn:aws:[a-z]+:[\\w\\-]*:\\d{12}:[ \\w\\-]+(\\/[\\w\\- \\/]+)*'),
+      ) !== null) &&
+    (typeof x !== 'string' || x.length >= 1) &&
+    (typeof x !== 'string' || x.length <= 256),
+  'Arn',
+);
 export interface ArnBrand {
-  readonly Arn: unique symbol
+  readonly Arn: unique symbol;
 }
 
 // ObsoleteIdentityId
 // The purpose of this remains a mystery
-export type ObsoleteIdentityId = t.Branded<string, ObsoleteIdentityIdBrand>
-export const ObsoleteIdentityId = t.brand(t.string, (x): x is t.Branded<string, ObsoleteIdentityIdBrand> => ( typeof x !== 'string' || x.match(RegExp("^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$")) !== null ), 'ObsoleteIdentityId')
+export type ObsoleteIdentityId = t.Branded<string, ObsoleteIdentityIdBrand>;
+export const ObsoleteIdentityId = t.brand(
+  t.string,
+  (x): x is t.Branded<string, ObsoleteIdentityIdBrand> =>
+    typeof x !== 'string' ||
+    x.match(
+      RegExp('^[aepus]{2}-[\\w]{4}-\\d:[a-f\\d]{8}(-[a-f\\d]{4}){3}-[a-f\\d]{12}$'),
+    ) !== null,
+  'ObsoleteIdentityId',
+);
 export interface ObsoleteIdentityIdBrand {
-  readonly ObsoleteIdentityId: unique symbol
+  readonly ObsoleteIdentityId: unique symbol;
 }
 /** nonEmptyArray(ObsoleteIdentityId).decode(examplesObsoleteIdentityId) // => { _tag: 'Right', right: examplesObsoleteIdentityId } */
-export const examplesObsoleteIdentityId: NonEmptyArray<ObsoleteIdentityId> = ["eu-west-1:4828507e-683f-41bf-9d87-689808fbf958"] as unknown as NonEmptyArray<ObsoleteIdentityId>;
+export const examplesObsoleteIdentityId: NonEmptyArray<ObsoleteIdentityId> = ([
+  'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
+] as unknown) as NonEmptyArray<ObsoleteIdentityId>;
 
 // IdentityId
 // The purpose of this remains a mystery
-export type IdentityId = t.Branded<
-  (
-  | ObsoleteIdentityId
-  | Uuid
-  ), IdentityIdBrand>
-export const IdentityId = t.brand(t.union([
-  ObsoleteIdentityId,
-  Uuid
-]), (x): x is t.Branded<
-  (
-  | ObsoleteIdentityId
-  | Uuid
-  ), IdentityIdBrand> => true, 'IdentityId')
+export type IdentityId = t.Branded<ObsoleteIdentityId | Uuid, IdentityIdBrand>;
+export const IdentityId = t.brand(
+  t.union([ObsoleteIdentityId, Uuid]),
+  (x): x is t.Branded<ObsoleteIdentityId | Uuid, IdentityIdBrand> => true,
+  'IdentityId',
+);
 export interface IdentityIdBrand {
-  readonly IdentityId: unique symbol
+  readonly IdentityId: unique symbol;
 }
 /** nonEmptyArray(IdentityId).decode(examplesIdentityId) // => { _tag: 'Right', right: examplesIdentityId } */
-export const examplesIdentityId: NonEmptyArray<IdentityId> = ["eu-west-1:4828507e-683f-41bf-9d87-689808fbf958","4828507e-683f-41bf-9d87-689808fbf958"] as unknown as NonEmptyArray<IdentityId>;
+export const examplesIdentityId: NonEmptyArray<IdentityId> = ([
+  'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
+  '4828507e-683f-41bf-9d87-689808fbf958',
+] as unknown) as NonEmptyArray<IdentityId>;
 
 // Currency
 // Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1
 export type Currency = t.Branded<
-  (
-  & string
-  & 
-  (
-  | 'EUR'
-  | 'GBP'
-  | 'SGD'
-  | 'USD'
-  | 'JPY'
-  )
-  ), CurrencyBrand>
-export const Currency = t.brand(t.intersection([
-  t.string,
-  t.union([
-    t.literal('EUR'),
-    t.literal('GBP'),
-    t.literal('SGD'),
-    t.literal('USD'),
-    t.literal('JPY')
-  ])
-]), (x): x is t.Branded<
-  (
-  & string
-  & 
-  (
-  | 'EUR'
-  | 'GBP'
-  | 'SGD'
-  | 'USD'
-  | 'JPY'
-  )
-  ), CurrencyBrand> => true, 'Currency')
+  string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY'),
+  CurrencyBrand
+>;
+export const Currency = t.brand(
+  t.intersection([
+    t.string,
+    t.union([
+      t.literal('EUR'),
+      t.literal('GBP'),
+      t.literal('SGD'),
+      t.literal('USD'),
+      t.literal('JPY'),
+    ]),
+  ]),
+  (x): x is t.Branded<string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY'), CurrencyBrand> =>
+    true,
+  'Currency',
+);
 export interface CurrencyBrand {
-  readonly Currency: unique symbol
+  readonly Currency: unique symbol;
 }
 
 // Time
 // POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time
-export type Time = t.Branded<number, TimeBrand>
-export const Time = t.brand(t.number, (x): x is t.Branded<number, TimeBrand> => ( typeof x !== 'number' || x >= 1451606400 ) && ( typeof x !== 'number' || x <= 9007199254740991 ) && ( Number.isInteger(x) ), 'Time')
+export type Time = t.Branded<number, TimeBrand>;
+export const Time = t.brand(
+  t.number,
+  (x): x is t.Branded<number, TimeBrand> =>
+    (typeof x !== 'number' || x >= 1451606400) &&
+    (typeof x !== 'number' || x <= 9007199254740991) &&
+    Number.isInteger(x),
+  'Time',
+);
 export interface TimeBrand {
-  readonly Time: unique symbol
+  readonly Time: unique symbol;
 }
 
 // Duration
 // duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time
-export type Duration = t.Branded<number, DurationBrand>
-export const Duration = t.brand(t.number, (x): x is t.Branded<number, DurationBrand> => ( typeof x !== 'number' || x >= -9007199254740991 ) && ( typeof x !== 'number' || x <= 9007199254740991 ) && ( Number.isInteger(x) ), 'Duration')
+export type Duration = t.Branded<number, DurationBrand>;
+export const Duration = t.brand(
+  t.number,
+  (x): x is t.Branded<number, DurationBrand> =>
+    (typeof x !== 'number' || x >= -9007199254740991) &&
+    (typeof x !== 'number' || x <= 9007199254740991) &&
+    Number.isInteger(x),
+  'Duration',
+);
 export interface DurationBrand {
-  readonly Duration: unique symbol
+  readonly Duration: unique symbol;
 }
 
 // IsoDate
 // A date in the form YYYY-MM-DD without a time component
-export type IsoDate = t.Branded<string, IsoDateBrand>
-export const IsoDate = t.brand(t.string, (x): x is t.Branded<string, IsoDateBrand> => ( typeof x !== 'string' || x.match(RegExp("^\\d{4}-\\d{2}-\\d{2}")) !== null ), 'IsoDate')
+export type IsoDate = t.Branded<string, IsoDateBrand>;
+export const IsoDate = t.brand(
+  t.string,
+  (x): x is t.Branded<string, IsoDateBrand> =>
+    typeof x !== 'string' || x.match(RegExp('^\\d{4}-\\d{2}-\\d{2}')) !== null,
+  'IsoDate',
+);
 export interface IsoDateBrand {
-  readonly IsoDate: unique symbol
+  readonly IsoDate: unique symbol;
 }
 
 // Units
 // The default export. More information at the top.
-export type Units = t.Branded<unknown, UnitsBrand>
-export const Units = t.brand(t.unknown, (x): x is t.Branded<unknown, UnitsBrand> => true, 'Units')
+export type Units = t.Branded<unknown, UnitsBrand>;
+export const Units = t.brand(
+  t.unknown,
+  (x): x is t.Branded<unknown, UnitsBrand> => true,
+  'Units',
+);
 export interface UnitsBrand {
-  readonly Units: unique symbol
+  readonly Units: unique symbol;
 }
 
 export default Units;

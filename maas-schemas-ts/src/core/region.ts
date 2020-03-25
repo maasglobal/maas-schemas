@@ -10,81 +10,75 @@ MaaS region schema
 import * as t from 'io-ts';
 import * as Address_ from 'maas-schemas-ts/core/components/address';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
-
+  t.null,
+]);
 
 export const schemaId = 'http://maasglobal.com/core/region.json';
 
 // Region
 // The default export. More information at the top.
 export type Region = t.Branded<
+  {
+    id?: string;
+    name?: string;
+    countryCode?: Address_.Country;
+    zipCode?: Address_.ZipCode;
+    availability?: {};
+  } & {
+    id: Defined;
+    countryCode: Defined;
+    zipCode: Defined;
+  },
+  RegionBrand
+>;
+export const Region = t.brand(
+  t.intersection([
+    t.partial({
+      id: t.string,
+      name: t.string,
+      countryCode: Address_.Country,
+      zipCode: Address_.ZipCode,
+      availability: t.type({}),
+    }),
+    t.type({
+      id: Defined,
+      countryCode: Defined,
+      zipCode: Defined,
+    }),
+  ]),
   (
-  & {
-  id?: string,
-  name?: string,
-  countryCode?: Address_.Country,
-  zipCode?: Address_.ZipCode,
-  availability?: {
-
-  }
-}
-  & {
-  id: Defined,
-  countryCode: Defined,
-  zipCode: Defined
-}
-  ), RegionBrand>
-export const Region = t.brand(t.intersection([
-  t.partial({
-    id: t.string,
-    name: t.string,
-    countryCode: Address_.Country,
-    zipCode: Address_.ZipCode,
-    availability: t.type({
-
-    })
-  }),
-  t.type({
-    id: Defined,
-    countryCode: Defined,
-    zipCode: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  id?: string,
-  name?: string,
-  countryCode?: Address_.Country,
-  zipCode?: Address_.ZipCode,
-  availability?: {
-
-  }
-}
-  & {
-  id: Defined,
-  countryCode: Defined,
-  zipCode: Defined
-}
-  ), RegionBrand> => true, 'Region')
+    x,
+  ): x is t.Branded<
+    {
+      id?: string;
+      name?: string;
+      countryCode?: Address_.Country;
+      zipCode?: Address_.ZipCode;
+      availability?: {};
+    } & {
+      id: Defined;
+      countryCode: Defined;
+      zipCode: Defined;
+    },
+    RegionBrand
+  > => true,
+  'Region',
+);
 export interface RegionBrand {
-  readonly Region: unique symbol
+  readonly Region: unique symbol;
 }
 
 export default Region;

@@ -12,75 +12,76 @@ import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
+  t.null,
+]);
 
-
-export const schemaId = 'http://maasglobal.com/maas-backend/stations/stations-retrieve/request.json';
+export const schemaId =
+  'http://maasglobal.com/maas-backend/stations/stations-retrieve/request.json';
 
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  (
-  & {
-  identityId?: Units_.IdentityId,
-  payload?: {
-    agencyId?: Common_.AgencyId,
-    stationId?: string
+  {
+    identityId?: Units_.IdentityId;
+    payload?: {
+      agencyId?: Common_.AgencyId;
+      stationId?: string;
+    };
+    headers?: ApiCommon_.Headers;
+  } & {
+    identityId: Defined;
+    payload: Defined;
   },
-  headers?: ApiCommon_.Headers
-}
-  & {
-  identityId: Defined,
-  payload: Defined
-}
-  ), RequestBrand>
-export const Request = t.brand(t.intersection([
-  t.partial({
-    identityId: Units_.IdentityId,
-    payload: t.partial({
-      agencyId: Common_.AgencyId,
-      stationId: t.string
+  RequestBrand
+>;
+export const Request = t.brand(
+  t.intersection([
+    t.partial({
+      identityId: Units_.IdentityId,
+      payload: t.partial({
+        agencyId: Common_.AgencyId,
+        stationId: t.string,
+      }),
+      headers: ApiCommon_.Headers,
     }),
-    headers: ApiCommon_.Headers
-  }),
-  t.type({
-    identityId: Defined,
-    payload: Defined
-  })
-]), (x): x is t.Branded<
+    t.type({
+      identityId: Defined,
+      payload: Defined,
+    }),
+  ]),
   (
-  & {
-  identityId?: Units_.IdentityId,
-  payload?: {
-    agencyId?: Common_.AgencyId,
-    stationId?: string
-  },
-  headers?: ApiCommon_.Headers
-}
-  & {
-  identityId: Defined,
-  payload: Defined
-}
-  ), RequestBrand> => true, 'Request')
+    x,
+  ): x is t.Branded<
+    {
+      identityId?: Units_.IdentityId;
+      payload?: {
+        agencyId?: Common_.AgencyId;
+        stationId?: string;
+      };
+      headers?: ApiCommon_.Headers;
+    } & {
+      identityId: Defined;
+      payload: Defined;
+    },
+    RequestBrand
+  > => true,
+  'Request',
+);
 export interface RequestBrand {
-  readonly Request: unique symbol
+  readonly Request: unique symbol;
 }
 
 export default Request;

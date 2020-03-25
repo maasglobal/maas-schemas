@@ -14,162 +14,143 @@ import * as Address_ from 'maas-schemas-ts/core/components/address';
 import * as Station_ from 'maas-schemas-ts/core/components/station';
 import * as TravelMode_ from 'maas-schemas-ts/core/components/travel-mode';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
-
+  t.null,
+]);
 
 export const schemaId = 'http://maasglobal.com/maas-backend/provider/routes/request.json';
 
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  (
-  & 
-  (
-  & {
-  identityId?: Units_.IdentityId,
-  from?: UnitsGeo_.ShortLocation,
-  fromName?: Address_.PlaceName,
-  fromAddress?: Address_.ComponentAddress,
-  fromStationId?: Station_.Id,
-  to?: UnitsGeo_.ShortLocation,
-  toName?: Address_.PlaceName,
-  toAddress?: Address_.ComponentAddress,
-  toStationId?: Station_.Id,
-  leaveAt?: Units_.Time,
-  arriveBy?: Units_.Time,
-  modes?: TravelMode_.TravelMode
-}
-  & Record<string, 
-  (
-  | Units_.IdentityId
-  | UnitsGeo_.ShortLocation
-  | Address_.PlaceName
-  | Address_.ComponentAddress
-  | Station_.Id
-  | UnitsGeo_.ShortLocation
-  | Address_.PlaceName
-  | Address_.ComponentAddress
-  | Station_.Id
-  | Units_.Time
-  | Units_.Time
-  | TravelMode_.TravelMode
-  | 
-  (
-  | string
-  | number
-  | boolean
-  )
-  )>
-  )
-  & {
-  from: Defined,
-  to: Defined
-}
-  ), RequestBrand>
-export const Request = t.brand(t.intersection([
+  ({
+    identityId?: Units_.IdentityId;
+    from?: UnitsGeo_.ShortLocation;
+    fromName?: Address_.PlaceName;
+    fromAddress?: Address_.ComponentAddress;
+    fromStationId?: Station_.Id;
+    to?: UnitsGeo_.ShortLocation;
+    toName?: Address_.PlaceName;
+    toAddress?: Address_.ComponentAddress;
+    toStationId?: Station_.Id;
+    leaveAt?: Units_.Time;
+    arriveBy?: Units_.Time;
+    modes?: TravelMode_.TravelMode;
+  } & Record<
+    string,
+    | Units_.IdentityId
+    | UnitsGeo_.ShortLocation
+    | Address_.PlaceName
+    | Address_.ComponentAddress
+    | Station_.Id
+    | UnitsGeo_.ShortLocation
+    | Address_.PlaceName
+    | Address_.ComponentAddress
+    | Station_.Id
+    | Units_.Time
+    | Units_.Time
+    | TravelMode_.TravelMode
+    | (string | number | boolean)
+  >) & {
+    from: Defined;
+    to: Defined;
+  },
+  RequestBrand
+>;
+export const Request = t.brand(
   t.intersection([
-    t.partial({
-      identityId: Units_.IdentityId,
-      from: UnitsGeo_.ShortLocation,
-      fromName: Address_.PlaceName,
-      fromAddress: Address_.ComponentAddress,
-      fromStationId: Station_.Id,
-      to: UnitsGeo_.ShortLocation,
-      toName: Address_.PlaceName,
-      toAddress: Address_.ComponentAddress,
-      toStationId: Station_.Id,
-      leaveAt: Units_.Time,
-      arriveBy: Units_.Time,
-      modes: TravelMode_.TravelMode
-    }),
-    t.record(t.string, t.union([
-      Units_.IdentityId,
-      UnitsGeo_.ShortLocation,
-      Address_.PlaceName,
-      Address_.ComponentAddress,
-      Station_.Id,
-      UnitsGeo_.ShortLocation,
-      Address_.PlaceName,
-      Address_.ComponentAddress,
-      Station_.Id,
-      Units_.Time,
-      Units_.Time,
-      TravelMode_.TravelMode,
-      t.union([
+    t.intersection([
+      t.partial({
+        identityId: Units_.IdentityId,
+        from: UnitsGeo_.ShortLocation,
+        fromName: Address_.PlaceName,
+        fromAddress: Address_.ComponentAddress,
+        fromStationId: Station_.Id,
+        to: UnitsGeo_.ShortLocation,
+        toName: Address_.PlaceName,
+        toAddress: Address_.ComponentAddress,
+        toStationId: Station_.Id,
+        leaveAt: Units_.Time,
+        arriveBy: Units_.Time,
+        modes: TravelMode_.TravelMode,
+      }),
+      t.record(
         t.string,
-        t.number,
-        t.boolean
-      ])
-    ]))
+        t.union([
+          Units_.IdentityId,
+          UnitsGeo_.ShortLocation,
+          Address_.PlaceName,
+          Address_.ComponentAddress,
+          Station_.Id,
+          UnitsGeo_.ShortLocation,
+          Address_.PlaceName,
+          Address_.ComponentAddress,
+          Station_.Id,
+          Units_.Time,
+          Units_.Time,
+          TravelMode_.TravelMode,
+          t.union([t.string, t.number, t.boolean]),
+        ]),
+      ),
+    ]),
+    t.type({
+      from: Defined,
+      to: Defined,
+    }),
   ]),
-  t.type({
-    from: Defined,
-    to: Defined
-  })
-]), (x): x is t.Branded<
   (
-  & 
-  (
-  & {
-  identityId?: Units_.IdentityId,
-  from?: UnitsGeo_.ShortLocation,
-  fromName?: Address_.PlaceName,
-  fromAddress?: Address_.ComponentAddress,
-  fromStationId?: Station_.Id,
-  to?: UnitsGeo_.ShortLocation,
-  toName?: Address_.PlaceName,
-  toAddress?: Address_.ComponentAddress,
-  toStationId?: Station_.Id,
-  leaveAt?: Units_.Time,
-  arriveBy?: Units_.Time,
-  modes?: TravelMode_.TravelMode
-}
-  & Record<string, 
-  (
-  | Units_.IdentityId
-  | UnitsGeo_.ShortLocation
-  | Address_.PlaceName
-  | Address_.ComponentAddress
-  | Station_.Id
-  | UnitsGeo_.ShortLocation
-  | Address_.PlaceName
-  | Address_.ComponentAddress
-  | Station_.Id
-  | Units_.Time
-  | Units_.Time
-  | TravelMode_.TravelMode
-  | 
-  (
-  | string
-  | number
-  | boolean
-  )
-  )>
-  )
-  & {
-  from: Defined,
-  to: Defined
-}
-  ), RequestBrand> => true, 'Request')
+    x,
+  ): x is t.Branded<
+    ({
+      identityId?: Units_.IdentityId;
+      from?: UnitsGeo_.ShortLocation;
+      fromName?: Address_.PlaceName;
+      fromAddress?: Address_.ComponentAddress;
+      fromStationId?: Station_.Id;
+      to?: UnitsGeo_.ShortLocation;
+      toName?: Address_.PlaceName;
+      toAddress?: Address_.ComponentAddress;
+      toStationId?: Station_.Id;
+      leaveAt?: Units_.Time;
+      arriveBy?: Units_.Time;
+      modes?: TravelMode_.TravelMode;
+    } & Record<
+      string,
+      | Units_.IdentityId
+      | UnitsGeo_.ShortLocation
+      | Address_.PlaceName
+      | Address_.ComponentAddress
+      | Station_.Id
+      | UnitsGeo_.ShortLocation
+      | Address_.PlaceName
+      | Address_.ComponentAddress
+      | Station_.Id
+      | Units_.Time
+      | Units_.Time
+      | TravelMode_.TravelMode
+      | (string | number | boolean)
+    >) & {
+      from: Defined;
+      to: Defined;
+    },
+    RequestBrand
+  > => true,
+  'Request',
+);
 export interface RequestBrand {
-  readonly Request: unique symbol
+  readonly Request: unique symbol;
 }
 
 export default Request;

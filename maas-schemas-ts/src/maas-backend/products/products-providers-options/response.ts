@@ -10,57 +10,58 @@ Response schema for products-providers-options
 import * as t from 'io-ts';
 import * as Provider_ from 'maas-schemas-ts/maas-backend/products/provider';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
+  t.null,
+]);
 
-
-export const schemaId = 'http://maasglobal.com/maas-backend/products/products-providers-options/response.json';
+export const schemaId =
+  'http://maasglobal.com/maas-backend/products/products-providers-options/response.json';
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
+  {
+    providers?: Array<Provider_.Provider>;
+  } & {
+    providers: Defined;
+  },
+  ResponseBrand
+>;
+export const Response = t.brand(
+  t.intersection([
+    t.partial({
+      providers: t.array(Provider_.Provider),
+    }),
+    t.type({
+      providers: Defined,
+    }),
+  ]),
   (
-  & {
-  providers?: Array<Provider_.Provider>
-}
-  & {
-  providers: Defined
-}
-  ), ResponseBrand>
-export const Response = t.brand(t.intersection([
-  t.partial({
-    providers: t.array(Provider_.Provider)
-  }),
-  t.type({
-    providers: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  providers?: Array<Provider_.Provider>
-}
-  & {
-  providers: Defined
-}
-  ), ResponseBrand> => true, 'Response')
+    x,
+  ): x is t.Branded<
+    {
+      providers?: Array<Provider_.Provider>;
+    } & {
+      providers: Defined;
+    },
+    ResponseBrand
+  > => true,
+  'Response',
+);
 export interface ResponseBrand {
-  readonly Response: unique symbol
+  readonly Response: unique symbol;
 }
 
 export default Response;

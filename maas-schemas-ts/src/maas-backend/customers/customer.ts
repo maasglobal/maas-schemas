@@ -17,137 +17,129 @@ import * as Authorization_ from 'maas-schemas-ts/core/components/authorization';
 import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
-
+  t.null,
+]);
 
 export const schemaId = 'http://maasglobal.com/maas-backend/customers/customer.json';
 
 // Customer
 // The default export. More information at the top.
 export type Customer = t.Branded<
+  {
+    identityId?: Units_.IdentityId;
+    profileImageUrl?: string;
+    personalData?: PersonalData_.PersonalData;
+    paymentSources?: Array<PaymentSource_.PaymentSource>;
+    balances?: Array<Fare_.Fare>;
+    region?: Region_.Region;
+    authorizations?: Array<Authorization_.Authorization>;
+    favoriteLocations?: Array<{}>;
+    personalDocuments?: Array<
+      {
+        type?: PersonalDocument_.DocumentType;
+        status?: PersonalDocument_.DocumentStatus;
+      } & {
+        type: Defined;
+        status: Defined;
+      }
+    >;
+    personalDocumentConsents?: Array<Common_.AgencyId>;
+  } & {
+    personalData: Defined;
+    paymentSources: Defined;
+    balances: Defined;
+    region: Defined;
+    authorizations: Defined;
+    personalDocuments: Defined;
+    personalDocumentConsents: Defined;
+  },
+  CustomerBrand
+>;
+export const Customer = t.brand(
+  t.intersection([
+    t.partial({
+      identityId: Units_.IdentityId,
+      profileImageUrl: t.string,
+      personalData: PersonalData_.PersonalData,
+      paymentSources: t.array(PaymentSource_.PaymentSource),
+      balances: t.array(Fare_.Fare),
+      region: Region_.Region,
+      authorizations: t.array(Authorization_.Authorization),
+      favoriteLocations: t.array(t.type({})),
+      personalDocuments: t.array(
+        t.intersection([
+          t.partial({
+            type: PersonalDocument_.DocumentType,
+            status: PersonalDocument_.DocumentStatus,
+          }),
+          t.type({
+            type: Defined,
+            status: Defined,
+          }),
+        ]),
+      ),
+      personalDocumentConsents: t.array(Common_.AgencyId),
+    }),
+    t.type({
+      personalData: Defined,
+      paymentSources: Defined,
+      balances: Defined,
+      region: Defined,
+      authorizations: Defined,
+      personalDocuments: Defined,
+      personalDocumentConsents: Defined,
+    }),
+  ]),
   (
-  & {
-  identityId?: Units_.IdentityId,
-  profileImageUrl?: string,
-  personalData?: PersonalData_.PersonalData,
-  paymentSources?: Array<PaymentSource_.PaymentSource>,
-  balances?: Array<Fare_.Fare>,
-  region?: Region_.Region,
-  authorizations?: Array<Authorization_.Authorization>,
-  favoriteLocations?: Array<{
-
-  }>,
-  personalDocuments?: Array<
-    (
-    & {
-    type?: PersonalDocument_.DocumentType,
-    status?: PersonalDocument_.DocumentStatus
-  }
-    & {
-    type: Defined,
-    status: Defined
-  }
-    )>,
-  personalDocumentConsents?: Array<Common_.AgencyId>
-}
-  & {
-  personalData: Defined,
-  paymentSources: Defined,
-  balances: Defined,
-  region: Defined,
-  authorizations: Defined,
-  personalDocuments: Defined,
-  personalDocumentConsents: Defined
-}
-  ), CustomerBrand>
-export const Customer = t.brand(t.intersection([
-  t.partial({
-    identityId: Units_.IdentityId,
-    profileImageUrl: t.string,
-    personalData: PersonalData_.PersonalData,
-    paymentSources: t.array(PaymentSource_.PaymentSource),
-    balances: t.array(Fare_.Fare),
-    region: Region_.Region,
-    authorizations: t.array(Authorization_.Authorization),
-    favoriteLocations: t.array(t.type({
-
-    })),
-    personalDocuments: t.array(t.intersection([
-      t.partial({
-        type: PersonalDocument_.DocumentType,
-        status: PersonalDocument_.DocumentStatus
-      }),
-      t.type({
-        type: Defined,
-        status: Defined
-      })
-    ])),
-    personalDocumentConsents: t.array(Common_.AgencyId)
-  }),
-  t.type({
-    personalData: Defined,
-    paymentSources: Defined,
-    balances: Defined,
-    region: Defined,
-    authorizations: Defined,
-    personalDocuments: Defined,
-    personalDocumentConsents: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  identityId?: Units_.IdentityId,
-  profileImageUrl?: string,
-  personalData?: PersonalData_.PersonalData,
-  paymentSources?: Array<PaymentSource_.PaymentSource>,
-  balances?: Array<Fare_.Fare>,
-  region?: Region_.Region,
-  authorizations?: Array<Authorization_.Authorization>,
-  favoriteLocations?: Array<{
-
-  }>,
-  personalDocuments?: Array<
-    (
-    & {
-    type?: PersonalDocument_.DocumentType,
-    status?: PersonalDocument_.DocumentStatus
-  }
-    & {
-    type: Defined,
-    status: Defined
-  }
-    )>,
-  personalDocumentConsents?: Array<Common_.AgencyId>
-}
-  & {
-  personalData: Defined,
-  paymentSources: Defined,
-  balances: Defined,
-  region: Defined,
-  authorizations: Defined,
-  personalDocuments: Defined,
-  personalDocumentConsents: Defined
-}
-  ), CustomerBrand> => true, 'Customer')
+    x,
+  ): x is t.Branded<
+    {
+      identityId?: Units_.IdentityId;
+      profileImageUrl?: string;
+      personalData?: PersonalData_.PersonalData;
+      paymentSources?: Array<PaymentSource_.PaymentSource>;
+      balances?: Array<Fare_.Fare>;
+      region?: Region_.Region;
+      authorizations?: Array<Authorization_.Authorization>;
+      favoriteLocations?: Array<{}>;
+      personalDocuments?: Array<
+        {
+          type?: PersonalDocument_.DocumentType;
+          status?: PersonalDocument_.DocumentStatus;
+        } & {
+          type: Defined;
+          status: Defined;
+        }
+      >;
+      personalDocumentConsents?: Array<Common_.AgencyId>;
+    } & {
+      personalData: Defined;
+      paymentSources: Defined;
+      balances: Defined;
+      region: Defined;
+      authorizations: Defined;
+      personalDocuments: Defined;
+      personalDocumentConsents: Defined;
+    },
+    CustomerBrand
+  > => true,
+  'Customer',
+);
 export interface CustomerBrand {
-  readonly Customer: unique symbol
+  readonly Customer: unique symbol;
 }
 
 export default Customer;

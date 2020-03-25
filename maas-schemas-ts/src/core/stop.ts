@@ -11,32 +11,35 @@ import * as t from 'io-ts';
 import * as Place_ from 'maas-schemas-ts/core/components/place';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 
-
 export const schemaId = 'http://maasglobal.com/core/stop.json';
 
 // Stop
 // The default export. More information at the top.
 export type Stop = t.Branded<
+  Place_.Place & {
+    startTime?: Units_.Time;
+  },
+  StopBrand
+>;
+export const Stop = t.brand(
+  t.intersection([
+    Place_.Place,
+    t.partial({
+      startTime: Units_.Time,
+    }),
+  ]),
   (
-  & Place_.Place
-  & {
-  startTime?: Units_.Time
-}
-  ), StopBrand>
-export const Stop = t.brand(t.intersection([
-  Place_.Place,
-  t.partial({
-    startTime: Units_.Time
-  })
-]), (x): x is t.Branded<
-  (
-  & Place_.Place
-  & {
-  startTime?: Units_.Time
-}
-  ), StopBrand> => true, 'Stop')
+    x,
+  ): x is t.Branded<
+    Place_.Place & {
+      startTime?: Units_.Time;
+    },
+    StopBrand
+  > => true,
+  'Stop',
+);
 export interface StopBrand {
-  readonly Stop: unique symbol
+  readonly Stop: unique symbol;
 }
 
 export default Stop;

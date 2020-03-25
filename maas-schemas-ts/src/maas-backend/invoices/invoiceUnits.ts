@@ -9,31 +9,43 @@ MaaS Invoice Units schema
 
 import * as t from 'io-ts';
 
-
 export const schemaId = 'http://maasglobal.com/maas-backend/invoices/invoiceUnits.json';
 
 // InvoiceId
 // The purpose of this remains a mystery
-export type InvoiceId = t.Branded<string, InvoiceIdBrand>
-export const InvoiceId = t.brand(t.string, (x): x is t.Branded<string, InvoiceIdBrand> => ( typeof x !== 'string' || x.length >= 2 ), 'InvoiceId')
+export type InvoiceId = t.Branded<string, InvoiceIdBrand>;
+export const InvoiceId = t.brand(
+  t.string,
+  (x): x is t.Branded<string, InvoiceIdBrand> => typeof x !== 'string' || x.length >= 2,
+  'InvoiceId',
+);
 export interface InvoiceIdBrand {
-  readonly InvoiceId: unique symbol
+  readonly InvoiceId: unique symbol;
 }
 
 // InvoiceLineItemId
 // The purpose of this remains a mystery
-export type InvoiceLineItemId = t.Branded<string, InvoiceLineItemIdBrand>
-export const InvoiceLineItemId = t.brand(t.string, (x): x is t.Branded<string, InvoiceLineItemIdBrand> => ( typeof x !== 'string' || x.length >= 2 ), 'InvoiceLineItemId')
+export type InvoiceLineItemId = t.Branded<string, InvoiceLineItemIdBrand>;
+export const InvoiceLineItemId = t.brand(
+  t.string,
+  (x): x is t.Branded<string, InvoiceLineItemIdBrand> =>
+    typeof x !== 'string' || x.length >= 2,
+  'InvoiceLineItemId',
+);
 export interface InvoiceLineItemIdBrand {
-  readonly InvoiceLineItemId: unique symbol
+  readonly InvoiceLineItemId: unique symbol;
 }
 
 // InvoiceUnits
 // The default export. More information at the top.
-export type InvoiceUnits = t.Branded<unknown, InvoiceUnitsBrand>
-export const InvoiceUnits = t.brand(t.unknown, (x): x is t.Branded<unknown, InvoiceUnitsBrand> => true, 'InvoiceUnits')
+export type InvoiceUnits = t.Branded<unknown, InvoiceUnitsBrand>;
+export const InvoiceUnits = t.brand(
+  t.unknown,
+  (x): x is t.Branded<unknown, InvoiceUnitsBrand> => true,
+  'InvoiceUnits',
+);
 export interface InvoiceUnitsBrand {
-  readonly InvoiceUnits: unique symbol
+  readonly InvoiceUnits: unique symbol;
 }
 
 export default InvoiceUnits;

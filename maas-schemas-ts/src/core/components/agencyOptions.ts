@@ -14,54 +14,65 @@ import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
 import * as Address_ from 'maas-schemas-ts/core/components/address';
 
-
 export const schemaId = 'http://maasglobal.com/core/components/agencyOptions.json';
 
 // AgencyOptions
 // The default export. More information at the top.
-export type AgencyOptions = t.Branded<{
-  mode?: TravelMode_.TravelMode,
-  agencyId?: Common_.AgencyId,
-  startTime?: Units_.Time,
-  endTime?: Units_.Time,
-  from?: UnitsGeo_.ShortLocationString,
-  to?: UnitsGeo_.ShortLocationString,
-  fromName?: Address_.PlaceName,
-  fromAddress?: Address_.ComponentAddress,
-  fromRadius?: UnitsGeo_.Distance,
-  toName?: Address_.PlaceName,
-  toAddress?: Address_.ComponentAddress,
-  toRadius?: UnitsGeo_.Distance
-}, AgencyOptionsBrand>
-export const AgencyOptions = t.brand(t.partial({
-  mode: TravelMode_.TravelMode,
-  agencyId: Common_.AgencyId,
-  startTime: Units_.Time,
-  endTime: Units_.Time,
-  from: UnitsGeo_.ShortLocationString,
-  to: UnitsGeo_.ShortLocationString,
-  fromName: Address_.PlaceName,
-  fromAddress: Address_.ComponentAddress,
-  fromRadius: UnitsGeo_.Distance,
-  toName: Address_.PlaceName,
-  toAddress: Address_.ComponentAddress,
-  toRadius: UnitsGeo_.Distance
-}), (x): x is t.Branded<{
-  mode?: TravelMode_.TravelMode,
-  agencyId?: Common_.AgencyId,
-  startTime?: Units_.Time,
-  endTime?: Units_.Time,
-  from?: UnitsGeo_.ShortLocationString,
-  to?: UnitsGeo_.ShortLocationString,
-  fromName?: Address_.PlaceName,
-  fromAddress?: Address_.ComponentAddress,
-  fromRadius?: UnitsGeo_.Distance,
-  toName?: Address_.PlaceName,
-  toAddress?: Address_.ComponentAddress,
-  toRadius?: UnitsGeo_.Distance
-}, AgencyOptionsBrand> => true, 'AgencyOptions')
+export type AgencyOptions = t.Branded<
+  {
+    mode?: TravelMode_.TravelMode;
+    agencyId?: Common_.AgencyId;
+    startTime?: Units_.Time;
+    endTime?: Units_.Time;
+    from?: UnitsGeo_.ShortLocationString;
+    to?: UnitsGeo_.ShortLocationString;
+    fromName?: Address_.PlaceName;
+    fromAddress?: Address_.ComponentAddress;
+    fromRadius?: UnitsGeo_.Distance;
+    toName?: Address_.PlaceName;
+    toAddress?: Address_.ComponentAddress;
+    toRadius?: UnitsGeo_.Distance;
+  },
+  AgencyOptionsBrand
+>;
+export const AgencyOptions = t.brand(
+  t.partial({
+    mode: TravelMode_.TravelMode,
+    agencyId: Common_.AgencyId,
+    startTime: Units_.Time,
+    endTime: Units_.Time,
+    from: UnitsGeo_.ShortLocationString,
+    to: UnitsGeo_.ShortLocationString,
+    fromName: Address_.PlaceName,
+    fromAddress: Address_.ComponentAddress,
+    fromRadius: UnitsGeo_.Distance,
+    toName: Address_.PlaceName,
+    toAddress: Address_.ComponentAddress,
+    toRadius: UnitsGeo_.Distance,
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      mode?: TravelMode_.TravelMode;
+      agencyId?: Common_.AgencyId;
+      startTime?: Units_.Time;
+      endTime?: Units_.Time;
+      from?: UnitsGeo_.ShortLocationString;
+      to?: UnitsGeo_.ShortLocationString;
+      fromName?: Address_.PlaceName;
+      fromAddress?: Address_.ComponentAddress;
+      fromRadius?: UnitsGeo_.Distance;
+      toName?: Address_.PlaceName;
+      toAddress?: Address_.ComponentAddress;
+      toRadius?: UnitsGeo_.Distance;
+    },
+    AgencyOptionsBrand
+  > => true,
+  'AgencyOptions',
+);
 export interface AgencyOptionsBrand {
-  readonly AgencyOptions: unique symbol
+  readonly AgencyOptions: unique symbol;
 }
 
 export default AgencyOptions;

@@ -9,165 +9,160 @@ MaaS state schemas
 
 import * as t from 'io-ts';
 
-
 export const schemaId = 'http://maasglobal.com/core/components/state.json';
 
 // BookingState
 // The life-cycle state of a booking
 export type BookingState = t.Branded<
+  string &
+    (
+      | 'START'
+      | 'PENDING'
+      | 'PAID'
+      | 'RESERVED'
+      | 'CONFIRMED'
+      | 'ARRIVED'
+      | 'ACTIVATED'
+      | 'ON_HOLD'
+      | 'CANCELLED'
+      | 'EXPIRED'
+      | 'REJECTED'
+      | 'FINISHED'
+      | 'UNKNOWN'),
+  BookingStateBrand
+>;
+export const BookingState = t.brand(
+  t.intersection([
+    t.string,
+    t.union([
+      t.literal('START'),
+      t.literal('PENDING'),
+      t.literal('PAID'),
+      t.literal('RESERVED'),
+      t.literal('CONFIRMED'),
+      t.literal('ARRIVED'),
+      t.literal('ACTIVATED'),
+      t.literal('ON_HOLD'),
+      t.literal('CANCELLED'),
+      t.literal('EXPIRED'),
+      t.literal('REJECTED'),
+      t.literal('FINISHED'),
+      t.literal('UNKNOWN'),
+    ]),
+  ]),
   (
-  & string
-  & 
-  (
-  | 'START'
-  | 'PENDING'
-  | 'PAID'
-  | 'RESERVED'
-  | 'CONFIRMED'
-  | 'ARRIVED'
-  | 'ACTIVATED'
-  | 'ON_HOLD'
-  | 'CANCELLED'
-  | 'EXPIRED'
-  | 'REJECTED'
-  | 'FINISHED'
-  | 'UNKNOWN'
-  )
-  ), BookingStateBrand>
-export const BookingState = t.brand(t.intersection([
-  t.string,
-  t.union([
-    t.literal('START'),
-    t.literal('PENDING'),
-    t.literal('PAID'),
-    t.literal('RESERVED'),
-    t.literal('CONFIRMED'),
-    t.literal('ARRIVED'),
-    t.literal('ACTIVATED'),
-    t.literal('ON_HOLD'),
-    t.literal('CANCELLED'),
-    t.literal('EXPIRED'),
-    t.literal('REJECTED'),
-    t.literal('FINISHED'),
-    t.literal('UNKNOWN')
-  ])
-]), (x): x is t.Branded<
-  (
-  & string
-  & 
-  (
-  | 'START'
-  | 'PENDING'
-  | 'PAID'
-  | 'RESERVED'
-  | 'CONFIRMED'
-  | 'ARRIVED'
-  | 'ACTIVATED'
-  | 'ON_HOLD'
-  | 'CANCELLED'
-  | 'EXPIRED'
-  | 'REJECTED'
-  | 'FINISHED'
-  | 'UNKNOWN'
-  )
-  ), BookingStateBrand> => true, 'BookingState')
+    x,
+  ): x is t.Branded<
+    string &
+      (
+        | 'START'
+        | 'PENDING'
+        | 'PAID'
+        | 'RESERVED'
+        | 'CONFIRMED'
+        | 'ARRIVED'
+        | 'ACTIVATED'
+        | 'ON_HOLD'
+        | 'CANCELLED'
+        | 'EXPIRED'
+        | 'REJECTED'
+        | 'FINISHED'
+        | 'UNKNOWN'),
+    BookingStateBrand
+  > => true,
+  'BookingState',
+);
 export interface BookingStateBrand {
-  readonly BookingState: unique symbol
+  readonly BookingState: unique symbol;
 }
 
 // LegState
 // The life-cycle state of a leg
 export type LegState = t.Branded<
+  string & ('START' | 'PLANNED' | 'PAID' | 'ACTIVATED' | 'CANCELLED' | 'FINISHED'),
+  LegStateBrand
+>;
+export const LegState = t.brand(
+  t.intersection([
+    t.string,
+    t.union([
+      t.literal('START'),
+      t.literal('PLANNED'),
+      t.literal('PAID'),
+      t.literal('ACTIVATED'),
+      t.literal('CANCELLED'),
+      t.literal('FINISHED'),
+    ]),
+  ]),
   (
-  & string
-  & 
-  (
-  | 'START'
-  | 'PLANNED'
-  | 'PAID'
-  | 'ACTIVATED'
-  | 'CANCELLED'
-  | 'FINISHED'
-  )
-  ), LegStateBrand>
-export const LegState = t.brand(t.intersection([
-  t.string,
-  t.union([
-    t.literal('START'),
-    t.literal('PLANNED'),
-    t.literal('PAID'),
-    t.literal('ACTIVATED'),
-    t.literal('CANCELLED'),
-    t.literal('FINISHED')
-  ])
-]), (x): x is t.Branded<
-  (
-  & string
-  & 
-  (
-  | 'START'
-  | 'PLANNED'
-  | 'PAID'
-  | 'ACTIVATED'
-  | 'CANCELLED'
-  | 'FINISHED'
-  )
-  ), LegStateBrand> => true, 'LegState')
+    x,
+  ): x is t.Branded<
+    string & ('START' | 'PLANNED' | 'PAID' | 'ACTIVATED' | 'CANCELLED' | 'FINISHED'),
+    LegStateBrand
+  > => true,
+  'LegState',
+);
 export interface LegStateBrand {
-  readonly LegState: unique symbol
+  readonly LegState: unique symbol;
 }
 
 // ItineraryState
 // The life-cycle state of an itinerary
 export type ItineraryState = t.Branded<
+  string &
+    (
+      | 'START'
+      | 'PLANNED'
+      | 'PAID'
+      | 'ACTIVATED'
+      | 'CANCELLED'
+      | 'CANCELLED_WITH_ERRORS'
+      | 'FINISHED'),
+  ItineraryStateBrand
+>;
+export const ItineraryState = t.brand(
+  t.intersection([
+    t.string,
+    t.union([
+      t.literal('START'),
+      t.literal('PLANNED'),
+      t.literal('PAID'),
+      t.literal('ACTIVATED'),
+      t.literal('CANCELLED'),
+      t.literal('CANCELLED_WITH_ERRORS'),
+      t.literal('FINISHED'),
+    ]),
+  ]),
   (
-  & string
-  & 
-  (
-  | 'START'
-  | 'PLANNED'
-  | 'PAID'
-  | 'ACTIVATED'
-  | 'CANCELLED'
-  | 'CANCELLED_WITH_ERRORS'
-  | 'FINISHED'
-  )
-  ), ItineraryStateBrand>
-export const ItineraryState = t.brand(t.intersection([
-  t.string,
-  t.union([
-    t.literal('START'),
-    t.literal('PLANNED'),
-    t.literal('PAID'),
-    t.literal('ACTIVATED'),
-    t.literal('CANCELLED'),
-    t.literal('CANCELLED_WITH_ERRORS'),
-    t.literal('FINISHED')
-  ])
-]), (x): x is t.Branded<
-  (
-  & string
-  & 
-  (
-  | 'START'
-  | 'PLANNED'
-  | 'PAID'
-  | 'ACTIVATED'
-  | 'CANCELLED'
-  | 'CANCELLED_WITH_ERRORS'
-  | 'FINISHED'
-  )
-  ), ItineraryStateBrand> => true, 'ItineraryState')
+    x,
+  ): x is t.Branded<
+    string &
+      (
+        | 'START'
+        | 'PLANNED'
+        | 'PAID'
+        | 'ACTIVATED'
+        | 'CANCELLED'
+        | 'CANCELLED_WITH_ERRORS'
+        | 'FINISHED'),
+    ItineraryStateBrand
+  > => true,
+  'ItineraryState',
+);
 export interface ItineraryStateBrand {
-  readonly ItineraryState: unique symbol
+  readonly ItineraryState: unique symbol;
 }
 
 // State
 // The default export. More information at the top.
-export type State = t.Branded<unknown, StateBrand>
-export const State = t.brand(t.unknown, (x): x is t.Branded<unknown, StateBrand> => true, 'State')
+export type State = t.Branded<unknown, StateBrand>;
+export const State = t.brand(
+  t.unknown,
+  (x): x is t.Branded<unknown, StateBrand> => true,
+  'State',
+);
 export interface StateBrand {
-  readonly State: unique symbol
+  readonly State: unique symbol;
 }
 
 export default State;

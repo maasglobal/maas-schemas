@@ -12,139 +12,138 @@ import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as Fare_ from 'maas-schemas-ts/core/components/fare';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 
-
 type Defined =
-  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null
-  )
+  | null;
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null
-])
+  t.null,
+]);
 
-
-export const schemaId = 'http://maasglobal.com/maas-backend/bookings/bookings-agency-products/response.json';
+export const schemaId =
+  'http://maasglobal.com/maas-backend/bookings/bookings-agency-products/response.json';
 
 // Product
 // The purpose of this remains a mystery
 export type Product = t.Branded<
-  (
-  & {
-  id?: string,
-  agencyId?: string,
-  tspProductId?: string,
-  name?: string,
-  meta?: {
-
+  {
+    id?: string;
+    agencyId?: string;
+    tspProductId?: string;
+    name?: string;
+    meta?: {};
+    icon?: Units_.Url;
+    fares?: Array<Fare_.Fare>;
+    description?: string;
+  } & {
+    id: Defined;
+    agencyId: Defined;
+    tspProductId: Defined;
+    name: Defined;
+    description: Defined;
+    icon: Defined;
+    fares: Defined;
   },
-  icon?: Units_.Url,
-  fares?: Array<Fare_.Fare>,
-  description?: string
-}
-  & {
-  id: Defined,
-  agencyId: Defined,
-  tspProductId: Defined,
-  name: Defined,
-  description: Defined,
-  icon: Defined,
-  fares: Defined
-}
-  ), ProductBrand>
-export const Product = t.brand(t.intersection([
-  t.partial({
-    id: t.string,
-    agencyId: t.string,
-    tspProductId: t.string,
-    name: t.string,
-    meta: t.type({
-
+  ProductBrand
+>;
+export const Product = t.brand(
+  t.intersection([
+    t.partial({
+      id: t.string,
+      agencyId: t.string,
+      tspProductId: t.string,
+      name: t.string,
+      meta: t.type({}),
+      icon: Units_.Url,
+      fares: t.array(Fare_.Fare),
+      description: t.string,
     }),
-    icon: Units_.Url,
-    fares: t.array(Fare_.Fare),
-    description: t.string
-  }),
-  t.type({
-    id: Defined,
-    agencyId: Defined,
-    tspProductId: Defined,
-    name: Defined,
-    description: Defined,
-    icon: Defined,
-    fares: Defined
-  })
-]), (x): x is t.Branded<
+    t.type({
+      id: Defined,
+      agencyId: Defined,
+      tspProductId: Defined,
+      name: Defined,
+      description: Defined,
+      icon: Defined,
+      fares: Defined,
+    }),
+  ]),
   (
-  & {
-  id?: string,
-  agencyId?: string,
-  tspProductId?: string,
-  name?: string,
-  meta?: {
-
-  },
-  icon?: Units_.Url,
-  fares?: Array<Fare_.Fare>,
-  description?: string
-}
-  & {
-  id: Defined,
-  agencyId: Defined,
-  tspProductId: Defined,
-  name: Defined,
-  description: Defined,
-  icon: Defined,
-  fares: Defined
-}
-  ), ProductBrand> => true, 'Product')
+    x,
+  ): x is t.Branded<
+    {
+      id?: string;
+      agencyId?: string;
+      tspProductId?: string;
+      name?: string;
+      meta?: {};
+      icon?: Units_.Url;
+      fares?: Array<Fare_.Fare>;
+      description?: string;
+    } & {
+      id: Defined;
+      agencyId: Defined;
+      tspProductId: Defined;
+      name: Defined;
+      description: Defined;
+      icon: Defined;
+      fares: Defined;
+    },
+    ProductBrand
+  > => true,
+  'Product',
+);
 export interface ProductBrand {
-  readonly Product: unique symbol
+  readonly Product: unique symbol;
 }
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
+  {
+    agencyId?: Common_.AgencyId;
+    products?: Array<Product>;
+  } & {
+    agencyId: Defined;
+    products: Defined;
+  },
+  ResponseBrand
+>;
+export const Response = t.brand(
+  t.intersection([
+    t.partial({
+      agencyId: Common_.AgencyId,
+      products: t.array(Product),
+    }),
+    t.type({
+      agencyId: Defined,
+      products: Defined,
+    }),
+  ]),
   (
-  & {
-  agencyId?: Common_.AgencyId,
-  products?: Array<Product>
-}
-  & {
-  agencyId: Defined,
-  products: Defined
-}
-  ), ResponseBrand>
-export const Response = t.brand(t.intersection([
-  t.partial({
-    agencyId: Common_.AgencyId,
-    products: t.array(Product)
-  }),
-  t.type({
-    agencyId: Defined,
-    products: Defined
-  })
-]), (x): x is t.Branded<
-  (
-  & {
-  agencyId?: Common_.AgencyId,
-  products?: Array<Product>
-}
-  & {
-  agencyId: Defined,
-  products: Defined
-}
-  ), ResponseBrand> => true, 'Response')
+    x,
+  ): x is t.Branded<
+    {
+      agencyId?: Common_.AgencyId;
+      products?: Array<Product>;
+    } & {
+      agencyId: Defined;
+      products: Defined;
+    },
+    ResponseBrand
+  > => true,
+  'Response',
+);
 export interface ResponseBrand {
-  readonly Response: unique symbol
+  readonly Response: unique symbol;
 }
 
 export default Response;

@@ -9,15 +9,22 @@ ACRISS classification of the car, see https://en.wikipedia.org/wiki/ACRISS_Car_C
 
 import * as t from 'io-ts';
 
-
 export const schemaId = 'http://maasglobal.com/core/components/ACRISS.json';
 
 // ACRISS
 // The default export. More information at the top.
-export type ACRISS = t.Branded<string, ACRISSBrand>
-export const ACRISS = t.brand(t.string, (x): x is t.Branded<string, ACRISSBrand> => ( typeof x !== 'string' || x.match(RegExp("[MNEHCDIJSRFGPULWOX][BCDWVLSTFJXPQZEMRHYNGK][MNCABD][RNDQHIECLSABMFVZUX]")) !== null ), 'ACRISS')
+export type ACRISS = t.Branded<string, ACRISSBrand>;
+export const ACRISS = t.brand(
+  t.string,
+  (x): x is t.Branded<string, ACRISSBrand> =>
+    typeof x !== 'string' ||
+    x.match(
+      RegExp('[MNEHCDIJSRFGPULWOX][BCDWVLSTFJXPQZEMRHYNGK][MNCABD][RNDQHIECLSABMFVZUX]'),
+    ) !== null,
+  'ACRISS',
+);
 export interface ACRISSBrand {
-  readonly ACRISS: unique symbol
+  readonly ACRISS: unique symbol;
 }
 
 export default ACRISS;
