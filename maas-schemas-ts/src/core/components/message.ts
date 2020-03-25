@@ -27,9 +27,9 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/components/message.json';
 
-// Mesage
+// Message
 // The default export. More information at the top.
-export type Mesage = t.Branded<
+export type Message = t.Branded<
   {
     text?: string;
     mode?: string &
@@ -59,9 +59,9 @@ export type Mesage = t.Branded<
     mode: Defined;
     property: Defined;
   },
-  MesageBrand
+  MessageBrand
 >;
-export const Mesage = t.brand(
+export const Message = t.brand(
   t.intersection([
     t.partial({
       text: t.string,
@@ -129,14 +129,14 @@ export const Mesage = t.brand(
       mode: Defined;
       property: Defined;
     },
-    MesageBrand
+    MessageBrand
   > => true,
-  'Mesage',
+  'Message',
 );
-export interface MesageBrand {
-  readonly Mesage: unique symbol;
+export interface MessageBrand {
+  readonly Message: unique symbol;
 }
 
-export default Mesage;
+export default Message;
 
 // Success

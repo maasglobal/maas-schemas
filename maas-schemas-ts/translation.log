@@ -319,13 +319,13 @@ WARNING: minItems field not supported outside top-level definitions
 INFO: missing description
   in ./core/components/i18n.json
 INFO: primitive type "string" used outside top-level definitions
-  in ./core/components/mesage.json
+  in ./core/components/message.json
 WARNING: maxLength field not supported outside top-level definitions
-  in ./core/components/mesage.json
+  in ./core/components/message.json
 INFO: primitive type "string" used outside top-level definitions
-  in ./core/components/mesage.json
+  in ./core/components/message.json
 INFO: primitive type "string" used outside top-level definitions
-  in ./core/components/mesage.json
+  in ./core/components/message.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/payment-parameters.json
 WARNING: minLength field not supported outside top-level definitions
