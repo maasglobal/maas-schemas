@@ -10,61 +10,66 @@ Response schema for itineraries-list
 import * as t from 'io-ts';
 import * as Itinerary_ from 'maas-schemas-ts/core/itinerary';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
 
-export const schemaId =
-  'http://maasglobal.com/maas-backend/itineraries/itinerary-list/response.json';
+
+export const schemaId = 'http://maasglobal.com/maas-backend/itineraries/itinerary-list/response.json';
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  {
-    itineraries?: Array<Itinerary_.Itinerary>;
-    maas?: {};
-  } & {
-    itineraries: Defined;
-  },
-  ResponseBrand
->;
-export const Response = t.brand(
-  t.intersection([
-    t.partial({
-      itineraries: t.array(Itinerary_.Itinerary),
-      maas: t.type({}),
-    }),
-    t.type({
-      itineraries: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      itineraries?: Array<Itinerary_.Itinerary>;
-      maas?: {};
-    } & {
-      itineraries: Defined;
-    },
-    ResponseBrand
-  > => true,
-  'Response',
-);
+  & {
+  itineraries?: Array<Itinerary_.Itinerary>,
+  maas?: {
+
+  }
+}
+  & {
+  itineraries: Defined
+}
+  ), ResponseBrand>
+export const Response = t.brand(t.intersection([
+  t.partial({
+    itineraries: t.array(Itinerary_.Itinerary),
+    maas: t.type({
+
+    })
+  }),
+  t.type({
+    itineraries: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  itineraries?: Array<Itinerary_.Itinerary>,
+  maas?: {
+
+  }
+}
+  & {
+  itineraries: Defined
+}
+  ), ResponseBrand> => true, 'Response')
 export interface ResponseBrand {
-  readonly Response: unique symbol;
+  readonly Response: unique symbol
 }
 
 export default Response;

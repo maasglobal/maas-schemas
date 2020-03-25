@@ -11,149 +11,139 @@ import * as t from 'io-ts';
 import * as Place_ from 'maas-schemas-ts/core/components/place';
 import * as Itinerary_ from 'maas-schemas-ts/core/itinerary';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
 
-export const schemaId =
-  'http://maasglobal.com/maas-backend/provider/routes/response.json';
+
+export const schemaId = 'http://maasglobal.com/maas-backend/provider/routes/response.json';
 
 // Itineraries
 // The purpose of this remains a mystery
-export type Itineraries = t.Branded<Array<Itinerary_.Itinerary>, ItinerariesBrand>;
-export const Itineraries = t.brand(
-  t.array(Itinerary_.Itinerary),
-  (x): x is t.Branded<Array<Itinerary_.Itinerary>, ItinerariesBrand> => true,
-  'Itineraries',
-);
+export type Itineraries = t.Branded<Array<Itinerary_.Itinerary>, ItinerariesBrand>
+export const Itineraries = t.brand(t.array(Itinerary_.Itinerary), (x): x is t.Branded<Array<Itinerary_.Itinerary>, ItinerariesBrand> => true, 'Itineraries')
 export interface ItinerariesBrand {
-  readonly Itineraries: unique symbol;
+  readonly Itineraries: unique symbol
 }
 
 // Plan1
 // The purpose of this remains a mystery
 export type Plan1 = t.Branded<
-  {
-    from?: Place_.Place;
-    outwards?: Itineraries;
-    returns?: Itineraries;
-  } & {
-    from: Defined;
-    outwards: Defined;
-    returns: Defined;
-  },
-  Plan1Brand
->;
-export const Plan1 = t.brand(
-  t.intersection([
-    t.partial({
-      from: Place_.Place,
-      outwards: Itineraries,
-      returns: Itineraries,
-    }),
-    t.type({
-      from: Defined,
-      outwards: Defined,
-      returns: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      from?: Place_.Place;
-      outwards?: Itineraries;
-      returns?: Itineraries;
-    } & {
-      from: Defined;
-      outwards: Defined;
-      returns: Defined;
-    },
-    Plan1Brand
-  > => true,
-  'Plan1',
-);
+  & {
+  from?: Place_.Place,
+  outwards?: Itineraries,
+  returns?: Itineraries
+}
+  & {
+  from: Defined,
+  outwards: Defined,
+  returns: Defined
+}
+  ), Plan1Brand>
+export const Plan1 = t.brand(t.intersection([
+  t.partial({
+    from: Place_.Place,
+    outwards: Itineraries,
+    returns: Itineraries
+  }),
+  t.type({
+    from: Defined,
+    outwards: Defined,
+    returns: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  from?: Place_.Place,
+  outwards?: Itineraries,
+  returns?: Itineraries
+}
+  & {
+  from: Defined,
+  outwards: Defined,
+  returns: Defined
+}
+  ), Plan1Brand> => true, 'Plan1')
 export interface Plan1Brand {
-  readonly Plan1: unique symbol;
+  readonly Plan1: unique symbol
 }
 
 // Plan2
 // The purpose of this remains a mystery
 export type Plan2 = t.Branded<
-  {
-    from?: Place_.Place;
-    itineraries?: Itineraries;
-  } & {
-    from: Defined;
-    itineraries: Defined;
-  },
-  Plan2Brand
->;
-export const Plan2 = t.brand(
-  t.intersection([
-    t.partial({
-      from: Place_.Place,
-      itineraries: Itineraries,
-    }),
-    t.type({
-      from: Defined,
-      itineraries: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      from?: Place_.Place;
-      itineraries?: Itineraries;
-    } & {
-      from: Defined;
-      itineraries: Defined;
-    },
-    Plan2Brand
-  > => true,
-  'Plan2',
-);
+  & {
+  from?: Place_.Place,
+  itineraries?: Itineraries
+}
+  & {
+  from: Defined,
+  itineraries: Defined
+}
+  ), Plan2Brand>
+export const Plan2 = t.brand(t.intersection([
+  t.partial({
+    from: Place_.Place,
+    itineraries: Itineraries
+  }),
+  t.type({
+    from: Defined,
+    itineraries: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  from?: Place_.Place,
+  itineraries?: Itineraries
+}
+  & {
+  from: Defined,
+  itineraries: Defined
+}
+  ), Plan2Brand> => true, 'Plan2')
 export interface Plan2Brand {
-  readonly Plan2: unique symbol;
+  readonly Plan2: unique symbol
 }
 
 // Response
 // The default export. More information at the top.
-export type Response = t.Branded<
-  {
-    plan?: Plan1 | Plan2;
-  },
-  ResponseBrand
->;
-export const Response = t.brand(
-  t.partial({
-    plan: t.union([Plan1, Plan2]),
-  }),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      plan?: Plan1 | Plan2;
-    },
-    ResponseBrand
-  > => true,
-  'Response',
-);
+export type Response = t.Branded<{
+  plan?:
+    (
+    | Plan1
+    | Plan2
+    )
+}, ResponseBrand>
+export const Response = t.brand(t.partial({
+  plan: t.union([
+    Plan1,
+    Plan2
+  ])
+}), (x): x is t.Branded<{
+  plan?:
+    (
+    | Plan1
+    | Plan2
+    )
+}, ResponseBrand> => true, 'Response')
 export interface ResponseBrand {
-  readonly Response: unique symbol;
+  readonly Response: unique symbol
 }
 
 export default Response;

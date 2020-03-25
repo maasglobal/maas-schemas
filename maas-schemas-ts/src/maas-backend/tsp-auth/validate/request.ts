@@ -10,45 +10,39 @@ Request schema for tsp-auth validate. Leaving as much flexibility as possible to
 import * as t from 'io-ts';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 
-export const schemaId =
-  'http://maasglobal.com/maas-backend/tsp-auth/validate/request.json';
+
+export const schemaId = 'http://maasglobal.com/maas-backend/tsp-auth/validate/request.json';
 
 // Request
 // The default export. More information at the top.
-export type Request = t.Branded<
-  {
-    agencyId?: Common_.AgencyId;
-    token?: Common_.EncodedQueryParam;
-    encodedData?: Common_.EncodedQueryParam;
-    error?: Common_.ErrorKey;
-    headers?: {};
-  },
-  RequestBrand
->;
-export const Request = t.brand(
-  t.partial({
-    agencyId: Common_.AgencyId,
-    token: Common_.EncodedQueryParam,
-    encodedData: Common_.EncodedQueryParam,
-    error: Common_.ErrorKey,
-    headers: t.type({}),
-  }),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      agencyId?: Common_.AgencyId;
-      token?: Common_.EncodedQueryParam;
-      encodedData?: Common_.EncodedQueryParam;
-      error?: Common_.ErrorKey;
-      headers?: {};
-    },
-    RequestBrand
-  > => true,
-  'Request',
-);
+export type Request = t.Branded<{
+  agencyId?: Common_.AgencyId,
+  token?: Common_.EncodedQueryParam,
+  encodedData?: Common_.EncodedQueryParam,
+  error?: Common_.ErrorKey,
+  headers?: {
+
+  }
+}, RequestBrand>
+export const Request = t.brand(t.partial({
+  agencyId: Common_.AgencyId,
+  token: Common_.EncodedQueryParam,
+  encodedData: Common_.EncodedQueryParam,
+  error: Common_.ErrorKey,
+  headers: t.type({
+
+  })
+}), (x): x is t.Branded<{
+  agencyId?: Common_.AgencyId,
+  token?: Common_.EncodedQueryParam,
+  encodedData?: Common_.EncodedQueryParam,
+  error?: Common_.ErrorKey,
+  headers?: {
+
+  }
+}, RequestBrand> => true, 'Request')
 export interface RequestBrand {
-  readonly Request: unique symbol;
+  readonly Request: unique symbol
 }
 
 export default Request;

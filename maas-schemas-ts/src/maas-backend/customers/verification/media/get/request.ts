@@ -10,76 +10,75 @@ MaaS customer verification media get
 import * as t from 'io-ts';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
 
-export const schemaId =
-  'http://maasglobal.com/maas-backend/customers/verification/media/get/request.json';
+
+export const schemaId = 'http://maasglobal.com/maas-backend/customers/verification/media/get/request.json';
 
 // Request
 // The default export. More information at the top.
-export type Request = t.Branded<
-  {
-    customerId?: Units_.IdentityId;
-    identityId?: Units_.IdentityId;
-    payload?: {
-      side?: string;
-      type?: string;
-    } & {
-      type: Defined;
-      side: Defined;
-    };
-  },
-  RequestBrand
->;
-export const Request = t.brand(
-  t.partial({
-    customerId: Units_.IdentityId,
-    identityId: Units_.IdentityId,
-    payload: t.intersection([
-      t.partial({
-        side: t.string,
-        type: t.string,
-      }),
-      t.type({
-        type: Defined,
-        side: Defined,
-      }),
-    ]),
-  }),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      customerId?: Units_.IdentityId;
-      identityId?: Units_.IdentityId;
-      payload?: {
-        side?: string;
-        type?: string;
-      } & {
-        type: Defined;
-        side: Defined;
-      };
-    },
-    RequestBrand
-  > => true,
-  'Request',
-);
+export type Request = t.Branded<{
+  customerId?: Units_.IdentityId,
+  identityId?: Units_.IdentityId,
+  payload?:
+    (
+    & {
+    side?: string,
+    type?: string
+  }
+    & {
+    type: Defined,
+    side: Defined
+  }
+    )
+}, RequestBrand>
+export const Request = t.brand(t.partial({
+  customerId: Units_.IdentityId,
+  identityId: Units_.IdentityId,
+  payload: t.intersection([
+    t.partial({
+      side: t.string,
+      type: t.string
+    }),
+    t.type({
+      type: Defined,
+      side: Defined
+    })
+  ])
+}), (x): x is t.Branded<{
+  customerId?: Units_.IdentityId,
+  identityId?: Units_.IdentityId,
+  payload?:
+    (
+    & {
+    side?: string,
+    type?: string
+  }
+    & {
+    type: Defined,
+    side: Defined
+  }
+    )
+}, RequestBrand> => true, 'Request')
 export interface RequestBrand {
-  readonly Request: unique symbol;
+  readonly Request: unique symbol
 }
 
 export default Request;

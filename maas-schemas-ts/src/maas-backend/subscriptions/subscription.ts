@@ -16,350 +16,336 @@ import * as SubscriptionChangeState_ from 'maas-schemas-ts/core/components/subsc
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as Cost_ from 'maas-schemas-ts/core/components/cost';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
 
-export const schemaId =
-  'http://maasglobal.com/maas-backend/subscriptions/subscription.json';
+
+export const schemaId = 'http://maasglobal.com/maas-backend/subscriptions/subscription.json';
 
 // Subscription
 // The default export. More information at the top.
-export type Subscription = t.Branded<unknown, SubscriptionBrand>;
-export const Subscription = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, SubscriptionBrand> => true,
-  'Subscription',
-);
+export type Subscription = t.Branded<unknown, SubscriptionBrand>
+export const Subscription = t.brand(t.unknown, (x): x is t.Branded<unknown, SubscriptionBrand> => true, 'Subscription')
 export interface SubscriptionBrand {
-  readonly Subscription: unique symbol;
+  readonly Subscription: unique symbol
 }
 
 // SubscriptionItemId
 // Identifier for matching the plans (Chargebee compat.)
-export type SubscriptionItemId = t.Branded<string, SubscriptionItemIdBrand>;
-export const SubscriptionItemId = t.brand(
-  t.string,
-  (x): x is t.Branded<string, SubscriptionItemIdBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^[^\\s\\/]{1,50}$')) !== null,
-  'SubscriptionItemId',
-);
+export type SubscriptionItemId = t.Branded<string, SubscriptionItemIdBrand>
+export const SubscriptionItemId = t.brand(t.string, (x): x is t.Branded<string, SubscriptionItemIdBrand> => ( typeof x !== 'string' || x.match(RegExp("^[^\\s\\/]{1,50}$")) !== null ), 'SubscriptionItemId')
 export interface SubscriptionItemIdBrand {
-  readonly SubscriptionItemId: unique symbol;
+  readonly SubscriptionItemId: unique symbol
 }
 
 // Price
 // The purpose of this remains a mystery
-export type Price = Cost_.Cost;
-export const Price = Cost_.Cost;
+export type Price = Cost_.Cost
+export const Price = Cost_.Cost
 
 // Plan
 // Customer subscription plan
 export type Plan = t.Branded<
-  {
-    id?: SubscriptionItemId;
-    name?: string;
-    description?: string;
-    price?: Price;
-  } & {
-    id: Defined;
-  },
-  PlanBrand
->;
-export const Plan = t.brand(
-  t.intersection([
-    t.partial({
-      id: SubscriptionItemId,
-      name: t.string,
-      description: t.string,
-      price: Price,
-    }),
-    t.type({
-      id: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      id?: SubscriptionItemId;
-      name?: string;
-      description?: string;
-      price?: Price;
-    } & {
-      id: Defined;
-    },
-    PlanBrand
-  > => true,
-  'Plan',
-);
+  & {
+  id?: SubscriptionItemId,
+  name?: string,
+  description?: string,
+  price?: Price
+}
+  & {
+  id: Defined
+}
+  ), PlanBrand>
+export const Plan = t.brand(t.intersection([
+  t.partial({
+    id: SubscriptionItemId,
+    name: t.string,
+    description: t.string,
+    price: Price
+  }),
+  t.type({
+    id: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  id?: SubscriptionItemId,
+  name?: string,
+  description?: string,
+  price?: Price
+}
+  & {
+  id: Defined
+}
+  ), PlanBrand> => true, 'Plan')
 export interface PlanBrand {
-  readonly Plan: unique symbol;
+  readonly Plan: unique symbol
 }
 
 // Addon
 // Customer subscription add-ons
 export type Addon = t.Branded<
-  {
-    id?: SubscriptionItemId;
-    name?: string;
-    description?: string;
-    quantity?: number;
-    unitPrice?: Price;
-    image?: Units_.Url;
-  } & {
-    id: Defined;
-    quantity: Defined;
-  },
-  AddonBrand
->;
-export const Addon = t.brand(
-  t.intersection([
-    t.partial({
-      id: SubscriptionItemId,
-      name: t.string,
-      description: t.string,
-      quantity: t.number,
-      unitPrice: Price,
-      image: Units_.Url,
-    }),
-    t.type({
-      id: Defined,
-      quantity: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      id?: SubscriptionItemId;
-      name?: string;
-      description?: string;
-      quantity?: number;
-      unitPrice?: Price;
-      image?: Units_.Url;
-    } & {
-      id: Defined;
-      quantity: Defined;
-    },
-    AddonBrand
-  > => true,
-  'Addon',
-);
+  & {
+  id?: SubscriptionItemId,
+  name?: string,
+  description?: string,
+  quantity?: number,
+  unitPrice?: Price,
+  image?: Units_.Url
+}
+  & {
+  id: Defined,
+  quantity: Defined
+}
+  ), AddonBrand>
+export const Addon = t.brand(t.intersection([
+  t.partial({
+    id: SubscriptionItemId,
+    name: t.string,
+    description: t.string,
+    quantity: t.number,
+    unitPrice: Price,
+    image: Units_.Url
+  }),
+  t.type({
+    id: Defined,
+    quantity: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  id?: SubscriptionItemId,
+  name?: string,
+  description?: string,
+  quantity?: number,
+  unitPrice?: Price,
+  image?: Units_.Url
+}
+  & {
+  id: Defined,
+  quantity: Defined
+}
+  ), AddonBrand> => true, 'Addon')
 export interface AddonBrand {
-  readonly Addon: unique symbol;
+  readonly Addon: unique symbol
 }
 
 // Coupon
 // Additional coupon that may provide discounts
 export type Coupon = t.Branded<
-  {
-    id?: SubscriptionItemId;
-    name?: string;
-    description?: string;
-  } & {
-    id: Defined;
-  },
-  CouponBrand
->;
-export const Coupon = t.brand(
-  t.intersection([
-    t.partial({
-      id: SubscriptionItemId,
-      name: t.string,
-      description: t.string,
-    }),
-    t.type({
-      id: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      id?: SubscriptionItemId;
-      name?: string;
-      description?: string;
-    } & {
-      id: Defined;
-    },
-    CouponBrand
-  > => true,
-  'Coupon',
-);
+  & {
+  id?: SubscriptionItemId,
+  name?: string,
+  description?: string
+}
+  & {
+  id: Defined
+}
+  ), CouponBrand>
+export const Coupon = t.brand(t.intersection([
+  t.partial({
+    id: SubscriptionItemId,
+    name: t.string,
+    description: t.string
+  }),
+  t.type({
+    id: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  id?: SubscriptionItemId,
+  name?: string,
+  description?: string
+}
+  & {
+  id: Defined
+}
+  ), CouponBrand> => true, 'Coupon')
 export interface CouponBrand {
-  readonly Coupon: unique symbol;
+  readonly Coupon: unique symbol
 }
 
 // Terms
 // Terms related to this subscription
 export type Terms = t.Branded<
-  {
-    activated?: Units_.Time;
-    modified?: Units_.Time;
-    validity?: {
-      startTime?: Units_.Time;
-      endTime?: Units_.Time;
-    } & {
-      startTime: Defined;
-      endTime: Defined;
-    };
-    scheduledChanges?: boolean;
-  } & {
-    validity: Defined;
-  },
-  TermsBrand
->;
-export const Terms = t.brand(
-  t.intersection([
-    t.partial({
-      activated: Units_.Time,
-      modified: Units_.Time,
-      validity: t.intersection([
-        t.partial({
-          startTime: Units_.Time,
-          endTime: Units_.Time,
-        }),
-        t.type({
-          startTime: Defined,
-          endTime: Defined,
-        }),
-      ]),
-      scheduledChanges: t.boolean,
-    }),
-    t.type({
-      validity: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      activated?: Units_.Time;
-      modified?: Units_.Time;
-      validity?: {
-        startTime?: Units_.Time;
-        endTime?: Units_.Time;
-      } & {
-        startTime: Defined;
-        endTime: Defined;
-      };
-      scheduledChanges?: boolean;
-    } & {
-      validity: Defined;
-    },
-    TermsBrand
-  > => true,
-  'Terms',
-);
+  & {
+  activated?: Units_.Time,
+  modified?: Units_.Time,
+  validity?:
+    (
+    & {
+    startTime?: Units_.Time,
+    endTime?: Units_.Time
+  }
+    & {
+    startTime: Defined,
+    endTime: Defined
+  }
+    ),
+  scheduledChanges?: boolean
+}
+  & {
+  validity: Defined
+}
+  ), TermsBrand>
+export const Terms = t.brand(t.intersection([
+  t.partial({
+    activated: Units_.Time,
+    modified: Units_.Time,
+    validity: t.intersection([
+      t.partial({
+        startTime: Units_.Time,
+        endTime: Units_.Time
+      }),
+      t.type({
+        startTime: Defined,
+        endTime: Defined
+      })
+    ]),
+    scheduledChanges: t.boolean
+  }),
+  t.type({
+    validity: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  activated?: Units_.Time,
+  modified?: Units_.Time,
+  validity?:
+    (
+    & {
+    startTime?: Units_.Time,
+    endTime?: Units_.Time
+  }
+    & {
+    startTime: Defined,
+    endTime: Defined
+  }
+    ),
+  scheduledChanges?: boolean
+}
+  & {
+  validity: Defined
+}
+  ), TermsBrand> => true, 'Terms')
 export interface TermsBrand {
-  readonly Terms: unique symbol;
+  readonly Terms: unique symbol
 }
 
 // SubscriptionBase
 // The purpose of this remains a mystery
-export type SubscriptionBase = t.Branded<
-  {
-    id?: Contact_.IdentityId;
-    customerId?: Contact_.IdentityId;
-    plan?: Plan;
-    addons?: Array<Addon>;
-    coupons?: Array<Coupon>;
-    terms?: Terms;
-    pointCost?: PointCost_.PointCost;
-    region?: Region_.Region;
-    shippingAddress?: SubscriptionAddress_.SubscriptionAddress;
-    availability?: {};
-    name?: string;
-    description?: string;
-    meta?: {};
-    level?: number;
-    wmpGrant?: number;
-    active?: boolean;
-    hidden?: boolean;
-    selectable?: boolean;
-    topUpId?: string;
-    changeState?: SubscriptionChangeState_.SubscriptionChangeState;
+export type SubscriptionBase = t.Branded<{
+  id?: Contact_.IdentityId,
+  customerId?: Contact_.IdentityId,
+  plan?: Plan,
+  addons?: Array<Addon>,
+  coupons?: Array<Coupon>,
+  terms?: Terms,
+  pointCost?: PointCost_.PointCost,
+  region?: Region_.Region,
+  shippingAddress?: SubscriptionAddress_.SubscriptionAddress,
+  availability?: {
+
   },
-  SubscriptionBaseBrand
->;
-export const SubscriptionBase = t.brand(
-  t.partial({
-    id: Contact_.IdentityId,
-    customerId: Contact_.IdentityId,
-    plan: Plan,
-    addons: t.array(Addon),
-    coupons: t.array(Coupon),
-    terms: Terms,
-    pointCost: PointCost_.PointCost,
-    region: Region_.Region,
-    shippingAddress: SubscriptionAddress_.SubscriptionAddress,
-    availability: t.type({}),
-    name: t.string,
-    description: t.string,
-    meta: t.type({}),
-    level: t.number,
-    wmpGrant: t.number,
-    active: t.boolean,
-    hidden: t.boolean,
-    selectable: t.boolean,
-    topUpId: t.string,
-    changeState: SubscriptionChangeState_.SubscriptionChangeState,
+  name?: string,
+  description?: string,
+  meta?: {
+
+  },
+  level?: number,
+  wmpGrant?: number,
+  active?: boolean,
+  hidden?: boolean,
+  selectable?: boolean,
+  topUpId?: string,
+  changeState?: SubscriptionChangeState_.SubscriptionChangeState
+}, SubscriptionBaseBrand>
+export const SubscriptionBase = t.brand(t.partial({
+  id: Contact_.IdentityId,
+  customerId: Contact_.IdentityId,
+  plan: Plan,
+  addons: t.array(Addon),
+  coupons: t.array(Coupon),
+  terms: Terms,
+  pointCost: PointCost_.PointCost,
+  region: Region_.Region,
+  shippingAddress: SubscriptionAddress_.SubscriptionAddress,
+  availability: t.type({
+
   }),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      id?: Contact_.IdentityId;
-      customerId?: Contact_.IdentityId;
-      plan?: Plan;
-      addons?: Array<Addon>;
-      coupons?: Array<Coupon>;
-      terms?: Terms;
-      pointCost?: PointCost_.PointCost;
-      region?: Region_.Region;
-      shippingAddress?: SubscriptionAddress_.SubscriptionAddress;
-      availability?: {};
-      name?: string;
-      description?: string;
-      meta?: {};
-      level?: number;
-      wmpGrant?: number;
-      active?: boolean;
-      hidden?: boolean;
-      selectable?: boolean;
-      topUpId?: string;
-      changeState?: SubscriptionChangeState_.SubscriptionChangeState;
-    },
-    SubscriptionBaseBrand
-  > => true,
-  'SubscriptionBase',
-);
+  name: t.string,
+  description: t.string,
+  meta: t.type({
+
+  }),
+  level: t.number,
+  wmpGrant: t.number,
+  active: t.boolean,
+  hidden: t.boolean,
+  selectable: t.boolean,
+  topUpId: t.string,
+  changeState: SubscriptionChangeState_.SubscriptionChangeState
+}), (x): x is t.Branded<{
+  id?: Contact_.IdentityId,
+  customerId?: Contact_.IdentityId,
+  plan?: Plan,
+  addons?: Array<Addon>,
+  coupons?: Array<Coupon>,
+  terms?: Terms,
+  pointCost?: PointCost_.PointCost,
+  region?: Region_.Region,
+  shippingAddress?: SubscriptionAddress_.SubscriptionAddress,
+  availability?: {
+
+  },
+  name?: string,
+  description?: string,
+  meta?: {
+
+  },
+  level?: number,
+  wmpGrant?: number,
+  active?: boolean,
+  hidden?: boolean,
+  selectable?: boolean,
+  topUpId?: string,
+  changeState?: SubscriptionChangeState_.SubscriptionChangeState
+}, SubscriptionBaseBrand> => true, 'SubscriptionBase')
 export interface SubscriptionBaseBrand {
-  readonly SubscriptionBase: unique symbol;
+  readonly SubscriptionBase: unique symbol
 }
 
 // SubscriptionCreatePayload
 // The purpose of this remains a mystery
-export type SubscriptionCreatePayload = SubscriptionBase;
-export const SubscriptionCreatePayload = SubscriptionBase;
+export type SubscriptionCreatePayload = SubscriptionBase
+export const SubscriptionCreatePayload = SubscriptionBase
 
 // SubscriptionUpdatePayload
 // The purpose of this remains a mystery
-export type SubscriptionUpdatePayload = SubscriptionBase;
-export const SubscriptionUpdatePayload = SubscriptionBase;
+export type SubscriptionUpdatePayload = SubscriptionBase
+export const SubscriptionUpdatePayload = SubscriptionBase
 
 export default Subscription;
 

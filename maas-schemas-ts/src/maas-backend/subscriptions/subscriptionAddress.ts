@@ -10,35 +10,34 @@ MaaS subscription address schema
 import * as t from 'io-ts';
 import * as Address_ from 'maas-schemas-ts/core/components/address';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
 
-export const schemaId =
-  'http://maasglobal.com/maas-backend/subscriptions/subscriptionAddress.json';
+
+export const schemaId = 'http://maasglobal.com/maas-backend/subscriptions/subscriptionAddress.json';
 
 // SubscriptionAddress
 // The default export. More information at the top.
-export type SubscriptionAddress = t.Branded<unknown, SubscriptionAddressBrand>;
-export const SubscriptionAddress = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, SubscriptionAddressBrand> => true,
-  'SubscriptionAddress',
-);
+export type SubscriptionAddress = t.Branded<unknown, SubscriptionAddressBrand>
+export const SubscriptionAddress = t.brand(t.unknown, (x): x is t.Branded<unknown, SubscriptionAddressBrand> => true, 'SubscriptionAddress')
 export interface SubscriptionAddressBrand {
-  readonly SubscriptionAddress: unique symbol;
+  readonly SubscriptionAddress: unique symbol
 }
 
 export default SubscriptionAddress;

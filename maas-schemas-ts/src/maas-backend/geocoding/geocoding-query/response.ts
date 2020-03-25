@@ -10,67 +10,72 @@ MaaS.fi geocoding (GeoJSON) response schema
 import * as t from 'io-ts';
 import * as Geolocation_ from 'maas-schemas-ts/core/components/geolocation';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
 
-export const schemaId =
-  'http://maasglobal.com/maas-backend/geocoding/geocoding-query/response.json';
+
+export const schemaId = 'http://maasglobal.com/maas-backend/geocoding/geocoding-query/response.json';
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  {
-    type?: 'FeatureCollection';
-    features?: Array<Geolocation_.Feature>;
-    debug?: {};
-  } & {
-    type: Defined;
-    features: Defined;
-  },
-  ResponseBrand
->;
-export const Response = t.brand(
-  t.intersection([
-    t.partial({
-      type: t.literal('FeatureCollection'),
-      features: t.array(Geolocation_.Feature),
-      debug: t.type({}),
-    }),
-    t.type({
-      type: Defined,
-      features: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      type?: 'FeatureCollection';
-      features?: Array<Geolocation_.Feature>;
-      debug?: {};
-    } & {
-      type: Defined;
-      features: Defined;
-    },
-    ResponseBrand
-  > => true,
-  'Response',
-);
+  & {
+  type?: 'FeatureCollection',
+  features?: Array<Geolocation_.Feature>,
+  debug?: {
+
+  }
+}
+  & {
+  type: Defined,
+  features: Defined
+}
+  ), ResponseBrand>
+export const Response = t.brand(t.intersection([
+  t.partial({
+    type: t.literal('FeatureCollection'),
+    features: t.array(Geolocation_.Feature),
+    debug: t.type({
+
+    })
+  }),
+  t.type({
+    type: Defined,
+    features: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  type?: 'FeatureCollection',
+  features?: Array<Geolocation_.Feature>,
+  debug?: {
+
+  }
+}
+  & {
+  type: Defined,
+  features: Defined
+}
+  ), ResponseBrand> => true, 'Response')
 export interface ResponseBrand {
-  readonly Response: unique symbol;
+  readonly Response: unique symbol
 }
 
 export default Response;

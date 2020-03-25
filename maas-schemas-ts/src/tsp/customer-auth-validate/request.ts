@@ -10,60 +10,60 @@ Request schema for completing customer authorization for TSP
 import * as t from 'io-ts';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
+
 
 export const schemaId = 'http://maasglobal.com/tsp/customer-auth-validate/request.json';
 
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  {
-    encodedData?: Common_.EncodedQueryParam;
-    error?: Common_.ErrorKey;
-  } & {
-    encodedData: Defined;
-  },
-  RequestBrand
->;
-export const Request = t.brand(
-  t.intersection([
-    t.partial({
-      encodedData: Common_.EncodedQueryParam,
-      error: Common_.ErrorKey,
-    }),
-    t.type({
-      encodedData: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      encodedData?: Common_.EncodedQueryParam;
-      error?: Common_.ErrorKey;
-    } & {
-      encodedData: Defined;
-    },
-    RequestBrand
-  > => true,
-  'Request',
-);
+  & {
+  encodedData?: Common_.EncodedQueryParam,
+  error?: Common_.ErrorKey
+}
+  & {
+  encodedData: Defined
+}
+  ), RequestBrand>
+export const Request = t.brand(t.intersection([
+  t.partial({
+    encodedData: Common_.EncodedQueryParam,
+    error: Common_.ErrorKey
+  }),
+  t.type({
+    encodedData: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  encodedData?: Common_.EncodedQueryParam,
+  error?: Common_.ErrorKey
+}
+  & {
+  encodedData: Defined
+}
+  ), RequestBrand> => true, 'Request')
 export interface RequestBrand {
-  readonly Request: unique symbol;
+  readonly Request: unique symbol
 }
 
 export default Request;

@@ -10,61 +10,66 @@ Response schema for subscriptions-create
 import * as t from 'io-ts';
 import * as Subscription_ from 'maas-schemas-ts/maas-backend/subscriptions/subscription';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
 
-export const schemaId =
-  'http://maasglobal.com/maas-backend/subscriptions/subscriptions-create/response.json';
+
+export const schemaId = 'http://maasglobal.com/maas-backend/subscriptions/subscriptions-create/response.json';
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  {
-    subscription?: Subscription_.Subscription;
-    debug?: {};
-  } & {
-    subscription: Defined;
-  },
-  ResponseBrand
->;
-export const Response = t.brand(
-  t.intersection([
-    t.partial({
-      subscription: Subscription_.Subscription,
-      debug: t.type({}),
-    }),
-    t.type({
-      subscription: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      subscription?: Subscription_.Subscription;
-      debug?: {};
-    } & {
-      subscription: Defined;
-    },
-    ResponseBrand
-  > => true,
-  'Response',
-);
+  & {
+  subscription?: Subscription_.Subscription,
+  debug?: {
+
+  }
+}
+  & {
+  subscription: Defined
+}
+  ), ResponseBrand>
+export const Response = t.brand(t.intersection([
+  t.partial({
+    subscription: Subscription_.Subscription,
+    debug: t.type({
+
+    })
+  }),
+  t.type({
+    subscription: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  subscription?: Subscription_.Subscription,
+  debug?: {
+
+  }
+}
+  & {
+  subscription: Defined
+}
+  ), ResponseBrand> => true, 'Response')
 export interface ResponseBrand {
-  readonly Response: unique symbol;
+  readonly Response: unique symbol
 }
 
 export default Response;

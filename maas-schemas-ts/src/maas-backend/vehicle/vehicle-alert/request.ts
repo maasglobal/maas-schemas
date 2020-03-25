@@ -10,36 +10,24 @@ Request to vehicle
 import * as t from 'io-ts';
 import * as Product_ from 'maas-schemas-ts/core/product';
 
-export const schemaId =
-  'http://maasglobal.com/maas-backend/vehicle/vehicle-alert/request.json';
+
+export const schemaId = 'http://maasglobal.com/maas-backend/vehicle/vehicle-alert/request.json';
 
 // Request
 // The default export. More information at the top.
-export type Request = t.Branded<
-  {
-    vehicleId?: string;
-    productId?: Product_.Id;
-  },
-  RequestBrand
->;
-export const Request = t.brand(
-  t.partial({
-    vehicleId: t.string,
-    productId: Product_.Id,
-  }),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      vehicleId?: string;
-      productId?: Product_.Id;
-    },
-    RequestBrand
-  > => true,
-  'Request',
-);
+export type Request = t.Branded<{
+  vehicleId?: string,
+  productId?: Product_.Id
+}, RequestBrand>
+export const Request = t.brand(t.partial({
+  vehicleId: t.string,
+  productId: Product_.Id
+}), (x): x is t.Branded<{
+  vehicleId?: string,
+  productId?: Product_.Id
+}, RequestBrand> => true, 'Request')
 export interface RequestBrand {
-  readonly Request: unique symbol;
+  readonly Request: unique symbol
 }
 
 export default Request;

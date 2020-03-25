@@ -9,18 +9,21 @@ Schema for MODE_FUNICULAR meta field
 
 import * as t from 'io-ts';
 
+
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_FUNICULAR.json';
 
 // MODE_FUNICULAR
 // The default export. More information at the top.
-export type MODE_FUNICULAR = t.Branded<{}, MODE_FUNICULARBrand>;
-export const MODE_FUNICULAR = t.brand(
-  t.type({}),
-  (x): x is t.Branded<{}, MODE_FUNICULARBrand> => true,
-  'MODE_FUNICULAR',
-);
+export type MODE_FUNICULAR = t.Branded<{
+
+}, MODE_FUNICULARBrand>
+export const MODE_FUNICULAR = t.brand(t.type({
+
+}), (x): x is t.Branded<{
+
+}, MODE_FUNICULARBrand> => true, 'MODE_FUNICULAR')
 export interface MODE_FUNICULARBrand {
-  readonly MODE_FUNICULAR: unique symbol;
+  readonly MODE_FUNICULAR: unique symbol
 }
 
 export default MODE_FUNICULAR;

@@ -10,78 +10,78 @@ undefined
 import * as t from 'io-ts';
 import * as BikeStation_ from 'maas-schemas-ts/core/components/bike-station';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
+
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_BICYCLE.json';
 
 // MODE_BICYCLE
 // The default export. More information at the top.
-export type MODE_BICYCLE = t.Branded<
-  {
-    pickupStation?: BikeStation_.BikeStation;
-    returnStation?: BikeStation_.BikeStation;
-    pickupStationId?: string;
-    returnStationId?: string;
-    bike?: {
-      id?: string;
-      type?: string;
-    } & {
-      id: Defined;
-    };
-  },
-  MODE_BICYCLEBrand
->;
-export const MODE_BICYCLE = t.brand(
-  t.partial({
-    pickupStation: BikeStation_.BikeStation,
-    returnStation: BikeStation_.BikeStation,
-    pickupStationId: t.string,
-    returnStationId: t.string,
-    bike: t.intersection([
-      t.partial({
-        id: t.string,
-        type: t.string,
-      }),
-      t.type({
-        id: Defined,
-      }),
-    ]),
-  }),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      pickupStation?: BikeStation_.BikeStation;
-      returnStation?: BikeStation_.BikeStation;
-      pickupStationId?: string;
-      returnStationId?: string;
-      bike?: {
-        id?: string;
-        type?: string;
-      } & {
-        id: Defined;
-      };
-    },
-    MODE_BICYCLEBrand
-  > => true,
-  'MODE_BICYCLE',
-);
+export type MODE_BICYCLE = t.Branded<{
+  pickupStation?: BikeStation_.BikeStation,
+  returnStation?: BikeStation_.BikeStation,
+  pickupStationId?: string,
+  returnStationId?: string,
+  bike?:
+    (
+    & {
+    id?: string,
+    type?: string
+  }
+    & {
+    id: Defined
+  }
+    )
+}, MODE_BICYCLEBrand>
+export const MODE_BICYCLE = t.brand(t.partial({
+  pickupStation: BikeStation_.BikeStation,
+  returnStation: BikeStation_.BikeStation,
+  pickupStationId: t.string,
+  returnStationId: t.string,
+  bike: t.intersection([
+    t.partial({
+      id: t.string,
+      type: t.string
+    }),
+    t.type({
+      id: Defined
+    })
+  ])
+}), (x): x is t.Branded<{
+  pickupStation?: BikeStation_.BikeStation,
+  returnStation?: BikeStation_.BikeStation,
+  pickupStationId?: string,
+  returnStationId?: string,
+  bike?:
+    (
+    & {
+    id?: string,
+    type?: string
+  }
+    & {
+    id: Defined
+  }
+    )
+}, MODE_BICYCLEBrand> => true, 'MODE_BICYCLE')
 export interface MODE_BICYCLEBrand {
-  readonly MODE_BICYCLE: unique symbol;
+  readonly MODE_BICYCLE: unique symbol
 }
 
 export default MODE_BICYCLE;

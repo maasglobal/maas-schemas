@@ -12,34 +12,34 @@ import * as InvoiceUnits_ from 'maas-schemas-ts/maas-backend/invoices/invoiceUni
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as InvoiceLineItem_ from 'maas-schemas-ts/maas-backend/invoices/invoiceLineItem';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
+
 
 export const schemaId = 'http://maasglobal.com/maas-backend/invoices/invoice.json';
 
 // Invoice
 // The default export. More information at the top.
-export type Invoice = t.Branded<unknown, InvoiceBrand>;
-export const Invoice = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, InvoiceBrand> => true,
-  'Invoice',
-);
+export type Invoice = t.Branded<unknown, InvoiceBrand>
+export const Invoice = t.brand(t.unknown, (x): x is t.Branded<unknown, InvoiceBrand> => true, 'Invoice')
 export interface InvoiceBrand {
-  readonly Invoice: unique symbol;
+  readonly Invoice: unique symbol
 }
 
 export default Invoice;

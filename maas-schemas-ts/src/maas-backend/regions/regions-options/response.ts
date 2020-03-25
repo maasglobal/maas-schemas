@@ -10,61 +10,66 @@ Response schema for regions-options
 import * as t from 'io-ts';
 import * as Region_ from 'maas-schemas-ts/core/region';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
 
-export const schemaId =
-  'http://maasglobal.com/maas-backend/regions/regions-options/response.json';
+
+export const schemaId = 'http://maasglobal.com/maas-backend/regions/regions-options/response.json';
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  {
-    options?: Array<Region_.Region>;
-    debug?: {};
-  } & {
-    options: Defined;
-  },
-  ResponseBrand
->;
-export const Response = t.brand(
-  t.intersection([
-    t.partial({
-      options: t.array(Region_.Region),
-      debug: t.type({}),
-    }),
-    t.type({
-      options: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      options?: Array<Region_.Region>;
-      debug?: {};
-    } & {
-      options: Defined;
-    },
-    ResponseBrand
-  > => true,
-  'Response',
-);
+  & {
+  options?: Array<Region_.Region>,
+  debug?: {
+
+  }
+}
+  & {
+  options: Defined
+}
+  ), ResponseBrand>
+export const Response = t.brand(t.intersection([
+  t.partial({
+    options: t.array(Region_.Region),
+    debug: t.type({
+
+    })
+  }),
+  t.type({
+    options: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  options?: Array<Region_.Region>,
+  debug?: {
+
+  }
+}
+  & {
+  options: Defined
+}
+  ), ResponseBrand> => true, 'Response')
 export interface ResponseBrand {
-  readonly Response: unique symbol;
+  readonly Response: unique symbol
 }
 
 export default Response;

@@ -9,12 +9,13 @@ Schemas for MODE_SHARED_CAR meta field
 
 import * as CarRental_ from 'maas-schemas-ts/core/components/car-rental';
 
+
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_SHARED_CAR.json';
 
 // MODE_SHARED_CAR
 // The default export. More information at the top.
-export type MODE_SHARED_CAR = CarRental_.CarRental;
-export const MODE_SHARED_CAR = CarRental_.CarRental;
+export type MODE_SHARED_CAR = CarRental_.CarRental
+export const MODE_SHARED_CAR = CarRental_.CarRental
 
 export default MODE_SHARED_CAR;
 

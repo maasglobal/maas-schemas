@@ -9,32 +9,21 @@ Request vehicle to alert itself to users
 
 import * as t from 'io-ts';
 
+
 export const schemaId = 'http://maasglobal.com/tsp/vehicle-alert/request.json';
 
 // Request
 // The default export. More information at the top.
-export type Request = t.Branded<
-  {
-    vehicleId?: string;
-  },
-  RequestBrand
->;
-export const Request = t.brand(
-  t.partial({
-    vehicleId: t.string,
-  }),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      vehicleId?: string;
-    },
-    RequestBrand
-  > => true,
-  'Request',
-);
+export type Request = t.Branded<{
+  vehicleId?: string
+}, RequestBrand>
+export const Request = t.brand(t.partial({
+  vehicleId: t.string
+}), (x): x is t.Branded<{
+  vehicleId?: string
+}, RequestBrand> => true, 'Request')
 export interface RequestBrand {
-  readonly Request: unique symbol;
+  readonly Request: unique symbol
 }
 
 export default Request;

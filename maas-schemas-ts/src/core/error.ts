@@ -9,63 +9,63 @@ MaaS event response error object. An error that the service may send.
 
 import * as t from 'io-ts';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
+
 
 export const schemaId = 'http://maasglobal.com/core/error.json';
 
 // Error
 // The default export. More information at the top.
 export type Error = t.Branded<
-  {
-    message?: string;
-    code?: string;
-  } & {
-    message: Defined;
-    code: Defined;
-  },
-  ErrorBrand
->;
-export const Error = t.brand(
-  t.intersection([
-    t.partial({
-      message: t.string,
-      code: t.string,
-    }),
-    t.type({
-      message: Defined,
-      code: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      message?: string;
-      code?: string;
-    } & {
-      message: Defined;
-      code: Defined;
-    },
-    ErrorBrand
-  > => true,
-  'Error',
-);
+  & {
+  message?: string,
+  code?: string
+}
+  & {
+  message: Defined,
+  code: Defined
+}
+  ), ErrorBrand>
+export const Error = t.brand(t.intersection([
+  t.partial({
+    message: t.string,
+    code: t.string
+  }),
+  t.type({
+    message: Defined,
+    code: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  message?: string,
+  code?: string
+}
+  & {
+  message: Defined,
+  code: Defined
+}
+  ), ErrorBrand> => true, 'Error')
 export interface ErrorBrand {
-  readonly Error: unique symbol;
+  readonly Error: unique symbol
 }
 
 export default Error;

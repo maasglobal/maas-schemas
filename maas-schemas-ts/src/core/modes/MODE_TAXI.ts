@@ -12,89 +12,78 @@ import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 
+
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_TAXI.json';
 
 // MODE_TAXI
 // The default export. More information at the top.
-export type MODE_TAXI = t.Branded<
-  {
-    vehicleId?: string;
-    noShowReportedByDriver?: boolean;
-    vehicleLocation?: UnitsGeo_.Location;
-    vehicleType?: string;
-    vehicleDescription?: string;
-    driver?: {
-      phone?: string;
-      name?: string;
-      image?: Units_.Url;
-      rating?: number;
-    };
-    pickupIdentificationCode?: string;
-    dispatchOrderId?: string;
-    eta?: Units_.Time;
-    taxiCenter?: {
-      image?: Units_.Url;
-      name?: string;
-      phone?: Common_.Phone;
-    };
-    messageToDriver?: string;
+export type MODE_TAXI = t.Branded<{
+  vehicleId?: string,
+  noShowReportedByDriver?: boolean,
+  vehicleLocation?: UnitsGeo_.Location,
+  vehicleType?: string,
+  vehicleDescription?: string,
+  driver?: {
+    phone?: string,
+    name?: string,
+    image?: Units_.Url,
+    rating?: number
   },
-  MODE_TAXIBrand
->;
-export const MODE_TAXI = t.brand(
-  t.partial({
-    vehicleId: t.string,
-    noShowReportedByDriver: t.boolean,
-    vehicleLocation: UnitsGeo_.Location,
-    vehicleType: t.string,
-    vehicleDescription: t.string,
-    driver: t.partial({
-      phone: t.string,
-      name: t.string,
-      image: Units_.Url,
-      rating: t.number,
-    }),
-    pickupIdentificationCode: t.string,
-    dispatchOrderId: t.string,
-    eta: Units_.Time,
-    taxiCenter: t.partial({
-      image: Units_.Url,
-      name: t.string,
-      phone: Common_.Phone,
-    }),
-    messageToDriver: t.string,
+  pickupIdentificationCode?: string,
+  dispatchOrderId?: string,
+  eta?: Units_.Time,
+  taxiCenter?: {
+    image?: Units_.Url,
+    name?: string,
+    phone?: Common_.Phone
+  },
+  messageToDriver?: string
+}, MODE_TAXIBrand>
+export const MODE_TAXI = t.brand(t.partial({
+  vehicleId: t.string,
+  noShowReportedByDriver: t.boolean,
+  vehicleLocation: UnitsGeo_.Location,
+  vehicleType: t.string,
+  vehicleDescription: t.string,
+  driver: t.partial({
+    phone: t.string,
+    name: t.string,
+    image: Units_.Url,
+    rating: t.number
   }),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      vehicleId?: string;
-      noShowReportedByDriver?: boolean;
-      vehicleLocation?: UnitsGeo_.Location;
-      vehicleType?: string;
-      vehicleDescription?: string;
-      driver?: {
-        phone?: string;
-        name?: string;
-        image?: Units_.Url;
-        rating?: number;
-      };
-      pickupIdentificationCode?: string;
-      dispatchOrderId?: string;
-      eta?: Units_.Time;
-      taxiCenter?: {
-        image?: Units_.Url;
-        name?: string;
-        phone?: Common_.Phone;
-      };
-      messageToDriver?: string;
-    },
-    MODE_TAXIBrand
-  > => true,
-  'MODE_TAXI',
-);
+  pickupIdentificationCode: t.string,
+  dispatchOrderId: t.string,
+  eta: Units_.Time,
+  taxiCenter: t.partial({
+    image: Units_.Url,
+    name: t.string,
+    phone: Common_.Phone
+  }),
+  messageToDriver: t.string
+}), (x): x is t.Branded<{
+  vehicleId?: string,
+  noShowReportedByDriver?: boolean,
+  vehicleLocation?: UnitsGeo_.Location,
+  vehicleType?: string,
+  vehicleDescription?: string,
+  driver?: {
+    phone?: string,
+    name?: string,
+    image?: Units_.Url,
+    rating?: number
+  },
+  pickupIdentificationCode?: string,
+  dispatchOrderId?: string,
+  eta?: Units_.Time,
+  taxiCenter?: {
+    image?: Units_.Url,
+    name?: string,
+    phone?: Common_.Phone
+  },
+  messageToDriver?: string
+}, MODE_TAXIBrand> => true, 'MODE_TAXI')
 export interface MODE_TAXIBrand {
-  readonly MODE_TAXI: unique symbol;
+  readonly MODE_TAXI: unique symbol
 }
 
 export default MODE_TAXI;

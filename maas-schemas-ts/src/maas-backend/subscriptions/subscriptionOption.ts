@@ -11,96 +11,94 @@ import * as t from 'io-ts';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as Subscription_ from 'maas-schemas-ts/maas-backend/subscriptions/subscription';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
 
-export const schemaId =
-  'http://maasglobal.com/maas-backend/subscriptions/subscriptionOption.json';
+
+export const schemaId = 'http://maasglobal.com/maas-backend/subscriptions/subscriptionOption.json';
 
 // SubscriptionAdditions
 // The purpose of this remains a mystery
 export type SubscriptionAdditions = t.Branded<
-  {
-    discounts?: Array<unknown>;
-    requiredAuthorizations?: Array<Common_.AgencyId>;
-  } & {
-    plan: Defined;
-    wmpGrant: Defined;
-    pointCost: Defined;
-    addons: Defined;
-    coupons: Defined;
-    requiredAuthorizations: Defined;
-  },
-  SubscriptionAdditionsBrand
->;
-export const SubscriptionAdditions = t.brand(
-  t.intersection([
-    t.partial({
-      discounts: t.UnknownArray,
-      requiredAuthorizations: t.array(Common_.AgencyId),
-    }),
-    t.type({
-      plan: Defined,
-      wmpGrant: Defined,
-      pointCost: Defined,
-      addons: Defined,
-      coupons: Defined,
-      requiredAuthorizations: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      discounts?: Array<unknown>;
-      requiredAuthorizations?: Array<Common_.AgencyId>;
-    } & {
-      plan: Defined;
-      wmpGrant: Defined;
-      pointCost: Defined;
-      addons: Defined;
-      coupons: Defined;
-      requiredAuthorizations: Defined;
-    },
-    SubscriptionAdditionsBrand
-  > => true,
-  'SubscriptionAdditions',
-);
+  & {
+  discounts?: Array<unknown>,
+  requiredAuthorizations?: Array<Common_.AgencyId>
+}
+  & {
+  plan: Defined,
+  wmpGrant: Defined,
+  pointCost: Defined,
+  addons: Defined,
+  coupons: Defined,
+  requiredAuthorizations: Defined
+}
+  ), SubscriptionAdditionsBrand>
+export const SubscriptionAdditions = t.brand(t.intersection([
+  t.partial({
+    discounts: t.UnknownArray,
+    requiredAuthorizations: t.array(Common_.AgencyId)
+  }),
+  t.type({
+    plan: Defined,
+    wmpGrant: Defined,
+    pointCost: Defined,
+    addons: Defined,
+    coupons: Defined,
+    requiredAuthorizations: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  discounts?: Array<unknown>,
+  requiredAuthorizations?: Array<Common_.AgencyId>
+}
+  & {
+  plan: Defined,
+  wmpGrant: Defined,
+  pointCost: Defined,
+  addons: Defined,
+  coupons: Defined,
+  requiredAuthorizations: Defined
+}
+  ), SubscriptionAdditionsBrand> => true, 'SubscriptionAdditions')
 export interface SubscriptionAdditionsBrand {
-  readonly SubscriptionAdditions: unique symbol;
+  readonly SubscriptionAdditions: unique symbol
 }
 
 // SubscriptionOption
 // The default export. More information at the top.
 export type SubscriptionOption = t.Branded<
-  Subscription_.SubscriptionBase & SubscriptionAdditions,
-  SubscriptionOptionBrand
->;
-export const SubscriptionOption = t.brand(
-  t.intersection([Subscription_.SubscriptionBase, SubscriptionAdditions]),
   (
-    x,
-  ): x is t.Branded<
-    Subscription_.SubscriptionBase & SubscriptionAdditions,
-    SubscriptionOptionBrand
-  > => true,
-  'SubscriptionOption',
-);
+  & Subscription_.SubscriptionBase
+  & SubscriptionAdditions
+  ), SubscriptionOptionBrand>
+export const SubscriptionOption = t.brand(t.intersection([
+  Subscription_.SubscriptionBase,
+  SubscriptionAdditions
+]), (x): x is t.Branded<
+  (
+  & Subscription_.SubscriptionBase
+  & SubscriptionAdditions
+  ), SubscriptionOptionBrand> => true, 'SubscriptionOption')
 export interface SubscriptionOptionBrand {
-  readonly SubscriptionOption: unique symbol;
+  readonly SubscriptionOption: unique symbol
 }
 
 export default SubscriptionOption;

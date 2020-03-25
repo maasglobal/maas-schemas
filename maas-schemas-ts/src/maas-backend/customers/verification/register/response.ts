@@ -10,58 +10,57 @@ Response schema for customers verification register
 import * as t from 'io-ts';
 import * as Customer_ from 'maas-schemas-ts/maas-backend/customers/customer';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
 
-export const schemaId =
-  'http://maasglobal.com/maas-backend/customers/verification/register/response.json';
+
+export const schemaId = 'http://maasglobal.com/maas-backend/customers/verification/register/response.json';
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  {
-    customer?: Customer_.Customer;
-  } & {
-    customer: Defined;
-  },
-  ResponseBrand
->;
-export const Response = t.brand(
-  t.intersection([
-    t.partial({
-      customer: Customer_.Customer,
-    }),
-    t.type({
-      customer: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      customer?: Customer_.Customer;
-    } & {
-      customer: Defined;
-    },
-    ResponseBrand
-  > => true,
-  'Response',
-);
+  & {
+  customer?: Customer_.Customer
+}
+  & {
+  customer: Defined
+}
+  ), ResponseBrand>
+export const Response = t.brand(t.intersection([
+  t.partial({
+    customer: Customer_.Customer
+  }),
+  t.type({
+    customer: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  customer?: Customer_.Customer
+}
+  & {
+  customer: Defined
+}
+  ), ResponseBrand> => true, 'Response')
 export interface ResponseBrand {
-  readonly Response: unique symbol;
+  readonly Response: unique symbol
 }
 
 export default Response;

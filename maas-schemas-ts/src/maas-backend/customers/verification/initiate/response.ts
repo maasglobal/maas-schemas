@@ -10,73 +10,80 @@ MaaS customer verification initiate
 import * as t from 'io-ts';
 import * as VerificationObject_ from 'maas-schemas-ts/maas-backend/customers/verification/verification-object';
 
+
 type Defined =
+  (
   | Record<string, unknown>
   | Array<unknown>
   | string
   | boolean
   | number
-  | null;
+  | null
+  )
 const Defined = t.union([
   t.UnknownRecord,
   t.UnknownArray,
   t.string,
   t.boolean,
   t.number,
-  t.null,
-]);
+  t.null
+])
 
-export const schemaId =
-  'http://maasglobal.com/maas-backend/customers/verification/initiate/response.json';
+
+export const schemaId = 'http://maasglobal.com/maas-backend/customers/verification/initiate/response.json';
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  {
-    customer?: {
-      verification?: Array<VerificationObject_.Verification>;
-    } & {
-      verification: Defined;
-    };
-  } & {
-    customer: Defined;
-  },
-  ResponseBrand
->;
-export const Response = t.brand(
-  t.intersection([
-    t.partial({
-      customer: t.intersection([
-        t.partial({
-          verification: t.array(VerificationObject_.Verification),
-        }),
-        t.type({
-          verification: Defined,
-        }),
-      ]),
-    }),
-    t.type({
-      customer: Defined,
-    }),
-  ]),
   (
-    x,
-  ): x is t.Branded<
-    {
-      customer?: {
-        verification?: Array<VerificationObject_.Verification>;
-      } & {
-        verification: Defined;
-      };
-    } & {
-      customer: Defined;
-    },
-    ResponseBrand
-  > => true,
-  'Response',
-);
+  & {
+  customer?:
+    (
+    & {
+    verification?: Array<VerificationObject_.Verification>
+  }
+    & {
+    verification: Defined
+  }
+    )
+}
+  & {
+  customer: Defined
+}
+  ), ResponseBrand>
+export const Response = t.brand(t.intersection([
+  t.partial({
+    customer: t.intersection([
+      t.partial({
+        verification: t.array(VerificationObject_.Verification)
+      }),
+      t.type({
+        verification: Defined
+      })
+    ])
+  }),
+  t.type({
+    customer: Defined
+  })
+]), (x): x is t.Branded<
+  (
+  & {
+  customer?:
+    (
+    & {
+    verification?: Array<VerificationObject_.Verification>
+  }
+    & {
+    verification: Defined
+  }
+    )
+}
+  & {
+  customer: Defined
+}
+  ), ResponseBrand> => true, 'Response')
 export interface ResponseBrand {
-  readonly Response: unique symbol;
+  readonly Response: unique symbol
 }
 
 export default Response;

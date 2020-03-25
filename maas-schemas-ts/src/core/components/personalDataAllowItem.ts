@@ -9,36 +9,35 @@ MaaS personal data permissions specification
 
 import * as t from 'io-ts';
 
-export const schemaId =
-  'http://maasglobal.com/core/components/personalDataAllowItem.json';
+
+export const schemaId = 'http://maasglobal.com/core/components/personalDataAllowItem.json';
 
 // PersonalDataAllowItem
 // The default export. More information at the top.
-export type PersonalDataAllowItem = t.Branded<
-  {
-    type?: 'allOf' | 'anyOf';
-    items?: Array<string>;
-  },
-  PersonalDataAllowItemBrand
->;
-export const PersonalDataAllowItem = t.brand(
-  t.partial({
-    type: t.union([t.literal('allOf'), t.literal('anyOf')]),
-    items: t.array(t.string),
-  }),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      type?: 'allOf' | 'anyOf';
-      items?: Array<string>;
-    },
-    PersonalDataAllowItemBrand
-  > => true,
-  'PersonalDataAllowItem',
-);
+export type PersonalDataAllowItem = t.Branded<{
+  type?:
+    (
+    | 'allOf'
+    | 'anyOf'
+    ),
+  items?: Array<string>
+}, PersonalDataAllowItemBrand>
+export const PersonalDataAllowItem = t.brand(t.partial({
+  type: t.union([
+    t.literal('allOf'),
+    t.literal('anyOf')
+  ]),
+  items: t.array(t.string)
+}), (x): x is t.Branded<{
+  type?:
+    (
+    | 'allOf'
+    | 'anyOf'
+    ),
+  items?: Array<string>
+}, PersonalDataAllowItemBrand> => true, 'PersonalDataAllowItem')
 export interface PersonalDataAllowItemBrand {
-  readonly PersonalDataAllowItem: unique symbol;
+  readonly PersonalDataAllowItem: unique symbol
 }
 
 export default PersonalDataAllowItem;
