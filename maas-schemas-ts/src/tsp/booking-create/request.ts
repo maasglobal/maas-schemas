@@ -99,7 +99,7 @@ export const Request = t.brand(
 export interface RequestBrand {
   readonly Request: unique symbol;
 }
-/** nonEmptyArray(Request).decode(examplesRequest) // => { _tag: 'Right', right: examplesRequest } */
+/** require('io-ts-validator').validator(nonEmptyArray(Request)).decodeSync(examplesRequest) // => examplesRequest */
 export const examplesRequest: NonEmptyArray<Request> = ([
   {
     leg: {

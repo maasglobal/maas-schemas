@@ -114,7 +114,7 @@ export const Response = t.brand(
 export interface ResponseBrand {
   readonly Response: unique symbol;
 }
-/** nonEmptyArray(Response).decode(examplesResponse) // => { _tag: 'Right', right: examplesResponse } */
+/** require('io-ts-validator').validator(nonEmptyArray(Response)).decodeSync(examplesResponse) // => examplesResponse */
 export const examplesResponse: NonEmptyArray<Response> = ([
   {
     leg: {

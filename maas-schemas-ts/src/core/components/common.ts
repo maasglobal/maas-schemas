@@ -105,7 +105,7 @@ export const Phone = t.brand(
 export interface PhoneBrand {
   readonly Phone: unique symbol;
 }
-/** nonEmptyArray(Phone).decode(examplesPhone) // => { _tag: 'Right', right: examplesPhone } */
+/** require('io-ts-validator').validator(nonEmptyArray(Phone)).decodeSync(examplesPhone) // => examplesPhone */
 export const examplesPhone: NonEmptyArray<Phone> = ([
   '+358401234567',
 ] as unknown) as NonEmptyArray<Phone>;
@@ -136,7 +136,7 @@ export const Email = t.brand(
 export interface EmailBrand {
   readonly Email: unique symbol;
 }
-/** nonEmptyArray(Email).decode(examplesEmail) // => { _tag: 'Right', right: examplesEmail } */
+/** require('io-ts-validator').validator(nonEmptyArray(Email)).decodeSync(examplesEmail) // => examplesEmail */
 export const examplesEmail: NonEmptyArray<Email> = ([
   'joe.customer@example.com',
 ] as unknown) as NonEmptyArray<Email>;

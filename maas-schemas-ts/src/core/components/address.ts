@@ -32,7 +32,7 @@ export const ComponentAddress = t.brand(
 export interface ComponentAddressBrand {
   readonly ComponentAddress: unique symbol;
 }
-/** nonEmptyArray(ComponentAddress).decode(examplesComponentAddress) // => { _tag: 'Right', right: examplesComponentAddress } */
+/** require('io-ts-validator').validator(nonEmptyArray(ComponentAddress)).decodeSync(examplesComponentAddress) // => examplesComponentAddress */
 export const examplesComponentAddress: NonEmptyArray<ComponentAddress> = ([
   'state:Tōkyō-to|district:Kanda Nishikichō 3-chōme|streetNumber:4-パレステュディオ御茶ノ水駿河台参番館|zipCode:101-0054|city:Chiyoda-City|country:Japan',
   "streetName:Tarkk'ampujänkätu|city:Helsinki|country:Finland|state:Uusimaa|streetNumber:1|zipCode:00100|district:Tapiola",

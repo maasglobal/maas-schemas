@@ -309,7 +309,7 @@ export const Booking = t.brand(
 export interface BookingBrand {
   readonly Booking: unique symbol;
 }
-/** nonEmptyArray(Booking).decode(examplesBooking) // => { _tag: 'Right', right: examplesBooking } */
+/** require('io-ts-validator').validator(nonEmptyArray(Booking)).decodeSync(examplesBooking) // => examplesBooking */
 export const examplesBooking: NonEmptyArray<Booking> = ([
   {
     id: '12345678-ABCD-1234-ABCD-123456789ABC',

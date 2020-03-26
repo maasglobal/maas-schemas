@@ -911,7 +911,7 @@ for (const def of defs) {
   if (examples.length > 0) {
     const examplesName = 'examples'.concat(typeName);
     log(
-      `/** nonEmptyArray(${typeName}).decode(${examplesName}) // => { _tag: 'Right', right: ${examplesName} } */`,
+      `/** require('io-ts-validator').validator(nonEmptyArray(${typeName})).decodeSync(${examplesName}) // => ${examplesName} */`,
     );
     log(
       `export const ${examplesName}: NonEmptyArray<${typeName}> = ${JSON.stringify(
@@ -922,7 +922,7 @@ for (const def of defs) {
   if (typeof defaultValue !== 'undefined') {
     const defaultName = 'default'.concat(typeName);
     log(
-      `/** ${typeName}.decode(${defaultName}) // => { _tag: 'Right', right: ${defaultName} } */`,
+      `/** require('io-ts-validator').validator(${typeName}).decodeSync(${defaultName}) // => ${defaultName} */`,
     );
     log(
       `export const ${defaultName}: ${typeName} = ${JSON.stringify(

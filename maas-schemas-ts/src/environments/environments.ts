@@ -188,7 +188,7 @@ export const Environment = t.brand(
 export interface EnvironmentBrand {
   readonly Environment: unique symbol;
 }
-/** nonEmptyArray(Environment).decode(examplesEnvironment) // => { _tag: 'Right', right: examplesEnvironment } */
+/** require('io-ts-validator').validator(nonEmptyArray(Environment)).decodeSync(examplesEnvironment) // => examplesEnvironment */
 export const examplesEnvironment: NonEmptyArray<Environment> = ([
   {
     id: 'production',
@@ -238,7 +238,7 @@ export const DevEnvironment = t.brand(
 export interface DevEnvironmentBrand {
   readonly DevEnvironment: unique symbol;
 }
-/** nonEmptyArray(DevEnvironment).decode(examplesDevEnvironment) // => { _tag: 'Right', right: examplesDevEnvironment } */
+/** require('io-ts-validator').validator(nonEmptyArray(DevEnvironment)).decodeSync(examplesDevEnvironment) // => examplesDevEnvironment */
 export const examplesDevEnvironment: NonEmptyArray<DevEnvironment> = ([
   {
     id: 'testing',
@@ -354,7 +354,7 @@ export const Environments = t.brand(
 export interface EnvironmentsBrand {
   readonly Environments: unique symbol;
 }
-/** nonEmptyArray(Environments).decode(examplesEnvironments) // => { _tag: 'Right', right: examplesEnvironments } */
+/** require('io-ts-validator').validator(nonEmptyArray(Environments)).decodeSync(examplesEnvironments) // => examplesEnvironments */
 export const examplesEnvironments: NonEmptyArray<Environments> = ([
   {
     index: [
