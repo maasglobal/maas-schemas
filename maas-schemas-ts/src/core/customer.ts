@@ -17,22 +17,6 @@ import * as Fare_ from 'maas-schemas-ts/core/components/fare';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
-
 export const schemaId = 'http://maasglobal.com/core/customer.json';
 
 // Customer
@@ -60,35 +44,7 @@ export type Customer = t.Branded<
     dob?: boolean | Units_.IsoDate;
     ssid?: boolean | Common_.Ssid;
     documents?: Array<PersonalDocument_.PersonalDocument>;
-    balances?: ({
-      WMP?: {
-        currency?: 'WMP';
-        amount?: number;
-      } & {
-        currency: Defined;
-        amount: Defined;
-      };
-    } & Record<
-      string,
-      | ({
-          currency?: 'WMP';
-          amount?: number;
-        } & {
-          currency: Defined;
-          amount: Defined;
-        })
-      | ({
-          currency?: 'TOKEN';
-          tokenId?: Fare_.TokenId;
-          amount?: number | null;
-        } & {
-          currency: Defined;
-          tokenId: Defined;
-          amount: Defined;
-        })
-    >) & {
-      WMP: Defined;
-    };
+    balances?: Fare_.BalancesObject;
     subscriberType?: string;
     authToken?: Common_.EncodedQueryParam;
   },
@@ -117,52 +73,7 @@ export const Customer = t.brand(
     dob: t.union([t.boolean, Units_.IsoDate]),
     ssid: t.union([t.boolean, Common_.Ssid]),
     documents: t.array(PersonalDocument_.PersonalDocument),
-    balances: t.intersection([
-      t.intersection([
-        t.partial({
-          WMP: t.intersection([
-            t.partial({
-              currency: t.literal('WMP'),
-              amount: t.number,
-            }),
-            t.type({
-              currency: Defined,
-              amount: Defined,
-            }),
-          ]),
-        }),
-        t.record(
-          t.string,
-          t.union([
-            t.intersection([
-              t.partial({
-                currency: t.literal('WMP'),
-                amount: t.number,
-              }),
-              t.type({
-                currency: Defined,
-                amount: Defined,
-              }),
-            ]),
-            t.intersection([
-              t.partial({
-                currency: t.literal('TOKEN'),
-                tokenId: Fare_.TokenId,
-                amount: t.union([t.number, t.null]),
-              }),
-              t.type({
-                currency: Defined,
-                tokenId: Defined,
-                amount: Defined,
-              }),
-            ]),
-          ]),
-        ),
-      ]),
-      t.type({
-        WMP: Defined,
-      }),
-    ]),
+    balances: Fare_.BalancesObject,
     subscriberType: t.string,
     authToken: Common_.EncodedQueryParam,
   }),
@@ -191,35 +102,7 @@ export const Customer = t.brand(
       dob?: boolean | Units_.IsoDate;
       ssid?: boolean | Common_.Ssid;
       documents?: Array<PersonalDocument_.PersonalDocument>;
-      balances?: ({
-        WMP?: {
-          currency?: 'WMP';
-          amount?: number;
-        } & {
-          currency: Defined;
-          amount: Defined;
-        };
-      } & Record<
-        string,
-        | ({
-            currency?: 'WMP';
-            amount?: number;
-          } & {
-            currency: Defined;
-            amount: Defined;
-          })
-        | ({
-            currency?: 'TOKEN';
-            tokenId?: Fare_.TokenId;
-            amount?: number | null;
-          } & {
-            currency: Defined;
-            tokenId: Defined;
-            amount: Defined;
-          })
-      >) & {
-        WMP: Defined;
-      };
+      balances?: Fare_.BalancesObject;
       subscriberType?: string;
       authToken?: Common_.EncodedQueryParam;
     },

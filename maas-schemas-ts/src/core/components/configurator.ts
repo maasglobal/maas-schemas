@@ -39,7 +39,7 @@ export type Choice = t.Branded<
     description?: string;
     default?: boolean;
     cost?: Cost_.Cost;
-    fares?: Array<Fare_.Fare>;
+    fares?: Fare_.FareArray;
     terms?: Terms_.Terms;
     meta?: {};
   } & {
@@ -57,7 +57,7 @@ export const Choice = t.brand(
       description: t.string,
       default: t.boolean,
       cost: Cost_.Cost,
-      fares: t.array(Fare_.Fare),
+      fares: Fare_.FareArray,
       terms: Terms_.Terms,
       meta: t.type({}),
     }),
@@ -76,7 +76,7 @@ export const Choice = t.brand(
       description?: string;
       default?: boolean;
       cost?: Cost_.Cost;
-      fares?: Array<Fare_.Fare>;
+      fares?: Fare_.FareArray;
       terms?: Terms_.Terms;
       meta?: {};
     } & {

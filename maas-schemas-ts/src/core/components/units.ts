@@ -100,29 +100,129 @@ export const examplesIdentityId: NonEmptyArray<IdentityId> = ([
   '4828507e-683f-41bf-9d87-689808fbf958',
 ] as unknown) as NonEmptyArray<IdentityId>;
 
+// CurrencyEUR
+// The purpose of this remains a mystery
+export type CurrencyEUR = t.Branded<'EUR', CurrencyEURBrand>;
+export const CurrencyEUR = t.brand(
+  t.literal('EUR'),
+  (x): x is t.Branded<'EUR', CurrencyEURBrand> => true,
+  'CurrencyEUR',
+);
+export interface CurrencyEURBrand {
+  readonly CurrencyEUR: unique symbol;
+}
+
+// CurrencyGBP
+// The purpose of this remains a mystery
+export type CurrencyGBP = t.Branded<'GBP', CurrencyGBPBrand>;
+export const CurrencyGBP = t.brand(
+  t.literal('GBP'),
+  (x): x is t.Branded<'GBP', CurrencyGBPBrand> => true,
+  'CurrencyGBP',
+);
+export interface CurrencyGBPBrand {
+  readonly CurrencyGBP: unique symbol;
+}
+
+// CurrencySGD
+// The purpose of this remains a mystery
+export type CurrencySGD = t.Branded<'SGD', CurrencySGDBrand>;
+export const CurrencySGD = t.brand(
+  t.literal('SGD'),
+  (x): x is t.Branded<'SGD', CurrencySGDBrand> => true,
+  'CurrencySGD',
+);
+export interface CurrencySGDBrand {
+  readonly CurrencySGD: unique symbol;
+}
+
+// CurrencyUSD
+// The purpose of this remains a mystery
+export type CurrencyUSD = t.Branded<'USD', CurrencyUSDBrand>;
+export const CurrencyUSD = t.brand(
+  t.literal('USD'),
+  (x): x is t.Branded<'USD', CurrencyUSDBrand> => true,
+  'CurrencyUSD',
+);
+export interface CurrencyUSDBrand {
+  readonly CurrencyUSD: unique symbol;
+}
+
+// CurrencyJPY
+// The purpose of this remains a mystery
+export type CurrencyJPY = t.Branded<'JPY', CurrencyJPYBrand>;
+export const CurrencyJPY = t.brand(
+  t.literal('JPY'),
+  (x): x is t.Branded<'JPY', CurrencyJPYBrand> => true,
+  'CurrencyJPY',
+);
+export interface CurrencyJPYBrand {
+  readonly CurrencyJPY: unique symbol;
+}
+
 // Currency
 // Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1
 export type Currency = t.Branded<
-  string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY'),
+  string & (CurrencyEUR | CurrencyGBP | CurrencySGD | CurrencyUSD | CurrencyJPY),
   CurrencyBrand
 >;
 export const Currency = t.brand(
   t.intersection([
     t.string,
-    t.union([
-      t.literal('EUR'),
-      t.literal('GBP'),
-      t.literal('SGD'),
-      t.literal('USD'),
-      t.literal('JPY'),
-    ]),
+    t.union([CurrencyEUR, CurrencyGBP, CurrencySGD, CurrencyUSD, CurrencyJPY]),
   ]),
-  (x): x is t.Branded<string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY'), CurrencyBrand> =>
-    true,
+  (
+    x,
+  ): x is t.Branded<
+    string & (CurrencyEUR | CurrencyGBP | CurrencySGD | CurrencyUSD | CurrencyJPY),
+    CurrencyBrand
+  > => true,
   'Currency',
 );
 export interface CurrencyBrand {
   readonly Currency: unique symbol;
+}
+
+// MetaCurrencyWMP
+// The purpose of this remains a mystery
+export type MetaCurrencyWMP = t.Branded<'WMP', MetaCurrencyWMPBrand>;
+export const MetaCurrencyWMP = t.brand(
+  t.literal('WMP'),
+  (x): x is t.Branded<'WMP', MetaCurrencyWMPBrand> => true,
+  'MetaCurrencyWMP',
+);
+export interface MetaCurrencyWMPBrand {
+  readonly MetaCurrencyWMP: unique symbol;
+}
+
+// MetaCurrencyTOKEN
+// The purpose of this remains a mystery
+export type MetaCurrencyTOKEN = t.Branded<'TOKEN', MetaCurrencyTOKENBrand>;
+export const MetaCurrencyTOKEN = t.brand(
+  t.literal('TOKEN'),
+  (x): x is t.Branded<'TOKEN', MetaCurrencyTOKENBrand> => true,
+  'MetaCurrencyTOKEN',
+);
+export interface MetaCurrencyTOKENBrand {
+  readonly MetaCurrencyTOKEN: unique symbol;
+}
+
+// MetaCurrency
+// The purpose of this remains a mystery
+export type MetaCurrency = t.Branded<
+  string & (MetaCurrencyWMP | MetaCurrencyTOKEN),
+  MetaCurrencyBrand
+>;
+export const MetaCurrency = t.brand(
+  t.intersection([t.string, t.union([MetaCurrencyWMP, MetaCurrencyTOKEN])]),
+  (
+    x,
+  ): x is t.Branded<string & (MetaCurrencyWMP | MetaCurrencyTOKEN), MetaCurrencyBrand> =>
+    true,
+  'MetaCurrency',
+);
+export interface MetaCurrencyBrand {
+  readonly MetaCurrency: unique symbol;
 }
 
 // Time

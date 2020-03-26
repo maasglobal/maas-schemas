@@ -52,7 +52,7 @@ export type Itinerary = t.Branded<
     startTime?: Units_.Time;
     endTime?: Units_.Time;
     co2?: number;
-    fares?: Array<Fare_.Fare>;
+    fares?: Fare_.FareArray;
     legs?: Array<Leg_.Leg>;
     productOptions?: Array<ProductOption_.ProductOption>;
     type?: 'outward' | 'return';
@@ -76,7 +76,7 @@ export const Itinerary = t.brand(
       startTime: Units_.Time,
       endTime: Units_.Time,
       co2: t.number,
-      fares: t.array(Fare_.Fare),
+      fares: Fare_.FareArray,
       legs: t.array(Leg_.Leg),
       productOptions: t.array(ProductOption_.ProductOption),
       type: t.union([t.literal('outward'), t.literal('return')]),
@@ -101,7 +101,7 @@ export const Itinerary = t.brand(
       startTime?: Units_.Time;
       endTime?: Units_.Time;
       co2?: number;
-      fares?: Array<Fare_.Fare>;
+      fares?: Fare_.FareArray;
       legs?: Array<Leg_.Leg>;
       productOptions?: Array<ProductOption_.ProductOption>;
       type?: 'outward' | 'return';

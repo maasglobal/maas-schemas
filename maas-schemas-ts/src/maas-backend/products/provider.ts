@@ -58,7 +58,7 @@ export type Provider = t.Branded<
     extra?: {
       radius?: {
         fixedFareAmount?: number;
-        fixedFareCurrency?: Units_.Currency | (string & ('WMP' | 'TOKEN'));
+        fixedFareCurrency?: Units_.Currency | Units_.MetaCurrency;
         maxRadiusMetres?: number;
         description?: string;
       } & {
@@ -149,10 +149,7 @@ export const Provider = t.brand(
         radius: t.intersection([
           t.partial({
             fixedFareAmount: t.number,
-            fixedFareCurrency: t.union([
-              Units_.Currency,
-              t.intersection([t.string, t.union([t.literal('WMP'), t.literal('TOKEN')])]),
-            ]),
+            fixedFareCurrency: t.union([Units_.Currency, Units_.MetaCurrency]),
             maxRadiusMetres: t.number,
             description: t.string,
           }),
@@ -262,7 +259,7 @@ export const Provider = t.brand(
       extra?: {
         radius?: {
           fixedFareAmount?: number;
-          fixedFareCurrency?: Units_.Currency | (string & ('WMP' | 'TOKEN'));
+          fixedFareCurrency?: Units_.Currency | Units_.MetaCurrency;
           maxRadiusMetres?: number;
           description?: string;
         } & {

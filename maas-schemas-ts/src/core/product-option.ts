@@ -120,7 +120,7 @@ export type WithFares = t.Branded<
     bookingId?: Units_.Uuid;
     ref?: number;
     product?: Product_.Product;
-    fares?: Array<Fare_.Fare>;
+    fares?: Fare_.FareArray;
     terms?: Terms_.Terms;
     meta?: BookingMeta_.BookingMeta;
     customer?: BookingOption_.Customer;
@@ -139,7 +139,7 @@ export const WithFares = t.brand(
       bookingId: Units_.Uuid,
       ref: t.number,
       product: Product_.Product,
-      fares: t.array(Fare_.Fare),
+      fares: Fare_.FareArray,
       terms: Terms_.Terms,
       meta: BookingMeta_.BookingMeta,
       customer: BookingOption_.Customer,
@@ -159,7 +159,7 @@ export const WithFares = t.brand(
       bookingId?: Units_.Uuid;
       ref?: number;
       product?: Product_.Product;
-      fares?: Array<Fare_.Fare>;
+      fares?: Fare_.FareArray;
       terms?: Terms_.Terms;
       meta?: BookingMeta_.BookingMeta;
       customer?: BookingOption_.Customer;

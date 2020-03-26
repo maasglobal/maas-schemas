@@ -41,7 +41,7 @@ export type Product = t.Branded<
     name?: string;
     meta?: {};
     icon?: Units_.Url;
-    fares?: Array<Fare_.Fare>;
+    fares?: Fare_.FareArray;
     description?: string;
   } & {
     id: Defined;
@@ -63,7 +63,7 @@ export const Product = t.brand(
       name: t.string,
       meta: t.type({}),
       icon: Units_.Url,
-      fares: t.array(Fare_.Fare),
+      fares: Fare_.FareArray,
       description: t.string,
     }),
     t.type({
@@ -86,7 +86,7 @@ export const Product = t.brand(
       name?: string;
       meta?: {};
       icon?: Units_.Url;
-      fares?: Array<Fare_.Fare>;
+      fares?: Fare_.FareArray;
       description?: string;
     } & {
       id: Defined;

@@ -152,7 +152,7 @@ export type Profile = t.Branded<
     };
     subscription?: {};
     subscriptionInstance?: SubscriptionInstance;
-    balances?: Array<Fare_.Fare>;
+    balances?: Fare_.BalancesObject;
     created?: Units_.Time;
     modified?: Units_.Time;
   } & {
@@ -199,7 +199,7 @@ export const Profile = t.brand(
       ]),
       subscription: t.type({}),
       subscriptionInstance: SubscriptionInstance,
-      balances: t.array(Fare_.Fare),
+      balances: Fare_.BalancesObject,
       created: Units_.Time,
       modified: Units_.Time,
     }),
@@ -241,7 +241,7 @@ export const Profile = t.brand(
       };
       subscription?: {};
       subscriptionInstance?: SubscriptionInstance;
-      balances?: Array<Fare_.Fare>;
+      balances?: Fare_.BalancesObject;
       created?: Units_.Time;
       modified?: Units_.Time;
     } & {

@@ -8,10 +8,10 @@ The base booking object with all fields, to be inherited
 */
 
 import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as t from 'io-ts';
 import * as Fare_ from 'maas-schemas-ts/core/components/fare';
 import * as Cost_ from 'maas-schemas-ts/core/components/cost';
 import * as Configurator_ from 'maas-schemas-ts/core/components/configurator';
+import * as t from 'io-ts';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as Leg_ from 'maas-schemas-ts/core/leg';
 import * as Terms_ from 'maas-schemas-ts/core/components/terms';
@@ -49,15 +49,8 @@ export const Id = Units_.Uuid;
 
 // Fares
 // The purpose of this remains a mystery
-export type Fares = t.Branded<Array<Fare_.Fare>, FaresBrand>;
-export const Fares = t.brand(
-  t.array(Fare_.Fare),
-  (x): x is t.Branded<Array<Fare_.Fare>, FaresBrand> => true,
-  'Fares',
-);
-export interface FaresBrand {
-  readonly Fares: unique symbol;
-}
+export type Fares = Fare_.FareArray;
+export const Fares = Fare_.FareArray;
 
 // Cost
 // The purpose of this remains a mystery
