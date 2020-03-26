@@ -76,10 +76,10 @@ export const examplesDeveloper: NonEmptyArray<Developer> = ([
 
 // EnvironmentId
 // The purpose of this remains a mystery
-export type EnvironmentId = t.Branded<string, EnvironmentIdBrand>;
+export type EnvironmentId = t.Branded<string & Units_.HostnameLabel, EnvironmentIdBrand>;
 export const EnvironmentId = t.brand(
-  t.string,
-  (x): x is t.Branded<string, EnvironmentIdBrand> => true,
+  t.intersection([t.string, Units_.HostnameLabel]),
+  (x): x is t.Branded<string & Units_.HostnameLabel, EnvironmentIdBrand> => true,
   'EnvironmentId',
 );
 export interface EnvironmentIdBrand {
@@ -318,9 +318,7 @@ export interface EnvironmentGroupDescriptionBrand {
   readonly EnvironmentGroupDescription: unique symbol;
 }
 /** require('io-ts-validator').validator(nonEmptyArray(EnvironmentGroupDescription)).decodeSync(examplesEnvironmentGroupDescription) // => examplesEnvironmentGroupDescription */
-export const examplesEnvironmentGroupDescription: NonEmptyArray<
-  EnvironmentGroupDescription
-> = ([
+export const examplesEnvironmentGroupDescription: NonEmptyArray<EnvironmentGroupDescription> = ([
   'The main environments used by paying customers',
   'Production like environments used for quality assurance',
   'Development environments used for feature development',
