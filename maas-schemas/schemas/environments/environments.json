@@ -13,6 +13,7 @@
     },
     "environmentId": {
       "type": "string",
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/hostnameLabel" }],
       "examples": ["production", "testing", "environment13", "fantasy-topping"]
     },
     "environmentUrl": {
