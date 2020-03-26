@@ -68,6 +68,11 @@ export const Developer = t.brand(
 export interface DeveloperBrand {
   readonly Developer: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(Developer)).decodeSync(examplesDeveloper) // => examplesDeveloper */
+export const examplesDeveloper: NonEmptyArray<Developer> = ([
+  { name: 'Alisha Admin', email: 'admin@example.com' },
+  { name: 'Dennis Developer' },
+] as unknown) as NonEmptyArray<Developer>;
 
 // EnvironmentId
 // The purpose of this remains a mystery
@@ -80,6 +85,13 @@ export const EnvironmentId = t.brand(
 export interface EnvironmentIdBrand {
   readonly EnvironmentId: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(EnvironmentId)).decodeSync(examplesEnvironmentId) // => examplesEnvironmentId */
+export const examplesEnvironmentId: NonEmptyArray<EnvironmentId> = ([
+  'production',
+  'testing',
+  'environment13',
+  'fantasy-topping',
+] as unknown) as NonEmptyArray<EnvironmentId>;
 
 // EnvironmentUrl
 // The purpose of this remains a mystery
@@ -93,6 +105,13 @@ export const EnvironmentUrl = t.brand(
 export interface EnvironmentUrlBrand {
   readonly EnvironmentUrl: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(EnvironmentUrl)).decodeSync(examplesEnvironmentUrl) // => examplesEnvironmentUrl */
+export const examplesEnvironmentUrl: NonEmptyArray<EnvironmentUrl> = ([
+  'https://production.example.com/api/',
+  'https://testing.example.com/api/',
+  'https://environment13.example.com/api/',
+  'https://fantasy-toppign.example.com/api/',
+] as unknown) as NonEmptyArray<EnvironmentUrl>;
 
 // EnvironmentLive
 // Live environments are connected to actual payment and TSP services
@@ -105,6 +124,11 @@ export const EnvironmentLive = t.brand(
 export interface EnvironmentLiveBrand {
   readonly EnvironmentLive: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(EnvironmentLive)).decodeSync(examplesEnvironmentLive) // => examplesEnvironmentLive */
+export const examplesEnvironmentLive: NonEmptyArray<EnvironmentLive> = ([
+  true,
+  false,
+] as unknown) as NonEmptyArray<EnvironmentLive>;
 
 // EnvironmentName
 // The purpose of this remains a mystery
@@ -117,6 +141,13 @@ export const EnvironmentName = t.brand(
 export interface EnvironmentNameBrand {
   readonly EnvironmentName: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(EnvironmentName)).decodeSync(examplesEnvironmentName) // => examplesEnvironmentName */
+export const examplesEnvironmentName: NonEmptyArray<EnvironmentName> = ([
+  'production',
+  'testing',
+  'environment 13',
+  'Fantasy Topping',
+] as unknown) as NonEmptyArray<EnvironmentName>;
 
 // EnvironmentDescription
 // The purpose of this remains a mystery
@@ -129,6 +160,12 @@ export const EnvironmentDescription = t.brand(
 export interface EnvironmentDescriptionBrand {
   readonly EnvironmentDescription: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(EnvironmentDescription)).decodeSync(examplesEnvironmentDescription) // => examplesEnvironmentDescription */
+export const examplesEnvironmentDescription: NonEmptyArray<EnvironmentDescription> = ([
+  'Production environment',
+  'Testing environment',
+  'Add support for pizza customization',
+] as unknown) as NonEmptyArray<EnvironmentDescription>;
 
 // Environment
 // The purpose of this remains a mystery
@@ -260,6 +297,11 @@ export const EnvironmentGroupName = t.brand(
 export interface EnvironmentGroupNameBrand {
   readonly EnvironmentGroupName: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(EnvironmentGroupName)).decodeSync(examplesEnvironmentGroupName) // => examplesEnvironmentGroupName */
+export const examplesEnvironmentGroupName: NonEmptyArray<EnvironmentGroupName> = ([
+  'Core Environments',
+  'Development Environments',
+] as unknown) as NonEmptyArray<EnvironmentGroupName>;
 
 // EnvironmentGroupDescription
 // The purpose of this remains a mystery
@@ -275,6 +317,14 @@ export const EnvironmentGroupDescription = t.brand(
 export interface EnvironmentGroupDescriptionBrand {
   readonly EnvironmentGroupDescription: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(EnvironmentGroupDescription)).decodeSync(examplesEnvironmentGroupDescription) // => examplesEnvironmentGroupDescription */
+export const examplesEnvironmentGroupDescription: NonEmptyArray<
+  EnvironmentGroupDescription
+> = ([
+  'The main environments used by paying customers',
+  'Production like environments used for quality assurance',
+  'Development environments used for feature development',
+] as unknown) as NonEmptyArray<EnvironmentGroupDescription>;
 
 // EnvironmentGroup
 // The purpose of this remains a mystery
@@ -319,6 +369,41 @@ export const EnvironmentGroup = t.brand(
 export interface EnvironmentGroupBrand {
   readonly EnvironmentGroup: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(EnvironmentGroup)).decodeSync(examplesEnvironmentGroup) // => examplesEnvironmentGroup */
+export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = ([
+  {
+    name: 'Core Environments',
+    envs: [
+      {
+        id: 'production',
+        api: 'https://production.example.com/api/',
+        live: true,
+        contact: { name: 'Alisha Admin', email: 'admin@example.com' },
+        description: 'Production environment',
+      },
+      {
+        id: 'testing',
+        api: 'https://testing.example.com/api/',
+        live: false,
+        contact: { name: 'Alisha Admin' },
+        description: 'Testing environment',
+      },
+    ],
+  },
+  {
+    name: 'Development Environments',
+    envs: [
+      {
+        id: 'fantasy-topping',
+        api: 'https://fantasy-topping.example.com/api/',
+        live: false,
+        contact: { name: 'Dennis Developer' },
+        name: 'Fantasy Topping',
+        description: 'Add support for pizza customization',
+      },
+    ],
+  },
+] as unknown) as NonEmptyArray<EnvironmentGroup>;
 
 // Environments
 // The default export. More information at the top.
@@ -381,8 +466,8 @@ export const examplesEnvironments: NonEmptyArray<Environments> = ([
         name: 'Development Environments',
         envs: [
           {
-            id: 'fantasyTopping',
-            api: 'https://fantasy.example.com/api/',
+            id: 'fantasy-topping',
+            api: 'https://fantasy-topping.example.com/api/',
             live: false,
             contact: { name: 'Dennis Developer' },
             name: 'Fantasy Topping',
