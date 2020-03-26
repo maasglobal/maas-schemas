@@ -29,10 +29,7 @@ function isRegexpObject(regexp: AjvKeywordsRegexp): regexp is AjvKeywordsRegexpO
 function regexpObjectFromString(
   regexp: AjvKeywordsRegexpString,
 ): AjvKeywordsRegexpObject {
-  const pattern = regexp
-    .split('/')
-    .slice(1, -1)
-    .join('/');
+  const pattern = regexp.split('/').slice(1, -1).join('/');
   const [flags] = regexp.split('/').slice(-1);
   return { pattern, flags };
 }
@@ -59,10 +56,7 @@ function typenameFromAllCaps(allCaps: string): string {
 
 // random-caseCombination => RandomCaseCombination
 function typenameFromKebab(kebab: string): string {
-  const typename = kebab
-    .split('-')
-    .map(capitalize)
-    .join('');
+  const typename = kebab.split('-').map(capitalize).join('');
   return typename;
 }
 
