@@ -116,6 +116,10 @@ WARNING: minimum field not supported outside top-level definitions
   in ./core/components/bike-station.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/car-rental.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/car-rental.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/car-rental.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: maxLength field not supported outside top-level definitions
@@ -160,7 +164,7 @@ WARNING: maximum field not supported outside top-level definitions
   in ./core/components/car-rental.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/car-rental.json
-WARNING: pattern field not supported outside top-level definitions
+WARNING: regexp field not supported outside top-level definitions
   in ./core/components/car-rental.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/components/car-rental.json
@@ -173,6 +177,8 @@ INFO: primitive type "number" used outside top-level definitions
 WARNING: minLength field not supported outside top-level definitions
   in ./core/components/car-rental.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ./core/components/car-rental.json
+INFO: missing description
   in ./core/components/car-rental.json
 INFO: missing description
   in ./core/components/common.json

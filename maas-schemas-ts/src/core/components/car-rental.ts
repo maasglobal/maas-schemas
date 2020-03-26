@@ -31,6 +31,69 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/components/car-rental.json';
 
+// Instruction
+// The purpose of this remains a mystery
+export type Instruction = t.Branded<
+  {
+    title?: string;
+    icon?: Units_.Url;
+    text?: string;
+    image?: Units_.Url;
+  } & (
+    | {
+        title: Defined;
+        text: Defined;
+      }
+    | {
+        title: Defined;
+        image: Defined;
+      }),
+  InstructionBrand
+>;
+export const Instruction = t.brand(
+  t.intersection([
+    t.partial({
+      title: t.string,
+      icon: Units_.Url,
+      text: t.string,
+      image: Units_.Url,
+    }),
+    t.union([
+      t.type({
+        title: Defined,
+        text: Defined,
+      }),
+      t.type({
+        title: Defined,
+        image: Defined,
+      }),
+    ]),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      title?: string;
+      icon?: Units_.Url;
+      text?: string;
+      image?: Units_.Url;
+    } & (
+      | {
+          title: Defined;
+          text: Defined;
+        }
+      | {
+          title: Defined;
+          image: Defined;
+        }),
+    InstructionBrand
+  > => true,
+  'Instruction',
+);
+export interface InstructionBrand {
+  readonly Instruction: unique symbol;
+}
+
 // CarRental
 // The default export. More information at the top.
 export type CarRental = t.Branded<
@@ -69,6 +132,7 @@ export type CarRental = t.Branded<
     pickupInfo?: Common_.HtmlBlock;
     returnInfo?: Common_.HtmlBlock;
     startEndGeoRegionUrl?: Units_.Url;
+    instructions?: Array<Instruction>;
   } & {
     name: Defined;
     description: Defined;
@@ -117,6 +181,7 @@ export const CarRental = t.brand(
       pickupInfo: Common_.HtmlBlock,
       returnInfo: Common_.HtmlBlock,
       startEndGeoRegionUrl: Units_.Url,
+      instructions: t.array(Instruction),
     }),
     t.type({
       name: Defined,
@@ -162,6 +227,7 @@ export const CarRental = t.brand(
       pickupInfo?: Common_.HtmlBlock;
       returnInfo?: Common_.HtmlBlock;
       startEndGeoRegionUrl?: Units_.Url;
+      instructions?: Array<Instruction>;
     } & {
       name: Defined;
       description: Defined;
