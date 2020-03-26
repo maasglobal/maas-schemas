@@ -63,14 +63,6 @@
       }
     }
   },
-  "required": [
-    "personalData",
-    "paymentSources",
-    "balances",
-    "region",
-    "authorizations",
-    "personalDocuments",
-    "personalDocumentConsents"
-  ],
+  "required": ["personalData", "paymentSources", "balances", "region", "authorizations"],
   "additionalProperties": false
 }
