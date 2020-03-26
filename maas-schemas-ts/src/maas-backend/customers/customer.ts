@@ -63,8 +63,6 @@ export type Customer = t.Branded<
     balances: Defined;
     region: Defined;
     authorizations: Defined;
-    personalDocuments: Defined;
-    personalDocumentConsents: Defined;
   },
   CustomerBrand
 >;
@@ -99,8 +97,6 @@ export const Customer = t.brand(
       balances: Defined,
       region: Defined,
       authorizations: Defined,
-      personalDocuments: Defined,
-      personalDocumentConsents: Defined,
     }),
   ]),
   (
@@ -131,8 +127,6 @@ export const Customer = t.brand(
       balances: Defined;
       region: Defined;
       authorizations: Defined;
-      personalDocuments: Defined;
-      personalDocumentConsents: Defined;
     },
     CustomerBrand
   > => true,
