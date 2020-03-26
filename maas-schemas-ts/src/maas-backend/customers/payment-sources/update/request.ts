@@ -48,7 +48,8 @@ export type Request = t.Branded<
           }
         | {
             alias: Defined;
-          });
+          }
+      );
     } & {
       paymentSource: Defined;
     };
@@ -116,7 +117,8 @@ export const Request = t.brand(
             }
           | {
               alias: Defined;
-            });
+            }
+        );
       } & {
         paymentSource: Defined;
       };

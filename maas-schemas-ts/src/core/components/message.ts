@@ -52,7 +52,8 @@ export type Message = t.Branded<
         | 'MODE_TRAINISH'
         | 'MODE_BUSISH'
         | 'MODE_TAXI'
-        | 'MODE_SCOOTER');
+        | 'MODE_SCOOTER'
+      );
     property?: string;
   } & {
     text: Defined;
@@ -122,7 +123,8 @@ export const Message = t.brand(
           | 'MODE_TRAINISH'
           | 'MODE_BUSISH'
           | 'MODE_TAXI'
-          | 'MODE_SCOOTER');
+          | 'MODE_SCOOTER'
+        );
       property?: string;
     } & {
       text: Defined;

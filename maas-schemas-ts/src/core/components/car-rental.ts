@@ -47,7 +47,8 @@ export type Instruction = t.Branded<
     | {
         title: Defined;
         image: Defined;
-      }),
+      }
+  ),
   InstructionBrand
 >;
 export const Instruction = t.brand(
@@ -85,7 +86,8 @@ export const Instruction = t.brand(
       | {
           title: Defined;
           image: Defined;
-        }),
+        }
+    ),
     InstructionBrand
   > => true,
   'Instruction',

@@ -1,9 +1,9 @@
 #!/usr/bin/env ts-node
 
-import * as fs from 'fs';
-import * as path from 'path';
-import * as gen from 'io-ts-codegen';
-import { JSONSchema7, JSONSchema7Definition } from 'json-schema';
+import * as fs from "fs";
+import * as path from "path";
+import * as gen from "io-ts-codegen";
+import { JSONSchema7, JSONSchema7Definition } from "json-schema";
 
 // START: Ajv Schema Helpers https://github.com/epoberezkin/ajv-keywords
 
@@ -18,22 +18,23 @@ type AjvKeywords = { regexp: AjvKeywordsRegexp };
 
 type AjvSchema = JSONSchema7 & AjvKeywords;
 
-function isRegexpString(regexp: AjvKeywordsRegexp): regexp is AjvKeywordsRegexpString {
-  return typeof regexp === 'string';
+function isRegexpString(
+  regexp: AjvKeywordsRegexp
+): regexp is AjvKeywordsRegexpString {
+  return typeof regexp === "string";
 }
 
-function isRegexpObject(regexp: AjvKeywordsRegexp): regexp is AjvKeywordsRegexpObject {
-  return typeof regexp === 'object';
+function isRegexpObject(
+  regexp: AjvKeywordsRegexp
+): regexp is AjvKeywordsRegexpObject {
+  return typeof regexp === "object";
 }
 
 function regexpObjectFromString(
-  regexp: AjvKeywordsRegexpString,
+  regexp: AjvKeywordsRegexpString
 ): AjvKeywordsRegexpObject {
-  const pattern = regexp
-    .split('/')
-    .slice(1, -1)
-    .join('/');
-  const [flags] = regexp.split('/').slice(-1);
+  const pattern = regexp.split("/").slice(1, -1).join("/");
+  const [flags] = regexp.split("/").slice(-1);
   return { pattern, flags };
 }
 
@@ -47,22 +48,19 @@ function getRegexpObject(regexp: AjvKeywordsRegexp): AjvKeywordsRegexpObject {
 // END: Ajv Schema Helpers
 
 function capitalize(word: string) {
-  const empty: '' = '';
+  const empty: "" = "";
   const [c, ...cs] = word.split(empty);
   return [c.toUpperCase(), ...cs].join(empty);
 }
 
 // ALL_UPPER-CASE => ALL_UPPERCASE
 function typenameFromAllCaps(allCaps: string): string {
-  return allCaps.split('-').join('');
+  return allCaps.split("-").join("");
 }
 
 // random-caseCombination => RandomCaseCombination
 function typenameFromKebab(kebab: string): string {
-  const typename = kebab
-    .split('-')
-    .map(capitalize)
-    .join('');
+  const typename = kebab.split("-").map(capitalize).join("");
   return typename;
 }
 
@@ -78,8 +76,8 @@ function typenameFromRandom(randomCase: string): string {
 }
 
 function getDefaultExport(jsonFilePath) {
-  const [withoutPath] = jsonFilePath.split('/').slice(-1);
-  const [withouExtension] = withoutPath.split('.json');
+  const [withoutPath] = jsonFilePath.split("/").slice(-1);
+  const [withouExtension] = withoutPath.split(".json");
   return typenameFromRandom(withouExtension);
 }
 
@@ -88,7 +86,7 @@ const createHelper = (d: gen.TypeDeclaration) =>
 
 const definedHelper = createHelper(
   gen.typeDeclaration(
-    'Defined',
+    "Defined",
     gen.unionCombinator([
       gen.unknownRecordType,
       gen.unknownArrayType,
@@ -96,57 +94,59 @@ const definedHelper = createHelper(
       gen.booleanType,
       gen.numberType,
       gen.nullType,
-    ]),
-  ),
+    ])
+  )
 );
-const Defined = gen.customCombinator('Defined', 'Defined');
+const Defined = gen.customCombinator("Defined", "Defined");
 
 const supportedEverywhere = [
-  '$ref',
-  '$id',
-  'title',
-  'description',
-  'definitions',
-  'type',
-  'properties',
-  'patternProperties',
-  'required',
-  'additionalProperties',
-  'allOf',
-  'anyOf',
-  'oneOf',
-  'enum',
-  'const',
-  'items',
-  'contains',
-  'additionalItems',
+  "$ref",
+  "$id",
+  "title",
+  "description",
+  "definitions",
+  "type",
+  "properties",
+  "patternProperties",
+  "required",
+  "additionalProperties",
+  "allOf",
+  "anyOf",
+  "oneOf",
+  "enum",
+  "const",
+  "items",
+  "contains",
+  "additionalItems",
 ];
 const supportedAtRoot = [
-  'minimum',
-  'maximum',
-  'multipleOf',
-  'minLength',
-  'maxLength',
-  'pattern',
-  'regexp',
-  'minItems',
-  'maxItems',
-  'uniqueItems',
-  'default',
-  'examples',
+  "minimum",
+  "maximum",
+  "multipleOf",
+  "minLength",
+  "maxLength",
+  "pattern",
+  "regexp",
+  "minItems",
+  "maxItems",
+  "uniqueItems",
+  "default",
+  "examples",
 ];
 
 const [, , inputFile, outputDir, domain, strict] = process.argv;
 
-if (domain.endsWith('/') === false) {
+if (domain.endsWith("/") === false) {
   // eslint-disable-next-line
-  throw new Error('invalid domain argument');
+  throw new Error("invalid domain argument");
 }
 
 const defaultExport = getDefaultExport(inputFile);
-const outputFile = path.join(outputDir, inputFile.split('.json').join('.ts'));
+const outputFile = path.join(outputDir, inputFile.split(".json").join(".ts"));
 
-const inputSchema: JSONSchema7 = JSON.parse(fs.readFileSync(inputFile, 'utf-8'));
+const inputSchema: JSONSchema7 = JSON.parse(
+  fs.readFileSync(inputFile, "utf-8")
+);
 
 const imps = new Set<string>();
 const helpers = new Set<string>();
@@ -170,32 +170,37 @@ function updateFailure(level: ErrorCode) {
   returnCode = level;
 }
 
-function reportError(level: 'INFO' | 'WARNING' | 'ERROR', message: string) {
+function reportError(level: "INFO" | "WARNING" | "ERROR", message: string) {
   const lines = [`${level}: ${message}`, `  in ${inputFile}`];
   // eslint-disable-next-line
-  console.error(lines.join('\n'));
+  console.error(lines.join("\n"));
 }
 
 function error(message: string) {
   updateFailure(ErrorCode.ERROR);
-  reportError('ERROR', message);
+  reportError("ERROR", message);
   const escalate = "throw new Error('schema conversion failed')";
   return gen.customCombinator(escalate, escalate);
 }
 function warning(message: string) {
   updateFailure(ErrorCode.WARNING);
-  reportError('WARNING', message);
+  reportError("WARNING", message);
 }
 function info(message: string) {
-  reportError('INFO', message);
+  reportError("INFO", message);
 }
 
-function notImplemented(pre: string, item: string, post: string, fatal = false) {
+function notImplemented(
+  pre: string,
+  item: string,
+  post: string,
+  fatal = false
+) {
   const isOutsideRoot = supportedAtRoot.includes(item);
-  const where = isOutsideRoot ? 'outside top-level definitions' : '';
-  const message = [pre, item, post, 'not supported', where]
+  const where = isOutsideRoot ? "outside top-level definitions" : "";
+  const message = [pre, item, post, "not supported", where]
     .filter((s) => s.length > 0)
-    .join(' ');
+    .join(" ");
 
   if (fatal !== true && isOutsideRoot) {
     warning(message);
@@ -205,49 +210,52 @@ function notImplemented(pre: string, item: string, post: string, fatal = false) 
 }
 
 function parseRef(ref: string) {
-  const parts = ref.split('#');
+  const parts = ref.split("#");
   if (parts.length === 1) {
     const [filePath] = parts;
     return { filePath, variableName: getDefaultExport(filePath) };
   }
   if (parts.length > 2) {
     // eslint-disable-next-line
-    throw new Error('unknown ref format');
+    throw new Error("unknown ref format");
   }
   const [filePath, jsonPath] = parts;
   // eslint-disable-next-line
-  const jsonPathParts = jsonPath.split('/');
+  const jsonPathParts = jsonPath.split("/");
   if (jsonPathParts.length !== 3) {
     // eslint-disable-next-line
-    throw new Error('unknown ref format');
+    throw new Error("unknown ref format");
   }
   const [empty, definitions, name] = jsonPathParts;
-  if (empty !== '') {
+  if (empty !== "") {
     // eslint-disable-next-line
-    throw new Error('unknown ref format');
+    throw new Error("unknown ref format");
   }
-  if (definitions !== 'definitions') {
+  if (definitions !== "definitions") {
     // eslint-disable-next-line
-    throw new Error('unknown ref format');
+    throw new Error("unknown ref format");
   }
   const variableName = typenameFromKebab(name);
   return { filePath, variableName };
 }
 
 function fromPatternProperties(schema: JSONSchema7): [gen.TypeReference] | [] {
-  if ('patternProperties' in schema && typeof schema.patternProperties !== 'undefined') {
+  if (
+    "patternProperties" in schema &&
+    typeof schema.patternProperties !== "undefined"
+  ) {
     // the mapping from pattern to item is lost in the process
     // See https://github.com/microsoft/TypeScript/issues/6579
-    warning('patternProperty support has limitations');
+    warning("patternProperty support has limitations");
 
     // The Record must also support non-pattern properties
-    const exactPairs = Object.entries(schema.properties || {}).map(
-      <K extends string, V>([key, value]: [K, V]) => [`^${key}$`, value],
-    );
+    const exactPairs = Object.entries(
+      schema.properties || {}
+    ).map(<K extends string, V>([key, value]: [K, V]) => [`^${key}$`, value]);
     const fuzzyPairs = Object.entries(schema.patternProperties);
     const allPairs = exactPairs.concat(fuzzyPairs);
-    const valueCombinators = allPairs.map(<K extends string, V>([_key, value]: [K, V]) =>
-      fromSchema(value),
+    const valueCombinators = allPairs.map(
+      <K extends string, V>([_key, value]: [K, V]) => fromSchema(value)
     );
 
     const valueCombinator = (() => {
@@ -264,11 +272,13 @@ function fromPatternProperties(schema: JSONSchema7): [gen.TypeReference] | [] {
 }
 
 function fromProperties(schema: JSONSchema7): [gen.TypeReference] | [] {
-  if ('properties' in schema && typeof schema.properties !== 'undefined') {
+  if ("properties" in schema && typeof schema.properties !== "undefined") {
     const combinator = gen.partialCombinator(
-      Object.entries(schema.properties).map(<K extends string, V>([key, value]: [K, V]) =>
-        gen.property(key, fromSchema(value)),
-      ),
+      Object.entries(
+        schema.properties
+      ).map(<K extends string, V>([key, value]: [K, V]) =>
+        gen.property(key, fromSchema(value))
+      )
     );
     return [combinator];
   }
@@ -276,7 +286,10 @@ function fromProperties(schema: JSONSchema7): [gen.TypeReference] | [] {
 }
 
 function toInterfaceCombinator(schema: JSONSchema7): gen.TypeReference {
-  const combinators = [...fromProperties(schema), ...fromPatternProperties(schema)];
+  const combinators = [
+    ...fromProperties(schema),
+    ...fromPatternProperties(schema),
+  ];
   const combinator = (() => {
     if (combinators.length > 1) {
       return gen.intersectionCombinator(combinators);
@@ -288,11 +301,16 @@ function toInterfaceCombinator(schema: JSONSchema7): gen.TypeReference {
     return gen.interfaceCombinator([]);
   })();
 
-  if (schema.hasOwnProperty('additionalproperties') === false) {
+  if (schema.hasOwnProperty("additionalproperties") === false) {
     return combinator;
   }
-  if (typeof schema.additionalProperties !== 'boolean') {
-    const escalate = notImplemented('specific', 'additionalProperties', 'schema', true);
+  if (typeof schema.additionalProperties !== "boolean") {
+    const escalate = notImplemented(
+      "specific",
+      "additionalProperties",
+      "schema",
+      true
+    );
     if (escalate !== null) {
       return escalate;
     }
@@ -305,17 +323,19 @@ function toInterfaceCombinator(schema: JSONSchema7): gen.TypeReference {
 
 function toArrayCombinator(schema: JSONSchema7): gen.TypeReference {
   if (
-    'items' in schema &&
-    typeof schema.items !== 'undefined' &&
-    typeof schema.items !== 'boolean'
+    "items" in schema &&
+    typeof schema.items !== "undefined" &&
+    typeof schema.items !== "boolean"
   ) {
     if (schema.items instanceof Array) {
-      if ('additionalItems' in schema && schema.additionalItems === false) {
+      if ("additionalItems" in schema && schema.additionalItems === false) {
         const combinators = schema.items.map((s) => fromSchema(s));
         return gen.tupleCombinator(combinators);
       }
       // eslint-disable-next-line
-      throw new Error('tuples with ...rest are not supported, set additionalItems false');
+      throw new Error(
+        "tuples with ...rest are not supported, set additionalItems false"
+      );
     }
     return gen.arrayCombinator(fromSchema(schema.items));
   }
@@ -381,35 +401,37 @@ function generateChecks(x: string, schema: JSONSchema7): string {
     ...(schema.minimum ? [checkMinimum(x, schema.minimum)] : []),
     ...(schema.maximum ? [checkMaximum(x, schema.maximum)] : []),
     ...(schema.multipleOf ? [checkMultipleOf(x, schema.multipleOf)] : []),
-    ...(schema.type === 'integer' ? [checkInteger(x)] : []),
+    ...(schema.type === "integer" ? [checkInteger(x)] : []),
     ...(schema.minItems ? [checkMinItems(x, schema.minItems)] : []),
     ...(schema.maxItems ? [checkMaxItems(x, schema.maxItems)] : []),
     ...(schema.uniqueItems === true ? [checkUniqueItems(x)] : []),
   ];
   if (checks.length < 1) {
-    return 'true';
+    return "true";
   }
-  return checks.join(' && ');
+  return checks.join(" && ");
 }
 
 function fromRef(refString: string): gen.TypeReference {
   const ref = parseRef(refString);
 
-  if (ref.filePath === '') {
-    return gen.customCombinator(ref.variableName, ref.variableName, [ref.variableName]);
+  if (ref.filePath === "") {
+    return gen.customCombinator(ref.variableName, ref.variableName, [
+      ref.variableName,
+    ]);
   }
 
   // eslint-disable-next-line
-  const [withoutPath] = ref.filePath.split('/').reverse();
-  const [basefile] = withoutPath.split('.json');
+  const [withoutPath] = ref.filePath.split("/").reverse();
+  const [basefile] = withoutPath.split(".json");
   const importName = `${typenameFromKebab(basefile)}_`;
   if (ref.filePath.startsWith(domain)) {
     const URI = ref.filePath;
     const [, withoutDomain] = URI.split(domain);
-    const [fullPath] = withoutDomain.split('.json');
+    const [fullPath] = withoutDomain.split(".json");
     imps.add(`import * as ${importName} from 'maas-schemas-ts/${fullPath}';`);
   } else {
-    const [relativePath] = ref.filePath.split('.json');
+    const [relativePath] = ref.filePath.split(".json");
     imps.add(`import * as ${importName} from './${relativePath}';`);
   }
   const variableRef = `${importName}.${ref.variableName}`;
@@ -428,14 +450,14 @@ function fromType(schema: JSONSchema7): [gen.TypeReference] | [] {
     const combinators = schema.type.map((t) => {
       // eslint-disable-next-line
       switch (t) {
-        case 'string':
+        case "string":
           return gen.stringType;
-        case 'number':
-        case 'integer':
+        case "number":
+        case "integer":
           return gen.numberType;
-        case 'boolean':
+        case "boolean":
           return gen.booleanType;
-        case 'null':
+        case "null":
           return gen.nullType;
       }
       // eslint-disable-next-line
@@ -448,22 +470,27 @@ function fromType(schema: JSONSchema7): [gen.TypeReference] | [] {
     return [gen.unionCombinator(combinators)];
   }
   switch (schema.type) {
-    case 'string':
+    case "string":
       return [gen.stringType];
-    case 'number':
-    case 'integer':
+    case "number":
+    case "integer":
       return [gen.numberType];
-    case 'boolean':
+    case "boolean":
       return [gen.booleanType];
-    case 'null':
+    case "null":
       return [gen.nullType];
-    case 'object':
+    case "object":
       return [toInterfaceCombinator(schema)];
-    case 'array':
+    case "array":
       return [toArrayCombinator(schema)];
   }
-  if (typeof schema.type !== 'undefined') {
-    const escalate = notImplemented('', JSON.stringify(schema.type), 'type', true);
+  if (typeof schema.type !== "undefined") {
+    const escalate = notImplemented(
+      "",
+      JSON.stringify(schema.type),
+      "type",
+      true
+    );
     if (escalate !== null) {
       return [escalate];
     }
@@ -472,12 +499,12 @@ function fromType(schema: JSONSchema7): [gen.TypeReference] | [] {
 }
 
 function fromRequired(schema: JSONSchema7): [gen.TypeReference] | [] {
-  if ('required' in schema && typeof schema.required !== 'undefined') {
+  if ("required" in schema && typeof schema.required !== "undefined") {
     const combinator = gen.interfaceCombinator(
       schema.required.map((key) => {
         helpers.add(definedHelper);
         return gen.property(key, Defined);
-      }),
+      })
     );
     return [combinator];
   }
@@ -485,22 +512,22 @@ function fromRequired(schema: JSONSchema7): [gen.TypeReference] | [] {
 }
 
 function fromContains(schema: JSONSchema7): [gen.TypeReference] | [] {
-  if ('contains' in schema && typeof schema.contains !== 'undefined') {
-    warning('contains field not supported');
+  if ("contains" in schema && typeof schema.contains !== "undefined") {
+    warning("contains field not supported");
   }
   return [];
 }
 
 function fromEnum(schema: JSONSchema7): [gen.TypeReference] | [] {
-  if ('enum' in schema && typeof schema.enum !== 'undefined') {
+  if ("enum" in schema && typeof schema.enum !== "undefined") {
     const combinators = schema.enum.map((s) => {
       if (s === null) {
         return gen.nullType;
       }
       switch (typeof s) {
-        case 'string':
-        case 'boolean':
-        case 'number':
+        case "string":
+        case "boolean":
+        case "number":
           return gen.literalCombinator(s);
       }
       // eslint-disable-next-line
@@ -516,21 +543,23 @@ function fromEnum(schema: JSONSchema7): [gen.TypeReference] | [] {
 }
 
 function fromConst(schema: JSONSchema7): [gen.TypeReference] | [] {
-  if ('const' in schema && typeof schema.const !== 'undefined') {
+  if ("const" in schema && typeof schema.const !== "undefined") {
     switch (typeof schema.const) {
-      case 'string':
-      case 'boolean':
-      case 'number':
+      case "string":
+      case "boolean":
+      case "number":
         return [gen.literalCombinator(schema.const)];
     }
     // eslint-disable-next-line
-    throw new Error(`${typeof schema.const}s are not supported as part of CONST`);
+    throw new Error(
+      `${typeof schema.const}s are not supported as part of CONST`
+    );
   }
   return [];
 }
 
 function fromAllOf(schema: JSONSchema7): [gen.TypeReference] | [] {
-  if ('allOf' in schema && typeof schema.allOf !== 'undefined') {
+  if ("allOf" in schema && typeof schema.allOf !== "undefined") {
     const combinators = schema.allOf.map((s) => fromSchema(s));
     if (combinators.length === 1) {
       const [combinator] = combinators;
@@ -542,7 +571,7 @@ function fromAllOf(schema: JSONSchema7): [gen.TypeReference] | [] {
 }
 
 function fromAnyOf(schema: JSONSchema7): [gen.TypeReference] | [] {
-  if ('anyOf' in schema && typeof schema.anyOf !== 'undefined') {
+  if ("anyOf" in schema && typeof schema.anyOf !== "undefined") {
     const combinators = schema.anyOf.map((s) => fromSchema(s));
     if (combinators.length === 1) {
       const [combinator] = combinators;
@@ -554,7 +583,7 @@ function fromAnyOf(schema: JSONSchema7): [gen.TypeReference] | [] {
 }
 
 function fromOneOf(schema: JSONSchema7): [gen.TypeReference] | [] {
-  if ('oneOf' in schema && typeof schema.oneOf !== 'undefined') {
+  if ("oneOf" in schema && typeof schema.oneOf !== "undefined") {
     const combinators = schema.oneOf.map((s) => fromSchema(s));
     if (combinators.length === 1) {
       const [combinator] = combinators;
@@ -565,39 +594,42 @@ function fromOneOf(schema: JSONSchema7): [gen.TypeReference] | [] {
   return [];
 }
 
-function fromSchema(schema: JSONSchema7Definition, isRoot = false): gen.TypeReference {
-  if (typeof schema === 'boolean') {
+function fromSchema(
+  schema: JSONSchema7Definition,
+  isRoot = false
+): gen.TypeReference {
+  if (typeof schema === "boolean") {
     imps.add("import * as t from 'io-ts';");
     if (schema) {
       // accept anything
       return gen.unknownType;
     } else {
       // accept nothing
-      return error('Not sure how to deal with a schema that matches nothing');
+      return error("Not sure how to deal with a schema that matches nothing");
     }
   }
   if (
     isRoot === false &&
-    typeof schema.type === 'string' &&
-    ['string', 'number', 'integer'].includes(schema.type)
+    typeof schema.type === "string" &&
+    ["string", "number", "integer"].includes(schema.type)
   ) {
     info(`primitive type "${schema.type}" used outside top-level definitions`);
   }
   // eslint-disable-next-line
   for (const key in schema) {
     if (isSupported(key, isRoot) !== true) {
-      const escalate = notImplemented('', key, 'field');
+      const escalate = notImplemented("", key, "field");
       if (escalate !== null) {
         return escalate;
       }
     }
   }
-  if ('$ref' in schema) {
-    if (typeof schema['$ref'] === 'undefined') {
+  if ("$ref" in schema) {
+    if (typeof schema["$ref"] === "undefined") {
       // eslint-disable-next-line
-      throw new Error('broken input');
+      throw new Error("broken input");
     }
-    return fromRef(schema['$ref']);
+    return fromRef(schema["$ref"]);
   }
   imps.add("import * as t from 'io-ts';");
   const combinators = [
@@ -617,7 +649,7 @@ function fromSchema(schema: JSONSchema7Definition, isRoot = false): gen.TypeRefe
     const [combinator] = combinators;
     return combinator;
   }
-  if (generateChecks('x', schema).length > 1) {
+  if (generateChecks("x", schema).length > 1) {
     // skip checks
     return gen.unknownType;
   }
@@ -628,10 +660,10 @@ function fromSchema(schema: JSONSchema7Definition, isRoot = false): gen.TypeRefe
 type Examples = Array<unknown>;
 
 type DefMeta = {
-  title: JSONSchema7['title'];
-  description: JSONSchema7['description'];
+  title: JSONSchema7["title"];
+  description: JSONSchema7["description"];
   examples: Examples;
-  defaultValue: JSONSchema7['default'];
+  defaultValue: JSONSchema7["default"];
 };
 
 type DefInput = {
@@ -640,38 +672,42 @@ type DefInput = {
 };
 
 function extractExamples(schema: JSONSchema7Definition): Examples {
-  if (typeof schema === 'boolean') {
+  if (typeof schema === "boolean") {
     // note that in this context true is any and false is never
     return [];
   }
-  if ('$ref' in schema) {
-    warning('skipping examples handling for $ref object');
+  if ("$ref" in schema) {
+    warning("skipping examples handling for $ref object");
     return [];
   }
   const { examples } = schema;
   if (examples instanceof Array) {
     return examples;
   }
-  if (typeof examples === 'undefined') {
+  if (typeof examples === "undefined") {
     return [];
   }
   // eslint-disable-next-line
-  throw new Error('Unexpected format of examples');
+  throw new Error("Unexpected format of examples");
 }
 
-function extractDefaultValue(schema: JSONSchema7Definition): JSONSchema7['default'] {
-  if (typeof schema === 'boolean') {
+function extractDefaultValue(
+  schema: JSONSchema7Definition
+): JSONSchema7["default"] {
+  if (typeof schema === "boolean") {
     // note that in this context true is any and false is never
     return undefined;
   }
-  if ('$ref' in schema) {
-    warning('skipping default value handling for $ref object');
+  if ("$ref" in schema) {
+    warning("skipping default value handling for $ref object");
     return undefined;
   }
-  return schema['default'];
+  return schema["default"];
 }
 
-function fromDefinitions(definitions2: JSONSchema7['definitions']): Array<DefInput> {
+function fromDefinitions(
+  definitions2: JSONSchema7["definitions"]
+): Array<DefInput> {
   const definitions = definitions2 || {};
   return Object.entries(definitions).map(
     ([k, v]: [string, JSONSchema7Definition]): DefInput => {
@@ -680,7 +716,7 @@ function fromDefinitions(definitions2: JSONSchema7['definitions']): Array<DefInp
       const examples = extractExamples(scem);
       const defaultValue = extractDefaultValue(scem);
 
-      if (typeof scem === 'boolean') {
+      if (typeof scem === "boolean") {
         const title = undefined;
         const description = undefined;
         return {
@@ -693,17 +729,17 @@ function fromDefinitions(definitions2: JSONSchema7['definitions']): Array<DefInp
           dec: gen.typeDeclaration(
             name,
             error(`Any and never types are not supported by convert.ts`),
-            true,
+            true
           ),
         };
       }
-      if ('$ref' in scem) {
+      if ("$ref" in scem) {
         // ref's do not have meta data
         const title = undefined;
         const description = undefined;
-        if (typeof scem['$ref'] === 'undefined') {
+        if (typeof scem["$ref"] === "undefined") {
           // eslint-disable-next-line
-        throw new Error('broken input');
+          throw new Error("broken input");
         }
         return {
           meta: {
@@ -712,7 +748,7 @@ function fromDefinitions(definitions2: JSONSchema7['definitions']): Array<DefInp
             examples,
             defaultValue,
           },
-          dec: gen.typeDeclaration(name, fromRef(scem['$ref']), true),
+          dec: gen.typeDeclaration(name, fromRef(scem["$ref"]), true),
         };
       }
       return {
@@ -727,19 +763,19 @@ function fromDefinitions(definitions2: JSONSchema7['definitions']): Array<DefInp
           gen.brandCombinator(
             fromSchema(scem, true),
             (x) => generateChecks(x, scem),
-            name,
+            name
           ),
-          true,
+          true
         ),
       };
-    },
+    }
   );
 }
 
 function fromNonRefRoot(schema: JSONSchema7): Array<DefInput> {
   // root schema info is printed in the beginning of the file
   const title = defaultExport;
-  const description = 'The default export. More information at the top.';
+  const description = "The default export. More information at the top.";
   const examples = extractExamples(schema);
   const defaultValue = extractDefaultValue(schema);
   return [
@@ -755,9 +791,9 @@ function fromNonRefRoot(schema: JSONSchema7): Array<DefInput> {
         gen.brandCombinator(
           fromSchema(schema, true),
           (x) => generateChecks(x, schema),
-          defaultExport,
+          defaultExport
         ),
-        true,
+        true
       ),
     },
   ];
@@ -766,14 +802,14 @@ function fromNonRefRoot(schema: JSONSchema7): Array<DefInput> {
 function fromRoot(root: JSONSchema7): Array<DefInput> {
   // root schema info is printed in the beginning of the file
   const title = defaultExport;
-  const description = 'The default export. More information at the top.';
+  const description = "The default export. More information at the top.";
   const examples = extractExamples(root);
   const defaultValue = extractDefaultValue(root);
 
-  if ('$ref' in root) {
-    if (typeof root['$ref'] === 'undefined') {
+  if ("$ref" in root) {
+    if (typeof root["$ref"] === "undefined") {
       // eslint-disable-next-line
-      throw new Error('broken input');
+      throw new Error("broken input");
     }
     exps.add(`export default ${defaultExport};`);
     return [
@@ -784,7 +820,7 @@ function fromRoot(root: JSONSchema7): Array<DefInput> {
           examples,
           defaultValue,
         },
-        dec: gen.typeDeclaration(defaultExport, fromRef(root['$ref']), true),
+        dec: gen.typeDeclaration(defaultExport, fromRef(root["$ref"]), true),
       },
     ];
   }
@@ -822,20 +858,23 @@ function constructDefs(defInputs: Array<DefInput>): Array<Def> {
     const typeName = dec.name;
     const meta = metas[typeName];
     const title = meta.title || typeName;
-    const description = meta.description || 'The purpose of this remains a mystery';
+    const description =
+      meta.description || "The purpose of this remains a mystery";
     const examples = meta.examples || [];
     const defaultValue = meta.defaultValue;
     const staticType = gen.printStatic(dec);
     const runtimeType = gen
       .printRuntime(dec)
-      .replace(/\ninterface /, '\nexport interface ');
+      .replace(/\ninterface /, "\nexport interface ");
 
-    if (typeof meta.description !== 'string') {
-      info('missing description');
+    if (typeof meta.description !== "string") {
+      info("missing description");
     }
     if (examples.length > 0) {
       imps.add("import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';");
-      imps.add("import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';");
+      imps.add(
+        "import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';"
+      );
     }
     return {
       typeName,
@@ -849,8 +888,8 @@ function constructDefs(defInputs: Array<DefInput>): Array<Def> {
   });
 }
 
-if (inputSchema.$id.split('#').length > 1) {
-  info('fragment used as part of $id');
+if (inputSchema.$id.split("#").length > 1) {
+  info("fragment used as part of $id");
 }
 
 const defs: Array<Def> = constructDefs(fromFile(inputSchema as JSONSchema7));
@@ -858,7 +897,7 @@ const defs: Array<Def> = constructDefs(fromFile(inputSchema as JSONSchema7));
 if (returnCode === ErrorCode.ERROR) {
   process.exit(returnCode);
 }
-if (returnCode === ErrorCode.WARNING && strict === '--strict') {
+if (returnCode === ErrorCode.WARNING && strict === "--strict") {
   process.exit(returnCode);
 }
 
@@ -872,26 +911,26 @@ function createParentDir(file) {
 }
 createParentDir(outputFile);
 
-const fd = fs.openSync(outputFile, 'w');
-fs.writeFileSync(fd, '');
+const fd = fs.openSync(outputFile, "w");
+fs.writeFileSync(fd, "");
 
 const log = (a: string) => fs.appendFileSync(fd, `${a}\n`);
 
-log('/*');
-log('');
+log("/*");
+log("");
 log(`${inputSchema.title}`);
 log(`${inputSchema.description}`);
-log('');
-log('!!! AUTO GENERATED BY CONVERT.TS REFRAIN FROM MANUAL EDITING !!!');
-log('');
-log('*/');
-log('');
+log("");
+log("!!! AUTO GENERATED BY CONVERT.TS REFRAIN FROM MANUAL EDITING !!!");
+log("");
+log("*/");
+log("");
 imps.forEach(log);
-log('');
+log("");
 helpers.forEach(log);
-log('');
+log("");
 log(`export const schemaId = '${inputSchema.$id}';`);
-log('');
+log("");
 
 // eslint-disable-next-line
 for (const def of defs) {
@@ -909,33 +948,33 @@ for (const def of defs) {
   log(staticType);
   log(runtimeType);
   if (examples.length > 0) {
-    const examplesName = 'examples'.concat(typeName);
+    const examplesName = "examples".concat(typeName);
     log(
-      `/** require('io-ts-validator').validator(nonEmptyArray(${typeName})).decodeSync(${examplesName}) // => ${examplesName} */`,
+      `/** require('io-ts-validator').validator(nonEmptyArray(${typeName})).decodeSync(${examplesName}) // => ${examplesName} */`
     );
     log(
       `export const ${examplesName}: NonEmptyArray<${typeName}> = ${JSON.stringify(
-        examples,
-      )} as unknown as NonEmptyArray<${typeName}>;`,
+        examples
+      )} as unknown as NonEmptyArray<${typeName}>;`
     );
   }
-  if (typeof defaultValue !== 'undefined') {
-    const defaultName = 'default'.concat(typeName);
+  if (typeof defaultValue !== "undefined") {
+    const defaultName = "default".concat(typeName);
     log(
-      `/** require('io-ts-validator').validator(${typeName}).decodeSync(${defaultName}) // => ${defaultName} */`,
+      `/** require('io-ts-validator').validator(${typeName}).decodeSync(${defaultName}) // => ${defaultName} */`
     );
     log(
       `export const ${defaultName}: ${typeName} = ${JSON.stringify(
-        defaultValue,
-      )} as unknown as ${typeName};`,
+        defaultValue
+      )} as unknown as ${typeName};`
     );
   }
-  log('');
+  log("");
 }
 
 exps.forEach(log);
-log('');
-log('// Success');
+log("");
+log("// Success");
 fs.closeSync(fd);
 
-process.stdout.write('.');
+process.stdout.write(".");

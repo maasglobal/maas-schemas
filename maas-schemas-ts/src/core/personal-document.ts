@@ -50,7 +50,8 @@ export type DocumentStatus = t.Branded<
       | 'DECLINED'
       | 'EXPIRED'
       | 'RESUBMISSION_REQUESTED'
-      | 'ABANDONED'),
+      | 'ABANDONED'
+    ),
   DocumentStatusBrand
 >;
 export const DocumentStatus = t.brand(
@@ -75,7 +76,8 @@ export const DocumentStatus = t.brand(
         | 'DECLINED'
         | 'EXPIRED'
         | 'RESUBMISSION_REQUESTED'
-        | 'ABANDONED'),
+        | 'ABANDONED'
+      ),
     DocumentStatusBrand
   > => true,
   'DocumentStatus',
