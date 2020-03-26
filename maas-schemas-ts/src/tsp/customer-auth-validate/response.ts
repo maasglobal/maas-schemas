@@ -47,7 +47,8 @@ export type Response = t.Branded<
     | {
         error: Defined;
         nonce: Defined;
-      }),
+      }
+  ),
   ResponseBrand
 >;
 export const Response = t.brand(
@@ -87,7 +88,8 @@ export const Response = t.brand(
       | {
           error: Defined;
           nonce: Defined;
-        }),
+        }
+    ),
     ResponseBrand
   > => true,
   'Response',

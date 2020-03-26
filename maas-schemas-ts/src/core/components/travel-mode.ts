@@ -113,7 +113,8 @@ export type PrivateTransitMode = t.Branded<
       | 'GONDOLA'
       | 'SHARED_CAR'
       | 'TAXI'
-      | 'TRAINISH'),
+      | 'TRAINISH'
+    ),
   PrivateTransitModeBrand
 >;
 export const PrivateTransitMode = t.brand(
@@ -142,7 +143,8 @@ export const PrivateTransitMode = t.brand(
         | 'GONDOLA'
         | 'SHARED_CAR'
         | 'TAXI'
-        | 'TRAINISH'),
+        | 'TRAINISH'
+      ),
     PrivateTransitModeBrand
   > => true,
   'PrivateTransitMode',

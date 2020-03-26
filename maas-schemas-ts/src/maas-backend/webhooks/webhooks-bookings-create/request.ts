@@ -63,7 +63,8 @@ export type Request = t.Branded<
             cost: Defined;
             meta: Defined;
             configurator: Defined;
-          });
+          }
+      );
       customerSelection?: CustomerSelection_.CustomerSelection;
     } & {
       option: Defined;
@@ -153,7 +154,8 @@ export const Request = t.brand(
               cost: Defined;
               meta: Defined;
               configurator: Defined;
-            });
+            }
+        );
         customerSelection?: CustomerSelection_.CustomerSelection;
       } & {
         option: Defined;

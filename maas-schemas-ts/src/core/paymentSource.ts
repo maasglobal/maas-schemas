@@ -44,7 +44,8 @@ export type PaymentSource = t.Branded<
         | 'generic'
         | 'alipay'
         | 'unionpay'
-        | 'apple_pay');
+        | 'apple_pay'
+      );
     gateway?: string;
     gatewayId?: string;
     temporaryToken?: string;
@@ -102,7 +103,8 @@ export const PaymentSource = t.brand(
           | 'generic'
           | 'alipay'
           | 'unionpay'
-          | 'apple_pay');
+          | 'apple_pay'
+        );
       gateway?: string;
       gatewayId?: string;
       temporaryToken?: string;

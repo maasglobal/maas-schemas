@@ -140,7 +140,7 @@ const [, , inputFile, outputDir, domain, strict] = process.argv;
 
 if (domain.endsWith('/') === false) {
   // eslint-disable-next-line
-  throw new Error('invalid domain argument');
+  throw new Error("invalid domain argument");
 }
 
 const defaultExport = getDefaultExport(inputFile);
@@ -173,7 +173,7 @@ function updateFailure(level: ErrorCode) {
 function reportError(level: 'INFO' | 'WARNING' | 'ERROR', message: string) {
   const lines = [`${level}: ${message}`, `  in ${inputFile}`];
   // eslint-disable-next-line
-  console.error(lines.join('\n'));
+  console.error(lines.join("\n"));
 }
 
 function error(message: string) {
@@ -212,23 +212,23 @@ function parseRef(ref: string) {
   }
   if (parts.length > 2) {
     // eslint-disable-next-line
-    throw new Error('unknown ref format');
+    throw new Error("unknown ref format");
   }
   const [filePath, jsonPath] = parts;
   // eslint-disable-next-line
-  const jsonPathParts = jsonPath.split('/');
+  const jsonPathParts = jsonPath.split("/");
   if (jsonPathParts.length !== 3) {
     // eslint-disable-next-line
-    throw new Error('unknown ref format');
+    throw new Error("unknown ref format");
   }
   const [empty, definitions, name] = jsonPathParts;
   if (empty !== '') {
     // eslint-disable-next-line
-    throw new Error('unknown ref format');
+    throw new Error("unknown ref format");
   }
   if (definitions !== 'definitions') {
     // eslint-disable-next-line
-    throw new Error('unknown ref format');
+    throw new Error("unknown ref format");
   }
   const variableName = typenameFromKebab(name);
   return { filePath, variableName };
@@ -241,9 +241,9 @@ function fromPatternProperties(schema: JSONSchema7): [gen.TypeReference] | [] {
     warning('patternProperty support has limitations');
 
     // The Record must also support non-pattern properties
-    const exactPairs = Object.entries(schema.properties || {}).map(
-      <K extends string, V>([key, value]: [K, V]) => [`^${key}$`, value],
-    );
+    const exactPairs = Object.entries(
+      schema.properties || {},
+    ).map(<K extends string, V>([key, value]: [K, V]) => [`^${key}$`, value]);
     const fuzzyPairs = Object.entries(schema.patternProperties);
     const allPairs = exactPairs.concat(fuzzyPairs);
     const valueCombinators = allPairs.map(<K extends string, V>([_key, value]: [K, V]) =>
@@ -315,7 +315,9 @@ function toArrayCombinator(schema: JSONSchema7): gen.TypeReference {
         return gen.tupleCombinator(combinators);
       }
       // eslint-disable-next-line
-      throw new Error('tuples with ...rest are not supported, set additionalItems false');
+      throw new Error(
+        "tuples with ...rest are not supported, set additionalItems false"
+      );
     }
     return gen.arrayCombinator(fromSchema(schema.items));
   }
@@ -400,7 +402,7 @@ function fromRef(refString: string): gen.TypeReference {
   }
 
   // eslint-disable-next-line
-  const [withoutPath] = ref.filePath.split('/').reverse();
+  const [withoutPath] = ref.filePath.split("/").reverse();
   const [basefile] = withoutPath.split('.json');
   const importName = `${typenameFromKebab(basefile)}_`;
   if (ref.filePath.startsWith(domain)) {
@@ -524,7 +526,9 @@ function fromConst(schema: JSONSchema7): [gen.TypeReference] | [] {
         return [gen.literalCombinator(schema.const)];
     }
     // eslint-disable-next-line
-    throw new Error(`${typeof schema.const}s are not supported as part of CONST`);
+    throw new Error(
+      `${typeof schema.const}s are not supported as part of CONST`
+    );
   }
   return [];
 }
@@ -595,7 +599,7 @@ function fromSchema(schema: JSONSchema7Definition, isRoot = false): gen.TypeRefe
   if ('$ref' in schema) {
     if (typeof schema['$ref'] === 'undefined') {
       // eslint-disable-next-line
-      throw new Error('broken input');
+      throw new Error("broken input");
     }
     return fromRef(schema['$ref']);
   }
@@ -656,7 +660,7 @@ function extractExamples(schema: JSONSchema7Definition): Examples {
     return [];
   }
   // eslint-disable-next-line
-  throw new Error('Unexpected format of examples');
+  throw new Error("Unexpected format of examples");
 }
 
 function extractDefaultValue(schema: JSONSchema7Definition): JSONSchema7['default'] {
@@ -703,7 +707,7 @@ function fromDefinitions(definitions2: JSONSchema7['definitions']): Array<DefInp
         const description = undefined;
         if (typeof scem['$ref'] === 'undefined') {
           // eslint-disable-next-line
-        throw new Error('broken input');
+          throw new Error("broken input");
         }
         return {
           meta: {
@@ -773,7 +777,7 @@ function fromRoot(root: JSONSchema7): Array<DefInput> {
   if ('$ref' in root) {
     if (typeof root['$ref'] === 'undefined') {
       // eslint-disable-next-line
-      throw new Error('broken input');
+      throw new Error("broken input");
     }
     exps.add(`export default ${defaultExport};`);
     return [
