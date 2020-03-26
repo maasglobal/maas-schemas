@@ -14,6 +14,7 @@ import * as CustomerSelection_ from 'maas-schemas-ts/core/components/customerSel
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
+import * as Message_ from 'maas-schemas-ts/core/components/message';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/itineraries/itinerary-create/request.json';
@@ -70,6 +71,7 @@ export type Request = t.Branded<
       outward?: OutwardReturnWrapper;
       return?: OutwardReturnWrapper;
     };
+    message?: Message_.Message;
   },
   RequestBrand
 >;
@@ -83,6 +85,7 @@ export const Request = t.brand(
       outward: OutwardReturnWrapper,
       return: OutwardReturnWrapper,
     }),
+    message: Message_.Message,
   }),
   (
     x,
@@ -96,6 +99,7 @@ export const Request = t.brand(
         outward?: OutwardReturnWrapper;
         return?: OutwardReturnWrapper;
       };
+      message?: Message_.Message;
     },
     RequestBrand
   > => true,
