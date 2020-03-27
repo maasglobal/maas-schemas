@@ -26,6 +26,18 @@
       "type": "string",
       "minLength": 2
     },
+    "metaCurrency": {
+      "type": "string",
+      "enum": ["WMP", "TOKEN"]
+    },
+    "metaCurrencyWMP": {
+      "default": "WMP",
+      "allOf": [{ "$ref": "#/definitions/metaCurrency" }, { "const": "WMP" }]
+    },
+    "metaCurrencyTOKEN": {
+      "default": "TOKEN",
+      "allOf": [{ "$ref": "#/definitions/metaCurrency" }, { "const": "TOKEN" }]
+    },
     "personalName": {
       "description": "First or last name of a customer (e.g. John)",
       "type": "string",
