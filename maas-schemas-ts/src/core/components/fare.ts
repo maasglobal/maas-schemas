@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Common_ from './common';
 
 type Defined =
   | Record<string, unknown>
@@ -46,7 +47,7 @@ export interface TokenIdBrand {
 export type Fare = t.Branded<
   {
     amount?: number | null;
-    currency?: string & ('WMP' | 'TOKEN');
+    currency?: Common_.MetaCurrency;
     tokenId?: TokenId;
     originalAmount?: number | null;
     productionAmount?: number | null;
@@ -61,10 +62,7 @@ export const Fare = t.brand(
   t.intersection([
     t.partial({
       amount: t.union([t.number, t.null]),
-      currency: t.intersection([
-        t.string,
-        t.union([t.literal('WMP'), t.literal('TOKEN')]),
-      ]),
+      currency: Common_.MetaCurrency,
       tokenId: TokenId,
       originalAmount: t.union([t.number, t.null]),
       productionAmount: t.union([t.number, t.null]),
@@ -83,7 +81,7 @@ export const Fare = t.brand(
   ): x is t.Branded<
     {
       amount?: number | null;
-      currency?: string & ('WMP' | 'TOKEN');
+      currency?: Common_.MetaCurrency;
       tokenId?: TokenId;
       originalAmount?: number | null;
       productionAmount?: number | null;
