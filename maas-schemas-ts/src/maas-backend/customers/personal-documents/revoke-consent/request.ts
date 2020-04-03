@@ -9,7 +9,7 @@ Revoke user consent to send all TSP required personal documents to TSP
 
 import * as t from 'io-ts';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
+import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
 import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
 
 type Defined =
@@ -38,9 +38,11 @@ export type Request = t.Branded<
     identityId?: Units_.IdentityId;
     customerId?: Units_.IdentityId;
     payload?: {
-      agencyId?: Common_.AgencyId;
+      partyId?: PersonalDocument_.PartyId;
+      partyType?: PersonalDocument_.PartyType;
     } & {
-      agencyId: Defined;
+      partyId: Defined;
+      partyType: Defined;
     };
     headers?: ApiCommon_.Headers;
   } & {
@@ -57,10 +59,12 @@ export const Request = t.brand(
       customerId: Units_.IdentityId,
       payload: t.intersection([
         t.partial({
-          agencyId: Common_.AgencyId,
+          partyId: PersonalDocument_.PartyId,
+          partyType: PersonalDocument_.PartyType,
         }),
         t.type({
-          agencyId: Defined,
+          partyId: Defined,
+          partyType: Defined,
         }),
       ]),
       headers: ApiCommon_.Headers,
@@ -78,9 +82,11 @@ export const Request = t.brand(
       identityId?: Units_.IdentityId;
       customerId?: Units_.IdentityId;
       payload?: {
-        agencyId?: Common_.AgencyId;
+        partyId?: PersonalDocument_.PartyId;
+        partyType?: PersonalDocument_.PartyType;
       } & {
-        agencyId: Defined;
+        partyId: Defined;
+        partyType: Defined;
       };
       headers?: ApiCommon_.Headers;
     } & {

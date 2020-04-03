@@ -14,11 +14,14 @@
     "payload": {
       "type": "object",
       "properties": {
-        "agencyId": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+        "partyId": {
+          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/partyId"
+        },
+        "partyType": {
+          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/partyType"
         }
       },
-      "required": ["agencyId"]
+      "required": ["partyId", "partyType"]
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
