@@ -1,0 +1,15 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/coupons/coupons-validate/response.json",
+  "description": "MaaS coupon validation",
+  "type": "object",
+  "properties": {
+    "code": {
+      "$ref": "http://maasglobal.com/maas-backend/coupons/code.json#/definitions/code"
+    },
+    "valid": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["code", "valid"]
+}
