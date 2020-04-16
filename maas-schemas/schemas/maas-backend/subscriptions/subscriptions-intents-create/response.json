@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "subscriptionIntent": {
-      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscriptionIntentBase"
+      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription-intent.json#/definitions/subscriptionIntentBase"
     },
     "debug": {
       "type": "object",
