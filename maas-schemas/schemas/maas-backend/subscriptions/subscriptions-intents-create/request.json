@@ -1,0 +1,21 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-intents-create/request.json",
+  "description": "Request schema for subscriptions-intents-create",
+  "type": "object",
+  "properties": {
+    "customerId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "userId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription-intent.json#/definitions/subscriptionIntentCreate"
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  },
+  "required": ["customerId", "userId", "payload"],
+  "additionalProperties": false
+}

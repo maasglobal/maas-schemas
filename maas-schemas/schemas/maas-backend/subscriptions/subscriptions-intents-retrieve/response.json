@@ -1,0 +1,12 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-intents-retrieve/response.json",
+  "description": "Response schema for subscriptions-intents-create",
+  "type": "object",
+  "properties": {
+    "subscriptionIntent": {
+      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscriptionIntentBase"
+    }
+  },
+  "required": ["subscriptionIntent"],
+  "additionalProperties": false
+}

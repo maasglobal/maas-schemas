@@ -1,0 +1,81 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscription-intent.json",
+  "description": "MaaS subscription intent schema",
+  "definitions": {
+    "subscriptionIntentCreate": {
+      "type": "object",
+      "properties": {
+        "planId": {
+          "$ref": "#/definitions/itemId"
+        },
+        "planAddons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/itemId"
+          }
+        },
+        "state": {
+          "$ref": "http://maasglobal.com/core/components/state.json#/definitions/subscriptionIntentState"
+        },
+        "startTime": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        "required": ["planId", "planAddons"]
+      }
+    },
+    "subscriptionIntentBase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+        },
+        "identityId": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+        },
+        "subscriptionId": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+        },
+        "nextPlanId": {
+          "$ref": "#/definitions/itemId"
+        },
+        "nextPlanAddons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/itemId"
+          }
+        },
+        "prevPlanId": {
+          "$ref": "#/definitions/itemId"
+        },
+        "prevPlanAddons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/itemId"
+          }
+        },
+        "startTime": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        "state": {
+          "$ref": "http://maasglobal.com/core/components/state.json#/definitions/subscriptionIntentState"
+        },
+        "stateLog": {
+          "$ref": "http://maasglobal.com/core/components/state-log.json"
+        },
+        "created": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        "modified": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        }
+      },
+      "required": ["identityId", "subscriptionId", "nextPlanId", "nextPlanAddons"],
+      "additionalProperties": false
+    },
+    "itemId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    }
+  }
+}
