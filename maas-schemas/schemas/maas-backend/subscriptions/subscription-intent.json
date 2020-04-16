@@ -19,9 +19,9 @@
         },
         "startTime": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
-        },
-        "required": ["planId", "planAddons"]
-      }
+        }
+      },
+      "required": ["planId", "planAddons"]
     },
     "subscriptionIntentBase": {
       "type": "object",

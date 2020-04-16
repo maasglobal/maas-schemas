@@ -6,7 +6,7 @@
     "subscriptionIntents": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscriptionIntentBase"
+        "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription-intent.json#/definitions/subscriptionIntentBase"
       }
     }
   },
