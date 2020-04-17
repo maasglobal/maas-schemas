@@ -1,0 +1,10 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/coupons/code.json",
+  "description": "MaaS coupon code",
+  "definitions": {
+    "code": {
+      "type": "string",
+      "description": "MaaS coupon code"
+    }
+  }
+}
