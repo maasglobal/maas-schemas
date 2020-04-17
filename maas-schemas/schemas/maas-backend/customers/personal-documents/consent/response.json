@@ -2,7 +2,7 @@
   "$id": "http://maasglobal.com/maas-backend/customers/personal-documents/consent/response.json",
   "description": "Save user consent to send all TSP required personal documents to TSP",
   "type": "object",
-  "additionalProperties": false,
+  "additionalProperties": true,
   "properties": {
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"

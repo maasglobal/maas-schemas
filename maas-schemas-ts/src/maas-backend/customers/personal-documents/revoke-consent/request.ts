@@ -7,10 +7,10 @@ Revoke user consent to send all TSP required personal documents to TSP
 
 */
 
-import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
-import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
+import * as t from "io-ts";
+import * as Units_ from "maas-schemas-ts/core/components/units";
+import * as PersonalDocument_ from "maas-schemas-ts/core/personal-document";
+import * as ApiCommon_ from "maas-schemas-ts/core/components/api-common";
 
 type Defined =
   | Record<string, unknown>
@@ -29,7 +29,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/customers/personal-documents/revoke-consent/request.json';
+  "http://maasglobal.com/maas-backend/customers/personal-documents/revoke-consent/request.json";
 
 // Request
 // The default export. More information at the top.
@@ -40,9 +40,6 @@ export type Request = t.Branded<
     payload?: {
       partyId?: PersonalDocument_.PartyId;
       partyType?: PersonalDocument_.PartyType;
-    } & {
-      partyId: Defined;
-      partyType: Defined;
     };
     headers?: ApiCommon_.Headers;
   } & {
@@ -56,17 +53,10 @@ export const Request = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
-      customerId: Units_.IdentityId,
-      payload: t.intersection([
-        t.partial({
-          partyId: PersonalDocument_.PartyId,
-          partyType: PersonalDocument_.PartyType,
-        }),
-        t.type({
-          partyId: Defined,
-          partyType: Defined,
-        }),
-      ]),
+      payload: t.partial({
+        partyId: PersonalDocument_.PartyId,
+        partyType: PersonalDocument_.PartyType,
+      }),
       headers: ApiCommon_.Headers,
     }),
     t.type({
@@ -76,7 +66,7 @@ export const Request = t.brand(
     }),
   ]),
   (
-    x,
+    x
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
@@ -84,9 +74,6 @@ export const Request = t.brand(
       payload?: {
         partyId?: PersonalDocument_.PartyId;
         partyType?: PersonalDocument_.PartyType;
-      } & {
-        partyId: Defined;
-        partyType: Defined;
       };
       headers?: ApiCommon_.Headers;
     } & {
@@ -96,7 +83,7 @@ export const Request = t.brand(
     },
     RequestBrand
   > => true,
-  'Request',
+  "Request"
 );
 export interface RequestBrand {
   readonly Request: unique symbol;

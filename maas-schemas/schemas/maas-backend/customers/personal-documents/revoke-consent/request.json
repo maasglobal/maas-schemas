@@ -21,7 +21,7 @@
           "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/partyType"
         }
       },
-      "required": ["partyId", "partyType"]
+      "additionalProperties": true
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
