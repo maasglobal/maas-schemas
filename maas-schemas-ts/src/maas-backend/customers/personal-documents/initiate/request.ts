@@ -42,7 +42,6 @@ export type Request = t.Branded<
       type?: PersonalDocument_.DocumentType;
       location?: UnitsGeo_.ShortLocationString;
     } & {
-      type: Defined;
       location: Defined;
     };
     headers?: ApiCommon_.Headers;
@@ -64,7 +63,6 @@ export const Request = t.brand(
           location: UnitsGeo_.ShortLocationString,
         }),
         t.type({
-          type: Defined,
           location: Defined,
         }),
       ]),
@@ -86,7 +84,6 @@ export const Request = t.brand(
         type?: PersonalDocument_.DocumentType;
         location?: UnitsGeo_.ShortLocationString;
       } & {
-        type: Defined;
         location: Defined;
       };
       headers?: ApiCommon_.Headers;

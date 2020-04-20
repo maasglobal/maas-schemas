@@ -21,7 +21,7 @@
           "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
         }
       },
-      "required": ["type", "location"]
+      "required": ["location"]
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
