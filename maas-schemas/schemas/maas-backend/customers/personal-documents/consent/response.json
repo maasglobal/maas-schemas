@@ -7,6 +7,9 @@
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
+    "id": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+    },
     "partyId": {
       "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/partyId"
     },
@@ -14,5 +17,5 @@
       "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/partyType"
     }
   },
-  "required": ["identityId", "partyId", "partyType"]
+  "required": ["identityId", "id", "partyId", "partyType"]
 }

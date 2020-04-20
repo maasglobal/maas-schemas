@@ -35,10 +35,12 @@ export const schemaId =
 export type Response = t.Branded<
   {
     identityId?: Units_.IdentityId;
+    id?: Units_.Uuid;
     partyId?: PersonalDocument_.PartyId;
     partyType?: PersonalDocument_.PartyType;
   } & {
     identityId: Defined;
+    id: Defined;
     partyId: Defined;
     partyType: Defined;
   },
@@ -48,11 +50,13 @@ export const Response = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
+      id: Units_.Uuid,
       partyId: PersonalDocument_.PartyId,
       partyType: PersonalDocument_.PartyType,
     }),
     t.type({
       identityId: Defined,
+      id: Defined,
       partyId: Defined,
       partyType: Defined,
     }),
@@ -62,10 +66,12 @@ export const Response = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
+      id?: Units_.Uuid;
       partyId?: PersonalDocument_.PartyId;
       partyType?: PersonalDocument_.PartyType;
     } & {
       identityId: Defined;
+      id: Defined;
       partyId: Defined;
       partyType: Defined;
     },

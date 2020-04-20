@@ -14,11 +14,8 @@
     "payload": {
       "type": "object",
       "properties": {
-        "partyId": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/partyId"
-        },
-        "partyType": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/partyType"
+        "id": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
         }
       },
       "additionalProperties": true
