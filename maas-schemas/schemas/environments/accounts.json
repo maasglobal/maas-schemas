@@ -1,0 +1,62 @@
+{
+  "$id": "http://maasglobal.com/environments/accounts.json",
+  "definitions": {
+    "accountId": {
+      "type": "string",
+      "pattern": "^[0-9]{12}$",
+      "examples": ["001234567890"]
+    },
+    "accountAlias": {
+      "type": "string",
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/hostnameLabel" }],
+      "examples": ["production", "testing"]
+    },
+    "accountName": {
+      "type": "string",
+      "examples": ["Production", "Testing"]
+    },
+    "accountDescription": {
+      "type": "string",
+      "examples": ["Production account", "Testing account"]
+    },
+    "account": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "#/definitions/accountId" },
+        "name": { "$ref": "#/definitions/accountName" },
+        "description": { "$ref": "#/definitions/accountDescription" }
+      },
+      "required": ["id"],
+      "examples": [
+        {
+          "id": "001234567890",
+          "name": "Example Account",
+          "description": "This account is but an example account"
+        },
+        {
+          "id": "001234567890"
+        }
+      ]
+    },
+    "accountIndex": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/definitions/accountAlias" },
+      "patternProperties": {
+        "^": { "$ref": "#/definitions/account" }
+      },
+      "additionalProperties": false,
+      "examples": [
+        {
+          "production": {
+            "id": "001234567890",
+            "name": "Example Account",
+            "description": "This account is but an example account"
+          },
+          "testing": {
+            "id": "101234567890"
+          }
+        }
+      ]
+    }
+  }
+}
