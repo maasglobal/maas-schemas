@@ -3,9 +3,6 @@
   "additionalProperties": false,
   "description": "MaaS customer verification initiate",
   "properties": {
-    "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
-    },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     },
@@ -14,15 +11,14 @@
     },
     "payload": {
       "properties": {
-        "type": {
-          "minLength": 2,
-          "type": "string"
+        "location": {
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
         }
       },
-      "required": ["type"],
+      "required": ["location"],
       "type": "object"
     }
   },
-  "required": ["identityId", "customerId", "payload", "headers"],
+  "required": ["identityId", "payload", "headers"],
   "type": "object"
 }

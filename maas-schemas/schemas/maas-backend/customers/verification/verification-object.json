@@ -14,58 +14,35 @@
         "identityId": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
         },
-        "details": {
-          "type": "object",
-          "properties": {
-            "url": {
-              "type": "string"
-            },
-            "sessionToken": {
-              "type": "string"
-            }
-          },
-          "required": ["url", "sessionToken"],
-          "additionalProperties": true
+        "kycServiceId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
         },
-        "validFrom": {
-          "type": "string"
+        "url": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
         },
-        "validTo": {
-          "type": "string"
+        "token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
         },
         "status": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
         },
         "stateLog": {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "object",
-            "properties": {
-              "status": {
-                "type": "string"
-              },
-              "timestamp": {
-                "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
-              }
-            },
-            "required": ["status", "timestamp"]
-          }
+          "$ref": "http://maasglobal.com/core/components/state-log.json"
         },
         "created": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "modified": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
-        },
-        "agencyId": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
         }
       },
-      "required": ["id", "identityId", "details", "status", "type", "stateLog"]
+      "required": ["id", "identityId", "kycServiceId", "status", "stateLog"]
     }
   }
 }
