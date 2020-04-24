@@ -67,6 +67,12 @@
       "items": {
         "$ref": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCard.json"
       }
+    },
+    "verifications": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/maas-backend/customers/verification/verification-object.json"
+      }
     }
   },
   "required": ["personalData", "paymentSources", "balances", "region", "authorizations"],
