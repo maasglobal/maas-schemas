@@ -586,18 +586,6 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/error.json
 WARNING: maxLength field not supported outside top-level definitions
   in ./core/error.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/errorCode.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/errorCode.json
-WARNING: maxLength field not supported outside top-level definitions
-  in ./core/errorCode.json
-INFO: primitive type "string" used outside top-level definitions
-  in ./core/errorCode.json
-WARNING: minLength field not supported outside top-level definitions
-  in ./core/errorCode.json
-WARNING: maxLength field not supported outside top-level definitions
-  in ./core/errorCode.json
 WARNING: skipping examples handling for $ref object
   in ./core/itinerary.json
 WARNING: skipping default value handling for $ref object
