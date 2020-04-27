@@ -127,6 +127,14 @@
       "required": ["WMP"],
       "additionalProperties": false
     },
+    "referral": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        }
+      }
+    },
     "subscriberType": {
       "description": "Subscriber Type",
       "type": "string"
@@ -198,6 +206,9 @@
           "amount": 1,
           "type": "charge"
         }
+      },
+      "referral": {
+        "code": "XXXX-XXXX-XXXX-XXXX"
       },
       "regionId": "fi-helsinki",
       "region": {
