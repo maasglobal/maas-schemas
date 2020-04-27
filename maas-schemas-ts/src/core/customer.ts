@@ -89,6 +89,9 @@ export type Customer = t.Branded<
     >) & {
       WMP: Defined;
     };
+    referral?: {
+      code?: string;
+    };
     subscriberType?: string;
     authToken?: Common_.EncodedQueryParam;
   },
@@ -163,6 +166,9 @@ export const Customer = t.brand(
         WMP: Defined,
       }),
     ]),
+    referral: t.partial({
+      code: t.string,
+    }),
     subscriberType: t.string,
     authToken: Common_.EncodedQueryParam,
   }),
@@ -219,6 +225,9 @@ export const Customer = t.brand(
           })
       >) & {
         WMP: Defined;
+      };
+      referral?: {
+        code?: string;
       };
       subscriberType?: string;
       authToken?: Common_.EncodedQueryParam;
@@ -278,6 +287,7 @@ export const examplesCustomer: NonEmptyArray<Customer> = ([
         type: 'charge',
       },
     },
+    referral: { code: 'XXXX-XXXX-XXXX-XXXX' },
     regionId: 'fi-helsinki',
     region: {
       id: 'fi-helsinki',

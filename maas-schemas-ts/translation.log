@@ -573,6 +573,8 @@ WARNING: minimum field not supported outside top-level definitions
 INFO: primitive type "string" used outside top-level definitions
   in ./core/customer.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/customer.json
+INFO: primitive type "string" used outside top-level definitions
   in ./core/error.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/error.json
