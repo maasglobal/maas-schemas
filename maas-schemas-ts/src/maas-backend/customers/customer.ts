@@ -59,7 +59,7 @@ export type Customer = t.Branded<
       }
     >;
     personalDocumentConsents?: Array<Common_.AgencyId>;
-    virtualCards?: Array<VirtualCard_.VirtualCard>;
+    verifications?: Array<VerificationObject_.VerificationObject>;
   } & {
     personalData: Defined;
     paymentSources: Defined;
@@ -93,7 +93,7 @@ export const Customer = t.brand(
         ]),
       ),
       personalDocumentConsents: t.array(Common_.AgencyId),
-      virtualCards: t.array(VirtualCard_.VirtualCard),
+      verifications: t.array(VerificationObject_.VerificationObject),
     }),
     t.type({
       personalData: Defined,
@@ -125,7 +125,7 @@ export const Customer = t.brand(
         }
       >;
       personalDocumentConsents?: Array<Common_.AgencyId>;
-      virtualCards?: Array<VirtualCard_.VirtualCard>;
+      verifications?: Array<VerificationObject_.VerificationObject>;
     } & {
       personalData: Defined;
       paymentSources: Defined;
