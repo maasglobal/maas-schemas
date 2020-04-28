@@ -56,6 +56,7 @@ export type Request = t.Branded<
           ids: Defined;
         })
       | null
+      | string
       | ({
           objectType?: 'Profile' | 'Subscription';
           ids?: Array<Units_.IdentityId>;
@@ -111,6 +112,7 @@ export const Request = t.brand(
           }),
         ]),
         t.null,
+        t.string,
         t.intersection([
           t.partial({
             objectType: t.union([t.literal('Profile'), t.literal('Subscription')]),
@@ -166,6 +168,7 @@ export const Request = t.brand(
             ids: Defined;
           })
         | null
+        | string
         | ({
             objectType?: 'Profile' | 'Subscription';
             ids?: Array<Units_.IdentityId>;

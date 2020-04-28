@@ -22,11 +22,13 @@
             },
             "person": {
               "type": "object",
-              "firstName": {
-                "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
-              },
-              "lastName": {
-                "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+              "properties": {
+                "firstName": {
+                  "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+                },
+                "lastName": {
+                  "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+                }
               },
               "additionalProperties": true
             },
@@ -34,33 +36,13 @@
               "type": "object",
               "properties": {
                 "number": {
-                  "type": ["string", "null"],
+                  "type": "string",
                   "minLength": 2
                 },
-                "type": {
-                  "oneOf": [
-                    { "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType" },
-                    { "type": "null" }
-                  ]
-                },
-                "country": {
-                  "oneOf": [
-                    { "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country" },
-                    { "type": "null" }
-                  ]
-                },
-                "validFrom": {
-                  "oneOf": [
-                    { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate" },
-                    { "type": "null" }
-                  ]
-                },
-                "validUntil": {
-                  "oneOf": [
-                    { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate" },
-                    { "type": "null" }
-                  ]
-                }
+                "type": { "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType" },
+                "country": { "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country" },
+                "validFrom": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate" },
+                "validUntil": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate" }
               }
             },
             "reason": {
@@ -68,8 +50,8 @@
             },
             "reasonCode": {
               "type": "integer",
-              "min": 100,
-              "max": 210
+              "minimum": 100,
+              "maximum": 210
             },
             "status": {
               "type": "string"
@@ -78,7 +60,7 @@
               "type": "object"
             },
             "vendorData": {
-              "type": ["string", "object", null]
+              "type": "string"
             },
             "decisionTime": {
               "type": "string"

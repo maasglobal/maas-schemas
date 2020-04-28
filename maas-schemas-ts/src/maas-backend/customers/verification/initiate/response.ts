@@ -34,11 +34,7 @@ export const schemaId =
 // The default export. More information at the top.
 export type Response = t.Branded<
   {
-    customer?: {
-      verification?: Array<VerificationObject_.Verification>;
-    } & {
-      verification: Defined;
-    };
+    verification?: VerificationObject_.Verification;
   } & {
     customer: Defined;
   },
@@ -47,14 +43,7 @@ export type Response = t.Branded<
 export const Response = t.brand(
   t.intersection([
     t.partial({
-      customer: t.intersection([
-        t.partial({
-          verification: t.array(VerificationObject_.Verification),
-        }),
-        t.type({
-          verification: Defined,
-        }),
-      ]),
+      verification: VerificationObject_.Verification,
     }),
     t.type({
       customer: Defined,
@@ -64,11 +53,7 @@ export const Response = t.brand(
     x,
   ): x is t.Branded<
     {
-      customer?: {
-        verification?: Array<VerificationObject_.Verification>;
-      } & {
-        verification: Defined;
-      };
+      verification?: VerificationObject_.Verification;
     } & {
       customer: Defined;
     },
