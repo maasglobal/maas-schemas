@@ -78,7 +78,7 @@
               "type": "object"
             },
             "vendorData": {
-              "type": ["object", null]
+              "type": ["string", "object", null]
             },
             "decisionTime": {
               "type": "string"
@@ -86,10 +86,11 @@
             "acceptanceTime": {
               "type": "string"
             }
-          }
+          },
+          "required": ["id", "status", "code", "person", "document"]
         }
       },
-      "required": []
+      "required": ["status", "verification"]
     },
     "headers": {
       "type": "object",
