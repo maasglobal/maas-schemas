@@ -11,6 +11,7 @@ import * as t from 'io-ts';
 import * as Booking_ from 'maas-schemas-ts/core/booking';
 import * as BookingOption_ from 'maas-schemas-ts/core/booking-option';
 import * as BookingMeta_ from 'maas-schemas-ts/core/booking-meta';
+import * as Errors_ from 'maas-schemas-ts/core/components/errors';
 
 type Defined =
   | Record<string, unknown>
@@ -42,6 +43,7 @@ export type RemoteRequest = t.Branded<
     meta?: BookingMeta_.BookingMeta;
     terms?: Booking_.Terms;
     token?: Booking_.Token;
+    reasons?: Array<Errors_.Reason>;
   } & {
     tspId: Defined;
     state: Defined;
@@ -65,6 +67,7 @@ export const RemoteRequest = t.brand(
       meta: BookingMeta_.BookingMeta,
       terms: Booking_.Terms,
       token: Booking_.Token,
+      reasons: t.array(Errors_.Reason),
     }),
     t.type({
       tspId: Defined,
@@ -88,6 +91,7 @@ export const RemoteRequest = t.brand(
       meta?: BookingMeta_.BookingMeta;
       terms?: Booking_.Terms;
       token?: Booking_.Token;
+      reasons?: Array<Errors_.Reason>;
     } & {
       tspId: Defined;
       state: Defined;
