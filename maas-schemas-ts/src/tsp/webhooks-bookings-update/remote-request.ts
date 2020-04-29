@@ -43,7 +43,7 @@ export type RemoteRequest = t.Branded<
     meta?: BookingMeta_.BookingMeta;
     terms?: Booking_.Terms;
     token?: Booking_.Token;
-    reasons?: Array<Errors_.Reason>;
+    reason?: Errors_.Reason;
   } & {
     tspId: Defined;
     state: Defined;
@@ -67,7 +67,7 @@ export const RemoteRequest = t.brand(
       meta: BookingMeta_.BookingMeta,
       terms: Booking_.Terms,
       token: Booking_.Token,
-      reasons: t.array(Errors_.Reason),
+      reason: Errors_.Reason,
     }),
     t.type({
       tspId: Defined,
@@ -91,7 +91,7 @@ export const RemoteRequest = t.brand(
       meta?: BookingMeta_.BookingMeta;
       terms?: Booking_.Terms;
       token?: Booking_.Token;
-      reasons?: Array<Errors_.Reason>;
+      reason?: Errors_.Reason;
     } & {
       tspId: Defined;
       state: Defined;
