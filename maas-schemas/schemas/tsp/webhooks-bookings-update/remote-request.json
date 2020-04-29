@@ -23,6 +23,12 @@
     },
     "token": {
       "$ref": "http://maasglobal.com/core/booking.json#/definitions/token"
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/core/components/errors.json#/definitions/reason"
+      }
     }
   },
   "required": ["tspId", "state"],
