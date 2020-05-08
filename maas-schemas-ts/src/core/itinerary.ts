@@ -93,6 +93,7 @@ export type Itinerary = t.Branded<
     label?: string;
     n?: number;
     isWhimRide?: boolean;
+    provider?: string;
   } & {
     startTime: Defined;
     endTime: Defined;
@@ -125,6 +126,7 @@ export const Itinerary = t.brand(
       label: t.string,
       n: t.number,
       isWhimRide: t.boolean,
+      provider: t.string,
     }),
     t.type({
       startTime: Defined,
@@ -158,6 +160,7 @@ export const Itinerary = t.brand(
       label?: string;
       n?: number;
       isWhimRide?: boolean;
+      provider?: string;
     } & {
       startTime: Defined;
       endTime: Defined;

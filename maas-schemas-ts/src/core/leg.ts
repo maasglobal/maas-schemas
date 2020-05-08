@@ -162,6 +162,30 @@ export interface RouteLongNameBrand {
 export type AgencyId = Common_.AgencyId;
 export const AgencyId = Common_.AgencyId;
 
+// AgencyName
+// The purpose of this remains a mystery
+export type AgencyName = t.Branded<string, AgencyNameBrand>;
+export const AgencyName = t.brand(
+  t.string,
+  (x): x is t.Branded<string, AgencyNameBrand> => true,
+  'AgencyName',
+);
+export interface AgencyNameBrand {
+  readonly AgencyName: unique symbol;
+}
+
+// Co2
+// The purpose of this remains a mystery
+export type Co2 = t.Branded<number, Co2Brand>;
+export const Co2 = t.brand(
+  t.number,
+  (x): x is t.Branded<number, Co2Brand> => true,
+  'Co2',
+);
+export interface Co2Brand {
+  readonly Co2: unique symbol;
+}
+
 // LegGeometry
 // The purpose of this remains a mystery
 export type LegGeometry = t.Branded<
@@ -252,6 +276,8 @@ export type LegCore = t.Branded<
     routeShortName?: RouteShortName;
     routeLongName?: RouteLongName;
     agencyId?: AgencyId;
+    agencyName?: string;
+    co2?: number;
     legGeometry?: LegGeometry;
     tspProduct?: TspProduct;
     productOption?: ProductOption;
@@ -282,6 +308,8 @@ export const LegCore = t.brand(
       routeShortName: RouteShortName,
       routeLongName: RouteLongName,
       agencyId: AgencyId,
+      agencyName: t.string,
+      co2: t.number,
       legGeometry: LegGeometry,
       tspProduct: TspProduct,
       productOption: ProductOption,
@@ -313,6 +341,8 @@ export const LegCore = t.brand(
       routeShortName?: RouteShortName;
       routeLongName?: RouteLongName;
       agencyId?: AgencyId;
+      agencyName?: string;
+      co2?: number;
       legGeometry?: LegGeometry;
       tspProduct?: TspProduct;
       productOption?: ProductOption;
