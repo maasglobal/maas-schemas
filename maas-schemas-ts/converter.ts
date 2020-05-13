@@ -4,6 +4,14 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as gen from 'io-ts-codegen';
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema';
+import * as yargs from 'yargs';
+
+const { argv } = yargs
+  .option('inputFile', { type: 'string', demandOption: true })
+  .option('outputDir', { type: 'string', demandOption: true })
+  .option('strict', { type: 'boolean' })
+  .option('base', { type: 'string', default: '' })
+  .help();
 
 // START: Ajv Schema Helpers https://github.com/epoberezkin/ajv-keywords
 
@@ -130,17 +138,29 @@ const supportedAtRoot = [
   'examples',
 ];
 
-const [, , inputFile, outputDir, domain, strict] = process.argv;
+const inputSchema: JSONSchema7 = JSON.parse(
+  fs.readFileSync(path.resolve(argv.inputFile), 'utf-8'),
+);
 
-if (domain.endsWith('/') === false) {
-  // eslint-disable-next-line
-  throw new Error("invalid domain argument");
+const [documentURI] = (
+  inputSchema.$id ?? 'file://'.concat(path.resolve(argv.inputFile))
+).split('#');
+
+if (documentURI.startsWith(argv.base) === false) {
+  error(`Document URI ${documentURI} is outside of output base.`);
 }
 
-const defaultExport = getDefaultExport(inputFile);
-const outputFile = path.join(outputDir, inputFile.split('.json').join('.ts'));
+const documentBase = (() => {
+  // eslint-disable-next-line
+  const [file, ...parts] = documentURI.split('/').reverse();
+  // eslint-disable-next-line
+  return parts.reverse().join('/');
+})();
 
-const inputSchema: JSONSchema7 = JSON.parse(fs.readFileSync(inputFile, 'utf-8'));
+const relativeP = documentURI.slice(argv.base.length);
+
+const defaultExport = getDefaultExport(argv.inputFile);
+const outputFile = path.join(argv.outputDir, relativeP.split('.json').join('.ts'));
 
 const imps = new Set<string>();
 const helpers = new Set<string>();
@@ -165,7 +185,7 @@ function updateFailure(level: ErrorCode) {
 }
 
 function reportError(level: 'INFO' | 'WARNING' | 'ERROR', message: string) {
-  const lines = [`${level}: ${message}`, `  in ${inputFile}`];
+  const lines = [`${level}: ${message}`, `  in ${argv.inputFile}`];
   // eslint-disable-next-line
   console.error(lines.join("\n"));
 }
@@ -388,26 +408,34 @@ function generateChecks(x: string, schema: JSONSchema7): string {
   return checks.join(' && ');
 }
 
+function calculateImportPath(filePath) {
+  const [withoutSuffix] = filePath.split('.json');
+
+  if (withoutSuffix.startsWith(argv.base)) {
+    const relativePath = path.relative(documentBase, withoutSuffix);
+    if (relativePath.startsWith('.')) {
+      return relativePath;
+    }
+    return './'.concat(relativePath);
+  }
+  return withoutSuffix;
+}
+
+function calculateImportName(filePath) {
+  // eslint-disable-next-line
+  const [withoutPath] = filePath.split("/").reverse();
+  const [basefile] = withoutPath.split('.json');
+  return `${typenameFromKebab(basefile)}_`;
+}
+
 function fromRef(refString: string): gen.TypeReference {
   const ref = parseRef(refString);
-
   if (ref.filePath === '') {
     return gen.customCombinator(ref.variableName, ref.variableName, [ref.variableName]);
   }
-
-  // eslint-disable-next-line
-  const [withoutPath] = ref.filePath.split("/").reverse();
-  const [basefile] = withoutPath.split('.json');
-  const importName = `${typenameFromKebab(basefile)}_`;
-  if (ref.filePath.startsWith(domain)) {
-    const URI = ref.filePath;
-    const [, withoutDomain] = URI.split(domain);
-    const [fullPath] = withoutDomain.split('.json');
-    imps.add(`import * as ${importName} from 'maas-schemas-ts/${fullPath}';`);
-  } else {
-    const [relativePath] = ref.filePath.split('.json');
-    imps.add(`import * as ${importName} from './${relativePath}';`);
-  }
+  const importName = calculateImportName(ref.filePath);
+  const importPath = calculateImportPath(ref.filePath);
+  imps.add(`import * as ${importName} from '${importPath}';`);
   const variableRef = `${importName}.${ref.variableName}`;
   return gen.customCombinator(variableRef, variableRef, [importName]);
 }
@@ -847,16 +875,12 @@ function constructDefs(defInputs: Array<DefInput>): Array<Def> {
   });
 }
 
-if (inputSchema.$id.split('#').length > 1) {
-  info('fragment used as part of $id');
-}
-
 const defs: Array<Def> = constructDefs(fromFile(inputSchema as JSONSchema7));
 
 if (returnCode === ErrorCode.ERROR) {
   process.exit(returnCode);
 }
-if (returnCode === ErrorCode.WARNING && strict === '--strict') {
+if (returnCode === ErrorCode.WARNING && argv.strict) {
   process.exit(returnCode);
 }
 
