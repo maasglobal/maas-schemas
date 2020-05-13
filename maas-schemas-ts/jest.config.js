@@ -8,9 +8,6 @@ module.exports = {
     },
   },
   testMatch: ['**/*.doctest.ts', '**/*.spec.ts'],
-  moduleNameMapper: {
-    'maas-schemas-ts/(.*)': '<rootDir>/src/$1',
-  },
   transform: {
     '^.+\\.(t|j)sx?$': 'ts-jest',
   },
