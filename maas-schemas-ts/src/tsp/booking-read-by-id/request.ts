@@ -26,7 +26,7 @@ const Defined = t.union([
   t.null,
 ]);
 
-export const schemaId = 'http://maasglobal.com/tsp/bookings-read-by-id/request.json';
+export const schemaId = 'http://maasglobal.com/tsp/booking-read-by-id/request.json';
 
 // Request
 // The default export. More information at the top.

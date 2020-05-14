@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/booking.json#",
+  "$id": "http://maasglobal.com/core/booking.json",
   "type": "object",
   "description": "The base booking object with all fields, to be inherited",
   "properties": {
