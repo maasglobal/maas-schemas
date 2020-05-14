@@ -1,5 +1,3 @@
-INFO: fragment used as part of $id
-  in ./core/booking.json
 WARNING: skipping examples handling for $ref object
   in ./core/booking.json
 WARNING: skipping default value handling for $ref object

@@ -26,7 +26,7 @@ const Defined = t.union([
   t.null,
 ]);
 
-export const schemaId = 'http://maasglobal.com/tsp/bookings-ticket/response.json';
+export const schemaId = 'http://maasglobal.com/tsp/booking-ticket/response.json';
 
 // Response
 // The default export. More information at the top.

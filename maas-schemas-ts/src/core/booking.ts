@@ -40,7 +40,7 @@ const Defined = t.union([
   t.null,
 ]);
 
-export const schemaId = 'http://maasglobal.com/core/booking.json#';
+export const schemaId = 'http://maasglobal.com/core/booking.json';
 
 // Id
 // The purpose of this remains a mystery
