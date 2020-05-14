@@ -8,9 +8,9 @@ Response schema for bookings-agency-products
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Fare_ from 'maas-schemas-ts/core/components/fare';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
+import * as Units_ from '../../../core/components/units';
+import * as Fare_ from '../../../core/components/fare';
+import * as Common_ from '../../../core/components/common';
 
 type Defined =
   | Record<string, unknown>

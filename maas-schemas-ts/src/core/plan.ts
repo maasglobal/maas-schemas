@@ -8,9 +8,9 @@ OpenTripPlanner compatible format for plans, extended with id for legs and itine
 */
 
 import * as t from 'io-ts';
-import * as Place_ from 'maas-schemas-ts/core/components/place';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Itinerary_ from 'maas-schemas-ts/core/itinerary';
+import * as Place_ from './components/place';
+import * as Units_ from './components/units';
+import * as Itinerary_ from './itinerary';
 
 type Defined =
   | Record<string, unknown>

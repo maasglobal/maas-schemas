@@ -8,8 +8,8 @@ Response schema for routes providers, subset of routes-query response schema
 */
 
 import * as t from 'io-ts';
-import * as Place_ from 'maas-schemas-ts/core/components/place';
-import * as Itinerary_ from 'maas-schemas-ts/core/itinerary';
+import * as Place_ from '../../../core/components/place';
+import * as Itinerary_ from '../../../core/itinerary';
 
 type Defined =
   | Record<string, unknown>

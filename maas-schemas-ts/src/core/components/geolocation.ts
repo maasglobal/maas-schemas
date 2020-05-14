@@ -8,8 +8,8 @@ Partial (Points only) GeoJSON Schema
 */
 
 import * as t from 'io-ts';
-import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
-import * as Address_ from 'maas-schemas-ts/core/components/address';
+import * as UnitsGeo_ from './units-geo';
+import * as Address_ from './address';
 
 type Defined =
   | Record<string, unknown>

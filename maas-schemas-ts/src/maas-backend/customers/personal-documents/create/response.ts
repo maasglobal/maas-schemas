@@ -8,7 +8,7 @@ Insert a pending verification personal document object
 */
 
 import * as t from 'io-ts';
-import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
+import * as PersonalDocument_ from '../../../../core/personal-document';
 
 type Defined =
   | Record<string, unknown>

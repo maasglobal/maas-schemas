@@ -8,7 +8,7 @@ MaaS common units that are used consistently within our own objects
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as Units_ from './units';
 
 type Defined =
   | Record<string, unknown>

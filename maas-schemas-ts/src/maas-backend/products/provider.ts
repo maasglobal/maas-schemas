@@ -8,10 +8,10 @@ MaaS product provider schema
 */
 
 import * as t from 'io-ts';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as PersonalDataAllowItem_ from 'maas-schemas-ts/core/components/personalDataAllowItem';
-import * as PersonalDocumentRequiredItem_ from 'maas-schemas-ts/core/components/personalDocumentRequiredItem';
+import * as Common_ from '../../core/components/common';
+import * as Units_ from '../../core/components/units';
+import * as PersonalDataAllowItem_ from '../../core/components/personalDataAllowItem';
+import * as PersonalDocumentRequiredItem_ from '../../core/components/personalDocumentRequiredItem';
 
 type Defined =
   | Record<string, unknown>

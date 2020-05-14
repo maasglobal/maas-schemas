@@ -8,7 +8,7 @@ Request post KYC verification update
 */
 
 import * as t from 'io-ts';
-import * as Customer_ from 'maas-schemas-ts/core/customer';
+import * as Customer_ from '../../core/customer';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 

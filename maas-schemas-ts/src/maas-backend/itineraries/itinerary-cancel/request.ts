@@ -8,8 +8,8 @@ Request schema for itinerary-cancel
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
+import * as Units_ from '../../../core/components/units';
+import * as ApiCommon_ from '../../../core/components/api-common';
 
 type Defined =
   | Record<string, unknown>

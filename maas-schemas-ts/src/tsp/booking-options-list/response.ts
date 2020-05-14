@@ -8,8 +8,8 @@ Response schema for getting options from a TSP adapter
 */
 
 import * as t from 'io-ts';
-import * as BookingOption_ from 'maas-schemas-ts/core/booking-option';
-import * as BikeStation_ from 'maas-schemas-ts/core/components/bike-station';
+import * as BookingOption_ from '../../core/booking-option';
+import * as BikeStation_ from '../../core/components/bike-station';
 
 type Defined =
   | Record<string, unknown>

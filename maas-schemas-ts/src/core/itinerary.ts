@@ -7,14 +7,14 @@ OpenTripPlanner itinerary, augmented with leg bookings per leg
 
 */
 
-import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as Units_ from './components/units';
 import * as t from 'io-ts';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as State_ from 'maas-schemas-ts/core/components/state';
-import * as Fare_ from 'maas-schemas-ts/core/components/fare';
-import * as Leg_ from 'maas-schemas-ts/core/leg';
-import * as ProductOption_ from 'maas-schemas-ts/core/product-option';
-import * as Booking_ from 'maas-schemas-ts/core/booking';
+import * as Common_ from './components/common';
+import * as State_ from './components/state';
+import * as Fare_ from './components/fare';
+import * as Leg_ from './leg';
+import * as ProductOption_ from './product-option';
+import * as Booking_ from './booking';
 
 type Defined =
   | Record<string, unknown>

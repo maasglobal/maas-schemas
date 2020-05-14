@@ -8,9 +8,9 @@ MaaS Invoice schema
 */
 
 import * as t from 'io-ts';
-import * as InvoiceUnits_ from 'maas-schemas-ts/maas-backend/invoices/invoiceUnits';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as InvoiceLineItem_ from 'maas-schemas-ts/maas-backend/invoices/invoiceLineItem';
+import * as InvoiceUnits_ from './invoiceUnits';
+import * as Units_ from '../../core/components/units';
+import * as InvoiceLineItem_ from './invoiceLineItem';
 
 type Defined =
   | Record<string, unknown>

@@ -8,7 +8,7 @@ Response schema for subscriptions-change-state
 */
 
 import * as t from 'io-ts';
-import * as SubscriptionChangeState_ from 'maas-schemas-ts/core/components/subscriptionChangeState';
+import * as SubscriptionChangeState_ from '../../../core/components/subscriptionChangeState';
 
 type Defined =
   | Record<string, unknown>

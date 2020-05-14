@@ -8,7 +8,7 @@ MaaS payment parameters for completing booking payment
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as Units_ from './units';
 
 export const schemaId = 'http://maasglobal.com/core/components/payment-parameters.json';
 

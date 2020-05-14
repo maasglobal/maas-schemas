@@ -8,12 +8,12 @@ MaaS customer schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as Address_ from 'maas-schemas-ts/core/components/address';
-import * as I18n_ from 'maas-schemas-ts/core/components/i18n';
-import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
-import * as Fare_ from 'maas-schemas-ts/core/components/fare';
+import * as Units_ from './components/units';
+import * as Common_ from './components/common';
+import * as Address_ from './components/address';
+import * as I18n_ from './components/i18n';
+import * as PersonalDocument_ from './personal-document';
+import * as Fare_ from './components/fare';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 

@@ -8,8 +8,8 @@ The base environments object with several environment groups and related meta da
 */
 
 import * as t from 'io-ts';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as Common_ from '../core/components/common';
+import * as Units_ from '../core/components/units';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 

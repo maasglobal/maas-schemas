@@ -8,7 +8,7 @@ MaaS customer verification initiate
 */
 
 import * as t from 'io-ts';
-import * as VerificationObject_ from 'maas-schemas-ts/maas-backend/customers/verification/verification-object';
+import * as VerificationObject_ from '../verification-object';
 
 type Defined =
   | Record<string, unknown>

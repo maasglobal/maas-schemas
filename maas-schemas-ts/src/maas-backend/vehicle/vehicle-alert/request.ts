@@ -8,7 +8,7 @@ Request to vehicle
 */
 
 import * as t from 'io-ts';
-import * as Product_ from 'maas-schemas-ts/core/product';
+import * as Product_ from '../../../core/product';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/vehicle/vehicle-alert/request.json';

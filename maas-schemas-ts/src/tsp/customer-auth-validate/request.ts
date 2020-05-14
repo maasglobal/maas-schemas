@@ -8,7 +8,7 @@ Request schema for completing customer authorization for TSP
 */
 
 import * as t from 'io-ts';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
+import * as Common_ from '../../core/components/common';
 
 type Defined =
   | Record<string, unknown>

@@ -8,7 +8,7 @@ MaaS stations query response schema
 */
 
 import * as t from 'io-ts';
-import * as Station_ from 'maas-schemas-ts/core/components/station';
+import * as Station_ from '../../core/components/station';
 
 type Defined =
   | Record<string, unknown>

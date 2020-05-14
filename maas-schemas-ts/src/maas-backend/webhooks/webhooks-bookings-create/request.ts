@@ -8,12 +8,12 @@ Request schema for webhooks-bookings-create
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as I18n_ from 'maas-schemas-ts/core/components/i18n';
-import * as Booking_ from 'maas-schemas-ts/core/booking';
-import * as BookingMeta_ from 'maas-schemas-ts/core/booking-meta';
-import * as CustomerSelection_ from 'maas-schemas-ts/core/components/customerSelection';
-import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
+import * as Units_ from '../../../core/components/units';
+import * as I18n_ from '../../../core/components/i18n';
+import * as Booking_ from '../../../core/booking';
+import * as BookingMeta_ from '../../../core/booking-meta';
+import * as CustomerSelection_ from '../../../core/components/customerSelection';
+import * as ApiCommon_ from '../../../core/components/api-common';
 
 type Defined =
   | Record<string, unknown>

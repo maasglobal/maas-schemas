@@ -8,9 +8,9 @@ Response schema for canceling a booking through a TSP adapter
 */
 
 import * as t from 'io-ts';
-import * as Booking_ from 'maas-schemas-ts/core/booking';
-import * as BookingOption_ from 'maas-schemas-ts/core/booking-option';
-import * as BookingMeta_ from 'maas-schemas-ts/core/booking-meta';
+import * as Booking_ from '../../core/booking';
+import * as BookingOption_ from '../../core/booking-option';
+import * as BookingMeta_ from '../../core/booking-meta';
 
 type Defined =
   | Record<string, unknown>

@@ -8,9 +8,9 @@ Schema for MaaS thing shadow
 */
 
 import * as t from 'io-ts';
-import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as State_ from 'maas-schemas-ts/core/components/state';
+import * as UnitsGeo_ from './components/units-geo';
+import * as Units_ from './components/units';
+import * as State_ from './components/state';
 
 export const schemaId = 'http://maasglobal.com/core/iot-thing-shadow.json';
 

@@ -8,9 +8,9 @@ Response schema for bookings-agency-options
 */
 
 import * as t from 'io-ts';
-import * as Booking_ from 'maas-schemas-ts/core/booking';
-import * as BookingMeta_ from 'maas-schemas-ts/core/booking-meta';
-import * as BikeStation_ from 'maas-schemas-ts/core/components/bike-station';
+import * as Booking_ from '../../../core/booking';
+import * as BookingMeta_ from '../../../core/booking-meta';
+import * as BikeStation_ from '../../../core/components/bike-station';
 
 type Defined =
   | Record<string, unknown>

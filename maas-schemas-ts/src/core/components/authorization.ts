@@ -8,8 +8,8 @@ MaaS information about an authorization required to use a particular TSP
 */
 
 import * as t from 'io-ts';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as Common_ from './common';
+import * as Units_ from './units';
 
 type Defined =
   | Record<string, unknown>

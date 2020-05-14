@@ -8,9 +8,9 @@ MaaS webhook to receive payment status updates from payment gateways.
 */
 
 import * as t from 'io-ts';
-import * as Avainpay_ from 'maas-schemas-ts/maas-backend/webhooks/webhooks-payments/gateway/avainpay';
-import * as Stripe_ from 'maas-schemas-ts/maas-backend/webhooks/webhooks-payments/gateway/stripe';
-import * as Yaband_ from 'maas-schemas-ts/maas-backend/webhooks/webhooks-payments/gateway/yaband';
+import * as Avainpay_ from './gateway/avainpay';
+import * as Stripe_ from './gateway/stripe';
+import * as Yaband_ from './gateway/yaband';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/webhooks/webhooks-payments/request.json';

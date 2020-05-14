@@ -8,15 +8,15 @@ MaaS customer schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as PersonalData_ from 'maas-schemas-ts/maas-backend/customers/personalData';
-import * as PaymentSource_ from 'maas-schemas-ts/maas-backend/customers/payment-sources/paymentSource';
-import * as Fare_ from 'maas-schemas-ts/core/components/fare';
-import * as Region_ from 'maas-schemas-ts/core/region';
-import * as Authorization_ from 'maas-schemas-ts/core/components/authorization';
-import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as VirtualCard_ from 'maas-schemas-ts/maas-backend/customers/virtual-cards/virtualCard';
+import * as Units_ from '../../core/components/units';
+import * as PersonalData_ from './personalData';
+import * as PaymentSource_ from './payment-sources/paymentSource';
+import * as Fare_ from '../../core/components/fare';
+import * as Region_ from '../../core/region';
+import * as Authorization_ from '../../core/components/authorization';
+import * as PersonalDocument_ from '../../core/personal-document';
+import * as Common_ from '../../core/components/common';
+import * as VirtualCard_ from './virtual-cards/virtualCard';
 
 type Defined =
   | Record<string, unknown>

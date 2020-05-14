@@ -8,9 +8,9 @@ Set of booking state transitions
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as State_ from 'maas-schemas-ts/core/components/state';
-import * as Errors_ from 'maas-schemas-ts/core/components/errors';
+import * as Units_ from './units';
+import * as State_ from './state';
+import * as Errors_ from './errors';
 
 type Defined =
   | Record<string, unknown>

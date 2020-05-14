@@ -8,7 +8,7 @@ MaaS.fi geocoding (GeoJSON) response schema
 */
 
 import * as t from 'io-ts';
-import * as Geolocation_ from 'maas-schemas-ts/core/components/geolocation';
+import * as Geolocation_ from '../../../core/components/geolocation';
 
 type Defined =
   | Record<string, unknown>

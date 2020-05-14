@@ -8,10 +8,10 @@ Request schema for tsp-auth verify
 */
 
 import * as t from 'io-ts';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Definitions_ from 'maas-schemas-ts/maas-backend/tsp-auth/verify/definitions';
-import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
+import * as Common_ from '../../../core/components/common';
+import * as Units_ from '../../../core/components/units';
+import * as Definitions_ from './definitions';
+import * as ApiCommon_ from '../../../core/components/api-common';
 
 type Defined =
   | Record<string, unknown>

@@ -8,9 +8,9 @@ A place, as a location-name pair with name and address
 */
 
 import * as t from 'io-ts';
-import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
-import * as Address_ from 'maas-schemas-ts/core/components/address';
-import * as Station_ from 'maas-schemas-ts/core/components/station';
+import * as UnitsGeo_ from './units-geo';
+import * as Address_ from './address';
+import * as Station_ from './station';
 
 type Defined =
   | Record<string, unknown>

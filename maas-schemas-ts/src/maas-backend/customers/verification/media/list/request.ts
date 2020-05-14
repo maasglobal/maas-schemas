@@ -8,7 +8,7 @@ MaaS customer verification media list
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as Units_ from '../../../../../core/components/units';
 
 type Defined =
   | Record<string, unknown>

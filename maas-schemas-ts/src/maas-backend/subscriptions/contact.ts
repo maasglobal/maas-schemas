@@ -8,9 +8,9 @@ MaaS contact (customer and user) schema
 */
 
 import * as t from 'io-ts';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as Address_ from 'maas-schemas-ts/core/components/address';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as Common_ from '../../core/components/common';
+import * as Address_ from '../../core/components/address';
+import * as Units_ from '../../core/components/units';
 
 type Defined =
   | Record<string, unknown>

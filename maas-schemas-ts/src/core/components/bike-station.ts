@@ -8,7 +8,7 @@ MaaS bike station schema
 */
 
 import * as t from 'io-ts';
-import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
+import * as UnitsGeo_ from './units-geo';
 
 type Defined =
   | Record<string, unknown>

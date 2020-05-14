@@ -8,7 +8,7 @@ Request schema for retrieving a ticket from booking through a TSP adapter
 */
 
 import * as t from 'io-ts';
-import * as Booking_ from 'maas-schemas-ts/core/booking';
+import * as Booking_ from '../../core/booking';
 
 type Defined =
   | Record<string, unknown>

@@ -8,7 +8,7 @@ undefined
 */
 
 import * as t from 'io-ts';
-import * as BikeStation_ from 'maas-schemas-ts/core/components/bike-station';
+import * as BikeStation_ from '../components/bike-station';
 
 type Defined =
   | Record<string, unknown>

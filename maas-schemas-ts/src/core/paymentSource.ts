@@ -8,8 +8,8 @@ MaaS region schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Card_ from 'maas-schemas-ts/core/card';
+import * as Units_ from './components/units';
+import * as Card_ from './card';
 
 type Defined =
   | Record<string, unknown>

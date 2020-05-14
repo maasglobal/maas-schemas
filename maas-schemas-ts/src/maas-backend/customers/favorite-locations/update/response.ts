@@ -8,7 +8,7 @@ MaaS customer favorite location updating response
 */
 
 import * as t from 'io-ts';
-import * as PartialFavoriteLocation_ from 'maas-schemas-ts/core/partialFavoriteLocation';
+import * as PartialFavoriteLocation_ from '../../../../core/partialFavoriteLocation';
 
 type Defined =
   | Record<string, unknown>

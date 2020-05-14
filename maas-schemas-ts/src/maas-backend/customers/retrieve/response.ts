@@ -8,7 +8,7 @@ MaaS customer retrieve
 */
 
 import * as t from 'io-ts';
-import * as Customer_ from 'maas-schemas-ts/maas-backend/customers/customer';
+import * as Customer_ from '../customer';
 
 type Defined =
   | Record<string, unknown>

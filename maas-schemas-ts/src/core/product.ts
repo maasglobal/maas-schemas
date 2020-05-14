@@ -8,8 +8,8 @@ Product in core which encapsulates at least an id, name and a tspProductId
 */
 
 import * as t from 'io-ts';
-import * as Fare_ from 'maas-schemas-ts/core/components/fare';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
+import * as Fare_ from './components/fare';
+import * as Common_ from './components/common';
 
 type Defined =
   | Record<string, unknown>
