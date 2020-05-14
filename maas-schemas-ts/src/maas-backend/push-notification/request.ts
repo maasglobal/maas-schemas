@@ -60,6 +60,13 @@ export type Request = t.Branded<
         } & {
           objectType: Defined;
           ids: Defined;
+        })
+      | ({
+          objectType?: 'Reminder';
+          authUrl?: Units_.Url;
+        } & {
+          objectType: Defined;
+          authUrl: Defined;
         });
   } & {
     identityId: Defined;
@@ -111,6 +118,16 @@ export const Request = t.brand(
             ids: Defined,
           }),
         ]),
+        t.intersection([
+          t.partial({
+            objectType: t.literal('Reminder'),
+            authUrl: Units_.Url,
+          }),
+          t.type({
+            objectType: Defined,
+            authUrl: Defined,
+          }),
+        ]),
       ]),
     }),
     t.type({
@@ -151,6 +168,13 @@ export const Request = t.brand(
           } & {
             objectType: Defined;
             ids: Defined;
+          })
+        | ({
+            objectType?: 'Reminder';
+            authUrl?: Units_.Url;
+          } & {
+            objectType: Defined;
+            authUrl: Defined;
           });
     } & {
       identityId: Defined;
