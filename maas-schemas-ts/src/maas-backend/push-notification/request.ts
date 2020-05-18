@@ -44,7 +44,8 @@ export type Request = t.Branded<
       | 'TripActivate'
       | 'InfoMessage'
       | 'ZendeskReply'
-      | 'VerificationUpdate';
+      | 'VerificationUpdate'
+      | 'AuthRequired';
     data?:
       | ({
           objectType?: 'Itinerary' | 'Booking';
@@ -95,6 +96,7 @@ export const Request = t.brand(
         t.literal('InfoMessage'),
         t.literal('ZendeskReply'),
         t.literal('VerificationUpdate'),
+        t.literal('AuthRequired'),
       ]),
       data: t.union([
         t.intersection([
@@ -152,7 +154,8 @@ export const Request = t.brand(
         | 'TripActivate'
         | 'InfoMessage'
         | 'ZendeskReply'
-        | 'VerificationUpdate';
+        | 'VerificationUpdate'
+        | 'AuthRequired';
       data?:
         | ({
             objectType?: 'Itinerary' | 'Booking';
