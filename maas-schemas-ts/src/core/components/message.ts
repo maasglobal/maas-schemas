@@ -46,6 +46,7 @@ export type Message = t.Branded<
         | 'MODE_GONDOLA'
         | 'MODE_FUNICULAR'
         | 'MODE_SHARED_BICYCLE'
+        | 'MODE_SHARED_E_BICYCLE'
         | 'MODE_SHARED_CAR'
         | 'MODE_TRANSIT'
         | 'MODE_TRAIN'
@@ -81,6 +82,7 @@ export const Message = t.brand(
           t.literal('MODE_GONDOLA'),
           t.literal('MODE_FUNICULAR'),
           t.literal('MODE_SHARED_BICYCLE'),
+          t.literal('MODE_SHARED_E_BICYCLE'),
           t.literal('MODE_SHARED_CAR'),
           t.literal('MODE_TRANSIT'),
           t.literal('MODE_TRAIN'),
@@ -117,6 +119,7 @@ export const Message = t.brand(
           | 'MODE_GONDOLA'
           | 'MODE_FUNICULAR'
           | 'MODE_SHARED_BICYCLE'
+          | 'MODE_SHARED_E_BICYCLE'
           | 'MODE_SHARED_CAR'
           | 'MODE_TRANSIT'
           | 'MODE_TRAIN'
