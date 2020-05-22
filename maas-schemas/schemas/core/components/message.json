@@ -24,6 +24,7 @@
         "MODE_GONDOLA",
         "MODE_FUNICULAR",
         "MODE_SHARED_BICYCLE",
+        "MODE_SHARED_E_BICYCLE",
         "MODE_SHARED_CAR",
         "MODE_TRANSIT",
         "MODE_TRAIN",

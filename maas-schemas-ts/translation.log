@@ -709,6 +709,10 @@ WARNING: skipping examples handling for $ref object
 WARNING: skipping default value handling for $ref object
   in ./core/modes/MODE_SHARED_CAR.json
 INFO: primitive type "string" used outside top-level definitions
+  in ./core/modes/MODE_SHARED_E_BICYCLE.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./core/modes/MODE_SHARED_E_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
   in ./core/modes/MODE_TAXI.json
 WARNING: minLength field not supported outside top-level definitions
   in ./core/modes/MODE_TAXI.json
