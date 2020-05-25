@@ -87,7 +87,7 @@
       "oneOf": [
         { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid" },
         {
-          "type":  "string",
+          "type": "string",
           "enum": ["UNKNOWN"]
         }
       ]
