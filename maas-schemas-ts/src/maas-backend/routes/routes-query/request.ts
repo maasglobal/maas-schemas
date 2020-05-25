@@ -37,7 +37,7 @@ export const schemaId =
 // Payload
 // The purpose of this remains a mystery
 export type Payload = t.Branded<
-  ({
+  {
     from?: UnitsGeo_.ShortLocationString;
     fromName?: Address_.PlaceName;
     fromAddress?: Address_.ComponentAddress;
@@ -75,30 +75,56 @@ export type Payload = t.Branded<
     | Units_.Uuid
     | Common_.RequestId
     | (string | number | boolean)
-  >) & {
-    from: Defined;
-    to: Defined;
-  },
+  >,
   PayloadBrand
 >;
 export const Payload = t.brand(
   t.intersection([
-    t.intersection([
-      t.partial({
-        from: UnitsGeo_.ShortLocationString,
-        fromName: Address_.PlaceName,
-        fromAddress: Address_.ComponentAddress,
-        fromStationId: Station_.Id,
-        to: UnitsGeo_.ShortLocationString,
-        toName: Address_.PlaceName,
-        toAddress: Address_.ComponentAddress,
-        toStationId: Station_.Id,
-        leaveAt: Units_.Time,
-        arriveBy: Units_.Time,
-        leaveAtReturn: Units_.Time,
-        arriveByReturn: Units_.Time,
-        modes: t.string,
-        transitMode: t.intersection([
+    t.partial({
+      from: UnitsGeo_.ShortLocationString,
+      fromName: Address_.PlaceName,
+      fromAddress: Address_.ComponentAddress,
+      fromStationId: Station_.Id,
+      to: UnitsGeo_.ShortLocationString,
+      toName: Address_.PlaceName,
+      toAddress: Address_.ComponentAddress,
+      toStationId: Station_.Id,
+      leaveAt: Units_.Time,
+      arriveBy: Units_.Time,
+      leaveAtReturn: Units_.Time,
+      arriveByReturn: Units_.Time,
+      modes: t.string,
+      transitMode: t.intersection([
+        t.string,
+        t.union([
+          t.literal('TRAIN'),
+          t.literal('BUS'),
+          t.literal('SUBWAY'),
+          t.literal('TRAM'),
+          t.literal('RAIL'),
+        ]),
+      ]),
+      options: t.type({}),
+      bookingIdToExtend: Units_.Uuid,
+      requestId: Common_.RequestId,
+    }),
+    t.record(
+      t.string,
+      t.union([
+        UnitsGeo_.ShortLocationString,
+        Address_.PlaceName,
+        Address_.ComponentAddress,
+        Station_.Id,
+        UnitsGeo_.ShortLocationString,
+        Address_.PlaceName,
+        Address_.ComponentAddress,
+        Station_.Id,
+        Units_.Time,
+        Units_.Time,
+        Units_.Time,
+        Units_.Time,
+        t.string,
+        t.intersection([
           t.string,
           t.union([
             t.literal("TRAIN"),
@@ -153,7 +179,7 @@ export const Payload = t.brand(
   (
     x
   ): x is t.Branded<
-    ({
+    {
       from?: UnitsGeo_.ShortLocationString;
       fromName?: Address_.PlaceName;
       fromAddress?: Address_.ComponentAddress;
@@ -191,10 +217,7 @@ export const Payload = t.brand(
       | Units_.Uuid
       | Common_.RequestId
       | (string | number | boolean)
-    >) & {
-      from: Defined;
-      to: Defined;
-    },
+    >,
     PayloadBrand
   > => true,
   "Payload"
