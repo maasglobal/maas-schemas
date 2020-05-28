@@ -58,13 +58,5 @@
     }
   },
   "additionalProperties": false,
-  "required": [
-    "type",
-    "documentNumber",
-    "nameOnDocument",
-    "issuingCountry",
-    "status",
-    "validFrom",
-    "validTo"
-  ]
+  "required": ["type", "documentNumber", "nameOnDocument", "issuingCountry", "status", "validFrom", "validTo"]
 }

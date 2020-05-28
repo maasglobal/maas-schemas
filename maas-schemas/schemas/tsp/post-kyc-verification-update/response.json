@@ -12,8 +12,10 @@
   },
   "required": ["message", "status"],
   "additionalProperties": false,
-  "examples": [{
-    "status": 200,
-    "message": "Documents were processed."
-  }]
+  "examples": [
+    {
+      "status": 200,
+      "message": "Documents were processed."
+    }
+  ]
 }
