@@ -1,0 +1,38 @@
+{
+  "$id": "http://maasglobal.com/tsp/post-kyc-verification-update/request.json",
+  "description": "Request post KYC verification update",
+  "type": "object",
+  "properties": {
+    "customer": {
+      "$ref": "http://maasglobal.com/core/customer.json"
+    }
+  },
+  "required": ["customer"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "customer": {
+        "firstName": "John",
+        "lastName": "Maas",
+        "opaqueId": "8da153248154d1b3f4f7322245f1c93a588dc6aac53c46d551a547c8524c315e",
+        "phone": "+35888999222",
+        "email": "maasuser-test@maas.fi",
+        "documents": [
+          {
+            "media": {
+              "frontDocument": "iVBOCC",
+              "backDocument": "iVBORwmCC"
+            },
+            "type": "DRIVERS_LICENSE",
+            "documentNumber": "491102155590",
+            "nameOnDocument": "NGUYEN DUY HIEU",
+            "issuingCountry": "JP",
+            "status": "APPROVED",
+            "validFrom": "2018-10-12",
+            "validTo": "2022-02-21"
+          }
+        ]
+      }
+    }
+  ]
+}

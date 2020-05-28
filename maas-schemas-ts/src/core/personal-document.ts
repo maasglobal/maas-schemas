@@ -101,6 +101,10 @@ export type PersonalDocument = t.Branded<
     details?: {
       category?: string;
     };
+    media?: {
+      frontDocument?: string;
+      backDocument?: string;
+    };
   } & {
     type: Defined;
     documentNumber: Defined;
@@ -109,7 +113,6 @@ export type PersonalDocument = t.Branded<
     status: Defined;
     validFrom: Defined;
     validTo: Defined;
-    details: Defined;
   },
   PersonalDocumentBrand
 >;
@@ -127,6 +130,10 @@ export const PersonalDocument = t.brand(
       details: t.partial({
         category: t.string,
       }),
+      media: t.partial({
+        frontDocument: t.string,
+        backDocument: t.string,
+      }),
     }),
     t.type({
       type: Defined,
@@ -136,7 +143,6 @@ export const PersonalDocument = t.brand(
       status: Defined,
       validFrom: Defined,
       validTo: Defined,
-      details: Defined,
     }),
   ]),
   (
@@ -154,6 +160,10 @@ export const PersonalDocument = t.brand(
       details?: {
         category?: string;
       };
+      media?: {
+        frontDocument?: string;
+        backDocument?: string;
+      };
     } & {
       type: Defined;
       documentNumber: Defined;
@@ -162,7 +172,6 @@ export const PersonalDocument = t.brand(
       status: Defined;
       validFrom: Defined;
       validTo: Defined;
-      details: Defined;
     },
     PersonalDocumentBrand
   > => true,

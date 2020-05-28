@@ -816,6 +816,10 @@ WARNING: minLength field not supported outside top-level definitions
   in ./core/personal-document.json
 INFO: primitive type "string" used outside top-level definitions
   in ./core/personal-document.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/personal-document.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/personal-document.json
 INFO: missing description
   in ./core/personal-document.json
 INFO: missing description
@@ -1796,6 +1800,10 @@ WARNING: skipping examples handling for $ref object
   in ./tsp/journey-planner/response.json
 WARNING: skipping default value handling for $ref object
   in ./tsp/journey-planner/response.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./tsp/post-kyc-verification-update/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./tsp/post-kyc-verification-update/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ./tsp/stations-list/request.json
 WARNING: minLength field not supported outside top-level definitions
