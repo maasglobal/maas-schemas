@@ -46,14 +46,20 @@
       }
     },
     "media": {
-      "type": "object",
-      "properties": {
-        "frontDocument": {
-          "type": "string"
+      "description": "Media documents related to user personal document.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "context": {
+            "type": "string"
+          }
         },
-        "backDocument": {
-          "type": "string"
-        }
+        "additionalProperties": false,
+        "required": ["content", "context"]
       }
     }
   },

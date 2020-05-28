@@ -19,10 +19,16 @@
         "email": "maasuser-test@maas.fi",
         "documents": [
           {
-            "media": {
-              "frontDocument": "iVBOCC",
-              "backDocument": "iVBORwmCC"
-            },
+            "media": [
+              {
+                "context": "document-front",
+                "content": "iVBORw0KGgoAAAANSUhEUgA"
+              },
+              {
+                "context": "document-back",
+                "content": "iVBORw0KGgoAAAANSUhEUgA"
+              }
+            ],
             "type": "DRIVERS_LICENSE",
             "documentNumber": "491102155590",
             "nameOnDocument": "NGUYEN DUY HIEU",

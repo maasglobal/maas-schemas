@@ -101,10 +101,15 @@ export type PersonalDocument = t.Branded<
     details?: {
       category?: string;
     };
-    media?: {
-      frontDocument?: string;
-      backDocument?: string;
-    };
+    media?: Array<
+      {
+        content?: string;
+        context?: string;
+      } & {
+        content: Defined;
+        context: Defined;
+      }
+    >;
   } & {
     type: Defined;
     documentNumber: Defined;
@@ -130,10 +135,18 @@ export const PersonalDocument = t.brand(
       details: t.partial({
         category: t.string,
       }),
-      media: t.partial({
-        frontDocument: t.string,
-        backDocument: t.string,
-      }),
+      media: t.array(
+        t.intersection([
+          t.partial({
+            content: t.string,
+            context: t.string,
+          }),
+          t.type({
+            content: Defined,
+            context: Defined,
+          }),
+        ]),
+      ),
     }),
     t.type({
       type: Defined,
@@ -160,10 +173,15 @@ export const PersonalDocument = t.brand(
       details?: {
         category?: string;
       };
-      media?: {
-        frontDocument?: string;
-        backDocument?: string;
-      };
+      media?: Array<
+        {
+          content?: string;
+          context?: string;
+        } & {
+          content: Defined;
+          context: Defined;
+        }
+      >;
     } & {
       type: Defined;
       documentNumber: Defined;
