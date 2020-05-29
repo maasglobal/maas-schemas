@@ -101,6 +101,15 @@ export type PersonalDocument = t.Branded<
     details?: {
       category?: string;
     };
+    media?: Array<
+      {
+        content?: string;
+        context?: string;
+      } & {
+        content: Defined;
+        context: Defined;
+      }
+    >;
   } & {
     type: Defined;
     documentNumber: Defined;
@@ -109,7 +118,6 @@ export type PersonalDocument = t.Branded<
     status: Defined;
     validFrom: Defined;
     validTo: Defined;
-    details: Defined;
   },
   PersonalDocumentBrand
 >;
@@ -127,6 +135,18 @@ export const PersonalDocument = t.brand(
       details: t.partial({
         category: t.string,
       }),
+      media: t.array(
+        t.intersection([
+          t.partial({
+            content: t.string,
+            context: t.string,
+          }),
+          t.type({
+            content: Defined,
+            context: Defined,
+          }),
+        ]),
+      ),
     }),
     t.type({
       type: Defined,
@@ -136,7 +156,6 @@ export const PersonalDocument = t.brand(
       status: Defined,
       validFrom: Defined,
       validTo: Defined,
-      details: Defined,
     }),
   ]),
   (
@@ -154,6 +173,15 @@ export const PersonalDocument = t.brand(
       details?: {
         category?: string;
       };
+      media?: Array<
+        {
+          content?: string;
+          context?: string;
+        } & {
+          content: Defined;
+          context: Defined;
+        }
+      >;
     } & {
       type: Defined;
       documentNumber: Defined;
@@ -162,7 +190,6 @@ export const PersonalDocument = t.brand(
       status: Defined;
       validFrom: Defined;
       validTo: Defined;
-      details: Defined;
     },
     PersonalDocumentBrand
   > => true,

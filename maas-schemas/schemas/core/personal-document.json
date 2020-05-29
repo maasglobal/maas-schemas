@@ -44,17 +44,25 @@
           "type": "string"
         }
       }
+    },
+    "media": {
+      "description": "Media documents related to user personal document.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "context": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": ["content", "context"]
+      }
     }
   },
   "additionalProperties": false,
-  "required": [
-    "type",
-    "documentNumber",
-    "nameOnDocument",
-    "issuingCountry",
-    "status",
-    "validFrom",
-    "validTo",
-    "details"
-  ]
+  "required": ["type", "documentNumber", "nameOnDocument", "issuingCountry", "status", "validFrom", "validTo"]
 }
