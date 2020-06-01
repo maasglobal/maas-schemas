@@ -57,7 +57,7 @@
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "modes": {
-          "type": "string"
+          "$ref": "http://maasglobal.com/core/components/travel-mode.json#/definitions/superMode"
         },
         "transitMode": {
           "type": "string",

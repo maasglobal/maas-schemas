@@ -50,7 +50,7 @@ export type Payload = t.Branded<
     arriveBy?: Units_.Time;
     leaveAtReturn?: Units_.Time;
     arriveByReturn?: Units_.Time;
-    modes?: string;
+    modes?: TravelMode_.SuperMode;
     transitMode?: string & ("TRAIN" | "BUS" | "SUBWAY" | "TRAM" | "RAIL");
     options?: {};
     bookingIdToExtend?: Units_.Uuid;
@@ -69,7 +69,7 @@ export type Payload = t.Branded<
     | Units_.Time
     | Units_.Time
     | Units_.Time
-    | string
+    | TravelMode_.SuperMode
     | (string & ("TRAIN" | "BUS" | "SUBWAY" | "TRAM" | "RAIL"))
     | {}
     | Units_.Uuid
@@ -93,15 +93,15 @@ export const Payload = t.brand(
       arriveBy: Units_.Time,
       leaveAtReturn: Units_.Time,
       arriveByReturn: Units_.Time,
-      modes: t.string,
+      modes: TravelMode_.SuperMode,
       transitMode: t.intersection([
         t.string,
         t.union([
-          t.literal('TRAIN'),
-          t.literal('BUS'),
-          t.literal('SUBWAY'),
-          t.literal('TRAM'),
-          t.literal('RAIL'),
+          t.literal("TRAIN"),
+          t.literal("BUS"),
+          t.literal("SUBWAY"),
+          t.literal("TRAM"),
+          t.literal("RAIL"),
         ]),
       ]),
       options: t.type({}),
@@ -123,7 +123,7 @@ export const Payload = t.brand(
         Units_.Time,
         Units_.Time,
         Units_.Time,
-        t.string,
+        TravelMode_.SuperMode,
         t.intersection([
           t.string,
           t.union([
@@ -134,47 +134,12 @@ export const Payload = t.brand(
             t.literal("RAIL"),
           ]),
         ]),
-        options: t.type({}),
-        bookingIdToExtend: Units_.Uuid,
-        requestId: Common_.RequestId,
-      }),
-      t.record(
-        t.string,
-        t.union([
-          UnitsGeo_.ShortLocationString,
-          Address_.PlaceName,
-          Address_.ComponentAddress,
-          Station_.Id,
-          UnitsGeo_.ShortLocationString,
-          Address_.PlaceName,
-          Address_.ComponentAddress,
-          Station_.Id,
-          Units_.Time,
-          Units_.Time,
-          Units_.Time,
-          Units_.Time,
-          t.string,
-          t.intersection([
-            t.string,
-            t.union([
-              t.literal("TRAIN"),
-              t.literal("BUS"),
-              t.literal("SUBWAY"),
-              t.literal("TRAM"),
-              t.literal("RAIL"),
-            ]),
-          ]),
-          t.type({}),
-          Units_.Uuid,
-          Common_.RequestId,
-          t.union([t.string, t.number, t.boolean]),
-        ])
-      ),
-    ]),
-    t.type({
-      from: Defined,
-      to: Defined,
-    }),
+        t.type({}),
+        Units_.Uuid,
+        Common_.RequestId,
+        t.union([t.string, t.number, t.boolean]),
+      ])
+    ),
   ]),
   (
     x
@@ -192,7 +157,7 @@ export const Payload = t.brand(
       arriveBy?: Units_.Time;
       leaveAtReturn?: Units_.Time;
       arriveByReturn?: Units_.Time;
-      modes?: string;
+      modes?: TravelMode_.SuperMode;
       transitMode?: string & ("TRAIN" | "BUS" | "SUBWAY" | "TRAM" | "RAIL");
       options?: {};
       bookingIdToExtend?: Units_.Uuid;
@@ -211,7 +176,7 @@ export const Payload = t.brand(
       | Units_.Time
       | Units_.Time
       | Units_.Time
-      | string
+      | TravelMode_.SuperMode
       | (string & ("TRAIN" | "BUS" | "SUBWAY" | "TRAM" | "RAIL"))
       | {}
       | Units_.Uuid

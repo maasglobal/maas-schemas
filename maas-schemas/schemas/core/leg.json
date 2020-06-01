@@ -68,7 +68,8 @@
       "type": "string"
     },
     "co2": {
-      "type": "number"
+      "type": "number",
+      "minimum": 0
     },
     "legGeometry": {
       "type": "object",

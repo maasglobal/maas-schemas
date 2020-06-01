@@ -94,10 +94,6 @@
       "type": "string",
       "minLength": 1
     },
-    "n": {
-      "type": "number",
-      "minimum": 0
-    },
     "isWhimRide": {
       "type": "boolean"
     },

@@ -91,7 +91,6 @@ export type Itinerary = t.Branded<
     superMode?: TravelMode_.SuperMode;
     tags?: Array<string>;
     label?: string;
-    n?: number;
     isWhimRide?: boolean;
     provider?: string;
   } & {
@@ -124,7 +123,6 @@ export const Itinerary = t.brand(
       superMode: TravelMode_.SuperMode,
       tags: t.array(t.string),
       label: t.string,
-      n: t.number,
       isWhimRide: t.boolean,
       provider: t.string,
     }),
@@ -158,7 +156,6 @@ export const Itinerary = t.brand(
       superMode?: TravelMode_.SuperMode;
       tags?: Array<string>;
       label?: string;
-      n?: number;
       isWhimRide?: boolean;
       provider?: string;
     } & {
