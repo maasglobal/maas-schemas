@@ -1,0 +1,48 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/tsp-auth/verify/definitions.json",
+  "description": "Response schema for tsp-auth verify -> verification failure keys",
+  "definitions": {
+    "verificationFailureKey": {
+      "description": "Failure key enum, identifying reason for the verification failure",
+      "type": "string",
+      "enum": [
+        "UNKNOWN_ERROR",
+        "NO_TOKEN_FOR_THE_USER",
+        "INVALID_USER_TOKEN",
+        "INVALID_USER",
+        "EMPTY_PRODUCTS",
+        "VERIFICATION_FAILURE"
+      ]
+    },
+    "verifiedProducts": {
+      "description": "The list of verified products",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "productsNeededVerification": {
+      "description": "The list of products to verify",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+          },
+          "customerSelection": {
+            "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+          }
+        }
+      }
+    }
+  }
+}

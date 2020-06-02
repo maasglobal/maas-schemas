@@ -1,0 +1,26 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/tsp-auth/verify/request.json",
+  "description": "Request schema for tsp-auth verify",
+  "type": "object",
+  "properties": {
+    "agencyId": {
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+    },
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "products": {
+          "$ref": "http://maasglobal.com/maas-backend/tsp-auth/verify/definitions.json#/definitions/productsNeededVerification"
+        }
+      }
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  },
+  "required": ["identityId", "agencyId", "payload"],
+  "additionalProperties": false
+}

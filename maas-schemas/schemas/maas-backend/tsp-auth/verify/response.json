@@ -1,0 +1,19 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/tsp-auth/verify/response.json",
+  "description": "Response schema for tsp-auth verify",
+  "type": "object",
+  "properties": {
+    "allProductsVerified": {
+      "type": "boolean",
+      "description": "A flag indicating whether all products have been verified"
+    },
+    "products": {
+      "$ref": "http://maasglobal.com/maas-backend/tsp-auth/verify/definitions.json#/definitions/verifiedProducts"
+    },
+    "verificationFailureKey": {
+      "$ref": "http://maasglobal.com/maas-backend/tsp-auth/verify/definitions.json#/definitions/verificationFailureKey"
+    }
+  },
+  "required": ["allProductsVerified", "products"],
+  "additionalProperties": false
+}
