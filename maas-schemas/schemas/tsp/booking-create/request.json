@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/tsp/bookings-create/request.json",
+  "$id": "http://maasglobal.com/tsp/booking-create/request.json",
   "description": "Request schema for creating a booking through a TSP adapter",
   "type": "object",
   "properties": {
@@ -54,7 +54,8 @@
         "clientId": "whim",
         "lastName": "Tester",
         "opaqueId": "cafecaca",
-        "firstName": "Test"
+        "firstName": "Test",
+        "documents": []
       },
       "meta": {
         "MODE_TAXI": {

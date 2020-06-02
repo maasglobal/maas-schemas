@@ -1,0 +1,44 @@
+{
+  "$id": "http://maasglobal.com/core/components/message.json",
+  "description": "MaaS booking message object",
+  "type": "object",
+  "properties": {
+    "text": {
+      "description": "Actual message",
+      "type": "string",
+      "maxLength": 160
+    },
+    "mode": {
+      "description": "Booking meta mode",
+      "type": "string",
+      "enum": [
+        "MODE_WALK",
+        "MODE_BICYCLE",
+        "MODE_CAR",
+        "MODE_TRAM",
+        "MODE_SUBWAY",
+        "MODE_RAIL",
+        "MODE_BUS",
+        "MODE_FERRY",
+        "MODE_CABLE_CAR",
+        "MODE_GONDOLA",
+        "MODE_FUNICULAR",
+        "MODE_SHARED_BICYCLE",
+        "MODE_SHARED_E_BICYCLE",
+        "MODE_SHARED_CAR",
+        "MODE_TRANSIT",
+        "MODE_TRAIN",
+        "MODE_TRAINISH",
+        "MODE_BUSISH",
+        "MODE_TAXI",
+        "MODE_SCOOTER"
+      ]
+    },
+    "property": {
+      "description": "Property name where the message will be injected to",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["text", "mode", "property"]
+}

@@ -19,9 +19,13 @@
             "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
           },
           "minItems": 0
+        },
+        "regionDefault": {
+          "description": "Is this subscription option the default one for the region",
+          "type": "boolean"
         }
       },
-      "required": ["plan", "wmpGrant", "pointCost", "addons", "coupons", "requiredAuthorizations"],
+      "required": ["plan", "wmpGrant", "pointCost", "addons", "coupons", "requiredAuthorizations", "regionDefault"],
       "additionalProperties": true
     }
   }

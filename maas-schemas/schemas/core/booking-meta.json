@@ -15,6 +15,7 @@
     "MODE_GONDOLA": { "$ref": "http://maasglobal.com/core/modes/MODE_GONDOLA.json" },
     "MODE_FUNICULAR": { "$ref": "http://maasglobal.com/core/modes/MODE_FUNICULAR.json" },
     "MODE_SHARED_BICYCLE": { "$ref": "http://maasglobal.com/core/modes/MODE_SHARED_BICYCLE.json" },
+    "MODE_SHARED_E_BICYCLE": { "$ref": "http://maasglobal.com/core/modes/MODE_SHARED_E_BICYCLE.json" },
     "MODE_SHARED_CAR": { "$ref": "http://maasglobal.com/core/modes/MODE_SHARED_CAR.json" },
     "MODE_TRANSIT": { "$ref": "http://maasglobal.com/core/modes/MODE_TRANSIT.json" },
     "MODE_TRAIN": { "$ref": "http://maasglobal.com/core/modes/MODE_TRAIN.json" },

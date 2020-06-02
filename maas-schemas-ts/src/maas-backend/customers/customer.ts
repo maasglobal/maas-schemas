@@ -14,6 +14,8 @@ import * as PaymentSource_ from 'maas-schemas-ts/maas-backend/customers/payment-
 import * as Fare_ from 'maas-schemas-ts/core/components/fare';
 import * as Region_ from 'maas-schemas-ts/core/region';
 import * as Authorization_ from 'maas-schemas-ts/core/components/authorization';
+import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
+import * as Common_ from 'maas-schemas-ts/core/components/common';
 
 type Defined =
   | Record<string, unknown>
@@ -45,6 +47,16 @@ export type Customer = t.Branded<
     region?: Region_.Region;
     authorizations?: Array<Authorization_.Authorization>;
     favoriteLocations?: Array<{}>;
+    personalDocuments?: Array<
+      {
+        type?: PersonalDocument_.DocumentType;
+        status?: PersonalDocument_.DocumentStatus;
+      } & {
+        type: Defined;
+        status: Defined;
+      }
+    >;
+    personalDocumentConsents?: Array<Common_.AgencyId>;
   } & {
     personalData: Defined;
     paymentSources: Defined;
@@ -65,6 +77,19 @@ export const Customer = t.brand(
       region: Region_.Region,
       authorizations: t.array(Authorization_.Authorization),
       favoriteLocations: t.array(t.type({})),
+      personalDocuments: t.array(
+        t.intersection([
+          t.partial({
+            type: PersonalDocument_.DocumentType,
+            status: PersonalDocument_.DocumentStatus,
+          }),
+          t.type({
+            type: Defined,
+            status: Defined,
+          }),
+        ]),
+      ),
+      personalDocumentConsents: t.array(Common_.AgencyId),
     }),
     t.type({
       personalData: Defined,
@@ -86,6 +111,16 @@ export const Customer = t.brand(
       region?: Region_.Region;
       authorizations?: Array<Authorization_.Authorization>;
       favoriteLocations?: Array<{}>;
+      personalDocuments?: Array<
+        {
+          type?: PersonalDocument_.DocumentType;
+          status?: PersonalDocument_.DocumentStatus;
+        } & {
+          type: Defined;
+          status: Defined;
+        }
+      >;
+      personalDocumentConsents?: Array<Common_.AgencyId>;
     } & {
       personalData: Defined;
       paymentSources: Defined;

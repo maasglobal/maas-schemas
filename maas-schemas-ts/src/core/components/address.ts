@@ -32,8 +32,8 @@ export const ComponentAddress = t.brand(
 export interface ComponentAddressBrand {
   readonly ComponentAddress: unique symbol;
 }
-/** examplesComponentAddress // => { _tag: 'Right', right: examplesComponentAddressJson } */
-export const examplesComponentAddressJson: NonEmptyArray<unknown> = [
+/** require('io-ts-validator').validator(nonEmptyArray(ComponentAddress)).decodeSync(examplesComponentAddress) // => examplesComponentAddress */
+export const examplesComponentAddress: NonEmptyArray<ComponentAddress> = ([
   'state:Tōkyō-to|district:Kanda Nishikichō 3-chōme|streetNumber:4-パレステュディオ御茶ノ水駿河台参番館|zipCode:101-0054|city:Chiyoda-City|country:Japan',
   "streetName:Tarkk'ampujänkätu|city:Helsinki|country:Finland|state:Uusimaa|streetNumber:1|zipCode:00100|district:Tapiola",
   "streetName:Hämeentie Töölöntori Lähettilääntie Tarkk'ampujänkätu",
@@ -53,10 +53,7 @@ export const examplesComponentAddressJson: NonEmptyArray<unknown> = [
   'country:skandinavisk',
   'streetNumber:1-1',
   'streetNumber:1/2-d2',
-];
-export const examplesComponentAddress = nonEmptyArray(ComponentAddress).decode(
-  examplesComponentAddressJson,
-);
+] as unknown) as NonEmptyArray<ComponentAddress>;
 
 // PlaceName
 // Place name (given in autocomplete)
@@ -113,6 +110,20 @@ export const ZipCode = t.brand(
 );
 export interface ZipCodeBrand {
   readonly ZipCode: unique symbol;
+}
+
+// State
+// Alphabetic state name
+export type State = t.Branded<string, StateBrand>;
+export const State = t.brand(
+  t.string,
+  (x): x is t.Branded<string, StateBrand> =>
+    (typeof x !== 'string' || x.match(RegExp("^(?:\\p{L}|\\s|')+$", 'gui')) !== null) &&
+    (typeof x !== 'string' || x.length <= 64),
+  'State',
+);
+export interface StateBrand {
+  readonly State: unique symbol;
 }
 
 // CountryName

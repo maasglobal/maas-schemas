@@ -33,7 +33,7 @@ const Defined = t.union([
   t.null,
 ]);
 
-export const schemaId = 'http://maasglobal.com/tsp/bookings-create/request.json';
+export const schemaId = 'http://maasglobal.com/tsp/booking-create/request.json';
 
 // Request
 // The default export. More information at the top.
@@ -99,8 +99,8 @@ export const Request = t.brand(
 export interface RequestBrand {
   readonly Request: unique symbol;
 }
-/** examplesRequest // => { _tag: 'Right', right: examplesRequestJson } */
-export const examplesRequestJson: NonEmptyArray<unknown> = [
+/** require('io-ts-validator').validator(nonEmptyArray(Request)).decodeSync(examplesRequest) // => examplesRequest */
+export const examplesRequest: NonEmptyArray<Request> = ([
   {
     leg: {
       to: {
@@ -130,6 +130,7 @@ export const examplesRequestJson: NonEmptyArray<unknown> = [
       lastName: 'Tester',
       opaqueId: 'cafecaca',
       firstName: 'Test',
+      documents: [],
     },
     meta: {
       MODE_TAXI: {
@@ -149,8 +150,7 @@ export const examplesRequestJson: NonEmptyArray<unknown> = [
     tspId: null,
     tspProduct: { id: 'testtaxi1-product1' },
   },
-];
-export const examplesRequest = nonEmptyArray(Request).decode(examplesRequestJson);
+] as unknown) as NonEmptyArray<Request>;
 
 export default Request;
 

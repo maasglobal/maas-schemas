@@ -40,6 +40,27 @@
       "items": {
         "type": "object"
       }
+    },
+    "personalDocuments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType"
+          },
+          "status": {
+            "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentStatus"
+          }
+        },
+        "required": ["type", "status"]
+      }
+    },
+    "personalDocumentConsents": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+      }
     }
   },
   "required": ["personalData", "paymentSources", "balances", "region", "authorizations"],

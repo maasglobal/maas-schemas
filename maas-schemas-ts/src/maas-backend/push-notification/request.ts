@@ -44,7 +44,8 @@ export type Request = t.Branded<
       | 'TripActivate'
       | 'InfoMessage'
       | 'ZendeskReply'
-      | 'VerificationUpdate';
+      | 'VerificationUpdate'
+      | 'AuthRequired';
     data?:
       | ({
           objectType?: 'Itinerary' | 'Booking';
@@ -60,6 +61,13 @@ export type Request = t.Branded<
         } & {
           objectType: Defined;
           ids: Defined;
+        })
+      | ({
+          objectType?: 'Reminder';
+          authUrl?: Units_.Url;
+        } & {
+          objectType: Defined;
+          authUrl: Defined;
         });
   } & {
     identityId: Defined;
@@ -88,6 +96,7 @@ export const Request = t.brand(
         t.literal('InfoMessage'),
         t.literal('ZendeskReply'),
         t.literal('VerificationUpdate'),
+        t.literal('AuthRequired'),
       ]),
       data: t.union([
         t.intersection([
@@ -109,6 +118,16 @@ export const Request = t.brand(
           t.type({
             objectType: Defined,
             ids: Defined,
+          }),
+        ]),
+        t.intersection([
+          t.partial({
+            objectType: t.literal('Reminder'),
+            authUrl: Units_.Url,
+          }),
+          t.type({
+            objectType: Defined,
+            authUrl: Defined,
           }),
         ]),
       ]),
@@ -135,7 +154,8 @@ export const Request = t.brand(
         | 'TripActivate'
         | 'InfoMessage'
         | 'ZendeskReply'
-        | 'VerificationUpdate';
+        | 'VerificationUpdate'
+        | 'AuthRequired';
       data?:
         | ({
             objectType?: 'Itinerary' | 'Booking';
@@ -151,6 +171,13 @@ export const Request = t.brand(
           } & {
             objectType: Defined;
             ids: Defined;
+          })
+        | ({
+            objectType?: 'Reminder';
+            authUrl?: Units_.Url;
+          } & {
+            objectType: Defined;
+            authUrl: Defined;
           });
     } & {
       identityId: Defined;

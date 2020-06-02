@@ -1,0 +1,24 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/coupons/coupons-validate/request.json",
+  "description": "MaaS coupon validation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identityId", "payload"],
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "type": "object",
+      "required": ["code"],
+      "properties": {
+        "code": {
+          "$ref": "http://maasglobal.com/maas-backend/coupons/code.json#/definitions/code"
+        }
+      }
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  }
+}

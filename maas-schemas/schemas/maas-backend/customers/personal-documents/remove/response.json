@@ -1,0 +1,7 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/personal-documents/remove/response.json",
+  "description": "Remove customer personal document by type",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {}
+}

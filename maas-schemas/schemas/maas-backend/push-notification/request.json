@@ -14,7 +14,7 @@
       "enum": ["Alert", "Warning", "Information"]
     },
     "type": {
-      "enum": ["ObjectChange", "TripActivate", "InfoMessage", "ZendeskReply", "VerificationUpdate"]
+      "enum": ["ObjectChange", "TripActivate", "InfoMessage", "ZendeskReply", "VerificationUpdate", "AuthRequired"]
     },
     "data": {
       "oneOf": [
@@ -32,7 +32,7 @@
             }
           },
           "required": ["objectType", "ids"],
-          "additionalProperties": false
+          "additionalProperties": true
         },
         {
           "type": "null"
@@ -51,7 +51,18 @@
             }
           },
           "required": ["objectType", "ids"],
-          "additionalProperties": false
+          "additionalProperties": true
+        },
+        {
+          "type": "object",
+          "properties": {
+            "objectType": { "enum": ["Reminder"] },
+            "authUrl": {
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+            }
+          },
+          "required": ["objectType", "authUrl"],
+          "additionalProperties": true
         }
       ]
     }

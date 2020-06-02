@@ -1,7 +1,6 @@
 # Shared MaaS Global Type Definitions
 
-This repository contains source code for MaaS Global admin user interface Maui.
-Maui is mainly used by customer care for resolving problems of Whim customer.
+This repository contains MaaS Global shared type definitions.
 
 ## Index
 

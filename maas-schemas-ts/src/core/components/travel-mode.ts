@@ -41,7 +41,8 @@ export interface TransferModeBrand {
 // PersonalMode
 // A mode that involves using your personal vehicle or legs
 export type PersonalMode = t.Branded<
-  string & ('BICYCLE' | 'CAR' | 'SCOOTER' | 'SHARED_BICYCLE' | 'WALK'),
+  string &
+    ('BICYCLE' | 'CAR' | 'SCOOTER' | 'SHARED_BICYCLE' | 'WALK' | 'SHARED_E_BICYCLE'),
   PersonalModeBrand
 >;
 export const PersonalMode = t.brand(
@@ -53,12 +54,14 @@ export const PersonalMode = t.brand(
       t.literal('SCOOTER'),
       t.literal('SHARED_BICYCLE'),
       t.literal('WALK'),
+      t.literal('SHARED_E_BICYCLE'),
     ]),
   ]),
   (
     x,
   ): x is t.Branded<
-    string & ('BICYCLE' | 'CAR' | 'SCOOTER' | 'SHARED_BICYCLE' | 'WALK'),
+    string &
+      ('BICYCLE' | 'CAR' | 'SCOOTER' | 'SHARED_BICYCLE' | 'WALK' | 'SHARED_E_BICYCLE'),
     PersonalModeBrand
   > => true,
   'PersonalMode',
@@ -113,7 +116,8 @@ export type PrivateTransitMode = t.Branded<
       | 'GONDOLA'
       | 'SHARED_CAR'
       | 'TAXI'
-      | 'TRAINISH'),
+      | 'TRAINISH'
+    ),
   PrivateTransitModeBrand
 >;
 export const PrivateTransitMode = t.brand(
@@ -142,7 +146,8 @@ export const PrivateTransitMode = t.brand(
         | 'GONDOLA'
         | 'SHARED_CAR'
         | 'TAXI'
-        | 'TRAINISH'),
+        | 'TRAINISH'
+      ),
     PrivateTransitModeBrand
   > => true,
   'PrivateTransitMode',

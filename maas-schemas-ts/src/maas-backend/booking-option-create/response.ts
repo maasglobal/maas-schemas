@@ -8,7 +8,6 @@ Response schema for booking-option-create
 */
 
 import * as t from 'io-ts';
-import * as Booking_ from 'maas-schemas-ts/core/booking';
 
 type Defined =
   | Record<string, unknown>
@@ -32,55 +31,37 @@ export const schemaId =
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  | ({
-      booking?: Booking_.Booking;
-    } & {
-      booking: Defined;
+  | (Array<unknown> & {
+      bookings: Defined;
     })
-  | ({
-      error?: {
-        message?: string;
-      };
-    } & {
-      error: Defined;
+  | (Array<unknown> & {
+      failures: Defined;
     }),
   ResponseBrand
 >;
 export const Response = t.brand(
   t.union([
     t.intersection([
-      t.partial({
-        booking: Booking_.Booking,
-      }),
+      t.UnknownArray,
       t.type({
-        booking: Defined,
+        bookings: Defined,
       }),
     ]),
     t.intersection([
-      t.partial({
-        error: t.partial({
-          message: t.string,
-        }),
-      }),
+      t.UnknownArray,
       t.type({
-        error: Defined,
+        failures: Defined,
       }),
     ]),
   ]),
   (
     x,
   ): x is t.Branded<
-    | ({
-        booking?: Booking_.Booking;
-      } & {
-        booking: Defined;
+    | (Array<unknown> & {
+        bookings: Defined;
       })
-    | ({
-        error?: {
-          message?: string;
-        };
-      } & {
-        error: Defined;
+    | (Array<unknown> & {
+        failures: Defined;
       }),
     ResponseBrand
   > => true,

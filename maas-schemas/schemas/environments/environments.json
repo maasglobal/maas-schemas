@@ -8,23 +8,37 @@
         "email": { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email" }
       },
       "required": ["name"],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "examples": [{ "name": "Alisha Admin", "email": "admin@example.com" }, { "name": "Dennis Developer" }]
     },
-    "environmentId": { "type": "string" },
+    "environmentId": {
+      "type": "string",
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/hostnameLabel" }],
+      "examples": ["production", "testing", "environment13", "fantasy-topping"]
+    },
     "environmentUrl": {
       "type": "string",
       "pattern": "^https:",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }],
+      "examples": [
+        "https://production.example.com/api/",
+        "https://testing.example.com/api/",
+        "https://environment13.example.com/api/",
+        "https://fantasy-toppign.example.com/api/"
+      ]
     },
     "environmentLive": {
       "description": "Live environments are connected to actual payment and TSP services",
-      "type": "boolean"
+      "type": "boolean",
+      "examples": [true, false]
     },
     "environmentName": {
-      "type": "string"
+      "type": "string",
+      "examples": ["production", "testing", "environment 13", "Fantasy Topping"]
     },
     "environmentDescription": {
-      "type": "string"
+      "type": "string",
+      "examples": ["Production environment", "Testing environment", "Add support for pizza customization"]
     },
     "environment": {
       "type": "object",
@@ -73,10 +87,16 @@
       ]
     },
     "environmentGroupName": {
-      "type": "string"
+      "type": "string",
+      "examples": ["Core Environments", "Development Environments"]
     },
     "environmentGroupDescription": {
-      "type": "string"
+      "type": "string",
+      "examples": [
+        "The main environments used by paying customers",
+        "Production like environments used for quality assurance",
+        "Development environments used for feature development"
+      ]
     },
     "environmentGroup": {
       "type": "object",
@@ -89,7 +109,41 @@
         "description": { "$ref": "#/definitions/environmentGroupDescription" }
       },
       "required": ["name", "envs"],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "examples": [
+        {
+          "name": "Core Environments",
+          "envs": [
+            {
+              "id": "production",
+              "api": "https://production.example.com/api/",
+              "live": true,
+              "contact": { "name": "Alisha Admin", "email": "admin@example.com" },
+              "description": "Production environment"
+            },
+            {
+              "id": "testing",
+              "api": "https://testing.example.com/api/",
+              "live": false,
+              "contact": { "name": "Alisha Admin" },
+              "description": "Testing environment"
+            }
+          ]
+        },
+        {
+          "name": "Development Environments",
+          "envs": [
+            {
+              "id": "fantasy-topping",
+              "api": "https://fantasy-topping.example.com/api/",
+              "live": false,
+              "contact": { "name": "Dennis Developer" },
+              "name": "Fantasy Topping",
+              "description": "Add support for pizza customization"
+            }
+          ]
+        }
+      ]
     }
   },
   "type": "object",
@@ -128,8 +182,8 @@
           "name": "Development Environments",
           "envs": [
             {
-              "id": "fantasyTopping",
-              "api": "https://fantasy.example.com/api/",
+              "id": "fantasy-topping",
+              "api": "https://fantasy-topping.example.com/api/",
               "live": false,
               "contact": { "name": "Dennis Developer" },
               "name": "Fantasy Topping",

@@ -28,7 +28,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/auth/auth-sms-request.code/request.json';
+  'http://maasglobal.com/maas-backend/auth/auth-sms-request-code/request.json';
 
 // Request
 // The default export. More information at the top.

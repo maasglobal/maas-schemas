@@ -28,7 +28,8 @@ export type BookingState = t.Branded<
       | 'EXPIRED'
       | 'REJECTED'
       | 'FINISHED'
-      | 'UNKNOWN'),
+      | 'UNKNOWN'
+    ),
   BookingStateBrand
 >;
 export const BookingState = t.brand(
@@ -67,7 +68,8 @@ export const BookingState = t.brand(
         | 'EXPIRED'
         | 'REJECTED'
         | 'FINISHED'
-        | 'UNKNOWN'),
+        | 'UNKNOWN'
+      ),
     BookingStateBrand
   > => true,
   'BookingState',
@@ -117,7 +119,8 @@ export type ItineraryState = t.Branded<
       | 'ACTIVATED'
       | 'CANCELLED'
       | 'CANCELLED_WITH_ERRORS'
-      | 'FINISHED'),
+      | 'FINISHED'
+    ),
   ItineraryStateBrand
 >;
 export const ItineraryState = t.brand(
@@ -144,7 +147,8 @@ export const ItineraryState = t.brand(
         | 'ACTIVATED'
         | 'CANCELLED'
         | 'CANCELLED_WITH_ERRORS'
-        | 'FINISHED'),
+        | 'FINISHED'
+      ),
     ItineraryStateBrand
   > => true,
   'ItineraryState',

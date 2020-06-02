@@ -1,0 +1,69 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-bookings-create/request.json",
+  "description": "Request schema for webhooks-bookings-create",
+  "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "identityId": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+        },
+        "locale": {
+          "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale"
+        },
+        "option": {
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "cost": {
+                  "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
+                },
+                "leg": {
+                  "$ref": "http://maasglobal.com/core/booking.json#/definitions/leg"
+                },
+                "meta": {
+                  "$ref": "http://maasglobal.com/core/booking-meta.json"
+                },
+                "terms": {
+                  "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+                },
+                "tspProduct": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "configurator": {
+                  "$ref": "http://maasglobal.com/core/booking.json#/definitions/configurator"
+                }
+              }
+            },
+            {
+              "oneOf": [
+                {
+                  "required": ["leg", "terms", "cost", "meta"]
+                },
+                {
+                  "required": ["leg", "terms", "cost", "meta", "configurator"]
+                }
+              ]
+            }
+          ]
+        },
+        "customerSelection": {
+          "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+        }
+      },
+      "required": ["option", "identityId", "locale"]
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  },
+  "required": ["payload"],
+  "additionalProperties": false
+}

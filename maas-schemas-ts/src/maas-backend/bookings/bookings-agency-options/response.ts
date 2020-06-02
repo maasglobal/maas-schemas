@@ -56,7 +56,8 @@ export type Option = t.Branded<
         terms: Defined;
         product: Defined;
         configurator: Defined;
-      }),
+      }
+  ),
   OptionBrand
 >;
 export const Option = t.brand(
@@ -112,7 +113,8 @@ export const Option = t.brand(
           terms: Defined;
           product: Defined;
           configurator: Defined;
-        }),
+        }
+    ),
     OptionBrand
   > => true,
   'Option',

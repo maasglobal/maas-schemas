@@ -22,7 +22,7 @@
     "personalMode": {
       "description": "A mode that involves using your personal vehicle or legs",
       "type": "string",
-      "enum": ["BICYCLE", "CAR", "SCOOTER", "SHARED_BICYCLE", "WALK"]
+      "enum": ["BICYCLE", "CAR", "SCOOTER", "SHARED_BICYCLE", "WALK", "SHARED_E_BICYCLE"]
     },
     "publicTransitMode": {
       "description": "A mode that involves transit with fixed schedules",

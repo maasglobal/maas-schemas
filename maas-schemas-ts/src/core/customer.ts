@@ -12,6 +12,7 @@ import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as Address_ from 'maas-schemas-ts/core/components/address';
 import * as I18n_ from 'maas-schemas-ts/core/components/i18n';
+import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
 import * as Fare_ from 'maas-schemas-ts/core/components/fare';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
@@ -39,12 +40,17 @@ export const schemaId = 'http://maasglobal.com/core/customer.json';
 export type Customer = t.Branded<
   {
     identityId?: Units_.IdentityId;
+    honorifics?: string;
     firstName?: Common_.PersonalName;
     lastName?: Common_.PersonalName;
+    firstNameLocalized?: Common_.PersonalName;
+    lastNameLocalized?: Common_.PersonalName;
+    sex?: string;
     phone?: Common_.Phone;
     email?: Common_.Email;
     address?: Address_.Address;
     city?: Address_.City;
+    state?: Address_.State;
     country?: Address_.Country;
     zipCode?: Address_.ZipCode;
     locale?: I18n_.Locale;
@@ -53,6 +59,7 @@ export type Customer = t.Branded<
     clientId?: Common_.ClientId;
     dob?: boolean | Units_.IsoDate;
     ssid?: boolean | Common_.Ssid;
+    documents?: Array<PersonalDocument_.PersonalDocument>;
     balances?: ({
       WMP?: {
         currency?: 'WMP';
@@ -82,6 +89,9 @@ export type Customer = t.Branded<
     >) & {
       WMP: Defined;
     };
+    referral?: {
+      code?: string;
+    };
     subscriberType?: string;
     authToken?: Common_.EncodedQueryParam;
   },
@@ -90,12 +100,17 @@ export type Customer = t.Branded<
 export const Customer = t.brand(
   t.partial({
     identityId: Units_.IdentityId,
+    honorifics: t.string,
     firstName: Common_.PersonalName,
     lastName: Common_.PersonalName,
+    firstNameLocalized: Common_.PersonalName,
+    lastNameLocalized: Common_.PersonalName,
+    sex: t.string,
     phone: Common_.Phone,
     email: Common_.Email,
     address: Address_.Address,
     city: Address_.City,
+    state: Address_.State,
     country: Address_.Country,
     zipCode: Address_.ZipCode,
     locale: I18n_.Locale,
@@ -104,6 +119,7 @@ export const Customer = t.brand(
     clientId: Common_.ClientId,
     dob: t.union([t.boolean, Units_.IsoDate]),
     ssid: t.union([t.boolean, Common_.Ssid]),
+    documents: t.array(PersonalDocument_.PersonalDocument),
     balances: t.intersection([
       t.intersection([
         t.partial({
@@ -150,6 +166,9 @@ export const Customer = t.brand(
         WMP: Defined,
       }),
     ]),
+    referral: t.partial({
+      code: t.string,
+    }),
     subscriberType: t.string,
     authToken: Common_.EncodedQueryParam,
   }),
@@ -158,12 +177,17 @@ export const Customer = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
+      honorifics?: string;
       firstName?: Common_.PersonalName;
       lastName?: Common_.PersonalName;
+      firstNameLocalized?: Common_.PersonalName;
+      lastNameLocalized?: Common_.PersonalName;
+      sex?: string;
       phone?: Common_.Phone;
       email?: Common_.Email;
       address?: Address_.Address;
       city?: Address_.City;
+      state?: Address_.State;
       country?: Address_.Country;
       zipCode?: Address_.ZipCode;
       locale?: I18n_.Locale;
@@ -172,6 +196,7 @@ export const Customer = t.brand(
       clientId?: Common_.ClientId;
       dob?: boolean | Units_.IsoDate;
       ssid?: boolean | Common_.Ssid;
+      documents?: Array<PersonalDocument_.PersonalDocument>;
       balances?: ({
         WMP?: {
           currency?: 'WMP';
@@ -201,6 +226,9 @@ export const Customer = t.brand(
       >) & {
         WMP: Defined;
       };
+      referral?: {
+        code?: string;
+      };
       subscriberType?: string;
       authToken?: Common_.EncodedQueryParam;
     },
@@ -211,14 +239,16 @@ export const Customer = t.brand(
 export interface CustomerBrand {
   readonly Customer: unique symbol;
 }
-/** examplesCustomer // => { _tag: 'Right', right: examplesCustomerJson } */
-export const examplesCustomerJson: NonEmptyArray<unknown> = [
+/** require('io-ts-validator').validator(nonEmptyArray(Customer)).decodeSync(examplesCustomer) // => examplesCustomer */
+export const examplesCustomer: NonEmptyArray<Customer> = ([
   {
     identityId: 'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
     id: 1234,
     favoriteLocations: [],
     phone: '+358407654321',
     email: 'bob.customer@example.com',
+    honorifics: 'mr',
+    sex: 'male',
     firstName: 'Bob',
     lastName: 'Customer',
     created: 1553687004207,
@@ -257,6 +287,7 @@ export const examplesCustomerJson: NonEmptyArray<unknown> = [
         type: 'charge',
       },
     },
+    referral: { code: 'XXXX-XXXX-XXXX-XXXX' },
     regionId: 'fi-helsinki',
     region: {
       id: 'fi-helsinki',
@@ -273,8 +304,7 @@ export const examplesCustomerJson: NonEmptyArray<unknown> = [
       currency: 'EUR',
     },
   },
-];
-export const examplesCustomer = nonEmptyArray(Customer).decode(examplesCustomerJson);
+] as unknown) as NonEmptyArray<Customer>;
 
 export default Customer;
 

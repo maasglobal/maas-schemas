@@ -10,6 +10,7 @@ Set of booking state transitions
 import * as t from 'io-ts';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
 import * as State_ from 'maas-schemas-ts/core/components/state';
+import * as Errors_ from 'maas-schemas-ts/core/components/errors';
 
 type Defined =
   | Record<string, unknown>
@@ -50,10 +51,7 @@ export type BookingStateTransition = t.Branded<
     oldState?: State_.BookingState;
     newState?: State_.BookingState;
     invalid?: boolean;
-    reason?: {
-      text?: string;
-      errorCode?: number;
-    };
+    reason?: Errors_.Reason;
   } & {
     newState: Defined;
     oldState: Defined;
@@ -68,10 +66,7 @@ export const BookingStateTransition = t.brand(
       oldState: State_.BookingState,
       newState: State_.BookingState,
       invalid: t.boolean,
-      reason: t.partial({
-        text: t.string,
-        errorCode: t.number,
-      }),
+      reason: Errors_.Reason,
     }),
     t.type({
       newState: Defined,
@@ -87,10 +82,7 @@ export const BookingStateTransition = t.brand(
       oldState?: State_.BookingState;
       newState?: State_.BookingState;
       invalid?: boolean;
-      reason?: {
-        text?: string;
-        errorCode?: number;
-      };
+      reason?: Errors_.Reason;
     } & {
       newState: Defined;
       oldState: Defined;

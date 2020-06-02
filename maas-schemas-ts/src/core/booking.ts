@@ -40,7 +40,7 @@ const Defined = t.union([
   t.null,
 ]);
 
-export const schemaId = 'http://maasglobal.com/core/booking.json#';
+export const schemaId = 'http://maasglobal.com/core/booking.json';
 
 // Id
 // The purpose of this remains a mystery
@@ -309,8 +309,8 @@ export const Booking = t.brand(
 export interface BookingBrand {
   readonly Booking: unique symbol;
 }
-/** examplesBooking // => { _tag: 'Right', right: examplesBookingJson } */
-export const examplesBookingJson: NonEmptyArray<unknown> = [
+/** require('io-ts-validator').validator(nonEmptyArray(Booking)).decodeSync(examplesBooking) // => examplesBooking */
+export const examplesBooking: NonEmptyArray<Booking> = ([
   {
     id: '12345678-ABCD-1234-ABCD-123456789ABC',
     state: 'EXPIRED',
@@ -431,8 +431,7 @@ export const examplesBookingJson: NonEmptyArray<unknown> = [
     cancelling: false,
     customer: { identityId: 'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958' },
   },
-];
-export const examplesBooking = nonEmptyArray(Booking).decode(examplesBookingJson);
+] as unknown) as NonEmptyArray<Booking>;
 
 export default Booking;
 

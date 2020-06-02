@@ -26,11 +26,60 @@ export const Uuid = t.brand(
 export interface UuidBrand {
   readonly Uuid: unique symbol;
 }
-/** examplesUuid // => { _tag: 'Right', right: examplesUuidJson } */
-export const examplesUuidJson: NonEmptyArray<unknown> = [
+/** require('io-ts-validator').validator(nonEmptyArray(Uuid)).decodeSync(examplesUuid) // => examplesUuid */
+export const examplesUuid: NonEmptyArray<Uuid> = ([
   '4828507e-683f-41bf-9d87-689808fbf958',
-];
-export const examplesUuid = nonEmptyArray(Uuid).decode(examplesUuidJson);
+] as unknown) as NonEmptyArray<Uuid>;
+
+// HostnameLabel
+// single component of a hostname
+export type HostnameLabel = t.Branded<string, HostnameLabelBrand>;
+export const HostnameLabel = t.brand(
+  t.string,
+  (x): x is t.Branded<string, HostnameLabelBrand> =>
+    (typeof x !== 'string' ||
+      x.match(RegExp('^[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?$')) !== null) &&
+    (typeof x !== 'string' || x.length >= 1) &&
+    (typeof x !== 'string' || x.length <= 63),
+  'HostnameLabel',
+);
+export interface HostnameLabelBrand {
+  readonly HostnameLabel: unique symbol;
+}
+/** require('io-ts-validator').validator(nonEmptyArray(HostnameLabel)).decodeSync(examplesHostnameLabel) // => examplesHostnameLabel */
+export const examplesHostnameLabel: NonEmptyArray<HostnameLabel> = ([
+  'example',
+  'com',
+  'with-hyphen',
+  'foo1',
+  '0bar',
+] as unknown) as NonEmptyArray<HostnameLabel>;
+
+// Hostname
+// list of 1 or more hostname labels separated by dot
+export type Hostname = t.Branded<string, HostnameBrand>;
+export const Hostname = t.brand(
+  t.string,
+  (x): x is t.Branded<string, HostnameBrand> =>
+    (typeof x !== 'string' ||
+      x.match(
+        RegExp(
+          '^[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?(.[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?)*$',
+        ),
+      ) !== null) &&
+    (typeof x !== 'string' || x.length >= 1) &&
+    (typeof x !== 'string' || x.length <= 253),
+  'Hostname',
+);
+export interface HostnameBrand {
+  readonly Hostname: unique symbol;
+}
+/** require('io-ts-validator').validator(nonEmptyArray(Hostname)).decodeSync(examplesHostname) // => examplesHostname */
+export const examplesHostname: NonEmptyArray<Hostname> = ([
+  'localhost',
+  'example.com',
+  'sub.example.com',
+] as unknown) as NonEmptyArray<Hostname>;
 
 // Url
 // Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex
@@ -79,13 +128,10 @@ export const ObsoleteIdentityId = t.brand(
 export interface ObsoleteIdentityIdBrand {
   readonly ObsoleteIdentityId: unique symbol;
 }
-/** examplesObsoleteIdentityId // => { _tag: 'Right', right: examplesObsoleteIdentityIdJson } */
-export const examplesObsoleteIdentityIdJson: NonEmptyArray<unknown> = [
+/** require('io-ts-validator').validator(nonEmptyArray(ObsoleteIdentityId)).decodeSync(examplesObsoleteIdentityId) // => examplesObsoleteIdentityId */
+export const examplesObsoleteIdentityId: NonEmptyArray<ObsoleteIdentityId> = ([
   'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
-];
-export const examplesObsoleteIdentityId = nonEmptyArray(ObsoleteIdentityId).decode(
-  examplesObsoleteIdentityIdJson,
-);
+] as unknown) as NonEmptyArray<ObsoleteIdentityId>;
 
 // IdentityId
 // The purpose of this remains a mystery
@@ -98,14 +144,11 @@ export const IdentityId = t.brand(
 export interface IdentityIdBrand {
   readonly IdentityId: unique symbol;
 }
-/** examplesIdentityId // => { _tag: 'Right', right: examplesIdentityIdJson } */
-export const examplesIdentityIdJson: NonEmptyArray<unknown> = [
+/** require('io-ts-validator').validator(nonEmptyArray(IdentityId)).decodeSync(examplesIdentityId) // => examplesIdentityId */
+export const examplesIdentityId: NonEmptyArray<IdentityId> = ([
   'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
   '4828507e-683f-41bf-9d87-689808fbf958',
-];
-export const examplesIdentityId = nonEmptyArray(IdentityId).decode(
-  examplesIdentityIdJson,
-);
+] as unknown) as NonEmptyArray<IdentityId>;
 
 // Currency
 // Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1

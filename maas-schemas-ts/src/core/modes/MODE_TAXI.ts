@@ -37,6 +37,7 @@ export type MODE_TAXI = t.Branded<
       name?: string;
       phone?: Common_.Phone;
     };
+    messageToDriver?: string;
   },
   MODE_TAXIBrand
 >;
@@ -61,6 +62,7 @@ export const MODE_TAXI = t.brand(
       name: t.string,
       phone: Common_.Phone,
     }),
+    messageToDriver: t.string,
   }),
   (
     x,
@@ -85,6 +87,7 @@ export const MODE_TAXI = t.brand(
         name?: string;
         phone?: Common_.Phone;
       };
+      messageToDriver?: string;
     },
     MODE_TAXIBrand
   > => true,
