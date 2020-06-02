@@ -1,0 +1,29 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-scheduled-change-delete/request.json",
+    "description": "Request schema for subscriptions-scheduled-change-delete",
+    "type": "object",
+    "properties": {
+        "customerId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "userId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "required": [
+        "customerId",
+        "userId"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

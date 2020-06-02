@@ -1,0 +1,26 @@
+{
+    "$id": "http://maasglobal.com/tsp/post-kyc-verification-update/response.json",
+    "description": "Response schema for post KYC verification update.",
+    "type": "object",
+    "properties": {
+        "status": {
+            "type": "number"
+        },
+        "message": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "message",
+        "status"
+    ],
+    "additionalProperties": false,
+    "examples": [
+        {
+            "status": 200,
+            "message": "Documents were processed."
+        }
+    ],
+    "meta:status": "Develop",
+    "title": "response"
+}

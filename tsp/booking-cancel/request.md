@@ -1,7 +1,7 @@
 # request Schema
 
 ```
-http://maasglobal.com/tsp/bookings-cancel/request.json
+http://maasglobal.com/tsp/booking-cancel/request.json
 ```
 
 Request schema for cancelling a booking through a TSP adapter
@@ -12,7 +12,7 @@ Request schema for cancelling a booking through a TSP adapter
 
 ## Schema Hierarchy
 
-- request `http://maasglobal.com/tsp/bookings-cancel/request.json`
+- request `http://maasglobal.com/tsp/booking-cancel/request.json`
   - [booking](../../core/booking.md) `http://maasglobal.com/core/booking.json`
 
 # request Properties

@@ -162,6 +162,14 @@
                 "$linkPath": "personalDataAllowItem.md"
             }
         },
+        "requiredPersonalDocuments": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/components/personalDocumentRequiredItem.json",
+                "$linkVal": "personalDocumentRequiredItem",
+                "$linkPath": "personalDocumentRequiredItem.md"
+            }
+        },
         "optionalParameters": {
             "type": "array",
             "items": {

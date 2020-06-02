@@ -17,19 +17,20 @@ MaaS product provider schema
 
 # provider Properties
 
-| Property                                              | Type                  | Required     | Nullable | Defined by             |
-| ----------------------------------------------------- | --------------------- | ------------ | -------- | ---------------------- |
-| [agencyId](#agencyid)                                 | `string`              | **Required** | No       | provider (this schema) |
-| [branding](#branding)                                 | `object`              | **Required** | No       | provider (this schema) |
-| [disruption](#disruption)                             | `object`              | Optional     | No       | provider (this schema) |
-| [extra](#extra)                                       | `object`              | Optional     | No       | provider (this schema) |
-| [features](#features)                                 | `object`              | **Required** | No       | provider (this schema) |
-| [groupId](#groupid)                                   | `string`              | **Required** | No       | provider (this schema) |
-| [hidden](#hidden)                                     | `boolean`             | **Required** | No       | provider (this schema) |
-| [name](#name)                                         | `string`              | **Required** | No       | provider (this schema) |
-| [optionalParameters](#optionalparameters)             | `object[]`            | **Required** | No       | provider (this schema) |
-| [personalDataCreateAllow](#personaldatacreateallow)   | personalDataAllowItem | **Required** | No       | provider (this schema) |
-| [personalDataOptionsAllow](#personaldataoptionsallow) | personalDataAllowItem | **Required** | No       | provider (this schema) |
+| Property                                                | Type                         | Required     | Nullable | Defined by             |
+| ------------------------------------------------------- | ---------------------------- | ------------ | -------- | ---------------------- |
+| [agencyId](#agencyid)                                   | `string`                     | **Required** | No       | provider (this schema) |
+| [branding](#branding)                                   | `object`                     | **Required** | No       | provider (this schema) |
+| [disruption](#disruption)                               | `object`                     | Optional     | No       | provider (this schema) |
+| [extra](#extra)                                         | `object`                     | Optional     | No       | provider (this schema) |
+| [features](#features)                                   | `object`                     | **Required** | No       | provider (this schema) |
+| [groupId](#groupid)                                     | `string`                     | **Required** | No       | provider (this schema) |
+| [hidden](#hidden)                                       | `boolean`                    | **Required** | No       | provider (this schema) |
+| [name](#name)                                           | `string`                     | **Required** | No       | provider (this schema) |
+| [optionalParameters](#optionalparameters)               | `object[]`                   | **Required** | No       | provider (this schema) |
+| [personalDataCreateAllow](#personaldatacreateallow)     | personalDataAllowItem        | **Required** | No       | provider (this schema) |
+| [personalDataOptionsAllow](#personaldataoptionsallow)   | personalDataAllowItem        | **Required** | No       | provider (this schema) |
+| [requiredPersonalDocuments](#requiredpersonaldocuments) | personalDocumentRequiredItem | Optional     | No       | provider (this schema) |
 
 ## agencyId
 
@@ -618,3 +619,20 @@ All items must be of the type:
 
 - [personalDataAllowItem](../../core/components/personalDataAllowItem.md) –
   `http://maasglobal.com/core/components/personalDataAllowItem.json`
+
+## requiredPersonalDocuments
+
+`requiredPersonalDocuments`
+
+- is optional
+- type: personalDocumentRequiredItem
+- defined in this schema
+
+### requiredPersonalDocuments Type
+
+Array type: personalDocumentRequiredItem
+
+All items must be of the type:
+
+- [personalDocumentRequiredItem](../../core/components/personalDocumentRequiredItem.md) –
+  `http://maasglobal.com/core/components/personalDocumentRequiredItem.json`

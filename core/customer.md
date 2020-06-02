@@ -27,6 +27,8 @@ MaaS customer schema
   "favoriteLocations": [],
   "phone": "+358407654321",
   "email": "bob.customer@example.com",
+  "honorifics": "mr",
+  "sex": "male",
   "firstName": "Bob",
   "lastName": "Customer",
   "created": 1553687004207,
@@ -80,6 +82,9 @@ MaaS customer schema
       "type": "charge"
     }
   },
+  "referral": {
+    "code": "XXXX-XXXX-XXXX-XXXX"
+  },
   "regionId": "fi-helsinki",
   "region": {
     "id": "fi-helsinki",
@@ -103,26 +108,33 @@ MaaS customer schema
 
 # customer Properties
 
-| Property                          | Type     | Required | Nullable | Defined by             |
-| --------------------------------- | -------- | -------- | -------- | ---------------------- |
-| [address](#address)               | `string` | Optional | No       | customer (this schema) |
-| [appInstanceId](#appinstanceid)   | `string` | Optional | No       | customer (this schema) |
-| [authToken](#authtoken)           | `string` | Optional | No       | customer (this schema) |
-| [balances](#balances)             | `object` | Optional | No       | customer (this schema) |
-| [city](#city)                     | `string` | Optional | No       | customer (this schema) |
-| [clientId](#clientid)             | `enum`   | Optional | No       | customer (this schema) |
-| [country](#country)               | `string` | Optional | No       | customer (this schema) |
-| [dob](#dob)                       | complex  | Optional | No       | customer (this schema) |
-| [email](#email)                   | `string` | Optional | No       | customer (this schema) |
-| [firstName](#firstname)           | `string` | Optional | No       | customer (this schema) |
-| [identityId](#identityid)         | complex  | Optional | No       | customer (this schema) |
-| [lastName](#lastname)             | `string` | Optional | No       | customer (this schema) |
-| [locale](#locale)                 | `string` | Optional | No       | customer (this schema) |
-| [opaqueId](#opaqueid)             | `string` | Optional | No       | customer (this schema) |
-| [phone](#phone)                   | `string` | Optional | No       | customer (this schema) |
-| [ssid](#ssid)                     | complex  | Optional | No       | customer (this schema) |
-| [subscriberType](#subscribertype) | `string` | Optional | No       | customer (this schema) |
-| [zipCode](#zipcode)               | `string` | Optional | No       | customer (this schema) |
+| Property                                  | Type              | Required | Nullable | Defined by             |
+| ----------------------------------------- | ----------------- | -------- | -------- | ---------------------- |
+| [address](#address)                       | `string`          | Optional | No       | customer (this schema) |
+| [appInstanceId](#appinstanceid)           | `string`          | Optional | No       | customer (this schema) |
+| [authToken](#authtoken)                   | `string`          | Optional | No       | customer (this schema) |
+| [balances](#balances)                     | `object`          | Optional | No       | customer (this schema) |
+| [city](#city)                             | `string`          | Optional | No       | customer (this schema) |
+| [clientId](#clientid)                     | `enum`            | Optional | No       | customer (this schema) |
+| [country](#country)                       | `string`          | Optional | No       | customer (this schema) |
+| [dob](#dob)                               | complex           | Optional | No       | customer (this schema) |
+| [documents](#documents)                   | personal-document | Optional | No       | customer (this schema) |
+| [email](#email)                           | `string`          | Optional | No       | customer (this schema) |
+| [firstName](#firstname)                   | `string`          | Optional | No       | customer (this schema) |
+| [firstNameLocalized](#firstnamelocalized) | `string`          | Optional | No       | customer (this schema) |
+| [honorifics](#honorifics)                 | `string`          | Optional | No       | customer (this schema) |
+| [identityId](#identityid)                 | complex           | Optional | No       | customer (this schema) |
+| [lastName](#lastname)                     | `string`          | Optional | No       | customer (this schema) |
+| [lastNameLocalized](#lastnamelocalized)   | `string`          | Optional | No       | customer (this schema) |
+| [locale](#locale)                         | `string`          | Optional | No       | customer (this schema) |
+| [opaqueId](#opaqueid)                     | `string`          | Optional | No       | customer (this schema) |
+| [phone](#phone)                           | `string`          | Optional | No       | customer (this schema) |
+| [referral](#referral)                     | `object`          | Optional | No       | customer (this schema) |
+| [sex](#sex)                               | `string`          | Optional | No       | customer (this schema) |
+| [ssid](#ssid)                             | complex           | Optional | No       | customer (this schema) |
+| [state](#state)                           | `string`          | Optional | No       | customer (this schema) |
+| [subscriberType](#subscribertype)         | `string`          | Optional | No       | customer (this schema) |
+| [zipCode](#zipcode)                       | `string`          | Optional | No       | customer (this schema) |
 
 ## address
 
@@ -309,6 +321,22 @@ The customer's date of birth or boolean indicating if the value is already in DB
 
 - [isoDate](units.md) – `http://maasglobal.com/core/components/units.json#/definitions/isoDate`
 
+## documents
+
+`documents`
+
+- is optional
+- type: personal-document
+- defined in this schema
+
+### documents Type
+
+Array type: personal-document
+
+All items must be of the type:
+
+- [personal-document](personal-document.md) – `http://maasglobal.com/core/personal-document.json`
+
 ## email
 
 Rough validation of a valid e-mail address
@@ -354,6 +382,35 @@ First name of the customer (e.g. John)
 
 - minimum length: 1 characters
 - maximum length: 255 characters
+
+## firstNameLocalized
+
+Localized first name of the customer (e.g. John)
+
+`firstNameLocalized`
+
+- is optional
+- type: `string`
+- defined in this schema
+
+### firstNameLocalized Type
+
+`string`
+
+- minimum length: 1 characters
+- maximum length: 255 characters
+
+## honorifics
+
+`honorifics`
+
+- is optional
+- type: `string`
+- defined in this schema
+
+### honorifics Type
+
+`string`
 
 ## identityId
 
@@ -414,6 +471,23 @@ Last name of the customer (e.g. Doe)
 - defined in this schema
 
 ### lastName Type
+
+`string`
+
+- minimum length: 1 characters
+- maximum length: 255 characters
+
+## lastNameLocalized
+
+Localized last name of the customer (e.g. Doe)
+
+`lastNameLocalized`
+
+- is optional
+- type: `string`
+- defined in this schema
+
+### lastNameLocalized Type
 
 `string`
 
@@ -489,6 +563,45 @@ All instances must conform to this regular expression
 "+358401234567"
 ```
 
+## referral
+
+`referral`
+
+- is optional
+- type: `object`
+- defined in this schema
+
+### referral Type
+
+`object` with following properties:
+
+| Property | Type   | Required |
+| -------- | ------ | -------- |
+| `code`   | string | Optional |
+
+#### code
+
+`code`
+
+- is optional
+- type: `string`
+
+##### code Type
+
+`string`
+
+## sex
+
+`sex`
+
+- is optional
+- type: `string`
+- defined in this schema
+
+### sex Type
+
+`string`
+
 ## ssid
 
 Social Security ID
@@ -510,6 +623,22 @@ Social Security ID
 #### Option 2
 
 - [ssid](common.md) – `http://maasglobal.com/core/components/common.json#/definitions/ssid`
+
+## state
+
+Alphabetic state name
+
+`state`
+
+- is optional
+- type: `string`
+- defined in this schema
+
+### state Type
+
+`string`
+
+- maximum length: 64 characters
 
 ## subscriberType
 

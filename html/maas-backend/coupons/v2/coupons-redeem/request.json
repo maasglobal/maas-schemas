@@ -1,0 +1,37 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/coupons/v2/coupons-redeem/request.json",
+    "description": "MaaS coupon redeem",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "identityId",
+        "payload"
+    ],
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "payload": {
+            "type": "object",
+            "required": [
+                "code"
+            ],
+            "properties": {
+                "code": {
+                    "$ref": "http://maasglobal.com/maas-backend/coupons/code.json#/definitions/code",
+                    "$linkVal": "code",
+                    "$linkPath": "code.md"
+                }
+            }
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "meta:status": "Develop",
+    "title": "request"
+}

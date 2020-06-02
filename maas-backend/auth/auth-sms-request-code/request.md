@@ -1,7 +1,7 @@
 # request Schema
 
 ```
-http://maasglobal.com/maas-backend/auth/auth-sms-request.code/request.json
+http://maasglobal.com/maas-backend/auth/auth-sms-request-code/request.json
 ```
 
 Request schema for auth-sms-request-code
@@ -12,7 +12,7 @@ Request schema for auth-sms-request-code
 
 ## Schema Hierarchy
 
-- request `http://maasglobal.com/maas-backend/auth/auth-sms-request.code/request.json`
+- request `http://maasglobal.com/maas-backend/auth/auth-sms-request-code/request.json`
   - [api-common](../../../core/components/api-common.md) `http://maasglobal.com/core/components/api-common.json`
 
 # request Properties

@@ -1,7 +1,7 @@
 # response Schema
 
 ```
-http://maasglobal.com/tsp/bookings-cancel/response.json
+http://maasglobal.com/tsp/booking-cancel/response.json
 ```
 
 Response schema for canceling a booking through a TSP adapter
@@ -12,7 +12,7 @@ Response schema for canceling a booking through a TSP adapter
 
 ## Schema Hierarchy
 
-- response `http://maasglobal.com/tsp/bookings-cancel/response.json`
+- response `http://maasglobal.com/tsp/booking-cancel/response.json`
   - [booking](../../core/booking.md) `http://maasglobal.com/core/booking.json`
   - [booking-option](../../core/booking-option.md) `http://maasglobal.com/core/booking-option.json`
   - [booking-meta](../../core/booking-meta.md) `http://maasglobal.com/core/booking-meta.json`

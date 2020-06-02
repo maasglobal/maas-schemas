@@ -1,7 +1,7 @@
 # response Schema
 
 ```
-http://maasglobal.com/tsp/bookings-create/response.json
+http://maasglobal.com/tsp/booking-create/response.json
 ```
 
 Response schema for creating a booking through a TSP adapter
@@ -12,7 +12,7 @@ Response schema for creating a booking through a TSP adapter
 
 ## Schema Hierarchy
 
-- response `http://maasglobal.com/tsp/bookings-create/response.json`
+- response `http://maasglobal.com/tsp/booking-create/response.json`
   - [booking](../../core/booking.md) `http://maasglobal.com/core/booking.json`
   - [state](../../core/components/state.md) `http://maasglobal.com/core/components/state.json`
   - [booking-option](../../core/booking-option.md) `http://maasglobal.com/core/booking-option.json`

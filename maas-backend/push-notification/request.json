@@ -41,7 +41,8 @@
                 "TripActivate",
                 "InfoMessage",
                 "ZendeskReply",
-                "VerificationUpdate"
+                "VerificationUpdate",
+                "AuthRequired"
             ]
         },
         "data": {
@@ -70,7 +71,7 @@
                         "objectType",
                         "ids"
                     ],
-                    "additionalProperties": false
+                    "additionalProperties": true
                 },
                 {
                     "type": "null"
@@ -99,7 +100,27 @@
                         "objectType",
                         "ids"
                     ],
-                    "additionalProperties": false
+                    "additionalProperties": true
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "objectType": {
+                            "enum": [
+                                "Reminder"
+                            ]
+                        },
+                        "authUrl": {
+                            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url",
+                            "$linkVal": "url",
+                            "$linkPath": "units.md"
+                        }
+                    },
+                    "required": [
+                        "objectType",
+                        "authUrl"
+                    ],
+                    "additionalProperties": true
                 }
             ]
         }

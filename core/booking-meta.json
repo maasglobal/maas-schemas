@@ -63,6 +63,11 @@
             "$linkVal": "MODE_SHARED_BICYCLE",
             "$linkPath": "MODE_SHARED_BICYCLE.md"
         },
+        "MODE_SHARED_E_BICYCLE": {
+            "$ref": "http://maasglobal.com/core/modes/MODE_SHARED_E_BICYCLE.json",
+            "$linkVal": "MODE_SHARED_E_BICYCLE",
+            "$linkPath": "MODE_SHARED_E_BICYCLE.md"
+        },
         "MODE_SHARED_CAR": {
             "$ref": "http://maasglobal.com/core/modes/MODE_SHARED_CAR.json",
             "$linkVal": "MODE_SHARED_CAR",

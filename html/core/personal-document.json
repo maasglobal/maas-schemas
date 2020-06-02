@@ -1,0 +1,98 @@
+{
+    "$id": "http://maasglobal.com/core/personal-document.json",
+    "type": "object",
+    "description": "Personal document object",
+    "definitions": {
+        "documentType": {
+            "type": "string"
+        },
+        "documentStatus": {
+            "type": "string",
+            "enum": [
+                "PENDING",
+                "APPROVED",
+                "DECLINED",
+                "EXPIRED",
+                "RESUBMISSION_REQUESTED",
+                "ABANDONED"
+            ]
+        }
+    },
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "type": {
+            "$ref": "#/definitions/documentType",
+            "$linkVal": "documentType",
+            "$linkPath": "personal-document.md"
+        },
+        "documentNumber": {
+            "type": "string"
+        },
+        "nameOnDocument": {
+            "type": "string"
+        },
+        "issuingCountry": {
+            "type": "string",
+            "minLength": 2
+        },
+        "status": {
+            "$ref": "#/definitions/documentStatus",
+            "$linkVal": "documentStatus",
+            "$linkPath": "personal-document.md"
+        },
+        "validFrom": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate",
+            "$linkVal": "isoDate",
+            "$linkPath": "units.md"
+        },
+        "validTo": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate",
+            "$linkVal": "isoDate",
+            "$linkPath": "units.md"
+        },
+        "details": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "type": "string"
+                }
+            }
+        },
+        "media": {
+            "description": "Media documents related to user personal document.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string"
+                    },
+                    "context": {
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "content",
+                    "context"
+                ]
+            }
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "type",
+        "documentNumber",
+        "nameOnDocument",
+        "issuingCountry",
+        "status",
+        "validFrom",
+        "validTo"
+    ],
+    "meta:status": "Develop",
+    "title": "personal-document"
+}

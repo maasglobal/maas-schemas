@@ -1,0 +1,44 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/personal-documents/initiate/request.json",
+    "description": "Initiate customer KYC process",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "identityId",
+        "payload",
+        "headers"
+    ],
+    "properties": {
+        "identityId": {
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+            "$linkVal": "identityId",
+            "$linkPath": "units.md"
+        },
+        "payload": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType",
+                    "$linkVal": "documentType",
+                    "$linkPath": "personal-document.md"
+                },
+                "location": {
+                    "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString",
+                    "$linkVal": "shortLocationString",
+                    "$linkPath": "units-geo.md"
+                }
+            },
+            "required": [
+                "type",
+                "location"
+            ]
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "meta:status": "Develop",
+    "title": "request"
+}

@@ -1,7 +1,7 @@
 # response Schema
 
 ```
-http://maasglobal.com/tsp/bookings-receipt/response.json
+http://maasglobal.com/tsp/booking-receipt/response.json
 ```
 
 Response schema for getting a receipt for specific booking
@@ -12,7 +12,7 @@ Response schema for getting a receipt for specific booking
 
 ## Schema Hierarchy
 
-- response `http://maasglobal.com/tsp/bookings-receipt/response.json`
+- response `http://maasglobal.com/tsp/booking-receipt/response.json`
   - [booking](../../core/booking.md) `http://maasglobal.com/core/booking.json`
 
 # response Properties

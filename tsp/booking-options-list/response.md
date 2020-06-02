@@ -1,7 +1,7 @@
 # response Schema
 
 ```
-http://maasglobal.com/tsp/bookings-options-list/response.json
+http://maasglobal.com/tsp/booking-options-list/response.json
 ```
 
 Response schema for getting options from a TSP adapter

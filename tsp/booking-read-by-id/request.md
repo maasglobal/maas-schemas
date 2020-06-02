@@ -1,7 +1,7 @@
 # request Schema
 
 ```
-http://maasglobal.com/tsp/bookings-read-by-id/request.json
+http://maasglobal.com/tsp/booking-read-by-id/request.json
 ```
 
 Request schema for getting a specific booking with a TSP ID from a TSP adapter
@@ -12,7 +12,7 @@ Request schema for getting a specific booking with a TSP ID from a TSP adapter
 
 ## Schema Hierarchy
 
-- request `http://maasglobal.com/tsp/bookings-read-by-id/request.json`
+- request `http://maasglobal.com/tsp/booking-read-by-id/request.json`
   - [booking](../../core/booking.md) `http://maasglobal.com/core/booking.json`
 
 # request Properties

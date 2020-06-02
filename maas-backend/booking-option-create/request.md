@@ -18,13 +18,14 @@ Request schema for booking-option-create
 
 # request Definitions
 
-| Property                                | Type              | Group                                                                                        |
-| --------------------------------------- | ----------------- | -------------------------------------------------------------------------------------------- |
-| [agencyOptions](#agencyoptions)         | agencyOptions     | `http://maasglobal.com/maas-backend/booking-option-create/request.json#/definitions/payload` |
-| [autoPurchaseId](#autopurchaseid)       | uuid              | `http://maasglobal.com/maas-backend/booking-option-create/request.json#/definitions/payload` |
-| [customerSelection](#customerselection) | customerSelection | `http://maasglobal.com/maas-backend/booking-option-create/request.json#/definitions/payload` |
-| [paymentSourceId](#paymentsourceid)     | paymentSourceId   | `http://maasglobal.com/maas-backend/booking-option-create/request.json#/definitions/payload` |
-| [productId](#productid)                 | id                | `http://maasglobal.com/maas-backend/booking-option-create/request.json#/definitions/payload` |
+| Property                                | Type              | Group                                                                                       |
+| --------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------- |
+| [agencyOptions](#agencyoptions)         | agencyOptions     | `http://maasglobal.com/maas-backend/booking-option-create/request.json#/definitions/option` |
+| [autoPurchaseId](#autopurchaseid)       | uuid              | `http://maasglobal.com/maas-backend/booking-option-create/request.json#/definitions/option` |
+| [customerSelection](#customerselection) | customerSelection | `http://maasglobal.com/maas-backend/booking-option-create/request.json#/definitions/option` |
+| [paymentSourceId](#paymentsourceid)     | paymentSourceId   | `http://maasglobal.com/maas-backend/booking-option-create/request.json#/definitions/option` |
+| [productId](#productid)                 | id                | `http://maasglobal.com/maas-backend/booking-option-create/request.json#/definitions/option` |
+| [rollbackOnFailure](#rollbackonfailure) | `boolean`         | `http://maasglobal.com/maas-backend/booking-option-create/request.json#/definitions/option` |
 
 ## agencyOptions
 
@@ -86,13 +87,27 @@ Request schema for booking-option-create
 
 - [id](product.md) – `http://maasglobal.com/core/product.json#/definitions/id`
 
+## rollbackOnFailure
+
+If one of these is true, then all bookings will be cancelled
+
+`rollbackOnFailure`
+
+- is optional
+- type: `boolean`
+- defined in this schema
+
+### rollbackOnFailure Type
+
+`boolean`
+
 # request Properties
 
 | Property                  | Type     | Required     | Nullable | Defined by            |
 | ------------------------- | -------- | ------------ | -------- | --------------------- |
 | [headers](#headers)       | `object` | **Required** | No       | request (this schema) |
 | [identityId](#identityid) | complex  | **Required** | No       | request (this schema) |
-| [payload](#payload)       | `object` | **Required** | No       | request (this schema) |
+| [payload](#payload)       | option   | **Required** | No       | request (this schema) |
 
 ## headers
 
@@ -186,72 +201,13 @@ All instances must conform to this regular expression
 `payload`
 
 - is **required**
-- type: `object`
+- type: option
 - defined in this schema
 
 ### payload Type
 
-`object` with following properties:
+Array type: option
 
-| Property            | Type | Required |
-| ------------------- | ---- | -------- |
-| `agencyOptions`     |      | Optional |
-| `autoPurchaseId`    |      | Optional |
-| `customerSelection` |      | Optional |
-| `paymentSourceId`   |      | Optional |
-| `productId`         |      | Optional |
+All items must be of the type:
 
-#### agencyOptions
-
-`agencyOptions`
-
-- is optional
-- type: agencyOptions
-
-##### agencyOptions Type
-
-- [agencyOptions](agencyOptions.md) – `http://maasglobal.com/core/components/agencyOptions.json`
-
-#### autoPurchaseId
-
-`autoPurchaseId`
-
-- is optional
-- type: uuid
-
-##### autoPurchaseId Type
-
-- [uuid](units.md) – `http://maasglobal.com/core/components/units.json#/definitions/uuid`
-
-#### customerSelection
-
-`customerSelection`
-
-- is optional
-- type: customerSelection
-
-##### customerSelection Type
-
-- [customerSelection](customerSelection.md) – `http://maasglobal.com/core/components/customerSelection.json`
-
-#### paymentSourceId
-
-`paymentSourceId`
-
-- is optional
-- type: paymentSourceId
-
-##### paymentSourceId Type
-
-- [paymentSourceId](common.md) – `http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId`
-
-#### productId
-
-`productId`
-
-- is optional
-- type: id
-
-##### productId Type
-
-- [id](product.md) – `http://maasglobal.com/core/product.json#/definitions/id`
+- [option](request.md) – `#/definitions/option`

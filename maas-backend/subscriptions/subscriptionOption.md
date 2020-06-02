@@ -35,6 +35,7 @@ MaaS subscription option schema
 | [plan](#plan)                                     | `object`                | Optional     | No       | [subscription](subscription.md#plan)            |
 | [pointCost](#pointcost)                           | point-cost              | Optional     | No       | [subscription](subscription.md#pointcost)       |
 | [region](#region)                                 | region                  | Optional     | No       | [subscription](subscription.md#region)          |
+| [regionDefault](#regiondefault)                   | `boolean`               | **Required** | No       | subscriptionOption (this schema)                |
 | [requiredAuthorizations](#requiredauthorizations) | agencyId                | **Required** | No       | subscriptionOption (this schema)                |
 | [selectable](#selectable)                         | `boolean`               | Optional     | No       | [subscription](subscription.md#selectable)      |
 | [shippingAddress](#shippingaddress)               | subscriptionAddress     | Optional     | No       | [subscription](subscription.md#shippingaddress) |
@@ -312,6 +313,20 @@ Customer subscription plan
 ### region Type
 
 - [region](../../core/region.md) – `http://maasglobal.com/core/region.json`
+
+## regionDefault
+
+Is this subscription option the default one for the region
+
+`regionDefault`
+
+- is **required**
+- type: `boolean`
+- defined in this schema
+
+### regionDefault Type
+
+`boolean`
 
 ## requiredAuthorizations
 

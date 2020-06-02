@@ -19,16 +19,18 @@ MaaS customer schema
 
 # customer Properties
 
-| Property                                | Type          | Required     | Nullable | Defined by             |
-| --------------------------------------- | ------------- | ------------ | -------- | ---------------------- |
-| [authorizations](#authorizations)       | authorization | **Required** | No       | customer (this schema) |
-| [balances](#balances)                   | fare          | **Required** | No       | customer (this schema) |
-| [favoriteLocations](#favoritelocations) | `object[]`    | Optional     | No       | customer (this schema) |
-| [identityId](#identityid)               | complex       | Optional     | No       | customer (this schema) |
-| [paymentSources](#paymentsources)       | paymentSource | **Required** | No       | customer (this schema) |
-| [personalData](#personaldata)           | personalData  | **Required** | No       | customer (this schema) |
-| [profileImageUrl](#profileimageurl)     | `string`      | Optional     | No       | customer (this schema) |
-| [region](#region)                       | region        | **Required** | No       | customer (this schema) |
+| Property                                              | Type          | Required     | Nullable | Defined by             |
+| ----------------------------------------------------- | ------------- | ------------ | -------- | ---------------------- |
+| [authorizations](#authorizations)                     | authorization | **Required** | No       | customer (this schema) |
+| [balances](#balances)                                 | fare          | **Required** | No       | customer (this schema) |
+| [favoriteLocations](#favoritelocations)               | `object[]`    | Optional     | No       | customer (this schema) |
+| [identityId](#identityid)                             | complex       | Optional     | No       | customer (this schema) |
+| [paymentSources](#paymentsources)                     | paymentSource | **Required** | No       | customer (this schema) |
+| [personalData](#personaldata)                         | personalData  | **Required** | No       | customer (this schema) |
+| [personalDocumentConsents](#personaldocumentconsents) | agencyId      | Optional     | No       | customer (this schema) |
+| [personalDocuments](#personaldocuments)               | `object[]`    | Optional     | No       | customer (this schema) |
+| [profileImageUrl](#profileimageurl)                   | `string`      | Optional     | No       | customer (this schema) |
+| [region](#region)                                     | region        | **Required** | No       | customer (this schema) |
 
 ## authorizations
 
@@ -337,6 +339,65 @@ Payment source
 ### personalData Type
 
 - [personalData](personalData.md) – `http://maasglobal.com/maas-backend/customers/personalData.json`
+
+## personalDocumentConsents
+
+`personalDocumentConsents`
+
+- is optional
+- type: agencyId
+- defined in this schema
+
+### personalDocumentConsents Type
+
+Array type: agencyId
+
+All items must be of the type: `string`
+
+- minimum length: 2 characters
+- maximum length: 64 characters
+
+## personalDocuments
+
+`personalDocuments`
+
+- is optional
+- type: `object[]`
+- defined in this schema
+
+### personalDocuments Type
+
+Array type: `object[]`
+
+All items must be of the type: `object` with following properties:
+
+| Property | Type | Required     |
+| -------- | ---- | ------------ |
+| `status` |      | **Required** |
+| `type`   |      | **Required** |
+
+#### status
+
+`status`
+
+- is **required**
+- type: documentStatus
+
+##### status Type
+
+- [documentStatus](personal-document.md) –
+  `http://maasglobal.com/core/personal-document.json#/definitions/documentStatus`
+
+#### type
+
+`type`
+
+- is **required**
+- type: documentType
+
+##### type Type
+
+- [documentType](personal-document.md) – `http://maasglobal.com/core/personal-document.json#/definitions/documentType`
 
 ## profileImageUrl
 

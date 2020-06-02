@@ -1,0 +1,22 @@
+{
+    "$id": "http://maasglobal.com/core/components/errors.json",
+    "description": "Common definitions for different error and rejection conditions",
+    "definitions": {
+        "reason": {
+            "title": "MaaS error reason definition",
+            "description": "A data structure to convey information about issues, rejections or service denial to the clients",
+            "type": "object",
+            "properties": {
+                "text": {
+                    "type": "string"
+                },
+                "errorCode": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "meta:status": "Develop",
+    "title": "errors"
+}

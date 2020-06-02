@@ -17,10 +17,11 @@ MaaS.fi routes-query response schema
 
 # response Properties
 
-| Property        | Type     | Required     | Nullable | Defined by             |
-| --------------- | -------- | ------------ | -------- | ---------------------- |
-| [debug](#debug) | `object` | Optional     | No       | response (this schema) |
-| [plan](#plan)   | plan     | **Required** | No       | response (this schema) |
+| Property            | Type     | Required     | Nullable | Defined by             |
+| ------------------- | -------- | ------------ | -------- | ---------------------- |
+| [debug](#debug)     | `object` | Optional     | No       | response (this schema) |
+| [plan](#plan)       | plan     | **Required** | No       | response (this schema) |
+| [reasons](#reasons) | reason   | Optional     | No       | response (this schema) |
 
 ## debug
 
@@ -49,3 +50,46 @@ MaaS.fi routes-query response schema
 ### plan Type
 
 - [plan](../../../core/plan.md) – `http://maasglobal.com/core/plan.json`
+
+## reasons
+
+`reasons`
+
+- is optional
+- type: reason
+- defined in this schema
+
+### reasons Type
+
+Array type: reason
+
+All items must be of the type: `object` with following properties:
+
+| Property    | Type   | Required |
+| ----------- | ------ | -------- |
+| `errorCode` | string | Optional |
+| `text`      | string | Optional |
+
+#### errorCode
+
+`errorCode`
+
+- is optional
+- type: `string`
+
+##### errorCode Type
+
+`string`
+
+#### text
+
+`text`
+
+- is optional
+- type: `string`
+
+##### text Type
+
+`string`
+
+A data structure to convey information about issues, rejections or service denial to the clients

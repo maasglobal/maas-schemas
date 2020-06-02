@@ -1,0 +1,106 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-bookings-create/request.json",
+    "description": "Request schema for webhooks-bookings-create",
+    "type": "object",
+    "properties": {
+        "payload": {
+            "type": "object",
+            "properties": {
+                "identityId": {
+                    "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId",
+                    "$linkVal": "identityId",
+                    "$linkPath": "units.md"
+                },
+                "locale": {
+                    "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale",
+                    "$linkVal": "locale",
+                    "$linkPath": "i18n.md"
+                },
+                "option": {
+                    "allOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "cost": {
+                                    "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost",
+                                    "$linkVal": "cost",
+                                    "$linkPath": "booking.md"
+                                },
+                                "leg": {
+                                    "$ref": "http://maasglobal.com/core/booking.json#/definitions/leg",
+                                    "$linkVal": "leg",
+                                    "$linkPath": "booking.md"
+                                },
+                                "meta": {
+                                    "$ref": "http://maasglobal.com/core/booking-meta.json",
+                                    "$linkVal": "booking-meta",
+                                    "$linkPath": "booking-meta.md"
+                                },
+                                "terms": {
+                                    "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms",
+                                    "$linkVal": "terms",
+                                    "$linkPath": "booking.md"
+                                },
+                                "tspProduct": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "configurator": {
+                                    "$ref": "http://maasglobal.com/core/booking.json#/definitions/configurator",
+                                    "$linkVal": "configurator",
+                                    "$linkPath": "booking.md"
+                                }
+                            }
+                        },
+                        {
+                            "oneOf": [
+                                {
+                                    "required": [
+                                        "leg",
+                                        "terms",
+                                        "cost",
+                                        "meta"
+                                    ]
+                                },
+                                {
+                                    "required": [
+                                        "leg",
+                                        "terms",
+                                        "cost",
+                                        "meta",
+                                        "configurator"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "customerSelection": {
+                    "$ref": "http://maasglobal.com/core/components/customerSelection.json",
+                    "$linkVal": "customerSelection",
+                    "$linkPath": "customerSelection.md"
+                }
+            },
+            "required": [
+                "option",
+                "identityId",
+                "locale"
+            ]
+        },
+        "headers": {
+            "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers",
+            "$linkVal": "headers",
+            "$linkPath": "api-common.md"
+        }
+    },
+    "required": [
+        "payload"
+    ],
+    "additionalProperties": false,
+    "meta:status": "Develop",
+    "title": "request"
+}

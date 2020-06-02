@@ -1,0 +1,21 @@
+{
+    "$id": "http://maasglobal.com/core/kyc-service.json",
+    "type": "object",
+    "description": "KycService object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "supportedDocumentTypes": {
+            "description": "List of document types that this KYC service supports",
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType",
+                "$linkVal": "documentType",
+                "$linkPath": "personal-document.md"
+            }
+        }
+    },
+    "meta:status": "Develop",
+    "title": "kyc-service"
+}

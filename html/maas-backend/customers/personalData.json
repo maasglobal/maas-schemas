@@ -3,6 +3,9 @@
     "description": "MaaS customer personal data schema",
     "type": "object",
     "properties": {
+        "honorifics": {
+            "type": "string"
+        },
         "firstName": {
             "description": "First name of the customer (e.g. John)",
             "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName",
@@ -14,6 +17,21 @@
             "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName",
             "$linkVal": "personalName",
             "$linkPath": "common.md"
+        },
+        "firstNameLocalized": {
+            "description": "Localized first name of the customer (e.g. John)",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName",
+            "$linkVal": "personalName",
+            "$linkPath": "common.md"
+        },
+        "lastNameLocalized": {
+            "description": "Localized last name of the customer (e.g. Doe)",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName",
+            "$linkVal": "personalName",
+            "$linkPath": "common.md"
+        },
+        "sex": {
+            "type": "string"
         },
         "phone": {
             "description": "ITU-T E.164 phone number",
@@ -35,6 +53,11 @@
         "city": {
             "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city",
             "$linkVal": "city",
+            "$linkPath": "address.md"
+        },
+        "state": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/state",
+            "$linkVal": "state",
             "$linkPath": "address.md"
         },
         "country": {

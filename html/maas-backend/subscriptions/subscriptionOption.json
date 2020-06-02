@@ -29,6 +29,10 @@
                         "$linkPath": "common.md"
                     },
                     "minItems": 0
+                },
+                "regionDefault": {
+                    "description": "Is this subscription option the default one for the region",
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -37,7 +41,8 @@
                 "pointCost",
                 "addons",
                 "coupons",
-                "requiredAuthorizations"
+                "requiredAuthorizations",
+                "regionDefault"
             ],
             "additionalProperties": true
         }

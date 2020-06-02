@@ -1,7 +1,7 @@
 # request Schema
 
 ```
-http://maasglobal.com/tsp/bookings-update/request.json
+http://maasglobal.com/tsp/booking-update/request.json
 ```
 
 Request schema for update a state of a specific booking with a TSP ID from a TSP adapter
@@ -12,7 +12,7 @@ Request schema for update a state of a specific booking with a TSP ID from a TSP
 
 ## Schema Hierarchy
 
-- request `http://maasglobal.com/tsp/bookings-update/request.json`
+- request `http://maasglobal.com/tsp/booking-update/request.json`
   - [booking](../../core/booking.md) `http://maasglobal.com/core/booking.json`
   - [configurator](../../core/components/configurator.md) `http://maasglobal.com/core/components/configurator.json`
   - [booking-meta](../../core/booking-meta.md) `http://maasglobal.com/core/booking-meta.json`

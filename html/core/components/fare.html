@@ -497,12 +497,15 @@
 <li><a class="" href="configurator.html">configurator</a></li>
 <li><a class="" href="cost.html">cost</a></li>
 <li><a class="" href="customerSelection.html">customerSelection</a></li>
+<li><a class="" href="errors.html">errors</a></li>
 <li><a class="active" href="fare.html">fare</a></li>
 <li><a class="" href="geolocation.html">geolocation</a></li>
 <li><a class="" href="geometry.html">geometry</a></li>
 <li><a class="" href="i18n.html">i18n</a></li>
+<li><a class="" href="message.html">message</a></li>
 <li><a class="" href="payment-parameters.html">payment parameters</a></li>
 <li><a class="" href="personalDataAllowItem.html">personalDataAllowItem</a></li>
+<li><a class="" href="personalDocumentRequiredItem.html">personalDocumentRequiredItem</a></li>
 <li><a class="" href="place.html">place</a></li>
 <li><a class="" href="point-cost.html">point cost</a></li>
 <li><a class="" href="state-log.html">state log</a></li>
@@ -518,6 +521,7 @@
 <li><a class="" href="../error.html">error</a></li>
 <li><a class="" href="../iot-thing-shadow.html">iot thing shadow</a></li>
 <li><a class="" href="../itinerary.html">itinerary</a></li>
+<li><a class="" href="../kyc-service.html">kyc service</a></li>
 <li><a class="" href="../leg.html">leg</a></li>
 <li class="heading"><span>modes</span></li>
 <ul>
@@ -533,6 +537,7 @@
 <li><a class="" href="../modes/MODE_SCOOTER.html">MODE SCOOTER</a></li>
 <li><a class="" href="../modes/MODE_SHARED_BICYCLE.html">MODE SHARED BICYCLE</a></li>
 <li><a class="" href="../modes/MODE_SHARED_CAR.html">MODE SHARED CAR</a></li>
+<li><a class="" href="../modes/MODE_SHARED_E_BICYCLE.html">MODE SHARED E BICYCLE</a></li>
 <li><a class="" href="../modes/MODE_SUBWAY.html">MODE SUBWAY</a></li>
 <li><a class="" href="../modes/MODE_TAXI.html">MODE TAXI</a></li>
 <li><a class="" href="../modes/MODE_TRAIN.html">MODE TRAIN</a></li>
@@ -543,6 +548,7 @@
 </ul>
 <li><a class="" href="../partialFavoriteLocation.html">partialFavoriteLocation</a></li>
 <li><a class="" href="../paymentSource.html">paymentSource</a></li>
+<li><a class="" href="../personal-document.html">personal document</a></li>
 <li><a class="" href="../plan.html">plan</a></li>
 <li><a class="" href="../product-option.html">product option</a></li>
 <li><a class="" href="../product.html">product</a></li>
@@ -630,6 +636,23 @@
 </ul>
 </ul>
 </ul>
+<li class="heading"><span>coupons</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/coupons/code.html">code</a></li>
+<li class="heading"><span>coupons validate</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/coupons/coupons-validate/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/coupons/coupons-validate/response.html">response</a></li>
+</ul>
+<li class="heading"><span>v2</span></li>
+<ul>
+<li class="heading"><span>coupons redeem</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/coupons/v2/coupons-redeem/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/coupons/v2/coupons-redeem/response.html">response</a></li>
+</ul>
+</ul>
+</ul>
 <li class="heading"><span>customers</span></li>
 <ul>
 <li><a class="" href="../../maas-backend/customers/customer.html">customer</a></li>
@@ -680,6 +703,34 @@
 <li class="heading"><span>personal data delete</span></li>
 <ul>
 <li><a class="" href="../../maas-backend/customers/personal-data-delete/request.html">request</a></li>
+</ul>
+<li class="heading"><span>personal documents</span></li>
+<ul>
+<li class="heading"><span>consent</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/customers/personal-documents/consent/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/customers/personal-documents/consent/response.html">response</a></li>
+</ul>
+<li class="heading"><span>create</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/customers/personal-documents/create/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/customers/personal-documents/create/response.html">response</a></li>
+</ul>
+<li class="heading"><span>initiate</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/customers/personal-documents/initiate/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/customers/personal-documents/initiate/response.html">response</a></li>
+</ul>
+<li class="heading"><span>remove</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/customers/personal-documents/remove/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/customers/personal-documents/remove/response.html">response</a></li>
+</ul>
+<li class="heading"><span>revoke consent</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/customers/personal-documents/revoke-consent/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/customers/personal-documents/revoke-consent/response.html">response</a></li>
+</ul>
 </ul>
 <li><a class="" href="../../maas-backend/customers/personalData.html">personalData</a></li>
 <li class="heading"><span>retrieve</span></li>
@@ -900,16 +951,6 @@
 <li><a class="" href="../../maas-backend/subscriptions/subscriptions-create/request.html">request</a></li>
 <li><a class="" href="../../maas-backend/subscriptions/subscriptions-create/response.html">response</a></li>
 </ul>
-<li class="heading"><span>subscriptions customer retrieve</span></li>
-<ul>
-<li><a class="" href="../../maas-backend/subscriptions/subscriptions-customer-retrieve/request.html">request</a></li>
-<li><a class="" href="../../maas-backend/subscriptions/subscriptions-customer-retrieve/response.html">response</a></li>
-</ul>
-<li class="heading"><span>subscriptions customer update</span></li>
-<ul>
-<li><a class="" href="../../maas-backend/subscriptions/subscriptions-customer-update/request.html">request</a></li>
-<li><a class="" href="../../maas-backend/subscriptions/subscriptions-customer-update/response.html">response</a></li>
-</ul>
 <li class="heading"><span>subscriptions estimate</span></li>
 <ul>
 <li><a class="" href="../../maas-backend/subscriptions/subscriptions-estimate/request.html">request</a></li>
@@ -924,6 +965,11 @@
 <ul>
 <li><a class="" href="../../maas-backend/subscriptions/subscriptions-retrieve/request.html">request</a></li>
 <li><a class="" href="../../maas-backend/subscriptions/subscriptions-retrieve/response.html">response</a></li>
+</ul>
+<li class="heading"><span>subscriptions scheduled change delete</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/subscriptions/subscriptions-scheduled-change-delete/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/subscriptions/subscriptions-scheduled-change-delete/response.html">response</a></li>
 </ul>
 <li class="heading"><span>subscriptions update</span></li>
 <ul>
@@ -987,6 +1033,11 @@
 </ul>
 <li class="heading"><span>webhooks</span></li>
 <ul>
+<li class="heading"><span>webhooks bookings create</span></li>
+<ul>
+<li><a class="" href="../../maas-backend/webhooks/webhooks-bookings-create/request.html">request</a></li>
+<li><a class="" href="../../maas-backend/webhooks/webhooks-bookings-create/response.html">response</a></li>
+</ul>
 <li class="heading"><span>webhooks bookings update</span></li>
 <ul>
 <li><a class="" href="../../maas-backend/webhooks/webhooks-bookings-update/request.html">request</a></li>
@@ -1066,6 +1117,11 @@
 <ul>
 <li><a class="" href="../../tsp/journey-planner/request.html">request</a></li>
 <li><a class="" href="../../tsp/journey-planner/response.html">response</a></li>
+</ul>
+<li class="heading"><span>post kyc verification update</span></li>
+<ul>
+<li><a class="" href="../../tsp/post-kyc-verification-update/request.html">request</a></li>
+<li><a class="" href="../../tsp/post-kyc-verification-update/response.html">response</a></li>
 </ul>
 <li class="heading"><span>stations list</span></li>
 <ul>

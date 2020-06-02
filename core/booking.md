@@ -1,7 +1,7 @@
 # booking Schema
 
 ```
-http://maasglobal.com/core/booking.json#
+http://maasglobal.com/core/booking.json
 ```
 
 The base booking object with all fields, to be inherited
@@ -12,9 +12,10 @@ The base booking object with all fields, to be inherited
 
 ## Schema Hierarchy
 
-- booking `http://maasglobal.com/core/booking.json#`
+- booking `http://maasglobal.com/core/booking.json`
   - [state](components/state.md) `http://maasglobal.com/core/components/state.json`
   - [state-log](components/state-log.md) `http://maasglobal.com/core/components/state-log.json`
+  - [fare](components/fare.md) `http://maasglobal.com/core/components/fare.json`
   - [booking-meta](booking-meta.md) `http://maasglobal.com/core/booking-meta.json`
   - [product](product.md) `http://maasglobal.com/core/product.json`
   - [common](components/common.md) `http://maasglobal.com/core/components/common.json`
@@ -189,26 +190,26 @@ The base booking object with all fields, to be inherited
 
 # booking Definitions
 
-| Property                              | Type           | Group                                                         |
-| ------------------------------------- | -------------- | ------------------------------------------------------------- |
-| [agencyId](#agencyid)                 | agencyId       | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [arrivalDelay](#arrivaldelay)         | arrivalDelay   | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [data](#data)                         | `object`       | `http://maasglobal.com/core/booking.json##/definitions/token` |
-| [departureDelay](#departuredelay)     | departureDelay | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [distance](#distance)                 | distance       | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [endTime](#endtime)                   | endTime        | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [from](#from)                         | from           | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [legGeometry](#leggeometry)           | legGeometry    | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [mode](#mode)                         | mode           | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [productOption](#productoption)       | productOption  | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [route](#route)                       | route          | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [routeLongName](#routelongname)       | routeLongName  | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [routeShortName](#routeshortname)     | routeShortName | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [startTime](#starttime)               | startTime      | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [stops](#stops)                       | stops          | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [to](#to)                             | to             | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [tspProduct](#tspproduct)             | tspProduct     | `http://maasglobal.com/core/booking.json##/definitions/leg`   |
-| [validityDuration](#validityduration) | `object`       | `http://maasglobal.com/core/booking.json##/definitions/token` |
+| Property                              | Type           | Group                                                        |
+| ------------------------------------- | -------------- | ------------------------------------------------------------ |
+| [agencyId](#agencyid)                 | agencyId       | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [arrivalDelay](#arrivaldelay)         | arrivalDelay   | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [data](#data)                         | `object`       | `http://maasglobal.com/core/booking.json#/definitions/token` |
+| [departureDelay](#departuredelay)     | departureDelay | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [distance](#distance)                 | distance       | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [endTime](#endtime)                   | endTime        | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [from](#from)                         | from           | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [legGeometry](#leggeometry)           | legGeometry    | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [mode](#mode)                         | mode           | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [productOption](#productoption)       | productOption  | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [route](#route)                       | route          | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [routeLongName](#routelongname)       | routeLongName  | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [routeShortName](#routeshortname)     | routeShortName | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [startTime](#starttime)               | startTime      | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [stops](#stops)                       | stops          | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [to](#to)                             | to             | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [tspProduct](#tspproduct)             | tspProduct     | `http://maasglobal.com/core/booking.json#/definitions/leg`   |
+| [validityDuration](#validityduration) | `object`       | `http://maasglobal.com/core/booking.json#/definitions/token` |
 
 ## agencyId
 
@@ -473,17 +474,17 @@ The starting time from which the ticket is valid
 | [cost](#cost)                           | cost              | Optional     | No       | booking (this schema)                      |
 | [customer](#customer)                   | complex           | **Required** | No       | booking (this schema)                      |
 | [customerSelection](#customerselection) | customerSelection | Optional     | No       | booking (this schema)                      |
-| [fares](#fares)                         | fares             | Optional     | No       | booking (this schema)                      |
+| [fares](#fares)                         | fare              | Optional     | No       | booking (this schema)                      |
 | [id](#id)                               | id                | **Required** | No       | booking (this schema)                      |
-| [leg](#leg)                             | leg               | **Required** | No       | booking (this schema)                      |
+| [leg](#leg)                             | `object`          | **Required** | No       | booking (this schema)                      |
 | [meta](#meta)                           | booking-meta      | **Required** | No       | booking (this schema)                      |
 | [product](#product)                     | product           | Optional     | No       | booking (this schema)                      |
 | [signature](#signature)                 | `string`          | Optional     | No       | booking (this schema)                      |
 | [state](#state)                         | `enum`            | **Required** | No       | booking (this schema)                      |
 | [stateLog](#statelog)                   | state-log         | Optional     | No       | booking (this schema)                      |
 | [terms](#terms)                         | terms             | **Required** | No       | booking (this schema)                      |
-| [token](#token)                         | token             | **Required** | No       | booking (this schema)                      |
-| [tspId](#tspid)                         | tspId             | Optional     | No       | booking (this schema)                      |
+| [token](#token)                         | `object`          | **Required** | No       | booking (this schema)                      |
+| [tspId](#tspid)                         | `string`          | Optional     | No       | booking (this schema)                      |
 | `*`                                     | any               | Additional   | Yes      | this schema _allows_ additional properties |
 
 ## configurator
@@ -496,7 +497,7 @@ The starting time from which the ticket is valid
 
 ### configurator Type
 
-- [configurator](booking.md) – `#/definitions/configurator`
+- [configurator](booking.md) – `http://maasglobal.com/core/components/configurator.json`
 
 ## cost
 
@@ -508,7 +509,7 @@ The starting time from which the ticket is valid
 
 ### cost Type
 
-- [cost](booking.md) – `#/definitions/cost`
+- [cost](booking.md) – `http://maasglobal.com/core/components/cost.json`
 
 ## customer
 
@@ -547,12 +548,16 @@ MaaS booking customer
 `fares`
 
 - is optional
-- type: fares
+- type: fare
 - defined in this schema
 
 ### fares Type
 
-- [fares](booking.md) – `#/definitions/fares`
+Array type: fare
+
+All items must be of the type:
+
+- [fare](components/fare.md) – `http://maasglobal.com/core/components/fare.json`
 
 ## id
 
@@ -564,19 +569,240 @@ MaaS booking customer
 
 ### id Type
 
-- [id](booking.md) – `#/definitions/id`
+- [id](booking.md) – `http://maasglobal.com/core/components/units.json#/definitions/uuid`
 
 ## leg
+
+MaaS response may return any subset of legCore
 
 `leg`
 
 - is **required**
-- type: leg
+- type: `object`
 - defined in this schema
 
 ### leg Type
 
-- [leg](booking.md) – `#/definitions/leg`
+`object` with following properties:
+
+| Property         | Type | Required |
+| ---------------- | ---- | -------- |
+| `agencyId`       |      | Optional |
+| `arrivalDelay`   |      | Optional |
+| `departureDelay` |      | Optional |
+| `distance`       |      | Optional |
+| `endTime`        |      | Optional |
+| `from`           |      | Optional |
+| `legGeometry`    |      | Optional |
+| `mode`           |      | Optional |
+| `productOption`  |      | Optional |
+| `route`          |      | Optional |
+| `routeLongName`  |      | Optional |
+| `routeShortName` |      | Optional |
+| `signature`      |      | Optional |
+| `startTime`      |      | Optional |
+| `state`          |      | Optional |
+| `stops`          |      | Optional |
+| `to`             |      | Optional |
+| `tspProduct`     |      | Optional |
+
+#### agencyId
+
+`agencyId`
+
+- is optional
+- type: agencyId
+
+##### agencyId Type
+
+- [agencyId](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/agencyId`
+
+#### arrivalDelay
+
+`arrivalDelay`
+
+- is optional
+- type: arrivalDelay
+
+##### arrivalDelay Type
+
+- [arrivalDelay](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/arrivalDelay`
+
+#### departureDelay
+
+`departureDelay`
+
+- is optional
+- type: departureDelay
+
+##### departureDelay Type
+
+- [departureDelay](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/departureDelay`
+
+#### distance
+
+`distance`
+
+- is optional
+- type: distance
+
+##### distance Type
+
+- [distance](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/distance`
+
+#### endTime
+
+`endTime`
+
+- is optional
+- type: endTime
+
+##### endTime Type
+
+- [endTime](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/endTime`
+
+#### from
+
+`from`
+
+- is optional
+- type: from
+
+##### from Type
+
+- [from](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/from`
+
+#### legGeometry
+
+`legGeometry`
+
+- is optional
+- type: legGeometry
+
+##### legGeometry Type
+
+- [legGeometry](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/legGeometry`
+
+#### mode
+
+`mode`
+
+- is optional
+- type: mode
+
+##### mode Type
+
+- [mode](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/mode`
+
+#### productOption
+
+`productOption`
+
+- is optional
+- type: productOption
+
+##### productOption Type
+
+- [productOption](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/productOption`
+
+#### route
+
+`route`
+
+- is optional
+- type: route
+
+##### route Type
+
+- [route](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/route`
+
+#### routeLongName
+
+`routeLongName`
+
+- is optional
+- type: routeLongName
+
+##### routeLongName Type
+
+- [routeLongName](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/routeLongName`
+
+#### routeShortName
+
+`routeShortName`
+
+- is optional
+- type: routeShortName
+
+##### routeShortName Type
+
+- [routeShortName](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/routeShortName`
+
+#### signature
+
+`signature`
+
+- is optional
+- type: signature
+
+##### signature Type
+
+- [signature](common.md) – `http://maasglobal.com/core/components/common.json#/definitions/signature`
+
+#### startTime
+
+`startTime`
+
+- is optional
+- type: startTime
+
+##### startTime Type
+
+- [startTime](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/startTime`
+
+#### state
+
+`state`
+
+- is optional
+- type: state
+
+##### state Type
+
+- [state](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/state`
+
+#### stops
+
+`stops`
+
+- is optional
+- type: stops
+
+##### stops Type
+
+- [stops](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/stops`
+
+#### to
+
+`to`
+
+- is optional
+- type: to
+
+##### to Type
+
+- [to](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/to`
+
+#### tspProduct
+
+`tspProduct`
+
+- is optional
+- type: tspProduct
+
+##### tspProduct Type
+
+- [tspProduct](leg.md) – `http://maasglobal.com/core/leg.json#/definitions/tspProduct`
 
 ## meta
 
@@ -671,28 +897,118 @@ The value of this property **must** be equal to one of the [known values below](
 
 ### terms Type
 
-- [terms](booking.md) – `#/definitions/terms`
+- [terms](booking.md) – `http://maasglobal.com/core/components/terms.json`
 
 ## token
+
+The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when
+starting the leg.
 
 `token`
 
 - is **required**
-- type: token
+- type: `object`
 - defined in this schema
 
 ### token Type
 
-- [token](booking.md) – `#/definitions/token`
+`object` with following properties:
+
+| Property           | Type   | Required |
+| ------------------ | ------ | -------- |
+| `data`             | object | Optional |
+| `meta`             | object | Optional |
+| `validityDuration` | object | Optional |
+
+#### data
+
+Arbitrary ticket data for the client
+
+`data`
+
+- is optional
+- type: `object`
+
+##### data Type
+
+`object` with following properties:
+
+| Property | Type | Required |
+| -------- | ---- | -------- |
+
+
+#### meta
+
+Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)
+
+`meta`
+
+- is optional
+- type: `object`
+
+##### meta Type
+
+`object` with following properties:
+
+| Property | Type | Required |
+| -------- | ---- | -------- |
+
+
+#### validityDuration
+
+The rules that MaaS will interpret to schedule, re-validate or cancel the booking.
+
+`validityDuration`
+
+- is optional
+- type: `object`
+
+##### validityDuration Type
+
+`object` with following properties:
+
+| Property    | Type | Required |
+| ----------- | ---- | -------- |
+| `endTime`   |      | Optional |
+| `startTime` |      | Optional |
+
+#### endTime
+
+The finishing time the ticket is valid for
+
+`endTime`
+
+- is optional
+- type: time
+
+##### endTime Type
+
+- [time](units.md) – `http://maasglobal.com/core/components/units.json#/definitions/time`
+
+#### startTime
+
+The starting time from which the ticket is valid
+
+`startTime`
+
+- is optional
+- type: time
+
+##### startTime Type
+
+- [time](units.md) – `http://maasglobal.com/core/components/units.json#/definitions/time`
 
 ## tspId
 
 `tspId`
 
 - is optional
-- type: tspId
+- type: `string`
 - defined in this schema
 
 ### tspId Type
 
-- [tspId](booking.md) – `#/definitions/tspId`
+`string`
+
+- minimum length: 1 characters
+- maximum length: 256 characters

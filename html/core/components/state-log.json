@@ -43,16 +43,9 @@
                     "type": "boolean"
                 },
                 "reason": {
-                    "type": "object",
-                    "properties": {
-                        "text": {
-                            "type": "string"
-                        },
-                        "errorCode": {
-                            "type": "number"
-                        }
-                    },
-                    "additionalProperties": true
+                    "$ref": "http://maasglobal.com/core/components/errors.json#/definitions/reason",
+                    "$linkVal": "reason",
+                    "$linkPath": "errors.md"
                 }
             },
             "required": [

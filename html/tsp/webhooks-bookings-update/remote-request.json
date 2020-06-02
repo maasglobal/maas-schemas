@@ -42,6 +42,11 @@
             "$ref": "http://maasglobal.com/core/booking.json#/definitions/token",
             "$linkVal": "token",
             "$linkPath": "booking.md"
+        },
+        "reason": {
+            "$ref": "http://maasglobal.com/core/components/errors.json#/definitions/reason",
+            "$linkVal": "reason",
+            "$linkPath": "errors.md"
         }
     },
     "required": [

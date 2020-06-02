@@ -1,7 +1,7 @@
 # request Schema
 
 ```
-http://maasglobal.com/tsp/bookings-receipt/request.json
+http://maasglobal.com/tsp/booking-receipt/request.json
 ```
 
 Request schema for getting a receipt for a specific booking
@@ -12,7 +12,7 @@ Request schema for getting a receipt for a specific booking
 
 ## Schema Hierarchy
 
-- request `http://maasglobal.com/tsp/bookings-receipt/request.json`
+- request `http://maasglobal.com/tsp/booking-receipt/request.json`
   - [booking](../../core/booking.md) `http://maasglobal.com/core/booking.json`
 
 # request Properties

@@ -497,12 +497,15 @@
 <li><a class="" href="components/configurator.html">configurator</a></li>
 <li><a class="" href="components/cost.html">cost</a></li>
 <li><a class="" href="components/customerSelection.html">customerSelection</a></li>
+<li><a class="" href="components/errors.html">errors</a></li>
 <li><a class="" href="components/fare.html">fare</a></li>
 <li><a class="" href="components/geolocation.html">geolocation</a></li>
 <li><a class="" href="components/geometry.html">geometry</a></li>
 <li><a class="" href="components/i18n.html">i18n</a></li>
+<li><a class="" href="components/message.html">message</a></li>
 <li><a class="" href="components/payment-parameters.html">payment parameters</a></li>
 <li><a class="" href="components/personalDataAllowItem.html">personalDataAllowItem</a></li>
+<li><a class="" href="components/personalDocumentRequiredItem.html">personalDocumentRequiredItem</a></li>
 <li><a class="" href="components/place.html">place</a></li>
 <li><a class="" href="components/point-cost.html">point cost</a></li>
 <li><a class="" href="components/state-log.html">state log</a></li>
@@ -518,6 +521,7 @@
 <li><a class="" href="error.html">error</a></li>
 <li><a class="" href="iot-thing-shadow.html">iot thing shadow</a></li>
 <li><a class="" href="itinerary.html">itinerary</a></li>
+<li><a class="" href="kyc-service.html">kyc service</a></li>
 <li><a class="" href="leg.html">leg</a></li>
 <li class="heading"><span>modes</span></li>
 <ul>
@@ -533,6 +537,7 @@
 <li><a class="" href="modes/MODE_SCOOTER.html">MODE SCOOTER</a></li>
 <li><a class="" href="modes/MODE_SHARED_BICYCLE.html">MODE SHARED BICYCLE</a></li>
 <li><a class="" href="modes/MODE_SHARED_CAR.html">MODE SHARED CAR</a></li>
+<li><a class="" href="modes/MODE_SHARED_E_BICYCLE.html">MODE SHARED E BICYCLE</a></li>
 <li><a class="" href="modes/MODE_SUBWAY.html">MODE SUBWAY</a></li>
 <li><a class="" href="modes/MODE_TAXI.html">MODE TAXI</a></li>
 <li><a class="" href="modes/MODE_TRAIN.html">MODE TRAIN</a></li>
@@ -543,6 +548,7 @@
 </ul>
 <li><a class="" href="partialFavoriteLocation.html">partialFavoriteLocation</a></li>
 <li><a class="" href="paymentSource.html">paymentSource</a></li>
+<li><a class="" href="personal-document.html">personal document</a></li>
 <li><a class="" href="plan.html">plan</a></li>
 <li><a class="" href="product-option.html">product option</a></li>
 <li><a class="" href="product.html">product</a></li>
@@ -630,6 +636,23 @@
 </ul>
 </ul>
 </ul>
+<li class="heading"><span>coupons</span></li>
+<ul>
+<li><a class="" href="../maas-backend/coupons/code.html">code</a></li>
+<li class="heading"><span>coupons validate</span></li>
+<ul>
+<li><a class="" href="../maas-backend/coupons/coupons-validate/request.html">request</a></li>
+<li><a class="" href="../maas-backend/coupons/coupons-validate/response.html">response</a></li>
+</ul>
+<li class="heading"><span>v2</span></li>
+<ul>
+<li class="heading"><span>coupons redeem</span></li>
+<ul>
+<li><a class="" href="../maas-backend/coupons/v2/coupons-redeem/request.html">request</a></li>
+<li><a class="" href="../maas-backend/coupons/v2/coupons-redeem/response.html">response</a></li>
+</ul>
+</ul>
+</ul>
 <li class="heading"><span>customers</span></li>
 <ul>
 <li><a class="" href="../maas-backend/customers/customer.html">customer</a></li>
@@ -680,6 +703,34 @@
 <li class="heading"><span>personal data delete</span></li>
 <ul>
 <li><a class="" href="../maas-backend/customers/personal-data-delete/request.html">request</a></li>
+</ul>
+<li class="heading"><span>personal documents</span></li>
+<ul>
+<li class="heading"><span>consent</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/personal-documents/consent/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/personal-documents/consent/response.html">response</a></li>
+</ul>
+<li class="heading"><span>create</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/personal-documents/create/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/personal-documents/create/response.html">response</a></li>
+</ul>
+<li class="heading"><span>initiate</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/personal-documents/initiate/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/personal-documents/initiate/response.html">response</a></li>
+</ul>
+<li class="heading"><span>remove</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/personal-documents/remove/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/personal-documents/remove/response.html">response</a></li>
+</ul>
+<li class="heading"><span>revoke consent</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/personal-documents/revoke-consent/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/personal-documents/revoke-consent/response.html">response</a></li>
+</ul>
 </ul>
 <li><a class="" href="../maas-backend/customers/personalData.html">personalData</a></li>
 <li class="heading"><span>retrieve</span></li>
@@ -900,16 +951,6 @@
 <li><a class="" href="../maas-backend/subscriptions/subscriptions-create/request.html">request</a></li>
 <li><a class="" href="../maas-backend/subscriptions/subscriptions-create/response.html">response</a></li>
 </ul>
-<li class="heading"><span>subscriptions customer retrieve</span></li>
-<ul>
-<li><a class="" href="../maas-backend/subscriptions/subscriptions-customer-retrieve/request.html">request</a></li>
-<li><a class="" href="../maas-backend/subscriptions/subscriptions-customer-retrieve/response.html">response</a></li>
-</ul>
-<li class="heading"><span>subscriptions customer update</span></li>
-<ul>
-<li><a class="" href="../maas-backend/subscriptions/subscriptions-customer-update/request.html">request</a></li>
-<li><a class="" href="../maas-backend/subscriptions/subscriptions-customer-update/response.html">response</a></li>
-</ul>
 <li class="heading"><span>subscriptions estimate</span></li>
 <ul>
 <li><a class="" href="../maas-backend/subscriptions/subscriptions-estimate/request.html">request</a></li>
@@ -924,6 +965,11 @@
 <ul>
 <li><a class="" href="../maas-backend/subscriptions/subscriptions-retrieve/request.html">request</a></li>
 <li><a class="" href="../maas-backend/subscriptions/subscriptions-retrieve/response.html">response</a></li>
+</ul>
+<li class="heading"><span>subscriptions scheduled change delete</span></li>
+<ul>
+<li><a class="" href="../maas-backend/subscriptions/subscriptions-scheduled-change-delete/request.html">request</a></li>
+<li><a class="" href="../maas-backend/subscriptions/subscriptions-scheduled-change-delete/response.html">response</a></li>
 </ul>
 <li class="heading"><span>subscriptions update</span></li>
 <ul>
@@ -987,6 +1033,11 @@
 </ul>
 <li class="heading"><span>webhooks</span></li>
 <ul>
+<li class="heading"><span>webhooks bookings create</span></li>
+<ul>
+<li><a class="" href="../maas-backend/webhooks/webhooks-bookings-create/request.html">request</a></li>
+<li><a class="" href="../maas-backend/webhooks/webhooks-bookings-create/response.html">response</a></li>
+</ul>
 <li class="heading"><span>webhooks bookings update</span></li>
 <ul>
 <li><a class="" href="../maas-backend/webhooks/webhooks-bookings-update/request.html">request</a></li>
@@ -1067,6 +1118,11 @@
 <li><a class="" href="../tsp/journey-planner/request.html">request</a></li>
 <li><a class="" href="../tsp/journey-planner/response.html">response</a></li>
 </ul>
+<li class="heading"><span>post kyc verification update</span></li>
+<ul>
+<li><a class="" href="../tsp/post-kyc-verification-update/request.html">request</a></li>
+<li><a class="" href="../tsp/post-kyc-verification-update/response.html">response</a></li>
+</ul>
 <li class="heading"><span>stations list</span></li>
 <ul>
 <li><a class="" href="../tsp/stations-list/request.html">request</a></li>
@@ -1137,6 +1193,8 @@
   &quot;favoriteLocations&quot;: [],
   &quot;phone&quot;: &quot;+358407654321&quot;,
   &quot;email&quot;: &quot;bob.customer@example.com&quot;,
+  &quot;honorifics&quot;: &quot;mr&quot;,
+  &quot;sex&quot;: &quot;male&quot;,
   &quot;firstName&quot;: &quot;Bob&quot;,
   &quot;lastName&quot;: &quot;Customer&quot;,
   &quot;created&quot;: 1553687004207,
@@ -1189,6 +1247,9 @@
       &quot;amount&quot;: 1,
       &quot;type&quot;: &quot;charge&quot;
     }
+  },
+  &quot;referral&quot;: {
+    &quot;code&quot;: &quot;XXXX-XXXX-XXXX-XXXX&quot;
   },
   &quot;regionId&quot;: &quot;fi-helsinki&quot;,
   &quot;region&quot;: {
@@ -1279,6 +1340,13 @@
 <td>customer (this schema)</td>
 </tr>
 <tr>
+<td><a href="#documents">documents</a></td>
+<td>personal-document</td>
+<td>Optional</td>
+<td>No</td>
+<td>customer (this schema)</td>
+</tr>
+<tr>
 <td><a href="#email">email</a></td>
 <td><code>string</code></td>
 <td>Optional</td>
@@ -1293,6 +1361,20 @@
 <td>customer (this schema)</td>
 </tr>
 <tr>
+<td><a href="#firstnamelocalized">firstNameLocalized</a></td>
+<td><code>string</code></td>
+<td>Optional</td>
+<td>No</td>
+<td>customer (this schema)</td>
+</tr>
+<tr>
+<td><a href="#honorifics">honorifics</a></td>
+<td><code>string</code></td>
+<td>Optional</td>
+<td>No</td>
+<td>customer (this schema)</td>
+</tr>
+<tr>
 <td><a href="#identityid">identityId</a></td>
 <td>complex</td>
 <td>Optional</td>
@@ -1301,6 +1383,13 @@
 </tr>
 <tr>
 <td><a href="#lastname">lastName</a></td>
+<td><code>string</code></td>
+<td>Optional</td>
+<td>No</td>
+<td>customer (this schema)</td>
+</tr>
+<tr>
+<td><a href="#lastnamelocalized">lastNameLocalized</a></td>
 <td><code>string</code></td>
 <td>Optional</td>
 <td>No</td>
@@ -1328,8 +1417,29 @@
 <td>customer (this schema)</td>
 </tr>
 <tr>
+<td><a href="#referral">referral</a></td>
+<td><code>object</code></td>
+<td>Optional</td>
+<td>No</td>
+<td>customer (this schema)</td>
+</tr>
+<tr>
+<td><a href="#sex">sex</a></td>
+<td><code>string</code></td>
+<td>Optional</td>
+<td>No</td>
+<td>customer (this schema)</td>
+</tr>
+<tr>
 <td><a href="#ssid">ssid</a></td>
 <td>complex</td>
+<td>Optional</td>
+<td>No</td>
+<td>customer (this schema)</td>
+</tr>
+<tr>
+<td><a href="#state">state</a></td>
+<td><code>string</code></td>
 <td>Optional</td>
 <td>No</td>
 <td>customer (this schema)</td>
@@ -1535,6 +1645,19 @@
 <ul>
 <li><a href="units.html">isoDate</a> – <code>http://maasglobal.com/core/components/units.json#/definitions/isoDate</code></li>
 </ul>
+<h2 id="documents">documents <a class="heading-anchor-permalink" href="#documents">#</a></h2>
+<p><code>documents</code></p>
+<ul>
+<li>is optional</li>
+<li>type: personal-document</li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="documents-type">documents Type <a class="heading-anchor-permalink" href="#documents-type">#</a></h3>
+<p>Array type: personal-document</p>
+<p>All items must be of the type:</p>
+<ul>
+<li><a href="personal-document.html">personal-document</a> – <code>http://maasglobal.com/core/personal-document.json</code></li>
+</ul>
 <h2 id="email">email <a class="heading-anchor-permalink" href="#email">#</a></h2>
 <p>Rough validation of a valid e-mail address</p>
 <p><code>email</code></p>
@@ -1571,6 +1694,29 @@
 <li>minimum length: 1 characters</li>
 <li>maximum length: 255 characters</li>
 </ul>
+<h2 id="firstnamelocalized">firstNameLocalized <a class="heading-anchor-permalink" href="#firstnamelocalized">#</a></h2>
+<p>Localized first name of the customer (e.g. John)</p>
+<p><code>firstNameLocalized</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>string</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="firstnamelocalized-type">firstNameLocalized Type <a class="heading-anchor-permalink" href="#firstnamelocalized-type">#</a></h3>
+<p><code>string</code></p>
+<ul>
+<li>minimum length: 1 characters</li>
+<li>maximum length: 255 characters</li>
+</ul>
+<h2 id="honorifics">honorifics <a class="heading-anchor-permalink" href="#honorifics">#</a></h2>
+<p><code>honorifics</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>string</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="honorifics-type">honorifics Type <a class="heading-anchor-permalink" href="#honorifics-type">#</a></h3>
+<p><code>string</code></p>
 <h2 id="identityid">identityId <a class="heading-anchor-permalink" href="#identityid">#</a></h2>
 <p><code>identityId</code></p>
 <ul>
@@ -1612,6 +1758,20 @@
 <li>defined in this schema</li>
 </ul>
 <h3 id="lastname-type">lastName Type <a class="heading-anchor-permalink" href="#lastname-type">#</a></h3>
+<p><code>string</code></p>
+<ul>
+<li>minimum length: 1 characters</li>
+<li>maximum length: 255 characters</li>
+</ul>
+<h2 id="lastnamelocalized">lastNameLocalized <a class="heading-anchor-permalink" href="#lastnamelocalized">#</a></h2>
+<p>Localized last name of the customer (e.g. Doe)</p>
+<p><code>lastNameLocalized</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>string</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="lastnamelocalized-type">lastNameLocalized Type <a class="heading-anchor-permalink" href="#lastnamelocalized-type">#</a></h3>
 <p><code>string</code></p>
 <ul>
 <li>minimum length: 1 characters</li>
@@ -1664,6 +1824,48 @@
 <h3 id="phone-example">phone Example <a class="heading-anchor-permalink" href="#phone-example">#</a></h3>
 <pre><code class="language-json">&quot;+358401234567&quot;
 </code></pre>
+<h2 id="referral">referral <a class="heading-anchor-permalink" href="#referral">#</a></h2>
+<p><code>referral</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>object</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="referral-type">referral Type <a class="heading-anchor-permalink" href="#referral-type">#</a></h3>
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td>string</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h4 id="code">code <a class="heading-anchor-permalink" href="#code">#</a></h4>
+<p><code>code</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>string</code></li>
+</ul>
+<h5 id="code-type">code Type <a class="heading-anchor-permalink" href="#code-type">#</a></h5>
+<p><code>string</code></p>
+<h2 id="sex">sex <a class="heading-anchor-permalink" href="#sex">#</a></h2>
+<p><code>sex</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>string</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="sex-type">sex Type <a class="heading-anchor-permalink" href="#sex-type">#</a></h3>
+<p><code>string</code></p>
 <h2 id="ssid">ssid <a class="heading-anchor-permalink" href="#ssid">#</a></h2>
 <p>Social Security ID</p>
 <p><code>ssid</code></p>
@@ -1679,6 +1881,19 @@
 <h4 id="option-2-3">Option 2 <a class="heading-anchor-permalink" href="#option-2-3">#</a></h4>
 <ul>
 <li><a href="common.html">ssid</a> – <code>http://maasglobal.com/core/components/common.json#/definitions/ssid</code></li>
+</ul>
+<h2 id="state">state <a class="heading-anchor-permalink" href="#state">#</a></h2>
+<p>Alphabetic state name</p>
+<p><code>state</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>string</code></li>
+<li>defined in this schema</li>
+</ul>
+<h3 id="state-type">state Type <a class="heading-anchor-permalink" href="#state-type">#</a></h3>
+<p><code>string</code></p>
+<ul>
+<li>maximum length: 64 characters</li>
 </ul>
 <h2 id="subscribertype">subscriberType <a class="heading-anchor-permalink" href="#subscribertype">#</a></h2>
 <p>Subscriber Type</p>

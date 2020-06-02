@@ -1,0 +1,9 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/personal-documents/initiate/response.json",
+    "description": "Initiate customer KYC process",
+    "$ref": "http://maasglobal.com/core/kyc-service.json",
+    "meta:status": "Develop",
+    "title": "response",
+    "$linkVal": "kyc-service",
+    "$linkPath": "kyc-service.md"
+}

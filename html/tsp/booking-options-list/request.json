@@ -1,5 +1,5 @@
 {
-    "$id": "http://maasglobal.com/tsp/bookings-options-list/request.json",
+    "$id": "http://maasglobal.com/tsp/booking-options-list/request.json",
     "description": "Request schema for getting options from a TSP adapter.",
     "type": "object",
     "properties": {

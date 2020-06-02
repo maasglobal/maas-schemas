@@ -16,18 +16,20 @@ Remote request schema, e.g. how TSP should call MaaS-backend
   - [booking](../../core/booking.md) `http://maasglobal.com/core/booking.json`
   - [booking-option](../../core/booking-option.md) `http://maasglobal.com/core/booking-option.json`
   - [booking-meta](../../core/booking-meta.md) `http://maasglobal.com/core/booking-meta.json`
+  - [errors](../../core/components/errors.md) `http://maasglobal.com/core/components/errors.json`
 
 # remote-request Properties
 
-| Property        | Type         | Required     | Nullable | Defined by                   |
-| --------------- | ------------ | ------------ | -------- | ---------------------------- |
-| [cost](#cost)   | cost         | Optional     | No       | remote-request (this schema) |
-| [leg](#leg)     | `object`     | Optional     | No       | remote-request (this schema) |
-| [meta](#meta)   | booking-meta | Optional     | No       | remote-request (this schema) |
-| [state](#state) | `enum`       | **Required** | No       | remote-request (this schema) |
-| [terms](#terms) | terms        | Optional     | No       | remote-request (this schema) |
-| [token](#token) | `object`     | Optional     | No       | remote-request (this schema) |
-| [tspId](#tspid) | `string`     | **Required** | No       | remote-request (this schema) |
+| Property          | Type         | Required     | Nullable | Defined by                   |
+| ----------------- | ------------ | ------------ | -------- | ---------------------------- |
+| [cost](#cost)     | cost         | Optional     | No       | remote-request (this schema) |
+| [leg](#leg)       | `object`     | Optional     | No       | remote-request (this schema) |
+| [meta](#meta)     | booking-meta | Optional     | No       | remote-request (this schema) |
+| [reason](#reason) | `object`     | Optional     | No       | remote-request (this schema) |
+| [state](#state)   | `enum`       | **Required** | No       | remote-request (this schema) |
+| [terms](#terms)   | terms        | Optional     | No       | remote-request (this schema) |
+| [token](#token)   | `object`     | Optional     | No       | remote-request (this schema) |
+| [tspId](#tspid)   | `string`     | **Required** | No       | remote-request (this schema) |
 
 ## cost
 
@@ -141,6 +143,49 @@ A leg delta, containing any subset of the valid properties
 ### meta Type
 
 - [booking-meta](../../core/booking-meta.md) – `http://maasglobal.com/core/booking-meta.json`
+
+## reason
+
+### MaaS error reason definition
+
+A data structure to convey information about issues, rejections or service denial to the clients
+
+`reason`
+
+- is optional
+- type: `object`
+- defined in this schema
+
+### reason Type
+
+`object` with following properties:
+
+| Property    | Type   | Required |
+| ----------- | ------ | -------- |
+| `errorCode` | string | Optional |
+| `text`      | string | Optional |
+
+#### errorCode
+
+`errorCode`
+
+- is optional
+- type: `string`
+
+##### errorCode Type
+
+`string`
+
+#### text
+
+`text`
+
+- is optional
+- type: `string`
+
+##### text Type
+
+`string`
 
 ## state
 

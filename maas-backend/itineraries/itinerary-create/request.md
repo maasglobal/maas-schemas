@@ -15,6 +15,7 @@ Request schema for itineraries-create
 - request `http://maasglobal.com/maas-backend/itineraries/itinerary-create/request.json`
   - [units](../../../core/components/units.md) `http://maasglobal.com/core/components/units.json`
   - [api-common](../../../core/components/api-common.md) `http://maasglobal.com/core/components/api-common.json`
+  - [message](../../../core/components/message.md) `http://maasglobal.com/core/components/message.json`
 
 # request Definitions
 
@@ -82,6 +83,7 @@ All items must be of the type: `object` with following properties:
 | ------------------------- | -------- | -------- | -------- | --------------------- |
 | [headers](#headers)       | `object` | Optional | No       | request (this schema) |
 | [identityId](#identityid) | complex  | Optional | No       | request (this schema) |
+| [message](#message)       | message  | Optional | No       | request (this schema) |
 | [payload](#payload)       | `object` | Optional | No       | request (this schema) |
 
 ## headers
@@ -170,6 +172,18 @@ All instances must conform to this regular expression
 ```json
 "4828507e-683f-41bf-9d87-689808fbf958"
 ```
+
+## message
+
+`message`
+
+- is optional
+- type: message
+- defined in this schema
+
+### message Type
+
+- [message](../../../core/components/message.md) – `http://maasglobal.com/core/components/message.json`
 
 ## payload
 

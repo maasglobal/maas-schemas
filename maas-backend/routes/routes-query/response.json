@@ -7,6 +7,14 @@
             "$linkVal": "plan",
             "$linkPath": "plan.md"
         },
+        "reasons": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/components/errors.json#/definitions/reason",
+                "$linkVal": "reason",
+                "$linkPath": "errors.md"
+            }
+        },
         "debug": {
             "type": "object"
         }

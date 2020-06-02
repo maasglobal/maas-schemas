@@ -1,7 +1,7 @@
 # response Schema
 
 ```
-http://maasglobal.com/tsp/bookings-read-by-id/response.json
+http://maasglobal.com/tsp/booking-read-by-id/response.json
 ```
 
 Response schema for getting a specific booking with a TSP ID from a TSP adapter
@@ -12,7 +12,7 @@ Response schema for getting a specific booking with a TSP ID from a TSP adapter
 
 ## Schema Hierarchy
 
-- response `http://maasglobal.com/tsp/bookings-read-by-id/response.json`
+- response `http://maasglobal.com/tsp/booking-read-by-id/response.json`
   - [booking](../../core/booking.md) `http://maasglobal.com/core/booking.json`
   - [state](../../core/components/state.md) `http://maasglobal.com/core/components/state.json`
   - [booking-option](../../core/booking-option.md) `http://maasglobal.com/core/booking-option.json`

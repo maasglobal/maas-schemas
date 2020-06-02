@@ -497,12 +497,15 @@
 <li><a class="" href="components/configurator.html">configurator</a></li>
 <li><a class="" href="components/cost.html">cost</a></li>
 <li><a class="" href="components/customerSelection.html">customerSelection</a></li>
+<li><a class="" href="components/errors.html">errors</a></li>
 <li><a class="" href="components/fare.html">fare</a></li>
 <li><a class="" href="components/geolocation.html">geolocation</a></li>
 <li><a class="" href="components/geometry.html">geometry</a></li>
 <li><a class="" href="components/i18n.html">i18n</a></li>
+<li><a class="" href="components/message.html">message</a></li>
 <li><a class="" href="components/payment-parameters.html">payment parameters</a></li>
 <li><a class="" href="components/personalDataAllowItem.html">personalDataAllowItem</a></li>
+<li><a class="" href="components/personalDocumentRequiredItem.html">personalDocumentRequiredItem</a></li>
 <li><a class="" href="components/place.html">place</a></li>
 <li><a class="" href="components/point-cost.html">point cost</a></li>
 <li><a class="" href="components/state-log.html">state log</a></li>
@@ -518,6 +521,7 @@
 <li><a class="" href="error.html">error</a></li>
 <li><a class="" href="iot-thing-shadow.html">iot thing shadow</a></li>
 <li><a class="" href="itinerary.html">itinerary</a></li>
+<li><a class="" href="kyc-service.html">kyc service</a></li>
 <li><a class="" href="leg.html">leg</a></li>
 <li class="heading"><span>modes</span></li>
 <ul>
@@ -533,6 +537,7 @@
 <li><a class="" href="modes/MODE_SCOOTER.html">MODE SCOOTER</a></li>
 <li><a class="" href="modes/MODE_SHARED_BICYCLE.html">MODE SHARED BICYCLE</a></li>
 <li><a class="" href="modes/MODE_SHARED_CAR.html">MODE SHARED CAR</a></li>
+<li><a class="" href="modes/MODE_SHARED_E_BICYCLE.html">MODE SHARED E BICYCLE</a></li>
 <li><a class="" href="modes/MODE_SUBWAY.html">MODE SUBWAY</a></li>
 <li><a class="" href="modes/MODE_TAXI.html">MODE TAXI</a></li>
 <li><a class="" href="modes/MODE_TRAIN.html">MODE TRAIN</a></li>
@@ -543,6 +548,7 @@
 </ul>
 <li><a class="" href="partialFavoriteLocation.html">partialFavoriteLocation</a></li>
 <li><a class="" href="paymentSource.html">paymentSource</a></li>
+<li><a class="" href="personal-document.html">personal document</a></li>
 <li><a class="" href="plan.html">plan</a></li>
 <li><a class="" href="product-option.html">product option</a></li>
 <li><a class="" href="product.html">product</a></li>
@@ -630,6 +636,23 @@
 </ul>
 </ul>
 </ul>
+<li class="heading"><span>coupons</span></li>
+<ul>
+<li><a class="" href="../maas-backend/coupons/code.html">code</a></li>
+<li class="heading"><span>coupons validate</span></li>
+<ul>
+<li><a class="" href="../maas-backend/coupons/coupons-validate/request.html">request</a></li>
+<li><a class="" href="../maas-backend/coupons/coupons-validate/response.html">response</a></li>
+</ul>
+<li class="heading"><span>v2</span></li>
+<ul>
+<li class="heading"><span>coupons redeem</span></li>
+<ul>
+<li><a class="" href="../maas-backend/coupons/v2/coupons-redeem/request.html">request</a></li>
+<li><a class="" href="../maas-backend/coupons/v2/coupons-redeem/response.html">response</a></li>
+</ul>
+</ul>
+</ul>
 <li class="heading"><span>customers</span></li>
 <ul>
 <li><a class="" href="../maas-backend/customers/customer.html">customer</a></li>
@@ -680,6 +703,34 @@
 <li class="heading"><span>personal data delete</span></li>
 <ul>
 <li><a class="" href="../maas-backend/customers/personal-data-delete/request.html">request</a></li>
+</ul>
+<li class="heading"><span>personal documents</span></li>
+<ul>
+<li class="heading"><span>consent</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/personal-documents/consent/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/personal-documents/consent/response.html">response</a></li>
+</ul>
+<li class="heading"><span>create</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/personal-documents/create/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/personal-documents/create/response.html">response</a></li>
+</ul>
+<li class="heading"><span>initiate</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/personal-documents/initiate/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/personal-documents/initiate/response.html">response</a></li>
+</ul>
+<li class="heading"><span>remove</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/personal-documents/remove/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/personal-documents/remove/response.html">response</a></li>
+</ul>
+<li class="heading"><span>revoke consent</span></li>
+<ul>
+<li><a class="" href="../maas-backend/customers/personal-documents/revoke-consent/request.html">request</a></li>
+<li><a class="" href="../maas-backend/customers/personal-documents/revoke-consent/response.html">response</a></li>
+</ul>
 </ul>
 <li><a class="" href="../maas-backend/customers/personalData.html">personalData</a></li>
 <li class="heading"><span>retrieve</span></li>
@@ -900,16 +951,6 @@
 <li><a class="" href="../maas-backend/subscriptions/subscriptions-create/request.html">request</a></li>
 <li><a class="" href="../maas-backend/subscriptions/subscriptions-create/response.html">response</a></li>
 </ul>
-<li class="heading"><span>subscriptions customer retrieve</span></li>
-<ul>
-<li><a class="" href="../maas-backend/subscriptions/subscriptions-customer-retrieve/request.html">request</a></li>
-<li><a class="" href="../maas-backend/subscriptions/subscriptions-customer-retrieve/response.html">response</a></li>
-</ul>
-<li class="heading"><span>subscriptions customer update</span></li>
-<ul>
-<li><a class="" href="../maas-backend/subscriptions/subscriptions-customer-update/request.html">request</a></li>
-<li><a class="" href="../maas-backend/subscriptions/subscriptions-customer-update/response.html">response</a></li>
-</ul>
 <li class="heading"><span>subscriptions estimate</span></li>
 <ul>
 <li><a class="" href="../maas-backend/subscriptions/subscriptions-estimate/request.html">request</a></li>
@@ -924,6 +965,11 @@
 <ul>
 <li><a class="" href="../maas-backend/subscriptions/subscriptions-retrieve/request.html">request</a></li>
 <li><a class="" href="../maas-backend/subscriptions/subscriptions-retrieve/response.html">response</a></li>
+</ul>
+<li class="heading"><span>subscriptions scheduled change delete</span></li>
+<ul>
+<li><a class="" href="../maas-backend/subscriptions/subscriptions-scheduled-change-delete/request.html">request</a></li>
+<li><a class="" href="../maas-backend/subscriptions/subscriptions-scheduled-change-delete/response.html">response</a></li>
 </ul>
 <li class="heading"><span>subscriptions update</span></li>
 <ul>
@@ -987,6 +1033,11 @@
 </ul>
 <li class="heading"><span>webhooks</span></li>
 <ul>
+<li class="heading"><span>webhooks bookings create</span></li>
+<ul>
+<li><a class="" href="../maas-backend/webhooks/webhooks-bookings-create/request.html">request</a></li>
+<li><a class="" href="../maas-backend/webhooks/webhooks-bookings-create/response.html">response</a></li>
+</ul>
 <li class="heading"><span>webhooks bookings update</span></li>
 <ul>
 <li><a class="" href="../maas-backend/webhooks/webhooks-bookings-update/request.html">request</a></li>
@@ -1067,6 +1118,11 @@
 <li><a class="" href="../tsp/journey-planner/request.html">request</a></li>
 <li><a class="" href="../tsp/journey-planner/response.html">response</a></li>
 </ul>
+<li class="heading"><span>post kyc verification update</span></li>
+<ul>
+<li><a class="" href="../tsp/post-kyc-verification-update/request.html">request</a></li>
+<li><a class="" href="../tsp/post-kyc-verification-update/response.html">response</a></li>
+</ul>
 <li class="heading"><span>stations list</span></li>
 <ul>
 <li><a class="" href="../tsp/stations-list/request.html">request</a></li>
@@ -1092,7 +1148,7 @@
       </nav>
       <article id="main" class="content">
         <h1 id="booking-schema">booking Schema <a class="heading-anchor-permalink" href="#booking-schema">#</a></h1>
-<pre><code>http://maasglobal.com/core/booking.json#
+<pre><code>http://maasglobal.com/core/booking.json
 </code></pre>
 <p>The base booking object with all fields, to be inherited</p>
 <table>
@@ -1121,10 +1177,11 @@
 </table>
 <h2 id="schema-hierarchy">Schema Hierarchy <a class="heading-anchor-permalink" href="#schema-hierarchy">#</a></h2>
 <ul>
-<li>booking <code>http://maasglobal.com/core/booking.json#</code>
+<li>booking <code>http://maasglobal.com/core/booking.json</code>
 <ul>
 <li><a href="components/state.html">state</a> <code>http://maasglobal.com/core/components/state.json</code></li>
 <li><a href="components/state-log.html">state-log</a> <code>http://maasglobal.com/core/components/state-log.json</code></li>
+<li><a href="components/fare.html">fare</a> <code>http://maasglobal.com/core/components/fare.json</code></li>
 <li><a href="booking-meta.html">booking-meta</a> <code>http://maasglobal.com/core/booking-meta.json</code></li>
 <li><a href="product.html">product</a> <code>http://maasglobal.com/core/product.json</code></li>
 <li><a href="components/common.html">common</a> <code>http://maasglobal.com/core/components/common.json</code></li>
@@ -1309,92 +1366,92 @@
 <tr>
 <td><a href="#agencyid">agencyId</a></td>
 <td>agencyId</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#arrivaldelay">arrivalDelay</a></td>
 <td>arrivalDelay</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#data">data</a></td>
 <td><code>object</code></td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/token</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/token</code></td>
 </tr>
 <tr>
 <td><a href="#departuredelay">departureDelay</a></td>
 <td>departureDelay</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#distance">distance</a></td>
 <td>distance</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#endtime">endTime</a></td>
 <td>endTime</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#from">from</a></td>
 <td>from</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#leggeometry">legGeometry</a></td>
 <td>legGeometry</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#mode">mode</a></td>
 <td>mode</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#productoption">productOption</a></td>
 <td>productOption</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#route">route</a></td>
 <td>route</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#routelongname">routeLongName</a></td>
 <td>routeLongName</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#routeshortname">routeShortName</a></td>
 <td>routeShortName</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#starttime">startTime</a></td>
 <td>startTime</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#stops">stops</a></td>
 <td>stops</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#to">to</a></td>
 <td>to</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#tspproduct">tspProduct</a></td>
 <td>tspProduct</td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/leg</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/leg</code></td>
 </tr>
 <tr>
 <td><a href="#validityduration">validityDuration</a></td>
 <td><code>object</code></td>
-<td><code>http://maasglobal.com/core/booking.json##/definitions/token</code></td>
+<td><code>http://maasglobal.com/core/booking.json#/definitions/token</code></td>
 </tr>
 </tbody>
 </table>
@@ -1689,7 +1746,7 @@
 </tr>
 <tr>
 <td><a href="#fares">fares</a></td>
-<td>fares</td>
+<td>fare</td>
 <td>Optional</td>
 <td>No</td>
 <td>booking (this schema)</td>
@@ -1703,7 +1760,7 @@
 </tr>
 <tr>
 <td><a href="#leg">leg</a></td>
-<td>leg</td>
+<td><code>object</code></td>
 <td><strong>Required</strong></td>
 <td>No</td>
 <td>booking (this schema)</td>
@@ -1752,14 +1809,14 @@
 </tr>
 <tr>
 <td><a href="#token">token</a></td>
-<td>token</td>
+<td><code>object</code></td>
 <td><strong>Required</strong></td>
 <td>No</td>
 <td>booking (this schema)</td>
 </tr>
 <tr>
 <td><a href="#tspid">tspId</a></td>
-<td>tspId</td>
+<td><code>string</code></td>
 <td>Optional</td>
 <td>No</td>
 <td>booking (this schema)</td>
@@ -1782,7 +1839,7 @@
 </ul>
 <h3 id="configurator-type">configurator Type <a class="heading-anchor-permalink" href="#configurator-type">#</a></h3>
 <ul>
-<li><a href="booking.html">configurator</a> – <code>#/definitions/configurator</code></li>
+<li><a href="booking.html">configurator</a> – <code>http://maasglobal.com/core/components/configurator.json</code></li>
 </ul>
 <h2 id="cost">cost <a class="heading-anchor-permalink" href="#cost">#</a></h2>
 <p><code>cost</code></p>
@@ -1793,7 +1850,7 @@
 </ul>
 <h3 id="cost-type">cost Type <a class="heading-anchor-permalink" href="#cost-type">#</a></h3>
 <ul>
-<li><a href="booking.html">cost</a> – <code>#/definitions/cost</code></li>
+<li><a href="booking.html">cost</a> – <code>http://maasglobal.com/core/components/cost.json</code></li>
 </ul>
 <h2 id="customer">customer <a class="heading-anchor-permalink" href="#customer">#</a></h2>
 <p>MaaS booking customer</p>
@@ -1825,12 +1882,14 @@
 <p><code>fares</code></p>
 <ul>
 <li>is optional</li>
-<li>type: fares</li>
+<li>type: fare</li>
 <li>defined in this schema</li>
 </ul>
 <h3 id="fares-type">fares Type <a class="heading-anchor-permalink" href="#fares-type">#</a></h3>
+<p>Array type: fare</p>
+<p>All items must be of the type:</p>
 <ul>
-<li><a href="booking.html">fares</a> – <code>#/definitions/fares</code></li>
+<li><a href="components/fare.html">fare</a> – <code>http://maasglobal.com/core/components/fare.json</code></li>
 </ul>
 <h2 id="id">id <a class="heading-anchor-permalink" href="#id">#</a></h2>
 <p><code>id</code></p>
@@ -1841,18 +1900,298 @@
 </ul>
 <h3 id="id-type">id Type <a class="heading-anchor-permalink" href="#id-type">#</a></h3>
 <ul>
-<li><a href="booking.html">id</a> – <code>#/definitions/id</code></li>
+<li><a href="booking.html">id</a> – <code>http://maasglobal.com/core/components/units.json#/definitions/uuid</code></li>
 </ul>
 <h2 id="leg">leg <a class="heading-anchor-permalink" href="#leg">#</a></h2>
+<p>MaaS response may return any subset of legCore</p>
 <p><code>leg</code></p>
 <ul>
 <li>is <strong>required</strong></li>
-<li>type: leg</li>
+<li>type: <code>object</code></li>
 <li>defined in this schema</li>
 </ul>
 <h3 id="leg-type">leg Type <a class="heading-anchor-permalink" href="#leg-type">#</a></h3>
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>agencyId</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>arrivalDelay</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>departureDelay</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>distance</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>endTime</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>from</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>legGeometry</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>productOption</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>route</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>routeLongName</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>routeShortName</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>signature</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>startTime</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>stops</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>to</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>tspProduct</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h4 id="agencyid-2">agencyId <a class="heading-anchor-permalink" href="#agencyid-2">#</a></h4>
+<p><code>agencyId</code></p>
 <ul>
-<li><a href="booking.html">leg</a> – <code>#/definitions/leg</code></li>
+<li>is optional</li>
+<li>type: agencyId</li>
+</ul>
+<h5 id="agencyid-type-2">agencyId Type <a class="heading-anchor-permalink" href="#agencyid-type-2">#</a></h5>
+<ul>
+<li><a href="leg.html">agencyId</a> – <code>http://maasglobal.com/core/leg.json#/definitions/agencyId</code></li>
+</ul>
+<h4 id="arrivaldelay-2">arrivalDelay <a class="heading-anchor-permalink" href="#arrivaldelay-2">#</a></h4>
+<p><code>arrivalDelay</code></p>
+<ul>
+<li>is optional</li>
+<li>type: arrivalDelay</li>
+</ul>
+<h5 id="arrivaldelay-type-2">arrivalDelay Type <a class="heading-anchor-permalink" href="#arrivaldelay-type-2">#</a></h5>
+<ul>
+<li><a href="leg.html">arrivalDelay</a> – <code>http://maasglobal.com/core/leg.json#/definitions/arrivalDelay</code></li>
+</ul>
+<h4 id="departuredelay-2">departureDelay <a class="heading-anchor-permalink" href="#departuredelay-2">#</a></h4>
+<p><code>departureDelay</code></p>
+<ul>
+<li>is optional</li>
+<li>type: departureDelay</li>
+</ul>
+<h5 id="departuredelay-type-2">departureDelay Type <a class="heading-anchor-permalink" href="#departuredelay-type-2">#</a></h5>
+<ul>
+<li><a href="leg.html">departureDelay</a> – <code>http://maasglobal.com/core/leg.json#/definitions/departureDelay</code></li>
+</ul>
+<h4 id="distance-2">distance <a class="heading-anchor-permalink" href="#distance-2">#</a></h4>
+<p><code>distance</code></p>
+<ul>
+<li>is optional</li>
+<li>type: distance</li>
+</ul>
+<h5 id="distance-type-2">distance Type <a class="heading-anchor-permalink" href="#distance-type-2">#</a></h5>
+<ul>
+<li><a href="leg.html">distance</a> – <code>http://maasglobal.com/core/leg.json#/definitions/distance</code></li>
+</ul>
+<h4 id="endtime-3">endTime <a class="heading-anchor-permalink" href="#endtime-3">#</a></h4>
+<p><code>endTime</code></p>
+<ul>
+<li>is optional</li>
+<li>type: endTime</li>
+</ul>
+<h5 id="endtime-type-3">endTime Type <a class="heading-anchor-permalink" href="#endtime-type-3">#</a></h5>
+<ul>
+<li><a href="leg.html">endTime</a> – <code>http://maasglobal.com/core/leg.json#/definitions/endTime</code></li>
+</ul>
+<h4 id="from-2">from <a class="heading-anchor-permalink" href="#from-2">#</a></h4>
+<p><code>from</code></p>
+<ul>
+<li>is optional</li>
+<li>type: from</li>
+</ul>
+<h5 id="from-type-2">from Type <a class="heading-anchor-permalink" href="#from-type-2">#</a></h5>
+<ul>
+<li><a href="leg.html">from</a> – <code>http://maasglobal.com/core/leg.json#/definitions/from</code></li>
+</ul>
+<h4 id="leggeometry-2">legGeometry <a class="heading-anchor-permalink" href="#leggeometry-2">#</a></h4>
+<p><code>legGeometry</code></p>
+<ul>
+<li>is optional</li>
+<li>type: legGeometry</li>
+</ul>
+<h5 id="leggeometry-type-2">legGeometry Type <a class="heading-anchor-permalink" href="#leggeometry-type-2">#</a></h5>
+<ul>
+<li><a href="leg.html">legGeometry</a> – <code>http://maasglobal.com/core/leg.json#/definitions/legGeometry</code></li>
+</ul>
+<h4 id="mode-2">mode <a class="heading-anchor-permalink" href="#mode-2">#</a></h4>
+<p><code>mode</code></p>
+<ul>
+<li>is optional</li>
+<li>type: mode</li>
+</ul>
+<h5 id="mode-type-2">mode Type <a class="heading-anchor-permalink" href="#mode-type-2">#</a></h5>
+<ul>
+<li><a href="leg.html">mode</a> – <code>http://maasglobal.com/core/leg.json#/definitions/mode</code></li>
+</ul>
+<h4 id="productoption-2">productOption <a class="heading-anchor-permalink" href="#productoption-2">#</a></h4>
+<p><code>productOption</code></p>
+<ul>
+<li>is optional</li>
+<li>type: productOption</li>
+</ul>
+<h5 id="productoption-type-2">productOption Type <a class="heading-anchor-permalink" href="#productoption-type-2">#</a></h5>
+<ul>
+<li><a href="leg.html">productOption</a> – <code>http://maasglobal.com/core/leg.json#/definitions/productOption</code></li>
+</ul>
+<h4 id="route-2">route <a class="heading-anchor-permalink" href="#route-2">#</a></h4>
+<p><code>route</code></p>
+<ul>
+<li>is optional</li>
+<li>type: route</li>
+</ul>
+<h5 id="route-type-2">route Type <a class="heading-anchor-permalink" href="#route-type-2">#</a></h5>
+<ul>
+<li><a href="leg.html">route</a> – <code>http://maasglobal.com/core/leg.json#/definitions/route</code></li>
+</ul>
+<h4 id="routelongname-2">routeLongName <a class="heading-anchor-permalink" href="#routelongname-2">#</a></h4>
+<p><code>routeLongName</code></p>
+<ul>
+<li>is optional</li>
+<li>type: routeLongName</li>
+</ul>
+<h5 id="routelongname-type-2">routeLongName Type <a class="heading-anchor-permalink" href="#routelongname-type-2">#</a></h5>
+<ul>
+<li><a href="leg.html">routeLongName</a> – <code>http://maasglobal.com/core/leg.json#/definitions/routeLongName</code></li>
+</ul>
+<h4 id="routeshortname-2">routeShortName <a class="heading-anchor-permalink" href="#routeshortname-2">#</a></h4>
+<p><code>routeShortName</code></p>
+<ul>
+<li>is optional</li>
+<li>type: routeShortName</li>
+</ul>
+<h5 id="routeshortname-type-2">routeShortName Type <a class="heading-anchor-permalink" href="#routeshortname-type-2">#</a></h5>
+<ul>
+<li><a href="leg.html">routeShortName</a> – <code>http://maasglobal.com/core/leg.json#/definitions/routeShortName</code></li>
+</ul>
+<h4 id="signature">signature <a class="heading-anchor-permalink" href="#signature">#</a></h4>
+<p><code>signature</code></p>
+<ul>
+<li>is optional</li>
+<li>type: signature</li>
+</ul>
+<h5 id="signature-type">signature Type <a class="heading-anchor-permalink" href="#signature-type">#</a></h5>
+<ul>
+<li><a href="common.html">signature</a> – <code>http://maasglobal.com/core/components/common.json#/definitions/signature</code></li>
+</ul>
+<h4 id="starttime-3">startTime <a class="heading-anchor-permalink" href="#starttime-3">#</a></h4>
+<p><code>startTime</code></p>
+<ul>
+<li>is optional</li>
+<li>type: startTime</li>
+</ul>
+<h5 id="starttime-type-3">startTime Type <a class="heading-anchor-permalink" href="#starttime-type-3">#</a></h5>
+<ul>
+<li><a href="leg.html">startTime</a> – <code>http://maasglobal.com/core/leg.json#/definitions/startTime</code></li>
+</ul>
+<h4 id="state">state <a class="heading-anchor-permalink" href="#state">#</a></h4>
+<p><code>state</code></p>
+<ul>
+<li>is optional</li>
+<li>type: state</li>
+</ul>
+<h5 id="state-type">state Type <a class="heading-anchor-permalink" href="#state-type">#</a></h5>
+<ul>
+<li><a href="leg.html">state</a> – <code>http://maasglobal.com/core/leg.json#/definitions/state</code></li>
+</ul>
+<h4 id="stops-2">stops <a class="heading-anchor-permalink" href="#stops-2">#</a></h4>
+<p><code>stops</code></p>
+<ul>
+<li>is optional</li>
+<li>type: stops</li>
+</ul>
+<h5 id="stops-type-2">stops Type <a class="heading-anchor-permalink" href="#stops-type-2">#</a></h5>
+<ul>
+<li><a href="leg.html">stops</a> – <code>http://maasglobal.com/core/leg.json#/definitions/stops</code></li>
+</ul>
+<h4 id="to-2">to <a class="heading-anchor-permalink" href="#to-2">#</a></h4>
+<p><code>to</code></p>
+<ul>
+<li>is optional</li>
+<li>type: to</li>
+</ul>
+<h5 id="to-type-2">to Type <a class="heading-anchor-permalink" href="#to-type-2">#</a></h5>
+<ul>
+<li><a href="leg.html">to</a> – <code>http://maasglobal.com/core/leg.json#/definitions/to</code></li>
+</ul>
+<h4 id="tspproduct-2">tspProduct <a class="heading-anchor-permalink" href="#tspproduct-2">#</a></h4>
+<p><code>tspProduct</code></p>
+<ul>
+<li>is optional</li>
+<li>type: tspProduct</li>
+</ul>
+<h5 id="tspproduct-type-2">tspProduct Type <a class="heading-anchor-permalink" href="#tspproduct-type-2">#</a></h5>
+<ul>
+<li><a href="leg.html">tspProduct</a> – <code>http://maasglobal.com/core/leg.json#/definitions/tspProduct</code></li>
 </ul>
 <h2 id="meta">meta <a class="heading-anchor-permalink" href="#meta">#</a></h2>
 <p><code>meta</code></p>
@@ -1876,7 +2215,7 @@
 <ul>
 <li><a href="product.html">product</a> – <code>http://maasglobal.com/core/product.json</code></li>
 </ul>
-<h2 id="signature">signature <a class="heading-anchor-permalink" href="#signature">#</a></h2>
+<h2 id="signature-2">signature <a class="heading-anchor-permalink" href="#signature-2">#</a></h2>
 <p>Signature of a signed object</p>
 <p><code>signature</code></p>
 <ul>
@@ -1884,13 +2223,13 @@
 <li>type: <code>string</code></li>
 <li>defined in this schema</li>
 </ul>
-<h3 id="signature-type">signature Type <a class="heading-anchor-permalink" href="#signature-type">#</a></h3>
+<h3 id="signature-type-2">signature Type <a class="heading-anchor-permalink" href="#signature-type-2">#</a></h3>
 <p><code>string</code></p>
 <ul>
 <li>minimum length: 1 characters</li>
 <li>maximum length: 1024 characters</li>
 </ul>
-<h2 id="state">state <a class="heading-anchor-permalink" href="#state">#</a></h2>
+<h2 id="state-2">state <a class="heading-anchor-permalink" href="#state-2">#</a></h2>
 <p>The life-cycle state of a booking</p>
 <p><code>state</code></p>
 <ul>
@@ -1982,29 +2321,147 @@
 </ul>
 <h3 id="terms-type">terms Type <a class="heading-anchor-permalink" href="#terms-type">#</a></h3>
 <ul>
-<li><a href="booking.html">terms</a> – <code>#/definitions/terms</code></li>
+<li><a href="booking.html">terms</a> – <code>http://maasglobal.com/core/components/terms.json</code></li>
 </ul>
 <h2 id="token">token <a class="heading-anchor-permalink" href="#token">#</a></h2>
+<p>The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when
+starting the leg.</p>
 <p><code>token</code></p>
 <ul>
 <li>is <strong>required</strong></li>
-<li>type: token</li>
+<li>type: <code>object</code></li>
 <li>defined in this schema</li>
 </ul>
 <h3 id="token-type">token Type <a class="heading-anchor-permalink" href="#token-type">#</a></h3>
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td>object</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>meta</code></td>
+<td>object</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>validityDuration</code></td>
+<td>object</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h4 id="data-2">data <a class="heading-anchor-permalink" href="#data-2">#</a></h4>
+<p>Arbitrary ticket data for the client</p>
+<p><code>data</code></p>
 <ul>
-<li><a href="booking.html">token</a> – <code>#/definitions/token</code></li>
+<li>is optional</li>
+<li>type: <code>object</code></li>
+</ul>
+<h5 id="data-type-2">data Type <a class="heading-anchor-permalink" href="#data-type-2">#</a></h5>
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<h4 id="meta-2">meta <a class="heading-anchor-permalink" href="#meta-2">#</a></h4>
+<p>Arbitrary metadata the TSP may pass along the ticket to the client (e.g. a booking code, base64 encoded binary)</p>
+<p><code>meta</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>object</code></li>
+</ul>
+<h5 id="meta-type-2">meta Type <a class="heading-anchor-permalink" href="#meta-type-2">#</a></h5>
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<h4 id="validityduration-2">validityDuration <a class="heading-anchor-permalink" href="#validityduration-2">#</a></h4>
+<p>The rules that MaaS will interpret to schedule, re-validate or cancel the booking.</p>
+<p><code>validityDuration</code></p>
+<ul>
+<li>is optional</li>
+<li>type: <code>object</code></li>
+</ul>
+<h5 id="validityduration-type-2">validityDuration Type <a class="heading-anchor-permalink" href="#validityduration-type-2">#</a></h5>
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>endTime</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>startTime</code></td>
+<td></td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h4 id="endtime-4">endTime <a class="heading-anchor-permalink" href="#endtime-4">#</a></h4>
+<p>The finishing time the ticket is valid for</p>
+<p><code>endTime</code></p>
+<ul>
+<li>is optional</li>
+<li>type: time</li>
+</ul>
+<h5 id="endtime-type-4">endTime Type <a class="heading-anchor-permalink" href="#endtime-type-4">#</a></h5>
+<ul>
+<li><a href="units.html">time</a> – <code>http://maasglobal.com/core/components/units.json#/definitions/time</code></li>
+</ul>
+<h4 id="starttime-4">startTime <a class="heading-anchor-permalink" href="#starttime-4">#</a></h4>
+<p>The starting time from which the ticket is valid</p>
+<p><code>startTime</code></p>
+<ul>
+<li>is optional</li>
+<li>type: time</li>
+</ul>
+<h5 id="starttime-type-4">startTime Type <a class="heading-anchor-permalink" href="#starttime-type-4">#</a></h5>
+<ul>
+<li><a href="units.html">time</a> – <code>http://maasglobal.com/core/components/units.json#/definitions/time</code></li>
 </ul>
 <h2 id="tspid">tspId <a class="heading-anchor-permalink" href="#tspid">#</a></h2>
 <p><code>tspId</code></p>
 <ul>
 <li>is optional</li>
-<li>type: tspId</li>
+<li>type: <code>string</code></li>
 <li>defined in this schema</li>
 </ul>
 <h3 id="tspid-type">tspId Type <a class="heading-anchor-permalink" href="#tspid-type">#</a></h3>
+<p><code>string</code></p>
 <ul>
-<li><a href="booking.html">tspId</a> – <code>#/definitions/tspId</code></li>
+<li>minimum length: 1 characters</li>
+<li>maximum length: 256 characters</li>
 </ul>
 
       </article>

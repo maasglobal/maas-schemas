@@ -1,7 +1,7 @@
 # response Schema
 
 ```
-http://maasglobal.com/tsp/bookings-ticket/response.json
+http://maasglobal.com/tsp/booking-ticket/response.json
 ```
 
 Response schema for retrieving a ticket from booking through a TSP adapter
@@ -12,7 +12,7 @@ Response schema for retrieving a ticket from booking through a TSP adapter
 
 ## Schema Hierarchy
 
-- response `http://maasglobal.com/tsp/bookings-ticket/response.json`
+- response `http://maasglobal.com/tsp/booking-ticket/response.json`
   - [units](../../core/components/units.md) `http://maasglobal.com/core/components/units.json`
 
 # response Properties

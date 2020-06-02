@@ -1,7 +1,7 @@
 # request Schema
 
 ```
-http://maasglobal.com/tsp/bookings-options-list/request.json
+http://maasglobal.com/tsp/booking-options-list/request.json
 ```
 
 Request schema for getting options from a TSP adapter.
@@ -12,7 +12,7 @@ Request schema for getting options from a TSP adapter.
 
 ## Schema Hierarchy
 
-- request `http://maasglobal.com/tsp/bookings-options-list/request.json`
+- request `http://maasglobal.com/tsp/booking-options-list/request.json`
   - [travel-mode](../../core/components/travel-mode.md) `http://maasglobal.com/core/components/travel-mode.json`
   - [units](../../core/components/units.md) `http://maasglobal.com/core/components/units.json`
   - [units-geo](../../core/components/units-geo.md) `http://maasglobal.com/core/components/units-geo.json`

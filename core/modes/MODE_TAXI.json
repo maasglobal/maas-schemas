@@ -87,6 +87,11 @@
                     "$linkPath": "common.md"
                 }
             }
+        },
+        "messageToDriver": {
+            "type": "string",
+            "description": "Message to the driver with, for example, pick up instructions or any other information",
+            "maxLength": 160
         }
     },
     "additionalProperties": false,

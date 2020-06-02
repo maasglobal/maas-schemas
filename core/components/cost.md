@@ -12,13 +12,14 @@ MaaS common units that are used consistently within our own objects
 
 # cost Properties
 
-| Property                          | Type     | Required     | Nullable | Defined by         |
-| --------------------------------- | -------- | ------------ | -------- | ------------------ |
-| [amount](#amount)                 | `number` | **Required** | Yes      | cost (this schema) |
-| [currency](#currency)             | complex  | **Required** | No       | cost (this schema) |
-| [discount](#discount)             | `number` | Optional     | No       | cost (this schema) |
-| [originalAmount](#originalamount) | `number` | Optional     | Yes      | cost (this schema) |
-| [taxes](#taxes)                   | `number` | Optional     | No       | cost (this schema) |
+| Property                          | Type      | Required     | Nullable | Defined by         |
+| --------------------------------- | --------- | ------------ | -------- | ------------------ |
+| [amount](#amount)                 | `number`  | **Required** | Yes      | cost (this schema) |
+| [currency](#currency)             | complex   | **Required** | No       | cost (this schema) |
+| [discount](#discount)             | `number`  | Optional     | No       | cost (this schema) |
+| [isFixedPrice](#isfixedprice)     | `boolean` | Optional     | No       | cost (this schema) |
+| [originalAmount](#originalamount) | `number`  | Optional     | Yes      | cost (this schema) |
+| [taxes](#taxes)                   | `number`  | Optional     | No       | cost (this schema) |
 
 ## amount
 
@@ -67,6 +68,20 @@ MaaS common units that are used consistently within our own objects
 
 - minimum value: `0`
 - must be a multiple of `0.01`
+
+## isFixedPrice
+
+A flag indicating whether TSP price is fixed
+
+`isFixedPrice`
+
+- is optional
+- type: `boolean`
+- defined in this schema
+
+### isFixedPrice Type
+
+`boolean`
 
 ## originalAmount
 

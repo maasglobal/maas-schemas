@@ -137,6 +137,41 @@ The value of this property **must** be equal to one of the [known values below](
 | `Profile`      |             |
 | `Subscription` |             |
 
+#### Condition 4
+
+`object` with following properties:
+
+| Property     | Type | Required     |
+| ------------ | ---- | ------------ |
+| `authUrl`    |      | **Required** |
+| `objectType` |      | **Required** |
+
+#### authUrl
+
+`authUrl`
+
+- is **required**
+- type: url
+
+##### authUrl Type
+
+- [url](units.md) – `http://maasglobal.com/core/components/units.json#/definitions/url`
+
+#### objectType
+
+`objectType`
+
+- is **required**
+- type: `enum`
+
+The value of this property **must** be equal to one of the [known values below](#-known-values).
+
+##### objectType Known Values
+
+| Value      | Description |
+| ---------- | ----------- |
+| `Reminder` |             |
+
 ## identityId
 
 `identityId`
@@ -267,3 +302,4 @@ The value of this property **must** be equal to one of the [known values below](
 | `InfoMessage`        |             |
 | `ZendeskReply`       |             |
 | `VerificationUpdate` |             |
+| `AuthRequired`       |             |

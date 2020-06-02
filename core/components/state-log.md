@@ -17,7 +17,7 @@ Set of booking state transitions
 | [invalid](#invalid)     | `boolean`    | `http://maasglobal.com/core/components/state-log.json#/definitions/bookingStateTransition` |
 | [newState](#newstate)   | bookingState | `http://maasglobal.com/core/components/state-log.json#/definitions/bookingStateTransition` |
 | [oldState](#oldstate)   | bookingState | `http://maasglobal.com/core/components/state-log.json#/definitions/bookingStateTransition` |
-| [reason](#reason)       | `object`     | `http://maasglobal.com/core/components/state-log.json#/definitions/bookingStateTransition` |
+| [reason](#reason)       | reason       | `http://maasglobal.com/core/components/state-log.json#/definitions/bookingStateTransition` |
 | [timestamp](#timestamp) | complex      | `http://maasglobal.com/core/components/state-log.json#/definitions/bookingStateTransition` |
 
 ## invalid
@@ -61,39 +61,12 @@ Set of booking state transitions
 `reason`
 
 - is optional
-- type: `object`
+- type: reason
 - defined in this schema
 
 ### reason Type
 
-`object` with following properties:
-
-| Property    | Type   | Required |
-| ----------- | ------ | -------- |
-| `errorCode` | number | Optional |
-| `text`      | string | Optional |
-
-#### errorCode
-
-`errorCode`
-
-- is optional
-- type: `number`
-
-##### errorCode Type
-
-`number`
-
-#### text
-
-`text`
-
-- is optional
-- type: `string`
-
-##### text Type
-
-`string`
+- [reason](errors.md) – `http://maasglobal.com/core/components/errors.json#/definitions/reason`
 
 ## timestamp
 

@@ -497,12 +497,15 @@
 <li><a class="" href="core/components/configurator.html">configurator</a></li>
 <li><a class="" href="core/components/cost.html">cost</a></li>
 <li><a class="" href="core/components/customerSelection.html">customerSelection</a></li>
+<li><a class="" href="core/components/errors.html">errors</a></li>
 <li><a class="" href="core/components/fare.html">fare</a></li>
 <li><a class="" href="core/components/geolocation.html">geolocation</a></li>
 <li><a class="" href="core/components/geometry.html">geometry</a></li>
 <li><a class="" href="core/components/i18n.html">i18n</a></li>
+<li><a class="" href="core/components/message.html">message</a></li>
 <li><a class="" href="core/components/payment-parameters.html">payment parameters</a></li>
 <li><a class="" href="core/components/personalDataAllowItem.html">personalDataAllowItem</a></li>
+<li><a class="" href="core/components/personalDocumentRequiredItem.html">personalDocumentRequiredItem</a></li>
 <li><a class="" href="core/components/place.html">place</a></li>
 <li><a class="" href="core/components/point-cost.html">point cost</a></li>
 <li><a class="" href="core/components/state-log.html">state log</a></li>
@@ -518,6 +521,7 @@
 <li><a class="" href="core/error.html">error</a></li>
 <li><a class="" href="core/iot-thing-shadow.html">iot thing shadow</a></li>
 <li><a class="" href="core/itinerary.html">itinerary</a></li>
+<li><a class="" href="core/kyc-service.html">kyc service</a></li>
 <li><a class="" href="core/leg.html">leg</a></li>
 <li class="heading"><span>modes</span></li>
 <ul>
@@ -533,6 +537,7 @@
 <li><a class="" href="core/modes/MODE_SCOOTER.html">MODE SCOOTER</a></li>
 <li><a class="" href="core/modes/MODE_SHARED_BICYCLE.html">MODE SHARED BICYCLE</a></li>
 <li><a class="" href="core/modes/MODE_SHARED_CAR.html">MODE SHARED CAR</a></li>
+<li><a class="" href="core/modes/MODE_SHARED_E_BICYCLE.html">MODE SHARED E BICYCLE</a></li>
 <li><a class="" href="core/modes/MODE_SUBWAY.html">MODE SUBWAY</a></li>
 <li><a class="" href="core/modes/MODE_TAXI.html">MODE TAXI</a></li>
 <li><a class="" href="core/modes/MODE_TRAIN.html">MODE TRAIN</a></li>
@@ -543,6 +548,7 @@
 </ul>
 <li><a class="" href="core/partialFavoriteLocation.html">partialFavoriteLocation</a></li>
 <li><a class="" href="core/paymentSource.html">paymentSource</a></li>
+<li><a class="" href="core/personal-document.html">personal document</a></li>
 <li><a class="" href="core/plan.html">plan</a></li>
 <li><a class="" href="core/product-option.html">product option</a></li>
 <li><a class="" href="core/product.html">product</a></li>
@@ -630,6 +636,23 @@
 </ul>
 </ul>
 </ul>
+<li class="heading"><span>coupons</span></li>
+<ul>
+<li><a class="" href="maas-backend/coupons/code.html">code</a></li>
+<li class="heading"><span>coupons validate</span></li>
+<ul>
+<li><a class="" href="maas-backend/coupons/coupons-validate/request.html">request</a></li>
+<li><a class="" href="maas-backend/coupons/coupons-validate/response.html">response</a></li>
+</ul>
+<li class="heading"><span>v2</span></li>
+<ul>
+<li class="heading"><span>coupons redeem</span></li>
+<ul>
+<li><a class="" href="maas-backend/coupons/v2/coupons-redeem/request.html">request</a></li>
+<li><a class="" href="maas-backend/coupons/v2/coupons-redeem/response.html">response</a></li>
+</ul>
+</ul>
+</ul>
 <li class="heading"><span>customers</span></li>
 <ul>
 <li><a class="" href="maas-backend/customers/customer.html">customer</a></li>
@@ -680,6 +703,34 @@
 <li class="heading"><span>personal data delete</span></li>
 <ul>
 <li><a class="" href="maas-backend/customers/personal-data-delete/request.html">request</a></li>
+</ul>
+<li class="heading"><span>personal documents</span></li>
+<ul>
+<li class="heading"><span>consent</span></li>
+<ul>
+<li><a class="" href="maas-backend/customers/personal-documents/consent/request.html">request</a></li>
+<li><a class="" href="maas-backend/customers/personal-documents/consent/response.html">response</a></li>
+</ul>
+<li class="heading"><span>create</span></li>
+<ul>
+<li><a class="" href="maas-backend/customers/personal-documents/create/request.html">request</a></li>
+<li><a class="" href="maas-backend/customers/personal-documents/create/response.html">response</a></li>
+</ul>
+<li class="heading"><span>initiate</span></li>
+<ul>
+<li><a class="" href="maas-backend/customers/personal-documents/initiate/request.html">request</a></li>
+<li><a class="" href="maas-backend/customers/personal-documents/initiate/response.html">response</a></li>
+</ul>
+<li class="heading"><span>remove</span></li>
+<ul>
+<li><a class="" href="maas-backend/customers/personal-documents/remove/request.html">request</a></li>
+<li><a class="" href="maas-backend/customers/personal-documents/remove/response.html">response</a></li>
+</ul>
+<li class="heading"><span>revoke consent</span></li>
+<ul>
+<li><a class="" href="maas-backend/customers/personal-documents/revoke-consent/request.html">request</a></li>
+<li><a class="" href="maas-backend/customers/personal-documents/revoke-consent/response.html">response</a></li>
+</ul>
 </ul>
 <li><a class="" href="maas-backend/customers/personalData.html">personalData</a></li>
 <li class="heading"><span>retrieve</span></li>
@@ -900,16 +951,6 @@
 <li><a class="" href="maas-backend/subscriptions/subscriptions-create/request.html">request</a></li>
 <li><a class="" href="maas-backend/subscriptions/subscriptions-create/response.html">response</a></li>
 </ul>
-<li class="heading"><span>subscriptions customer retrieve</span></li>
-<ul>
-<li><a class="" href="maas-backend/subscriptions/subscriptions-customer-retrieve/request.html">request</a></li>
-<li><a class="" href="maas-backend/subscriptions/subscriptions-customer-retrieve/response.html">response</a></li>
-</ul>
-<li class="heading"><span>subscriptions customer update</span></li>
-<ul>
-<li><a class="" href="maas-backend/subscriptions/subscriptions-customer-update/request.html">request</a></li>
-<li><a class="" href="maas-backend/subscriptions/subscriptions-customer-update/response.html">response</a></li>
-</ul>
 <li class="heading"><span>subscriptions estimate</span></li>
 <ul>
 <li><a class="" href="maas-backend/subscriptions/subscriptions-estimate/request.html">request</a></li>
@@ -924,6 +965,11 @@
 <ul>
 <li><a class="" href="maas-backend/subscriptions/subscriptions-retrieve/request.html">request</a></li>
 <li><a class="" href="maas-backend/subscriptions/subscriptions-retrieve/response.html">response</a></li>
+</ul>
+<li class="heading"><span>subscriptions scheduled change delete</span></li>
+<ul>
+<li><a class="" href="maas-backend/subscriptions/subscriptions-scheduled-change-delete/request.html">request</a></li>
+<li><a class="" href="maas-backend/subscriptions/subscriptions-scheduled-change-delete/response.html">response</a></li>
 </ul>
 <li class="heading"><span>subscriptions update</span></li>
 <ul>
@@ -987,6 +1033,11 @@
 </ul>
 <li class="heading"><span>webhooks</span></li>
 <ul>
+<li class="heading"><span>webhooks bookings create</span></li>
+<ul>
+<li><a class="" href="maas-backend/webhooks/webhooks-bookings-create/request.html">request</a></li>
+<li><a class="" href="maas-backend/webhooks/webhooks-bookings-create/response.html">response</a></li>
+</ul>
 <li class="heading"><span>webhooks bookings update</span></li>
 <ul>
 <li><a class="" href="maas-backend/webhooks/webhooks-bookings-update/request.html">request</a></li>
@@ -1067,6 +1118,11 @@
 <li><a class="" href="tsp/journey-planner/request.html">request</a></li>
 <li><a class="" href="tsp/journey-planner/response.html">response</a></li>
 </ul>
+<li class="heading"><span>post kyc verification update</span></li>
+<ul>
+<li><a class="" href="tsp/post-kyc-verification-update/request.html">request</a></li>
+<li><a class="" href="tsp/post-kyc-verification-update/response.html">response</a></li>
+</ul>
 <li class="heading"><span>stations list</span></li>
 <ul>
 <li><a class="" href="tsp/stations-list/request.html">request</a></li>
@@ -1094,7 +1150,7 @@
         <h1 id="readme">Readme <a class="heading-anchor-permalink" href="#readme">#</a></h1>
 <h2 id="%2Fcore%2F">/core/ <a class="heading-anchor-permalink" href="#%2Fcore%2F">#</a></h2>
 <ul>
-<li><a href="./core/booking.html">booking</a> – <code>http://maasglobal.com/core/booking.json#</code> (Develop)</li>
+<li><a href="./core/booking.html">booking</a> – <code>http://maasglobal.com/core/booking.json</code> (Develop)</li>
 <li><a href="./core/booking-meta.html">booking-meta</a> – <code>http://maasglobal.com/core/booking-meta.json</code> (Develop)</li>
 <li><a href="./core/booking-option.html">booking-option</a> – <code>http://maasglobal.com/core/booking-option.json</code> (Develop)</li>
 <li><a href="./core/card.html">card</a> – <code>http://maasglobal.com/core/card.json</code> (Develop)</li>
@@ -1102,10 +1158,12 @@
 <li><a href="./core/error.html">error</a> – <code>http://maasglobal.com/core/error.json</code> (Develop)</li>
 <li><a href="./core/iot-thing-shadow.html">iot-thing-shadow</a> – <code>http://maasglobal.com/core/iot-thing-shadow.json</code> (Develop)</li>
 <li><a href="./core/itinerary.html">itinerary</a> – <code>http://maasglobal.com/core/itinerary.json</code> (Develop)</li>
+<li><a href="./core/kyc-service.html">kyc-service</a> – <code>http://maasglobal.com/core/kyc-service.json</code> (Develop)</li>
 <li><a href="./core/leg.html">leg</a> – <code>http://maasglobal.com/core/leg.json</code> (Develop)</li>
 <li><a href="./core/partialFavoriteLocation.html">partialFavoriteLocation</a> –
 <code>http://maasglobal.com/core/partialFavoriteLocation.json</code> (Develop)</li>
 <li><a href="./core/paymentSource.html">paymentSource</a> – <code>http://maasglobal.com/core/paymentSource.json</code> (Develop)</li>
+<li><a href="./core/personal-document.html">personal-document</a> – <code>http://maasglobal.com/core/personal-document.json</code> (Develop)</li>
 <li><a href="./core/plan.html">plan</a> – <code>http://maasglobal.com/core/plan.json</code> (Develop)</li>
 <li><a href="./core/product.html">product</a> – <code>http://maasglobal.com/core/product.json</code> (Develop)</li>
 <li><a href="./core/product-option.html">product-option</a> – <code>http://maasglobal.com/core/product-option.json</code> (Develop)</li>
@@ -1140,13 +1198,17 @@
 <li><a href="./core/components/cost.html">cost</a> – <code>http://maasglobal.com/core/components/cost.json</code> (Develop)</li>
 <li><a href="./core/components/customerSelection.html">customerSelection</a> –
 <code>http://maasglobal.com/core/components/customerSelection.json</code> (Develop)</li>
+<li><a href="./core/components/errors.html">errors</a> – <code>http://maasglobal.com/core/components/errors.json</code> (Develop)</li>
 <li><a href="./core/components/fare.html">fare</a> – <code>http://maasglobal.com/core/components/fare.json</code> (Develop)</li>
 <li><a href="./core/components/geolocation.html">geolocation</a> – <code>http://maasglobal.com/core/components/geolocation.json</code> (Develop)</li>
 <li><a href="./core/components/i18n.html">i18n</a> – <code>http://maasglobal.com/core/components/i18n.json</code> (Develop)</li>
+<li><a href="./core/components/message.html">message</a> – <code>http://maasglobal.com/core/components/message.json</code> (Develop)</li>
 <li><a href="./core/components/payment-parameters.html">payment-parameters</a> –
 <code>http://maasglobal.com/core/components/payment-parameters.json</code> (Develop)</li>
 <li><a href="./core/components/personalDataAllowItem.html">personalDataAllowItem</a> –
 <code>http://maasglobal.com/core/components/personalDataAllowItem.json</code> (Develop)</li>
+<li><a href="./core/components/personalDocumentRequiredItem.html">personalDocumentRequiredItem</a> –
+<code>http://maasglobal.com/core/components/personalDocumentRequiredItem.json</code> (Develop)</li>
 <li><a href="./core/components/place.html">place</a> – <code>http://maasglobal.com/core/components/place.json</code> (Develop)</li>
 <li><a href="./core/components/point-cost.html">point-cost</a> – <code>http://maasglobal.com/core/components/point-cost.json</code> (Develop)</li>
 <li><a href="./core/components/state.html">state</a> – <code>http://maasglobal.com/core/components/state.json</code> (Develop)</li>
@@ -1175,6 +1237,8 @@
 <code>http://maasglobal.com/core/modes/MODE_SHARED_BICYCLE.json</code> (Develop)</li>
 <li><a href="./core/modes/MODE_SHARED_CAR.html">MODE_SHARED_CAR</a> – <code>http://maasglobal.com/core/modes/MODE_SHARED_CAR.json</code>
 (Develop)</li>
+<li><a href="./core/modes/MODE_SHARED_E_BICYCLE.html">MODE_SHARED_E_BICYCLE</a> –
+<code>http://maasglobal.com/core/modes/MODE_SHARED_E_BICYCLE.json</code> (Develop)</li>
 <li><a href="./core/modes/MODE_SUBWAY.html">MODE_SUBWAY</a> – <code>http://maasglobal.com/core/modes/MODE_SUBWAY.json</code> (Develop)</li>
 <li><a href="./core/modes/MODE_TAXI.html">MODE_TAXI</a> – <code>http://maasglobal.com/core/modes/MODE_TAXI.json</code> (Develop)</li>
 <li><a href="./core/modes/MODE_TRAIN.html">MODE_TRAIN</a> – <code>http://maasglobal.com/core/modes/MODE_TRAIN.json</code> (Develop)</li>
@@ -1189,6 +1253,10 @@
 <code>http://maasglobal.com/maas-backend/booking-option-create/request.json</code> (Develop)</li>
 <li><a href="./maas-backend/booking-option-create/response.html">response</a> –
 <code>http://maasglobal.com/maas-backend/booking-option-create/response.json</code> (Develop)</li>
+</ul>
+<h2 id="%2Fmaas-backend%2Fcoupons%2F">/maas-backend/coupons/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fcoupons%2F">#</a></h2>
+<ul>
+<li><a href="./maas-backend/coupons/code.html">code</a> – <code>http://maasglobal.com/maas-backend/coupons/code.json</code> (Develop)</li>
 </ul>
 <h2 id="%2Fmaas-backend%2Fcustomers%2F">/maas-backend/customers/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fcustomers%2F">#</a></h2>
 <ul>
@@ -1232,42 +1300,42 @@
 </ul>
 <h2 id="%2Ftsp%2Fbooking-cancel%2F">/tsp/booking-cancel/ <a class="heading-anchor-permalink" href="#%2Ftsp%2Fbooking-cancel%2F">#</a></h2>
 <ul>
-<li><a href="./tsp/booking-cancel/request.html">request</a> – <code>http://maasglobal.com/tsp/bookings-cancel/request.json</code> (Develop)</li>
-<li><a href="./tsp/booking-cancel/response.html">response</a> – <code>http://maasglobal.com/tsp/bookings-cancel/response.json</code> (Develop)</li>
+<li><a href="./tsp/booking-cancel/request.html">request</a> – <code>http://maasglobal.com/tsp/booking-cancel/request.json</code> (Develop)</li>
+<li><a href="./tsp/booking-cancel/response.html">response</a> – <code>http://maasglobal.com/tsp/booking-cancel/response.json</code> (Develop)</li>
 </ul>
 <h2 id="%2Ftsp%2Fbooking-create%2F">/tsp/booking-create/ <a class="heading-anchor-permalink" href="#%2Ftsp%2Fbooking-create%2F">#</a></h2>
 <ul>
-<li><a href="./tsp/booking-create/request.html">request</a> – <code>http://maasglobal.com/tsp/bookings-create/request.json</code> (Develop)</li>
-<li><a href="./tsp/booking-create/response.html">response</a> – <code>http://maasglobal.com/tsp/bookings-create/response.json</code> (Develop)</li>
+<li><a href="./tsp/booking-create/request.html">request</a> – <code>http://maasglobal.com/tsp/booking-create/request.json</code> (Develop)</li>
+<li><a href="./tsp/booking-create/response.html">response</a> – <code>http://maasglobal.com/tsp/booking-create/response.json</code> (Develop)</li>
 </ul>
 <h2 id="%2Ftsp%2Fbooking-options-list%2F">/tsp/booking-options-list/ <a class="heading-anchor-permalink" href="#%2Ftsp%2Fbooking-options-list%2F">#</a></h2>
 <ul>
-<li><a href="./tsp/booking-options-list/request.html">request</a> – <code>http://maasglobal.com/tsp/bookings-options-list/request.json</code>
+<li><a href="./tsp/booking-options-list/request.html">request</a> – <code>http://maasglobal.com/tsp/booking-options-list/request.json</code>
 (Develop)</li>
-<li><a href="./tsp/booking-options-list/response.html">response</a> – <code>http://maasglobal.com/tsp/bookings-options-list/response.json</code>
+<li><a href="./tsp/booking-options-list/response.html">response</a> – <code>http://maasglobal.com/tsp/booking-options-list/response.json</code>
 (Develop)</li>
 </ul>
 <h2 id="%2Ftsp%2Fbooking-read-by-id%2F">/tsp/booking-read-by-id/ <a class="heading-anchor-permalink" href="#%2Ftsp%2Fbooking-read-by-id%2F">#</a></h2>
 <ul>
-<li><a href="./tsp/booking-read-by-id/request.html">request</a> – <code>http://maasglobal.com/tsp/bookings-read-by-id/request.json</code>
+<li><a href="./tsp/booking-read-by-id/request.html">request</a> – <code>http://maasglobal.com/tsp/booking-read-by-id/request.json</code>
 (Develop)</li>
-<li><a href="./tsp/booking-read-by-id/response.html">response</a> – <code>http://maasglobal.com/tsp/bookings-read-by-id/response.json</code>
+<li><a href="./tsp/booking-read-by-id/response.html">response</a> – <code>http://maasglobal.com/tsp/booking-read-by-id/response.json</code>
 (Develop)</li>
 </ul>
 <h2 id="%2Ftsp%2Fbooking-receipt%2F">/tsp/booking-receipt/ <a class="heading-anchor-permalink" href="#%2Ftsp%2Fbooking-receipt%2F">#</a></h2>
 <ul>
-<li><a href="./tsp/booking-receipt/request.html">request</a> – <code>http://maasglobal.com/tsp/bookings-receipt/request.json</code> (Develop)</li>
-<li><a href="./tsp/booking-receipt/response.html">response</a> – <code>http://maasglobal.com/tsp/bookings-receipt/response.json</code> (Develop)</li>
+<li><a href="./tsp/booking-receipt/request.html">request</a> – <code>http://maasglobal.com/tsp/booking-receipt/request.json</code> (Develop)</li>
+<li><a href="./tsp/booking-receipt/response.html">response</a> – <code>http://maasglobal.com/tsp/booking-receipt/response.json</code> (Develop)</li>
 </ul>
 <h2 id="%2Ftsp%2Fbooking-ticket%2F">/tsp/booking-ticket/ <a class="heading-anchor-permalink" href="#%2Ftsp%2Fbooking-ticket%2F">#</a></h2>
 <ul>
-<li><a href="./tsp/booking-ticket/request.html">request</a> – <code>http://maasglobal.com/tsp/bookings-ticket/request.json</code> (Develop)</li>
-<li><a href="./tsp/booking-ticket/response.html">response</a> – <code>http://maasglobal.com/tsp/bookings-ticket/response.json</code> (Develop)</li>
+<li><a href="./tsp/booking-ticket/request.html">request</a> – <code>http://maasglobal.com/tsp/booking-ticket/request.json</code> (Develop)</li>
+<li><a href="./tsp/booking-ticket/response.html">response</a> – <code>http://maasglobal.com/tsp/booking-ticket/response.json</code> (Develop)</li>
 </ul>
 <h2 id="%2Ftsp%2Fbooking-update%2F">/tsp/booking-update/ <a class="heading-anchor-permalink" href="#%2Ftsp%2Fbooking-update%2F">#</a></h2>
 <ul>
-<li><a href="./tsp/booking-update/request.html">request</a> – <code>http://maasglobal.com/tsp/bookings-update/request.json</code> (Develop)</li>
-<li><a href="./tsp/booking-update/response.html">response</a> – <code>http://maasglobal.com/tsp/bookings-update/response.json</code> (Develop)</li>
+<li><a href="./tsp/booking-update/request.html">request</a> – <code>http://maasglobal.com/tsp/booking-update/request.json</code> (Develop)</li>
+<li><a href="./tsp/booking-update/response.html">response</a> – <code>http://maasglobal.com/tsp/booking-update/response.json</code> (Develop)</li>
 </ul>
 <h2 id="%2Ftsp%2Fcustomer-auth%2F">/tsp/customer-auth/ <a class="heading-anchor-permalink" href="#%2Ftsp%2Fcustomer-auth%2F">#</a></h2>
 <ul>
@@ -1292,6 +1360,13 @@
 <ul>
 <li><a href="./tsp/journey-planner/request.html">request</a> – <code>http://maasglobal.com/tsp/journey-planner/request.json</code> (Develop)</li>
 <li><a href="./tsp/journey-planner/response.html">response</a> – <code>http://maasglobal.com/tsp/journey-planner/response.json</code> (Develop)</li>
+</ul>
+<h2 id="%2Ftsp%2Fpost-kyc-verification-update%2F">/tsp/post-kyc-verification-update/ <a class="heading-anchor-permalink" href="#%2Ftsp%2Fpost-kyc-verification-update%2F">#</a></h2>
+<ul>
+<li><a href="./tsp/post-kyc-verification-update/request.html">request</a> –
+<code>http://maasglobal.com/tsp/post-kyc-verification-update/request.json</code> (Develop)</li>
+<li><a href="./tsp/post-kyc-verification-update/response.html">response</a> –
+<code>http://maasglobal.com/tsp/post-kyc-verification-update/response.json</code> (Develop)</li>
 </ul>
 <h2 id="%2Ftsp%2Fstations-list%2F">/tsp/stations-list/ <a class="heading-anchor-permalink" href="#%2Ftsp%2Fstations-list%2F">#</a></h2>
 <ul>
@@ -1324,7 +1399,7 @@
 <h2 id="%2Fmaas-backend%2Fauth%2Fauth-sms-request-code%2F">/maas-backend/auth/auth-sms-request-code/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fauth%2Fauth-sms-request-code%2F">#</a></h2>
 <ul>
 <li><a href="./maas-backend/auth/auth-sms-request-code/request.html">request</a> –
-<code>http://maasglobal.com/maas-backend/auth/auth-sms-request.code/request.json</code> (Develop)</li>
+<code>http://maasglobal.com/maas-backend/auth/auth-sms-request-code/request.json</code> (Develop)</li>
 </ul>
 <h2 id="%2Fmaas-backend%2Fautocomplete%2Fautocomplete-query%2F">/maas-backend/autocomplete/autocomplete-query/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fautocomplete%2Fautocomplete-query%2F">#</a></h2>
 <ul>
@@ -1381,6 +1456,13 @@
 <code>http://maasglobal.com/maas-backend/bookings/bookings-update/request.json</code> (Develop)</li>
 <li><a href="./maas-backend/bookings/bookings-update/response.html">response</a> –
 <code>http://maasglobal.com/maas-backend/bookings/bookings-update/response.json</code> (Develop)</li>
+</ul>
+<h2 id="%2Fmaas-backend%2Fcoupons%2Fcoupons-validate%2F">/maas-backend/coupons/coupons-validate/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fcoupons%2Fcoupons-validate%2F">#</a></h2>
+<ul>
+<li><a href="./maas-backend/coupons/coupons-validate/request.html">request</a> –
+<code>http://maasglobal.com/maas-backend/coupons/coupons-validate/request.json</code> (Develop)</li>
+<li><a href="./maas-backend/coupons/coupons-validate/response.html">response</a> –
+<code>http://maasglobal.com/maas-backend/coupons/coupons-validate/response.json</code> (Develop)</li>
 </ul>
 <h2 id="%2Fmaas-backend%2Fcustomers%2Fpayment-sources%2F">/maas-backend/customers/payment-sources/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fcustomers%2Fpayment-sources%2F">#</a></h2>
 <ul>
@@ -1600,20 +1682,6 @@
 <li><a href="./maas-backend/subscriptions/subscriptions-create/response.html">response</a> –
 <code>http://maasglobal.com/maas-backend/subscriptions/subscriptions-create/response.json</code> (Develop)</li>
 </ul>
-<h2 id="%2Fmaas-backend%2Fsubscriptions%2Fsubscriptions-customer-retrieve%2F">/maas-backend/subscriptions/subscriptions-customer-retrieve/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fsubscriptions%2Fsubscriptions-customer-retrieve%2F">#</a></h2>
-<ul>
-<li><a href="./maas-backend/subscriptions/subscriptions-customer-retrieve/request.html">request</a> –
-<code>http://maasglobal.com/maas-backend/subscriptions/subscriptions-customer-retrieve/request.json</code> (Develop)</li>
-<li><a href="./maas-backend/subscriptions/subscriptions-customer-retrieve/response.html">response</a> –
-<code>http://maasglobal.com/maas-backend/subscriptions/subscriptions-customer-retrieve/response.json</code> (Develop)</li>
-</ul>
-<h2 id="%2Fmaas-backend%2Fsubscriptions%2Fsubscriptions-customer-update%2F">/maas-backend/subscriptions/subscriptions-customer-update/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fsubscriptions%2Fsubscriptions-customer-update%2F">#</a></h2>
-<ul>
-<li><a href="./maas-backend/subscriptions/subscriptions-customer-update/request.html">request</a> –
-<code>http://maasglobal.com/maas-backend/subscriptions/subscriptions-customer-update/request.json</code> (Develop)</li>
-<li><a href="./maas-backend/subscriptions/subscriptions-customer-update/response.html">response</a> –
-<code>http://maasglobal.com/maas-backend/subscriptions/subscriptions-customer-update/response.json</code> (Develop)</li>
-</ul>
 <h2 id="%2Fmaas-backend%2Fsubscriptions%2Fsubscriptions-estimate%2F">/maas-backend/subscriptions/subscriptions-estimate/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fsubscriptions%2Fsubscriptions-estimate%2F">#</a></h2>
 <ul>
 <li><a href="./maas-backend/subscriptions/subscriptions-estimate/request.html">request</a> –
@@ -1634,6 +1702,13 @@
 <code>http://maasglobal.com/maas-backend/subscriptions/subscriptions-retrieve/request.json</code> (Develop)</li>
 <li><a href="./maas-backend/subscriptions/subscriptions-retrieve/response.html">response</a> –
 <code>http://maasglobal.com/maas-backend/subscriptions/subscriptions-retrieve/response.json</code> (Develop)</li>
+</ul>
+<h2 id="%2Fmaas-backend%2Fsubscriptions%2Fsubscriptions-scheduled-change-delete%2F">/maas-backend/subscriptions/subscriptions-scheduled-change-delete/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fsubscriptions%2Fsubscriptions-scheduled-change-delete%2F">#</a></h2>
+<ul>
+<li><a href="./maas-backend/subscriptions/subscriptions-scheduled-change-delete/request.html">request</a> –
+<code>http://maasglobal.com/maas-backend/subscriptions/subscriptions-scheduled-change-delete/request.json</code> (Develop)</li>
+<li><a href="./maas-backend/subscriptions/subscriptions-scheduled-change-delete/response.html">response</a> –
+<code>http://maasglobal.com/maas-backend/subscriptions/subscriptions-scheduled-change-delete/response.json</code> (Develop)</li>
 </ul>
 <h2 id="%2Fmaas-backend%2Fsubscriptions%2Fsubscriptions-update%2F">/maas-backend/subscriptions/subscriptions-update/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fsubscriptions%2Fsubscriptions-update%2F">#</a></h2>
 <ul>
@@ -1705,6 +1780,13 @@
 <li><a href="./maas-backend/vehicle/vehicle-alert/response.html">response</a> –
 <code>http://maasglobal.com/maas-backend/vehicle/vehicle-alert/response.json</code> (Develop)</li>
 </ul>
+<h2 id="%2Fmaas-backend%2Fwebhooks%2Fwebhooks-bookings-create%2F">/maas-backend/webhooks/webhooks-bookings-create/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fwebhooks%2Fwebhooks-bookings-create%2F">#</a></h2>
+<ul>
+<li><a href="./maas-backend/webhooks/webhooks-bookings-create/request.html">request</a> –
+<code>http://maasglobal.com/maas-backend/webhooks/webhooks-bookings-create/request.json</code> (Develop)</li>
+<li><a href="./maas-backend/webhooks/webhooks-bookings-create/response.html">response</a> –
+<code>http://maasglobal.com/maas-backend/webhooks/webhooks-bookings-create/response.json</code> (Develop)</li>
+</ul>
 <h2 id="%2Fmaas-backend%2Fwebhooks%2Fwebhooks-bookings-update%2F">/maas-backend/webhooks/webhooks-bookings-update/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fwebhooks%2Fwebhooks-bookings-update%2F">#</a></h2>
 <ul>
 <li><a href="./maas-backend/webhooks/webhooks-bookings-update/request.html">request</a> –
@@ -1732,6 +1814,13 @@
 <code>http://maasglobal.com/maas-backend/bookings/v2/bookings-create/request.json</code> (Develop)</li>
 <li><a href="./maas-backend/bookings/v2/bookings-create/response.html">response</a> –
 <code>http://maasglobal.com/maas-backend/bookings/v2/bookings-create/response.json</code> (Develop)</li>
+</ul>
+<h2 id="%2Fmaas-backend%2Fcoupons%2Fv2%2Fcoupons-redeem%2F">/maas-backend/coupons/v2/coupons-redeem/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fcoupons%2Fv2%2Fcoupons-redeem%2F">#</a></h2>
+<ul>
+<li><a href="./maas-backend/coupons/v2/coupons-redeem/request.html">request</a> –
+<code>http://maasglobal.com/maas-backend/coupons/v2/coupons-redeem/request.json</code> (Develop)</li>
+<li><a href="./maas-backend/coupons/v2/coupons-redeem/response.html">response</a> –
+<code>http://maasglobal.com/maas-backend/coupons/v2/coupons-redeem/response.json</code> (Develop)</li>
 </ul>
 <h2 id="%2Fmaas-backend%2Fcustomers%2Ffavorite-locations%2Fadd%2F">/maas-backend/customers/favorite-locations/add/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fcustomers%2Ffavorite-locations%2Fadd%2F">#</a></h2>
 <ul>
@@ -1782,6 +1871,41 @@
 <code>http://maasglobal.com/maas-backend/customers/payment-sources/update/request.json</code> (Develop)</li>
 <li><a href="./maas-backend/customers/payment-sources/update/response.html">response</a> –
 <code>http://maasglobal.com/maas-backend/customers/payment-sources/update/response.json</code> (Develop)</li>
+</ul>
+<h2 id="%2Fmaas-backend%2Fcustomers%2Fpersonal-documents%2Fconsent%2F">/maas-backend/customers/personal-documents/consent/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fcustomers%2Fpersonal-documents%2Fconsent%2F">#</a></h2>
+<ul>
+<li><a href="./maas-backend/customers/personal-documents/consent/request.html">request</a> –
+<code>http://maasglobal.com/maas-backend/customers/personal-documents/consent/request.json</code> (Develop)</li>
+<li><a href="./maas-backend/customers/personal-documents/consent/response.html">response</a> –
+<code>http://maasglobal.com/maas-backend/customers/personal-documents/consent/response.json</code> (Develop)</li>
+</ul>
+<h2 id="%2Fmaas-backend%2Fcustomers%2Fpersonal-documents%2Fcreate%2F">/maas-backend/customers/personal-documents/create/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fcustomers%2Fpersonal-documents%2Fcreate%2F">#</a></h2>
+<ul>
+<li><a href="./maas-backend/customers/personal-documents/create/request.html">request</a> –
+<code>http://maasglobal.com/maas-backend/customers/personal-documents/create/request.json</code> (Develop)</li>
+<li><a href="./maas-backend/customers/personal-documents/create/response.html">response</a> –
+<code>http://maasglobal.com/maas-backend/customers/personal-documents/create/response.json</code> (Develop)</li>
+</ul>
+<h2 id="%2Fmaas-backend%2Fcustomers%2Fpersonal-documents%2Finitiate%2F">/maas-backend/customers/personal-documents/initiate/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fcustomers%2Fpersonal-documents%2Finitiate%2F">#</a></h2>
+<ul>
+<li><a href="./maas-backend/customers/personal-documents/initiate/request.html">request</a> –
+<code>http://maasglobal.com/maas-backend/customers/personal-documents/initiate/request.json</code> (Develop)</li>
+<li><a href="./maas-backend/customers/personal-documents/initiate/response.html">response</a> –
+<code>http://maasglobal.com/maas-backend/customers/personal-documents/initiate/response.json</code> (Develop)</li>
+</ul>
+<h2 id="%2Fmaas-backend%2Fcustomers%2Fpersonal-documents%2Fremove%2F">/maas-backend/customers/personal-documents/remove/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fcustomers%2Fpersonal-documents%2Fremove%2F">#</a></h2>
+<ul>
+<li><a href="./maas-backend/customers/personal-documents/remove/request.html">request</a> –
+<code>http://maasglobal.com/maas-backend/customers/personal-documents/remove/request.json</code> (Develop)</li>
+<li><a href="./maas-backend/customers/personal-documents/remove/response.html">response</a> –
+<code>http://maasglobal.com/maas-backend/customers/personal-documents/remove/response.json</code> (Develop)</li>
+</ul>
+<h2 id="%2Fmaas-backend%2Fcustomers%2Fpersonal-documents%2Frevoke-consent%2F">/maas-backend/customers/personal-documents/revoke-consent/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fcustomers%2Fpersonal-documents%2Frevoke-consent%2F">#</a></h2>
+<ul>
+<li><a href="./maas-backend/customers/personal-documents/revoke-consent/request.html">request</a> –
+<code>http://maasglobal.com/maas-backend/customers/personal-documents/revoke-consent/request.json</code> (Develop)</li>
+<li><a href="./maas-backend/customers/personal-documents/revoke-consent/response.html">response</a> –
+<code>http://maasglobal.com/maas-backend/customers/personal-documents/revoke-consent/response.json</code> (Develop)</li>
 </ul>
 <h2 id="%2Fmaas-backend%2Fcustomers%2Fverification%2Finitiate%2F">/maas-backend/customers/verification/initiate/ <a class="heading-anchor-permalink" href="#%2Fmaas-backend%2Fcustomers%2Fverification%2Finitiate%2F">#</a></h2>
 <ul>

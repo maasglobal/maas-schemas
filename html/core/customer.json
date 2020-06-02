@@ -8,6 +8,9 @@
             "$linkVal": "identityId",
             "$linkPath": "units.md"
         },
+        "honorifics": {
+            "type": "string"
+        },
         "firstName": {
             "description": "First name of the customer (e.g. John)",
             "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName",
@@ -19,6 +22,21 @@
             "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName",
             "$linkVal": "personalName",
             "$linkPath": "common.md"
+        },
+        "firstNameLocalized": {
+            "description": "Localized first name of the customer (e.g. John)",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName",
+            "$linkVal": "personalName",
+            "$linkPath": "common.md"
+        },
+        "lastNameLocalized": {
+            "description": "Localized last name of the customer (e.g. Doe)",
+            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName",
+            "$linkVal": "personalName",
+            "$linkPath": "common.md"
+        },
+        "sex": {
+            "type": "string"
         },
         "phone": {
             "description": "ITU-T E.164 phone number",
@@ -40,6 +58,11 @@
         "city": {
             "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city",
             "$linkVal": "city",
+            "$linkPath": "address.md"
+        },
+        "state": {
+            "$ref": "http://maasglobal.com/core/components/address.json#/definitions/state",
+            "$linkVal": "state",
             "$linkPath": "address.md"
         },
         "country": {
@@ -101,6 +124,14 @@
                 }
             ]
         },
+        "documents": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/personal-document.json",
+                "$linkVal": "personal-document",
+                "$linkPath": "personal-document.md"
+            }
+        },
         "balances": {
             "type": "object",
             "properties": {
@@ -156,6 +187,14 @@
             ],
             "additionalProperties": false
         },
+        "referral": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                }
+            }
+        },
         "subscriberType": {
             "description": "Subscriber Type",
             "type": "string"
@@ -175,6 +214,8 @@
             "favoriteLocations": [],
             "phone": "+358407654321",
             "email": "bob.customer@example.com",
+            "honorifics": "mr",
+            "sex": "male",
             "firstName": "Bob",
             "lastName": "Customer",
             "created": 1553687004207,
@@ -227,6 +268,9 @@
                     "amount": 1,
                     "type": "charge"
                 }
+            },
+            "referral": {
+                "code": "XXXX-XXXX-XXXX-XXXX"
             },
             "regionId": "fi-helsinki",
             "region": {

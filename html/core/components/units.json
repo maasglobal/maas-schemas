@@ -10,6 +10,32 @@
                 "4828507e-683f-41bf-9d87-689808fbf958"
             ]
         },
+        "hostnameLabel": {
+            "description": "single component of a hostname",
+            "type": "string",
+            "pattern": "^[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?$",
+            "minLength": 1,
+            "maxLength": 63,
+            "examples": [
+                "example",
+                "com",
+                "with-hyphen",
+                "foo1",
+                "0bar"
+            ]
+        },
+        "hostname": {
+            "description": "list of 1 or more hostname labels separated by dot",
+            "type": "string",
+            "pattern": "^[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?(.[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?)*$",
+            "minLength": 1,
+            "maxLength": 253,
+            "examples": [
+                "localhost",
+                "example.com",
+                "sub.example.com"
+            ]
+        },
         "url": {
             "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
             "type": "string",

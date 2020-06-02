@@ -1,0 +1,23 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/customers/personal-documents/create/response.json",
+    "description": "Insert a pending verification personal document object",
+    "type": "object",
+    "properties": {
+        "type": {
+            "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType",
+            "$linkVal": "documentType",
+            "$linkPath": "personal-document.md"
+        },
+        "status": {
+            "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentStatus",
+            "$linkVal": "documentStatus",
+            "$linkPath": "personal-document.md"
+        }
+    },
+    "required": [
+        "type",
+        "status"
+    ],
+    "meta:status": "Develop",
+    "title": "response"
+}

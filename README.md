@@ -2,7 +2,7 @@
 
 ## /core/
 
-- [booking](./core/booking.md) – `http://maasglobal.com/core/booking.json#` (Develop)
+- [booking](./core/booking.md) – `http://maasglobal.com/core/booking.json` (Develop)
 - [booking-meta](./core/booking-meta.md) – `http://maasglobal.com/core/booking-meta.json` (Develop)
 - [booking-option](./core/booking-option.md) – `http://maasglobal.com/core/booking-option.json` (Develop)
 - [card](./core/card.md) – `http://maasglobal.com/core/card.json` (Develop)
@@ -10,10 +10,12 @@
 - [error](./core/error.md) – `http://maasglobal.com/core/error.json` (Develop)
 - [iot-thing-shadow](./core/iot-thing-shadow.md) – `http://maasglobal.com/core/iot-thing-shadow.json` (Develop)
 - [itinerary](./core/itinerary.md) – `http://maasglobal.com/core/itinerary.json` (Develop)
+- [kyc-service](./core/kyc-service.md) – `http://maasglobal.com/core/kyc-service.json` (Develop)
 - [leg](./core/leg.md) – `http://maasglobal.com/core/leg.json` (Develop)
 - [partialFavoriteLocation](./core/partialFavoriteLocation.md) –
   `http://maasglobal.com/core/partialFavoriteLocation.json` (Develop)
 - [paymentSource](./core/paymentSource.md) – `http://maasglobal.com/core/paymentSource.json` (Develop)
+- [personal-document](./core/personal-document.md) – `http://maasglobal.com/core/personal-document.json` (Develop)
 - [plan](./core/plan.md) – `http://maasglobal.com/core/plan.json` (Develop)
 - [product](./core/product.md) – `http://maasglobal.com/core/product.json` (Develop)
 - [product-option](./core/product-option.md) – `http://maasglobal.com/core/product-option.json` (Develop)
@@ -48,13 +50,17 @@
 - [cost](./core/components/cost.md) – `http://maasglobal.com/core/components/cost.json` (Develop)
 - [customerSelection](./core/components/customerSelection.md) –
   `http://maasglobal.com/core/components/customerSelection.json` (Develop)
+- [errors](./core/components/errors.md) – `http://maasglobal.com/core/components/errors.json` (Develop)
 - [fare](./core/components/fare.md) – `http://maasglobal.com/core/components/fare.json` (Develop)
 - [geolocation](./core/components/geolocation.md) – `http://maasglobal.com/core/components/geolocation.json` (Develop)
 - [i18n](./core/components/i18n.md) – `http://maasglobal.com/core/components/i18n.json` (Develop)
+- [message](./core/components/message.md) – `http://maasglobal.com/core/components/message.json` (Develop)
 - [payment-parameters](./core/components/payment-parameters.md) –
   `http://maasglobal.com/core/components/payment-parameters.json` (Develop)
 - [personalDataAllowItem](./core/components/personalDataAllowItem.md) –
   `http://maasglobal.com/core/components/personalDataAllowItem.json` (Develop)
+- [personalDocumentRequiredItem](./core/components/personalDocumentRequiredItem.md) –
+  `http://maasglobal.com/core/components/personalDocumentRequiredItem.json` (Develop)
 - [place](./core/components/place.md) – `http://maasglobal.com/core/components/place.json` (Develop)
 - [point-cost](./core/components/point-cost.md) – `http://maasglobal.com/core/components/point-cost.json` (Develop)
 - [state](./core/components/state.md) – `http://maasglobal.com/core/components/state.json` (Develop)
@@ -83,6 +89,8 @@
   `http://maasglobal.com/core/modes/MODE_SHARED_BICYCLE.json` (Develop)
 - [MODE_SHARED_CAR](./core/modes/MODE_SHARED_CAR.md) – `http://maasglobal.com/core/modes/MODE_SHARED_CAR.json`
   (Develop)
+- [MODE_SHARED_E_BICYCLE](./core/modes/MODE_SHARED_E_BICYCLE.md) –
+  `http://maasglobal.com/core/modes/MODE_SHARED_E_BICYCLE.json` (Develop)
 - [MODE_SUBWAY](./core/modes/MODE_SUBWAY.md) – `http://maasglobal.com/core/modes/MODE_SUBWAY.json` (Develop)
 - [MODE_TAXI](./core/modes/MODE_TAXI.md) – `http://maasglobal.com/core/modes/MODE_TAXI.json` (Develop)
 - [MODE_TRAIN](./core/modes/MODE_TRAIN.md) – `http://maasglobal.com/core/modes/MODE_TRAIN.json` (Develop)
@@ -97,6 +105,10 @@
   `http://maasglobal.com/maas-backend/booking-option-create/request.json` (Develop)
 - [response](./maas-backend/booking-option-create/response.md) –
   `http://maasglobal.com/maas-backend/booking-option-create/response.json` (Develop)
+
+## /maas-backend/coupons/
+
+- [code](./maas-backend/coupons/code.md) – `http://maasglobal.com/maas-backend/coupons/code.json` (Develop)
 
 ## /maas-backend/customers/
 
@@ -140,42 +152,42 @@
 
 ## /tsp/booking-cancel/
 
-- [request](./tsp/booking-cancel/request.md) – `http://maasglobal.com/tsp/bookings-cancel/request.json` (Develop)
-- [response](./tsp/booking-cancel/response.md) – `http://maasglobal.com/tsp/bookings-cancel/response.json` (Develop)
+- [request](./tsp/booking-cancel/request.md) – `http://maasglobal.com/tsp/booking-cancel/request.json` (Develop)
+- [response](./tsp/booking-cancel/response.md) – `http://maasglobal.com/tsp/booking-cancel/response.json` (Develop)
 
 ## /tsp/booking-create/
 
-- [request](./tsp/booking-create/request.md) – `http://maasglobal.com/tsp/bookings-create/request.json` (Develop)
-- [response](./tsp/booking-create/response.md) – `http://maasglobal.com/tsp/bookings-create/response.json` (Develop)
+- [request](./tsp/booking-create/request.md) – `http://maasglobal.com/tsp/booking-create/request.json` (Develop)
+- [response](./tsp/booking-create/response.md) – `http://maasglobal.com/tsp/booking-create/response.json` (Develop)
 
 ## /tsp/booking-options-list/
 
-- [request](./tsp/booking-options-list/request.md) – `http://maasglobal.com/tsp/bookings-options-list/request.json`
+- [request](./tsp/booking-options-list/request.md) – `http://maasglobal.com/tsp/booking-options-list/request.json`
   (Develop)
-- [response](./tsp/booking-options-list/response.md) – `http://maasglobal.com/tsp/bookings-options-list/response.json`
+- [response](./tsp/booking-options-list/response.md) – `http://maasglobal.com/tsp/booking-options-list/response.json`
   (Develop)
 
 ## /tsp/booking-read-by-id/
 
-- [request](./tsp/booking-read-by-id/request.md) – `http://maasglobal.com/tsp/bookings-read-by-id/request.json`
+- [request](./tsp/booking-read-by-id/request.md) – `http://maasglobal.com/tsp/booking-read-by-id/request.json`
   (Develop)
-- [response](./tsp/booking-read-by-id/response.md) – `http://maasglobal.com/tsp/bookings-read-by-id/response.json`
+- [response](./tsp/booking-read-by-id/response.md) – `http://maasglobal.com/tsp/booking-read-by-id/response.json`
   (Develop)
 
 ## /tsp/booking-receipt/
 
-- [request](./tsp/booking-receipt/request.md) – `http://maasglobal.com/tsp/bookings-receipt/request.json` (Develop)
-- [response](./tsp/booking-receipt/response.md) – `http://maasglobal.com/tsp/bookings-receipt/response.json` (Develop)
+- [request](./tsp/booking-receipt/request.md) – `http://maasglobal.com/tsp/booking-receipt/request.json` (Develop)
+- [response](./tsp/booking-receipt/response.md) – `http://maasglobal.com/tsp/booking-receipt/response.json` (Develop)
 
 ## /tsp/booking-ticket/
 
-- [request](./tsp/booking-ticket/request.md) – `http://maasglobal.com/tsp/bookings-ticket/request.json` (Develop)
-- [response](./tsp/booking-ticket/response.md) – `http://maasglobal.com/tsp/bookings-ticket/response.json` (Develop)
+- [request](./tsp/booking-ticket/request.md) – `http://maasglobal.com/tsp/booking-ticket/request.json` (Develop)
+- [response](./tsp/booking-ticket/response.md) – `http://maasglobal.com/tsp/booking-ticket/response.json` (Develop)
 
 ## /tsp/booking-update/
 
-- [request](./tsp/booking-update/request.md) – `http://maasglobal.com/tsp/bookings-update/request.json` (Develop)
-- [response](./tsp/booking-update/response.md) – `http://maasglobal.com/tsp/bookings-update/response.json` (Develop)
+- [request](./tsp/booking-update/request.md) – `http://maasglobal.com/tsp/booking-update/request.json` (Develop)
+- [response](./tsp/booking-update/response.md) – `http://maasglobal.com/tsp/booking-update/response.json` (Develop)
 
 ## /tsp/customer-auth/
 
@@ -200,6 +212,13 @@
 
 - [request](./tsp/journey-planner/request.md) – `http://maasglobal.com/tsp/journey-planner/request.json` (Develop)
 - [response](./tsp/journey-planner/response.md) – `http://maasglobal.com/tsp/journey-planner/response.json` (Develop)
+
+## /tsp/post-kyc-verification-update/
+
+- [request](./tsp/post-kyc-verification-update/request.md) –
+  `http://maasglobal.com/tsp/post-kyc-verification-update/request.json` (Develop)
+- [response](./tsp/post-kyc-verification-update/response.md) –
+  `http://maasglobal.com/tsp/post-kyc-verification-update/response.json` (Develop)
 
 ## /tsp/stations-list/
 
@@ -232,7 +251,7 @@
 ## /maas-backend/auth/auth-sms-request-code/
 
 - [request](./maas-backend/auth/auth-sms-request-code/request.md) –
-  `http://maasglobal.com/maas-backend/auth/auth-sms-request.code/request.json` (Develop)
+  `http://maasglobal.com/maas-backend/auth/auth-sms-request-code/request.json` (Develop)
 
 ## /maas-backend/autocomplete/autocomplete-query/
 
@@ -289,6 +308,13 @@
   `http://maasglobal.com/maas-backend/bookings/bookings-update/request.json` (Develop)
 - [response](./maas-backend/bookings/bookings-update/response.md) –
   `http://maasglobal.com/maas-backend/bookings/bookings-update/response.json` (Develop)
+
+## /maas-backend/coupons/coupons-validate/
+
+- [request](./maas-backend/coupons/coupons-validate/request.md) –
+  `http://maasglobal.com/maas-backend/coupons/coupons-validate/request.json` (Develop)
+- [response](./maas-backend/coupons/coupons-validate/response.md) –
+  `http://maasglobal.com/maas-backend/coupons/coupons-validate/response.json` (Develop)
 
 ## /maas-backend/customers/payment-sources/
 
@@ -508,20 +534,6 @@
 - [response](./maas-backend/subscriptions/subscriptions-create/response.md) –
   `http://maasglobal.com/maas-backend/subscriptions/subscriptions-create/response.json` (Develop)
 
-## /maas-backend/subscriptions/subscriptions-customer-retrieve/
-
-- [request](./maas-backend/subscriptions/subscriptions-customer-retrieve/request.md) –
-  `http://maasglobal.com/maas-backend/subscriptions/subscriptions-customer-retrieve/request.json` (Develop)
-- [response](./maas-backend/subscriptions/subscriptions-customer-retrieve/response.md) –
-  `http://maasglobal.com/maas-backend/subscriptions/subscriptions-customer-retrieve/response.json` (Develop)
-
-## /maas-backend/subscriptions/subscriptions-customer-update/
-
-- [request](./maas-backend/subscriptions/subscriptions-customer-update/request.md) –
-  `http://maasglobal.com/maas-backend/subscriptions/subscriptions-customer-update/request.json` (Develop)
-- [response](./maas-backend/subscriptions/subscriptions-customer-update/response.md) –
-  `http://maasglobal.com/maas-backend/subscriptions/subscriptions-customer-update/response.json` (Develop)
-
 ## /maas-backend/subscriptions/subscriptions-estimate/
 
 - [request](./maas-backend/subscriptions/subscriptions-estimate/request.md) –
@@ -542,6 +554,13 @@
   `http://maasglobal.com/maas-backend/subscriptions/subscriptions-retrieve/request.json` (Develop)
 - [response](./maas-backend/subscriptions/subscriptions-retrieve/response.md) –
   `http://maasglobal.com/maas-backend/subscriptions/subscriptions-retrieve/response.json` (Develop)
+
+## /maas-backend/subscriptions/subscriptions-scheduled-change-delete/
+
+- [request](./maas-backend/subscriptions/subscriptions-scheduled-change-delete/request.md) –
+  `http://maasglobal.com/maas-backend/subscriptions/subscriptions-scheduled-change-delete/request.json` (Develop)
+- [response](./maas-backend/subscriptions/subscriptions-scheduled-change-delete/response.md) –
+  `http://maasglobal.com/maas-backend/subscriptions/subscriptions-scheduled-change-delete/response.json` (Develop)
 
 ## /maas-backend/subscriptions/subscriptions-update/
 
@@ -613,6 +632,13 @@
 - [response](./maas-backend/vehicle/vehicle-alert/response.md) –
   `http://maasglobal.com/maas-backend/vehicle/vehicle-alert/response.json` (Develop)
 
+## /maas-backend/webhooks/webhooks-bookings-create/
+
+- [request](./maas-backend/webhooks/webhooks-bookings-create/request.md) –
+  `http://maasglobal.com/maas-backend/webhooks/webhooks-bookings-create/request.json` (Develop)
+- [response](./maas-backend/webhooks/webhooks-bookings-create/response.md) –
+  `http://maasglobal.com/maas-backend/webhooks/webhooks-bookings-create/response.json` (Develop)
+
 ## /maas-backend/webhooks/webhooks-bookings-update/
 
 - [request](./maas-backend/webhooks/webhooks-bookings-update/request.md) –
@@ -640,6 +666,13 @@
   `http://maasglobal.com/maas-backend/bookings/v2/bookings-create/request.json` (Develop)
 - [response](./maas-backend/bookings/v2/bookings-create/response.md) –
   `http://maasglobal.com/maas-backend/bookings/v2/bookings-create/response.json` (Develop)
+
+## /maas-backend/coupons/v2/coupons-redeem/
+
+- [request](./maas-backend/coupons/v2/coupons-redeem/request.md) –
+  `http://maasglobal.com/maas-backend/coupons/v2/coupons-redeem/request.json` (Develop)
+- [response](./maas-backend/coupons/v2/coupons-redeem/response.md) –
+  `http://maasglobal.com/maas-backend/coupons/v2/coupons-redeem/response.json` (Develop)
 
 ## /maas-backend/customers/favorite-locations/add/
 
@@ -690,6 +723,41 @@
   `http://maasglobal.com/maas-backend/customers/payment-sources/update/request.json` (Develop)
 - [response](./maas-backend/customers/payment-sources/update/response.md) –
   `http://maasglobal.com/maas-backend/customers/payment-sources/update/response.json` (Develop)
+
+## /maas-backend/customers/personal-documents/consent/
+
+- [request](./maas-backend/customers/personal-documents/consent/request.md) –
+  `http://maasglobal.com/maas-backend/customers/personal-documents/consent/request.json` (Develop)
+- [response](./maas-backend/customers/personal-documents/consent/response.md) –
+  `http://maasglobal.com/maas-backend/customers/personal-documents/consent/response.json` (Develop)
+
+## /maas-backend/customers/personal-documents/create/
+
+- [request](./maas-backend/customers/personal-documents/create/request.md) –
+  `http://maasglobal.com/maas-backend/customers/personal-documents/create/request.json` (Develop)
+- [response](./maas-backend/customers/personal-documents/create/response.md) –
+  `http://maasglobal.com/maas-backend/customers/personal-documents/create/response.json` (Develop)
+
+## /maas-backend/customers/personal-documents/initiate/
+
+- [request](./maas-backend/customers/personal-documents/initiate/request.md) –
+  `http://maasglobal.com/maas-backend/customers/personal-documents/initiate/request.json` (Develop)
+- [response](./maas-backend/customers/personal-documents/initiate/response.md) –
+  `http://maasglobal.com/maas-backend/customers/personal-documents/initiate/response.json` (Develop)
+
+## /maas-backend/customers/personal-documents/remove/
+
+- [request](./maas-backend/customers/personal-documents/remove/request.md) –
+  `http://maasglobal.com/maas-backend/customers/personal-documents/remove/request.json` (Develop)
+- [response](./maas-backend/customers/personal-documents/remove/response.md) –
+  `http://maasglobal.com/maas-backend/customers/personal-documents/remove/response.json` (Develop)
+
+## /maas-backend/customers/personal-documents/revoke-consent/
+
+- [request](./maas-backend/customers/personal-documents/revoke-consent/request.md) –
+  `http://maasglobal.com/maas-backend/customers/personal-documents/revoke-consent/request.json` (Develop)
+- [response](./maas-backend/customers/personal-documents/revoke-consent/response.md) –
+  `http://maasglobal.com/maas-backend/customers/personal-documents/revoke-consent/response.json` (Develop)
 
 ## /maas-backend/customers/verification/initiate/
 

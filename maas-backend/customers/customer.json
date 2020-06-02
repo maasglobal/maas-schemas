@@ -52,6 +52,36 @@
             "items": {
                 "type": "object"
             }
+        },
+        "personalDocuments": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType",
+                        "$linkVal": "documentType",
+                        "$linkPath": "personal-document.md"
+                    },
+                    "status": {
+                        "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentStatus",
+                        "$linkVal": "documentStatus",
+                        "$linkPath": "personal-document.md"
+                    }
+                },
+                "required": [
+                    "type",
+                    "status"
+                ]
+            }
+        },
+        "personalDocumentConsents": {
+            "type": "array",
+            "items": {
+                "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId",
+                "$linkVal": "agencyId",
+                "$linkPath": "common.md"
+            }
         }
     },
     "required": [

@@ -8,7 +8,7 @@ Base schema for MODE_CAR\* metas
 
 | Abstract            | Extensible | Status  | Identifiable | Custom Properties | Additional Properties | Defined In                                         |
 | ------------------- | ---------- | ------- | ------------ | ----------------- | --------------------- | -------------------------------------------------- |
-| Can be instantiated | No         | Develop | No           | Forbidden         | Forbidden             | [core/components/car-rental.json](car-rental.json) |
+| Can be instantiated | Yes        | Develop | No           | Forbidden         | Forbidden             | [core/components/car-rental.json](car-rental.json) |
 
 ## Schema Hierarchy
 
@@ -16,20 +16,65 @@ Base schema for MODE_CAR\* metas
   - [units](units.md) `http://maasglobal.com/core/components/units.json`
   - [common](common.md) `http://maasglobal.com/core/components/common.json`
 
+# car-rental Definitions
+
+| Property        | Type     | Group                                                                            |
+| --------------- | -------- | -------------------------------------------------------------------------------- |
+| [icon](#icon)   | url      | `http://maasglobal.com/core/components/car-rental.json#/definitions/instruction` |
+| [text](#text)   | `string` | `http://maasglobal.com/core/components/car-rental.json#/definitions/instruction` |
+| [title](#title) | `string` | `http://maasglobal.com/core/components/car-rental.json#/definitions/instruction` |
+
+## icon
+
+`icon`
+
+- is optional
+- type: url
+- defined in this schema
+
+### icon Type
+
+- [url](units.md) – `http://maasglobal.com/core/components/units.json#/definitions/url`
+
+## text
+
+`text`
+
+- is optional
+- type: `string`
+- defined in this schema
+
+### text Type
+
+`string`
+
+## title
+
+`title`
+
+- is optional
+- type: `string`
+- defined in this schema
+
+### title Type
+
+`string`
+
 # car-rental Properties
 
-| Property                                      | Type     | Required     | Nullable | Defined by               |
-| --------------------------------------------- | -------- | ------------ | -------- | ------------------------ |
-| [car](#car)                                   | `object` | Optional     | No       | car-rental (this schema) |
-| [description](#description)                   | `string` | **Required** | No       | car-rental (this schema) |
-| [id](#id)                                     | `string` | Optional     | No       | car-rental (this schema) |
-| [image](#image)                               | `string` | **Required** | No       | car-rental (this schema) |
-| [name](#name)                                 | `string` | **Required** | No       | car-rental (this schema) |
-| [pickupInfo](#pickupinfo)                     | `string` | Optional     | No       | car-rental (this schema) |
-| [returnInfo](#returninfo)                     | `string` | Optional     | No       | car-rental (this schema) |
-| [startEndGeoRegionUrl](#startendgeoregionurl) | `string` | Optional     | No       | car-rental (this schema) |
-| [terms](#terms)                               | complex  | Optional     | No       | car-rental (this schema) |
-| [vendor](#vendor)                             | `object` | Optional     | No       | car-rental (this schema) |
+| Property                                      | Type        | Required     | Nullable | Defined by               |
+| --------------------------------------------- | ----------- | ------------ | -------- | ------------------------ |
+| [car](#car)                                   | `object`    | Optional     | No       | car-rental (this schema) |
+| [description](#description)                   | `string`    | **Required** | No       | car-rental (this schema) |
+| [id](#id)                                     | `string`    | Optional     | No       | car-rental (this schema) |
+| [image](#image)                               | `string`    | **Required** | No       | car-rental (this schema) |
+| [instructions](#instructions)                 | instruction | Optional     | No       | car-rental (this schema) |
+| [name](#name)                                 | `string`    | **Required** | No       | car-rental (this schema) |
+| [pickupInfo](#pickupinfo)                     | `string`    | Optional     | No       | car-rental (this schema) |
+| [returnInfo](#returninfo)                     | `string`    | Optional     | No       | car-rental (this schema) |
+| [startEndGeoRegionUrl](#startendgeoregionurl) | `string`    | Optional     | No       | car-rental (this schema) |
+| [terms](#terms)                               | complex     | Optional     | No       | car-rental (this schema) |
+| [vendor](#vendor)                             | `object`    | Optional     | No       | car-rental (this schema) |
 
 ## car
 
@@ -230,13 +275,6 @@ Registration plate (e.g. if we know the actual car already)
 
 `string`
 
-All instances must conform to this regular expression (test examples
-[here](https://regexr.com/?expression=%5BA-Z%5C-0-9%5D)):
-
-```regex
-[A-Z\-0-9]
-```
-
 #### transmission
 
 `transmission`
@@ -305,6 +343,24 @@ All instances must conform to this regular expression (test examples
 ```regex
 ^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$
 ```
+
+## instructions
+
+Additional instruction sections displayed for booking
+
+`instructions`
+
+- is optional
+- type: instruction
+- defined in this schema
+
+### instructions Type
+
+Array type: instruction
+
+All items must be of the type:
+
+- [instruction](car-rental.md) – `#/definitions/instruction`
 
 ## name
 

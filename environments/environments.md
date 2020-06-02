@@ -43,8 +43,8 @@ The base environments object with several environment groups and related meta da
       "name": "Development Environments",
       "envs": [
         {
-          "id": "fantasyTopping",
-          "api": "https://fantasy.example.com/api/",
+          "id": "fantasy-topping",
+          "api": "https://fantasy-topping.example.com/api/",
           "live": false,
           "contact": {
             "name": "Dennis Developer"

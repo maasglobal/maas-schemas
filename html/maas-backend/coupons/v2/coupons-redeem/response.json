@@ -1,0 +1,33 @@
+{
+    "$id": "http://maasglobal.com/maas-backend/coupons/v2/coupons-redeem/response.json",
+    "description": "MaaS coupon redeem",
+    "type": "object",
+    "properties": {
+        "code": {
+            "$ref": "http://maasglobal.com/maas-backend/coupons/code.json#/definitions/code",
+            "$linkVal": "code",
+            "$linkPath": "code.md"
+        },
+        "success": {
+            "type": "boolean"
+        },
+        "data": {
+            "type": "object",
+            "properties": {
+                "subscription": {
+                    "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscription",
+                    "$linkVal": "subscription",
+                    "$linkPath": "subscription.md"
+                }
+            }
+        }
+    },
+    "additionalProperties": true,
+    "required": [
+        "code",
+        "success",
+        "data"
+    ],
+    "meta:status": "Develop",
+    "title": "response"
+}

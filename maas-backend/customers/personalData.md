@@ -18,20 +18,25 @@ MaaS customer personal data schema
 
 # personalData Properties
 
-| Property                            | Type     | Required | Nullable | Defined by                 |
-| ----------------------------------- | -------- | -------- | -------- | -------------------------- |
-| [address](#address)                 | `string` | Optional | No       | personalData (this schema) |
-| [city](#city)                       | `string` | Optional | No       | personalData (this schema) |
-| [country](#country)                 | `string` | Optional | No       | personalData (this schema) |
-| [dob](#dob)                         | complex  | Optional | No       | personalData (this schema) |
-| [email](#email)                     | `string` | Optional | No       | personalData (this schema) |
-| [firstName](#firstname)             | `string` | Optional | No       | personalData (this schema) |
-| [lastName](#lastname)               | `string` | Optional | No       | personalData (this schema) |
-| [phone](#phone)                     | `string` | Optional | No       | personalData (this schema) |
-| [profileImageUrl](#profileimageurl) | `string` | Optional | No       | personalData (this schema) |
-| [ssid](#ssid)                       | complex  | Optional | No       | personalData (this schema) |
-| [subscriberType](#subscribertype)   | `string` | Optional | No       | personalData (this schema) |
-| [zipCode](#zipcode)                 | `string` | Optional | No       | personalData (this schema) |
+| Property                                  | Type     | Required | Nullable | Defined by                 |
+| ----------------------------------------- | -------- | -------- | -------- | -------------------------- |
+| [address](#address)                       | `string` | Optional | No       | personalData (this schema) |
+| [city](#city)                             | `string` | Optional | No       | personalData (this schema) |
+| [country](#country)                       | `string` | Optional | No       | personalData (this schema) |
+| [dob](#dob)                               | complex  | Optional | No       | personalData (this schema) |
+| [email](#email)                           | `string` | Optional | No       | personalData (this schema) |
+| [firstName](#firstname)                   | `string` | Optional | No       | personalData (this schema) |
+| [firstNameLocalized](#firstnamelocalized) | `string` | Optional | No       | personalData (this schema) |
+| [honorifics](#honorifics)                 | `string` | Optional | No       | personalData (this schema) |
+| [lastName](#lastname)                     | `string` | Optional | No       | personalData (this schema) |
+| [lastNameLocalized](#lastnamelocalized)   | `string` | Optional | No       | personalData (this schema) |
+| [phone](#phone)                           | `string` | Optional | No       | personalData (this schema) |
+| [profileImageUrl](#profileimageurl)       | `string` | Optional | No       | personalData (this schema) |
+| [sex](#sex)                               | `string` | Optional | No       | personalData (this schema) |
+| [ssid](#ssid)                             | complex  | Optional | No       | personalData (this schema) |
+| [state](#state)                           | `string` | Optional | No       | personalData (this schema) |
+| [subscriberType](#subscribertype)         | `string` | Optional | No       | personalData (this schema) |
+| [zipCode](#zipcode)                       | `string` | Optional | No       | personalData (this schema) |
 
 ## address
 
@@ -154,6 +159,35 @@ First name of the customer (e.g. John)
 - minimum length: 1 characters
 - maximum length: 255 characters
 
+## firstNameLocalized
+
+Localized first name of the customer (e.g. John)
+
+`firstNameLocalized`
+
+- is optional
+- type: `string`
+- defined in this schema
+
+### firstNameLocalized Type
+
+`string`
+
+- minimum length: 1 characters
+- maximum length: 255 characters
+
+## honorifics
+
+`honorifics`
+
+- is optional
+- type: `string`
+- defined in this schema
+
+### honorifics Type
+
+`string`
+
 ## lastName
 
 Last name of the customer (e.g. Doe)
@@ -165,6 +199,23 @@ Last name of the customer (e.g. Doe)
 - defined in this schema
 
 ### lastName Type
+
+`string`
+
+- minimum length: 1 characters
+- maximum length: 255 characters
+
+## lastNameLocalized
+
+Localized last name of the customer (e.g. Doe)
+
+`lastNameLocalized`
+
+- is optional
+- type: `string`
+- defined in this schema
+
+### lastNameLocalized Type
 
 `string`
 
@@ -215,6 +266,18 @@ All instances must conform to this regular expression
 - minimum length: 10 characters
 - maximum length: 1024 characters
 
+## sex
+
+`sex`
+
+- is optional
+- type: `string`
+- defined in this schema
+
+### sex Type
+
+`string`
+
 ## ssid
 
 Social Security ID
@@ -236,6 +299,22 @@ Social Security ID
 #### Option 2
 
 - [ssid](common.md) – `http://maasglobal.com/core/components/common.json#/definitions/ssid`
+
+## state
+
+Alphabetic state name
+
+`state`
+
+- is optional
+- type: `string`
+- defined in this schema
+
+### state Type
+
+`string`
+
+- maximum length: 64 characters
 
 ## subscriberType
 

@@ -26,6 +26,8 @@ can be used freely.
   - [MODE_GONDOLA](modes/MODE_GONDOLA.md) `http://maasglobal.com/core/modes/MODE_GONDOLA.json`
   - [MODE_FUNICULAR](modes/MODE_FUNICULAR.md) `http://maasglobal.com/core/modes/MODE_FUNICULAR.json`
   - [MODE_SHARED_BICYCLE](modes/MODE_SHARED_BICYCLE.md) `http://maasglobal.com/core/modes/MODE_SHARED_BICYCLE.json`
+  - [MODE_SHARED_E_BICYCLE](modes/MODE_SHARED_E_BICYCLE.md)
+    `http://maasglobal.com/core/modes/MODE_SHARED_E_BICYCLE.json`
   - [MODE_SHARED_CAR](modes/MODE_SHARED_CAR.md) `http://maasglobal.com/core/modes/MODE_SHARED_CAR.json`
   - [MODE_TRANSIT](modes/MODE_TRANSIT.md) `http://maasglobal.com/core/modes/MODE_TRANSIT.json`
   - [MODE_TRAIN](modes/MODE_TRAIN.md) `http://maasglobal.com/core/modes/MODE_TRAIN.json`
@@ -36,28 +38,29 @@ can be used freely.
 
 # booking-meta Properties
 
-| Property                                    | Type                | Required   | Nullable | Defined by                                 |
-| ------------------------------------------- | ------------------- | ---------- | -------- | ------------------------------------------ |
-| [MODE_BICYCLE](#mode_bicycle)               | MODE_BICYCLE        | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_BUS](#mode_bus)                       | MODE_BUS            | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_BUSISH](#mode_busish)                 | MODE_BUSISH         | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_CABLE_CAR](#mode_cable_car)           | MODE_CABLE_CAR      | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_CAR](#mode_car)                       | MODE_CAR            | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_FERRY](#mode_ferry)                   | MODE_FERRY          | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_FUNICULAR](#mode_funicular)           | MODE_FUNICULAR      | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_GONDOLA](#mode_gondola)               | MODE_GONDOLA        | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_RAIL](#mode_rail)                     | MODE_RAIL           | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_SCOOTER](#mode_scooter)               | MODE_SCOOTER        | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_SHARED_BICYCLE](#mode_shared_bicycle) | MODE_SHARED_BICYCLE | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_SHARED_CAR](#mode_shared_car)         | MODE_SHARED_CAR     | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_SUBWAY](#mode_subway)                 | MODE_SUBWAY         | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_TAXI](#mode_taxi)                     | MODE_TAXI           | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_TRAIN](#mode_train)                   | MODE_TRAIN          | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_TRAINISH](#mode_trainish)             | MODE_TRAINISH       | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_TRAM](#mode_tram)                     | MODE_TRAM           | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_TRANSIT](#mode_transit)               | MODE_TRANSIT        | Optional   | No       | booking-meta (this schema)                 |
-| [MODE_WALK](#mode_walk)                     | MODE_WALK           | Optional   | No       | booking-meta (this schema)                 |
-| `*`                                         | any                 | Additional | Yes      | this schema _allows_ additional properties |
+| Property                                        | Type                  | Required   | Nullable | Defined by                                 |
+| ----------------------------------------------- | --------------------- | ---------- | -------- | ------------------------------------------ |
+| [MODE_BICYCLE](#mode_bicycle)                   | MODE_BICYCLE          | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_BUS](#mode_bus)                           | MODE_BUS              | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_BUSISH](#mode_busish)                     | MODE_BUSISH           | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_CABLE_CAR](#mode_cable_car)               | MODE_CABLE_CAR        | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_CAR](#mode_car)                           | MODE_CAR              | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_FERRY](#mode_ferry)                       | MODE_FERRY            | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_FUNICULAR](#mode_funicular)               | MODE_FUNICULAR        | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_GONDOLA](#mode_gondola)                   | MODE_GONDOLA          | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_RAIL](#mode_rail)                         | MODE_RAIL             | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_SCOOTER](#mode_scooter)                   | MODE_SCOOTER          | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_SHARED_BICYCLE](#mode_shared_bicycle)     | MODE_SHARED_BICYCLE   | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_SHARED_CAR](#mode_shared_car)             | MODE_SHARED_CAR       | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_SHARED_E_BICYCLE](#mode_shared_e_bicycle) | MODE_SHARED_E_BICYCLE | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_SUBWAY](#mode_subway)                     | MODE_SUBWAY           | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_TAXI](#mode_taxi)                         | MODE_TAXI             | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_TRAIN](#mode_train)                       | MODE_TRAIN            | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_TRAINISH](#mode_trainish)                 | MODE_TRAINISH         | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_TRAM](#mode_tram)                         | MODE_TRAM             | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_TRANSIT](#mode_transit)                   | MODE_TRANSIT          | Optional   | No       | booking-meta (this schema)                 |
+| [MODE_WALK](#mode_walk)                         | MODE_WALK             | Optional   | No       | booking-meta (this schema)                 |
+| `*`                                             | any                   | Additional | Yes      | this schema _allows_ additional properties |
 
 ## MODE_BICYCLE
 
@@ -202,6 +205,19 @@ can be used freely.
 ### MODE_SHARED_CAR Type
 
 - [MODE_SHARED_CAR](modes/MODE_SHARED_CAR.md) – `http://maasglobal.com/core/modes/MODE_SHARED_CAR.json`
+
+## MODE_SHARED_E_BICYCLE
+
+`MODE_SHARED_E_BICYCLE`
+
+- is optional
+- type: MODE_SHARED_E_BICYCLE
+- defined in this schema
+
+### MODE_SHARED_E_BICYCLE Type
+
+- [MODE_SHARED_E_BICYCLE](modes/MODE_SHARED_E_BICYCLE.md) –
+  `http://maasglobal.com/core/modes/MODE_SHARED_E_BICYCLE.json`
 
 ## MODE_SUBWAY
 

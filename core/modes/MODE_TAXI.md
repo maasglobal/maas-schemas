@@ -23,6 +23,7 @@ Schema for MODE_TAXI meta field
 | [dispatchOrderId](#dispatchorderid)                   | `string`  | Optional | No       | MODE_TAXI (this schema) |
 | [driver](#driver)                                     | `object`  | Optional | No       | MODE_TAXI (this schema) |
 | [eta](#eta)                                           | `integer` | Optional | No       | MODE_TAXI (this schema) |
+| [messageToDriver](#messagetodriver)                   | `string`  | Optional | No       | MODE_TAXI (this schema) |
 | [noShowReportedByDriver](#noshowreportedbydriver)     | `boolean` | Optional | No       | MODE_TAXI (this schema) |
 | [pickupIdentificationCode](#pickupidentificationcode) | `string`  | Optional | No       | MODE_TAXI (this schema) |
 | [taxiCenter](#taxicenter)                             | `object`  | Optional | No       | MODE_TAXI (this schema) |
@@ -144,6 +145,22 @@ POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time
 
 - minimum value: `1451606400`
 - maximum value: `9007199254740991`
+
+## messageToDriver
+
+Message to the driver with, for example, pick up instructions or any other information
+
+`messageToDriver`
+
+- is optional
+- type: `string`
+- defined in this schema
+
+### messageToDriver Type
+
+`string`
+
+- maximum length: 160 characters
 
 ## noShowReportedByDriver
 

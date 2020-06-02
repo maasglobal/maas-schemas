@@ -39,6 +39,11 @@
                 }
             },
             "additionalProperties": false
+        },
+        "message": {
+            "$ref": "http://maasglobal.com/core/components/message.json",
+            "$linkVal": "message",
+            "$linkPath": "message.md"
         }
     },
     "definitions": {

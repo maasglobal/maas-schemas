@@ -1,7 +1,7 @@
 # request Schema
 
 ```
-http://maasglobal.com/tsp/bookings-create/request.json
+http://maasglobal.com/tsp/booking-create/request.json
 ```
 
 Request schema for creating a booking through a TSP adapter
@@ -12,7 +12,7 @@ Request schema for creating a booking through a TSP adapter
 
 ## Schema Hierarchy
 
-- request `http://maasglobal.com/tsp/bookings-create/request.json`
+- request `http://maasglobal.com/tsp/booking-create/request.json`
   - [booking-option](../../core/booking-option.md) `http://maasglobal.com/core/booking-option.json`
   - [booking-meta](../../core/booking-meta.md) `http://maasglobal.com/core/booking-meta.json`
   - [booking](../../core/booking.md) `http://maasglobal.com/core/booking.json`
@@ -50,7 +50,8 @@ Request schema for creating a booking through a TSP adapter
     "clientId": "whim",
     "lastName": "Tester",
     "opaqueId": "cafecaca",
-    "firstName": "Test"
+    "firstName": "Test",
+    "documents": []
   },
   "meta": {
     "MODE_TAXI": {
