@@ -16,6 +16,7 @@ import * as Region_ from 'maas-schemas-ts/core/region';
 import * as Authorization_ from 'maas-schemas-ts/core/components/authorization';
 import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
+import * as VirtualCard_ from 'maas-schemas-ts/maas-backend/customers/virtual-cards/virtualCard';
 
 type Defined =
   | Record<string, unknown>
@@ -57,12 +58,14 @@ export type Customer = t.Branded<
       }
     >;
     personalDocumentConsents?: Array<Common_.AgencyId>;
+    virtualCards?: Array<VirtualCard_.VirtualCard>;
   } & {
     personalData: Defined;
     paymentSources: Defined;
     balances: Defined;
     region: Defined;
     authorizations: Defined;
+    virtualCards: Defined;
   },
   CustomerBrand
 >;
@@ -90,6 +93,7 @@ export const Customer = t.brand(
         ]),
       ),
       personalDocumentConsents: t.array(Common_.AgencyId),
+      virtualCards: t.array(VirtualCard_.VirtualCard),
     }),
     t.type({
       personalData: Defined,
@@ -97,6 +101,7 @@ export const Customer = t.brand(
       balances: Defined,
       region: Defined,
       authorizations: Defined,
+      virtualCards: Defined,
     }),
   ]),
   (
@@ -121,12 +126,14 @@ export const Customer = t.brand(
         }
       >;
       personalDocumentConsents?: Array<Common_.AgencyId>;
+      virtualCards?: Array<VirtualCard_.VirtualCard>;
     } & {
       personalData: Defined;
       paymentSources: Defined;
       balances: Defined;
       region: Defined;
       authorizations: Defined;
+      virtualCards: Defined;
     },
     CustomerBrand
   > => true,

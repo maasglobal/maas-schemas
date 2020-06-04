@@ -1,6 +1,6 @@
 {
   "name": "maas-schemas",
-  "version": "13.6.0",
+  "version": "14.0.0",
   "description": "Schemas for MaaS infrastructure",
   "main": "index.js",
   "engine": {
