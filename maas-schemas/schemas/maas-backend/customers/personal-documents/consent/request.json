@@ -19,9 +19,12 @@
         },
         "partyType": {
           "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/partyType"
+        },
+        "agencyId": {
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
         }
       },
-      "additionalProperties": true
+      "oneOf": [{ "required": ["partyId", "partyType"] }, { "required": ["agencyId"] }]
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"

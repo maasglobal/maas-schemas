@@ -39,6 +39,8 @@ export type Request = t.Branded<
     customerId?: Units_.IdentityId;
     payload?: {
       id?: Units_.Uuid | Common_.AgencyId;
+    } & {
+      id: Defined;
     };
     headers?: ApiCommon_.Headers;
   } & {
@@ -53,9 +55,14 @@ export const Request = t.brand(
     t.partial({
       identityId: Units_.IdentityId,
       customerId: Units_.IdentityId,
-      payload: t.partial({
-        id: t.union([Units_.Uuid, Common_.AgencyId]),
-      }),
+      payload: t.intersection([
+        t.partial({
+          id: t.union([Units_.Uuid, Common_.AgencyId]),
+        }),
+        t.type({
+          id: Defined,
+        }),
+      ]),
       headers: ApiCommon_.Headers,
     }),
     t.type({
@@ -72,6 +79,8 @@ export const Request = t.brand(
       customerId?: Units_.IdentityId;
       payload?: {
         id?: Units_.Uuid | Common_.AgencyId;
+      } & {
+        id: Defined;
       };
       headers?: ApiCommon_.Headers;
     } & {

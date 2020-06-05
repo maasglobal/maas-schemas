@@ -25,7 +25,7 @@
           ]
         }
       },
-      "additionalProperties": true
+      "required": ["id"]
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
