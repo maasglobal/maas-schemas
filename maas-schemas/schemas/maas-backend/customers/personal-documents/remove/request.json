@@ -15,7 +15,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "oneOf": [
+          "anyOf": [
             {
               "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
             },
