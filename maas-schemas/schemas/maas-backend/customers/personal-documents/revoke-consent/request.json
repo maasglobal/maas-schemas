@@ -15,7 +15,14 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+          "oneOf": [
+            {
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+            },
+            {
+              "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+            }
+          ]
         }
       },
       "additionalProperties": true

@@ -9,6 +9,7 @@ Revoke user consent to send all TSP required personal documents to TSP
 
 import * as t from 'io-ts';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
 
 type Defined =
@@ -37,7 +38,7 @@ export type Request = t.Branded<
     identityId?: Units_.IdentityId;
     customerId?: Units_.IdentityId;
     payload?: {
-      id?: Units_.Uuid;
+      id?: Units_.Uuid | Common_.AgencyId;
     };
     headers?: ApiCommon_.Headers;
   } & {
@@ -53,7 +54,7 @@ export const Request = t.brand(
       identityId: Units_.IdentityId,
       customerId: Units_.IdentityId,
       payload: t.partial({
-        id: Units_.Uuid,
+        id: t.union([Units_.Uuid, Common_.AgencyId]),
       }),
       headers: ApiCommon_.Headers,
     }),
@@ -70,7 +71,7 @@ export const Request = t.brand(
       identityId?: Units_.IdentityId;
       customerId?: Units_.IdentityId;
       payload?: {
-        id?: Units_.Uuid;
+        id?: Units_.Uuid | Common_.AgencyId;
       };
       headers?: ApiCommon_.Headers;
     } & {
