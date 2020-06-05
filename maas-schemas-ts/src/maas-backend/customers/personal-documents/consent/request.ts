@@ -7,10 +7,10 @@ Save user consent to send all TSP required personal documents to TSP
 
 */
 
-import * as t from "io-ts";
-import * as Units_ from "maas-schemas-ts/core/components/units";
-import * as PersonalDocument_ from "maas-schemas-ts/core/personal-document";
-import * as ApiCommon_ from "maas-schemas-ts/core/components/api-common";
+import * as t from 'io-ts';
+import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
+import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
 
 type Defined =
   | Record<string, unknown>
@@ -29,7 +29,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId =
-  "http://maasglobal.com/maas-backend/customers/personal-documents/consent/request.json";
+  'http://maasglobal.com/maas-backend/customers/personal-documents/consent/request.json';
 
 // Request
 // The default export. More information at the top.
@@ -53,6 +53,7 @@ export const Request = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
+      customerId: Units_.IdentityId,
       payload: t.partial({
         partyId: PersonalDocument_.PartyId,
         partyType: PersonalDocument_.PartyType,
@@ -66,7 +67,7 @@ export const Request = t.brand(
     }),
   ]),
   (
-    x
+    x,
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
@@ -83,7 +84,7 @@ export const Request = t.brand(
     },
     RequestBrand
   > => true,
-  "Request"
+  'Request',
 );
 export interface RequestBrand {
   readonly Request: unique symbol;
