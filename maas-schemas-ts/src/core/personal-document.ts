@@ -86,10 +86,37 @@ export interface DocumentStatusBrand {
   readonly DocumentStatus: unique symbol;
 }
 
+// PartyId
+// The purpose of this remains a mystery
+export type PartyId = t.Branded<string, PartyIdBrand>;
+export const PartyId = t.brand(
+  t.string,
+  (x): x is t.Branded<string, PartyIdBrand> =>
+    (typeof x !== 'string' || x.length >= 1) && (typeof x !== 'string' || x.length <= 64),
+  'PartyId',
+);
+export interface PartyIdBrand {
+  readonly PartyId: unique symbol;
+}
+
+// PartyType
+// The purpose of this remains a mystery
+export type PartyType = t.Branded<string, PartyTypeBrand>;
+export const PartyType = t.brand(
+  t.string,
+  (x): x is t.Branded<string, PartyTypeBrand> =>
+    (typeof x !== 'string' || x.length >= 1) && (typeof x !== 'string' || x.length <= 64),
+  'PartyType',
+);
+export interface PartyTypeBrand {
+  readonly PartyType: unique symbol;
+}
+
 // PersonalDocument
 // The default export. More information at the top.
 export type PersonalDocument = t.Branded<
   {
+    id?: Units_.Uuid;
     identityId?: Units_.IdentityId;
     type?: DocumentType;
     documentNumber?: string;
@@ -124,6 +151,7 @@ export type PersonalDocument = t.Branded<
 export const PersonalDocument = t.brand(
   t.intersection([
     t.partial({
+      id: Units_.Uuid,
       identityId: Units_.IdentityId,
       type: DocumentType,
       documentNumber: t.string,
@@ -162,6 +190,7 @@ export const PersonalDocument = t.brand(
     x,
   ): x is t.Branded<
     {
+      id?: Units_.Uuid;
       identityId?: Units_.IdentityId;
       type?: DocumentType;
       documentNumber?: string;

@@ -9,7 +9,7 @@ Save user consent to send all TSP required personal documents to TSP
 
 import * as t from 'io-ts';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
+import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
 
 type Defined =
   | Record<string, unknown>
@@ -35,10 +35,14 @@ export const schemaId =
 export type Response = t.Branded<
   {
     identityId?: Units_.IdentityId;
-    agencyId?: Common_.AgencyId;
+    id?: Units_.Uuid;
+    partyId?: PersonalDocument_.PartyId;
+    partyType?: PersonalDocument_.PartyType;
   } & {
     identityId: Defined;
-    agencyId: Defined;
+    id: Defined;
+    partyId: Defined;
+    partyType: Defined;
   },
   ResponseBrand
 >;
@@ -46,11 +50,15 @@ export const Response = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
-      agencyId: Common_.AgencyId,
+      id: Units_.Uuid,
+      partyId: PersonalDocument_.PartyId,
+      partyType: PersonalDocument_.PartyType,
     }),
     t.type({
       identityId: Defined,
-      agencyId: Defined,
+      id: Defined,
+      partyId: Defined,
+      partyType: Defined,
     }),
   ]),
   (
@@ -58,10 +66,14 @@ export const Response = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
-      agencyId?: Common_.AgencyId;
+      id?: Units_.Uuid;
+      partyId?: PersonalDocument_.PartyId;
+      partyType?: PersonalDocument_.PartyType;
     } & {
       identityId: Defined;
-      agencyId: Defined;
+      id: Defined;
+      partyId: Defined;
+      partyType: Defined;
     },
     ResponseBrand
   > => true,
