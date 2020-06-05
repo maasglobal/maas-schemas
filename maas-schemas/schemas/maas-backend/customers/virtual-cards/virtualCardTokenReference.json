@@ -1,0 +1,69 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCardTokenReference.json",
+  "description": "MaaS virtual card schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "minimum": 1,
+      "multipleOf": 1
+    },
+    "tokenReferenceId": {
+      "type": "string",
+      "minLength": 2
+    },
+    "userDevicesId": {
+      "type": "number",
+      "minimum": 1,
+      "multipleOf": 1
+    },
+    "appInstanceId": {
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/appInstanceId"
+    },
+    "walletPlatform": {
+      "type": "string",
+      "enum": ["APPLE", "GOOGLE"]
+    },
+    "added": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+    },
+    "deviceType": {
+      "type": "string",
+      "enum": ["SMARTPHONE", "WEARABLE"]
+    },
+    "hasExtendedData": {
+      "type": "boolean"
+    },
+    "extendedData": {
+      "type": "string",
+      "minLength": 2
+    }
+  },
+  "anyOf": [
+    {
+      "required": [
+        "id",
+        "userDevicesId",
+        "appInstanceId",
+        "walletPlatform",
+        "added",
+        "deviceType",
+        "hasExtendedData",
+        "tokenReferenceId"
+      ]
+    },
+    {
+      "required": [
+        "id",
+        "userDevicesId",
+        "appInstanceId",
+        "walletPlatform",
+        "added",
+        "deviceType",
+        "hasExtendedData",
+        "extendedData"
+      ]
+    }
+  ],
+  "additionalProperties": false
+}

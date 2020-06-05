@@ -1190,6 +1190,106 @@ INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/customers/verification/verification-object.json
 INFO: missing description
   in ./maas-backend/customers/verification/verification-object.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/add-token-reference/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/add-token-reference/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/add-token-reference/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/add-token-reference/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/add-token-reference/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/add-token-reference/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/add-token-reference/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/get-token-reference/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/get-token-reference/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/get-token-reference/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/get-token-reference/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/provision/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/provision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/provision/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/provision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/provision/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/provision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/provision/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/provision/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: maximum field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCard.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+INFO: primitive type "number" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+WARNING: minimum field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+WARNING: minLength field not supported outside top-level definitions
+  in ./maas-backend/customers/virtual-cards/virtualCardTokenReference.json
 INFO: primitive type "string" used outside top-level definitions
   in ./maas-backend/geocoding/geocoding-query/request.json
 WARNING: minLength field not supported outside top-level definitions

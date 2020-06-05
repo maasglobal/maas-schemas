@@ -36,6 +36,7 @@ export const schemaId =
 export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
+    customerId?: Units_.IdentityId;
     payload?: PersonalDocument_.PersonalDocument;
     headers?: ApiCommon_.Headers;
   } & {
@@ -49,6 +50,7 @@ export const Request = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
+      customerId: Units_.IdentityId,
       payload: PersonalDocument_.PersonalDocument,
       headers: ApiCommon_.Headers,
     }),
@@ -63,6 +65,7 @@ export const Request = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
+      customerId?: Units_.IdentityId;
       payload?: PersonalDocument_.PersonalDocument;
       headers?: ApiCommon_.Headers;
     } & {

@@ -1,0 +1,58 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCard.json",
+  "description": "MaaS virtual card schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "minimum": 1,
+      "multipleOf": 1
+    },
+    "providerName": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 255
+    },
+    "providerCardId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 255
+    },
+    "maskedCardNumber": {
+      "type": "string",
+      "minLength": 10
+    },
+    "expiryMonth": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 12,
+      "multipleOf": 1
+    },
+    "expiryYear": {
+      "type": "number",
+      "minimum": 2018,
+      "multipleOf": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": ["CARD_OK", "CARD_BLOCKED"]
+    },
+    "tokenReferences": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCardTokenReference.json"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "providerName",
+    "providerCardId",
+    "maskedCardNumber",
+    "expiryMonth",
+    "expiryYear",
+    "status",
+    "tokenReferences"
+  ]
+}
