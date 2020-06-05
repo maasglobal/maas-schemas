@@ -9,6 +9,7 @@ Remove customer personal document by id
 
 import * as t from 'io-ts';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
 import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
 
 type Defined =
@@ -37,7 +38,9 @@ export type Request = t.Branded<
     identityId?: Units_.IdentityId;
     customerId?: Units_.IdentityId;
     payload?: {
-      id?: Units_.Uuid;
+      id?: Units_.Uuid | PersonalDocument_.DocumentType;
+    } & {
+      id: Defined;
     };
     headers?: ApiCommon_.Headers;
   } & {
@@ -52,9 +55,14 @@ export const Request = t.brand(
     t.partial({
       identityId: Units_.IdentityId,
       customerId: Units_.IdentityId,
-      payload: t.partial({
-        id: Units_.Uuid,
-      }),
+      payload: t.intersection([
+        t.partial({
+          id: t.union([Units_.Uuid, PersonalDocument_.DocumentType]),
+        }),
+        t.type({
+          id: Defined,
+        }),
+      ]),
       headers: ApiCommon_.Headers,
     }),
     t.type({
@@ -70,7 +78,9 @@ export const Request = t.brand(
       identityId?: Units_.IdentityId;
       customerId?: Units_.IdentityId;
       payload?: {
-        id?: Units_.Uuid;
+        id?: Units_.Uuid | PersonalDocument_.DocumentType;
+      } & {
+        id: Defined;
       };
       headers?: ApiCommon_.Headers;
     } & {

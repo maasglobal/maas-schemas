@@ -15,10 +15,17 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+          "oneOf": [
+            {
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+            },
+            {
+              "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType"
+            }
+          ]
         }
       },
-      "additionalProperties": true
+      "required": ["id"]
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
