@@ -24,7 +24,7 @@
           "$ref": "http://maasglobal.com/core/components/state.json#/definitions/subscriptionIntentState"
         }
       },
-      "required": ["planId", "planAddons", "coupons"]
+      "required": ["planId", "planAddons"]
     },
     "subscriptionIntentBase": {
       "type": "object",
@@ -75,7 +75,7 @@
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         }
       },
-      "required": ["identityId", "subscriptionId", "nextPlanId", "nextPlanAddons"],
+      "required": ["identityId", "subscriptionId", "nextPlanId", "nextPlanAddons", "nextPlanCoupons"],
       "additionalProperties": false
     },
     "addonId": {

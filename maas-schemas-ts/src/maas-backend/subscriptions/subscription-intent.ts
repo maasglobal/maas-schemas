@@ -84,7 +84,6 @@ export type SubscriptionIntentCreate = t.Branded<
   } & {
     planId: Defined;
     planAddons: Defined;
-    coupons: Defined;
   },
   SubscriptionIntentCreateBrand
 >;
@@ -99,7 +98,6 @@ export const SubscriptionIntentCreate = t.brand(
     t.type({
       planId: Defined,
       planAddons: Defined,
-      coupons: Defined,
     }),
   ]),
   (
@@ -113,7 +111,6 @@ export const SubscriptionIntentCreate = t.brand(
     } & {
       planId: Defined;
       planAddons: Defined;
-      coupons: Defined;
     },
     SubscriptionIntentCreateBrand
   > => true,
@@ -144,6 +141,7 @@ export type SubscriptionIntentBase = t.Branded<
     subscriptionId: Defined;
     nextPlanId: Defined;
     nextPlanAddons: Defined;
+    nextPlanCoupons: Defined;
   },
   SubscriptionIntentBaseBrand
 >;
@@ -168,6 +166,7 @@ export const SubscriptionIntentBase = t.brand(
       subscriptionId: Defined,
       nextPlanId: Defined,
       nextPlanAddons: Defined,
+      nextPlanCoupons: Defined,
     }),
   ]),
   (
@@ -191,6 +190,7 @@ export const SubscriptionIntentBase = t.brand(
       subscriptionId: Defined;
       nextPlanId: Defined;
       nextPlanAddons: Defined;
+      nextPlanCoupons: Defined;
     },
     SubscriptionIntentBaseBrand
   > => true,
