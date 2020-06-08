@@ -132,7 +132,7 @@
             "multipleOf": 1
           },
           "type": {
-            "enum": ["maxRate", "missedReturnPenalty", "extra"]
+            "enum": ["maxRate", "missedReturnPenalty", "extra", "perKilometer", "perParkMinute"]
           }
         },
         "required": ["amount", "currency"]

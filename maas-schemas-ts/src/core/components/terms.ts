@@ -232,7 +232,12 @@ export type Terms = t.Branded<
         currency?: Units_.Currency;
         timeInterval?: number;
         startAt?: number;
-        type?: 'maxRate' | 'missedReturnPenalty' | 'extra';
+        type?:
+          | 'maxRate'
+          | 'missedReturnPenalty'
+          | 'extra'
+          | 'perKilometer'
+          | 'perParkMinute';
       } & {
         amount: Defined;
         currency: Defined;
@@ -288,6 +293,8 @@ export const Terms = t.brand(
             t.literal('maxRate'),
             t.literal('missedReturnPenalty'),
             t.literal('extra'),
+            t.literal('perKilometer'),
+            t.literal('perParkMinute'),
           ]),
         }),
         t.type({
@@ -338,7 +345,12 @@ export const Terms = t.brand(
           currency?: Units_.Currency;
           timeInterval?: number;
           startAt?: number;
-          type?: 'maxRate' | 'missedReturnPenalty' | 'extra';
+          type?:
+            | 'maxRate'
+            | 'missedReturnPenalty'
+            | 'extra'
+            | 'perKilometer'
+            | 'perParkMinute';
         } & {
           amount: Defined;
           currency: Defined;
