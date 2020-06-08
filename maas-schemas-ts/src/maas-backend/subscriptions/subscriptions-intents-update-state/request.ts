@@ -9,6 +9,7 @@ Request schema for subscriptions-intents-update-state
 
 import * as t from 'io-ts';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as State_ from 'maas-schemas-ts/core/components/state';
 import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
 
 type Defined =
@@ -38,7 +39,7 @@ export type Request = t.Branded<
     userId?: Units_.IdentityId;
     subscriptionIntentId?: Units_.Uuid;
     payload?: {
-      state?: string;
+      state?: State_.SubscriptionIntentState;
     };
     headers?: ApiCommon_.Headers;
   } & {
@@ -56,7 +57,7 @@ export const Request = t.brand(
       userId: Units_.IdentityId,
       subscriptionIntentId: Units_.Uuid,
       payload: t.partial({
-        state: t.string,
+        state: State_.SubscriptionIntentState,
       }),
       headers: ApiCommon_.Headers,
     }),
@@ -75,7 +76,7 @@ export const Request = t.brand(
       userId?: Units_.IdentityId;
       subscriptionIntentId?: Units_.Uuid;
       payload?: {
-        state?: string;
+        state?: State_.SubscriptionIntentState;
       };
       headers?: ApiCommon_.Headers;
     } & {

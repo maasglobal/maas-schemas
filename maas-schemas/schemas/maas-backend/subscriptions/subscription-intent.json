@@ -6,22 +6,25 @@
       "type": "object",
       "properties": {
         "planId": {
-          "$ref": "#/definitions/itemId"
+          "$ref": "#/definitions/planId"
         },
         "planAddons": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/itemId"
+            "$ref": "#/definitions/addonId"
+          }
+        },
+        "coupons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/couponId"
           }
         },
         "state": {
           "$ref": "http://maasglobal.com/core/components/state.json#/definitions/subscriptionIntentState"
-        },
-        "startTime": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         }
       },
-      "required": ["planId", "planAddons"]
+      "required": ["planId", "planAddons", "coupons"]
     },
     "subscriptionIntentBase": {
       "type": "object",
@@ -36,25 +39,28 @@
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
         },
         "nextPlanId": {
-          "$ref": "#/definitions/itemId"
+          "$ref": "#/definitions/planId"
         },
         "nextPlanAddons": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/itemId"
+            "$ref": "#/definitions/addonId"
+          }
+        },
+        "nextPlanCoupons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/couponId"
           }
         },
         "prevPlanId": {
-          "$ref": "#/definitions/itemId"
+          "$ref": "#/definitions/planId"
         },
         "prevPlanAddons": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/itemId"
+            "$ref": "#/definitions/addonId"
           }
-        },
-        "startTime": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "state": {
           "$ref": "http://maasglobal.com/core/components/state.json#/definitions/subscriptionIntentState"
@@ -72,9 +78,19 @@
       "required": ["identityId", "subscriptionId", "nextPlanId", "nextPlanAddons"],
       "additionalProperties": false
     },
-    "itemId": {
+    "addonId": {
       "type": "string",
-      "minLength": 1,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    "planId": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 255
+    },
+    "couponId": {
+      "type": "string",
+      "minLength": 2,
       "maxLength": 255
     }
   }
