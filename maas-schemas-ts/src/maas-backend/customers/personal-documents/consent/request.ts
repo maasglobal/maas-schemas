@@ -9,6 +9,7 @@ Save user consent to send all TSP required personal documents to TSP
 
 import * as t from 'io-ts';
 import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
 import * as Common_ from 'maas-schemas-ts/core/components/common';
 import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
 
@@ -38,10 +39,18 @@ export type Request = t.Branded<
     identityId?: Units_.IdentityId;
     customerId?: Units_.IdentityId;
     payload?: {
+      partyId?: PersonalDocument_.PartyId;
+      partyType?: PersonalDocument_.PartyType;
       agencyId?: Common_.AgencyId;
-    } & {
-      agencyId: Defined;
-    };
+    } & (
+      | {
+          partyId: Defined;
+          partyType: Defined;
+        }
+      | {
+          agencyId: Defined;
+        }
+    );
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
@@ -57,11 +66,19 @@ export const Request = t.brand(
       customerId: Units_.IdentityId,
       payload: t.intersection([
         t.partial({
+          partyId: PersonalDocument_.PartyId,
+          partyType: PersonalDocument_.PartyType,
           agencyId: Common_.AgencyId,
         }),
-        t.type({
-          agencyId: Defined,
-        }),
+        t.union([
+          t.type({
+            partyId: Defined,
+            partyType: Defined,
+          }),
+          t.type({
+            agencyId: Defined,
+          }),
+        ]),
       ]),
       headers: ApiCommon_.Headers,
     }),
@@ -78,10 +95,18 @@ export const Request = t.brand(
       identityId?: Units_.IdentityId;
       customerId?: Units_.IdentityId;
       payload?: {
+        partyId?: PersonalDocument_.PartyId;
+        partyType?: PersonalDocument_.PartyType;
         agencyId?: Common_.AgencyId;
-      } & {
-        agencyId: Defined;
-      };
+      } & (
+        | {
+            partyId: Defined;
+            partyType: Defined;
+          }
+        | {
+            agencyId: Defined;
+          }
+      );
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;
