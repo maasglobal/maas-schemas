@@ -1,6 +1,6 @@
 {
   "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-intents-retrieve/response.json",
-  "description": "Response schema for subscriptions-intents-create",
+  "description": "Response schema for subscriptions-intents-retrieve",
   "type": "object",
   "properties": {
     "subscriptionIntent": {
