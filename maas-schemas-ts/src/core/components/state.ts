@@ -167,7 +167,6 @@ export type SubscriptionIntentState = t.Branded<
       | 'DETAILS'
       | 'CUSTOMISATION'
       | 'PAYMENT'
-      | 'AUTH'
       | 'VERIFICATION'
       | 'CANCELLED'
       | 'CANCELLED_WITH_ERRORS'
@@ -183,7 +182,6 @@ export const SubscriptionIntentState = t.brand(
       t.literal('DETAILS'),
       t.literal('CUSTOMISATION'),
       t.literal('PAYMENT'),
-      t.literal('AUTH'),
       t.literal('VERIFICATION'),
       t.literal('CANCELLED'),
       t.literal('CANCELLED_WITH_ERRORS'),
@@ -199,7 +197,6 @@ export const SubscriptionIntentState = t.brand(
         | 'DETAILS'
         | 'CUSTOMISATION'
         | 'PAYMENT'
-        | 'AUTH'
         | 'VERIFICATION'
         | 'CANCELLED'
         | 'CANCELLED_WITH_ERRORS'

@@ -39,7 +39,6 @@
         "DETAILS",
         "CUSTOMISATION",
         "PAYMENT",
-        "AUTH",
         "VERIFICATION",
         "CANCELLED",
         "CANCELLED_WITH_ERRORS",

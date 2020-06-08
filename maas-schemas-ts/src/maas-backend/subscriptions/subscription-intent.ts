@@ -31,58 +31,89 @@ const Defined = t.union([
 export const schemaId =
   'http://maasglobal.com/maas-backend/subscriptions/subscription-intent.json';
 
-// ItemId
+// PlanId
 // The purpose of this remains a mystery
-export type ItemId = t.Branded<string, ItemIdBrand>;
-export const ItemId = t.brand(
+export type PlanId = t.Branded<string, PlanIdBrand>;
+export const PlanId = t.brand(
   t.string,
-  (x): x is t.Branded<string, ItemIdBrand> =>
-    (typeof x !== 'string' || x.length >= 1) &&
+  (x): x is t.Branded<string, PlanIdBrand> =>
+    (typeof x !== 'string' || x.length >= 2) &&
     (typeof x !== 'string' || x.length <= 255),
-  'ItemId',
+  'PlanId',
 );
-export interface ItemIdBrand {
-  readonly ItemId: unique symbol;
+export interface PlanIdBrand {
+  readonly PlanId: unique symbol;
+}
+
+// AddonId
+// The purpose of this remains a mystery
+export type AddonId = t.Branded<string, AddonIdBrand>;
+export const AddonId = t.brand(
+  t.string,
+  (x): x is t.Branded<string, AddonIdBrand> =>
+    (typeof x !== 'string' || x.length >= 2) &&
+    (typeof x !== 'string' || x.length <= 255),
+  'AddonId',
+);
+export interface AddonIdBrand {
+  readonly AddonId: unique symbol;
+}
+
+// CouponId
+// The purpose of this remains a mystery
+export type CouponId = t.Branded<string, CouponIdBrand>;
+export const CouponId = t.brand(
+  t.string,
+  (x): x is t.Branded<string, CouponIdBrand> =>
+    (typeof x !== 'string' || x.length >= 2) &&
+    (typeof x !== 'string' || x.length <= 255),
+  'CouponId',
+);
+export interface CouponIdBrand {
+  readonly CouponId: unique symbol;
 }
 
 // SubscriptionIntentCreate
 // The purpose of this remains a mystery
 export type SubscriptionIntentCreate = t.Branded<
   {
-    planId?: ItemId;
-    planAddons?: Array<ItemId>;
+    planId?: PlanId;
+    planAddons?: Array<AddonId>;
+    coupons?: Array<CouponId>;
     state?: State_.SubscriptionIntentState;
-    startTime?: Units_.Time;
   } & {
     planId: Defined;
     planAddons: Defined;
+    coupons: Defined;
   },
   SubscriptionIntentCreateBrand
 >;
 export const SubscriptionIntentCreate = t.brand(
   t.intersection([
     t.partial({
-      planId: ItemId,
-      planAddons: t.array(ItemId),
+      planId: PlanId,
+      planAddons: t.array(AddonId),
+      coupons: t.array(CouponId),
       state: State_.SubscriptionIntentState,
-      startTime: Units_.Time,
     }),
     t.type({
       planId: Defined,
       planAddons: Defined,
+      coupons: Defined,
     }),
   ]),
   (
     x,
   ): x is t.Branded<
     {
-      planId?: ItemId;
-      planAddons?: Array<ItemId>;
+      planId?: PlanId;
+      planAddons?: Array<AddonId>;
+      coupons?: Array<CouponId>;
       state?: State_.SubscriptionIntentState;
-      startTime?: Units_.Time;
     } & {
       planId: Defined;
       planAddons: Defined;
+      coupons: Defined;
     },
     SubscriptionIntentCreateBrand
   > => true,
@@ -99,11 +130,11 @@ export type SubscriptionIntentBase = t.Branded<
     id?: Units_.Uuid;
     identityId?: Units_.IdentityId;
     subscriptionId?: Units_.IdentityId;
-    nextPlanId?: ItemId;
-    nextPlanAddons?: Array<ItemId>;
-    prevPlanId?: ItemId;
-    prevPlanAddons?: Array<ItemId>;
-    startTime?: Units_.Time;
+    nextPlanId?: PlanId;
+    nextPlanAddons?: Array<AddonId>;
+    nextPlanCoupons?: Array<CouponId>;
+    prevPlanId?: PlanId;
+    prevPlanAddons?: Array<AddonId>;
     state?: State_.SubscriptionIntentState;
     stateLog?: StateLog_.StateLog;
     created?: Units_.Time;
@@ -122,11 +153,11 @@ export const SubscriptionIntentBase = t.brand(
       id: Units_.Uuid,
       identityId: Units_.IdentityId,
       subscriptionId: Units_.IdentityId,
-      nextPlanId: ItemId,
-      nextPlanAddons: t.array(ItemId),
-      prevPlanId: ItemId,
-      prevPlanAddons: t.array(ItemId),
-      startTime: Units_.Time,
+      nextPlanId: PlanId,
+      nextPlanAddons: t.array(AddonId),
+      nextPlanCoupons: t.array(CouponId),
+      prevPlanId: PlanId,
+      prevPlanAddons: t.array(AddonId),
       state: State_.SubscriptionIntentState,
       stateLog: StateLog_.StateLog,
       created: Units_.Time,
@@ -146,11 +177,11 @@ export const SubscriptionIntentBase = t.brand(
       id?: Units_.Uuid;
       identityId?: Units_.IdentityId;
       subscriptionId?: Units_.IdentityId;
-      nextPlanId?: ItemId;
-      nextPlanAddons?: Array<ItemId>;
-      prevPlanId?: ItemId;
-      prevPlanAddons?: Array<ItemId>;
-      startTime?: Units_.Time;
+      nextPlanId?: PlanId;
+      nextPlanAddons?: Array<AddonId>;
+      nextPlanCoupons?: Array<CouponId>;
+      prevPlanId?: PlanId;
+      prevPlanAddons?: Array<AddonId>;
       state?: State_.SubscriptionIntentState;
       stateLog?: StateLog_.StateLog;
       created?: Units_.Time;
