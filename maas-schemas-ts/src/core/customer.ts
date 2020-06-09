@@ -63,7 +63,7 @@ export type Customer = t.Branded<
     documents?: Array<PersonalDocument_.PersonalDocument>;
     balances?: ({
       WMP?: {
-        currency?: 'WMP';
+        currency?: Common_.MetaCurrencyWMP;
         amount?: number;
       } & {
         currency: Defined;
@@ -72,14 +72,14 @@ export type Customer = t.Branded<
     } & Record<
       string,
       | ({
-          currency?: 'WMP';
+          currency?: Common_.MetaCurrencyWMP;
           amount?: number;
         } & {
           currency: Defined;
           amount: Defined;
         })
       | ({
-          currency?: 'TOKEN';
+          currency?: Common_.MetaCurrencyTOKEN;
           tokenId?: Fare_.TokenId;
           amount?: number | null;
         } & {
@@ -126,7 +126,7 @@ export const Customer = t.brand(
         t.partial({
           WMP: t.intersection([
             t.partial({
-              currency: t.literal('WMP'),
+              currency: Common_.MetaCurrencyWMP,
               amount: t.number,
             }),
             t.type({
@@ -140,7 +140,7 @@ export const Customer = t.brand(
           t.union([
             t.intersection([
               t.partial({
-                currency: t.literal('WMP'),
+                currency: Common_.MetaCurrencyWMP,
                 amount: t.number,
               }),
               t.type({
@@ -150,7 +150,7 @@ export const Customer = t.brand(
             ]),
             t.intersection([
               t.partial({
-                currency: t.literal('TOKEN'),
+                currency: Common_.MetaCurrencyTOKEN,
                 tokenId: Fare_.TokenId,
                 amount: t.union([t.number, t.null]),
               }),
@@ -200,7 +200,7 @@ export const Customer = t.brand(
       documents?: Array<PersonalDocument_.PersonalDocument>;
       balances?: ({
         WMP?: {
-          currency?: 'WMP';
+          currency?: Common_.MetaCurrencyWMP;
           amount?: number;
         } & {
           currency: Defined;
@@ -209,14 +209,14 @@ export const Customer = t.brand(
       } & Record<
         string,
         | ({
-            currency?: 'WMP';
+            currency?: Common_.MetaCurrencyWMP;
             amount?: number;
           } & {
             currency: Defined;
             amount: Defined;
           })
         | ({
-            currency?: 'TOKEN';
+            currency?: Common_.MetaCurrencyTOKEN;
             tokenId?: Fare_.TokenId;
             amount?: number | null;
           } & {

@@ -184,6 +184,12 @@ INFO: missing description
   in ../maas-schemas/schemas/core/components/common.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/common.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/common.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/common.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/common.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/configurator.json
 WARNING: minLength field not supported outside top-level definitions
@@ -251,8 +257,6 @@ INFO: primitive type "string" used outside top-level definitions
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/errors.json
 WARNING: minimum field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/fare.json
-INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/fare.json
 WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/fare.json
@@ -1389,8 +1393,6 @@ INFO: primitive type "number" used outside top-level definitions
 WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/products/provider.json
 WARNING: multipleOf field not supported outside top-level definitions
-  in ../maas-schemas/schemas/maas-backend/products/provider.json
-INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/products/provider.json
 INFO: primitive type "integer" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/products/provider.json

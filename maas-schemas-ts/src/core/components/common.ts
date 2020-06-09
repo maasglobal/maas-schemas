@@ -78,6 +78,46 @@ export interface JsonParamBrand {
   readonly JsonParam: unique symbol;
 }
 
+// MetaCurrency
+// The purpose of this remains a mystery
+export type MetaCurrency = t.Branded<string & ('WMP' | 'TOKEN'), MetaCurrencyBrand>;
+export const MetaCurrency = t.brand(
+  t.intersection([t.string, t.union([t.literal('WMP'), t.literal('TOKEN')])]),
+  (x): x is t.Branded<string & ('WMP' | 'TOKEN'), MetaCurrencyBrand> => true,
+  'MetaCurrency',
+);
+export interface MetaCurrencyBrand {
+  readonly MetaCurrency: unique symbol;
+}
+
+// MetaCurrencyWMP
+// The purpose of this remains a mystery
+export type MetaCurrencyWMP = t.Branded<MetaCurrency & 'WMP', MetaCurrencyWMPBrand>;
+export const MetaCurrencyWMP = t.brand(
+  t.intersection([MetaCurrency, t.literal('WMP')]),
+  (x): x is t.Branded<MetaCurrency & 'WMP', MetaCurrencyWMPBrand> => true,
+  'MetaCurrencyWMP',
+);
+export interface MetaCurrencyWMPBrand {
+  readonly MetaCurrencyWMP: unique symbol;
+}
+/** require('io-ts-validator').validator(MetaCurrencyWMP).decodeSync(defaultMetaCurrencyWMP) // => defaultMetaCurrencyWMP */
+export const defaultMetaCurrencyWMP: MetaCurrencyWMP = ('WMP' as unknown) as MetaCurrencyWMP;
+
+// MetaCurrencyTOKEN
+// The purpose of this remains a mystery
+export type MetaCurrencyTOKEN = t.Branded<MetaCurrency & 'TOKEN', MetaCurrencyTOKENBrand>;
+export const MetaCurrencyTOKEN = t.brand(
+  t.intersection([MetaCurrency, t.literal('TOKEN')]),
+  (x): x is t.Branded<MetaCurrency & 'TOKEN', MetaCurrencyTOKENBrand> => true,
+  'MetaCurrencyTOKEN',
+);
+export interface MetaCurrencyTOKENBrand {
+  readonly MetaCurrencyTOKEN: unique symbol;
+}
+/** require('io-ts-validator').validator(MetaCurrencyTOKEN).decodeSync(defaultMetaCurrencyTOKEN) // => defaultMetaCurrencyTOKEN */
+export const defaultMetaCurrencyTOKEN: MetaCurrencyTOKEN = ('TOKEN' as unknown) as MetaCurrencyTOKEN;
+
 // PersonalName
 // First or last name of a customer (e.g. John)
 export type PersonalName = t.Branded<string, PersonalNameBrand>;
