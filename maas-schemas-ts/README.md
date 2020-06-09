@@ -17,3 +17,26 @@ validator(Booking).decodePromise(json);  // returns Promise<Booking>, rejects on
 validator(Booking).decodeEither(json);   // returns Either<Array<string>, Booking>
 validator(Booking).decodeAsync(json, (errors, booking) => { ... });  // returns void
 ```
+
+## JSDoc Usage
+
+```javascript
+const { validator } = require('io-ts-validator');
+const { IdentityId } = require('maas-schemas-ts/lib/core/components/units');
+/** @typedef {import('maas-schemas-ts/lib/core/components/units').IdentityId} IdentityId */
+
+/** Ignores an identity id
+ *
+ * @param {IdentityId} id
+ * @returns {void}
+ */
+function ignore(id) {
+  // Nothing to do
+}
+
+const raw = '916715ef-2e04-47e0-b1a5-feece4861c66';
+const valid = validator(IdentityId).decodeSync(raw);
+
+ignore(raw);    // type error: string !== IdentityId
+ignore(valid);  // no error
+```
