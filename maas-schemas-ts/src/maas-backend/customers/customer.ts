@@ -65,7 +65,6 @@ export type Customer = t.Branded<
     balances: Defined;
     region: Defined;
     authorizations: Defined;
-    virtualCards: Defined;
   },
   CustomerBrand
 >;
@@ -101,7 +100,6 @@ export const Customer = t.brand(
       balances: Defined,
       region: Defined,
       authorizations: Defined,
-      virtualCards: Defined,
     }),
   ]),
   (
@@ -133,7 +131,6 @@ export const Customer = t.brand(
       balances: Defined;
       region: Defined;
       authorizations: Defined;
-      virtualCards: Defined;
     },
     CustomerBrand
   > => true,

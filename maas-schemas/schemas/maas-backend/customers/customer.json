@@ -69,6 +69,6 @@
       }
     }
   },
-  "required": ["personalData", "paymentSources", "balances", "region", "authorizations", "virtualCards"],
+  "required": ["personalData", "paymentSources", "balances", "region", "authorizations"],
   "additionalProperties": false
 }
