@@ -8,7 +8,7 @@ MaaS stations query request schema
 */
 
 import * as t from 'io-ts';
-import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
+import * as UnitsGeo_ from '../../core/components/units-geo';
 
 type Defined =
   | Record<string, unknown>

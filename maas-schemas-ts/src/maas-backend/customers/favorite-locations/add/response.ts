@@ -8,7 +8,7 @@ MaaS customer favorite location adding response
 */
 
 import * as t from 'io-ts';
-import * as PartialFavoriteLocation_ from 'maas-schemas-ts/core/partialFavoriteLocation';
+import * as PartialFavoriteLocation_ from '../../../../core/partialFavoriteLocation';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/favorite-locations/add/response.json';

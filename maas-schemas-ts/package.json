@@ -17,9 +17,9 @@
     "lint": "yarn eslint",
     "clean-src": "rm -rf src",
     "clean": "rm -rf lib",
-    "build-converter": "tsc converter.ts -outdir tmp",
-    "run-converter": "(cd ../maas-schemas/schemas/; find . -name '*.json' -print0|sort -V -z|xargs -0 -I {} node ../../maas-schemas-ts/tmp/converter.js {} ../../maas-schemas-ts/src http://maasglobal.com/ \\;)",
-    "build-package": "ttsc",
+    "build-converter": "tsc --lib es2019 converter.ts -outdir tmp",
+    "run-converter": "find ../maas-schemas/schemas -name '*.json' -print0|sort -V -z|xargs -0 -I {} node ./tmp/converter.js --inputFile {} --outputDir ./src --base http://maasglobal.com/",
+    "build-package": "tsc",
     "build": "yarn clean && yarn build-package",
     "typecheck": "tsc --noEmit",
     "ci": "yarn verify-conversion && yarn lint && yarn test && yarn build",
@@ -67,7 +67,6 @@
     "@typescript-eslint/eslint-plugin": "^2.1.0",
     "@typescript-eslint/eslint-plugin-tslint": "^2.3.2",
     "@typescript-eslint/parser": "^2.1.0",
-    "@zerollup/ts-transform-paths": "^1.7.3",
     "doctest-ts": "^0.5.0",
     "eslint": "^6.3.0",
     "eslint-config-prettier": "^6.2.0",
@@ -88,7 +87,6 @@
     "ts-node": "^8.4.1",
     "tslint": "^5.20.0",
     "tslint-no-circular-imports": "^0.7.0",
-    "ttypescript": "^1.5.7",
-    "typescript": "^3.5.3"
+    "typescript": "^3.9.2"
   }
 }

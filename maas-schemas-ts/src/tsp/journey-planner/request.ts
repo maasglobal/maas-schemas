@@ -8,10 +8,10 @@ Request schema for getting journey options from a TSP adapter.
 */
 
 import * as t from 'io-ts';
-import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
-import * as Address_ from 'maas-schemas-ts/core/components/address';
-import * as Station_ from 'maas-schemas-ts/core/components/station';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as UnitsGeo_ from '../../core/components/units-geo';
+import * as Address_ from '../../core/components/address';
+import * as Station_ from '../../core/components/station';
+import * as Units_ from '../../core/components/units';
 
 export const schemaId = 'http://maasglobal.com/tsp/journey-planner/request.json';
 

@@ -8,10 +8,10 @@ Request schema for autocomplete
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Address_ from 'maas-schemas-ts/core/components/address';
-import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
-import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
+import * as Units_ from '../../../core/components/units';
+import * as Address_ from '../../../core/components/address';
+import * as UnitsGeo_ from '../../../core/components/units-geo';
+import * as ApiCommon_ from '../../../core/components/api-common';
 
 type Defined =
   | Record<string, unknown>

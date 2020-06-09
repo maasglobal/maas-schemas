@@ -8,7 +8,7 @@ MaaS coupon validation
 */
 
 import * as t from 'io-ts';
-import * as Code_ from 'maas-schemas-ts/maas-backend/coupons/code';
+import * as Code_ from '../code';
 
 type Defined =
   | Record<string, unknown>

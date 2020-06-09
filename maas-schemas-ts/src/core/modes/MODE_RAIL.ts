@@ -8,8 +8,8 @@ Schema for MODE_RAIL meta field
 */
 
 import * as t from 'io-ts';
-import * as Place_ from 'maas-schemas-ts/core/components/place';
-import * as Station_ from 'maas-schemas-ts/core/components/station';
+import * as Place_ from '../components/place';
+import * as Station_ from '../components/station';
 
 type Defined =
   | Record<string, unknown>

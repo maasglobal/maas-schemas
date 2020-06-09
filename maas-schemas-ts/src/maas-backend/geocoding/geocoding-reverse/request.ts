@@ -8,10 +8,10 @@ MaaS geocoding query request schema.
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
-import * as I18n_ from 'maas-schemas-ts/core/components/i18n';
-import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
+import * as Units_ from '../../../core/components/units';
+import * as UnitsGeo_ from '../../../core/components/units-geo';
+import * as I18n_ from '../../../core/components/i18n';
+import * as ApiCommon_ from '../../../core/components/api-common';
 
 type Defined =
   | Record<string, unknown>

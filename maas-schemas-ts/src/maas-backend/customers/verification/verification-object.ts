@@ -8,8 +8,8 @@ MaaS verification schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
+import * as Units_ from '../../../core/components/units';
+import * as Common_ from '../../../core/components/common';
 
 type Defined =
   | Record<string, unknown>

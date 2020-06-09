@@ -7,7 +7,7 @@ undefined
 
 */
 
-import * as Response_ from 'maas-schemas-ts/tsp/stations-retrieve/response';
+import * as Response_ from '../../../tsp/stations-retrieve/response';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/stations/stations-retrieve/response.json';

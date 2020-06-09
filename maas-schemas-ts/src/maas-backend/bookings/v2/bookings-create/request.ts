@@ -8,11 +8,11 @@ Request schema for bookings-create v2
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as Response_ from 'maas-schemas-ts/maas-backend/bookings/bookings-agency-options/response';
-import * as CustomerSelection_ from 'maas-schemas-ts/core/components/customerSelection';
-import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
+import * as Units_ from '../../../../core/components/units';
+import * as Common_ from '../../../../core/components/common';
+import * as Response_ from '../../bookings-agency-options/response';
+import * as CustomerSelection_ from '../../../../core/components/customerSelection';
+import * as ApiCommon_ from '../../../../core/components/api-common';
 
 type Defined =
   | Record<string, unknown>

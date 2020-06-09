@@ -8,10 +8,10 @@ Request schema for update a state of a specific booking with a TSP ID from a TSP
 */
 
 import * as t from 'io-ts';
-import * as Booking_ from 'maas-schemas-ts/core/booking';
-import * as Configurator_ from 'maas-schemas-ts/core/components/configurator';
-import * as BookingMeta_ from 'maas-schemas-ts/core/booking-meta';
-import * as CustomerSelection_ from 'maas-schemas-ts/core/components/customerSelection';
+import * as Booking_ from '../../core/booking';
+import * as Configurator_ from '../../core/components/configurator';
+import * as BookingMeta_ from '../../core/booking-meta';
+import * as CustomerSelection_ from '../../core/components/customerSelection';
 
 type Defined =
   | Record<string, unknown>

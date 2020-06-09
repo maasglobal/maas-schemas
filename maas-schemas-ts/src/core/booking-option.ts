@@ -8,15 +8,15 @@ MaaS single TSP adapter option
 */
 
 import * as t from 'io-ts';
-import * as Terms_ from 'maas-schemas-ts/core/components/terms';
-import * as BookingMeta_ from 'maas-schemas-ts/core/booking-meta';
-import * as Cost_ from 'maas-schemas-ts/core/components/cost';
-import * as Configurator_ from 'maas-schemas-ts/core/components/configurator';
-import * as Customer_ from 'maas-schemas-ts/core/customer';
-import * as TravelMode_ from 'maas-schemas-ts/core/components/travel-mode';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Place_ from 'maas-schemas-ts/core/components/place';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
+import * as Terms_ from './components/terms';
+import * as BookingMeta_ from './booking-meta';
+import * as Cost_ from './components/cost';
+import * as Configurator_ from './components/configurator';
+import * as Customer_ from './customer';
+import * as TravelMode_ from './components/travel-mode';
+import * as Units_ from './components/units';
+import * as Place_ from './components/place';
+import * as Common_ from './components/common';
 
 type Defined =
   | Record<string, unknown>

@@ -8,7 +8,7 @@ Response schema for subscriptions-options
 */
 
 import * as t from 'io-ts';
-import * as SubscriptionOption_ from 'maas-schemas-ts/maas-backend/subscriptions/subscriptionOption';
+import * as SubscriptionOption_ from '../subscriptionOption';
 
 type Defined =
   | Record<string, unknown>

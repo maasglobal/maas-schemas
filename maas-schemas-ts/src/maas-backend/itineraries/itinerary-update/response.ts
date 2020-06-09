@@ -8,7 +8,7 @@ Maas Itinerary update request
 */
 
 import * as t from 'io-ts';
-import * as Itinerary_ from 'maas-schemas-ts/core/itinerary';
+import * as Itinerary_ from '../../../core/itinerary';
 
 type Defined =
   | Record<string, unknown>

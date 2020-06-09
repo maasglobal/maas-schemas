@@ -8,9 +8,9 @@ MaaS coupon redeem
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Code_ from 'maas-schemas-ts/maas-backend/coupons/code';
-import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
+import * as Units_ from '../../../../core/components/units';
+import * as Code_ from '../../code';
+import * as ApiCommon_ from '../../../../core/components/api-common';
 
 type Defined =
   | Record<string, unknown>

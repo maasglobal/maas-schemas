@@ -8,7 +8,7 @@ Response schema for webhooks-bookings-create
 */
 
 import * as t from 'io-ts';
-import * as Booking_ from 'maas-schemas-ts/core/booking';
+import * as Booking_ from '../../../core/booking';
 
 type Defined =
   | Record<string, unknown>

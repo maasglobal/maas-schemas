@@ -8,9 +8,9 @@ Schema for MODE_TAXI meta field
 */
 
 import * as t from 'io-ts';
-import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
+import * as UnitsGeo_ from '../components/units-geo';
+import * as Units_ from '../components/units';
+import * as Common_ from '../components/common';
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_TAXI.json';
 

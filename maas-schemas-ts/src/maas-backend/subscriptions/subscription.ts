@@ -8,13 +8,13 @@ MaaS subscription schema
 */
 
 import * as t from 'io-ts';
-import * as Contact_ from 'maas-schemas-ts/maas-backend/subscriptions/contact';
-import * as PointCost_ from 'maas-schemas-ts/core/components/point-cost';
-import * as Region_ from 'maas-schemas-ts/core/region';
-import * as SubscriptionAddress_ from 'maas-schemas-ts/maas-backend/subscriptions/subscriptionAddress';
-import * as SubscriptionChangeState_ from 'maas-schemas-ts/core/components/subscriptionChangeState';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Cost_ from 'maas-schemas-ts/core/components/cost';
+import * as Contact_ from './contact';
+import * as PointCost_ from '../../core/components/point-cost';
+import * as Region_ from '../../core/region';
+import * as SubscriptionAddress_ from './subscriptionAddress';
+import * as SubscriptionChangeState_ from '../../core/components/subscriptionChangeState';
+import * as Units_ from '../../core/components/units';
+import * as Cost_ from '../../core/components/cost';
 
 type Defined =
   | Record<string, unknown>

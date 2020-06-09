@@ -8,7 +8,7 @@ Request schema for tsp-auth validate. Leaving as much flexibility as possible to
 */
 
 import * as t from 'io-ts';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
+import * as Common_ from '../../../core/components/common';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/tsp-auth/validate/request.json';

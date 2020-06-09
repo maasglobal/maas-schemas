@@ -8,7 +8,7 @@ Response schema for tsp-auth verify
 */
 
 import * as t from 'io-ts';
-import * as Definitions_ from 'maas-schemas-ts/maas-backend/tsp-auth/verify/definitions';
+import * as Definitions_ from './definitions';
 
 type Defined =
   | Record<string, unknown>

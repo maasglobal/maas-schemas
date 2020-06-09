@@ -8,12 +8,12 @@ Response schema for creating a booking through a TSP adapter
 */
 
 import * as t from 'io-ts';
-import * as Booking_ from 'maas-schemas-ts/core/booking';
-import * as State_ from 'maas-schemas-ts/core/components/state';
-import * as BookingOption_ from 'maas-schemas-ts/core/booking-option';
-import * as BookingMeta_ from 'maas-schemas-ts/core/booking-meta';
-import * as Configurator_ from 'maas-schemas-ts/core/components/configurator';
-import * as CustomerSelection_ from 'maas-schemas-ts/core/components/customerSelection';
+import * as Booking_ from '../../core/booking';
+import * as State_ from '../../core/components/state';
+import * as BookingOption_ from '../../core/booking-option';
+import * as BookingMeta_ from '../../core/booking-meta';
+import * as Configurator_ from '../../core/components/configurator';
+import * as CustomerSelection_ from '../../core/components/customerSelection';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 

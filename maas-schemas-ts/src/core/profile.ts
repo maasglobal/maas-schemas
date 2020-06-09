@@ -8,13 +8,13 @@ MaaS user profiles as returned by our API
 */
 
 import * as t from 'io-ts';
-import * as PointCost_ from 'maas-schemas-ts/core/components/point-cost';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as Address_ from 'maas-schemas-ts/core/components/address';
-import * as Region_ from 'maas-schemas-ts/core/region';
-import * as Place_ from 'maas-schemas-ts/core/components/place';
-import * as Fare_ from 'maas-schemas-ts/core/components/fare';
+import * as PointCost_ from './components/point-cost';
+import * as Units_ from './components/units';
+import * as Common_ from './components/common';
+import * as Address_ from './components/address';
+import * as Region_ from './region';
+import * as Place_ from './components/place';
+import * as Fare_ from './components/fare';
 
 type Defined =
   | Record<string, unknown>

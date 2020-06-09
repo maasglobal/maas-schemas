@@ -8,8 +8,8 @@ Response schema for bookings-create v2
 */
 
 import * as t from 'io-ts';
-import * as Booking_ from 'maas-schemas-ts/core/booking';
-import * as PaymentParameters_ from 'maas-schemas-ts/core/components/payment-parameters';
+import * as Booking_ from '../../../../core/booking';
+import * as PaymentParameters_ from '../../../../core/components/payment-parameters';
 
 type Defined =
   | Record<string, unknown>

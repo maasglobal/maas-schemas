@@ -8,9 +8,9 @@ MaaS booking terms and condition for its business engine
 */
 
 import * as t from 'io-ts';
-import * as Cost_ from 'maas-schemas-ts/core/components/cost';
-import * as Fare_ from 'maas-schemas-ts/core/components/fare';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
+import * as Cost_ from './cost';
+import * as Fare_ from './fare';
+import * as Units_ from './units';
 
 type Defined =
   | Record<string, unknown>

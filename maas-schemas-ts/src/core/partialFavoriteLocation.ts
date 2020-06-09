@@ -8,11 +8,11 @@ Customer's favorite location
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
-import * as Address_ from 'maas-schemas-ts/core/components/address';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as Station_ from 'maas-schemas-ts/core/components/station';
+import * as Units_ from './components/units';
+import * as UnitsGeo_ from './components/units-geo';
+import * as Address_ from './components/address';
+import * as Common_ from './components/common';
+import * as Station_ from './components/station';
 
 export const schemaId = 'http://maasglobal.com/core/partialFavoriteLocation.json';
 

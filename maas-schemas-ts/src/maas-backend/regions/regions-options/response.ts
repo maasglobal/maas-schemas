@@ -8,7 +8,7 @@ Response schema for regions-options
 */
 
 import * as t from 'io-ts';
-import * as Region_ from 'maas-schemas-ts/core/region';
+import * as Region_ from '../../../core/region';
 
 type Defined =
   | Record<string, unknown>

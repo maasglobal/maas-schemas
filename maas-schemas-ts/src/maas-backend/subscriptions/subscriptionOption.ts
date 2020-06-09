@@ -8,8 +8,8 @@ MaaS subscription option schema
 */
 
 import * as t from 'io-ts';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as Subscription_ from 'maas-schemas-ts/maas-backend/subscriptions/subscription';
+import * as Common_ from '../../core/components/common';
+import * as Subscription_ from './subscription';
 
 type Defined =
   | Record<string, unknown>

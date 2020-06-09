@@ -8,10 +8,10 @@ Response schema for updating state of a specific booking with a TSP ID from a TS
 */
 
 import * as t from 'io-ts';
-import * as Booking_ from 'maas-schemas-ts/core/booking';
-import * as State_ from 'maas-schemas-ts/core/components/state';
-import * as BookingOption_ from 'maas-schemas-ts/core/booking-option';
-import * as BookingMeta_ from 'maas-schemas-ts/core/booking-meta';
+import * as Booking_ from '../../core/booking';
+import * as State_ from '../../core/components/state';
+import * as BookingOption_ from '../../core/booking-option';
+import * as BookingMeta_ from '../../core/booking-meta';
 
 type Defined =
   | Record<string, unknown>

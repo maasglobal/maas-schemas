@@ -8,7 +8,7 @@ MaaS stations retrieve request schema
 */
 
 import * as t from 'io-ts';
-import * as Station_ from 'maas-schemas-ts/core/components/station';
+import * as Station_ from '../../core/components/station';
 
 export const schemaId = 'http://maasglobal.com/tsp/stations-retrieve/request.json';
 

@@ -8,7 +8,7 @@ Request schema for customer registration
 */
 
 import * as t from 'io-ts';
-import * as Customer_ from 'maas-schemas-ts/core/customer';
+import * as Customer_ from '../../core/customer';
 
 type Defined =
   | Record<string, unknown>

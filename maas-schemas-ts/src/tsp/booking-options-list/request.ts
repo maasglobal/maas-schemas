@@ -8,12 +8,12 @@ Request schema for getting options from a TSP adapter.
 */
 
 import * as t from 'io-ts';
-import * as TravelMode_ from 'maas-schemas-ts/core/components/travel-mode';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
-import * as Address_ from 'maas-schemas-ts/core/components/address';
-import * as Booking_ from 'maas-schemas-ts/core/booking';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
+import * as TravelMode_ from '../../core/components/travel-mode';
+import * as Units_ from '../../core/components/units';
+import * as UnitsGeo_ from '../../core/components/units-geo';
+import * as Address_ from '../../core/components/address';
+import * as Booking_ from '../../core/booking';
+import * as Common_ from '../../core/components/common';
 
 type Defined =
   | Record<string, unknown>

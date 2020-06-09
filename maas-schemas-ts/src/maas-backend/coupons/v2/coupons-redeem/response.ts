@@ -8,8 +8,8 @@ MaaS coupon redeem
 */
 
 import * as t from 'io-ts';
-import * as Code_ from 'maas-schemas-ts/maas-backend/coupons/code';
-import * as Subscription_ from 'maas-schemas-ts/maas-backend/subscriptions/subscription';
+import * as Code_ from '../../code';
+import * as Subscription_ from '../../../subscriptions/subscription';
 
 type Defined =
   | Record<string, unknown>

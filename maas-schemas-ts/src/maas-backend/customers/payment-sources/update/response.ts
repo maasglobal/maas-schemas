@@ -8,7 +8,7 @@ MaaS customer payment sources update response
 */
 
 import * as t from 'io-ts';
-import * as PaymentSource_ from 'maas-schemas-ts/maas-backend/customers/payment-sources/paymentSource';
+import * as PaymentSource_ from '../paymentSource';
 
 type Defined =
   | Record<string, unknown>

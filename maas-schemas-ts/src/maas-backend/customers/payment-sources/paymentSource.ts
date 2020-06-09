@@ -8,8 +8,8 @@ MaaS payment source schema
 */
 
 import * as t from 'io-ts';
-import * as Station_ from 'maas-schemas-ts/core/components/station';
-import * as Address_ from 'maas-schemas-ts/core/components/address';
+import * as Station_ from '../../../core/components/station';
+import * as Address_ from '../../../core/components/address';
 
 type Defined =
   | Record<string, unknown>

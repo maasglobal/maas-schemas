@@ -8,7 +8,7 @@ MaaS customer virtual cards add token reference response
 */
 
 import * as t from 'io-ts';
-import * as VirtualCard_ from 'maas-schemas-ts/maas-backend/customers/virtual-cards/virtualCard';
+import * as VirtualCard_ from '../virtualCard';
 
 type Defined =
   | Record<string, unknown>

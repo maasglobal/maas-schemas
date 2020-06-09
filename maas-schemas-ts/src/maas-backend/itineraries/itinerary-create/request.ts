@@ -8,13 +8,13 @@ Request schema for itineraries-create
 */
 
 import * as t from 'io-ts';
-import * as Itinerary_ from 'maas-schemas-ts/core/itinerary';
-import * as ProductOption_ from 'maas-schemas-ts/core/product-option';
-import * as CustomerSelection_ from 'maas-schemas-ts/core/components/customerSelection';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as Message_ from 'maas-schemas-ts/core/components/message';
+import * as Itinerary_ from '../../../core/itinerary';
+import * as ProductOption_ from '../../../core/product-option';
+import * as CustomerSelection_ from '../../../core/components/customerSelection';
+import * as Units_ from '../../../core/components/units';
+import * as ApiCommon_ from '../../../core/components/api-common';
+import * as Common_ from '../../../core/components/common';
+import * as Message_ from '../../../core/components/message';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/itineraries/itinerary-create/request.json';

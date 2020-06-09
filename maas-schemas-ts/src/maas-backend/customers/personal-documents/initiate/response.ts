@@ -7,7 +7,7 @@ Initiate customer KYC process
 
 */
 
-import * as KycService_ from 'maas-schemas-ts/core/kyc-service';
+import * as KycService_ from '../../../../core/kyc-service';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/personal-documents/initiate/response.json';

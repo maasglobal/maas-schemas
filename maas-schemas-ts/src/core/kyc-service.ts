@@ -8,7 +8,7 @@ KycService object
 */
 
 import * as t from 'io-ts';
-import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
+import * as PersonalDocument_ from './personal-document';
 
 export const schemaId = 'http://maasglobal.com/core/kyc-service.json';
 

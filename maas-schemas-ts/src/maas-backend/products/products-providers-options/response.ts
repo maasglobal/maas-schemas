@@ -8,7 +8,7 @@ Response schema for products-providers-options
 */
 
 import * as t from 'io-ts';
-import * as Provider_ from 'maas-schemas-ts/maas-backend/products/provider';
+import * as Provider_ from '../provider';
 
 type Defined =
   | Record<string, unknown>

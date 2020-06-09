@@ -8,11 +8,11 @@ Options that can be used for available booking options
 */
 
 import * as t from 'io-ts';
-import * as TravelMode_ from 'maas-schemas-ts/core/components/travel-mode';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as UnitsGeo_ from 'maas-schemas-ts/core/components/units-geo';
-import * as Address_ from 'maas-schemas-ts/core/components/address';
+import * as TravelMode_ from './travel-mode';
+import * as Common_ from './common';
+import * as Units_ from './units';
+import * as UnitsGeo_ from './units-geo';
+import * as Address_ from './address';
 
 export const schemaId = 'http://maasglobal.com/core/components/agencyOptions.json';
 

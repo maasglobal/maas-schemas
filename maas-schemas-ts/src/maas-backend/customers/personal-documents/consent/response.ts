@@ -8,8 +8,8 @@ Save user consent to send all TSP required personal documents to TSP
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as PersonalDocument_ from 'maas-schemas-ts/core/personal-document';
+import * as Units_ from '../../../../core/components/units';
+import * as PersonalDocument_ from '../../../../core/personal-document';
 
 type Defined =
   | Record<string, unknown>

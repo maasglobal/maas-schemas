@@ -8,9 +8,9 @@ Response schema for completing customer authorization for TSP
 */
 
 import * as t from 'io-ts';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Error_ from 'maas-schemas-ts/core/error';
+import * as Common_ from '../../core/components/common';
+import * as Units_ from '../../core/components/units';
+import * as Error_ from '../../core/error';
 
 type Defined =
   | Record<string, unknown>

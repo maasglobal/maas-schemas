@@ -8,8 +8,8 @@ Request schema for auth-sms-request-code
 */
 
 import * as t from 'io-ts';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
+import * as Common_ from '../../../core/components/common';
+import * as ApiCommon_ from '../../../core/components/api-common';
 
 type Defined =
   | Record<string, unknown>

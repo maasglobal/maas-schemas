@@ -8,7 +8,7 @@ Response schema for profile-webhook
 */
 
 import * as t from 'io-ts';
-import * as Profile_ from 'maas-schemas-ts/core/profile';
+import * as Profile_ from '../../../core/profile';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/profile/profile-webhook/response.json';

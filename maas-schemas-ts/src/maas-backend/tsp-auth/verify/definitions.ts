@@ -8,8 +8,8 @@ Response schema for tsp-auth verify -> verification failure keys
 */
 
 import * as t from 'io-ts';
-import * as Booking_ from 'maas-schemas-ts/core/booking';
-import * as CustomerSelection_ from 'maas-schemas-ts/core/components/customerSelection';
+import * as Booking_ from '../../../core/booking';
+import * as CustomerSelection_ from '../../../core/components/customerSelection';
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/tsp-auth/verify/definitions.json';

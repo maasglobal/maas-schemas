@@ -8,9 +8,9 @@ Configurator schema to customize a booking option
 */
 
 import * as t from 'io-ts';
-import * as Cost_ from 'maas-schemas-ts/core/components/cost';
-import * as Fare_ from 'maas-schemas-ts/core/components/fare';
-import * as Terms_ from 'maas-schemas-ts/core/components/terms';
+import * as Cost_ from './cost';
+import * as Fare_ from './fare';
+import * as Terms_ from './terms';
 
 type Defined =
   | Record<string, unknown>

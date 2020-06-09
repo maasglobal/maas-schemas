@@ -8,12 +8,12 @@ Maas Itinerary update request
 */
 
 import * as t from 'io-ts';
-import * as Units_ from 'maas-schemas-ts/core/components/units';
-import * as Itinerary_ from 'maas-schemas-ts/core/itinerary';
-import * as ApiCommon_ from 'maas-schemas-ts/core/components/api-common';
-import * as Common_ from 'maas-schemas-ts/core/components/common';
-import * as ProductOption_ from 'maas-schemas-ts/core/product-option';
-import * as CustomerSelection_ from 'maas-schemas-ts/core/components/customerSelection';
+import * as Units_ from '../../../core/components/units';
+import * as Itinerary_ from '../../../core/itinerary';
+import * as ApiCommon_ from '../../../core/components/api-common';
+import * as Common_ from '../../../core/components/common';
+import * as ProductOption_ from '../../../core/product-option';
+import * as CustomerSelection_ from '../../../core/components/customerSelection';
 
 type Defined =
   | Record<string, unknown>
