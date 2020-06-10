@@ -57,10 +57,10 @@
       "enum": ["EUR", "GBP", "SGD", "USD", "JPY"]
     },
     "time": {
-      "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
+      "description": "POSIX time in milliseconds 1.1.2000-1.1.52000, https://en.wikipedia.org/wiki/Unix_time",
       "type": "integer",
-      "maximum": 9007199254740991,
-      "minimum": 1451606400
+      "maximum": 1578794284800000,
+      "minimum": 946684800000
     },
     "duration": {
       "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
