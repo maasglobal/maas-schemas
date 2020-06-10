@@ -10,7 +10,7 @@ In this basic use example we show how to use the codecs together with the [io-ts
 
 ```javascript
 import { validator } from 'io-ts-validator';
-import Booking from 'maas-schemas-ts/lib/core/booking';
+import Booking from 'maas-schemas-ts/lib/types/core/booking';
 
 validator(Booking).decodeSync(json);     // returns Booking, throws on errors
 validator(Booking).decodePromise(json);  // returns Promise<Booking>, rejects on errors
