@@ -18,6 +18,7 @@ import * as Authorization_ from '../../core/components/authorization';
 import * as PersonalDocument_ from '../../core/personal-document';
 import * as Common_ from '../../core/components/common';
 import * as VirtualCard_ from './virtual-cards/virtualCard';
+import * as VerificationObject_ from './verification/verification-object';
 
 type Defined =
   | Record<string, unknown>
@@ -59,6 +60,7 @@ export type Customer = t.Branded<
       }
     >;
     personalDocumentConsents?: Array<Common_.AgencyId>;
+    virtualCards?: Array<VirtualCard_.VirtualCard>;
     verifications?: Array<VerificationObject_.VerificationObject>;
   } & {
     personalData: Defined;
@@ -93,6 +95,7 @@ export const Customer = t.brand(
         ]),
       ),
       personalDocumentConsents: t.array(Common_.AgencyId),
+      virtualCards: t.array(VirtualCard_.VirtualCard),
       verifications: t.array(VerificationObject_.VerificationObject),
     }),
     t.type({
@@ -125,6 +128,7 @@ export const Customer = t.brand(
         }
       >;
       personalDocumentConsents?: Array<Common_.AgencyId>;
+      virtualCards?: Array<VirtualCard_.VirtualCard>;
       verifications?: Array<VerificationObject_.VerificationObject>;
     } & {
       personalData: Defined;
