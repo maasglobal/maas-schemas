@@ -1653,29 +1653,29 @@ WARNING: minItems field not supported outside top-level definitions
 INFO: missing description
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptionOption.json
 INFO: primitive type "string" used outside top-level definitions
-  in ./maas-backend/subscriptions/subscriptions-intents-list/request.json
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-intents-list/request.json
 WARNING: minLength field not supported outside top-level definitions
-  in ./maas-backend/subscriptions/subscriptions-intents-list/request.json
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-intents-list/request.json
 WARNING: maxLength field not supported outside top-level definitions
-  in ./maas-backend/subscriptions/subscriptions-intents-list/request.json
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-intents-list/request.json
 INFO: primitive type "string" used outside top-level definitions
-  in ./maas-backend/subscriptions/subscriptions-options/request.json
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-options/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-options/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-options/request.json
 WARNING: default field not supported outside top-level definitions
-  in ./maas-backend/subscriptions/subscriptions-retrieve/request.json
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-retrieve/request.json
 INFO: missing description
-  in ./maas-backend/subscriptions/subscription-intent.json
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription-intent.json
 INFO: missing description
-  in ./maas-backend/subscriptions/subscription-intent.json
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription-intent.json
 INFO: missing description
-  in ./maas-backend/subscriptions/subscription-intent.json
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription-intent.json
 INFO: missing description
-  in ./maas-backend/subscriptions/subscription-intent.json
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription-intent.json
 INFO: missing description
-  in ./maas-backend/subscriptions/subscription-intent.json
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription-intent.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/vehicle/vehicle-alert/request.json
 WARNING: minLength field not supported outside top-level definitions
