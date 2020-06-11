@@ -10,7 +10,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 import * as Units_ from '../../../core/components/units';
-import * as Common_ from '../../../core/components/common';
+import * as StateLog_ from '../../../core/components/state-log';
 
 type Defined =
   | Record<string, unknown>

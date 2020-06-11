@@ -9,8 +9,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from '../../../../core/components/units';
 import * as ApiCommon_ from '../../../../core/components/api-common';
+import * as Units_ from '../../../../core/components/units';
+import * as UnitsGeo_ from '../../../../core/components/units-geo';
 
 type Defined =
   | Record<string, unknown>
