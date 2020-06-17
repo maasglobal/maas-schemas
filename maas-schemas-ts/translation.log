@@ -1225,6 +1225,8 @@ WARNING: minLength field not supported outside top-level definitions
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/verification/webhooks/decision/request.json
 INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/verification/webhooks/decision/request.json
+INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/verification/webhooks/event/request.json
 INFO: primitive type "integer" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/verification/webhooks/event/request.json
