@@ -43,18 +43,18 @@ export type Request = t.Branded<
         id?: Units_.Uuid;
         code?: number & (9001 | 9102 | 9103 | 9104 | 9121);
         person?: {
-          firstName?: Common_.PersonalName;
-          lastName?: Common_.PersonalName;
+          firstName?: Common_.PersonalName | null;
+          lastName?: Common_.PersonalName | null;
         };
         document?: {
-          number?: string;
+          number?: string | null;
           type?: PersonalDocument_.DocumentType;
           country?: Address_.Country;
-          validFrom?: Units_.IsoDate;
-          validUntil?: Units_.IsoDate;
+          validFrom?: Units_.IsoDate | null;
+          validUntil?: Units_.IsoDate | null;
         };
         reason?: string;
-        reasonCode?: number;
+        reasonCode?: number | null;
         status?: string;
         additionalVerifiedData?: {};
         vendorData?: string;
@@ -81,6 +81,7 @@ export type Request = t.Branded<
     technicalData?: {
       ip?: string;
     };
+    rawPayload?: string;
   } & {
     headers: Defined;
     payload: Defined;
@@ -110,18 +111,18 @@ export const Request = t.brand(
                 ]),
               ]),
               person: t.partial({
-                firstName: Common_.PersonalName,
-                lastName: Common_.PersonalName,
+                firstName: t.union([Common_.PersonalName, t.null]),
+                lastName: t.union([Common_.PersonalName, t.null]),
               }),
               document: t.partial({
-                number: t.string,
+                number: t.union([t.string, t.null]),
                 type: PersonalDocument_.DocumentType,
                 country: Address_.Country,
-                validFrom: Units_.IsoDate,
-                validUntil: Units_.IsoDate,
+                validFrom: t.union([Units_.IsoDate, t.null]),
+                validUntil: t.union([Units_.IsoDate, t.null]),
               }),
               reason: t.string,
-              reasonCode: t.number,
+              reasonCode: t.union([t.number, t.null]),
               status: t.string,
               additionalVerifiedData: t.type({}),
               vendorData: t.string,
@@ -155,6 +156,7 @@ export const Request = t.brand(
       technicalData: t.partial({
         ip: t.string,
       }),
+      rawPayload: t.string,
     }),
     t.type({
       headers: Defined,
@@ -171,18 +173,18 @@ export const Request = t.brand(
           id?: Units_.Uuid;
           code?: number & (9001 | 9102 | 9103 | 9104 | 9121);
           person?: {
-            firstName?: Common_.PersonalName;
-            lastName?: Common_.PersonalName;
+            firstName?: Common_.PersonalName | null;
+            lastName?: Common_.PersonalName | null;
           };
           document?: {
-            number?: string;
+            number?: string | null;
             type?: PersonalDocument_.DocumentType;
             country?: Address_.Country;
-            validFrom?: Units_.IsoDate;
-            validUntil?: Units_.IsoDate;
+            validFrom?: Units_.IsoDate | null;
+            validUntil?: Units_.IsoDate | null;
           };
           reason?: string;
-          reasonCode?: number;
+          reasonCode?: number | null;
           status?: string;
           additionalVerifiedData?: {};
           vendorData?: string;
@@ -209,6 +211,7 @@ export const Request = t.brand(
       technicalData?: {
         ip?: string;
       };
+      rawPayload?: string;
     } & {
       headers: Defined;
       payload: Defined;
