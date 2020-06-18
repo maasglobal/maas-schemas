@@ -423,6 +423,7 @@ export type Provider = t.Branded<
       Selection | MessageToDriver | BookingPeriod | GradualRadiusOption
     >;
     disruption?: Record<string, unknown>;
+    created?: Units_.Time;
   } & {
     name: Defined;
     agencyId: Defined;
@@ -528,6 +529,7 @@ export type ProviderC = t.BrandC<
           >
         >;
         disruption: t.UnknownRecordC;
+        created: typeof Units_.Time;
       }>,
       t.TypeC<{
         name: typeof Defined;
@@ -614,6 +616,7 @@ export const Provider: ProviderC = t.brand(
         t.union([Selection, MessageToDriver, BookingPeriod, GradualRadiusOption]),
       ),
       disruption: t.UnknownRecord,
+      created: Units_.Time,
     }),
     t.type({
       name: Defined,
@@ -683,6 +686,7 @@ export const Provider: ProviderC = t.brand(
         Selection | MessageToDriver | BookingPeriod | GradualRadiusOption
       >;
       disruption?: Record<string, unknown>;
+      created?: Units_.Time;
     } & {
       name: Defined;
       agencyId: Defined;
