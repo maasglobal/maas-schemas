@@ -24,12 +24,12 @@
         },
         "return": {
           "$ref": "#/definitions/outwardReturnWrapper"
+        },
+        "message": {
+          "$ref": "http://maasglobal.com/core/components/message.json"
         }
       },
       "additionalProperties": false
-    },
-    "message": {
-      "$ref": "http://maasglobal.com/core/components/message.json"
     }
   },
   "definitions": {
