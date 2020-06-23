@@ -3,6 +3,9 @@
   "additionalProperties": false,
   "description": "MaaS customer verification initiate",
   "properties": {
+    "customerId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     },
