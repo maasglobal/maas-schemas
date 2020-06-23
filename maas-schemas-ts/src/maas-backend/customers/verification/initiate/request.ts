@@ -9,8 +9,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as ApiCommon_ from '../../../../core/components/api-common';
 import * as Units_ from '../../../../core/components/units';
+import * as ApiCommon_ from '../../../../core/components/api-common';
 import * as UnitsGeo_ from '../../../../core/components/units-geo';
 
 type Defined =
@@ -36,6 +36,7 @@ export const schemaId =
 // The default export. More information at the top.
 export type Request = t.Branded<
   {
+    customerId?: Units_.IdentityId;
     headers?: ApiCommon_.Headers;
     identityId?: Units_.IdentityId;
     payload?: {
@@ -53,6 +54,7 @@ export type Request = t.Branded<
 export const Request = t.brand(
   t.intersection([
     t.partial({
+      customerId: Units_.IdentityId,
       headers: ApiCommon_.Headers,
       identityId: Units_.IdentityId,
       payload: t.intersection([
@@ -74,6 +76,7 @@ export const Request = t.brand(
     x,
   ): x is t.Branded<
     {
+      customerId?: Units_.IdentityId;
       headers?: ApiCommon_.Headers;
       identityId?: Units_.IdentityId;
       payload?: {
