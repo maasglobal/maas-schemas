@@ -8,9 +8,6 @@
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
-    "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
-    },
     "payload": {
       "type": "object",
       "properties": {

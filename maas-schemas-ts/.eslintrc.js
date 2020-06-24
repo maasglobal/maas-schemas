@@ -57,6 +57,13 @@ module.exports = {
       },
     },
     {
+      files: ['converter/**/*'],
+      rules: {
+        '@typescript-eslint/camelcase': [2, { ignoreDestructuring: true }],
+        '@typescript-eslint/no-unused-vars': [1, { argsIgnorePattern: '(^_)', ignoreRestSiblings: true }],
+      },
+    },
+    {
       files: ['**/__tests__/**/*'],
       env: {
         jest: true,
