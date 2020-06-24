@@ -54,7 +54,7 @@ export const Response = t.brand(
     }),
   ]),
   (
-    x
+    x,
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
@@ -65,7 +65,7 @@ export const Response = t.brand(
     },
     ResponseBrand
   > => true,
-  'Response'
+  'Response',
 );
 export interface ResponseBrand {
   readonly Response: unique symbol;
