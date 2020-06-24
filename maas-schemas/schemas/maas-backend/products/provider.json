@@ -82,7 +82,8 @@
                   "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
                 },
                 {
-                  "$ref": "http://maasglobal.com/core/components/common.json#/definitions/metaCurrency"
+                  "type": "string",
+                  "enum": ["WMP", "TOKEN"]
                 }
               ]
             },

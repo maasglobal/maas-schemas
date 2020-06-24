@@ -61,12 +61,6 @@
       "items": {
         "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
       }
-    },
-    "virtualCards": {
-      "type": "array",
-      "items": {
-        "$ref": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCard.json"
-      }
     }
   },
   "required": ["personalData", "paymentSources", "balances", "region", "authorizations"],

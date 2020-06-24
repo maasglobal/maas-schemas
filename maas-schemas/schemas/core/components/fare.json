@@ -14,7 +14,8 @@
       "minimum": 0
     },
     "currency": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/metaCurrency"
+      "type": "string",
+      "enum": ["WMP", "TOKEN"]
     },
     "tokenId": {
       "$ref": "#/definitions/tokenId"

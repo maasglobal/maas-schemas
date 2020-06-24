@@ -9,22 +9,9 @@
     "documentStatus": {
       "type": "string",
       "enum": ["PENDING", "APPROVED", "DECLINED", "EXPIRED", "RESUBMISSION_REQUESTED", "ABANDONED"]
-    },
-    "partyId": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 64
-    },
-    "partyType": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 64
     }
   },
   "properties": {
-    "id": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
-    },
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
