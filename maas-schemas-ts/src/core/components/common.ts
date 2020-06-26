@@ -237,15 +237,8 @@ export interface ClientIdBrand {
 
 // RequestId
 // The purpose of this remains a mystery
-export type RequestId = t.Branded<Units_.Uuid | (string & 'UNKNOWN'), RequestIdBrand>;
-export const RequestId = t.brand(
-  t.union([Units_.Uuid, t.intersection([t.string, t.literal('UNKNOWN')])]),
-  (x): x is t.Branded<Units_.Uuid | (string & 'UNKNOWN'), RequestIdBrand> => true,
-  'RequestId',
-);
-export interface RequestIdBrand {
-  readonly RequestId: unique symbol;
-}
+export type RequestId = Units_.Uuid;
+export const RequestId = Units_.Uuid;
 
 // Ssid
 // Social Security ID

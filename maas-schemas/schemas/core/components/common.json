@@ -84,13 +84,7 @@
       "enum": ["whim", "wechat"]
     },
     "requestId": {
-      "oneOf": [
-        { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid" },
-        {
-          "type": "string",
-          "enum": ["UNKNOWN"]
-        }
-      ]
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
     },
     "ssid": {
       "description": "Social Security ID",
