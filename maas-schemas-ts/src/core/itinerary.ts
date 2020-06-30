@@ -33,7 +33,7 @@ const Defined = t.union([
   t.null,
 ]);
 
-export const schemaId = "http://maasglobal.com/core/itinerary.json";
+export const schemaId = 'http://maasglobal.com/core/itinerary.json';
 
 // Id
 // The purpose of this remains a mystery
@@ -43,25 +43,25 @@ export const Id = Units_.Uuid;
 // ItineraryProgress
 // The purpose of this remains a mystery
 export type ItineraryProgress = t.Branded<
-  string & ("IN_PROGRESS" | "IN_PROGRESS_PURCHASABLE" | "FINISHED"),
+  string & ('IN_PROGRESS' | 'IN_PROGRESS_PURCHASABLE' | 'FINISHED'),
   ItineraryProgressBrand
 >;
 export const ItineraryProgress = t.brand(
   t.intersection([
     t.string,
     t.union([
-      t.literal("IN_PROGRESS"),
-      t.literal("IN_PROGRESS_PURCHASABLE"),
-      t.literal("FINISHED"),
+      t.literal('IN_PROGRESS'),
+      t.literal('IN_PROGRESS_PURCHASABLE'),
+      t.literal('FINISHED'),
     ]),
   ]),
   (
-    x
+    x,
   ): x is t.Branded<
-    string & ("IN_PROGRESS" | "IN_PROGRESS_PURCHASABLE" | "FINISHED"),
+    string & ('IN_PROGRESS' | 'IN_PROGRESS_PURCHASABLE' | 'FINISHED'),
     ItineraryProgressBrand
   > => true,
-  "ItineraryProgress"
+  'ItineraryProgress',
 );
 export interface ItineraryProgressBrand {
   readonly ItineraryProgress: unique symbol;
@@ -83,7 +83,7 @@ export type Itinerary = t.Branded<
     fares?: Array<Fare_.Fare>;
     legs?: Array<Leg_.Leg>;
     productOptions?: Array<ProductOption_.ProductOption>;
-    type?: "outward" | "return";
+    type?: 'outward' | 'return';
     bookings?: Array<Booking_.Booking>;
     progress?: ItineraryProgress;
     fingerprint?: string;
@@ -115,7 +115,7 @@ export const Itinerary = t.brand(
       fares: t.array(Fare_.Fare),
       legs: t.array(Leg_.Leg),
       productOptions: t.array(ProductOption_.ProductOption),
-      type: t.union([t.literal("outward"), t.literal("return")]),
+      type: t.union([t.literal('outward'), t.literal('return')]),
       bookings: t.array(Booking_.Booking),
       progress: ItineraryProgress,
       fingerprint: t.string,
@@ -133,7 +133,7 @@ export const Itinerary = t.brand(
     }),
   ]),
   (
-    x
+    x,
   ): x is t.Branded<
     {
       id?: Id;
@@ -148,7 +148,7 @@ export const Itinerary = t.brand(
       fares?: Array<Fare_.Fare>;
       legs?: Array<Leg_.Leg>;
       productOptions?: Array<ProductOption_.ProductOption>;
-      type?: "outward" | "return";
+      type?: 'outward' | 'return';
       bookings?: Array<Booking_.Booking>;
       progress?: ItineraryProgress;
       fingerprint?: string;
@@ -165,7 +165,7 @@ export const Itinerary = t.brand(
     },
     ItineraryBrand
   > => true,
-  "Itinerary"
+  'Itinerary',
 );
 export interface ItineraryBrand {
   readonly Itinerary: unique symbol;

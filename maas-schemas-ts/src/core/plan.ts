@@ -29,30 +29,26 @@ const Defined = t.union([
   t.null,
 ]);
 
-export const schemaId = "http://maasglobal.com/core/plan.json";
+export const schemaId = 'http://maasglobal.com/core/plan.json';
 
 // PlanProgress
 // The purpose of this remains a mystery
 export type PlanProgress = t.Branded<
-  string & ("IN_PROGRESS" | "FINISHED" | "FAILED"),
+  string & ('IN_PROGRESS' | 'FINISHED' | 'FAILED'),
   PlanProgressBrand
 >;
 export const PlanProgress = t.brand(
   t.intersection([
     t.string,
-    t.union([
-      t.literal("IN_PROGRESS"),
-      t.literal("FINISHED"),
-      t.literal("FAILED"),
-    ]),
+    t.union([t.literal('IN_PROGRESS'), t.literal('FINISHED'), t.literal('FAILED')]),
   ]),
   (
-    x
+    x,
   ): x is t.Branded<
-    string & ("IN_PROGRESS" | "FINISHED" | "FAILED"),
+    string & ('IN_PROGRESS' | 'FINISHED' | 'FAILED'),
     PlanProgressBrand
   > => true,
-  "PlanProgress"
+  'PlanProgress',
 );
 export interface PlanProgressBrand {
   readonly PlanProgress: unique symbol;
@@ -60,14 +56,11 @@ export interface PlanProgressBrand {
 
 // Itineraries
 // The purpose of this remains a mystery
-export type Itineraries = t.Branded<
-  Array<Itinerary_.Itinerary>,
-  ItinerariesBrand
->;
+export type Itineraries = t.Branded<Array<Itinerary_.Itinerary>, ItinerariesBrand>;
 export const Itineraries = t.brand(
   t.array(Itinerary_.Itinerary),
   (x): x is t.Branded<Array<Itinerary_.Itinerary>, ItinerariesBrand> => true,
-  "Itineraries"
+  'Itineraries',
 );
 export interface ItinerariesBrand {
   readonly Itineraries: unique symbol;
@@ -109,7 +102,7 @@ export const Plan1 = t.brand(
     }),
   ]),
   (
-    x
+    x,
   ): x is t.Branded<
     {
       from?: Place_.Place;
@@ -126,7 +119,7 @@ export const Plan1 = t.brand(
     },
     Plan1Brand
   > => true,
-  "Plan1"
+  'Plan1',
 );
 export interface Plan1Brand {
   readonly Plan1: unique symbol;
@@ -160,7 +153,7 @@ export const Plan2 = t.brand(
     }),
   ]),
   (
-    x
+    x,
   ): x is t.Branded<
     {
       from?: Place_.Place;
@@ -173,7 +166,7 @@ export const Plan2 = t.brand(
     },
     Plan2Brand
   > => true,
-  "Plan2"
+  'Plan2',
 );
 export interface Plan2Brand {
   readonly Plan2: unique symbol;
@@ -185,7 +178,7 @@ export type Plan = t.Branded<Plan1 | Plan2, PlanBrand>;
 export const Plan = t.brand(
   t.union([Plan1, Plan2]),
   (x): x is t.Branded<Plan1 | Plan2, PlanBrand> => true,
-  "Plan"
+  'Plan',
 );
 export interface PlanBrand {
   readonly Plan: unique symbol;

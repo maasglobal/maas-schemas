@@ -32,7 +32,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId =
-  "http://maasglobal.com/maas-backend/routes/routes-query/request.json";
+  'http://maasglobal.com/maas-backend/routes/routes-query/request.json';
 
 // Payload
 // The purpose of this remains a mystery
@@ -51,7 +51,7 @@ export type Payload = t.Branded<
     leaveAtReturn?: Units_.Time;
     arriveByReturn?: Units_.Time;
     modes?: TravelMode_.SuperMode;
-    transitMode?: string & ("TRAIN" | "BUS" | "SUBWAY" | "TRAM" | "RAIL");
+    transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
     options?: {};
     bookingIdToExtend?: Units_.Uuid;
     requestId?: Common_.RequestId;
@@ -70,7 +70,7 @@ export type Payload = t.Branded<
     | Units_.Time
     | Units_.Time
     | TravelMode_.SuperMode
-    | (string & ("TRAIN" | "BUS" | "SUBWAY" | "TRAM" | "RAIL"))
+    | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
     | {}
     | Units_.Uuid
     | Common_.RequestId
@@ -97,11 +97,11 @@ export const Payload = t.brand(
       transitMode: t.intersection([
         t.string,
         t.union([
-          t.literal("TRAIN"),
-          t.literal("BUS"),
-          t.literal("SUBWAY"),
-          t.literal("TRAM"),
-          t.literal("RAIL"),
+          t.literal('TRAIN'),
+          t.literal('BUS'),
+          t.literal('SUBWAY'),
+          t.literal('TRAM'),
+          t.literal('RAIL'),
         ]),
       ]),
       options: t.type({}),
@@ -127,22 +127,22 @@ export const Payload = t.brand(
         t.intersection([
           t.string,
           t.union([
-            t.literal("TRAIN"),
-            t.literal("BUS"),
-            t.literal("SUBWAY"),
-            t.literal("TRAM"),
-            t.literal("RAIL"),
+            t.literal('TRAIN'),
+            t.literal('BUS'),
+            t.literal('SUBWAY'),
+            t.literal('TRAM'),
+            t.literal('RAIL'),
           ]),
         ]),
         t.type({}),
         Units_.Uuid,
         Common_.RequestId,
         t.union([t.string, t.number, t.boolean]),
-      ])
+      ]),
     ),
   ]),
   (
-    x
+    x,
   ): x is t.Branded<
     {
       from?: UnitsGeo_.ShortLocationString;
@@ -158,7 +158,7 @@ export const Payload = t.brand(
       leaveAtReturn?: Units_.Time;
       arriveByReturn?: Units_.Time;
       modes?: TravelMode_.SuperMode;
-      transitMode?: string & ("TRAIN" | "BUS" | "SUBWAY" | "TRAM" | "RAIL");
+      transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
       options?: {};
       bookingIdToExtend?: Units_.Uuid;
       requestId?: Common_.RequestId;
@@ -177,7 +177,7 @@ export const Payload = t.brand(
       | Units_.Time
       | Units_.Time
       | TravelMode_.SuperMode
-      | (string & ("TRAIN" | "BUS" | "SUBWAY" | "TRAM" | "RAIL"))
+      | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
       | {}
       | Units_.Uuid
       | Common_.RequestId
@@ -185,7 +185,7 @@ export const Payload = t.brand(
     >,
     PayloadBrand
   > => true,
-  "Payload"
+  'Payload',
 );
 export interface PayloadBrand {
   readonly Payload: unique symbol;
@@ -217,7 +217,7 @@ export const Request = t.brand(
     }),
   ]),
   (
-    x
+    x,
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
@@ -229,7 +229,7 @@ export const Request = t.brand(
     },
     RequestBrand
   > => true,
-  "Request"
+  'Request',
 );
 export interface RequestBrand {
   readonly Request: unique symbol;
