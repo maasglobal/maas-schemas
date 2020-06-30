@@ -14,6 +14,13 @@
     "personalData": {
       "$ref": "http://maasglobal.com/maas-backend/customers/personalData.json"
     },
+    "personalDataVerifiedItems": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
     "paymentSources": {
       "type": "array",
       "items": {
