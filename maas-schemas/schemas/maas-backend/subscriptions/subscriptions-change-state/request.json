@@ -3,7 +3,7 @@
   "description": "Request schema for subscriptions-change-state",
   "type": "object",
   "properties": {
-    "customerId": {
+    "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "userId": {
@@ -16,6 +16,6 @@
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
-  "required": ["customerId", "userId", "changeStateId", "headers"],
+  "required": ["identityId", "userId", "changeStateId", "headers"],
   "additionalProperties": false
 }
