@@ -107,6 +107,7 @@ export type Provider = t.Branded<
       }
     >;
     disruption?: {};
+    created?: Units_.Time;
   } & {
     name: Defined;
     agencyId: Defined;
@@ -220,6 +221,7 @@ export const Provider = t.brand(
         ]),
       ),
       disruption: t.type({}),
+      created: Units_.Time,
     }),
     t.type({
       name: Defined,
@@ -308,6 +310,7 @@ export const Provider = t.brand(
         }
       >;
       disruption?: {};
+      created?: Units_.Time;
     } & {
       name: Defined;
       agencyId: Defined;
