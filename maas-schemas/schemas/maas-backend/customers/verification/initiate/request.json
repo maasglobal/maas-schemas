@@ -22,6 +22,6 @@
       "type": "object"
     }
   },
-  "required": ["identityId", "payload", "headers"],
+  "required": ["identityId", "customerId", "payload", "headers"],
   "type": "object"
 }

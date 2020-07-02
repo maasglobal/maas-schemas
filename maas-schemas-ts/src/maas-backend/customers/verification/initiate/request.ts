@@ -46,6 +46,7 @@ export type Request = t.Branded<
     };
   } & {
     identityId: Defined;
+    customerId: Defined;
     payload: Defined;
     headers: Defined;
   },
@@ -68,6 +69,7 @@ export const Request = t.brand(
     }),
     t.type({
       identityId: Defined,
+      customerId: Defined,
       payload: Defined,
       headers: Defined,
     }),
@@ -86,6 +88,7 @@ export const Request = t.brand(
       };
     } & {
       identityId: Defined;
+      customerId: Defined;
       payload: Defined;
       headers: Defined;
     },
