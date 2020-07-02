@@ -1,0 +1,27 @@
+{
+  "$id": "http://maasglobal.com/core/components/personalDataValidation.json",
+  "description": "MaaS personal data validation rules",
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": ["value", "enum", "length", "regex", "date", "dateDurationTillNow"]
+    },
+    "operator": {
+      "enum": [">", ">=", "<", "<=", "=", "!="]
+    },
+    "config": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": ["string", "number", "boolean"]
+        },
+        "meta": {
+          "type": "object"
+        }
+      }
+    },
+    "errorCode": {
+      "type": "string"
+    }
+  }
+}
