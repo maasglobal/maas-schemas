@@ -408,6 +408,9 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/personalDataAllowItem.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/personalDocumentRequiredItem.json
+  in ./core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ./core/components/personalDocumentRequiredItem.json
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/personalDocumentRequiredItem.json
 INFO: primitive type "string" used outside top-level definitions

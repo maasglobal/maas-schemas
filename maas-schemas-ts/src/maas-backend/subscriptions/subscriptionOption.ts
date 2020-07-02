@@ -8,9 +8,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Common_ from '../../core/components/common';
-import * as Subscription_ from './subscription';
+import * as t from "io-ts";
+import * as Common_ from "maas-schemas-ts/core/components/common";
+import * as PersonalDataAllowItem_ from "maas-schemas-ts/core/components/personalDataAllowItem";
+import * as PersonalDataValidation_ from "maas-schemas-ts/core/components/personalDataValidation";
+import * as Subscription_ from "maas-schemas-ts/maas-backend/subscriptions/subscription";
 
 type Defined =
   | Record<string, unknown>
@@ -29,7 +31,7 @@ const Defined = t.union([
 ]);
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/subscriptions/subscriptionOption.json';
+  "http://maasglobal.com/maas-backend/subscriptions/subscriptionOption.json";
 
 // SubscriptionAdditions
 // The purpose of this remains a mystery
@@ -38,6 +40,12 @@ export type SubscriptionAdditions = t.Branded<
     discounts?: Array<unknown>;
     requiredAuthorizations?: Array<Common_.AgencyId>;
     regionDefault?: boolean;
+    personalDataCreateAllow?: Array<
+      PersonalDataAllowItem_.PersonalDataAllowItem
+    >;
+    personalDataValidations?: Array<
+      PersonalDataValidation_.PersonalDataValidation
+    >;
   } & {
     plan: Defined;
     wmpGrant: Defined;
@@ -55,6 +63,12 @@ export const SubscriptionAdditions = t.brand(
       discounts: t.UnknownArray,
       requiredAuthorizations: t.array(Common_.AgencyId),
       regionDefault: t.boolean,
+      personalDataCreateAllow: t.array(
+        PersonalDataAllowItem_.PersonalDataAllowItem
+      ),
+      personalDataValidations: t.array(
+        PersonalDataValidation_.PersonalDataValidation
+      ),
     }),
     t.type({
       plan: Defined,
@@ -67,12 +81,18 @@ export const SubscriptionAdditions = t.brand(
     }),
   ]),
   (
-    x,
+    x
   ): x is t.Branded<
     {
       discounts?: Array<unknown>;
       requiredAuthorizations?: Array<Common_.AgencyId>;
       regionDefault?: boolean;
+      personalDataCreateAllow?: Array<
+        PersonalDataAllowItem_.PersonalDataAllowItem
+      >;
+      personalDataValidations?: Array<
+        PersonalDataValidation_.PersonalDataValidation
+      >;
     } & {
       plan: Defined;
       wmpGrant: Defined;
@@ -84,7 +104,7 @@ export const SubscriptionAdditions = t.brand(
     },
     SubscriptionAdditionsBrand
   > => true,
-  'SubscriptionAdditions',
+  "SubscriptionAdditions"
 );
 export interface SubscriptionAdditionsBrand {
   readonly SubscriptionAdditions: unique symbol;
@@ -99,12 +119,12 @@ export type SubscriptionOption = t.Branded<
 export const SubscriptionOption = t.brand(
   t.intersection([Subscription_.SubscriptionBase, SubscriptionAdditions]),
   (
-    x,
+    x
   ): x is t.Branded<
     Subscription_.SubscriptionBase & SubscriptionAdditions,
     SubscriptionOptionBrand
   > => true,
-  'SubscriptionOption',
+  "SubscriptionOption"
 );
 export interface SubscriptionOptionBrand {
   readonly SubscriptionOption: unique symbol;
