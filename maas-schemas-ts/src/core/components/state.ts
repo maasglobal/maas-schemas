@@ -158,6 +158,58 @@ export interface ItineraryStateBrand {
   readonly ItineraryState: unique symbol;
 }
 
+// SubscriptionIntentState
+// The life-cycle state of an subscription intent
+export type SubscriptionIntentState = t.Branded<
+  string &
+    (
+      | 'START'
+      | 'DETAILS'
+      | 'CUSTOMISATION'
+      | 'PAYMENT'
+      | 'VERIFICATION'
+      | 'CANCELLED'
+      | 'CANCELLED_WITH_ERRORS'
+      | 'FINISHED'
+    ),
+  SubscriptionIntentStateBrand
+>;
+export const SubscriptionIntentState = t.brand(
+  t.intersection([
+    t.string,
+    t.union([
+      t.literal('START'),
+      t.literal('DETAILS'),
+      t.literal('CUSTOMISATION'),
+      t.literal('PAYMENT'),
+      t.literal('VERIFICATION'),
+      t.literal('CANCELLED'),
+      t.literal('CANCELLED_WITH_ERRORS'),
+      t.literal('FINISHED'),
+    ]),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    string &
+      (
+        | 'START'
+        | 'DETAILS'
+        | 'CUSTOMISATION'
+        | 'PAYMENT'
+        | 'VERIFICATION'
+        | 'CANCELLED'
+        | 'CANCELLED_WITH_ERRORS'
+        | 'FINISHED'
+      ),
+    SubscriptionIntentStateBrand
+  > => true,
+  'SubscriptionIntentState',
+);
+export interface SubscriptionIntentStateBrand {
+  readonly SubscriptionIntentState: unique symbol;
+}
+
 // State
 // The default export. More information at the top.
 export type State = t.Branded<unknown, StateBrand>;

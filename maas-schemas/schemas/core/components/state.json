@@ -30,6 +30,20 @@
       "description": "The life-cycle state of an itinerary",
       "type": "string",
       "enum": ["START", "PLANNED", "PAID", "ACTIVATED", "CANCELLED", "CANCELLED_WITH_ERRORS", "FINISHED"]
+    },
+    "subscriptionIntentState": {
+      "description": "The life-cycle state of an subscription intent",
+      "type": "string",
+      "enum": [
+        "START",
+        "DETAILS",
+        "CUSTOMISATION",
+        "PAYMENT",
+        "VERIFICATION",
+        "CANCELLED",
+        "CANCELLED_WITH_ERRORS",
+        "FINISHED"
+      ]
     }
   }
 }
