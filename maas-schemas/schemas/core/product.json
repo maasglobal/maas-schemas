@@ -36,6 +36,9 @@
     "allowFinishTrip": {
       "type": "boolean"
     },
+    "features": {
+      "$ref": "#/definitions/features"
+    },
     "preAuthBuffer": {
       "$ref": "#/definitions/preAuthBuffer"
     }
@@ -45,6 +48,16 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 255
+    },
+    "features": {
+      "type": "object",
+      "properties": {
+        "activationByUser": {
+          "description": "Indicates booking flow, which requires user to activate it",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
     },
     "preAuthBuffer": {
       "type": "object",
