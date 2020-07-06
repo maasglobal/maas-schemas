@@ -7,13 +7,55 @@
       "enum": ["value", "enum", "length", "regex", "date", "dateDurationTillNow"]
     },
     "operator": {
-      "enum": [">", ">=", "<", "<=", "=", "!="]
+      "enum": [">", ">=", "<", "<=", "=", "!=", "in"]
     },
     "config": {
       "type": "object",
       "properties": {
+        "path": {
+          "description": "Remote config path",
+          "type": "string"
+        },
+        "remoteSource": {
+          "description": "Remote source name",
+          "examples": ["s3"],
+          "type": "string"
+        },
         "value": {
           "type": ["string", "number", "boolean"]
+        },
+        "enum": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": ["string", "number", "boolean"]
+              },
+              "meta": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "length": {
+          "type": "number"
+        },
+        "regex": {
+          "type": "string"
+        },
+        "date": {
+          "description": "ISO date or timestamp",
+          "type": ["string", "integer"]
+        },
+        "dateDurationTillNow": {
+          "description": "Duration from personal data item type date until now() compare with now()",
+          "type": "object",
+          "properties": {
+            "month": { "type": "integer", "minimum": 1 },
+            "day": { "type": "integer", "minimum": 1 },
+            "hour": { "type": "integer", "minimum": 1 }
+          }
         },
         "meta": {
           "type": "object"

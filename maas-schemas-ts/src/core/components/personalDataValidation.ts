@@ -17,9 +17,23 @@ export const schemaId =
 export type PersonalDataValidation = t.Branded<
   {
     type?: 'value' | 'enum' | 'length' | 'regex' | 'date' | 'dateDurationTillNow';
-    operator?: '>' | '>=' | '<' | '<=' | '=' | '!=';
+    operator?: '>' | '>=' | '<' | '<=' | '=' | '!=' | 'in';
     config?: {
+      path?: string;
+      remoteSource?: string;
       value?: string | number | boolean;
+      enum?: Array<{
+        value?: string | number | boolean;
+        meta?: {};
+      }>;
+      length?: number;
+      regex?: string;
+      date?: string | number;
+      dateDurationTillNow?: {
+        month?: number;
+        day?: number;
+        hour?: number;
+      };
       meta?: {};
     };
     errorCode?: string;
@@ -43,9 +57,26 @@ export const PersonalDataValidation = t.brand(
       t.literal('<='),
       t.literal('='),
       t.literal('!='),
+      t.literal('in'),
     ]),
     config: t.partial({
+      path: t.string,
+      remoteSource: t.string,
       value: t.union([t.string, t.number, t.boolean]),
+      enum: t.array(
+        t.partial({
+          value: t.union([t.string, t.number, t.boolean]),
+          meta: t.type({}),
+        }),
+      ),
+      length: t.number,
+      regex: t.string,
+      date: t.union([t.string, t.number]),
+      dateDurationTillNow: t.partial({
+        month: t.number,
+        day: t.number,
+        hour: t.number,
+      }),
       meta: t.type({}),
     }),
     errorCode: t.string,
@@ -55,9 +86,23 @@ export const PersonalDataValidation = t.brand(
   ): x is t.Branded<
     {
       type?: 'value' | 'enum' | 'length' | 'regex' | 'date' | 'dateDurationTillNow';
-      operator?: '>' | '>=' | '<' | '<=' | '=' | '!=';
+      operator?: '>' | '>=' | '<' | '<=' | '=' | '!=' | 'in';
       config?: {
+        path?: string;
+        remoteSource?: string;
         value?: string | number | boolean;
+        enum?: Array<{
+          value?: string | number | boolean;
+          meta?: {};
+        }>;
+        length?: number;
+        regex?: string;
+        date?: string | number;
+        dateDurationTillNow?: {
+          month?: number;
+          day?: number;
+          hour?: number;
+        };
         meta?: {};
       };
       errorCode?: string;
