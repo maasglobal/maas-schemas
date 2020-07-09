@@ -73,7 +73,7 @@ export const Request = t.brand(
     }),
   ]),
   (
-    x
+    x,
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
@@ -91,7 +91,7 @@ export const Request = t.brand(
     },
     RequestBrand
   > => true,
-  'Request'
+  'Request',
 );
 export interface RequestBrand {
   readonly Request: unique symbol;

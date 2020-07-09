@@ -8,17 +8,17 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from "io-ts";
-import * as Itinerary_ from "../../../core/itinerary";
-import * as ProductOption_ from "../../../core/product-option";
-import * as CustomerSelection_ from "../../../core/components/customerSelection";
-import * as Units_ from "../../../core/components/units";
-import * as ApiCommon_ from "../../../core/components/api-common";
-import * as Common_ from "../../../core/components/common";
-import * as Message_ from "../../../core/components/message";
+import * as t from 'io-ts';
+import * as Itinerary_ from '../../../core/itinerary';
+import * as ProductOption_ from '../../../core/product-option';
+import * as CustomerSelection_ from '../../../core/components/customerSelection';
+import * as Units_ from '../../../core/components/units';
+import * as ApiCommon_ from '../../../core/components/api-common';
+import * as Common_ from '../../../core/components/common';
+import * as Message_ from '../../../core/components/message';
 
 export const schemaId =
-  "http://maasglobal.com/maas-backend/itineraries/itinerary-create/request.json";
+  'http://maasglobal.com/maas-backend/itineraries/itinerary-create/request.json';
 
 // OutwardReturnWrapper
 // The purpose of this remains a mystery
@@ -39,11 +39,11 @@ export const OutwardReturnWrapper = t.brand(
       t.partial({
         ref: ProductOption_.Ref,
         customerSelection: CustomerSelection_.CustomerSelection,
-      })
+      }),
     ),
   }),
   (
-    x
+    x,
   ): x is t.Branded<
     {
       itinerary?: Itinerary_.Itinerary;
@@ -54,7 +54,7 @@ export const OutwardReturnWrapper = t.brand(
     },
     OutwardReturnWrapperBrand
   > => true,
-  "OutwardReturnWrapper"
+  'OutwardReturnWrapper',
 );
 export interface OutwardReturnWrapperBrand {
   readonly OutwardReturnWrapper: unique symbol;
@@ -89,7 +89,7 @@ export const Request = t.brand(
     }),
   }),
   (
-    x
+    x,
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
@@ -104,7 +104,7 @@ export const Request = t.brand(
     },
     RequestBrand
   > => true,
-  "Request"
+  'Request',
 );
 export interface RequestBrand {
   readonly Request: unique symbol;
