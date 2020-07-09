@@ -1,6 +1,6 @@
 {
   "$id": "http://maasglobal.com/maas-backend/customers/personal-documents/remove/request.json",
-  "description": "Remove customer personal document by type",
+  "description": "Remove customer personal document by id",
   "type": "object",
   "additionalProperties": false,
   "required": ["identityId", "payload", "headers"],
@@ -8,14 +8,24 @@
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
+    "customerId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
     "payload": {
       "type": "object",
       "properties": {
-        "type": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType"
+        "id": {
+          "anyOf": [
+            {
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+            },
+            {
+              "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType"
+            }
+          ]
         }
       },
-      "required": ["type"]
+      "required": ["id"]
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
