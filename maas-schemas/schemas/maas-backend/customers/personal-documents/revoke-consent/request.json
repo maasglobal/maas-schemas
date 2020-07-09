@@ -8,14 +8,24 @@
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
+    "customerId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
     "payload": {
       "type": "object",
       "properties": {
-        "agencyId": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+        "id": {
+          "anyOf": [
+            {
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+            },
+            {
+              "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+            }
+          ]
         }
       },
-      "required": ["agencyId"]
+      "required": ["id"]
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"

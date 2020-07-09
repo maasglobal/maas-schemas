@@ -96,7 +96,9 @@
         "WMP": {
           "type": "object",
           "properties": {
-            "currency": { "const": "WMP" },
+            "currency": {
+              "$ref": "http://maasglobal.com/core/components/common.json#/definitions/metaCurrencyWMP"
+            },
             "amount": {
               "type": "integer",
               "minimum": 0
@@ -111,7 +113,9 @@
           "type": "object",
           "description": "key would typically match tokenId",
           "properties": {
-            "currency": { "const": "TOKEN" },
+            "currency": {
+              "$ref": "http://maasglobal.com/core/components/common.json#/definitions/metaCurrencyTOKEN"
+            },
             "tokenId": {
               "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/tokenId"
             },
