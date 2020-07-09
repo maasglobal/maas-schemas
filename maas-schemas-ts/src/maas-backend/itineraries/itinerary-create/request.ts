@@ -71,8 +71,8 @@ export type Request = t.Branded<
       paymentSourceId?: Common_.PaymentSourceId;
       outward?: OutwardReturnWrapper;
       return?: OutwardReturnWrapper;
-      message?: Message_.Message;
     };
+    message?: Message_.Message;
   },
   RequestBrand
 >;
@@ -85,8 +85,8 @@ export const Request = t.brand(
       paymentSourceId: Common_.PaymentSourceId,
       outward: OutwardReturnWrapper,
       return: OutwardReturnWrapper,
-      message: Message_.Message,
     }),
+    message: Message_.Message,
   }),
   (
     x,
@@ -99,8 +99,8 @@ export const Request = t.brand(
         paymentSourceId?: Common_.PaymentSourceId;
         outward?: OutwardReturnWrapper;
         return?: OutwardReturnWrapper;
-        message?: Message_.Message;
       };
+      message?: Message_.Message;
     },
     RequestBrand
   > => true,
