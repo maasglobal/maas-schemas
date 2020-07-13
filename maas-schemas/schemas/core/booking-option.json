@@ -126,6 +126,11 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 255
+        },
+        "name": {
+          "description": "TSP Product name as returned by the provider",
+          "type": "string",
+          "maxLength": 255
         }
       },
       "required": ["id"],

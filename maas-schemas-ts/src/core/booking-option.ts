@@ -107,6 +107,7 @@ export interface LegBrand {
 export type TspProduct = t.Branded<
   {
     id?: string;
+    name?: string;
   } & {
     id: Defined;
   },
@@ -116,6 +117,7 @@ export const TspProduct = t.brand(
   t.intersection([
     t.partial({
       id: t.string,
+      name: t.string,
     }),
     t.type({
       id: Defined,
@@ -126,6 +128,7 @@ export const TspProduct = t.brand(
   ): x is t.Branded<
     {
       id?: string;
+      name?: string;
     } & {
       id: Defined;
     },
