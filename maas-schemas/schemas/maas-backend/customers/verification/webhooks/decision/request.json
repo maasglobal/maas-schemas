@@ -1,0 +1,150 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/verification/webhooks/decision/request.json",
+  "description": "Request schema for webhook verification decision",
+  "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["fail", "success"]
+        },
+        "verification": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+            },
+            "code": {
+              "type": "integer",
+              "enum": [9001, 9102, 9103, 9104, 9121]
+            },
+            "person": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "oneOf": [
+                    {
+                      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "lastName": {
+                  "oneOf": [
+                    {
+                      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": true
+            },
+            "document": {
+              "type": "object",
+              "properties": {
+                "number": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "minLength": 2
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "type": { "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType" },
+                "country": { "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country" },
+                "validFrom": {
+                  "oneOf": [
+                    {
+                      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "validUntil": {
+                  "oneOf": [
+                    {
+                      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "reasonCode": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "minimum": 100,
+                  "maximum": 210
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "status": {
+              "type": "string"
+            },
+            "additionalVerifiedData": {
+              "type": "object"
+            },
+            "vendorData": {
+              "type": "string"
+            },
+            "decisionTime": {
+              "type": "string"
+            },
+            "acceptanceTime": {
+              "type": "string"
+            }
+          },
+          "required": ["id", "status", "code", "person", "document"]
+        }
+      },
+      "required": ["status", "verification"]
+    },
+    "headers": {
+      "type": "object",
+      "properties": {
+        "x-signature": {
+          "type": "string",
+          "minLength": 2
+        },
+        "x-auth-client": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+        }
+      },
+      "required": ["x-signature", "x-auth-client"]
+    },
+    "technicalData": {
+      "type": "object",
+      "properties": {
+        "ip": {
+          "type": "string"
+        }
+      }
+    },
+    "rawPayload": {
+      "type": "string"
+    }
+  },
+  "required": ["headers", "payload"],
+  "additionalProperties": false
+}

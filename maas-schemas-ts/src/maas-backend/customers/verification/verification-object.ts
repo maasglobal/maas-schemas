@@ -10,7 +10,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 import * as Units_ from '../../../core/components/units';
-import * as Common_ from '../../../core/components/common';
+import * as StateLog_ from '../../../core/components/state-log';
 
 type Defined =
   | Record<string, unknown>
@@ -37,35 +37,18 @@ export type Verification = t.Branded<
   {
     id?: string;
     identityId?: Units_.IdentityId;
-    details?: {
-      url?: string;
-      sessionToken?: string;
-    } & {
-      url: Defined;
-      sessionToken: Defined;
-    };
-    validFrom?: string;
-    validTo?: string;
+    kycServiceId?: string;
+    url?: Units_.Url;
+    token?: string;
     status?: string;
-    type?: string;
-    stateLog?: Array<
-      {
-        status?: string;
-        timestamp?: Units_.Time;
-      } & {
-        status: Defined;
-        timestamp: Defined;
-      }
-    >;
+    stateLog?: StateLog_.StateLog;
     created?: Units_.Time;
     modified?: Units_.Time;
-    agencyId?: Common_.AgencyId;
   } & {
     id: Defined;
     identityId: Defined;
-    details: Defined;
+    kycServiceId: Defined;
     status: Defined;
-    type: Defined;
     stateLog: Defined;
   },
   VerificationBrand
@@ -75,42 +58,19 @@ export const Verification = t.brand(
     t.partial({
       id: t.string,
       identityId: Units_.IdentityId,
-      details: t.intersection([
-        t.partial({
-          url: t.string,
-          sessionToken: t.string,
-        }),
-        t.type({
-          url: Defined,
-          sessionToken: Defined,
-        }),
-      ]),
-      validFrom: t.string,
-      validTo: t.string,
+      kycServiceId: t.string,
+      url: Units_.Url,
+      token: t.string,
       status: t.string,
-      type: t.string,
-      stateLog: t.array(
-        t.intersection([
-          t.partial({
-            status: t.string,
-            timestamp: Units_.Time,
-          }),
-          t.type({
-            status: Defined,
-            timestamp: Defined,
-          }),
-        ]),
-      ),
+      stateLog: StateLog_.StateLog,
       created: Units_.Time,
       modified: Units_.Time,
-      agencyId: Common_.AgencyId,
     }),
     t.type({
       id: Defined,
       identityId: Defined,
-      details: Defined,
+      kycServiceId: Defined,
       status: Defined,
-      type: Defined,
       stateLog: Defined,
     }),
   ]),
@@ -120,35 +80,18 @@ export const Verification = t.brand(
     {
       id?: string;
       identityId?: Units_.IdentityId;
-      details?: {
-        url?: string;
-        sessionToken?: string;
-      } & {
-        url: Defined;
-        sessionToken: Defined;
-      };
-      validFrom?: string;
-      validTo?: string;
+      kycServiceId?: string;
+      url?: Units_.Url;
+      token?: string;
       status?: string;
-      type?: string;
-      stateLog?: Array<
-        {
-          status?: string;
-          timestamp?: Units_.Time;
-        } & {
-          status: Defined;
-          timestamp: Defined;
-        }
-      >;
+      stateLog?: StateLog_.StateLog;
       created?: Units_.Time;
       modified?: Units_.Time;
-      agencyId?: Common_.AgencyId;
     } & {
       id: Defined;
       identityId: Defined;
-      details: Defined;
+      kycServiceId: Defined;
       status: Defined;
-      type: Defined;
       stateLog: Defined;
     },
     VerificationBrand

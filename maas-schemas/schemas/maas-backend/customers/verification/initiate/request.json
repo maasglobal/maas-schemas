@@ -14,12 +14,11 @@
     },
     "payload": {
       "properties": {
-        "type": {
-          "minLength": 2,
-          "type": "string"
+        "location": {
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
         }
       },
-      "required": ["type"],
+      "required": ["location"],
       "type": "object"
     }
   },

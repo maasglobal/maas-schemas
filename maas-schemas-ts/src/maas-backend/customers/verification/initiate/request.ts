@@ -11,6 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from '../../../../core/components/units';
 import * as ApiCommon_ from '../../../../core/components/api-common';
+import * as UnitsGeo_ from '../../../../core/components/units-geo';
 
 type Defined =
   | Record<string, unknown>
@@ -39,9 +40,9 @@ export type Request = t.Branded<
     headers?: ApiCommon_.Headers;
     identityId?: Units_.IdentityId;
     payload?: {
-      type?: string;
+      location?: UnitsGeo_.ShortLocationString;
     } & {
-      type: Defined;
+      location: Defined;
     };
   } & {
     identityId: Defined;
@@ -59,10 +60,10 @@ export const Request = t.brand(
       identityId: Units_.IdentityId,
       payload: t.intersection([
         t.partial({
-          type: t.string,
+          location: UnitsGeo_.ShortLocationString,
         }),
         t.type({
-          type: Defined,
+          location: Defined,
         }),
       ]),
     }),
@@ -81,9 +82,9 @@ export const Request = t.brand(
       headers?: ApiCommon_.Headers;
       identityId?: Units_.IdentityId;
       payload?: {
-        type?: string;
+        location?: UnitsGeo_.ShortLocationString;
       } & {
-        type: Defined;
+        location: Defined;
       };
     } & {
       identityId: Defined;
