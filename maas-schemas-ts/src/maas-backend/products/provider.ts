@@ -8,12 +8,12 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from "io-ts";
-import * as Common_ from "maas-schemas-ts/core/components/common";
-import * as Units_ from "maas-schemas-ts/core/components/units";
-import * as PersonalDataAllowItem_ from "maas-schemas-ts/core/components/personalDataAllowItem";
-import * as PersonalDataValidation_ from "maas-schemas-ts/core/components/personalDataValidation";
-import * as PersonalDocumentRequiredItem_ from "maas-schemas-ts/core/components/personalDocumentRequiredItem";
+import * as t from 'io-ts';
+import * as Common_ from '../../core/components/common';
+import * as Units_ from '../../core/components/units';
+import * as PersonalDataAllowItem_ from '../../core/components/personalDataAllowItem';
+import * as PersonalDataValidation_ from '../../core/components/personalDataValidation';
+import * as PersonalDocumentRequiredItem_ from '../../core/components/personalDocumentRequiredItem';
 
 type Defined =
   | Record<string, unknown>
@@ -31,8 +31,7 @@ const Defined = t.union([
   t.null,
 ]);
 
-export const schemaId =
-  "http://maasglobal.com/maas-backend/products/provider.json";
+export const schemaId = 'http://maasglobal.com/maas-backend/products/provider.json';
 
 // Provider
 // The default export. More information at the top.
@@ -79,15 +78,9 @@ export type Provider = t.Branded<
         maxIntervalUntilBooking: Defined;
       };
     };
-    personalDataOptionsAllow?: Array<
-      PersonalDataAllowItem_.PersonalDataAllowItem
-    >;
-    personalDataCreateAllow?: Array<
-      PersonalDataAllowItem_.PersonalDataAllowItem
-    >;
-    personalDataValidations?: Array<
-      PersonalDataValidation_.PersonalDataValidation
-    >;
+    personalDataOptionsAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
+    personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
+    personalDataValidations?: Array<PersonalDataValidation_.PersonalDataValidation>;
     requiredPersonalDocuments?: Array<
       PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
     >;
@@ -95,13 +88,13 @@ export type Provider = t.Branded<
       {
         id?: string;
         name?: string;
-        type?: "oneOf" | "someOf" | "allOf" | "oneOrNoneOf" | "someOrNoneOf";
+        type?: 'oneOf' | 'someOf' | 'allOf' | 'oneOrNoneOf' | 'someOrNoneOf';
         userSelectable?: boolean;
         inputs?: Array<
           {
             id?: string;
             name?: string;
-            type?: "string" | "number" | "boolean" | "station";
+            type?: 'string' | 'number' | 'boolean' | 'station';
             default?: string | number | boolean;
           } & {
             id: Defined;
@@ -182,17 +175,11 @@ export const Provider = t.brand(
           }),
         ]),
       }),
-      personalDataOptionsAllow: t.array(
-        PersonalDataAllowItem_.PersonalDataAllowItem
-      ),
-      personalDataCreateAllow: t.array(
-        PersonalDataAllowItem_.PersonalDataAllowItem
-      ),
-      personalDataValidations: t.array(
-        PersonalDataValidation_.PersonalDataValidation
-      ),
+      personalDataOptionsAllow: t.array(PersonalDataAllowItem_.PersonalDataAllowItem),
+      personalDataCreateAllow: t.array(PersonalDataAllowItem_.PersonalDataAllowItem),
+      personalDataValidations: t.array(PersonalDataValidation_.PersonalDataValidation),
       requiredPersonalDocuments: t.array(
-        PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
+        PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem,
       ),
       optionalParameters: t.array(
         t.intersection([
@@ -200,11 +187,11 @@ export const Provider = t.brand(
             id: t.string,
             name: t.string,
             type: t.union([
-              t.literal("oneOf"),
-              t.literal("someOf"),
-              t.literal("allOf"),
-              t.literal("oneOrNoneOf"),
-              t.literal("someOrNoneOf"),
+              t.literal('oneOf'),
+              t.literal('someOf'),
+              t.literal('allOf'),
+              t.literal('oneOrNoneOf'),
+              t.literal('someOrNoneOf'),
             ]),
             userSelectable: t.boolean,
             inputs: t.array(
@@ -213,10 +200,10 @@ export const Provider = t.brand(
                   id: t.string,
                   name: t.string,
                   type: t.union([
-                    t.literal("string"),
-                    t.literal("number"),
-                    t.literal("boolean"),
-                    t.literal("station"),
+                    t.literal('string'),
+                    t.literal('number'),
+                    t.literal('boolean'),
+                    t.literal('station'),
                   ]),
                   default: t.union([t.string, t.number, t.boolean]),
                 }),
@@ -225,7 +212,7 @@ export const Provider = t.brand(
                   name: Defined,
                   type: Defined,
                 }),
-              ])
+              ]),
             ),
           }),
           t.type({
@@ -233,7 +220,7 @@ export const Provider = t.brand(
             name: Defined,
             inputs: Defined,
           }),
-        ])
+        ]),
       ),
       disruption: t.type({}),
     }),
@@ -250,7 +237,7 @@ export const Provider = t.brand(
     }),
   ]),
   (
-    x
+    x,
   ): x is t.Branded<
     {
       name?: string;
@@ -294,15 +281,9 @@ export const Provider = t.brand(
           maxIntervalUntilBooking: Defined;
         };
       };
-      personalDataOptionsAllow?: Array<
-        PersonalDataAllowItem_.PersonalDataAllowItem
-      >;
-      personalDataCreateAllow?: Array<
-        PersonalDataAllowItem_.PersonalDataAllowItem
-      >;
-      personalDataValidations?: Array<
-        PersonalDataValidation_.PersonalDataValidation
-      >;
+      personalDataOptionsAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
+      personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
+      personalDataValidations?: Array<PersonalDataValidation_.PersonalDataValidation>;
       requiredPersonalDocuments?: Array<
         PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
       >;
@@ -310,13 +291,13 @@ export const Provider = t.brand(
         {
           id?: string;
           name?: string;
-          type?: "oneOf" | "someOf" | "allOf" | "oneOrNoneOf" | "someOrNoneOf";
+          type?: 'oneOf' | 'someOf' | 'allOf' | 'oneOrNoneOf' | 'someOrNoneOf';
           userSelectable?: boolean;
           inputs?: Array<
             {
               id?: string;
               name?: string;
-              type?: "string" | "number" | "boolean" | "station";
+              type?: 'string' | 'number' | 'boolean' | 'station';
               default?: string | number | boolean;
             } & {
               id: Defined;
@@ -344,7 +325,7 @@ export const Provider = t.brand(
     },
     ProviderBrand
   > => true,
-  "Provider"
+  'Provider',
 );
 export interface ProviderBrand {
   readonly Provider: unique symbol;
