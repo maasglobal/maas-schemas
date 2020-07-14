@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "type": {
-      "enum": ["value", "enum", "length", "regex", "date", "dateDurationTillNow"]
+      "enum": ["value", "enum", "length", "regex", "date", "dateDurationUntilNow"]
     },
     "operator": {
       "enum": [">", ">=", "<", "<=", "=", "!=", "in"]
@@ -48,7 +48,7 @@
           "description": "ISO date or timestamp",
           "type": ["string", "integer"]
         },
-        "dateDurationTillNow": {
+        "dateDurationUntilNow": {
           "description": "Duration from personal data item type date until now() compare with now()",
           "type": "object",
           "properties": {

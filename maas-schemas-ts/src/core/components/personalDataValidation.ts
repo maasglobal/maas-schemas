@@ -16,7 +16,7 @@ export const schemaId =
 // The default export. More information at the top.
 export type PersonalDataValidation = t.Branded<
   {
-    type?: 'value' | 'enum' | 'length' | 'regex' | 'date' | 'dateDurationTillNow';
+    type?: 'value' | 'enum' | 'length' | 'regex' | 'date' | 'dateDurationUntilNow';
     operator?: '>' | '>=' | '<' | '<=' | '=' | '!=' | 'in';
     config?: {
       path?: string;
@@ -29,7 +29,7 @@ export type PersonalDataValidation = t.Branded<
       length?: number;
       regex?: string;
       date?: string | number;
-      dateDurationTillNow?: {
+      dateDurationUntilNow?: {
         month?: number;
         day?: number;
         hour?: number;
@@ -48,7 +48,7 @@ export const PersonalDataValidation = t.brand(
       t.literal('length'),
       t.literal('regex'),
       t.literal('date'),
-      t.literal('dateDurationTillNow'),
+      t.literal('dateDurationUntilNow'),
     ]),
     operator: t.union([
       t.literal('>'),
@@ -72,7 +72,7 @@ export const PersonalDataValidation = t.brand(
       length: t.number,
       regex: t.string,
       date: t.union([t.string, t.number]),
-      dateDurationTillNow: t.partial({
+      dateDurationUntilNow: t.partial({
         month: t.number,
         day: t.number,
         hour: t.number,
@@ -85,7 +85,7 @@ export const PersonalDataValidation = t.brand(
     x,
   ): x is t.Branded<
     {
-      type?: 'value' | 'enum' | 'length' | 'regex' | 'date' | 'dateDurationTillNow';
+      type?: 'value' | 'enum' | 'length' | 'regex' | 'date' | 'dateDurationUntilNow';
       operator?: '>' | '>=' | '<' | '<=' | '=' | '!=' | 'in';
       config?: {
         path?: string;
@@ -98,7 +98,7 @@ export const PersonalDataValidation = t.brand(
         length?: number;
         regex?: string;
         date?: string | number;
-        dateDurationTillNow?: {
+        dateDurationUntilNow?: {
           month?: number;
           day?: number;
           hour?: number;
