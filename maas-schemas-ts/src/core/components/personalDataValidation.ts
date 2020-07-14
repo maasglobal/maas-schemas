@@ -25,6 +25,8 @@ export type PersonalDataValidation = t.Branded<
       value?: string | number | boolean;
       enum?: Array<{
         value?: string | number | boolean;
+        name?: string;
+        description?: string;
         meta?: {};
       }>;
       length?: number;
@@ -67,6 +69,8 @@ export const PersonalDataValidation = t.brand(
       enum: t.array(
         t.partial({
           value: t.union([t.string, t.number, t.boolean]),
+          name: t.string,
+          description: t.string,
           meta: t.type({}),
         }),
       ),
@@ -94,6 +98,8 @@ export const PersonalDataValidation = t.brand(
         value?: string | number | boolean;
         enum?: Array<{
           value?: string | number | boolean;
+          name?: string;
+          description?: string;
           meta?: {};
         }>;
         length?: number;

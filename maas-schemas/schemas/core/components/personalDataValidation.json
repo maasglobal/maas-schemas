@@ -32,6 +32,14 @@
               "value": {
                 "type": ["string", "number", "boolean"]
               },
+              "name": {
+                "description": "Localization string for enum choice name",
+                "type": "string"
+              },
+              "description": {
+                "description": "Localization string for enum choice description",
+                "type": "string"
+              },
               "meta": {
                 "type": "object"
               }
