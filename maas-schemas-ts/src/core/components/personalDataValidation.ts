@@ -17,6 +17,8 @@ export const schemaId =
 // The default export. More information at the top.
 export type PersonalDataValidation = t.Branded<
   {
+    id?: number;
+    name?: string;
     type?: 'value' | 'enum' | 'length' | 'regex' | 'date' | 'dateDurationUntilNow';
     operator?: '>' | '>=' | '<' | '<=' | '=' | '!=' | 'in';
     config?: {
@@ -45,6 +47,8 @@ export type PersonalDataValidation = t.Branded<
 >;
 export const PersonalDataValidation = t.brand(
   t.partial({
+    id: t.number,
+    name: t.string,
     type: t.union([
       t.literal('value'),
       t.literal('enum'),
@@ -90,6 +94,8 @@ export const PersonalDataValidation = t.brand(
     x,
   ): x is t.Branded<
     {
+      id?: number;
+      name?: string;
       type?: 'value' | 'enum' | 'length' | 'regex' | 'date' | 'dateDurationUntilNow';
       operator?: '>' | '>=' | '<' | '<=' | '=' | '!=' | 'in';
       config?: {
