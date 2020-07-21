@@ -95,6 +95,7 @@ export type Customer = t.Branded<
     };
     subscriberType?: string;
     authToken?: Common_.EncodedQueryParam;
+    cugHome?: string;
   },
   CustomerBrand
 >;
@@ -172,6 +173,7 @@ export const Customer = t.brand(
     }),
     subscriberType: t.string,
     authToken: Common_.EncodedQueryParam,
+    cugHome: t.string,
   }),
   (
     x,
@@ -232,6 +234,7 @@ export const Customer = t.brand(
       };
       subscriberType?: string;
       authToken?: Common_.EncodedQueryParam;
+      cugHome?: string;
     },
     CustomerBrand
   > => true,
