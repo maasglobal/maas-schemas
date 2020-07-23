@@ -18,7 +18,7 @@
           "properties": {
             "amount": {
               "type": "number",
-              "minValue": 0
+              "minimum": 0
             },
             "currency": {
               "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"

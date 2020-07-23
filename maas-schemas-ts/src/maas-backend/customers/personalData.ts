@@ -36,6 +36,7 @@ export type PersonalData = t.Branded<
     ssid?: boolean | Common_.Ssid;
     subscriberType?: string;
     profileImageUrl?: string;
+    nationality?: string;
   } & {},
   PersonalDataBrand
 >;
@@ -59,6 +60,7 @@ export const PersonalData = t.brand(
       ssid: t.union([t.boolean, Common_.Ssid]),
       subscriberType: t.string,
       profileImageUrl: t.string,
+      nationality: t.string,
     }),
     t.type({}),
   ]),
@@ -83,6 +85,7 @@ export const PersonalData = t.brand(
       ssid?: boolean | Common_.Ssid;
       subscriberType?: string;
       profileImageUrl?: string;
+      nationality?: string;
     } & {},
     PersonalDataBrand
   > => true,
