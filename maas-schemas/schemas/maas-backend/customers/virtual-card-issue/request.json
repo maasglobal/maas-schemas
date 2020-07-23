@@ -1,0 +1,43 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/virtual-card-issue/request.json",
+  "description": "MaaS customer virtual card issue async lambda request",
+  "type": "object",
+  "properties": {
+    "customerId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "providerName": {
+          "type": "string",
+          "minLength": 2
+        },
+        "initialBalance": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "minValue": 0
+            },
+            "currency": {
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+            }
+          },
+          "additionalProperties": false,
+          "required": ["amount", "currency"]
+        },
+        "rollbackOnFailure": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["providerName", "rollbackOnFailure"]
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["customerId", "payload", "headers"]
+}
