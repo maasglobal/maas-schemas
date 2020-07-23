@@ -3,13 +3,10 @@
   "description": "Request schema for subscriptions-retrieve",
   "type": "object",
   "properties": {
-    "customerId": {
+    "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "userId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
-    },
-    "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "nextPeriod": {
@@ -23,6 +20,6 @@
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
-  "required": ["customerId", "userId"],
+  "required": ["identityId", "userId"],
   "additionalProperties": false
 }
