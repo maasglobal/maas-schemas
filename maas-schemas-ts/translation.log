@@ -1080,6 +1080,10 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/customer.json
 WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/customer.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/customer.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/customer.json
 INFO: primitive type "number" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/favorite-locations/delete/request.json
 INFO: primitive type "number" used outside top-level definitions
@@ -1141,6 +1145,8 @@ INFO: primitive type "string" used outside top-level definitions
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/personalData.json
+INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/personal-data-delete/request.json
@@ -1338,6 +1344,16 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-card-issue/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-card-issue/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-card-issue/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-card-issue/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-card-issue/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/geocoding/geocoding-query/request.json
 WARNING: minLength field not supported outside top-level definitions
