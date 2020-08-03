@@ -23,6 +23,18 @@
         "regionDefault": {
           "description": "Is this subscription option the default one for the region",
           "type": "boolean"
+        },
+        "personalDataCreateAllow": {
+          "type": "array",
+          "items": {
+            "$ref": "http://maasglobal.com/core/components/personalDataAllowItem.json"
+          }
+        },
+        "personalDataValidations": {
+          "type": "array",
+          "items": {
+            "$ref": "http://maasglobal.com/core/components/personalDataValidation.json"
+          }
         }
       },
       "required": ["plan", "wmpGrant", "pointCost", "addons", "coupons", "requiredAuthorizations", "regionDefault"],

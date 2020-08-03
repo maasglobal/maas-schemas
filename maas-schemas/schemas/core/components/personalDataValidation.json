@@ -1,0 +1,83 @@
+{
+  "$id": "http://maasglobal.com/core/components/personalDataValidation.json",
+  "description": "MaaS personal data validation rules",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "enum": ["value", "enum", "length", "regex", "date", "dateDurationUntilNow"]
+    },
+    "operator": {
+      "enum": [">", ">=", "<", "<=", "=", "!=", "in"]
+    },
+    "config": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "description": "Remote config path",
+          "type": "string"
+        },
+        "remoteSource": {
+          "description": "Remote source name",
+          "examples": ["s3"],
+          "type": "string"
+        },
+        "value": {
+          "type": ["string", "number", "boolean"]
+        },
+        "enum": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": ["string", "number", "boolean"]
+              },
+              "name": {
+                "description": "Localization string for enum choice name",
+                "type": "string"
+              },
+              "description": {
+                "description": "Localization string for enum choice description",
+                "type": "string"
+              },
+              "meta": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "length": {
+          "type": "number"
+        },
+        "regex": {
+          "type": "string"
+        },
+        "date": {
+          "description": "ISO date or timestamp",
+          "type": ["string", "integer"]
+        },
+        "dateDurationUntilNow": {
+          "description": "Duration from personal data item type date until now() compare with now()",
+          "type": "object",
+          "properties": {
+            "month": { "type": "integer", "minimum": 1 },
+            "day": { "type": "integer", "minimum": 1 },
+            "hour": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "meta": {
+          "type": "object"
+        }
+      }
+    },
+    "errorCode": {
+      "type": "string"
+    }
+  }
+}

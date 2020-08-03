@@ -406,6 +406,38 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/personalDataAllowItem.json
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/personalDataAllowItem.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+WARNING: examples field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+INFO: primitive type "number" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/personalDataValidation.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/personalDocumentRequiredItem.json
 WARNING: minLength field not supported outside top-level definitions
@@ -571,6 +603,8 @@ INFO: primitive type "integer" used outside top-level definitions
 WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/customer.json
 WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/customer.json
+INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/customer.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/customer.json
@@ -1134,6 +1168,8 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/payment-sources/setup-intent/response.json
 WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/payment-sources/setup-intent/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/personalData.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
 INFO: primitive type "string" used outside top-level definitions

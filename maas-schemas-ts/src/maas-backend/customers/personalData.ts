@@ -28,6 +28,7 @@ export type PersonalData = t.Branded<
     phone?: Common_.Phone;
     email?: Common_.Email;
     address?: Address_.Address;
+    cugHome?: string;
     city?: Address_.City;
     state?: Address_.State;
     country?: Address_.Country;
@@ -52,6 +53,7 @@ export const PersonalData = t.brand(
       phone: Common_.Phone,
       email: Common_.Email,
       address: Address_.Address,
+      cugHome: t.string,
       city: Address_.City,
       state: Address_.State,
       country: Address_.Country,
@@ -77,6 +79,7 @@ export const PersonalData = t.brand(
       phone?: Common_.Phone;
       email?: Common_.Email;
       address?: Address_.Address;
+      cugHome?: string;
       city?: Address_.City;
       state?: Address_.State;
       country?: Address_.Country;

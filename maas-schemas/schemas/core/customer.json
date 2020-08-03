@@ -146,6 +146,9 @@
     "authToken": {
       "description": "Authentication Token",
       "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
+    },
+    "cugHome": {
+      "type": "string"
     }
   },
   "additionalProperties": false,
