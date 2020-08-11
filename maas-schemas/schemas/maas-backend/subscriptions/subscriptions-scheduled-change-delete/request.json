@@ -3,7 +3,7 @@
   "description": "Request schema for subscriptions-scheduled-change-delete",
   "type": "object",
   "properties": {
-    "customerId": {
+    "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "userId": {
@@ -13,6 +13,6 @@
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
-  "required": ["customerId", "userId"],
+  "required": ["identityId", "userId"],
   "additionalProperties": false
 }

@@ -1,6 +1,6 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-estimate/request.json",
-  "description": "Request schema for subscriptions-estimate",
+  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-intents-create/request.json",
+  "description": "Request schema for subscriptions-intents-create",
   "type": "object",
   "properties": {
     "identityId": {
@@ -9,14 +9,8 @@
     "userId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
-    "immediate": {
-      "type": "boolean"
-    },
-    "replace": {
-      "type": "boolean"
-    },
     "payload": {
-      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscriptionUpdatePayload"
+      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription-intent.json#/definitions/subscriptionIntentCreate"
     },
     "headers": {
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
