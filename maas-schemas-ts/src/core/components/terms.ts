@@ -227,6 +227,7 @@ export type Terms = t.Branded<
       outward?: Amendment;
       return?: Amendment;
     };
+    prePurchaseGuidanceUrl?: Units_.Url;
     fareRates?: Array<
       {
         amount?: number;
@@ -283,6 +284,7 @@ export const Terms = t.brand(
       outward: Amendment,
       return: Amendment,
     }),
+    prePurchaseGuidanceUrl: Units_.Url,
     fareRates: t.array(
       t.intersection([
         t.partial({
@@ -340,6 +342,7 @@ export const Terms = t.brand(
         outward?: Amendment;
         return?: Amendment;
       };
+      prePurchaseGuidanceUrl?: Units_.Url;
       fareRates?: Array<
         {
           amount?: number;
