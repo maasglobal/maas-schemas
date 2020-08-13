@@ -43,7 +43,7 @@ export type Request = t.Branded<
   } & {
     identityId: Defined;
     agencyId: Defined;
-    stationsId: Defined;
+    stationId: Defined;
   },
   RequestBrand
 >;
@@ -58,7 +58,7 @@ export const Request = t.brand(
     t.type({
       identityId: Defined,
       agencyId: Defined,
-      stationsId: Defined,
+      stationId: Defined,
     }),
   ]),
   (
@@ -72,7 +72,7 @@ export const Request = t.brand(
     } & {
       identityId: Defined;
       agencyId: Defined;
-      stationsId: Defined;
+      stationId: Defined;
     },
     RequestBrand
   > => true,

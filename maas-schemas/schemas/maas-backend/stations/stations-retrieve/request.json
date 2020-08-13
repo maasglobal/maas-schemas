@@ -17,6 +17,6 @@
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
-  "required": ["identityId", "agencyId", "stationsId"],
+  "required": ["identityId", "agencyId", "stationId"],
   "additionalProperties": false
 }
