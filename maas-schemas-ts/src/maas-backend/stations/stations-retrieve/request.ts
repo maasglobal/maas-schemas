@@ -37,14 +37,13 @@ export const schemaId =
 export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
-    payload?: {
-      agencyId?: Common_.AgencyId;
-      stationId?: string;
-    };
+    agencyId?: Common_.AgencyId;
+    stationId?: string;
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
-    payload: Defined;
+    agencyId: Defined;
+    stationsId: Defined;
   },
   RequestBrand
 >;
@@ -52,15 +51,14 @@ export const Request = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
-      payload: t.partial({
-        agencyId: Common_.AgencyId,
-        stationId: t.string,
-      }),
+      agencyId: Common_.AgencyId,
+      stationId: t.string,
       headers: ApiCommon_.Headers,
     }),
     t.type({
       identityId: Defined,
-      payload: Defined,
+      agencyId: Defined,
+      stationsId: Defined,
     }),
   ]),
   (
@@ -68,14 +66,13 @@ export const Request = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
-      payload?: {
-        agencyId?: Common_.AgencyId;
-        stationId?: string;
-      };
+      agencyId?: Common_.AgencyId;
+      stationId?: string;
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;
-      payload: Defined;
+      agencyId: Defined;
+      stationsId: Defined;
     },
     RequestBrand
   > => true,
