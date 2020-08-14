@@ -19,9 +19,12 @@ export const schemaId =
 export type Request = t.Branded<
   {
     agencyId?: Common_.AgencyId;
-    token?: Common_.EncodedQueryParam;
-    encodedData?: Common_.EncodedQueryParam;
-    error?: Common_.ErrorKey;
+    payload?: {
+      token?: Common_.EncodedQueryParam;
+      encodedData?: Common_.EncodedQueryParam;
+      state?: Common_.EncodedQueryParam;
+      error?: Common_.ErrorKey;
+    };
     headers?: {};
   },
   RequestBrand
@@ -29,9 +32,12 @@ export type Request = t.Branded<
 export const Request = t.brand(
   t.partial({
     agencyId: Common_.AgencyId,
-    token: Common_.EncodedQueryParam,
-    encodedData: Common_.EncodedQueryParam,
-    error: Common_.ErrorKey,
+    payload: t.partial({
+      token: Common_.EncodedQueryParam,
+      encodedData: Common_.EncodedQueryParam,
+      state: Common_.EncodedQueryParam,
+      error: Common_.ErrorKey,
+    }),
     headers: t.type({}),
   }),
   (
@@ -39,9 +45,12 @@ export const Request = t.brand(
   ): x is t.Branded<
     {
       agencyId?: Common_.AgencyId;
-      token?: Common_.EncodedQueryParam;
-      encodedData?: Common_.EncodedQueryParam;
-      error?: Common_.ErrorKey;
+      payload?: {
+        token?: Common_.EncodedQueryParam;
+        encodedData?: Common_.EncodedQueryParam;
+        state?: Common_.EncodedQueryParam;
+        error?: Common_.ErrorKey;
+      };
       headers?: {};
     },
     RequestBrand
