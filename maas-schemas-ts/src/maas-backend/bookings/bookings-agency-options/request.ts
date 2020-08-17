@@ -10,10 +10,10 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 import * as TravelMode_ from '../../../core/components/travel-mode';
-import * as Common_ from '../../../core/components/common';
 import * as Units_ from '../../../core/components/units';
 import * as UnitsGeo_ from '../../../core/components/units-geo';
 import * as Address_ from '../../../core/components/address';
+import * as Common_ from '../../../core/components/common';
 import * as ApiCommon_ from '../../../core/components/api-common';
 
 type Defined =
@@ -40,7 +40,6 @@ export const schemaId =
 export type Payload = t.Branded<
   {
     mode?: TravelMode_.TravelMode;
-    agencyId?: Common_.AgencyId;
     startTime?: Units_.Time;
     endTime?: Units_.Time;
     from?: UnitsGeo_.ShortLocationString;
@@ -55,7 +54,6 @@ export type Payload = t.Branded<
   } & Record<
     string,
     | TravelMode_.TravelMode
-    | Common_.AgencyId
     | Units_.Time
     | Units_.Time
     | UnitsGeo_.ShortLocationString
@@ -75,7 +73,6 @@ export const Payload = t.brand(
   t.intersection([
     t.partial({
       mode: TravelMode_.TravelMode,
-      agencyId: Common_.AgencyId,
       startTime: Units_.Time,
       endTime: Units_.Time,
       from: UnitsGeo_.ShortLocationString,
@@ -92,7 +89,6 @@ export const Payload = t.brand(
       t.string,
       t.union([
         TravelMode_.TravelMode,
-        Common_.AgencyId,
         Units_.Time,
         Units_.Time,
         UnitsGeo_.ShortLocationString,
@@ -113,7 +109,6 @@ export const Payload = t.brand(
   ): x is t.Branded<
     {
       mode?: TravelMode_.TravelMode;
-      agencyId?: Common_.AgencyId;
       startTime?: Units_.Time;
       endTime?: Units_.Time;
       from?: UnitsGeo_.ShortLocationString;
@@ -128,7 +123,6 @@ export const Payload = t.brand(
     } & Record<
       string,
       | TravelMode_.TravelMode
-      | Common_.AgencyId
       | Units_.Time
       | Units_.Time
       | UnitsGeo_.ShortLocationString
@@ -155,11 +149,13 @@ export interface PayloadBrand {
 export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
+    agencyId?: Common_.AgencyId;
     payload?: Payload;
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
     payload: Defined;
+    agencyId: Defined;
     headers: Defined;
   },
   RequestBrand
@@ -168,12 +164,14 @@ export const Request = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
+      agencyId: Common_.AgencyId,
       payload: Payload,
       headers: ApiCommon_.Headers,
     }),
     t.type({
       identityId: Defined,
       payload: Defined,
+      agencyId: Defined,
       headers: Defined,
     }),
   ]),
@@ -182,11 +180,13 @@ export const Request = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
+      agencyId?: Common_.AgencyId;
       payload?: Payload;
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;
       payload: Defined;
+      agencyId: Defined;
       headers: Defined;
     },
     RequestBrand

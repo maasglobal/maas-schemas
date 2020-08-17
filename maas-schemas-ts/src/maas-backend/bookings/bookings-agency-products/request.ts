@@ -9,8 +9,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Common_ from '../../../core/components/common';
 import * as Units_ from '../../../core/components/units';
+import * as Common_ from '../../../core/components/common';
 import * as ApiCommon_ from '../../../core/components/api-common';
 
 type Defined =
@@ -32,51 +32,16 @@ const Defined = t.union([
 export const schemaId =
   'http://maasglobal.com/maas-backend/bookings/bookings-agency-products/request.json';
 
-// Payload
-// The purpose of this remains a mystery
-export type Payload = t.Branded<
-  {
-    agencyId?: Common_.AgencyId;
-  } & {
-    agencyId: Defined;
-  },
-  PayloadBrand
->;
-export const Payload = t.brand(
-  t.intersection([
-    t.partial({
-      agencyId: Common_.AgencyId,
-    }),
-    t.type({
-      agencyId: Defined,
-    }),
-  ]),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      agencyId?: Common_.AgencyId;
-    } & {
-      agencyId: Defined;
-    },
-    PayloadBrand
-  > => true,
-  'Payload',
-);
-export interface PayloadBrand {
-  readonly Payload: unique symbol;
-}
-
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
-    payload?: Payload;
+    agencyId?: Common_.AgencyId;
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
-    payload: Defined;
+    agencyId: Defined;
   },
   RequestBrand
 >;
@@ -84,12 +49,12 @@ export const Request = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
-      payload: Payload,
+      agencyId: Common_.AgencyId,
       headers: ApiCommon_.Headers,
     }),
     t.type({
       identityId: Defined,
-      payload: Defined,
+      agencyId: Defined,
     }),
   ]),
   (
@@ -97,11 +62,11 @@ export const Request = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
-      payload?: Payload;
+      agencyId?: Common_.AgencyId;
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;
-      payload: Defined;
+      agencyId: Defined;
     },
     RequestBrand
   > => true,
