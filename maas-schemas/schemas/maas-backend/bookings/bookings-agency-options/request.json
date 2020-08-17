@@ -3,10 +3,13 @@
   "description": "Request schema for bookings-agency-options",
   "type": "object",
   "additionalProperties": false,
-  "required": ["identityId", "payload", "headers"],
+  "required": ["identityId", "payload", "agencyId", "headers"],
   "properties": {
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "agencyId": {
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
     },
     "payload": {
       "$ref": "#/definitions/payload"
@@ -22,9 +25,6 @@
       "properties": {
         "mode": {
           "$ref": "http://maasglobal.com/core/components/travel-mode.json"
-        },
-        "agencyId": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
         },
         "startTime": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
