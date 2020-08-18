@@ -34,14 +34,14 @@ export const schemaId =
 // The default export. More information at the top.
 export type Request = t.Branded<
   {
-    identityId?: Units_.IdentityId;
+    customerId?: Units_.IdentityId;
     userId?: Units_.IdentityId;
     identityId?: Units_.IdentityId;
     nextPeriod?: boolean;
     payload?: {};
     headers?: ApiCommon_.Headers;
   } & {
-    identityId: Defined;
+    customerId: Defined;
     userId: Defined;
   },
   RequestBrand
@@ -67,7 +67,7 @@ export type RequestC = t.BrandC<
 export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
-      identityId: Units_.IdentityId,
+      customerId: Units_.IdentityId,
       userId: Units_.IdentityId,
       identityId: Units_.IdentityId,
       nextPeriod: t.boolean,
@@ -75,7 +75,7 @@ export const Request: RequestC = t.brand(
       headers: ApiCommon_.Headers,
     }),
     t.type({
-      identityId: Defined,
+      customerId: Defined,
       userId: Defined,
     }),
   ]),
@@ -83,14 +83,14 @@ export const Request: RequestC = t.brand(
     x,
   ): x is t.Branded<
     {
-      identityId?: Units_.IdentityId;
+      customerId?: Units_.IdentityId;
       userId?: Units_.IdentityId;
       identityId?: Units_.IdentityId;
       nextPeriod?: boolean;
       payload?: {};
       headers?: ApiCommon_.Headers;
     } & {
-      identityId: Defined;
+      customerId: Defined;
       userId: Defined;
     },
     RequestBrand
