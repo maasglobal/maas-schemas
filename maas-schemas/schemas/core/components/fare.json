@@ -20,7 +20,7 @@
       "$ref": "#/definitions/tokenId"
     },
     "hidden": {
-      "description": "Whether clients should display this fare for customer in payment view and profile view",
+      "description": "Whether clients should hide this fare for customer in payment view and profile view",
       "type": "boolean"
     },
     "originalAmount": {
