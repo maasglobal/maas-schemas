@@ -19,6 +19,10 @@
     "tokenId": {
       "$ref": "#/definitions/tokenId"
     },
+    "hidden": {
+      "description": "Whether clients should display this fare for customer in payment view and profile view",
+      "type": "boolean"
+    },
     "originalAmount": {
       "type": ["integer", "null"],
       "minimum": 0

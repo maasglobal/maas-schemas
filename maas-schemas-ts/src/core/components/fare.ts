@@ -49,6 +49,7 @@ export type Fare = t.Branded<
     amount?: number | null;
     currency?: Common_.MetaCurrency;
     tokenId?: TokenId;
+    hidden?: boolean;
     originalAmount?: number | null;
     productionAmount?: number | null;
     type?: string & ('charge' | 'refund');
@@ -64,6 +65,7 @@ export const Fare = t.brand(
       amount: t.union([t.number, t.null]),
       currency: Common_.MetaCurrency,
       tokenId: TokenId,
+      hidden: t.boolean,
       originalAmount: t.union([t.number, t.null]),
       productionAmount: t.union([t.number, t.null]),
       type: t.intersection([
@@ -83,6 +85,7 @@ export const Fare = t.brand(
       amount?: number | null;
       currency?: Common_.MetaCurrency;
       tokenId?: TokenId;
+      hidden?: boolean;
       originalAmount?: number | null;
       productionAmount?: number | null;
       type?: string & ('charge' | 'refund');
