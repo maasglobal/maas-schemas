@@ -72,6 +72,11 @@
       "description": "A date in the form YYYY-MM-DD without a time component",
       "type": "string",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+    },
+    "isoDateTime": {
+      "description": "A date in the form YYYY-MM-DDTHH:MM:SS.mmmZ",
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{3})?Z"
     }
   }
 }
