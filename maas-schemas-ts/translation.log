@@ -1456,8 +1456,6 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/itineraries/itinerary-retrieve/request.json
 INFO: missing description
   in ../maas-schemas/schemas/maas-backend/products/products-providers-options/request.json
-INFO: missing description
-  in ../maas-schemas/schemas/maas-backend/products/products-providers-retrieve/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/products/provider.json
 WARNING: minLength field not supported outside top-level definitions
