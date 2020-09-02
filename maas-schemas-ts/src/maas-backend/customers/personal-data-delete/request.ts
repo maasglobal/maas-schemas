@@ -37,16 +37,12 @@ export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
     customerId?: Units_.IdentityId;
-    payload?: {
-      itemName?: string;
-    } & {
-      itemName: Defined;
-    };
+    itemName?: string;
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
     customerId: Defined;
-    payload: Defined;
+    itemName: Defined;
     headers: Defined;
   },
   RequestBrand
@@ -56,20 +52,13 @@ export const Request = t.brand(
     t.partial({
       identityId: Units_.IdentityId,
       customerId: Units_.IdentityId,
-      payload: t.intersection([
-        t.partial({
-          itemName: t.string,
-        }),
-        t.type({
-          itemName: Defined,
-        }),
-      ]),
+      itemName: t.string,
       headers: ApiCommon_.Headers,
     }),
     t.type({
       identityId: Defined,
       customerId: Defined,
-      payload: Defined,
+      itemName: Defined,
       headers: Defined,
     }),
   ]),
@@ -79,16 +68,12 @@ export const Request = t.brand(
     {
       identityId?: Units_.IdentityId;
       customerId?: Units_.IdentityId;
-      payload?: {
-        itemName?: string;
-      } & {
-        itemName: Defined;
-      };
+      itemName?: string;
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;
       customerId: Defined;
-      payload: Defined;
+      itemName: Defined;
       headers: Defined;
     },
     RequestBrand
