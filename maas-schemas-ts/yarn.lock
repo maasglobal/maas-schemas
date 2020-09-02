@@ -1960,17 +1960,18 @@ invariant@^2.2.4:
   dependencies:
     loose-envify "^1.0.0"
 
-io-ts-codegen@^0.4.4:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/io-ts-codegen/-/io-ts-codegen-0.4.4.tgz#3233c034a9cbfbf49da3ea66880f1e37cd4b0406"
-  integrity sha512-Ym0A86SQK5q+VssulIu/TsFFIL4vFrfDjiCNqQM7OvBpmf8XLkzcvKtTIoMkR7sue9msng166Ra4u1ZdCawzmA==
+io-ts-codegen@^0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/io-ts-codegen/-/io-ts-codegen-0.4.5.tgz#67a5e0e0d72751451ab6c2c70e2f304408f398de"
+  integrity sha512-7Q6CbNyYOIelPt2OddqMIk5jGfUM5Z+Y2OSsPAJnaSRroCwedAp0cFNh5h02nsE/33P9xjyGhKTajMkPApEdcA==
 
-io-ts-from-json-schema@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/io-ts-from-json-schema/-/io-ts-from-json-schema-0.0.3.tgz#0d10d32f3989a43df35bef0507cdc6a502b80f73"
-  integrity sha512-dthWzSSbImu94hEsJQ7OT21+SXJgfjVjzXLfB58QCnzYPU5zN9vNZES/kd4viNYF0ucsn1ECTKv1Myz3AWUTug==
+io-ts-from-json-schema@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/io-ts-from-json-schema/-/io-ts-from-json-schema-0.0.10.tgz#d650b49b43029d6257f34696ea98b69196bda561"
+  integrity sha512-peVbEXKehdzyYYCInxOVkTjly2HupKCuNwPRNipacC/n9pW6fIQbKwL+VnFt//knWY/RHIUgYIqV8fD+Vz9plA==
   dependencies:
-    io-ts-codegen "^0.4.4"
+    glob "^7.1.6"
+    io-ts-codegen "^0.4.5"
     yargs "^15.3.1"
 
 io-ts-types@^0.5.2:

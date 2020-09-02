@@ -22,6 +22,8 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': [0],
     '@typescript-eslint/class-name-casing': 0,
     'fp/no-nil': 0,
+    'fp/no-class': 0,
+    'fp/no-this': 0,
     'fp/no-rest-parameters': 0,
     'fp/no-unused-expression': 0,
     'fp/no-mutation': [1, { commonjs: true }],
