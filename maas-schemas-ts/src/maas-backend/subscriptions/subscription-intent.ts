@@ -82,12 +82,11 @@ export type SubscriptionIntentCreate = t.Branded<
   {
     planId?: PlanId;
     planAddons?: Array<AddonId>;
-    coupons?: Array<CouponId>;
+    planCoupons?: Array<CouponId>;
     state?: State_.SubscriptionIntentState;
   } & {
     planId: Defined;
     planAddons: Defined;
-    coupons: Defined;
   },
   SubscriptionIntentCreateBrand
 >;
@@ -114,13 +113,12 @@ export const SubscriptionIntentCreate: SubscriptionIntentCreateC = t.brand(
     t.partial({
       planId: PlanId,
       planAddons: t.array(AddonId),
-      coupons: t.array(CouponId),
+      planCoupons: t.array(CouponId),
       state: State_.SubscriptionIntentState,
     }),
     t.type({
       planId: Defined,
       planAddons: Defined,
-      coupons: Defined,
     }),
   ]),
   (
@@ -129,12 +127,11 @@ export const SubscriptionIntentCreate: SubscriptionIntentCreateC = t.brand(
     {
       planId?: PlanId;
       planAddons?: Array<AddonId>;
-      coupons?: Array<CouponId>;
+      planCoupons?: Array<CouponId>;
       state?: State_.SubscriptionIntentState;
     } & {
       planId: Defined;
       planAddons: Defined;
-      coupons: Defined;
     },
     SubscriptionIntentCreateBrand
   > => true,
