@@ -8,12 +8,14 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from "io-ts";
-import * as UnitsGeo_ from "../../../core/components/units-geo";
-import * as Address_ from "../../../core/components/address";
-import * as Station_ from "../../../core/components/station";
-import * as Units_ from "../../../core/components/units";
-import * as ApiCommon_ from "../../../core/components/api-common";
+import * as t from 'io-ts';
+import * as UnitsGeo_ from '../../../core/components/units-geo';
+import * as Address_ from '../../../core/components/address';
+import * as Station_ from '../../../core/components/station';
+import * as Units_ from '../../../core/components/units';
+import * as TravelMode_ from '../../../core/components/travel-mode';
+import * as Common_ from '../../../core/components/common';
+import * as ApiCommon_ from '../../../core/components/api-common';
 
 type Defined =
   | Record<string, unknown>

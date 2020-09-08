@@ -8,10 +8,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from "io-ts";
-import * as Place_ from "./components/place";
-import * as Units_ from "./components/units";
-import * as Itinerary_ from "./itinerary";
+import * as t from 'io-ts';
+import * as Place_ from './components/place';
+import * as Units_ from './components/units';
+import * as Common_ from './components/common';
+import * as Itinerary_ from './itinerary';
 
 type Defined =
   | Record<string, unknown>

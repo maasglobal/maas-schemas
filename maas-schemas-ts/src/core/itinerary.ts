@@ -8,14 +8,15 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as Units_ from "./components/units";
-import * as t from "io-ts";
-import * as Common_ from "./components/common";
-import * as State_ from "./components/state";
-import * as Fare_ from "./components/fare";
-import * as Leg_ from "./leg";
-import * as ProductOption_ from "./product-option";
-import * as Booking_ from "./booking";
+import * as Units_ from './components/units';
+import * as t from 'io-ts';
+import * as Common_ from './components/common';
+import * as State_ from './components/state';
+import * as Fare_ from './components/fare';
+import * as Leg_ from './leg';
+import * as ProductOption_ from './product-option';
+import * as Booking_ from './booking';
+import * as TravelMode_ from './components/travel-mode';
 
 type Defined =
   | Record<string, unknown>
