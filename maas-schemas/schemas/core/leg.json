@@ -64,6 +64,13 @@
     "agencyId": {
       "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
     },
+    "agencyName": {
+      "type": "string"
+    },
+    "co2": {
+      "type": "number",
+      "minimum": 0
+    },
     "legGeometry": {
       "type": "object",
       "properties": {
@@ -109,6 +116,8 @@
         "routeShortName": { "$ref": "#/definitions/routeShortName" },
         "routeLongName": { "$ref": "#/definitions/routeLongName" },
         "agencyId": { "$ref": "#/definitions/agencyId" },
+        "agencyName": { "type": "string" },
+        "co2": { "type": "number" },
         "legGeometry": { "$ref": "#/definitions/legGeometry" },
         "tspProduct": { "$ref": "#/definitions/tspProduct" },
         "productOption": { "$ref": "#/definitions/productOption" }

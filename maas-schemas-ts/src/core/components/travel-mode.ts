@@ -157,6 +157,47 @@ export interface PrivateTransitModeBrand {
   readonly PrivateTransitMode: unique symbol;
 }
 
+// SuperMode
+// A more general mode that abstracts more specific sub-modes
+export type SuperMode = t.Branded<
+  string &
+    ('WALK' | 'PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'BICYCLE' | 'BICYCLE_RENT' | 'UNKNOWN'),
+  SuperModeBrand
+>;
+export const SuperMode = t.brand(
+  t.intersection([
+    t.string,
+    t.union([
+      t.literal('WALK'),
+      t.literal('PUBLIC_TRANSIT'),
+      t.literal('TAXI'),
+      t.literal('CAR'),
+      t.literal('BICYCLE'),
+      t.literal('BICYCLE_RENT'),
+      t.literal('UNKNOWN'),
+    ]),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    string &
+      (
+        | 'WALK'
+        | 'PUBLIC_TRANSIT'
+        | 'TAXI'
+        | 'CAR'
+        | 'BICYCLE'
+        | 'BICYCLE_RENT'
+        | 'UNKNOWN'
+      ),
+    SuperModeBrand
+  > => true,
+  'SuperMode',
+);
+export interface SuperModeBrand {
+  readonly SuperMode: unique symbol;
+}
+
 // TravelMode
 // The default export. More information at the top.
 export type TravelMode = t.Branded<

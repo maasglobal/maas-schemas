@@ -16,6 +16,7 @@ import * as Fare_ from './components/fare';
 import * as Leg_ from './leg';
 import * as ProductOption_ from './product-option';
 import * as Booking_ from './booking';
+import * as TravelMode_ from './components/travel-mode';
 
 type Defined =
   | Record<string, unknown>
@@ -40,6 +41,33 @@ export const schemaId = 'http://maasglobal.com/core/itinerary.json';
 export type Id = Units_.Uuid;
 export const Id = Units_.Uuid;
 
+// ItineraryProgress
+// The purpose of this remains a mystery
+export type ItineraryProgress = t.Branded<
+  string & ('IN_PROGRESS' | 'IN_PROGRESS_PURCHASABLE' | 'FINISHED'),
+  ItineraryProgressBrand
+>;
+export const ItineraryProgress = t.brand(
+  t.intersection([
+    t.string,
+    t.union([
+      t.literal('IN_PROGRESS'),
+      t.literal('IN_PROGRESS_PURCHASABLE'),
+      t.literal('FINISHED'),
+    ]),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    string & ('IN_PROGRESS' | 'IN_PROGRESS_PURCHASABLE' | 'FINISHED'),
+    ItineraryProgressBrand
+  > => true,
+  'ItineraryProgress',
+);
+export interface ItineraryProgressBrand {
+  readonly ItineraryProgress: unique symbol;
+}
+
 // Itinerary
 // The default export. More information at the top.
 export type Itinerary = t.Branded<
@@ -58,6 +86,14 @@ export type Itinerary = t.Branded<
     productOptions?: Array<ProductOption_.ProductOption>;
     type?: 'outward' | 'return';
     bookings?: Array<Booking_.Booking>;
+    progress?: ItineraryProgress;
+    fingerprint?: string;
+    explanation?: string;
+    superMode?: TravelMode_.SuperMode;
+    tags?: Array<string>;
+    label?: string;
+    isWhimRide?: boolean;
+    provider?: string;
   } & {
     startTime: Defined;
     endTime: Defined;
@@ -82,6 +118,14 @@ export const Itinerary = t.brand(
       productOptions: t.array(ProductOption_.ProductOption),
       type: t.union([t.literal('outward'), t.literal('return')]),
       bookings: t.array(Booking_.Booking),
+      progress: ItineraryProgress,
+      fingerprint: t.string,
+      explanation: t.string,
+      superMode: TravelMode_.SuperMode,
+      tags: t.array(t.string),
+      label: t.string,
+      isWhimRide: t.boolean,
+      provider: t.string,
     }),
     t.type({
       startTime: Defined,
@@ -107,6 +151,14 @@ export const Itinerary = t.brand(
       productOptions?: Array<ProductOption_.ProductOption>;
       type?: 'outward' | 'return';
       bookings?: Array<Booking_.Booking>;
+      progress?: ItineraryProgress;
+      fingerprint?: string;
+      explanation?: string;
+      superMode?: TravelMode_.SuperMode;
+      tags?: Array<string>;
+      label?: string;
+      isWhimRide?: boolean;
+      provider?: string;
     } & {
       startTime: Defined;
       endTime: Defined;

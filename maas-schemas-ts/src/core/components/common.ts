@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Units_ from './units';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
@@ -233,6 +234,11 @@ export const ClientId = t.brand(
 export interface ClientIdBrand {
   readonly ClientId: unique symbol;
 }
+
+// RequestId
+// The purpose of this remains a mystery
+export type RequestId = Units_.Uuid;
+export const RequestId = Units_.Uuid;
 
 // Ssid
 // Social Security ID

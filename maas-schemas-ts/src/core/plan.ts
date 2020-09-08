@@ -11,6 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Place_ from './components/place';
 import * as Units_ from './components/units';
+import * as Common_ from './components/common';
 import * as Itinerary_ from './itinerary';
 
 type Defined =
@@ -31,6 +32,29 @@ const Defined = t.union([
 
 export const schemaId = 'http://maasglobal.com/core/plan.json';
 
+// PlanProgress
+// The purpose of this remains a mystery
+export type PlanProgress = t.Branded<
+  string & ('IN_PROGRESS' | 'FINISHED' | 'FAILED'),
+  PlanProgressBrand
+>;
+export const PlanProgress = t.brand(
+  t.intersection([
+    t.string,
+    t.union([t.literal('IN_PROGRESS'), t.literal('FINISHED'), t.literal('FAILED')]),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    string & ('IN_PROGRESS' | 'FINISHED' | 'FAILED'),
+    PlanProgressBrand
+  > => true,
+  'PlanProgress',
+);
+export interface PlanProgressBrand {
+  readonly PlanProgress: unique symbol;
+}
+
 // Itineraries
 // The purpose of this remains a mystery
 export type Itineraries = t.Branded<Array<Itinerary_.Itinerary>, ItinerariesBrand>;
@@ -49,6 +73,8 @@ export type Plan1 = t.Branded<
   {
     from?: Place_.Place;
     planId?: Units_.Uuid;
+    requestId?: Common_.RequestId;
+    progress?: PlanProgress;
     outwards?: Itineraries;
     returns?: Itineraries;
   } & {
@@ -64,6 +90,8 @@ export const Plan1 = t.brand(
     t.partial({
       from: Place_.Place,
       planId: Units_.Uuid,
+      requestId: Common_.RequestId,
+      progress: PlanProgress,
       outwards: Itineraries,
       returns: Itineraries,
     }),
@@ -80,6 +108,8 @@ export const Plan1 = t.brand(
     {
       from?: Place_.Place;
       planId?: Units_.Uuid;
+      requestId?: Common_.RequestId;
+      progress?: PlanProgress;
       outwards?: Itineraries;
       returns?: Itineraries;
     } & {
