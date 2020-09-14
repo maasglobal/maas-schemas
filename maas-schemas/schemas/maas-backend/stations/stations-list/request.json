@@ -6,15 +6,15 @@
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
+    "agencyId": {
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+    },
     "payload": {
       "oneOf": [
         {
           "type": "object",
           "description": "Query by radius",
           "properties": {
-            "agencyId": {
-              "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
-            },
             "lat": {
               "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude"
             },
@@ -29,7 +29,7 @@
               "enum": ["origin", "destination", "viaAvoid"]
             }
           },
-          "required": ["agencyId", "lat", "lon", "type"]
+          "required": ["lat", "lon", "type"]
         },
         {
           "type": "object",
@@ -50,7 +50,7 @@
               "enum": ["origin", "destination", "viaAvoid"]
             }
           },
-          "required": ["agencyId", "name", "count", "type"]
+          "required": ["name", "count", "type"]
         }
       ]
     },
@@ -58,6 +58,6 @@
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
-  "required": ["identityId", "payload"],
+  "required": ["identityId", "agencyId", "payload"],
   "additionalProperties": false
 }

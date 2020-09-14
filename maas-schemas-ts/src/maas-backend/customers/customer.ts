@@ -18,6 +18,7 @@ import * as Authorization_ from '../../core/components/authorization';
 import * as PersonalDocument_ from '../../core/personal-document';
 import * as Common_ from '../../core/components/common';
 import * as VirtualCard_ from './virtual-cards/virtualCard';
+import * as VerificationObject_ from './verification/verification-object';
 
 type Defined =
   | Record<string, unknown>
@@ -44,6 +45,7 @@ export type Customer = t.Branded<
     identityId?: Units_.IdentityId;
     profileImageUrl?: string;
     personalData?: PersonalData_.PersonalData;
+    personalDataVerifiedItems?: Array<string>;
     paymentSources?: Array<PaymentSource_.PaymentSource>;
     balances?: Array<Fare_.Fare>;
     region?: Region_.Region;
@@ -60,6 +62,7 @@ export type Customer = t.Branded<
     >;
     personalDocumentConsents?: Array<Common_.AgencyId>;
     virtualCards?: Array<VirtualCard_.VirtualCard>;
+    verifications?: Array<VerificationObject_.VerificationObject>;
   } & {
     personalData: Defined;
     paymentSources: Defined;
@@ -75,6 +78,7 @@ export const Customer = t.brand(
       identityId: Units_.IdentityId,
       profileImageUrl: t.string,
       personalData: PersonalData_.PersonalData,
+      personalDataVerifiedItems: t.array(t.string),
       paymentSources: t.array(PaymentSource_.PaymentSource),
       balances: t.array(Fare_.Fare),
       region: Region_.Region,
@@ -94,6 +98,7 @@ export const Customer = t.brand(
       ),
       personalDocumentConsents: t.array(Common_.AgencyId),
       virtualCards: t.array(VirtualCard_.VirtualCard),
+      verifications: t.array(VerificationObject_.VerificationObject),
     }),
     t.type({
       personalData: Defined,
@@ -110,6 +115,7 @@ export const Customer = t.brand(
       identityId?: Units_.IdentityId;
       profileImageUrl?: string;
       personalData?: PersonalData_.PersonalData;
+      personalDataVerifiedItems?: Array<string>;
       paymentSources?: Array<PaymentSource_.PaymentSource>;
       balances?: Array<Fare_.Fare>;
       region?: Region_.Region;
@@ -126,6 +132,7 @@ export const Customer = t.brand(
       >;
       personalDocumentConsents?: Array<Common_.AgencyId>;
       virtualCards?: Array<VirtualCard_.VirtualCard>;
+      verifications?: Array<VerificationObject_.VerificationObject>;
     } & {
       personalData: Defined;
       paymentSources: Defined;

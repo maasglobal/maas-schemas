@@ -12,6 +12,7 @@ import * as t from 'io-ts';
 import * as Common_ from '../../core/components/common';
 import * as Units_ from '../../core/components/units';
 import * as PersonalDataAllowItem_ from '../../core/components/personalDataAllowItem';
+import * as PersonalDataValidation_ from '../../core/components/personalDataValidation';
 import * as PersonalDocumentRequiredItem_ from '../../core/components/personalDocumentRequiredItem';
 
 type Defined =
@@ -79,6 +80,7 @@ export type Provider = t.Branded<
     };
     personalDataOptionsAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
     personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
+    personalDataValidations?: Array<PersonalDataValidation_.PersonalDataValidation>;
     requiredPersonalDocuments?: Array<
       PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
     >;
@@ -175,6 +177,7 @@ export const Provider = t.brand(
       }),
       personalDataOptionsAllow: t.array(PersonalDataAllowItem_.PersonalDataAllowItem),
       personalDataCreateAllow: t.array(PersonalDataAllowItem_.PersonalDataAllowItem),
+      personalDataValidations: t.array(PersonalDataValidation_.PersonalDataValidation),
       requiredPersonalDocuments: t.array(
         PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem,
       ),
@@ -280,6 +283,7 @@ export const Provider = t.brand(
       };
       personalDataOptionsAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
       personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
+      personalDataValidations?: Array<PersonalDataValidation_.PersonalDataValidation>;
       requiredPersonalDocuments?: Array<
         PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
       >;

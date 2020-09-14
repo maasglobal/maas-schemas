@@ -38,15 +38,14 @@ export const schemaId =
 export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
+    agencyId?: Common_.AgencyId;
     payload?:
       | ({
-          agencyId?: Common_.AgencyId;
           lat?: UnitsGeo_.RelaxedLatitude;
           lon?: UnitsGeo_.RelaxedLatitude;
           radius?: number;
           type?: 'origin' | 'destination' | 'viaAvoid';
         } & {
-          agencyId: Defined;
           lat: Defined;
           lon: Defined;
           type: Defined;
@@ -57,7 +56,6 @@ export type Request = t.Branded<
           count?: number;
           type?: 'origin' | 'destination' | 'viaAvoid';
         } & {
-          agencyId: Defined;
           name: Defined;
           count: Defined;
           type: Defined;
@@ -65,6 +63,7 @@ export type Request = t.Branded<
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
+    agencyId: Defined;
     payload: Defined;
   },
   RequestBrand
@@ -73,10 +72,10 @@ export const Request = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
+      agencyId: Common_.AgencyId,
       payload: t.union([
         t.intersection([
           t.partial({
-            agencyId: Common_.AgencyId,
             lat: UnitsGeo_.RelaxedLatitude,
             lon: UnitsGeo_.RelaxedLatitude,
             radius: t.number,
@@ -87,7 +86,6 @@ export const Request = t.brand(
             ]),
           }),
           t.type({
-            agencyId: Defined,
             lat: Defined,
             lon: Defined,
             type: Defined,
@@ -105,7 +103,6 @@ export const Request = t.brand(
             ]),
           }),
           t.type({
-            agencyId: Defined,
             name: Defined,
             count: Defined,
             type: Defined,
@@ -116,6 +113,7 @@ export const Request = t.brand(
     }),
     t.type({
       identityId: Defined,
+      agencyId: Defined,
       payload: Defined,
     }),
   ]),
@@ -124,15 +122,14 @@ export const Request = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
+      agencyId?: Common_.AgencyId;
       payload?:
         | ({
-            agencyId?: Common_.AgencyId;
             lat?: UnitsGeo_.RelaxedLatitude;
             lon?: UnitsGeo_.RelaxedLatitude;
             radius?: number;
             type?: 'origin' | 'destination' | 'viaAvoid';
           } & {
-            agencyId: Defined;
             lat: Defined;
             lon: Defined;
             type: Defined;
@@ -143,7 +140,6 @@ export const Request = t.brand(
             count?: number;
             type?: 'origin' | 'destination' | 'viaAvoid';
           } & {
-            agencyId: Defined;
             name: Defined;
             count: Defined;
             type: Defined;
@@ -151,6 +147,7 @@ export const Request = t.brand(
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;
+      agencyId: Defined;
       payload: Defined;
     },
     RequestBrand

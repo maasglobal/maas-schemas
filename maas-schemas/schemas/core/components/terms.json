@@ -105,6 +105,10 @@
         }
       }
     },
+    "prePurchaseGuidanceUrl": {
+      "description": "If flow requires additional instructions or resources presented to the customer before purchase, they can be embedded in the HTML page and booking option can link to that",
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+    },
     "fareRates": {
       "type": "array",
       "items": {

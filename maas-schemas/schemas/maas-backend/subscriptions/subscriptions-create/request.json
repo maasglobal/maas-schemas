@@ -3,7 +3,7 @@
   "description": "Request schema for subscriptions-create",
   "type": "object",
   "properties": {
-    "customerId": {
+    "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "userId": {
@@ -16,6 +16,6 @@
       "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
     }
   },
-  "required": ["customerId", "userId", "payload"],
+  "required": ["identityId", "userId", "payload"],
   "additionalProperties": false
 }

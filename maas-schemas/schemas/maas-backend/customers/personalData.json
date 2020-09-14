@@ -36,6 +36,9 @@
     "address": {
       "$ref": "http://maasglobal.com/core/components/address.json#/definitions/address"
     },
+    "cugHome": {
+      "type": "string"
+    },
     "city": {
       "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
     },
@@ -78,6 +81,9 @@
       "type": "string",
       "minLength": 10,
       "maxLength": 1024
+    },
+    "nationality": {
+      "type": "string"
     }
   },
   "required": [],

@@ -39,7 +39,14 @@ export type RemoteRequest = t.Branded<
   {
     tspId?: Booking_.TspId;
     cost?: Booking_.Cost;
-    state?: 'RESERVED' | 'CONFIRMED' | 'ACTIVATED' | 'EXPIRED' | 'CANCELLED' | 'REJECTED';
+    state?:
+      | 'RESERVED'
+      | 'CONFIRMED'
+      | 'ARRIVED'
+      | 'ACTIVATED'
+      | 'EXPIRED'
+      | 'CANCELLED'
+      | 'REJECTED';
     leg?: BookingOption_.LegDelta;
     meta?: BookingMeta_.BookingMeta;
     terms?: Booking_.Terms;
@@ -59,6 +66,7 @@ export const RemoteRequest = t.brand(
       state: t.union([
         t.literal('RESERVED'),
         t.literal('CONFIRMED'),
+        t.literal('ARRIVED'),
         t.literal('ACTIVATED'),
         t.literal('EXPIRED'),
         t.literal('CANCELLED'),
@@ -84,6 +92,7 @@ export const RemoteRequest = t.brand(
       state?:
         | 'RESERVED'
         | 'CONFIRMED'
+        | 'ARRIVED'
         | 'ACTIVATED'
         | 'EXPIRED'
         | 'CANCELLED'

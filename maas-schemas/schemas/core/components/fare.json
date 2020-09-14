@@ -5,7 +5,7 @@
   "definitions": {
     "tokenId": {
       "type": "string",
-      "pattern": "^[a-z]+(-[a-z]+)*-[a-z0-9_]+$"
+      "pattern": "^[a-z]+(-[a-z0-9_]+)+$"
     }
   },
   "properties": {
@@ -18,6 +18,10 @@
     },
     "tokenId": {
       "$ref": "#/definitions/tokenId"
+    },
+    "hidden": {
+      "description": "Whether clients should hide this fare for customer in payment view and profile view",
+      "type": "boolean"
     },
     "originalAmount": {
       "type": ["integer", "null"],

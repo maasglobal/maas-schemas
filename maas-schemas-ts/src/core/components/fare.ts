@@ -35,7 +35,7 @@ export type TokenId = t.Branded<string, TokenIdBrand>;
 export const TokenId = t.brand(
   t.string,
   (x): x is t.Branded<string, TokenIdBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^[a-z]+(-[a-z]+)*-[a-z0-9_]+$')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^[a-z]+(-[a-z0-9_]+)+$')) !== null,
   'TokenId',
 );
 export interface TokenIdBrand {
@@ -49,6 +49,7 @@ export type Fare = t.Branded<
     amount?: number | null;
     currency?: Common_.MetaCurrency;
     tokenId?: TokenId;
+    hidden?: boolean;
     originalAmount?: number | null;
     productionAmount?: number | null;
     type?: string & ('charge' | 'refund');
@@ -64,6 +65,7 @@ export const Fare = t.brand(
       amount: t.union([t.number, t.null]),
       currency: Common_.MetaCurrency,
       tokenId: TokenId,
+      hidden: t.boolean,
       originalAmount: t.union([t.number, t.null]),
       productionAmount: t.union([t.number, t.null]),
       type: t.intersection([
@@ -83,6 +85,7 @@ export const Fare = t.brand(
       amount?: number | null;
       currency?: Common_.MetaCurrency;
       tokenId?: TokenId;
+      hidden?: boolean;
       originalAmount?: number | null;
       productionAmount?: number | null;
       type?: string & ('charge' | 'refund');

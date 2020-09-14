@@ -38,6 +38,9 @@
           "type": "null"
         },
         {
+          "type": "string"
+        },
+        {
           "type": "object",
           "properties": {
             "objectType": { "enum": ["Profile", "Subscription"] },

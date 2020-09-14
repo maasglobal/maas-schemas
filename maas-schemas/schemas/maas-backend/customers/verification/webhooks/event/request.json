@@ -1,0 +1,54 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/verification/webhooks/event/request.json",
+  "description": "Request schema for webhook verification event (started and submitted)",
+  "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+        },
+        "attemptId": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+        },
+        "feature": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "enum": [7001, 7002]
+        },
+        "action": {
+          "type": "string",
+          "enum": ["started", "submitted"]
+        }
+      },
+      "required": ["id", "attemptId", "feature", "code", "action"],
+      "additionalProperties": false
+    },
+    "headers": {
+      "type": "object",
+      "properties": {
+        "x-signature": {
+          "type": "string",
+          "minLength": 2
+        },
+        "x-auth-client": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+        }
+      },
+      "required": ["x-signature", "x-auth-client"]
+    },
+    "technicalData": {
+      "type": "object",
+      "properties": {
+        "ip": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": ["headers", "payload"],
+  "additionalProperties": false
+}

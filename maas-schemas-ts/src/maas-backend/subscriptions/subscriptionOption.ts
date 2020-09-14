@@ -10,6 +10,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 import * as Common_ from '../../core/components/common';
+import * as PersonalDataAllowItem_ from '../../core/components/personalDataAllowItem';
+import * as PersonalDataValidation_ from '../../core/components/personalDataValidation';
 import * as Subscription_ from './subscription';
 
 type Defined =
@@ -38,6 +40,8 @@ export type SubscriptionAdditions = t.Branded<
     discounts?: Array<unknown>;
     requiredAuthorizations?: Array<Common_.AgencyId>;
     regionDefault?: boolean;
+    personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
+    personalDataValidations?: Array<PersonalDataValidation_.PersonalDataValidation>;
   } & {
     plan: Defined;
     wmpGrant: Defined;
@@ -55,6 +59,8 @@ export const SubscriptionAdditions = t.brand(
       discounts: t.UnknownArray,
       requiredAuthorizations: t.array(Common_.AgencyId),
       regionDefault: t.boolean,
+      personalDataCreateAllow: t.array(PersonalDataAllowItem_.PersonalDataAllowItem),
+      personalDataValidations: t.array(PersonalDataValidation_.PersonalDataValidation),
     }),
     t.type({
       plan: Defined,
@@ -73,6 +79,8 @@ export const SubscriptionAdditions = t.brand(
       discounts?: Array<unknown>;
       requiredAuthorizations?: Array<Common_.AgencyId>;
       regionDefault?: boolean;
+      personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
+      personalDataValidations?: Array<PersonalDataValidation_.PersonalDataValidation>;
     } & {
       plan: Defined;
       wmpGrant: Defined;
