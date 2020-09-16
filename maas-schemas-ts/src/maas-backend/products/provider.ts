@@ -15,21 +15,20 @@ import * as PersonalDataAllowItem_ from '../../core/components/personalDataAllow
 import * as PersonalDataValidation_ from '../../core/components/personalDataValidation';
 import * as PersonalDocumentRequiredItem_ from '../../core/components/personalDocumentRequiredItem';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/maas-backend/products/provider.json';
 
@@ -122,7 +121,147 @@ export type Provider = t.Branded<
   },
   ProviderBrand
 >;
-export const Provider = t.brand(
+export type ProviderC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        name: t.StringC;
+        agencyId: typeof Common_.AgencyId;
+        groupId: t.StringC;
+        hidden: t.BooleanC;
+        branding: t.PartialC<{
+          primaryColor: t.StringC;
+          secondaryColor: t.StringC;
+          icon: typeof Units_.Url;
+          logoSolidColor: typeof Units_.Url;
+          logoFullColor: typeof Units_.Url;
+        }>;
+        features: t.IntersectionC<
+          [
+            t.PartialC<{
+              ticket: t.BooleanC;
+              stationsList: t.BooleanC;
+              stationsRetrieve: t.BooleanC;
+            }>,
+            t.TypeC<{
+              ticket: typeof Defined;
+              stationsList: typeof Defined;
+              stationsRetrieve: typeof Defined;
+            }>,
+          ]
+        >;
+        extra: t.PartialC<{
+          radius: t.IntersectionC<
+            [
+              t.PartialC<{
+                fixedFareAmount: t.NumberC;
+                fixedFareCurrency: t.UnionC<
+                  [typeof Units_.Currency, typeof Common_.MetaCurrency]
+                >;
+                maxRadiusMetres: t.NumberC;
+                description: t.StringC;
+              }>,
+              t.TypeC<{
+                fixedFareAmount: typeof Defined;
+                fixedFareCurrency: typeof Defined;
+                maxRadiusMetres: typeof Defined;
+              }>,
+            ]
+          >;
+          prebooking: t.IntersectionC<
+            [
+              t.PartialC<{
+                isSupported: t.BooleanC;
+                minIntervalUntilBooking: t.NumberC;
+                maxIntervalUntilBooking: t.NumberC;
+              }>,
+              t.TypeC<{
+                isSupported: typeof Defined;
+                minIntervalUntilBooking: typeof Defined;
+                maxIntervalUntilBooking: typeof Defined;
+              }>,
+            ]
+          >;
+        }>;
+        personalDataOptionsAllow: t.ArrayC<
+          typeof PersonalDataAllowItem_.PersonalDataAllowItem
+        >;
+        personalDataCreateAllow: t.ArrayC<
+          typeof PersonalDataAllowItem_.PersonalDataAllowItem
+        >;
+        personalDataValidations: t.ArrayC<
+          typeof PersonalDataValidation_.PersonalDataValidation
+        >;
+        requiredPersonalDocuments: t.ArrayC<
+          typeof PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
+        >;
+        optionalParameters: t.ArrayC<
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                id: t.StringC;
+                name: t.StringC;
+                type: t.UnionC<
+                  [
+                    t.LiteralC<'oneOf'>,
+                    t.LiteralC<'someOf'>,
+                    t.LiteralC<'allOf'>,
+                    t.LiteralC<'oneOrNoneOf'>,
+                    t.LiteralC<'someOrNoneOf'>,
+                  ]
+                >;
+                userSelectable: t.BooleanC;
+                inputs: t.ArrayC<
+                  t.IntersectionC<
+                    [
+                      t.PartialC<{
+                        id: t.StringC;
+                        name: t.StringC;
+                        type: t.UnionC<
+                          [
+                            t.LiteralC<'string'>,
+                            t.LiteralC<'number'>,
+                            t.LiteralC<'boolean'>,
+                            t.LiteralC<'station'>,
+                          ]
+                        >;
+                        default: t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>;
+                      }>,
+                      t.TypeC<{
+                        id: typeof Defined;
+                        name: typeof Defined;
+                        type: typeof Defined;
+                      }>,
+                    ]
+                  >
+                >;
+              }>,
+              t.TypeC<{
+                id: typeof Defined;
+                name: typeof Defined;
+                inputs: typeof Defined;
+              }>,
+            ]
+          >
+        >;
+        disruption: t.TypeC<{}>;
+      }>,
+      t.TypeC<{
+        name: typeof Defined;
+        agencyId: typeof Defined;
+        groupId: typeof Defined;
+        branding: typeof Defined;
+        hidden: typeof Defined;
+        features: typeof Defined;
+        personalDataOptionsAllow: typeof Defined;
+        personalDataCreateAllow: typeof Defined;
+        optionalParameters: typeof Defined;
+      }>,
+    ]
+  >,
+  ProviderBrand
+>;
+export const Provider: ProviderC = t.brand(
   t.intersection([
     t.partial({
       name: t.string,

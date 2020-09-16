@@ -11,21 +11,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from '../../core/components/units';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/push-notification/request.json';
@@ -79,7 +78,84 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof Units_.IdentityId;
+        title: t.StringC;
+        message: t.StringC;
+        badge: t.NumberC;
+        sound: t.StringC;
+        severity: t.UnionC<
+          [t.LiteralC<'Alert'>, t.LiteralC<'Warning'>, t.LiteralC<'Information'>]
+        >;
+        type: t.UnionC<
+          [
+            t.LiteralC<'ObjectChange'>,
+            t.LiteralC<'TripActivate'>,
+            t.LiteralC<'InfoMessage'>,
+            t.LiteralC<'ZendeskReply'>,
+            t.LiteralC<'VerificationUpdate'>,
+            t.LiteralC<'AuthRequired'>,
+          ]
+        >;
+        data: t.UnionC<
+          [
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  objectType: t.UnionC<[t.LiteralC<'Itinerary'>, t.LiteralC<'Booking'>]>;
+                  ids: t.ArrayC<typeof Units_.Uuid>;
+                }>,
+                t.TypeC<{
+                  objectType: typeof Defined;
+                  ids: typeof Defined;
+                }>,
+              ]
+            >,
+            t.NullC,
+            t.StringC,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  objectType: t.UnionC<
+                    [t.LiteralC<'Profile'>, t.LiteralC<'Subscription'>]
+                  >;
+                  ids: t.ArrayC<typeof Units_.IdentityId>;
+                }>,
+                t.TypeC<{
+                  objectType: typeof Defined;
+                  ids: typeof Defined;
+                }>,
+              ]
+            >,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  objectType: t.LiteralC<'Reminder'>;
+                  authUrl: typeof Units_.Url;
+                }>,
+                t.TypeC<{
+                  objectType: typeof Defined;
+                  authUrl: typeof Defined;
+                }>,
+              ]
+            >,
+          ]
+        >;
+      }>,
+      t.TypeC<{
+        identityId: typeof Defined;
+        severity: typeof Defined;
+        badge: typeof Defined;
+        type: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,

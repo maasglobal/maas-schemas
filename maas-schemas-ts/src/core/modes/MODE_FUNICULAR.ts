@@ -15,7 +15,8 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_FUNICULAR.json';
 // MODE_FUNICULAR
 // The default export. More information at the top.
 export type MODE_FUNICULAR = t.Branded<{}, MODE_FUNICULARBrand>;
-export const MODE_FUNICULAR = t.brand(
+export type MODE_FUNICULARC = t.BrandC<t.TypeC<{}>, MODE_FUNICULARBrand>;
+export const MODE_FUNICULAR: MODE_FUNICULARC = t.brand(
   t.type({}),
   (x): x is t.Branded<{}, MODE_FUNICULARBrand> => true,
   'MODE_FUNICULAR',

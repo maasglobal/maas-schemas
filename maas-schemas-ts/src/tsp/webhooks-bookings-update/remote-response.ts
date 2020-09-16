@@ -14,21 +14,20 @@ import * as Booking_ from '../../core/booking';
 import * as BookingOption_ from '../../core/booking-option';
 import * as BookingMeta_ from '../../core/booking-meta';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/tsp/webhooks-bookings-update/remote-response.json';
@@ -52,7 +51,38 @@ export type BookingDelta = t.Branded<
   },
   BookingDeltaBrand
 >;
-export const BookingDelta = t.brand(
+export type BookingDeltaC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: typeof Units_.Uuid;
+        tspId: typeof Booking_.TspId;
+        cost: typeof Booking_.Cost;
+        state: t.UnionC<
+          [
+            t.LiteralC<'RESERVED'>,
+            t.LiteralC<'CONFIRMED'>,
+            t.LiteralC<'ACTIVATED'>,
+            t.LiteralC<'EXPIRED'>,
+            t.LiteralC<'CANCELLED'>,
+            t.LiteralC<'REJECTED'>,
+          ]
+        >;
+        leg: typeof BookingOption_.Leg;
+        meta: typeof BookingMeta_.BookingMeta;
+        terms: typeof Booking_.Terms;
+        token: typeof Booking_.Token;
+        customer: typeof BookingOption_.Customer;
+      }>,
+      t.TypeC<{
+        tspId: typeof Defined;
+        state: typeof Defined;
+      }>,
+    ]
+  >,
+  BookingDeltaBrand
+>;
+export const BookingDelta: BookingDeltaC = t.brand(
   t.intersection([
     t.partial({
       id: Units_.Uuid,
@@ -117,7 +147,14 @@ export type RemoteResponse = t.Branded<
   },
   RemoteResponseBrand
 >;
-export const RemoteResponse = t.brand(
+export type RemoteResponseC = t.BrandC<
+  t.PartialC<{
+    booking: typeof BookingDelta;
+    debug: t.TypeC<{}>;
+  }>,
+  RemoteResponseBrand
+>;
+export const RemoteResponse: RemoteResponseC = t.brand(
   t.partial({
     booking: BookingDelta,
     debug: t.type({}),

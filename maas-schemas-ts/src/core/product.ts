@@ -12,28 +12,28 @@ import * as t from 'io-ts';
 import * as Fare_ from './components/fare';
 import * as Common_ from './components/common';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/product.json';
 
 // Id
 // The purpose of this remains a mystery
 export type Id = t.Branded<string, IdBrand>;
-export const Id = t.brand(
+export type IdC = t.BrandC<t.StringC, IdBrand>;
+export const Id: IdC = t.brand(
   t.string,
   (x): x is t.Branded<string, IdBrand> =>
     (typeof x !== 'string' || x.length >= 1) &&
@@ -53,7 +53,14 @@ export type PreAuthBuffer = t.Branded<
   },
   PreAuthBufferBrand
 >;
-export const PreAuthBuffer = t.brand(
+export type PreAuthBufferC = t.BrandC<
+  t.PartialC<{
+    percentageExtra: t.NumberC;
+    minimumExtra: typeof Fare_.Fare;
+  }>,
+  PreAuthBufferBrand
+>;
+export const PreAuthBuffer: PreAuthBufferC = t.brand(
   t.partial({
     percentageExtra: t.number,
     minimumExtra: Fare_.Fare,
@@ -93,7 +100,30 @@ export type Product = t.Branded<
   },
   ProductBrand
 >;
-export const Product = t.brand(
+export type ProductC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: typeof Id;
+        name: t.StringC;
+        description: t.StringC;
+        icon: t.StringC;
+        priority: t.NumberC;
+        agencyId: typeof Common_.AgencyId;
+        tspProductId: t.StringC;
+        allowFinishTrip: t.BooleanC;
+        preAuthBuffer: typeof PreAuthBuffer;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+        tspProductId: typeof Defined;
+        name: typeof Defined;
+      }>,
+    ]
+  >,
+  ProductBrand
+>;
+export const Product: ProductC = t.brand(
   t.intersection([
     t.partial({
       id: Id,

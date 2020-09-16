@@ -18,48 +18,52 @@ import * as UnitsGeo_ from './components/units-geo';
 import * as Common_ from './components/common';
 import * as BookingOption_ from './booking-option';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/leg.json';
 
 // State
 // The purpose of this remains a mystery
 export type State = State_.LegState;
-export const State = State_.LegState;
+// exists type StateC extends t.AnyC
+export const State: StateC = State_.LegState;
 
 // From
 // The purpose of this remains a mystery
 export type From = Place_.Place;
-export const From = Place_.Place;
+// exists type FromC extends t.AnyC
+export const From: FromC = Place_.Place;
 
 // To
 // The purpose of this remains a mystery
 export type To = Place_.Place;
-export const To = Place_.Place;
+// exists type ToC extends t.AnyC
+export const To: ToC = Place_.Place;
 
 // StartTime
 // The purpose of this remains a mystery
 export type StartTime = Units_.Time;
-export const StartTime = Units_.Time;
+// exists type StartTimeC extends t.AnyC
+export const StartTime: StartTimeC = Units_.Time;
 
 // EndTime
 // The purpose of this remains a mystery
 export type EndTime = Units_.Time;
-export const EndTime = Units_.Time;
+// exists type EndTimeC extends t.AnyC
+export const EndTime: EndTimeC = Units_.Time;
 
 // Mode
 // The purpose of this remains a mystery
@@ -69,7 +73,17 @@ export type Mode = t.Branded<
   | TravelMode_.PrivateTransitMode,
   ModeBrand
 >;
-export const Mode = t.brand(
+export type ModeC = t.BrandC<
+  t.UnionC<
+    [
+      typeof TravelMode_.PersonalMode,
+      typeof TravelMode_.PublicTransitMode,
+      typeof TravelMode_.PrivateTransitMode,
+    ]
+  >,
+  ModeBrand
+>;
+export const Mode: ModeC = t.brand(
   t.union([
     TravelMode_.PersonalMode,
     TravelMode_.PublicTransitMode,
@@ -92,7 +106,8 @@ export interface ModeBrand {
 // Stops
 // The purpose of this remains a mystery
 export type Stops = t.Branded<Array<Stop_.Stop>, StopsBrand>;
-export const Stops = t.brand(
+export type StopsC = t.BrandC<t.ArrayC<typeof Stop_.Stop>, StopsBrand>;
+export const Stops: StopsC = t.brand(
   t.array(Stop_.Stop),
   (x): x is t.Branded<Array<Stop_.Stop>, StopsBrand> => true,
   'Stops',
@@ -104,22 +119,26 @@ export interface StopsBrand {
 // DepartureDelay
 // The purpose of this remains a mystery
 export type DepartureDelay = Units_.Duration;
-export const DepartureDelay = Units_.Duration;
+// exists type DepartureDelayC extends t.AnyC
+export const DepartureDelay: DepartureDelayC = Units_.Duration;
 
 // ArrivalDelay
 // The purpose of this remains a mystery
 export type ArrivalDelay = Units_.Duration;
-export const ArrivalDelay = Units_.Duration;
+// exists type ArrivalDelayC extends t.AnyC
+export const ArrivalDelay: ArrivalDelayC = Units_.Duration;
 
 // Distance
 // The purpose of this remains a mystery
 export type Distance = UnitsGeo_.Distance;
-export const Distance = UnitsGeo_.Distance;
+// exists type DistanceC extends t.AnyC
+export const Distance: DistanceC = UnitsGeo_.Distance;
 
 // Route
 // The purpose of this remains a mystery
 export type Route = t.Branded<string, RouteBrand>;
-export const Route = t.brand(
+export type RouteC = t.BrandC<t.StringC, RouteBrand>;
+export const Route: RouteC = t.brand(
   t.string,
   (x): x is t.Branded<string, RouteBrand> =>
     (typeof x !== 'string' || x.length >= 1) &&
@@ -133,7 +152,8 @@ export interface RouteBrand {
 // RouteShortName
 // The purpose of this remains a mystery
 export type RouteShortName = t.Branded<string, RouteShortNameBrand>;
-export const RouteShortName = t.brand(
+export type RouteShortNameC = t.BrandC<t.StringC, RouteShortNameBrand>;
+export const RouteShortName: RouteShortNameC = t.brand(
   t.string,
   (x): x is t.Branded<string, RouteShortNameBrand> =>
     (typeof x !== 'string' || x.length >= 1) && (typeof x !== 'string' || x.length <= 64),
@@ -146,7 +166,8 @@ export interface RouteShortNameBrand {
 // RouteLongName
 // The purpose of this remains a mystery
 export type RouteLongName = t.Branded<string, RouteLongNameBrand>;
-export const RouteLongName = t.brand(
+export type RouteLongNameC = t.BrandC<t.StringC, RouteLongNameBrand>;
+export const RouteLongName: RouteLongNameC = t.brand(
   t.string,
   (x): x is t.Branded<string, RouteLongNameBrand> =>
     (typeof x !== 'string' || x.length >= 1) &&
@@ -160,7 +181,8 @@ export interface RouteLongNameBrand {
 // AgencyId
 // The purpose of this remains a mystery
 export type AgencyId = Common_.AgencyId;
-export const AgencyId = Common_.AgencyId;
+// exists type AgencyIdC extends t.AnyC
+export const AgencyId: AgencyIdC = Common_.AgencyId;
 
 // LegGeometry
 // The purpose of this remains a mystery
@@ -170,7 +192,13 @@ export type LegGeometry = t.Branded<
   },
   LegGeometryBrand
 >;
-export const LegGeometry = t.brand(
+export type LegGeometryC = t.BrandC<
+  t.PartialC<{
+    points: typeof UnitsGeo_.Polyline;
+  }>,
+  LegGeometryBrand
+>;
+export const LegGeometry: LegGeometryC = t.brand(
   t.partial({
     points: UnitsGeo_.Polyline,
   }),
@@ -191,12 +219,14 @@ export interface LegGeometryBrand {
 // TspProduct
 // The purpose of this remains a mystery
 export type TspProduct = BookingOption_.TspProduct;
-export const TspProduct = BookingOption_.TspProduct;
+// exists type TspProductC extends t.AnyC
+export const TspProduct: TspProductC = BookingOption_.TspProduct;
 
 // ProductOption
 // Index of the productOption used in the itinerary's productOptions
 export type ProductOption = t.Branded<number, ProductOptionBrand>;
-export const ProductOption = t.brand(
+export type ProductOptionC = t.BrandC<t.NumberC, ProductOptionBrand>;
+export const ProductOption: ProductOptionC = t.brand(
   t.number,
   (x): x is t.Branded<number, ProductOptionBrand> => Number.isInteger(x),
   'ProductOption',
@@ -214,7 +244,14 @@ export type LegExtensions = t.Branded<
   },
   LegExtensionsBrand
 >;
-export const LegExtensions = t.brand(
+export type LegExtensionsC = t.BrandC<
+  t.PartialC<{
+    id: typeof Units_.Uuid;
+    signature: typeof Common_.Signature;
+  }>,
+  LegExtensionsBrand
+>;
+export const LegExtensions: LegExtensionsC = t.brand(
   t.partial({
     id: Units_.Uuid,
     signature: Common_.Signature,
@@ -265,7 +302,41 @@ export type LegCore = t.Branded<
   },
   LegCoreBrand
 >;
-export const LegCore = t.brand(
+export type LegCoreC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        state: typeof State;
+        from: typeof From;
+        to: typeof To;
+        startTime: typeof StartTime;
+        endTime: typeof EndTime;
+        mode: typeof Mode;
+        stops: typeof Stops;
+        departureDelay: typeof DepartureDelay;
+        arrivalDelay: typeof ArrivalDelay;
+        distance: typeof Distance;
+        route: typeof Route;
+        routeShortName: typeof RouteShortName;
+        routeLongName: typeof RouteLongName;
+        agencyId: typeof AgencyId;
+        legGeometry: typeof LegGeometry;
+        tspProduct: typeof TspProduct;
+        productOption: typeof ProductOption;
+      }>,
+      t.TypeC<{
+        from: typeof Defined;
+        to: typeof Defined;
+        mode: typeof Defined;
+        startTime: typeof Defined;
+        endTime: typeof Defined;
+        legGeometry: typeof Defined;
+      }>,
+    ]
+  >,
+  LegCoreBrand
+>;
+export const LegCore: LegCoreC = t.brand(
   t.intersection([
     t.partial({
       state: State,
@@ -346,7 +417,24 @@ export type WaitingLeg = t.Branded<
   },
   WaitingLegBrand
 >;
-export const WaitingLeg = t.brand(
+export type WaitingLegC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        startTime: typeof Units_.Time;
+        endTime: typeof Units_.Time;
+        mode: typeof TravelMode_.WaitingMode;
+      }>,
+      t.TypeC<{
+        mode: typeof Defined;
+        startTime: typeof Defined;
+        endTime: typeof Defined;
+      }>,
+    ]
+  >,
+  WaitingLegBrand
+>;
+export const WaitingLeg: WaitingLegC = t.brand(
   t.intersection([
     t.partial({
       startTime: Units_.Time,
@@ -393,7 +481,24 @@ export type TransferLeg = t.Branded<
   },
   TransferLegBrand
 >;
-export const TransferLeg = t.brand(
+export type TransferLegC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        startTime: typeof Units_.Time;
+        endTime: typeof Units_.Time;
+        mode: typeof TravelMode_.TransferMode;
+      }>,
+      t.TypeC<{
+        mode: typeof Defined;
+        startTime: typeof Defined;
+        endTime: typeof Defined;
+      }>,
+    ]
+  >,
+  TransferLegBrand
+>;
+export const TransferLeg: TransferLegC = t.brand(
   t.intersection([
     t.partial({
       startTime: Units_.Time,
@@ -432,7 +537,21 @@ export type Leg = t.Branded<
   {} & (LegExtensions & (LegCore | WaitingLeg | TransferLeg)),
   LegBrand
 >;
-export const Leg = t.brand(
+export type LegC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.TypeC<{}>,
+      t.IntersectionC<
+        [
+          typeof LegExtensions,
+          t.UnionC<[typeof LegCore, typeof WaitingLeg, typeof TransferLeg]>,
+        ]
+      >,
+    ]
+  >,
+  LegBrand
+>;
+export const Leg: LegC = t.brand(
   t.intersection([
     t.type({}),
     t.intersection([LegExtensions, t.union([LegCore, WaitingLeg, TransferLeg])]),
@@ -449,6 +568,16 @@ export interface LegBrand {
   readonly Leg: unique symbol;
 }
 
+export type StateC = State_.LegStateC;
+export type FromC = Place_.PlaceC;
+export type ToC = Place_.PlaceC;
+export type StartTimeC = Units_.TimeC;
+export type EndTimeC = Units_.TimeC;
+export type DepartureDelayC = Units_.DurationC;
+export type ArrivalDelayC = Units_.DurationC;
+export type DistanceC = UnitsGeo_.DistanceC;
+export type AgencyIdC = Common_.AgencyIdC;
+export type TspProductC = BookingOption_.TspProductC;
 export default Leg;
 
 // Success

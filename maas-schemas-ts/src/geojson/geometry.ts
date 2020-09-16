@@ -10,28 +10,28 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/geojson/geometry.json';
 
 // Position
 // A single position
 export type Position = t.Branded<[number, number], PositionBrand>;
-export const Position = t.brand(
+export type PositionC = t.BrandC<t.TupleC<[t.NumberC, t.NumberC]>, PositionBrand>;
+export const Position: PositionC = t.brand(
   t.tuple([t.number, t.number]),
   (x): x is t.Branded<[number, number], PositionBrand> =>
     Array.isArray(x) === false || x.length >= 2,
@@ -44,7 +44,8 @@ export interface PositionBrand {
 // PositionArray
 // An array of positions
 export type PositionArray = t.Branded<Array<Position>, PositionArrayBrand>;
-export const PositionArray = t.brand(
+export type PositionArrayC = t.BrandC<t.ArrayC<typeof Position>, PositionArrayBrand>;
+export const PositionArray: PositionArrayC = t.brand(
   t.array(Position),
   (x): x is t.Branded<Array<Position>, PositionArrayBrand> => true,
   'PositionArray',
@@ -56,7 +57,11 @@ export interface PositionArrayBrand {
 // LineString
 // An array of two or more positions
 export type LineString = t.Branded<PositionArray & unknown, LineStringBrand>;
-export const LineString = t.brand(
+export type LineStringC = t.BrandC<
+  t.IntersectionC<[typeof PositionArray, t.UnknownC]>,
+  LineStringBrand
+>;
+export const LineString: LineStringC = t.brand(
   t.intersection([PositionArray, t.unknown]),
   (x): x is t.Branded<PositionArray & unknown, LineStringBrand> => true,
   'LineString',
@@ -68,7 +73,11 @@ export interface LineStringBrand {
 // LinearRing
 // An array of four positions where the first equals the last
 export type LinearRing = t.Branded<PositionArray & unknown, LinearRingBrand>;
-export const LinearRing = t.brand(
+export type LinearRingC = t.BrandC<
+  t.IntersectionC<[typeof PositionArray, t.UnknownC]>,
+  LinearRingBrand
+>;
+export const LinearRing: LinearRingC = t.brand(
   t.intersection([PositionArray, t.unknown]),
   (x): x is t.Branded<PositionArray & unknown, LinearRingBrand> => true,
   'LinearRing',
@@ -80,7 +89,8 @@ export interface LinearRingBrand {
 // Polygon
 // An array of linear rings
 export type Polygon = t.Branded<Array<LinearRing>, PolygonBrand>;
-export const Polygon = t.brand(
+export type PolygonC = t.BrandC<t.ArrayC<typeof LinearRing>, PolygonBrand>;
+export const Polygon: PolygonC = t.brand(
   t.array(LinearRing),
   (x): x is t.Branded<Array<LinearRing>, PolygonBrand> => true,
   'Polygon',
@@ -98,7 +108,20 @@ export type Geometry = t.Branded<
   } & (unknown | unknown | unknown | unknown | unknown | unknown),
   GeometryBrand
 >;
-export const Geometry = t.brand(
+export type GeometryC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.TypeC<{}>,
+      t.TypeC<{
+        type: typeof Defined;
+        coordinates: typeof Defined;
+      }>,
+      t.UnionC<[t.UnknownC, t.UnknownC, t.UnknownC, t.UnknownC, t.UnknownC, t.UnknownC]>,
+    ]
+  >,
+  GeometryBrand
+>;
+export const Geometry: GeometryC = t.brand(
   t.intersection([
     t.type({}),
     t.type({

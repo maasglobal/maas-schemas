@@ -14,21 +14,20 @@ import * as Address_ from '../../../core/components/address';
 import * as UnitsGeo_ from '../../../core/components/units-geo';
 import * as ApiCommon_ from '../../../core/components/api-common';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/request.json';
@@ -51,7 +50,28 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.PartialC<{
+    identityId: typeof Units_.IdentityId;
+    payload: t.IntersectionC<
+      [
+        t.PartialC<{
+          name: typeof Address_.PlaceName;
+          lat: typeof UnitsGeo_.RelaxedLatitude;
+          lon: typeof UnitsGeo_.RelaxedLongitude;
+          count: t.NumberC;
+          radius: typeof UnitsGeo_.Distance;
+        }>,
+        t.TypeC<{
+          name: typeof Defined;
+        }>,
+      ]
+    >;
+    headers: typeof ApiCommon_.Headers;
+  }>,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.partial({
     identityId: Units_.IdentityId,
     payload: t.intersection([

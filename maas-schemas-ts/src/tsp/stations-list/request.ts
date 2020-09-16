@@ -11,21 +11,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as UnitsGeo_ from '../../core/components/units-geo';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/tsp/stations-list/request.json';
 
@@ -48,7 +47,40 @@ export type Request = t.Branded<
     }),
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.UnionC<
+    [
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            location: typeof UnitsGeo_.ShortLocationString;
+            radius: typeof UnitsGeo_.Distance;
+          }>,
+          t.TypeC<{
+            location: typeof Defined;
+          }>,
+        ]
+      >,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            name: t.StringC;
+            count: t.NumberC;
+            type: t.UnionC<
+              [t.LiteralC<'origin'>, t.LiteralC<'destination'>, t.LiteralC<'viaAvoid'>]
+            >;
+          }>,
+          t.TypeC<{
+            name: typeof Defined;
+            type: typeof Defined;
+          }>,
+        ]
+      >,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.union([
     t.intersection([
       t.partial({

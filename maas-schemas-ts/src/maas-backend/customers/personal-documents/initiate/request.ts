@@ -14,21 +14,20 @@ import * as PersonalDocument_ from '../../../../core/personal-document';
 import * as UnitsGeo_ from '../../../../core/components/units-geo';
 import * as ApiCommon_ from '../../../../core/components/api-common';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/personal-documents/initiate/request.json';
@@ -54,7 +53,36 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof Units_.IdentityId;
+        customerId: typeof Units_.IdentityId;
+        payload: t.IntersectionC<
+          [
+            t.PartialC<{
+              type: typeof PersonalDocument_.DocumentType;
+              location: typeof UnitsGeo_.ShortLocationString;
+            }>,
+            t.TypeC<{
+              type: typeof Defined;
+              location: typeof Defined;
+            }>,
+          ]
+        >;
+        headers: typeof ApiCommon_.Headers;
+      }>,
+      t.TypeC<{
+        identityId: typeof Defined;
+        payload: typeof Defined;
+        headers: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,

@@ -10,21 +10,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json';
@@ -61,7 +60,52 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        payload: t.IntersectionC<
+          [
+            t.PartialC<{
+              action_str: t.StringC;
+              data_type: t.StringC;
+              log_list: t.UnknownArrayC;
+              trans_map: t.PartialC<{
+                system_time: t.NumberC;
+                nonce: t.StringC;
+                signature: t.StringC;
+              }>;
+              request_map: t.TypeC<{}>;
+            }>,
+            t.TypeC<{
+              action_str: typeof Defined;
+              data_type: typeof Defined;
+            }>,
+          ]
+        >;
+        headers: t.PartialC<{
+          'Set-Cookie': t.StringC;
+        }>;
+        params: t.IntersectionC<
+          [
+            t.PartialC<{
+              gatewayName: t.IntersectionC<[t.StringC, t.LiteralC<'avainpay'>]>;
+            }>,
+            t.TypeC<{
+              gatewayName: typeof Defined;
+            }>,
+          ]
+        >;
+      }>,
+      t.TypeC<{
+        params: typeof Defined;
+        payload: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       payload: t.intersection([
@@ -139,7 +183,8 @@ export interface RequestBrand {
 // Avainpay
 // The default export. More information at the top.
 export type Avainpay = t.Branded<unknown, AvainpayBrand>;
-export const Avainpay = t.brand(
+export type AvainpayC = t.BrandC<t.UnknownC, AvainpayBrand>;
+export const Avainpay: AvainpayC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, AvainpayBrand> => true,
   'Avainpay',

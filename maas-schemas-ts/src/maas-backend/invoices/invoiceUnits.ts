@@ -15,7 +15,8 @@ export const schemaId = 'http://maasglobal.com/maas-backend/invoices/invoiceUnit
 // InvoiceId
 // The purpose of this remains a mystery
 export type InvoiceId = t.Branded<string, InvoiceIdBrand>;
-export const InvoiceId = t.brand(
+export type InvoiceIdC = t.BrandC<t.StringC, InvoiceIdBrand>;
+export const InvoiceId: InvoiceIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, InvoiceIdBrand> => typeof x !== 'string' || x.length >= 2,
   'InvoiceId',
@@ -27,7 +28,8 @@ export interface InvoiceIdBrand {
 // InvoiceLineItemId
 // The purpose of this remains a mystery
 export type InvoiceLineItemId = t.Branded<string, InvoiceLineItemIdBrand>;
-export const InvoiceLineItemId = t.brand(
+export type InvoiceLineItemIdC = t.BrandC<t.StringC, InvoiceLineItemIdBrand>;
+export const InvoiceLineItemId: InvoiceLineItemIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, InvoiceLineItemIdBrand> =>
     typeof x !== 'string' || x.length >= 2,
@@ -40,7 +42,8 @@ export interface InvoiceLineItemIdBrand {
 // InvoiceUnits
 // The default export. More information at the top.
 export type InvoiceUnits = t.Branded<unknown, InvoiceUnitsBrand>;
-export const InvoiceUnits = t.brand(
+export type InvoiceUnitsC = t.BrandC<t.UnknownC, InvoiceUnitsBrand>;
+export const InvoiceUnits: InvoiceUnitsC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, InvoiceUnitsBrand> => true,
   'InvoiceUnits',

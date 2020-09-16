@@ -17,21 +17,20 @@ import * as Region_ from './region';
 import * as Place_ from './components/place';
 import * as Fare_ from './components/fare';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/profile.json';
 
@@ -62,7 +61,42 @@ export type SubscriptionInstance = t.Branded<
   },
   SubscriptionInstanceBrand
 >;
-export const SubscriptionInstance = t.brand(
+export type SubscriptionInstanceC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.NumberC;
+        name: t.StringC;
+        plan: t.IntersectionC<
+          [
+            t.PartialC<{
+              id: t.StringC;
+            }>,
+            t.TypeC<{
+              id: typeof Defined;
+            }>,
+          ]
+        >;
+        addons: t.ArrayC<t.StringC>;
+        coupons: t.ArrayC<t.StringC>;
+        wmpGrant: t.NumberC;
+        level: t.NumberC;
+        active: t.BooleanC;
+        pointCost: typeof PointCost_.PointCost;
+        description: t.StringC;
+        availability: t.NumberC;
+      }>,
+      t.TypeC<{
+        plan: typeof Defined;
+        addons: typeof Defined;
+        coupons: typeof Defined;
+        pointCost: typeof Defined;
+      }>,
+    ]
+  >,
+  SubscriptionInstanceBrand
+>;
+export const SubscriptionInstance: SubscriptionInstanceC = t.brand(
   t.intersection([
     t.partial({
       id: t.number,
@@ -166,7 +200,64 @@ export type Profile = t.Branded<
   },
   ProfileBrand
 >;
-export const Profile = t.brand(
+export type ProfileC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.NumberC;
+        identityId: typeof Units_.IdentityId;
+        phone: typeof Common_.Phone;
+        email: typeof Common_.Email;
+        firstName: typeof Common_.PersonalName;
+        lastName: typeof Common_.PersonalName;
+        city: typeof Address_.City;
+        country: typeof Address_.Country;
+        zipCode: typeof Address_.ZipCode;
+        regionId: t.StringC;
+        region: typeof Region_.Region;
+        profileImageUrl: t.StringC;
+        favoriteLocations: t.ArrayC<typeof Place_.Place>;
+        paymentMethod: t.IntersectionC<
+          [
+            t.PartialC<{
+              type: t.IntersectionC<
+                [
+                  t.StringC,
+                  t.UnionC<
+                    [t.LiteralC<'unknown'>, t.LiteralC<'card'>, t.LiteralC<'stripe'>]
+                  >,
+                ]
+              >;
+              valid: t.BooleanC;
+              maskedNumber: t.StringC;
+              issuer: t.StringC;
+              expiry: typeof Units_.Time;
+            }>,
+            t.TypeC<{
+              type: typeof Defined;
+              valid: typeof Defined;
+            }>,
+          ]
+        >;
+        subscription: t.TypeC<{}>;
+        subscriptionInstance: typeof SubscriptionInstance;
+        balances: t.ArrayC<typeof Fare_.Fare>;
+        created: typeof Units_.Time;
+        modified: typeof Units_.Time;
+      }>,
+      t.TypeC<{
+        identityId: typeof Defined;
+        phone: typeof Defined;
+        favoriteLocations: typeof Defined;
+        paymentMethod: typeof Defined;
+        subscriptionInstance: typeof Defined;
+        balances: typeof Defined;
+      }>,
+    ]
+  >,
+  ProfileBrand
+>;
+export const Profile: ProfileC = t.brand(
   t.intersection([
     t.partial({
       id: t.number,

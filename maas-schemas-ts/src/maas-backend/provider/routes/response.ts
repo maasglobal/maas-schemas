@@ -12,21 +12,20 @@ import * as t from 'io-ts';
 import * as Place_ from '../../../core/components/place';
 import * as Itinerary_ from '../../../core/itinerary';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/provider/routes/response.json';
@@ -34,7 +33,11 @@ export const schemaId =
 // Itineraries
 // The purpose of this remains a mystery
 export type Itineraries = t.Branded<Array<Itinerary_.Itinerary>, ItinerariesBrand>;
-export const Itineraries = t.brand(
+export type ItinerariesC = t.BrandC<
+  t.ArrayC<typeof Itinerary_.Itinerary>,
+  ItinerariesBrand
+>;
+export const Itineraries: ItinerariesC = t.brand(
   t.array(Itinerary_.Itinerary),
   (x): x is t.Branded<Array<Itinerary_.Itinerary>, ItinerariesBrand> => true,
   'Itineraries',
@@ -57,7 +60,24 @@ export type Plan1 = t.Branded<
   },
   Plan1Brand
 >;
-export const Plan1 = t.brand(
+export type Plan1C = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        from: typeof Place_.Place;
+        outwards: typeof Itineraries;
+        returns: typeof Itineraries;
+      }>,
+      t.TypeC<{
+        from: typeof Defined;
+        outwards: typeof Defined;
+        returns: typeof Defined;
+      }>,
+    ]
+  >,
+  Plan1Brand
+>;
+export const Plan1: Plan1C = t.brand(
   t.intersection([
     t.partial({
       from: Place_.Place,
@@ -102,7 +122,22 @@ export type Plan2 = t.Branded<
   },
   Plan2Brand
 >;
-export const Plan2 = t.brand(
+export type Plan2C = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        from: typeof Place_.Place;
+        itineraries: typeof Itineraries;
+      }>,
+      t.TypeC<{
+        from: typeof Defined;
+        itineraries: typeof Defined;
+      }>,
+    ]
+  >,
+  Plan2Brand
+>;
+export const Plan2: Plan2C = t.brand(
   t.intersection([
     t.partial({
       from: Place_.Place,
@@ -139,7 +174,13 @@ export type Response = t.Branded<
   },
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.PartialC<{
+    plan: t.UnionC<[typeof Plan1, typeof Plan2]>;
+  }>,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.partial({
     plan: t.union([Plan1, Plan2]),
   }),

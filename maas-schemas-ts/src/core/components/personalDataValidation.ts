@@ -45,7 +45,58 @@ export type PersonalDataValidation = t.Branded<
   },
   PersonalDataValidationBrand
 >;
-export const PersonalDataValidation = t.brand(
+export type PersonalDataValidationC = t.BrandC<
+  t.PartialC<{
+    id: t.NumberC;
+    name: t.StringC;
+    type: t.UnionC<
+      [
+        t.LiteralC<'value'>,
+        t.LiteralC<'enum'>,
+        t.LiteralC<'length'>,
+        t.LiteralC<'regex'>,
+        t.LiteralC<'date'>,
+        t.LiteralC<'dateDurationUntilNow'>,
+      ]
+    >;
+    operator: t.UnionC<
+      [
+        t.LiteralC<'>'>,
+        t.LiteralC<'>='>,
+        t.LiteralC<'<'>,
+        t.LiteralC<'<='>,
+        t.LiteralC<'='>,
+        t.LiteralC<'!='>,
+        t.LiteralC<'in'>,
+      ]
+    >;
+    config: t.PartialC<{
+      path: t.StringC;
+      remoteSource: t.StringC;
+      value: t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>;
+      enum: t.ArrayC<
+        t.PartialC<{
+          value: t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>;
+          name: t.StringC;
+          description: t.StringC;
+          meta: t.TypeC<{}>;
+        }>
+      >;
+      length: t.NumberC;
+      regex: t.StringC;
+      date: t.UnionC<[t.StringC, t.NumberC]>;
+      dateDurationUntilNow: t.PartialC<{
+        month: t.NumberC;
+        day: t.NumberC;
+        hour: t.NumberC;
+      }>;
+      meta: t.TypeC<{}>;
+    }>;
+    errorCode: t.StringC;
+  }>,
+  PersonalDataValidationBrand
+>;
+export const PersonalDataValidation: PersonalDataValidationC = t.brand(
   t.partial({
     id: t.number,
     name: t.string,

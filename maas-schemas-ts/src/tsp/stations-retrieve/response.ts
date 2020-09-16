@@ -11,21 +11,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Station_ from '../../core/components/station';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/tsp/stations-retrieve/response.json';
 
@@ -56,7 +55,37 @@ export type Response = t.Branded<
   },
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.PartialC<{
+    station: t.IntersectionC<
+      [
+        t.PartialC<{
+          id: typeof Station_.Id;
+          code: typeof Station_.Code;
+          name: typeof Station_.Name;
+          location: typeof Station_.Location;
+          agencyId: typeof Station_.AgencyId;
+          address: typeof Station_.Address;
+          city: typeof Station_.City;
+          country: typeof Station_.Country;
+          openingHours: typeof Station_.OpeningHours;
+          facilities: typeof Station_.Facilities;
+          timetables: typeof Station_.Timetables;
+          zone: typeof Station_.Zone;
+          services: typeof Station_.Services;
+          platformCode: typeof Station_.PlatformCode;
+        }>,
+        t.TypeC<{
+          id: typeof Defined;
+          location: typeof Defined;
+          agencyId: typeof Defined;
+        }>,
+      ]
+    >;
+  }>,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.partial({
     station: t.intersection([
       t.partial({

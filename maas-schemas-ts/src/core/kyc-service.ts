@@ -22,7 +22,14 @@ export type KycService = t.Branded<
   },
   KycServiceBrand
 >;
-export const KycService = t.brand(
+export type KycServiceC = t.BrandC<
+  t.PartialC<{
+    id: t.StringC;
+    supportedDocumentTypes: t.ArrayC<typeof PersonalDocument_.DocumentType>;
+  }>,
+  KycServiceBrand
+>;
+export const KycService: KycServiceC = t.brand(
   t.partial({
     id: t.string,
     supportedDocumentTypes: t.array(PersonalDocument_.DocumentType),

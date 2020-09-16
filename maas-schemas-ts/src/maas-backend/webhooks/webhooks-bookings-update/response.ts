@@ -16,8 +16,10 @@ export const schemaId =
 // Response
 // The default export. More information at the top.
 export type Response = RemoteResponse_.RemoteResponse;
-export const Response = RemoteResponse_.RemoteResponse;
+// exists type ResponseC extends t.AnyC
+export const Response: ResponseC = RemoteResponse_.RemoteResponse;
 
 export default Response;
+export type ResponseC = RemoteResponse_.RemoteResponseC;
 
 // Success

@@ -13,21 +13,20 @@ import * as Units_ from '../../../core/components/units';
 import * as Fare_ from '../../../core/components/fare';
 import * as Common_ from '../../../core/components/common';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/bookings/bookings-agency-products/response.json';
@@ -55,7 +54,33 @@ export type Product = t.Branded<
   },
   ProductBrand
 >;
-export const Product = t.brand(
+export type ProductC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.StringC;
+        agencyId: t.StringC;
+        tspProductId: t.StringC;
+        name: t.StringC;
+        meta: t.TypeC<{}>;
+        icon: typeof Units_.Url;
+        fares: t.ArrayC<typeof Fare_.Fare>;
+        description: t.StringC;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+        agencyId: typeof Defined;
+        tspProductId: typeof Defined;
+        name: typeof Defined;
+        description: typeof Defined;
+        icon: typeof Defined;
+        fares: typeof Defined;
+      }>,
+    ]
+  >,
+  ProductBrand
+>;
+export const Product: ProductC = t.brand(
   t.intersection([
     t.partial({
       id: t.string,
@@ -118,7 +143,22 @@ export type Response = t.Branded<
   },
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        agencyId: typeof Common_.AgencyId;
+        products: t.ArrayC<typeof Product>;
+      }>,
+      t.TypeC<{
+        agencyId: typeof Defined;
+        products: typeof Defined;
+      }>,
+    ]
+  >,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       agencyId: Common_.AgencyId,

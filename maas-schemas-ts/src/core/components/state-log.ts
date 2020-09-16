@@ -13,28 +13,28 @@ import * as Units_ from './units';
 import * as State_ from './state';
 import * as Errors_ from './errors';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/components/state-log.json';
 
 // ObsoleteTime
 // The purpose of this remains a mystery
 export type ObsoleteTime = t.Branded<string, ObsoleteTimeBrand>;
-export const ObsoleteTime = t.brand(
+export type ObsoleteTimeC = t.BrandC<t.StringC, ObsoleteTimeBrand>;
+export const ObsoleteTime: ObsoleteTimeC = t.brand(
   t.string,
   (x): x is t.Branded<string, ObsoleteTimeBrand> =>
     typeof x !== 'string' || x.match(RegExp('^[0-9]+$')) !== null,
@@ -60,7 +60,26 @@ export type BookingStateTransition = t.Branded<
   },
   BookingStateTransitionBrand
 >;
-export const BookingStateTransition = t.brand(
+export type BookingStateTransitionC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        timestamp: t.UnionC<[typeof Units_.Time, typeof ObsoleteTime]>;
+        oldState: typeof State_.BookingState;
+        newState: typeof State_.BookingState;
+        invalid: t.BooleanC;
+        reason: typeof Errors_.Reason;
+      }>,
+      t.TypeC<{
+        newState: typeof Defined;
+        oldState: typeof Defined;
+        timestamp: typeof Defined;
+      }>,
+    ]
+  >,
+  BookingStateTransitionBrand
+>;
+export const BookingStateTransition: BookingStateTransitionC = t.brand(
   t.intersection([
     t.partial({
       timestamp: t.union([Units_.Time, ObsoleteTime]),
@@ -100,7 +119,8 @@ export interface BookingStateTransitionBrand {
 // StateLog
 // The default export. More information at the top.
 export type StateLog = t.Branded<Array<BookingStateTransition>, StateLogBrand>;
-export const StateLog = t.brand(
+export type StateLogC = t.BrandC<t.ArrayC<typeof BookingStateTransition>, StateLogBrand>;
+export const StateLog: StateLogC = t.brand(
   t.array(BookingStateTransition),
   (x): x is t.Branded<Array<BookingStateTransition>, StateLogBrand> => true,
   'StateLog',

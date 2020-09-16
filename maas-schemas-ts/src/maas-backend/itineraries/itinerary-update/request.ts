@@ -16,21 +16,20 @@ import * as Common_ from '../../../core/components/common';
 import * as ProductOption_ from '../../../core/product-option';
 import * as CustomerSelection_ from '../../../core/components/customerSelection';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/itineraries/itinerary-update/request.json';
@@ -56,7 +55,33 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.PartialC<{
+    identityId: typeof Units_.IdentityId;
+    itineraryId: typeof Itinerary_.Id;
+    headers: typeof ApiCommon_.Headers;
+    payload: t.IntersectionC<
+      [
+        t.PartialC<{
+          paymentSourceId: typeof Common_.PaymentSourceId;
+          itinerary: typeof Itinerary_.Itinerary;
+          customerSelections: t.ArrayC<
+            t.PartialC<{
+              ref: typeof ProductOption_.Ref;
+              customerSelection: typeof CustomerSelection_.CustomerSelection;
+            }>
+          >;
+        }>,
+        t.TypeC<{
+          itinerary: typeof Defined;
+          customerSelections: typeof Defined;
+        }>,
+      ]
+    >;
+  }>,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.partial({
     identityId: Units_.IdentityId,
     itineraryId: Itinerary_.Id,

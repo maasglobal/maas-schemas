@@ -20,7 +20,13 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.PartialC<{
+    vehicleId: t.StringC;
+  }>,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.partial({
     vehicleId: t.string,
   }),

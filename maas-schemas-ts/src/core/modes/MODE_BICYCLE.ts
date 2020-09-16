@@ -11,21 +11,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as BikeStation_ from '../components/bike-station';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_BICYCLE.json';
 
@@ -46,7 +45,27 @@ export type MODE_BICYCLE = t.Branded<
   },
   MODE_BICYCLEBrand
 >;
-export const MODE_BICYCLE = t.brand(
+export type MODE_BICYCLEC = t.BrandC<
+  t.PartialC<{
+    pickupStation: typeof BikeStation_.BikeStation;
+    returnStation: typeof BikeStation_.BikeStation;
+    pickupStationId: t.StringC;
+    returnStationId: t.StringC;
+    bike: t.IntersectionC<
+      [
+        t.PartialC<{
+          id: t.StringC;
+          type: t.StringC;
+        }>,
+        t.TypeC<{
+          id: typeof Defined;
+        }>,
+      ]
+    >;
+  }>,
+  MODE_BICYCLEBrand
+>;
+export const MODE_BICYCLE: MODE_BICYCLEC = t.brand(
   t.partial({
     pickupStation: BikeStation_.BikeStation,
     returnStation: BikeStation_.BikeStation,

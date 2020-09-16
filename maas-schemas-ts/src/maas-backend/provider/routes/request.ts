@@ -15,21 +15,20 @@ import * as Address_ from '../../../core/components/address';
 import * as Station_ from '../../../core/components/station';
 import * as TravelMode_ from '../../../core/components/travel-mode';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/maas-backend/provider/routes/request.json';
 
@@ -70,7 +69,56 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            identityId: typeof Units_.IdentityId;
+            from: typeof UnitsGeo_.ShortLocation;
+            fromName: typeof Address_.PlaceName;
+            fromAddress: typeof Address_.ComponentAddress;
+            fromStationId: typeof Station_.Id;
+            to: typeof UnitsGeo_.ShortLocation;
+            toName: typeof Address_.PlaceName;
+            toAddress: typeof Address_.ComponentAddress;
+            toStationId: typeof Station_.Id;
+            leaveAt: typeof Units_.Time;
+            arriveBy: typeof Units_.Time;
+            modes: typeof TravelMode_.TravelMode;
+          }>,
+          t.RecordC<
+            t.StringC,
+            t.UnionC<
+              [
+                typeof Units_.IdentityId,
+                typeof UnitsGeo_.ShortLocation,
+                typeof Address_.PlaceName,
+                typeof Address_.ComponentAddress,
+                typeof Station_.Id,
+                typeof UnitsGeo_.ShortLocation,
+                typeof Address_.PlaceName,
+                typeof Address_.ComponentAddress,
+                typeof Station_.Id,
+                typeof Units_.Time,
+                typeof Units_.Time,
+                typeof TravelMode_.TravelMode,
+                t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>,
+              ]
+            >
+          >,
+        ]
+      >,
+      t.TypeC<{
+        from: typeof Defined;
+        to: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.intersection([
       t.partial({

@@ -29,7 +29,20 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.PartialC<{
+    agencyId: typeof Common_.AgencyId;
+    payload: t.PartialC<{
+      token: typeof Common_.EncodedQueryParam;
+      encodedData: typeof Common_.EncodedQueryParam;
+      state: typeof Common_.EncodedQueryParam;
+      error: typeof Common_.ErrorKey;
+    }>;
+    headers: t.TypeC<{}>;
+  }>,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.partial({
     agencyId: Common_.AgencyId,
     payload: t.partial({

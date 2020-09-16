@@ -10,21 +10,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/webhooks/webhooks-payments/gateway/yaband.json';
@@ -62,7 +61,58 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        payload: t.IntersectionC<
+          [
+            t.PartialC<{
+              sign: t.StringC;
+              data: t.IntersectionC<
+                [
+                  t.PartialC<{
+                    type: t.StringC;
+                    order_id: t.StringC;
+                    trade_id: t.StringC;
+                    transaction_id: t.StringC;
+                    state: t.StringC;
+                  }>,
+                  t.TypeC<{
+                    type: typeof Defined;
+                    order_id: typeof Defined;
+                    state: typeof Defined;
+                  }>,
+                ]
+              >;
+            }>,
+            t.TypeC<{
+              sign: typeof Defined;
+              data: typeof Defined;
+            }>,
+          ]
+        >;
+        headers: t.TypeC<{}>;
+        params: t.IntersectionC<
+          [
+            t.PartialC<{
+              gatewayName: t.IntersectionC<[t.StringC, t.LiteralC<'yaband'>]>;
+            }>,
+            t.TypeC<{
+              gatewayName: typeof Defined;
+            }>,
+          ]
+        >;
+      }>,
+      t.TypeC<{
+        params: typeof Defined;
+        payload: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       payload: t.intersection([
@@ -145,7 +195,8 @@ export interface RequestBrand {
 // Yaband
 // The default export. More information at the top.
 export type Yaband = t.Branded<unknown, YabandBrand>;
-export const Yaband = t.brand(
+export type YabandC = t.BrandC<t.UnknownC, YabandBrand>;
+export const Yaband: YabandC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, YabandBrand> => true,
   'Yaband',

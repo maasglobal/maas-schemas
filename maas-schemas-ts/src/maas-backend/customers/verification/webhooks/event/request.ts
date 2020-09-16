@@ -11,21 +11,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from '../../../../../core/components/units';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/verification/webhooks/event/request.json';
@@ -63,7 +62,57 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        payload: t.IntersectionC<
+          [
+            t.PartialC<{
+              id: typeof Units_.Uuid;
+              attemptId: typeof Units_.Uuid;
+              feature: t.StringC;
+              code: t.IntersectionC<
+                [t.NumberC, t.UnionC<[t.LiteralC<7001>, t.LiteralC<7002>]>]
+              >;
+              action: t.IntersectionC<
+                [t.StringC, t.UnionC<[t.LiteralC<'started'>, t.LiteralC<'submitted'>]>]
+              >;
+            }>,
+            t.TypeC<{
+              id: typeof Defined;
+              attemptId: typeof Defined;
+              feature: typeof Defined;
+              code: typeof Defined;
+              action: typeof Defined;
+            }>,
+          ]
+        >;
+        headers: t.IntersectionC<
+          [
+            t.PartialC<{
+              'x-signature': t.StringC;
+              'x-auth-client': typeof Units_.Uuid;
+            }>,
+            t.TypeC<{
+              'x-signature': typeof Defined;
+              'x-auth-client': typeof Defined;
+            }>,
+          ]
+        >;
+        technicalData: t.PartialC<{
+          ip: t.StringC;
+        }>;
+      }>,
+      t.TypeC<{
+        headers: typeof Defined;
+        payload: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       payload: t.intersection([

@@ -11,21 +11,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from './units';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/components/cost.json';
 
@@ -45,7 +44,26 @@ export type Cost = t.Branded<
   },
   CostBrand
 >;
-export const Cost = t.brand(
+export type CostC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        amount: t.UnionC<[t.NumberC, t.NullC]>;
+        originalAmount: t.UnionC<[t.NumberC, t.NullC]>;
+        discount: t.NumberC;
+        taxes: t.NumberC;
+        isFixedPrice: t.BooleanC;
+        currency: t.UnionC<[typeof Units_.Currency, t.NullC]>;
+      }>,
+      t.TypeC<{
+        amount: typeof Defined;
+        currency: typeof Defined;
+      }>,
+    ]
+  >,
+  CostBrand
+>;
+export const Cost: CostC = t.brand(
   t.intersection([
     t.partial({
       amount: t.union([t.number, t.null]),

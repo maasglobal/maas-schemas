@@ -36,7 +36,24 @@ export type AgencyOptions = t.Branded<
   },
   AgencyOptionsBrand
 >;
-export const AgencyOptions = t.brand(
+export type AgencyOptionsC = t.BrandC<
+  t.PartialC<{
+    mode: typeof TravelMode_.TravelMode;
+    agencyId: typeof Common_.AgencyId;
+    startTime: typeof Units_.Time;
+    endTime: typeof Units_.Time;
+    from: typeof UnitsGeo_.ShortLocationString;
+    to: typeof UnitsGeo_.ShortLocationString;
+    fromName: typeof Address_.PlaceName;
+    fromAddress: typeof Address_.ComponentAddress;
+    fromRadius: typeof UnitsGeo_.Distance;
+    toName: typeof Address_.PlaceName;
+    toAddress: typeof Address_.ComponentAddress;
+    toRadius: typeof UnitsGeo_.Distance;
+  }>,
+  AgencyOptionsBrand
+>;
+export const AgencyOptions: AgencyOptionsC = t.brand(
   t.partial({
     mode: TravelMode_.TravelMode,
     agencyId: Common_.AgencyId,

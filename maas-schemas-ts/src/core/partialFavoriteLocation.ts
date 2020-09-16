@@ -23,7 +23,11 @@ export type FavoriteLocationTypes = t.Branded<
   string & ('ADDRESS' | 'STOP'),
   FavoriteLocationTypesBrand
 >;
-export const FavoriteLocationTypes = t.brand(
+export type FavoriteLocationTypesC = t.BrandC<
+  t.IntersectionC<[t.StringC, t.UnionC<[t.LiteralC<'ADDRESS'>, t.LiteralC<'STOP'>]>]>,
+  FavoriteLocationTypesBrand
+>;
+export const FavoriteLocationTypes: FavoriteLocationTypesC = t.brand(
   t.intersection([t.string, t.union([t.literal('ADDRESS'), t.literal('STOP')])]),
   (x): x is t.Branded<string & ('ADDRESS' | 'STOP'), FavoriteLocationTypesBrand> => true,
   'FavoriteLocationTypes',
@@ -52,7 +56,25 @@ export type PartialFavoriteLocation = t.Branded<
   },
   PartialFavoriteLocationBrand
 >;
-export const PartialFavoriteLocation = t.brand(
+export type PartialFavoriteLocationC = t.BrandC<
+  t.PartialC<{
+    id: t.NumberC;
+    identityId: typeof Units_.IdentityId;
+    type: typeof FavoriteLocationTypes;
+    name: t.StringC;
+    location: typeof UnitsGeo_.Location;
+    streetName: typeof Address_.PlaceName;
+    streetNumber: t.StringC;
+    city: typeof Address_.City;
+    country: typeof Address_.CountryName;
+    zipCode: typeof Address_.ZipCode;
+    agencyId: typeof Common_.AgencyId;
+    stopId: typeof Station_.Id;
+    lineId: t.StringC;
+  }>,
+  PartialFavoriteLocationBrand
+>;
+export const PartialFavoriteLocation: PartialFavoriteLocationC = t.brand(
   t.partial({
     id: t.number,
     identityId: Units_.IdentityId,

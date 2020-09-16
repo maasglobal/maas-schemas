@@ -25,33 +25,34 @@ import * as CustomerSelection_ from './components/customerSelection';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/booking.json';
 
 // Id
 // The purpose of this remains a mystery
 export type Id = Units_.Uuid;
-export const Id = Units_.Uuid;
+// exists type IdC extends t.AnyC
+export const Id: IdC = Units_.Uuid;
 
 // Fares
 // The purpose of this remains a mystery
 export type Fares = t.Branded<Array<Fare_.Fare>, FaresBrand>;
-export const Fares = t.brand(
+export type FaresC = t.BrandC<t.ArrayC<typeof Fare_.Fare>, FaresBrand>;
+export const Fares: FaresC = t.brand(
   t.array(Fare_.Fare),
   (x): x is t.Branded<Array<Fare_.Fare>, FaresBrand> => true,
   'Fares',
@@ -63,17 +64,20 @@ export interface FaresBrand {
 // Cost
 // The purpose of this remains a mystery
 export type Cost = Cost_.Cost;
-export const Cost = Cost_.Cost;
+// exists type CostC extends t.AnyC
+export const Cost: CostC = Cost_.Cost;
 
 // Configurator
 // The purpose of this remains a mystery
 export type Configurator = Configurator_.Configurator;
-export const Configurator = Configurator_.Configurator;
+// exists type ConfiguratorC extends t.AnyC
+export const Configurator: ConfiguratorC = Configurator_.Configurator;
 
 // TspId
 // The purpose of this remains a mystery
 export type TspId = t.Branded<string, TspIdBrand>;
-export const TspId = t.brand(
+export type TspIdC = t.BrandC<t.StringC, TspIdBrand>;
+export const TspId: TspIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, TspIdBrand> =>
     (typeof x !== 'string' || x.length >= 1) &&
@@ -109,7 +113,30 @@ export type Leg = t.Branded<
   },
   LegBrand
 >;
-export const Leg = t.brand(
+export type LegC = t.BrandC<
+  t.PartialC<{
+    signature: typeof Common_.Signature;
+    state: typeof Leg_.State;
+    from: typeof Leg_.From;
+    to: typeof Leg_.To;
+    startTime: typeof Leg_.StartTime;
+    endTime: typeof Leg_.EndTime;
+    mode: typeof Leg_.Mode;
+    stops: typeof Leg_.Stops;
+    departureDelay: typeof Leg_.DepartureDelay;
+    arrivalDelay: typeof Leg_.ArrivalDelay;
+    distance: typeof Leg_.Distance;
+    route: typeof Leg_.Route;
+    routeShortName: typeof Leg_.RouteShortName;
+    routeLongName: typeof Leg_.RouteLongName;
+    agencyId: typeof Leg_.AgencyId;
+    legGeometry: typeof Leg_.LegGeometry;
+    tspProduct: typeof Leg_.TspProduct;
+    productOption: typeof Leg_.ProductOption;
+  }>,
+  LegBrand
+>;
+export const Leg: LegC = t.brand(
   t.partial({
     signature: Common_.Signature,
     state: Leg_.State,
@@ -164,7 +191,8 @@ export interface LegBrand {
 // Terms
 // The purpose of this remains a mystery
 export type Terms = Terms_.Terms;
-export const Terms = Terms_.Terms;
+// exists type TermsC extends t.AnyC
+export const Terms: TermsC = Terms_.Terms;
 
 // Token
 // The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.
@@ -179,7 +207,18 @@ export type Token = t.Branded<
   },
   TokenBrand
 >;
-export const Token = t.brand(
+export type TokenC = t.BrandC<
+  t.PartialC<{
+    validityDuration: t.PartialC<{
+      startTime: typeof Units_.Time;
+      endTime: typeof Units_.Time;
+    }>;
+    data: t.TypeC<{}>;
+    meta: t.TypeC<{}>;
+  }>,
+  TokenBrand
+>;
+export const Token: TokenC = t.brand(
   t.partial({
     validityDuration: t.partial({
       startTime: Units_.Time,
@@ -239,7 +278,47 @@ export type Booking = t.Branded<
   },
   BookingBrand
 >;
-export const Booking = t.brand(
+export type BookingC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: typeof Id;
+        tspId: typeof TspId;
+        state: typeof State_.BookingState;
+        stateLog: typeof StateLog_.StateLog;
+        fares: typeof Fares;
+        cost: typeof Cost;
+        leg: typeof Leg;
+        token: typeof Token;
+        meta: typeof BookingMeta_.BookingMeta;
+        terms: typeof Terms;
+        customer: t.IntersectionC<
+          [
+            typeof Customer_.Customer,
+            t.TypeC<{
+              identityId: typeof Defined;
+            }>,
+          ]
+        >;
+        product: typeof Product_.Product;
+        signature: typeof Common_.Signature;
+        configurator: typeof Configurator;
+        customerSelection: typeof CustomerSelection_.CustomerSelection;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+        state: typeof Defined;
+        leg: typeof Defined;
+        meta: typeof Defined;
+        terms: typeof Defined;
+        token: typeof Defined;
+        customer: typeof Defined;
+      }>,
+    ]
+  >,
+  BookingBrand
+>;
+export const Booking: BookingC = t.brand(
   t.intersection([
     t.partial({
       id: Id,
@@ -434,6 +513,10 @@ export const examplesBooking: NonEmptyArray<Booking> = ([
   },
 ] as unknown) as NonEmptyArray<Booking>;
 
+export type IdC = Units_.UuidC;
+export type CostC = Cost_.CostC;
+export type ConfiguratorC = Configurator_.ConfiguratorC;
+export type TermsC = Terms_.TermsC;
 export default Booking;
 
 // Success

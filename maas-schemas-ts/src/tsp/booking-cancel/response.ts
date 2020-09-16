@@ -13,21 +13,20 @@ import * as Booking_ from '../../core/booking';
 import * as BookingOption_ from '../../core/booking-option';
 import * as BookingMeta_ from '../../core/booking-meta';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/tsp/booking-cancel/response.json';
 
@@ -49,7 +48,28 @@ export type Response = t.Branded<
   },
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        tspId: typeof Booking_.TspId;
+        state: t.UnionC<[t.LiteralC<'CANCELLED'>, t.LiteralC<'RESERVED'>]>;
+        cost: typeof Booking_.Cost;
+        leg: typeof BookingOption_.Leg;
+        meta: typeof BookingMeta_.BookingMeta;
+        terms: typeof Booking_.Terms;
+        token: typeof Booking_.Token;
+        tspProduct: typeof BookingOption_.TspProduct;
+      }>,
+      t.TypeC<{
+        tspId: typeof Defined;
+        state: typeof Defined;
+      }>,
+    ]
+  >,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       tspId: Booking_.TspId,

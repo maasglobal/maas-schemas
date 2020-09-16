@@ -17,7 +17,8 @@ export const schemaId = 'http://maasglobal.com/core/components/common.json';
 // AgencyId
 // The purpose of this remains a mystery
 export type AgencyId = t.Branded<string, AgencyIdBrand>;
-export const AgencyId = t.brand(
+export type AgencyIdC = t.BrandC<t.StringC, AgencyIdBrand>;
+export const AgencyId: AgencyIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, AgencyIdBrand> =>
     (typeof x !== 'string' || x.length >= 2) && (typeof x !== 'string' || x.length <= 64),
@@ -30,7 +31,8 @@ export interface AgencyIdBrand {
 // DeviceToken
 // The purpose of this remains a mystery
 export type DeviceToken = t.Branded<string, DeviceTokenBrand>;
-export const DeviceToken = t.brand(
+export type DeviceTokenC = t.BrandC<t.StringC, DeviceTokenBrand>;
+export const DeviceToken: DeviceTokenC = t.brand(
   t.string,
   (x): x is t.Branded<string, DeviceTokenBrand> =>
     typeof x !== 'string' || x.match(RegExp('^([A-Fa-f0-9]{2}){8,64}$')) !== null,
@@ -43,7 +45,8 @@ export interface DeviceTokenBrand {
 // Signature
 // Signature of a signed object
 export type Signature = t.Branded<string, SignatureBrand>;
-export const Signature = t.brand(
+export type SignatureC = t.BrandC<t.StringC, SignatureBrand>;
+export const Signature: SignatureC = t.brand(
   t.string,
   (x): x is t.Branded<string, SignatureBrand> =>
     (typeof x !== 'string' || x.length >= 1) &&
@@ -57,7 +60,8 @@ export interface SignatureBrand {
 // HtmlBlock
 // HTML string of block level content
 export type HtmlBlock = t.Branded<string, HtmlBlockBrand>;
-export const HtmlBlock = t.brand(
+export type HtmlBlockC = t.BrandC<t.StringC, HtmlBlockBrand>;
+export const HtmlBlock: HtmlBlockC = t.brand(
   t.string,
   (x): x is t.Branded<string, HtmlBlockBrand> => true,
   'HtmlBlock',
@@ -69,7 +73,8 @@ export interface HtmlBlockBrand {
 // JsonParam
 // JSON encoded object or array
 export type JsonParam = t.Branded<string, JsonParamBrand>;
-export const JsonParam = t.brand(
+export type JsonParamC = t.BrandC<t.StringC, JsonParamBrand>;
+export const JsonParam: JsonParamC = t.brand(
   t.string,
   (x): x is t.Branded<string, JsonParamBrand> => typeof x !== 'string' || x.length >= 2,
   'JsonParam',
@@ -81,7 +86,11 @@ export interface JsonParamBrand {
 // MetaCurrency
 // The purpose of this remains a mystery
 export type MetaCurrency = t.Branded<string & ('WMP' | 'TOKEN'), MetaCurrencyBrand>;
-export const MetaCurrency = t.brand(
+export type MetaCurrencyC = t.BrandC<
+  t.IntersectionC<[t.StringC, t.UnionC<[t.LiteralC<'WMP'>, t.LiteralC<'TOKEN'>]>]>,
+  MetaCurrencyBrand
+>;
+export const MetaCurrency: MetaCurrencyC = t.brand(
   t.intersection([t.string, t.union([t.literal('WMP'), t.literal('TOKEN')])]),
   (x): x is t.Branded<string & ('WMP' | 'TOKEN'), MetaCurrencyBrand> => true,
   'MetaCurrency',
@@ -93,7 +102,11 @@ export interface MetaCurrencyBrand {
 // MetaCurrencyWMP
 // The purpose of this remains a mystery
 export type MetaCurrencyWMP = t.Branded<MetaCurrency & 'WMP', MetaCurrencyWMPBrand>;
-export const MetaCurrencyWMP = t.brand(
+export type MetaCurrencyWMPC = t.BrandC<
+  t.IntersectionC<[typeof MetaCurrency, t.LiteralC<'WMP'>]>,
+  MetaCurrencyWMPBrand
+>;
+export const MetaCurrencyWMP: MetaCurrencyWMPC = t.brand(
   t.intersection([MetaCurrency, t.literal('WMP')]),
   (x): x is t.Branded<MetaCurrency & 'WMP', MetaCurrencyWMPBrand> => true,
   'MetaCurrencyWMP',
@@ -107,7 +120,11 @@ export const defaultMetaCurrencyWMP: MetaCurrencyWMP = ('WMP' as unknown) as Met
 // MetaCurrencyTOKEN
 // The purpose of this remains a mystery
 export type MetaCurrencyTOKEN = t.Branded<MetaCurrency & 'TOKEN', MetaCurrencyTOKENBrand>;
-export const MetaCurrencyTOKEN = t.brand(
+export type MetaCurrencyTOKENC = t.BrandC<
+  t.IntersectionC<[typeof MetaCurrency, t.LiteralC<'TOKEN'>]>,
+  MetaCurrencyTOKENBrand
+>;
+export const MetaCurrencyTOKEN: MetaCurrencyTOKENC = t.brand(
   t.intersection([MetaCurrency, t.literal('TOKEN')]),
   (x): x is t.Branded<MetaCurrency & 'TOKEN', MetaCurrencyTOKENBrand> => true,
   'MetaCurrencyTOKEN',
@@ -121,7 +138,8 @@ export const defaultMetaCurrencyTOKEN: MetaCurrencyTOKEN = ('TOKEN' as unknown) 
 // PersonalName
 // First or last name of a customer (e.g. John)
 export type PersonalName = t.Branded<string, PersonalNameBrand>;
-export const PersonalName = t.brand(
+export type PersonalNameC = t.BrandC<t.StringC, PersonalNameBrand>;
+export const PersonalName: PersonalNameC = t.brand(
   t.string,
   (x): x is t.Branded<string, PersonalNameBrand> =>
     (typeof x !== 'string' ||
@@ -137,7 +155,8 @@ export interface PersonalNameBrand {
 // Phone
 // ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html
 export type Phone = t.Branded<string, PhoneBrand>;
-export const Phone = t.brand(
+export type PhoneC = t.BrandC<t.StringC, PhoneBrand>;
+export const Phone: PhoneC = t.brand(
   t.string,
   (x): x is t.Branded<string, PhoneBrand> =>
     typeof x !== 'string' || x.match(RegExp('^\\+(?:\\d){6,14}\\d$')) !== null,
@@ -154,7 +173,8 @@ export const examplesPhone: NonEmptyArray<Phone> = ([
 // RawPhone
 // Slightly looser definition of phone number
 export type RawPhone = t.Branded<string, RawPhoneBrand>;
-export const RawPhone = t.brand(
+export type RawPhoneC = t.BrandC<t.StringC, RawPhoneBrand>;
+export const RawPhone: RawPhoneC = t.brand(
   t.string,
   (x): x is t.Branded<string, RawPhoneBrand> =>
     typeof x !== 'string' || x.match(RegExp('^\\+?(?:\\d){6,14}\\d$')) !== null,
@@ -167,7 +187,8 @@ export interface RawPhoneBrand {
 // Email
 // Rough validation of a valid e-mail address, see https://davidcel.is/posts/stop-validating-email-addresses-with-regex/
 export type Email = t.Branded<string, EmailBrand>;
-export const Email = t.brand(
+export type EmailC = t.BrandC<t.StringC, EmailBrand>;
+export const Email: EmailC = t.brand(
   t.string,
   (x): x is t.Branded<string, EmailBrand> =>
     (typeof x !== 'string' || x.match(RegExp('^.+@.+\\..+$')) !== null) &&
@@ -185,7 +206,8 @@ export const examplesEmail: NonEmptyArray<Email> = ([
 // PaymentSourceId
 // The purpose of this remains a mystery
 export type PaymentSourceId = t.Branded<string, PaymentSourceIdBrand>;
-export const PaymentSourceId = t.brand(
+export type PaymentSourceIdC = t.BrandC<t.StringC, PaymentSourceIdBrand>;
+export const PaymentSourceId: PaymentSourceIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, PaymentSourceIdBrand> =>
     (typeof x !== 'string' || x.length >= 3) &&
@@ -199,7 +221,8 @@ export interface PaymentSourceIdBrand {
 // AppInstanceId
 // An id specific to a user device
 export type AppInstanceId = t.Branded<string, AppInstanceIdBrand>;
-export const AppInstanceId = t.brand(
+export type AppInstanceIdC = t.BrandC<t.StringC, AppInstanceIdBrand>;
+export const AppInstanceId: AppInstanceIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, AppInstanceIdBrand> =>
     typeof x !== 'string' || x.length >= 6,
@@ -212,7 +235,8 @@ export interface AppInstanceIdBrand {
 // OpaqueId
 // Typically the hash of the identityId
 export type OpaqueId = t.Branded<string, OpaqueIdBrand>;
-export const OpaqueId = t.brand(
+export type OpaqueIdC = t.BrandC<t.StringC, OpaqueIdBrand>;
+export const OpaqueId: OpaqueIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, OpaqueIdBrand> =>
     typeof x !== 'string' || x.match(RegExp('^[0-9abcdefABCDEF]+$')) !== null,
@@ -225,7 +249,11 @@ export interface OpaqueIdBrand {
 // ClientId
 // An id indicating the source of the client
 export type ClientId = t.Branded<string & ('whim' | 'wechat'), ClientIdBrand>;
-export const ClientId = t.brand(
+export type ClientIdC = t.BrandC<
+  t.IntersectionC<[t.StringC, t.UnionC<[t.LiteralC<'whim'>, t.LiteralC<'wechat'>]>]>,
+  ClientIdBrand
+>;
+export const ClientId: ClientIdC = t.brand(
   t.intersection([t.string, t.union([t.literal('whim'), t.literal('wechat')])]),
   (x): x is t.Branded<string & ('whim' | 'wechat'), ClientIdBrand> => true,
   'ClientId',
@@ -237,7 +265,8 @@ export interface ClientIdBrand {
 // Ssid
 // Social Security ID
 export type Ssid = t.Branded<string, SsidBrand>;
-export const Ssid = t.brand(
+export type SsidC = t.BrandC<t.StringC, SsidBrand>;
+export const Ssid: SsidC = t.brand(
   t.string,
   (x): x is t.Branded<string, SsidBrand> => typeof x !== 'string' || x.length >= 4,
   'Ssid',
@@ -249,7 +278,8 @@ export interface SsidBrand {
 // EncodedQueryParam
 // Encoded Query Params
 export type EncodedQueryParam = t.Branded<string, EncodedQueryParamBrand>;
-export const EncodedQueryParam = t.brand(
+export type EncodedQueryParamC = t.BrandC<t.StringC, EncodedQueryParamBrand>;
+export const EncodedQueryParam: EncodedQueryParamC = t.brand(
   t.string,
   (x): x is t.Branded<string, EncodedQueryParamBrand> =>
     (typeof x !== 'string' || x.length >= 1) &&
@@ -263,7 +293,8 @@ export interface EncodedQueryParamBrand {
 // ErrorKey
 // Error key
 export type ErrorKey = t.Branded<string, ErrorKeyBrand>;
-export const ErrorKey = t.brand(
+export type ErrorKeyC = t.BrandC<t.StringC, ErrorKeyBrand>;
+export const ErrorKey: ErrorKeyC = t.brand(
   t.string,
   (x): x is t.Branded<string, ErrorKeyBrand> =>
     (typeof x !== 'string' || x.length >= 1) &&
@@ -277,7 +308,8 @@ export interface ErrorKeyBrand {
 // WhimDeepLink
 // Whim only deep link to localhost and freely defined view - not a complete URI validation
 export type WhimDeepLink = t.Branded<string, WhimDeepLinkBrand>;
-export const WhimDeepLink = t.brand(
+export type WhimDeepLinkC = t.BrandC<t.StringC, WhimDeepLinkBrand>;
+export const WhimDeepLink: WhimDeepLinkC = t.brand(
   t.string,
   (x): x is t.Branded<string, WhimDeepLinkBrand> =>
     typeof x !== 'string' ||
@@ -291,7 +323,8 @@ export interface WhimDeepLinkBrand {
 // Common
 // The default export. More information at the top.
 export type Common = t.Branded<unknown, CommonBrand>;
-export const Common = t.brand(
+export type CommonC = t.BrandC<t.UnknownC, CommonBrand>;
+export const Common: CommonC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, CommonBrand> => true,
   'Common',

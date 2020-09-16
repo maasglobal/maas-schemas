@@ -11,21 +11,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from '../../core/components/units';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/tsp/booking-ticket/response.json';
 
@@ -45,7 +44,49 @@ export type Response = t.Branded<
   },
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        ticket: t.StringC;
+        type: t.IntersectionC<
+          [
+            t.StringC,
+            t.UnionC<
+              [
+                t.LiteralC<'html'>,
+                t.LiteralC<'pdf'>,
+                t.LiteralC<'svg'>,
+                t.LiteralC<'png'>,
+              ]
+            >,
+          ]
+        >;
+        contentType: t.IntersectionC<
+          [
+            t.StringC,
+            t.UnionC<
+              [
+                t.LiteralC<'application/pdf'>,
+                t.LiteralC<'image/svg+xml'>,
+                t.LiteralC<'image/png'>,
+                t.LiteralC<'text/html'>,
+              ]
+            >,
+          ]
+        >;
+        refreshAt: typeof Units_.Time;
+      }>,
+      t.TypeC<{
+        ticket: typeof Defined;
+        type: typeof Defined;
+        contentType: typeof Defined;
+      }>,
+    ]
+  >,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       ticket: t.string,

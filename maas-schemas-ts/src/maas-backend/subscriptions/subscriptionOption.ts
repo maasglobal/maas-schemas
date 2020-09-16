@@ -14,21 +14,20 @@ import * as PersonalDataAllowItem_ from '../../core/components/personalDataAllow
 import * as PersonalDataValidation_ from '../../core/components/personalDataValidation';
 import * as Subscription_ from './subscription';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/subscriptions/subscriptionOption.json';
@@ -53,7 +52,34 @@ export type SubscriptionAdditions = t.Branded<
   },
   SubscriptionAdditionsBrand
 >;
-export const SubscriptionAdditions = t.brand(
+export type SubscriptionAdditionsC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        discounts: t.UnknownArrayC;
+        requiredAuthorizations: t.ArrayC<typeof Common_.AgencyId>;
+        regionDefault: t.BooleanC;
+        personalDataCreateAllow: t.ArrayC<
+          typeof PersonalDataAllowItem_.PersonalDataAllowItem
+        >;
+        personalDataValidations: t.ArrayC<
+          typeof PersonalDataValidation_.PersonalDataValidation
+        >;
+      }>,
+      t.TypeC<{
+        plan: typeof Defined;
+        wmpGrant: typeof Defined;
+        pointCost: typeof Defined;
+        addons: typeof Defined;
+        coupons: typeof Defined;
+        requiredAuthorizations: typeof Defined;
+        regionDefault: typeof Defined;
+      }>,
+    ]
+  >,
+  SubscriptionAdditionsBrand
+>;
+export const SubscriptionAdditions: SubscriptionAdditionsC = t.brand(
   t.intersection([
     t.partial({
       discounts: t.UnknownArray,
@@ -104,7 +130,11 @@ export type SubscriptionOption = t.Branded<
   Subscription_.SubscriptionBase & SubscriptionAdditions,
   SubscriptionOptionBrand
 >;
-export const SubscriptionOption = t.brand(
+export type SubscriptionOptionC = t.BrandC<
+  t.IntersectionC<[typeof Subscription_.SubscriptionBase, typeof SubscriptionAdditions]>,
+  SubscriptionOptionBrand
+>;
+export const SubscriptionOption: SubscriptionOptionC = t.brand(
   t.intersection([Subscription_.SubscriptionBase, SubscriptionAdditions]),
   (
     x,

@@ -12,21 +12,20 @@ import * as t from 'io-ts';
 import * as Units_ from '../../../../core/components/units';
 import * as PersonalDocument_ from '../../../../core/personal-document';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/personal-documents/consent/response.json';
@@ -47,7 +46,26 @@ export type Response = t.Branded<
   },
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof Units_.IdentityId;
+        id: typeof Units_.Uuid;
+        partyId: typeof PersonalDocument_.PartyId;
+        partyType: typeof PersonalDocument_.PartyType;
+      }>,
+      t.TypeC<{
+        identityId: typeof Defined;
+        id: typeof Defined;
+        partyId: typeof Defined;
+        partyType: typeof Defined;
+      }>,
+    ]
+  >,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,

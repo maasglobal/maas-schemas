@@ -16,7 +16,8 @@ export const schemaId =
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<unknown, ResponseBrand>;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<t.UnknownC, ResponseBrand>;
+export const Response: ResponseC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, ResponseBrand> => true,
   'Response',

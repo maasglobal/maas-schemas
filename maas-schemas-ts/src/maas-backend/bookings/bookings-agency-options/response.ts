@@ -13,21 +13,20 @@ import * as Booking_ from '../../../core/booking';
 import * as BookingMeta_ from '../../../core/booking-meta';
 import * as BikeStation_ from '../../../core/components/bike-station';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/bookings/bookings-agency-options/response.json';
@@ -61,7 +60,41 @@ export type Option = t.Branded<
   ),
   OptionBrand
 >;
-export const Option = t.brand(
+export type OptionC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        fares: typeof Booking_.Fares;
+        cost: typeof Booking_.Cost;
+        leg: typeof Booking_.Leg;
+        meta: typeof BookingMeta_.BookingMeta;
+        terms: typeof Booking_.Terms;
+        tspProduct: t.PartialC<{
+          id: t.StringC;
+        }>;
+        configurator: typeof Booking_.Configurator;
+      }>,
+      t.UnionC<
+        [
+          t.TypeC<{
+            leg: typeof Defined;
+            terms: typeof Defined;
+            product: typeof Defined;
+            fares: typeof Defined;
+          }>,
+          t.TypeC<{
+            leg: typeof Defined;
+            terms: typeof Defined;
+            product: typeof Defined;
+            configurator: typeof Defined;
+          }>,
+        ]
+      >,
+    ]
+  >,
+  OptionBrand
+>;
+export const Option: OptionC = t.brand(
   t.intersection([
     t.partial({
       fares: Booking_.Fares,
@@ -138,7 +171,24 @@ export type Response = t.Branded<
   },
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        options: t.ArrayC<typeof Option>;
+        additional: t.PartialC<{
+          bikeStations: t.ArrayC<typeof BikeStation_.BikeStation>;
+        }>;
+        debug: t.TypeC<{}>;
+      }>,
+      t.TypeC<{
+        options: typeof Defined;
+      }>,
+    ]
+  >,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       options: t.array(Option),

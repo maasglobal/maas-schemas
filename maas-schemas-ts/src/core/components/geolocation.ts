@@ -12,21 +12,20 @@ import * as t from 'io-ts';
 import * as UnitsGeo_ from './units-geo';
 import * as Address_ from './address';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/components/geolocation.json';
 
@@ -42,7 +41,22 @@ export type Geometry = t.Branded<
   },
   GeometryBrand
 >;
-export const Geometry = t.brand(
+export type GeometryC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        type: t.LiteralC<'Point'>;
+        coordinates: typeof UnitsGeo_.ShortLocation;
+      }>,
+      t.TypeC<{
+        type: typeof Defined;
+        coordinates: typeof Defined;
+      }>,
+    ]
+  >,
+  GeometryBrand
+>;
+export const Geometry: GeometryC = t.brand(
   t.intersection([
     t.partial({
       type: t.literal('Point'),
@@ -88,7 +102,27 @@ export type Properties = t.Branded<
   },
   PropertiesBrand
 >;
-export const Properties = t.brand(
+export type PropertiesC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        name: t.StringC;
+        streetNumber: t.StringC;
+        streetName: t.StringC;
+        city: t.StringC;
+        country: t.StringC;
+        countryCode: t.StringC;
+        houseNumber: t.NumberC;
+        zipcode: typeof Address_.ZipCode;
+      }>,
+      t.TypeC<{
+        name: typeof Defined;
+      }>,
+    ]
+  >,
+  PropertiesBrand
+>;
+export const Properties: PropertiesC = t.brand(
   t.intersection([
     t.partial({
       name: t.string,
@@ -141,7 +175,24 @@ export type Feature = t.Branded<
   },
   FeatureBrand
 >;
-export const Feature = t.brand(
+export type FeatureC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        type: t.LiteralC<'Feature'>;
+        geometry: typeof Geometry;
+        properties: typeof Properties;
+      }>,
+      t.TypeC<{
+        type: typeof Defined;
+        geometry: typeof Defined;
+        properties: typeof Defined;
+      }>,
+    ]
+  >,
+  FeatureBrand
+>;
+export const Feature: FeatureC = t.brand(
   t.intersection([
     t.partial({
       type: t.literal('Feature'),
@@ -186,7 +237,22 @@ export type FeatureCollection = t.Branded<
   },
   FeatureCollectionBrand
 >;
-export const FeatureCollection = t.brand(
+export type FeatureCollectionC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        type: t.LiteralC<'FeatureCollection'>;
+        features: t.ArrayC<typeof Feature>;
+      }>,
+      t.TypeC<{
+        type: typeof Defined;
+        features: typeof Defined;
+      }>,
+    ]
+  >,
+  FeatureCollectionBrand
+>;
+export const FeatureCollection: FeatureCollectionC = t.brand(
   t.intersection([
     t.partial({
       type: t.literal('FeatureCollection'),
@@ -218,7 +284,8 @@ export interface FeatureCollectionBrand {
 // Geolocation
 // The default export. More information at the top.
 export type Geolocation = t.Branded<unknown, GeolocationBrand>;
-export const Geolocation = t.brand(
+export type GeolocationC = t.BrandC<t.UnknownC, GeolocationBrand>;
+export const Geolocation: GeolocationC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, GeolocationBrand> => true,
   'Geolocation',

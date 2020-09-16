@@ -11,28 +11,28 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Common_ from './common';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/components/fare.json';
 
 // TokenId
 // The purpose of this remains a mystery
 export type TokenId = t.Branded<string, TokenIdBrand>;
-export const TokenId = t.brand(
+export type TokenIdC = t.BrandC<t.StringC, TokenIdBrand>;
+export const TokenId: TokenIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, TokenIdBrand> =>
     typeof x !== 'string' || x.match(RegExp('^[a-z]+(-[a-z0-9_]+)+$')) !== null,
@@ -59,7 +59,29 @@ export type Fare = t.Branded<
   },
   FareBrand
 >;
-export const Fare = t.brand(
+export type FareC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        amount: t.UnionC<[t.NumberC, t.NullC]>;
+        currency: typeof Common_.MetaCurrency;
+        tokenId: typeof TokenId;
+        hidden: t.BooleanC;
+        originalAmount: t.UnionC<[t.NumberC, t.NullC]>;
+        productionAmount: t.UnionC<[t.NumberC, t.NullC]>;
+        type: t.IntersectionC<
+          [t.StringC, t.UnionC<[t.LiteralC<'charge'>, t.LiteralC<'refund'>]>]
+        >;
+      }>,
+      t.TypeC<{
+        amount: typeof Defined;
+        currency: typeof Defined;
+      }>,
+    ]
+  >,
+  FareBrand
+>;
+export const Fare: FareC = t.brand(
   t.intersection([
     t.partial({
       amount: t.union([t.number, t.null]),

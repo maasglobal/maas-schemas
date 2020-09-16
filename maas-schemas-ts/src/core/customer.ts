@@ -18,21 +18,20 @@ import * as Fare_ from './components/fare';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/customer.json';
 
@@ -99,7 +98,97 @@ export type Customer = t.Branded<
   },
   CustomerBrand
 >;
-export const Customer = t.brand(
+export type CustomerC = t.BrandC<
+  t.PartialC<{
+    identityId: typeof Units_.IdentityId;
+    honorifics: t.StringC;
+    firstName: typeof Common_.PersonalName;
+    lastName: typeof Common_.PersonalName;
+    firstNameLocalized: typeof Common_.PersonalName;
+    lastNameLocalized: typeof Common_.PersonalName;
+    sex: t.StringC;
+    phone: typeof Common_.Phone;
+    email: typeof Common_.Email;
+    address: typeof Address_.Address;
+    city: typeof Address_.City;
+    state: typeof Address_.State;
+    country: typeof Address_.Country;
+    zipCode: typeof Address_.ZipCode;
+    locale: typeof I18n_.Locale;
+    appInstanceId: typeof Common_.AppInstanceId;
+    opaqueId: typeof Common_.OpaqueId;
+    clientId: typeof Common_.ClientId;
+    dob: t.UnionC<[t.BooleanC, typeof Units_.IsoDate]>;
+    ssid: t.UnionC<[t.BooleanC, typeof Common_.Ssid]>;
+    documents: t.ArrayC<typeof PersonalDocument_.PersonalDocument>;
+    balances: t.IntersectionC<
+      [
+        t.IntersectionC<
+          [
+            t.PartialC<{
+              WMP: t.IntersectionC<
+                [
+                  t.PartialC<{
+                    currency: typeof Common_.MetaCurrencyWMP;
+                    amount: t.NumberC;
+                  }>,
+                  t.TypeC<{
+                    currency: typeof Defined;
+                    amount: typeof Defined;
+                  }>,
+                ]
+              >;
+            }>,
+            t.RecordC<
+              t.StringC,
+              t.UnionC<
+                [
+                  t.IntersectionC<
+                    [
+                      t.PartialC<{
+                        currency: typeof Common_.MetaCurrencyWMP;
+                        amount: t.NumberC;
+                      }>,
+                      t.TypeC<{
+                        currency: typeof Defined;
+                        amount: typeof Defined;
+                      }>,
+                    ]
+                  >,
+                  t.IntersectionC<
+                    [
+                      t.PartialC<{
+                        currency: typeof Common_.MetaCurrencyTOKEN;
+                        tokenId: typeof Fare_.TokenId;
+                        amount: t.UnionC<[t.NumberC, t.NullC]>;
+                      }>,
+                      t.TypeC<{
+                        currency: typeof Defined;
+                        tokenId: typeof Defined;
+                        amount: typeof Defined;
+                      }>,
+                    ]
+                  >,
+                ]
+              >
+            >,
+          ]
+        >,
+        t.TypeC<{
+          WMP: typeof Defined;
+        }>,
+      ]
+    >;
+    referral: t.PartialC<{
+      code: t.StringC;
+    }>;
+    subscriberType: t.StringC;
+    authToken: typeof Common_.EncodedQueryParam;
+    cugHome: t.StringC;
+  }>,
+  CustomerBrand
+>;
+export const Customer: CustomerC = t.brand(
   t.partial({
     identityId: Units_.IdentityId,
     honorifics: t.string,

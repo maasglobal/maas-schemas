@@ -42,7 +42,32 @@ export type MODE_TAXI = t.Branded<
   },
   MODE_TAXIBrand
 >;
-export const MODE_TAXI = t.brand(
+export type MODE_TAXIC = t.BrandC<
+  t.PartialC<{
+    vehicleId: t.StringC;
+    noShowReportedByDriver: t.BooleanC;
+    vehicleLocation: typeof UnitsGeo_.Location;
+    vehicleType: t.StringC;
+    vehicleDescription: t.StringC;
+    driver: t.PartialC<{
+      phone: t.StringC;
+      name: t.StringC;
+      image: typeof Units_.Url;
+      rating: t.NumberC;
+    }>;
+    pickupIdentificationCode: t.StringC;
+    dispatchOrderId: t.StringC;
+    eta: typeof Units_.Time;
+    taxiCenter: t.PartialC<{
+      image: typeof Units_.Url;
+      name: t.StringC;
+      phone: typeof Common_.Phone;
+    }>;
+    messageToDriver: t.StringC;
+  }>,
+  MODE_TAXIBrand
+>;
+export const MODE_TAXI: MODE_TAXIC = t.brand(
   t.partial({
     vehicleId: t.string,
     noShowReportedByDriver: t.boolean,

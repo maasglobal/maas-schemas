@@ -15,7 +15,8 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_TRAIN.json';
 // MODE_TRAIN
 // The default export. More information at the top.
 export type MODE_TRAIN = t.Branded<{}, MODE_TRAINBrand>;
-export const MODE_TRAIN = t.brand(
+export type MODE_TRAINC = t.BrandC<t.TypeC<{}>, MODE_TRAINBrand>;
+export const MODE_TRAIN: MODE_TRAINC = t.brand(
   t.type({}),
   (x): x is t.Branded<{}, MODE_TRAINBrand> => true,
   'MODE_TRAIN',

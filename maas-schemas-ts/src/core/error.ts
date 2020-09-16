@@ -10,21 +10,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/error.json';
 
@@ -40,7 +39,22 @@ export type Error = t.Branded<
   },
   ErrorBrand
 >;
-export const Error = t.brand(
+export type ErrorC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        message: t.StringC;
+        code: t.StringC;
+      }>,
+      t.TypeC<{
+        message: typeof Defined;
+        code: typeof Defined;
+      }>,
+    ]
+  >,
+  ErrorBrand
+>;
+export const Error: ErrorC = t.brand(
   t.intersection([
     t.partial({
       message: t.string,

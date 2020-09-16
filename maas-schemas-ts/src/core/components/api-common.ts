@@ -15,7 +15,8 @@ export const schemaId = 'http://maasglobal.com/core/components/api-common.json';
 // AcceptHeader
 // SemVer versioning schemas for versioning our resources
 export type AcceptHeader = t.Branded<string, AcceptHeaderBrand>;
-export const AcceptHeader = t.brand(
+export type AcceptHeaderC = t.BrandC<t.StringC, AcceptHeaderBrand>;
+export const AcceptHeader: AcceptHeaderC = t.brand(
   t.string,
   (x): x is t.Branded<string, AcceptHeaderBrand> =>
     typeof x !== 'string' ||
@@ -33,7 +34,8 @@ export interface AcceptHeaderBrand {
 // UserAgentHeader
 // The purpose of this remains a mystery
 export type UserAgentHeader = t.Branded<string, UserAgentHeaderBrand>;
-export const UserAgentHeader = t.brand(
+export type UserAgentHeaderC = t.BrandC<t.StringC, UserAgentHeaderBrand>;
+export const UserAgentHeader: UserAgentHeaderC = t.brand(
   t.string,
   (x): x is t.Branded<string, UserAgentHeaderBrand> =>
     typeof x !== 'string' || x.length >= 1,
@@ -52,7 +54,14 @@ export type Headers = t.Branded<
   },
   HeadersBrand
 >;
-export const Headers = t.brand(
+export type HeadersC = t.BrandC<
+  t.PartialC<{
+    Accept: typeof AcceptHeader;
+    'X-Whim-User-Agent': typeof UserAgentHeader;
+  }>,
+  HeadersBrand
+>;
+export const Headers: HeadersC = t.brand(
   t.partial({
     Accept: AcceptHeader,
     'X-Whim-User-Agent': UserAgentHeader,
@@ -75,7 +84,8 @@ export interface HeadersBrand {
 // ApiCommon
 // The default export. More information at the top.
 export type ApiCommon = t.Branded<unknown, ApiCommonBrand>;
-export const ApiCommon = t.brand(
+export type ApiCommonC = t.BrandC<t.UnknownC, ApiCommonBrand>;
+export const ApiCommon: ApiCommonC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, ApiCommonBrand> => true,
   'ApiCommon',

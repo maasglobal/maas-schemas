@@ -15,7 +15,8 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_FERRY.json';
 // MODE_FERRY
 // The default export. More information at the top.
 export type MODE_FERRY = t.Branded<{}, MODE_FERRYBrand>;
-export const MODE_FERRY = t.brand(
+export type MODE_FERRYC = t.BrandC<t.TypeC<{}>, MODE_FERRYBrand>;
+export const MODE_FERRY: MODE_FERRYC = t.brand(
   t.type({}),
   (x): x is t.Branded<{}, MODE_FERRYBrand> => true,
   'MODE_FERRY',

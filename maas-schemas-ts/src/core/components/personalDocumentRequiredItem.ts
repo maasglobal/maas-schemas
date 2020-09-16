@@ -22,7 +22,14 @@ export type PersonalDocumentRequiredItem = t.Branded<
   },
   PersonalDocumentRequiredItemBrand
 >;
-export const PersonalDocumentRequiredItem = t.brand(
+export type PersonalDocumentRequiredItemC = t.BrandC<
+  t.PartialC<{
+    type: t.UnionC<[t.LiteralC<'allOf'>, t.LiteralC<'anyOf'>]>;
+    items: t.ArrayC<t.StringC>;
+  }>,
+  PersonalDocumentRequiredItemBrand
+>;
+export const PersonalDocumentRequiredItem: PersonalDocumentRequiredItemC = t.brand(
   t.partial({
     type: t.union([t.literal('allOf'), t.literal('anyOf')]),
     items: t.array(t.string),

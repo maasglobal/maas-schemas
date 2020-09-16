@@ -14,21 +14,20 @@ import * as Common_ from '../../../../../core/components/common';
 import * as PersonalDocument_ from '../../../../../core/personal-document';
 import * as Address_ from '../../../../../core/components/address';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/verification/webhooks/decision/request.json';
@@ -88,7 +87,95 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        payload: t.IntersectionC<
+          [
+            t.PartialC<{
+              status: t.IntersectionC<
+                [t.StringC, t.UnionC<[t.LiteralC<'fail'>, t.LiteralC<'success'>]>]
+              >;
+              verification: t.IntersectionC<
+                [
+                  t.PartialC<{
+                    id: typeof Units_.Uuid;
+                    code: t.IntersectionC<
+                      [
+                        t.NumberC,
+                        t.UnionC<
+                          [
+                            t.LiteralC<9001>,
+                            t.LiteralC<9102>,
+                            t.LiteralC<9103>,
+                            t.LiteralC<9104>,
+                            t.LiteralC<9121>,
+                          ]
+                        >,
+                      ]
+                    >;
+                    person: t.PartialC<{
+                      firstName: t.UnionC<[typeof Common_.PersonalName, t.NullC]>;
+                      lastName: t.UnionC<[typeof Common_.PersonalName, t.NullC]>;
+                    }>;
+                    document: t.PartialC<{
+                      number: t.UnionC<[t.StringC, t.NullC]>;
+                      type: typeof PersonalDocument_.DocumentType;
+                      country: typeof Address_.Country;
+                      validFrom: t.UnionC<[typeof Units_.IsoDate, t.NullC]>;
+                      validUntil: t.UnionC<[typeof Units_.IsoDate, t.NullC]>;
+                    }>;
+                    reason: t.StringC;
+                    reasonCode: t.UnionC<[t.NumberC, t.NullC]>;
+                    status: t.StringC;
+                    additionalVerifiedData: t.TypeC<{}>;
+                    vendorData: t.StringC;
+                    decisionTime: t.StringC;
+                    acceptanceTime: t.StringC;
+                  }>,
+                  t.TypeC<{
+                    id: typeof Defined;
+                    status: typeof Defined;
+                    code: typeof Defined;
+                    person: typeof Defined;
+                    document: typeof Defined;
+                  }>,
+                ]
+              >;
+            }>,
+            t.TypeC<{
+              status: typeof Defined;
+              verification: typeof Defined;
+            }>,
+          ]
+        >;
+        headers: t.IntersectionC<
+          [
+            t.PartialC<{
+              'x-signature': t.StringC;
+              'x-auth-client': typeof Units_.Uuid;
+            }>,
+            t.TypeC<{
+              'x-signature': typeof Defined;
+              'x-auth-client': typeof Defined;
+            }>,
+          ]
+        >;
+        technicalData: t.PartialC<{
+          ip: t.StringC;
+        }>;
+        rawPayload: t.StringC;
+      }>,
+      t.TypeC<{
+        headers: typeof Defined;
+        payload: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       payload: t.intersection([

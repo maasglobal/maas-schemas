@@ -14,21 +14,20 @@ import * as Configurator_ from '../../core/components/configurator';
 import * as BookingMeta_ from '../../core/booking-meta';
 import * as CustomerSelection_ from '../../core/components/customerSelection';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/tsp/booking-update/request.json';
 
@@ -47,7 +46,32 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        tspId: typeof Booking_.TspId;
+        state: t.UnionC<
+          [
+            t.LiteralC<'RESERVED'>,
+            t.LiteralC<'ACTIVATED'>,
+            t.LiteralC<'ON_HOLD'>,
+            t.LiteralC<'EXPIRED'>,
+          ]
+        >;
+        configurator: typeof Configurator_.Configurator;
+        meta: typeof BookingMeta_.BookingMeta;
+        terms: typeof Booking_.Terms;
+        customerSelection: typeof CustomerSelection_.CustomerSelection;
+      }>,
+      t.TypeC<{
+        tspId: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       tspId: Booking_.TspId,

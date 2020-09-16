@@ -22,7 +22,13 @@ export type Response = t.Branded<
   },
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.PartialC<{
+    favoriteLocation: typeof PartialFavoriteLocation_.PartialFavoriteLocation;
+  }>,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.partial({
     favoriteLocation: PartialFavoriteLocation_.PartialFavoriteLocation,
   }),

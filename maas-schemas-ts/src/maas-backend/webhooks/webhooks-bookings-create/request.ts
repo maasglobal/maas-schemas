@@ -16,21 +16,20 @@ import * as BookingMeta_ from '../../../core/booking-meta';
 import * as CustomerSelection_ from '../../../core/components/customerSelection';
 import * as ApiCommon_ from '../../../core/components/api-common';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/webhooks/webhooks-bookings-create/request.json';
@@ -78,7 +77,65 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        payload: t.IntersectionC<
+          [
+            t.PartialC<{
+              identityId: typeof Units_.IdentityId;
+              locale: typeof I18n_.Locale;
+              option: t.IntersectionC<
+                [
+                  t.PartialC<{
+                    cost: typeof Booking_.Cost;
+                    leg: typeof Booking_.Leg;
+                    meta: typeof BookingMeta_.BookingMeta;
+                    terms: typeof Booking_.Terms;
+                    tspProduct: t.PartialC<{
+                      id: t.StringC;
+                    }>;
+                    configurator: typeof Booking_.Configurator;
+                  }>,
+                  t.UnionC<
+                    [
+                      t.TypeC<{
+                        leg: typeof Defined;
+                        terms: typeof Defined;
+                        cost: typeof Defined;
+                        meta: typeof Defined;
+                      }>,
+                      t.TypeC<{
+                        leg: typeof Defined;
+                        terms: typeof Defined;
+                        cost: typeof Defined;
+                        meta: typeof Defined;
+                        configurator: typeof Defined;
+                      }>,
+                    ]
+                  >,
+                ]
+              >;
+              customerSelection: typeof CustomerSelection_.CustomerSelection;
+            }>,
+            t.TypeC<{
+              option: typeof Defined;
+              identityId: typeof Defined;
+              locale: typeof Defined;
+            }>,
+          ]
+        >;
+        headers: typeof ApiCommon_.Headers;
+      }>,
+      t.TypeC<{
+        payload: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       payload: t.intersection([

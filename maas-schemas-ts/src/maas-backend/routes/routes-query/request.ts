@@ -15,21 +15,20 @@ import * as Station_ from '../../../core/components/station';
 import * as Units_ from '../../../core/components/units';
 import * as ApiCommon_ from '../../../core/components/api-common';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/routes/routes-query/request.json';
@@ -80,7 +79,118 @@ export type Payload = t.Branded<
   },
   PayloadBrand
 >;
-export const Payload = t.brand(
+export type PayloadC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            from: typeof UnitsGeo_.ShortLocationString;
+            fromName: typeof Address_.PlaceName;
+            fromAddress: typeof Address_.ComponentAddress;
+            fromStationId: typeof Station_.Id;
+            to: typeof UnitsGeo_.ShortLocationString;
+            toName: typeof Address_.PlaceName;
+            toAddress: typeof Address_.ComponentAddress;
+            toStationId: typeof Station_.Id;
+            leaveAt: typeof Units_.Time;
+            arriveBy: typeof Units_.Time;
+            leaveAtReturn: typeof Units_.Time;
+            arriveByReturn: typeof Units_.Time;
+            modes: t.IntersectionC<
+              [
+                t.StringC,
+                t.UnionC<
+                  [
+                    t.LiteralC<'PUBLIC_TRANSIT'>,
+                    t.LiteralC<'TAXI'>,
+                    t.LiteralC<'CAR'>,
+                    t.LiteralC<'WALK'>,
+                    t.LiteralC<'BICYCLE'>,
+                    t.LiteralC<'BICYCLE_RENT'>,
+                  ]
+                >,
+              ]
+            >;
+            transitMode: t.IntersectionC<
+              [
+                t.StringC,
+                t.UnionC<
+                  [
+                    t.LiteralC<'TRAIN'>,
+                    t.LiteralC<'BUS'>,
+                    t.LiteralC<'SUBWAY'>,
+                    t.LiteralC<'TRAM'>,
+                    t.LiteralC<'RAIL'>,
+                  ]
+                >,
+              ]
+            >;
+            options: t.TypeC<{}>;
+            bookingIdToExtend: typeof Units_.Uuid;
+          }>,
+          t.RecordC<
+            t.StringC,
+            t.UnionC<
+              [
+                typeof UnitsGeo_.ShortLocationString,
+                typeof Address_.PlaceName,
+                typeof Address_.ComponentAddress,
+                typeof Station_.Id,
+                typeof UnitsGeo_.ShortLocationString,
+                typeof Address_.PlaceName,
+                typeof Address_.ComponentAddress,
+                typeof Station_.Id,
+                typeof Units_.Time,
+                typeof Units_.Time,
+                typeof Units_.Time,
+                typeof Units_.Time,
+                t.IntersectionC<
+                  [
+                    t.StringC,
+                    t.UnionC<
+                      [
+                        t.LiteralC<'PUBLIC_TRANSIT'>,
+                        t.LiteralC<'TAXI'>,
+                        t.LiteralC<'CAR'>,
+                        t.LiteralC<'WALK'>,
+                        t.LiteralC<'BICYCLE'>,
+                        t.LiteralC<'BICYCLE_RENT'>,
+                      ]
+                    >,
+                  ]
+                >,
+                t.IntersectionC<
+                  [
+                    t.StringC,
+                    t.UnionC<
+                      [
+                        t.LiteralC<'TRAIN'>,
+                        t.LiteralC<'BUS'>,
+                        t.LiteralC<'SUBWAY'>,
+                        t.LiteralC<'TRAM'>,
+                        t.LiteralC<'RAIL'>,
+                      ]
+                    >,
+                  ]
+                >,
+                t.TypeC<{}>,
+                typeof Units_.Uuid,
+                t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>,
+              ]
+            >
+          >,
+        ]
+      >,
+      t.TypeC<{
+        from: typeof Defined;
+        to: typeof Defined;
+      }>,
+    ]
+  >,
+  PayloadBrand
+>;
+export const Payload: PayloadC = t.brand(
   t.intersection([
     t.intersection([
       t.partial({
@@ -233,7 +343,23 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof Units_.IdentityId;
+        payload: typeof Payload;
+        headers: typeof ApiCommon_.Headers;
+      }>,
+      t.TypeC<{
+        identityId: typeof Defined;
+        payload: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,

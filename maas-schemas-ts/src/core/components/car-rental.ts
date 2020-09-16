@@ -14,21 +14,20 @@ import * as ACRISS_ from './ACRISS';
 import * as UnitsGeo_ from './units-geo';
 import * as Common_ from './common';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/components/car-rental.json';
 
@@ -52,7 +51,32 @@ export type Instruction = t.Branded<
   ),
   InstructionBrand
 >;
-export const Instruction = t.brand(
+export type InstructionC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        title: t.StringC;
+        icon: typeof Units_.Url;
+        text: t.StringC;
+        image: typeof Units_.Url;
+      }>,
+      t.UnionC<
+        [
+          t.TypeC<{
+            title: typeof Defined;
+            text: typeof Defined;
+          }>,
+          t.TypeC<{
+            title: typeof Defined;
+            image: typeof Defined;
+          }>,
+        ]
+      >,
+    ]
+  >,
+  InstructionBrand
+>;
+export const Instruction: InstructionC = t.brand(
   t.intersection([
     t.partial({
       title: t.string,
@@ -143,7 +167,66 @@ export type CarRental = t.Branded<
   },
   CarRentalBrand
 >;
-export const CarRental = t.brand(
+export type CarRentalC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.StringC;
+        name: t.StringC;
+        description: t.StringC;
+        image: typeof Units_.Url;
+        vendor: t.PartialC<{
+          voucher: t.UnknownC;
+        }>;
+        terms: t.UnknownC;
+        car: t.IntersectionC<
+          [
+            t.PartialC<{
+              passengers: t.NumberC;
+              doors: t.ArrayC<t.NumberC>;
+              luggage: t.ArrayC<t.NumberC>;
+              transmission: t.UnionC<
+                [t.LiteralC<'manual'>, t.LiteralC<'automatic'>, t.NullC]
+              >;
+              fuel: t.UnionC<
+                [
+                  t.LiteralC<'diesel'>,
+                  t.LiteralC<'electric'>,
+                  t.LiteralC<'ethanol'>,
+                  t.LiteralC<'gasoline'>,
+                  t.LiteralC<'hybrid'>,
+                  t.LiteralC<'hydrogen'>,
+                  t.LiteralC<'lpg'>,
+                  t.LiteralC<'multifuel'>,
+                  t.NullC,
+                ]
+              >;
+              classification: t.UnionC<[typeof ACRISS_.ACRISS, t.NullC]>;
+              registrationPlate: t.StringC;
+              damage: t.StringC;
+              fuelLevel: t.NumberC;
+              location: typeof UnitsGeo_.Location;
+            }>,
+            t.TypeC<{
+              classification: typeof Defined;
+            }>,
+          ]
+        >;
+        pickupInfo: typeof Common_.HtmlBlock;
+        returnInfo: typeof Common_.HtmlBlock;
+        startEndGeoRegionUrl: typeof Units_.Url;
+        instructions: t.ArrayC<typeof Instruction>;
+      }>,
+      t.TypeC<{
+        name: typeof Defined;
+        description: typeof Defined;
+        image: typeof Defined;
+      }>,
+    ]
+  >,
+  CarRentalBrand
+>;
+export const CarRental: CarRentalC = t.brand(
   t.intersection([
     t.partial({
       id: t.string,

@@ -22,7 +22,14 @@ export type PersonalDataAllowItem = t.Branded<
   },
   PersonalDataAllowItemBrand
 >;
-export const PersonalDataAllowItem = t.brand(
+export type PersonalDataAllowItemC = t.BrandC<
+  t.PartialC<{
+    type: t.UnionC<[t.LiteralC<'allOf'>, t.LiteralC<'anyOf'>]>;
+    items: t.ArrayC<t.StringC>;
+  }>,
+  PersonalDataAllowItemBrand
+>;
+export const PersonalDataAllowItem: PersonalDataAllowItemC = t.brand(
   t.partial({
     type: t.union([t.literal('allOf'), t.literal('anyOf')]),
     items: t.array(t.string),

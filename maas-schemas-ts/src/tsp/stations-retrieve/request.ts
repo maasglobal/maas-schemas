@@ -22,7 +22,14 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.PartialC<{
+    id: typeof Station_.Id;
+    agencyId: typeof Station_.AgencyId;
+  }>,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.partial({
     id: Station_.Id,
     agencyId: Station_.AgencyId,

@@ -23,7 +23,14 @@ export type Response = t.Branded<
   },
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.PartialC<{
+    profile: typeof Profile_.Profile;
+    debug: t.TypeC<{}>;
+  }>,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.partial({
     profile: Profile_.Profile,
     debug: t.type({}),

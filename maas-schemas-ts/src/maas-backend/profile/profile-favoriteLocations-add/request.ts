@@ -26,7 +26,15 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.PartialC<{
+    identityId: typeof Units_.IdentityId;
+    payload: typeof Place_.Place;
+    headers: typeof ApiCommon_.Headers;
+  }>,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.partial({
     identityId: Units_.IdentityId,
     payload: Place_.Place,

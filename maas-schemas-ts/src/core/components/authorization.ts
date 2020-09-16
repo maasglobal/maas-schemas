@@ -12,21 +12,20 @@ import * as t from 'io-ts';
 import * as Common_ from './common';
 import * as Units_ from './units';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/components/authorization.json';
 
@@ -47,7 +46,29 @@ export type Authorization = t.Branded<
   },
   AuthorizationBrand
 >;
-export const Authorization = t.brand(
+export type AuthorizationC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        agencyId: typeof Common_.AgencyId;
+        state: t.IntersectionC<
+          [t.StringC, t.UnionC<[t.LiteralC<'VALID'>, t.LiteralC<'INVALID'>]>]
+        >;
+        validTo: typeof Units_.Time;
+        created: typeof Units_.Time;
+        modified: typeof Units_.Time;
+      }>,
+      t.TypeC<{
+        agencyId: typeof Defined;
+        state: typeof Defined;
+        validTo: typeof Defined;
+        created: typeof Defined;
+      }>,
+    ]
+  >,
+  AuthorizationBrand
+>;
+export const Authorization: AuthorizationC = t.brand(
   t.intersection([
     t.partial({
       agencyId: Common_.AgencyId,

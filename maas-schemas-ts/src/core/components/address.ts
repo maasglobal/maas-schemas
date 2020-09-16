@@ -18,7 +18,8 @@ export const schemaId = 'http://maasglobal.com/core/components/address.json';
 // ComponentAddress
 // Encoded address components. Check the regexr examples. Check https://regexr.com/4ofcq. In streetNumber, there are 2 dashes - they have 2 different unicodes, do not remove
 export type ComponentAddress = t.Branded<string, ComponentAddressBrand>;
-export const ComponentAddress = t.brand(
+export type ComponentAddressC = t.BrandC<t.StringC, ComponentAddressBrand>;
+export const ComponentAddress: ComponentAddressC = t.brand(
   t.string,
   (x): x is t.Branded<string, ComponentAddressBrand> =>
     typeof x !== 'string' ||
@@ -59,7 +60,8 @@ export const examplesComponentAddress: NonEmptyArray<ComponentAddress> = ([
 // PlaceName
 // Place name (given in autocomplete)
 export type PlaceName = t.Branded<string, PlaceNameBrand>;
-export const PlaceName = t.brand(
+export type PlaceNameC = t.BrandC<t.StringC, PlaceNameBrand>;
+export const PlaceName: PlaceNameC = t.brand(
   t.string,
   (x): x is t.Branded<string, PlaceNameBrand> => typeof x !== 'string' || x.length >= 1,
   'PlaceName',
@@ -71,29 +73,34 @@ export interface PlaceNameBrand {
 // FirstName
 // The purpose of this remains a mystery
 export type FirstName = Common_.PersonalName;
-export const FirstName = Common_.PersonalName;
+// exists type FirstNameC extends t.AnyC
+export const FirstName: FirstNameC = Common_.PersonalName;
 
 // LastName
 // The purpose of this remains a mystery
 export type LastName = Common_.PersonalName;
-export const LastName = Common_.PersonalName;
+// exists type LastNameC extends t.AnyC
+export const LastName: LastNameC = Common_.PersonalName;
 
 // Phone
 // The purpose of this remains a mystery
 export type Phone = Common_.Phone;
-export const Phone = Common_.Phone;
+// exists type PhoneC extends t.AnyC
+export const Phone: PhoneC = Common_.Phone;
 
 // Email
 // The purpose of this remains a mystery
 export type Email = Common_.Email;
-export const Email = Common_.Email;
+// exists type EmailC extends t.AnyC
+export const Email: EmailC = Common_.Email;
 
 // Address
-// The default export. More information at the top.
-export type Address = t.Branded<unknown, AddressBrand>;
-export const Address = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, AddressBrand> => true,
+// Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html
+export type Address = t.Branded<string, AddressBrand>;
+export type AddressC = t.BrandC<t.StringC, AddressBrand>;
+export const Address: AddressC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, AddressBrand> => typeof x !== 'string' || x.length >= 2,
   'Address',
 );
 export interface AddressBrand {
@@ -103,7 +110,8 @@ export interface AddressBrand {
 // ZipCode
 // Numeric zip code, see https://en.wikipedia.org/wiki/Postal_code
 export type ZipCode = t.Branded<string, ZipCodeBrand>;
-export const ZipCode = t.brand(
+export type ZipCodeC = t.BrandC<t.StringC, ZipCodeBrand>;
+export const ZipCode: ZipCodeC = t.brand(
   t.string,
   (x): x is t.Branded<string, ZipCodeBrand> =>
     (typeof x !== 'string' || x.length >= 2) && (typeof x !== 'string' || x.length <= 64),
@@ -116,7 +124,8 @@ export interface ZipCodeBrand {
 // State
 // Alphabetic state name
 export type State = t.Branded<string, StateBrand>;
-export const State = t.brand(
+export type StateC = t.BrandC<t.StringC, StateBrand>;
+export const State: StateC = t.brand(
   t.string,
   (x): x is t.Branded<string, StateBrand> =>
     (typeof x !== 'string' || x.match(RegExp("^(?:\\p{L}|\\s|')+$", 'gui')) !== null) &&
@@ -130,7 +139,8 @@ export interface StateBrand {
 // CountryName
 // Alphabetic country name
 export type CountryName = t.Branded<string, CountryNameBrand>;
-export const CountryName = t.brand(
+export type CountryNameC = t.BrandC<t.StringC, CountryNameBrand>;
+export const CountryName: CountryNameC = t.brand(
   t.string,
   (x): x is t.Branded<string, CountryNameBrand> =>
     (typeof x !== 'string' || x.match(RegExp("^(?:\\p{L}|\\s|')+$", 'gui')) !== null) &&
@@ -144,7 +154,8 @@ export interface CountryNameBrand {
 // Country
 // ISO 3166-1 alpha-2 country code, see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 export type Country = t.Branded<string, CountryBrand>;
-export const Country = t.brand(
+export type CountryC = t.BrandC<t.StringC, CountryBrand>;
+export const Country: CountryC = t.brand(
   t.string,
   (x): x is t.Branded<string, CountryBrand> =>
     typeof x !== 'string' || x.match(RegExp('^[A-Z]{2,2}$')) !== null,
@@ -157,7 +168,8 @@ export interface CountryBrand {
 // City
 // Alphabetic city name
 export type City = t.Branded<string, CityBrand>;
-export const City = t.brand(
+export type CityC = t.BrandC<t.StringC, CityBrand>;
+export const City: CityC = t.brand(
   t.string,
   (x): x is t.Branded<string, CityBrand> => typeof x !== 'string' || x.length >= 1,
   'City',
@@ -166,6 +178,9 @@ export interface CityBrand {
   readonly City: unique symbol;
 }
 
-export default Address;
+export type FirstNameC = Common_.PersonalNameC;
+export type LastNameC = Common_.PersonalNameC;
+export type PhoneC = Common_.PhoneC;
+export type EmailC = Common_.EmailC;
 
 // Success

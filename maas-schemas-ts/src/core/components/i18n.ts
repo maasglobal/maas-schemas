@@ -15,7 +15,8 @@ export const schemaId = 'http://maasglobal.com/core/components/i18n.json';
 // Locale
 // The purpose of this remains a mystery
 export type Locale = t.Branded<string, LocaleBrand>;
-export const Locale = t.brand(
+export type LocaleC = t.BrandC<t.StringC, LocaleBrand>;
+export const Locale: LocaleC = t.brand(
   t.string,
   (x): x is t.Branded<string, LocaleBrand> =>
     typeof x !== 'string' ||
@@ -29,7 +30,8 @@ export interface LocaleBrand {
 // I18n
 // The default export. More information at the top.
 export type I18n = t.Branded<unknown, I18nBrand>;
-export const I18n = t.brand(
+export type I18nC = t.BrandC<t.UnknownC, I18nBrand>;
+export const I18n: I18nC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, I18nBrand> => true,
   'I18n',
