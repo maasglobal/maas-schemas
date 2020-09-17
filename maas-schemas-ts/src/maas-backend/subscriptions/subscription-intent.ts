@@ -13,21 +13,20 @@ import * as State_ from '../../core/components/state';
 import * as Units_ from '../../core/components/units';
 import * as StateLog_ from '../../core/components/state-log';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/subscriptions/subscription-intent.json';
@@ -35,7 +34,8 @@ export const schemaId =
 // PlanId
 // The purpose of this remains a mystery
 export type PlanId = t.Branded<string, PlanIdBrand>;
-export const PlanId = t.brand(
+export type PlanIdC = t.BrandC<t.StringC, PlanIdBrand>;
+export const PlanId: PlanIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, PlanIdBrand> =>
     (typeof x !== 'string' || x.length >= 2) &&
@@ -49,7 +49,8 @@ export interface PlanIdBrand {
 // AddonId
 // The purpose of this remains a mystery
 export type AddonId = t.Branded<string, AddonIdBrand>;
-export const AddonId = t.brand(
+export type AddonIdC = t.BrandC<t.StringC, AddonIdBrand>;
+export const AddonId: AddonIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, AddonIdBrand> =>
     (typeof x !== 'string' || x.length >= 2) &&
@@ -63,7 +64,8 @@ export interface AddonIdBrand {
 // CouponId
 // The purpose of this remains a mystery
 export type CouponId = t.Branded<string, CouponIdBrand>;
-export const CouponId = t.brand(
+export type CouponIdC = t.BrandC<t.StringC, CouponIdBrand>;
+export const CouponId: CouponIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, CouponIdBrand> =>
     (typeof x !== 'string' || x.length >= 2) &&
@@ -89,7 +91,25 @@ export type SubscriptionIntentCreate = t.Branded<
   },
   SubscriptionIntentCreateBrand
 >;
-export const SubscriptionIntentCreate = t.brand(
+export type SubscriptionIntentCreateC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        planId: typeof PlanId;
+        planAddons: t.ArrayC<typeof AddonId>;
+        coupons: t.ArrayC<typeof CouponId>;
+        state: typeof State_.SubscriptionIntentState;
+      }>,
+      t.TypeC<{
+        planId: typeof Defined;
+        planAddons: typeof Defined;
+        coupons: typeof Defined;
+      }>,
+    ]
+  >,
+  SubscriptionIntentCreateBrand
+>;
+export const SubscriptionIntentCreate: SubscriptionIntentCreateC = t.brand(
   t.intersection([
     t.partial({
       planId: PlanId,
@@ -148,7 +168,34 @@ export type SubscriptionIntentBase = t.Branded<
   },
   SubscriptionIntentBaseBrand
 >;
-export const SubscriptionIntentBase = t.brand(
+export type SubscriptionIntentBaseC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: typeof Units_.Uuid;
+        identityId: typeof Units_.IdentityId;
+        subscriptionId: typeof Units_.IdentityId;
+        nextPlanId: typeof PlanId;
+        nextPlanAddons: t.ArrayC<typeof AddonId>;
+        nextPlanCoupons: t.ArrayC<typeof CouponId>;
+        prevPlanId: typeof PlanId;
+        prevPlanAddons: t.ArrayC<typeof AddonId>;
+        state: typeof State_.SubscriptionIntentState;
+        stateLog: typeof StateLog_.StateLog;
+        created: typeof Units_.Time;
+        modified: typeof Units_.Time;
+      }>,
+      t.TypeC<{
+        identityId: typeof Defined;
+        subscriptionId: typeof Defined;
+        nextPlanId: typeof Defined;
+        nextPlanAddons: typeof Defined;
+      }>,
+    ]
+  >,
+  SubscriptionIntentBaseBrand
+>;
+export const SubscriptionIntentBase: SubscriptionIntentBaseC = t.brand(
   t.intersection([
     t.partial({
       id: Units_.Uuid,
@@ -204,7 +251,8 @@ export interface SubscriptionIntentBaseBrand {
 // SubscriptionIntent
 // The default export. More information at the top.
 export type SubscriptionIntent = t.Branded<unknown, SubscriptionIntentBrand>;
-export const SubscriptionIntent = t.brand(
+export type SubscriptionIntentC = t.BrandC<t.UnknownC, SubscriptionIntentBrand>;
+export const SubscriptionIntent: SubscriptionIntentC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, SubscriptionIntentBrand> => true,
   'SubscriptionIntent',

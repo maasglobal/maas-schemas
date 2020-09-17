@@ -13,21 +13,20 @@ import * as Common_ from '../../core/components/common';
 import * as Units_ from '../../core/components/units';
 import * as Error_ from '../../core/error';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/tsp/customer-auth-validate/response.json';
 
@@ -52,7 +51,33 @@ export type Response = t.Branded<
   ),
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        authToken: typeof Common_.EncodedQueryParam;
+        validTo: typeof Units_.Time;
+        nonce: typeof Common_.EncodedQueryParam;
+        error: typeof Error_.Error;
+      }>,
+      t.UnionC<
+        [
+          t.TypeC<{
+            authToken: typeof Defined;
+            nonce: typeof Defined;
+            validTo: typeof Defined;
+          }>,
+          t.TypeC<{
+            error: typeof Defined;
+            nonce: typeof Defined;
+          }>,
+        ]
+      >,
+    ]
+  >,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       authToken: Common_.EncodedQueryParam,

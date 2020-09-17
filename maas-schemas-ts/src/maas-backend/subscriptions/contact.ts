@@ -13,28 +13,28 @@ import * as Common_ from '../../core/components/common';
 import * as Address_ from '../../core/components/address';
 import * as Units_ from '../../core/components/units';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/maas-backend/subscriptions/contact.json';
 
 // IdentityId
 // The purpose of this remains a mystery
 export type IdentityId = Units_.IdentityId;
-export const IdentityId = Units_.IdentityId;
+// exists type IdentityIdC extends t.AnyC
+export const IdentityId: IdentityIdC = Units_.IdentityId;
 
 // ContactBase
 // The purpose of this remains a mystery
@@ -52,7 +52,21 @@ export type ContactBase = t.Branded<
   },
   ContactBaseBrand
 >;
-export const ContactBase = t.brand(
+export type ContactBaseC = t.BrandC<
+  t.PartialC<{
+    identityId: typeof IdentityId;
+    firstName: typeof Common_.PersonalName;
+    lastName: typeof Common_.PersonalName;
+    address: typeof Address_.Address;
+    city: typeof Address_.City;
+    zipCode: typeof Address_.ZipCode;
+    country: typeof Address_.Country;
+    phone: typeof Common_.Phone;
+    email: typeof Common_.Email;
+  }>,
+  ContactBaseBrand
+>;
+export const ContactBase: ContactBaseC = t.brand(
   t.partial({
     identityId: IdentityId,
     firstName: Common_.PersonalName,
@@ -98,7 +112,22 @@ export type StripePaymentMethod = t.Branded<
   },
   StripePaymentMethodBrand
 >;
-export const StripePaymentMethod = t.brand(
+export type StripePaymentMethodC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        type: t.IntersectionC<[t.StringC, t.LiteralC<'stripe'>]>;
+        token: t.StringC;
+      }>,
+      t.TypeC<{
+        type: typeof Defined;
+        token: typeof Defined;
+      }>,
+    ]
+  >,
+  StripePaymentMethodBrand
+>;
+export const StripePaymentMethod: StripePaymentMethodC = t.brand(
   t.intersection([
     t.partial({
       type: t.intersection([t.string, t.literal('stripe')]),
@@ -145,7 +174,28 @@ export type CreditCardPaymentMethod = t.Branded<
   },
   CreditCardPaymentMethodBrand
 >;
-export const CreditCardPaymentMethod = t.brand(
+export type CreditCardPaymentMethodC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        type: t.IntersectionC<[t.StringC, t.LiteralC<'card'>]>;
+        number: t.StringC;
+        expiryMonth: t.NumberC;
+        expiryYear: t.NumberC;
+        cvv: t.StringC;
+      }>,
+      t.TypeC<{
+        type: typeof Defined;
+        number: typeof Defined;
+        expiryMonth: typeof Defined;
+        expiryYear: typeof Defined;
+        cvv: typeof Defined;
+      }>,
+    ]
+  >,
+  CreditCardPaymentMethodBrand
+>;
+export const CreditCardPaymentMethod: CreditCardPaymentMethodC = t.brand(
   t.intersection([
     t.partial({
       type: t.intersection([t.string, t.literal('card')]),
@@ -192,7 +242,11 @@ export type NewPaymentMethod = t.Branded<
   StripePaymentMethod | CreditCardPaymentMethod,
   NewPaymentMethodBrand
 >;
-export const NewPaymentMethod = t.brand(
+export type NewPaymentMethodC = t.BrandC<
+  t.UnionC<[typeof StripePaymentMethod, typeof CreditCardPaymentMethod]>,
+  NewPaymentMethodBrand
+>;
+export const NewPaymentMethod: NewPaymentMethodC = t.brand(
   t.union([StripePaymentMethod, CreditCardPaymentMethod]),
   (
     x,
@@ -217,7 +271,26 @@ export type NewContact = t.Branded<
   }),
   NewContactBrand
 >;
-export const NewContact = t.brand(
+export type NewContactC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.TypeC<{
+        identityId: typeof Defined;
+        phone: typeof Defined;
+      }>,
+      t.IntersectionC<
+        [
+          typeof ContactBase,
+          t.PartialC<{
+            paymentMethod: typeof NewPaymentMethod;
+          }>,
+        ]
+      >,
+    ]
+  >,
+  NewContactBrand
+>;
+export const NewContact: NewContactC = t.brand(
   t.intersection([
     t.type({
       identityId: Defined,
@@ -257,7 +330,25 @@ export type ContactUpdate = t.Branded<
   }),
   ContactUpdateBrand
 >;
-export const ContactUpdate = t.brand(
+export type ContactUpdateC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.TypeC<{
+        identityId: typeof Defined;
+      }>,
+      t.IntersectionC<
+        [
+          typeof ContactBase,
+          t.PartialC<{
+            paymentMethod: typeof NewPaymentMethod;
+          }>,
+        ]
+      >,
+    ]
+  >,
+  ContactUpdateBrand
+>;
+export const ContactUpdate: ContactUpdateC = t.brand(
   t.intersection([
     t.type({
       identityId: Defined,
@@ -297,7 +388,22 @@ export type PaymentMethodResponse = t.Branded<
   },
   PaymentMethodResponseBrand
 >;
-export const PaymentMethodResponse = t.brand(
+export type PaymentMethodResponseC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        type: t.StringC;
+        valid: t.BooleanC;
+      }>,
+      t.TypeC<{
+        type: typeof Defined;
+        valid: typeof Defined;
+      }>,
+    ]
+  >,
+  PaymentMethodResponseBrand
+>;
+export const PaymentMethodResponse: PaymentMethodResponseC = t.brand(
   t.intersection([
     t.partial({
       type: t.string,
@@ -337,7 +443,26 @@ export type ContactResponse = t.Branded<
   }),
   ContactResponseBrand
 >;
-export const ContactResponse = t.brand(
+export type ContactResponseC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.TypeC<{
+        identityId: typeof Defined;
+        phone: typeof Defined;
+      }>,
+      t.IntersectionC<
+        [
+          typeof ContactBase,
+          t.PartialC<{
+            paymentMethod: typeof PaymentMethodResponse;
+          }>,
+        ]
+      >,
+    ]
+  >,
+  ContactResponseBrand
+>;
+export const ContactResponse: ContactResponseC = t.brand(
   t.intersection([
     t.type({
       identityId: Defined,
@@ -370,7 +495,8 @@ export interface ContactResponseBrand {
 // Contact
 // The default export. More information at the top.
 export type Contact = t.Branded<unknown, ContactBrand>;
-export const Contact = t.brand(
+export type ContactC = t.BrandC<t.UnknownC, ContactBrand>;
+export const Contact: ContactC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, ContactBrand> => true,
   'Contact',
@@ -379,6 +505,7 @@ export interface ContactBrand {
   readonly Contact: unique symbol;
 }
 
+export type IdentityIdC = Units_.IdentityIdC;
 export default Contact;
 
 // Success

@@ -16,8 +16,10 @@ export const schemaId =
 // Response
 // The default export. More information at the top.
 export type Response = KycService_.KycService;
-export const Response = KycService_.KycService;
+// exists type ResponseC extends t.AnyC
+export const Response: ResponseC = KycService_.KycService;
 
 export default Response;
+export type ResponseC = KycService_.KycServiceC;
 
 // Success

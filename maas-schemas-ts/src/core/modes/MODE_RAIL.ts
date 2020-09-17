@@ -12,21 +12,20 @@ import * as t from 'io-ts';
 import * as Place_ from '../components/place';
 import * as Station_ from '../components/station';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_RAIL.json';
 
@@ -58,7 +57,43 @@ export type MODE_RAIL = t.Branded<
   },
   MODE_RAILBrand
 >;
-export const MODE_RAIL = t.brand(
+export type MODE_RAILC = t.BrandC<
+  t.PartialC<{
+    outward: t.IntersectionC<
+      [
+        t.PartialC<{
+          id: t.StringC;
+          from: typeof Place_.Place;
+          to: typeof Place_.Place;
+        }>,
+        t.TypeC<{
+          from: typeof Defined;
+          to: typeof Defined;
+        }>,
+      ]
+    >;
+    return: t.IntersectionC<
+      [
+        t.PartialC<{
+          id: t.StringC;
+          from: typeof Place_.Place;
+          to: typeof Place_.Place;
+        }>,
+        t.TypeC<{
+          from: typeof Defined;
+          to: typeof Defined;
+        }>,
+      ]
+    >;
+    deliveryMethod: t.PartialC<{
+      name: t.StringC;
+      stationId: typeof Station_.Id;
+      alternativeCollections: t.StringC;
+    }>;
+  }>,
+  MODE_RAILBrand
+>;
+export const MODE_RAIL: MODE_RAILC = t.brand(
   t.partial({
     outward: t.intersection([
       t.partial({

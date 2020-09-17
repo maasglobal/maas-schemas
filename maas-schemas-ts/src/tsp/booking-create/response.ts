@@ -18,21 +18,20 @@ import * as CustomerSelection_ from '../../core/components/customerSelection';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/tsp/booking-create/response.json';
 
@@ -61,7 +60,35 @@ export type Response = t.Branded<
   },
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        tspId: typeof Booking_.TspId;
+        state: typeof State_.BookingState;
+        cost: typeof Booking_.Cost;
+        leg: typeof BookingOption_.Leg;
+        meta: typeof BookingMeta_.BookingMeta;
+        terms: typeof Booking_.Terms;
+        token: typeof Booking_.Token;
+        tspProduct: typeof BookingOption_.TspProduct;
+        configurator: typeof Configurator_.Configurator;
+        customerSelection: typeof CustomerSelection_.CustomerSelection;
+        customer: typeof BookingOption_.Customer;
+      }>,
+      t.TypeC<{
+        tspId: typeof Defined;
+        state: typeof Defined;
+        meta: typeof Defined;
+        terms: typeof Defined;
+        token: typeof Defined;
+        tspProduct: typeof Defined;
+      }>,
+    ]
+  >,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       tspId: Booking_.TspId,

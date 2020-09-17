@@ -11,28 +11,28 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from './components/units';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/personal-document.json';
 
 // DocumentType
 // The purpose of this remains a mystery
 export type DocumentType = t.Branded<string, DocumentTypeBrand>;
-export const DocumentType = t.brand(
+export type DocumentTypeC = t.BrandC<t.StringC, DocumentTypeBrand>;
+export const DocumentType: DocumentTypeC = t.brand(
   t.string,
   (x): x is t.Branded<string, DocumentTypeBrand> => true,
   'DocumentType',
@@ -55,7 +55,25 @@ export type DocumentStatus = t.Branded<
     ),
   DocumentStatusBrand
 >;
-export const DocumentStatus = t.brand(
+export type DocumentStatusC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<
+        [
+          t.LiteralC<'PENDING'>,
+          t.LiteralC<'APPROVED'>,
+          t.LiteralC<'DECLINED'>,
+          t.LiteralC<'EXPIRED'>,
+          t.LiteralC<'RESUBMISSION_REQUESTED'>,
+          t.LiteralC<'ABANDONED'>,
+        ]
+      >,
+    ]
+  >,
+  DocumentStatusBrand
+>;
+export const DocumentStatus: DocumentStatusC = t.brand(
   t.intersection([
     t.string,
     t.union([
@@ -90,7 +108,8 @@ export interface DocumentStatusBrand {
 // PartyId
 // The purpose of this remains a mystery
 export type PartyId = t.Branded<string, PartyIdBrand>;
-export const PartyId = t.brand(
+export type PartyIdC = t.BrandC<t.StringC, PartyIdBrand>;
+export const PartyId: PartyIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, PartyIdBrand> =>
     (typeof x !== 'string' || x.length >= 1) && (typeof x !== 'string' || x.length <= 64),
@@ -103,7 +122,8 @@ export interface PartyIdBrand {
 // PartyType
 // The purpose of this remains a mystery
 export type PartyType = t.Branded<string, PartyTypeBrand>;
-export const PartyType = t.brand(
+export type PartyTypeC = t.BrandC<t.StringC, PartyTypeBrand>;
+export const PartyType: PartyTypeC = t.brand(
   t.string,
   (x): x is t.Branded<string, PartyTypeBrand> =>
     (typeof x !== 'string' || x.length >= 1) && (typeof x !== 'string' || x.length <= 64),
@@ -149,7 +169,51 @@ export type PersonalDocument = t.Branded<
   },
   PersonalDocumentBrand
 >;
-export const PersonalDocument = t.brand(
+export type PersonalDocumentC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: typeof Units_.Uuid;
+        identityId: typeof Units_.IdentityId;
+        type: typeof DocumentType;
+        documentNumber: t.StringC;
+        nameOnDocument: t.StringC;
+        issuingCountry: t.StringC;
+        status: typeof DocumentStatus;
+        validFrom: typeof Units_.IsoDate;
+        validTo: typeof Units_.IsoDate;
+        details: t.PartialC<{
+          category: t.StringC;
+        }>;
+        media: t.ArrayC<
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                content: t.StringC;
+                context: t.StringC;
+              }>,
+              t.TypeC<{
+                content: typeof Defined;
+                context: typeof Defined;
+              }>,
+            ]
+          >
+        >;
+      }>,
+      t.TypeC<{
+        type: typeof Defined;
+        documentNumber: typeof Defined;
+        nameOnDocument: typeof Defined;
+        issuingCountry: typeof Defined;
+        status: typeof Defined;
+        validFrom: typeof Defined;
+        validTo: typeof Defined;
+      }>,
+    ]
+  >,
+  PersonalDocumentBrand
+>;
+export const PersonalDocument: PersonalDocumentC = t.brand(
   t.intersection([
     t.partial({
       id: Units_.Uuid,

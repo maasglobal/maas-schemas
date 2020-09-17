@@ -41,7 +41,36 @@ export type PersonalData = t.Branded<
   } & {},
   PersonalDataBrand
 >;
-export const PersonalData = t.brand(
+export type PersonalDataC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        honorifics: t.StringC;
+        firstName: typeof Common_.PersonalName;
+        lastName: typeof Common_.PersonalName;
+        firstNameLocalized: typeof Common_.PersonalName;
+        lastNameLocalized: typeof Common_.PersonalName;
+        sex: t.StringC;
+        phone: typeof Common_.Phone;
+        email: typeof Common_.Email;
+        address: typeof Address_.Address;
+        cugHome: t.StringC;
+        city: typeof Address_.City;
+        state: typeof Address_.State;
+        country: typeof Address_.Country;
+        zipCode: typeof Address_.ZipCode;
+        dob: t.UnionC<[t.BooleanC, typeof Units_.IsoDate]>;
+        ssid: t.UnionC<[t.BooleanC, typeof Common_.Ssid]>;
+        subscriberType: t.StringC;
+        profileImageUrl: t.StringC;
+        nationality: t.StringC;
+      }>,
+      t.TypeC<{}>,
+    ]
+  >,
+  PersonalDataBrand
+>;
+export const PersonalData: PersonalDataC = t.brand(
   t.intersection([
     t.partial({
       honorifics: t.string,

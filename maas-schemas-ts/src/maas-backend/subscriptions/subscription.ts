@@ -17,41 +17,29 @@ import * as SubscriptionChangeState_ from '../../core/components/subscriptionCha
 import * as Units_ from '../../core/components/units';
 import * as Cost_ from '../../core/components/cost';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/subscriptions/subscription.json';
 
-// Subscription
-// The default export. More information at the top.
-export type Subscription = t.Branded<unknown, SubscriptionBrand>;
-export const Subscription = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, SubscriptionBrand> => true,
-  'Subscription',
-);
-export interface SubscriptionBrand {
-  readonly Subscription: unique symbol;
-}
-
 // SubscriptionItemId
 // Identifier for matching the plans (Chargebee compat.)
 export type SubscriptionItemId = t.Branded<string, SubscriptionItemIdBrand>;
-export const SubscriptionItemId = t.brand(
+export type SubscriptionItemIdC = t.BrandC<t.StringC, SubscriptionItemIdBrand>;
+export const SubscriptionItemId: SubscriptionItemIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, SubscriptionItemIdBrand> =>
     typeof x !== 'string' || x.match(RegExp('^[^\\s\\/]{1,50}$')) !== null,
@@ -64,7 +52,8 @@ export interface SubscriptionItemIdBrand {
 // Price
 // The purpose of this remains a mystery
 export type Price = Cost_.Cost;
-export const Price = Cost_.Cost;
+// exists type PriceC extends t.AnyC
+export const Price: PriceC = Cost_.Cost;
 
 // Plan
 // Customer subscription plan
@@ -79,7 +68,23 @@ export type Plan = t.Branded<
   },
   PlanBrand
 >;
-export const Plan = t.brand(
+export type PlanC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: typeof SubscriptionItemId;
+        name: t.StringC;
+        description: t.StringC;
+        price: typeof Price;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+      }>,
+    ]
+  >,
+  PlanBrand
+>;
+export const Plan: PlanC = t.brand(
   t.intersection([
     t.partial({
       id: SubscriptionItemId,
@@ -126,7 +131,26 @@ export type Addon = t.Branded<
   },
   AddonBrand
 >;
-export const Addon = t.brand(
+export type AddonC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: typeof SubscriptionItemId;
+        name: t.StringC;
+        description: t.StringC;
+        quantity: t.NumberC;
+        unitPrice: typeof Price;
+        image: typeof Units_.Url;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+        quantity: typeof Defined;
+      }>,
+    ]
+  >,
+  AddonBrand
+>;
+export const Addon: AddonC = t.brand(
   t.intersection([
     t.partial({
       id: SubscriptionItemId,
@@ -175,7 +199,22 @@ export type Coupon = t.Branded<
   },
   CouponBrand
 >;
-export const Coupon = t.brand(
+export type CouponC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: typeof SubscriptionItemId;
+        name: t.StringC;
+        description: t.StringC;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+      }>,
+    ]
+  >,
+  CouponBrand
+>;
+export const Coupon: CouponC = t.brand(
   t.intersection([
     t.partial({
       id: SubscriptionItemId,
@@ -223,7 +262,34 @@ export type Terms = t.Branded<
   },
   TermsBrand
 >;
-export const Terms = t.brand(
+export type TermsC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        activated: typeof Units_.Time;
+        modified: typeof Units_.Time;
+        validity: t.IntersectionC<
+          [
+            t.PartialC<{
+              startTime: typeof Units_.Time;
+              endTime: typeof Units_.Time;
+            }>,
+            t.TypeC<{
+              startTime: typeof Defined;
+              endTime: typeof Defined;
+            }>,
+          ]
+        >;
+        scheduledChanges: t.BooleanC;
+      }>,
+      t.TypeC<{
+        validity: typeof Defined;
+      }>,
+    ]
+  >,
+  TermsBrand
+>;
+export const Terms: TermsC = t.brand(
   t.intersection([
     t.partial({
       activated: Units_.Time,
@@ -296,7 +362,32 @@ export type SubscriptionBase = t.Branded<
   },
   SubscriptionBaseBrand
 >;
-export const SubscriptionBase = t.brand(
+export type SubscriptionBaseC = t.BrandC<
+  t.PartialC<{
+    id: typeof Contact_.IdentityId;
+    customerId: typeof Contact_.IdentityId;
+    plan: typeof Plan;
+    addons: t.ArrayC<typeof Addon>;
+    coupons: t.ArrayC<typeof Coupon>;
+    terms: typeof Terms;
+    pointCost: typeof PointCost_.PointCost;
+    region: typeof Region_.Region;
+    shippingAddress: typeof SubscriptionAddress_.SubscriptionAddress;
+    availability: t.TypeC<{}>;
+    name: t.StringC;
+    description: t.StringC;
+    meta: t.TypeC<{}>;
+    level: t.NumberC;
+    wmpGrant: t.NumberC;
+    active: t.BooleanC;
+    hidden: t.BooleanC;
+    selectable: t.BooleanC;
+    topUpId: t.StringC;
+    changeState: typeof SubscriptionChangeState_.SubscriptionChangeState;
+  }>,
+  SubscriptionBaseBrand
+>;
+export const SubscriptionBase: SubscriptionBaseC = t.brand(
   t.partial({
     id: Contact_.IdentityId,
     customerId: Contact_.IdentityId,
@@ -352,16 +443,27 @@ export interface SubscriptionBaseBrand {
   readonly SubscriptionBase: unique symbol;
 }
 
+// Subscription
+// The purpose of this remains a mystery
+export type Subscription = SubscriptionBase;
+// exists type SubscriptionC extends t.AnyC
+export const Subscription: SubscriptionC = SubscriptionBase;
+
 // SubscriptionCreatePayload
 // The purpose of this remains a mystery
 export type SubscriptionCreatePayload = SubscriptionBase;
-export const SubscriptionCreatePayload = SubscriptionBase;
+// exists type SubscriptionCreatePayloadC extends t.AnyC
+export const SubscriptionCreatePayload: SubscriptionCreatePayloadC = SubscriptionBase;
 
 // SubscriptionUpdatePayload
 // The purpose of this remains a mystery
 export type SubscriptionUpdatePayload = SubscriptionBase;
-export const SubscriptionUpdatePayload = SubscriptionBase;
+// exists type SubscriptionUpdatePayloadC extends t.AnyC
+export const SubscriptionUpdatePayload: SubscriptionUpdatePayloadC = SubscriptionBase;
 
-export default Subscription;
+export type SubscriptionC = SubscriptionBaseC;
+export type SubscriptionCreatePayloadC = SubscriptionBaseC;
+export type SubscriptionUpdatePayloadC = SubscriptionBaseC;
+export type PriceC = Cost_.CostC;
 
 // Success

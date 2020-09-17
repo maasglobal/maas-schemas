@@ -18,28 +18,28 @@ import * as BookingOption_ from './booking-option';
 import * as Fare_ from './components/fare';
 import * as Cost_ from './components/cost';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/product-option.json';
 
 // Ref
 // numeric key for connecting productOption with leg.productOption
 export type Ref = t.Branded<number, RefBrand>;
-export const Ref = t.brand(
+export type RefC = t.BrandC<t.NumberC, RefBrand>;
+export const Ref: RefC = t.brand(
   t.number,
   (x): x is t.Branded<number, RefBrand> => Number.isInteger(x),
   'Ref',
@@ -68,7 +68,30 @@ export type WithConfigurator = t.Branded<
   },
   WithConfiguratorBrand
 >;
-export const WithConfigurator = t.brand(
+export type WithConfiguratorC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof Units_.IdentityId;
+        bookingId: typeof Units_.Uuid;
+        ref: typeof Ref;
+        product: typeof Product_.Product;
+        terms: typeof Terms_.Terms;
+        meta: typeof BookingMeta_.BookingMeta;
+        configurator: typeof Configurator_.Configurator;
+        customer: typeof BookingOption_.Customer;
+      }>,
+      t.TypeC<{
+        ref: typeof Defined;
+        terms: typeof Defined;
+        meta: typeof Defined;
+        configurator: typeof Defined;
+      }>,
+    ]
+  >,
+  WithConfiguratorBrand
+>;
+export const WithConfigurator: WithConfiguratorC = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
@@ -133,7 +156,30 @@ export type WithFares = t.Branded<
   },
   WithFaresBrand
 >;
-export const WithFares = t.brand(
+export type WithFaresC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof Units_.IdentityId;
+        bookingId: typeof Units_.Uuid;
+        ref: t.NumberC;
+        product: typeof Product_.Product;
+        fares: t.ArrayC<typeof Fare_.Fare>;
+        terms: typeof Terms_.Terms;
+        meta: typeof BookingMeta_.BookingMeta;
+        customer: typeof BookingOption_.Customer;
+      }>,
+      t.TypeC<{
+        ref: typeof Defined;
+        terms: typeof Defined;
+        meta: typeof Defined;
+        fares: typeof Defined;
+      }>,
+    ]
+  >,
+  WithFaresBrand
+>;
+export const WithFares: WithFaresC = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
@@ -198,7 +244,30 @@ export type WithCost = t.Branded<
   },
   WithCostBrand
 >;
-export const WithCost = t.brand(
+export type WithCostC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof Units_.IdentityId;
+        bookingId: typeof Units_.Uuid;
+        ref: t.NumberC;
+        product: typeof Product_.Product;
+        cost: typeof Cost_.Cost;
+        terms: typeof Terms_.Terms;
+        meta: typeof BookingMeta_.BookingMeta;
+        customer: typeof BookingOption_.Customer;
+      }>,
+      t.TypeC<{
+        ref: typeof Defined;
+        terms: typeof Defined;
+        meta: typeof Defined;
+        cost: typeof Defined;
+      }>,
+    ]
+  >,
+  WithCostBrand
+>;
+export const WithCost: WithCostC = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
@@ -249,7 +318,11 @@ export type ProductOption = t.Branded<
   WithConfigurator | WithFares | WithCost,
   ProductOptionBrand
 >;
-export const ProductOption = t.brand(
+export type ProductOptionC = t.BrandC<
+  t.UnionC<[typeof WithConfigurator, typeof WithFares, typeof WithCost]>,
+  ProductOptionBrand
+>;
+export const ProductOption: ProductOptionC = t.brand(
   t.union([WithConfigurator, WithFares, WithCost]),
   (x): x is t.Branded<WithConfigurator | WithFares | WithCost, ProductOptionBrand> =>
     true,

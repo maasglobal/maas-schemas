@@ -10,21 +10,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/webhooks/webhooks-payments/gateway/stripe.json';
@@ -68,7 +67,61 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        payload: t.IntersectionC<
+          [
+            t.PartialC<{
+              id: t.StringC;
+              type: t.StringC;
+              data: t.PartialC<{
+                object: t.PartialC<{
+                  id: t.StringC;
+                  amount: t.NumberC;
+                  amount_capturable: t.NumberC;
+                  amount_received: t.NumberC;
+                  charges: t.PartialC<{
+                    data: t.ArrayC<
+                      t.PartialC<{
+                        id: t.StringC;
+                        object: t.StringC;
+                        amount: t.NumberC;
+                        amount_refunded: t.NumberC;
+                      }>
+                    >;
+                  }>;
+                }>;
+              }>;
+            }>,
+            t.TypeC<{
+              type: typeof Defined;
+              id: typeof Defined;
+              data: typeof Defined;
+            }>,
+          ]
+        >;
+        params: t.IntersectionC<
+          [
+            t.PartialC<{
+              gatewayName: t.IntersectionC<[t.StringC, t.LiteralC<'stripe'>]>;
+            }>,
+            t.TypeC<{
+              gatewayName: typeof Defined;
+            }>,
+          ]
+        >;
+      }>,
+      t.TypeC<{
+        params: typeof Defined;
+        payload: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       payload: t.intersection([
@@ -162,7 +215,8 @@ export interface RequestBrand {
 // Stripe
 // The default export. More information at the top.
 export type Stripe = t.Branded<unknown, StripeBrand>;
-export const Stripe = t.brand(
+export type StripeC = t.BrandC<t.UnknownC, StripeBrand>;
+export const Stripe: StripeC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, StripeBrand> => true,
   'Stripe',

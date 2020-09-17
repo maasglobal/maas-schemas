@@ -11,21 +11,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as VirtualCardTokenReference_ from './virtualCardTokenReference';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCard.json';
@@ -54,7 +53,38 @@ export type VirtualCard = t.Branded<
   },
   VirtualCardBrand
 >;
-export const VirtualCard = t.brand(
+export type VirtualCardC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.NumberC;
+        providerName: t.StringC;
+        providerCardId: t.StringC;
+        maskedCardNumber: t.StringC;
+        expiryMonth: t.NumberC;
+        expiryYear: t.NumberC;
+        status: t.IntersectionC<
+          [t.StringC, t.UnionC<[t.LiteralC<'CARD_OK'>, t.LiteralC<'CARD_BLOCKED'>]>]
+        >;
+        tokenReferences: t.ArrayC<
+          typeof VirtualCardTokenReference_.VirtualCardTokenReference
+        >;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+        providerName: typeof Defined;
+        providerCardId: typeof Defined;
+        maskedCardNumber: typeof Defined;
+        expiryMonth: typeof Defined;
+        expiryYear: typeof Defined;
+        status: typeof Defined;
+        tokenReferences: typeof Defined;
+      }>,
+    ]
+  >,
+  VirtualCardBrand
+>;
+export const VirtualCard: VirtualCardC = t.brand(
   t.intersection([
     t.partial({
       id: t.number,

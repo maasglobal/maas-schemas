@@ -56,7 +56,54 @@ export type Request = t.Branded<
   >,
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        payload: t.PartialC<{
+          from: typeof UnitsGeo_.ShortLocationString;
+          fromName: typeof Address_.PlaceName;
+          fromAddress: typeof Address_.ComponentAddress;
+          fromStationId: typeof Station_.Id;
+          to: typeof UnitsGeo_.ShortLocationString;
+          toName: typeof Address_.PlaceName;
+          toAddress: typeof Address_.ComponentAddress;
+          toStationId: typeof Station_.Id;
+          leaveAt: typeof Units_.Time;
+          arriveBy: typeof Units_.Time;
+          leaveAtReturn: typeof Units_.Time;
+          arriveByReturn: typeof Units_.Time;
+          mode: t.StringC;
+        }>;
+      }>,
+      t.RecordC<
+        t.StringC,
+        t.UnionC<
+          [
+            t.PartialC<{
+              from: typeof UnitsGeo_.ShortLocationString;
+              fromName: typeof Address_.PlaceName;
+              fromAddress: typeof Address_.ComponentAddress;
+              fromStationId: typeof Station_.Id;
+              to: typeof UnitsGeo_.ShortLocationString;
+              toName: typeof Address_.PlaceName;
+              toAddress: typeof Address_.ComponentAddress;
+              toStationId: typeof Station_.Id;
+              leaveAt: typeof Units_.Time;
+              arriveBy: typeof Units_.Time;
+              leaveAtReturn: typeof Units_.Time;
+              arriveByReturn: typeof Units_.Time;
+              mode: t.StringC;
+            }>,
+            t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>,
+          ]
+        >
+      >,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       payload: t.partial({

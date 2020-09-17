@@ -20,21 +20,20 @@ import * as Common_ from '../../core/components/common';
 import * as VirtualCard_ from './virtual-cards/virtualCard';
 import * as VerificationObject_ from './verification/verification-object';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/maas-backend/customers/customer.json';
 
@@ -72,7 +71,49 @@ export type Customer = t.Branded<
   },
   CustomerBrand
 >;
-export const Customer = t.brand(
+export type CustomerC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof Units_.IdentityId;
+        profileImageUrl: t.StringC;
+        personalData: typeof PersonalData_.PersonalData;
+        personalDataVerifiedItems: t.ArrayC<t.StringC>;
+        paymentSources: t.ArrayC<typeof PaymentSource_.PaymentSource>;
+        balances: t.ArrayC<typeof Fare_.Fare>;
+        region: typeof Region_.Region;
+        authorizations: t.ArrayC<typeof Authorization_.Authorization>;
+        favoriteLocations: t.ArrayC<t.TypeC<{}>>;
+        personalDocuments: t.ArrayC<
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                type: typeof PersonalDocument_.DocumentType;
+                status: typeof PersonalDocument_.DocumentStatus;
+              }>,
+              t.TypeC<{
+                type: typeof Defined;
+                status: typeof Defined;
+              }>,
+            ]
+          >
+        >;
+        personalDocumentConsents: t.ArrayC<typeof Common_.AgencyId>;
+        virtualCards: t.ArrayC<typeof VirtualCard_.VirtualCard>;
+        verifications: t.ArrayC<typeof VerificationObject_.VerificationObject>;
+      }>,
+      t.TypeC<{
+        personalData: typeof Defined;
+        paymentSources: typeof Defined;
+        balances: typeof Defined;
+        region: typeof Defined;
+        authorizations: typeof Defined;
+      }>,
+    ]
+  >,
+  CustomerBrand
+>;
+export const Customer: CustomerC = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,

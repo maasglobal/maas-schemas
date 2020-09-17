@@ -21,7 +21,14 @@ export type Reason = t.Branded<
   },
   ReasonBrand
 >;
-export const Reason = t.brand(
+export type ReasonC = t.BrandC<
+  t.PartialC<{
+    text: t.StringC;
+    errorCode: t.StringC;
+  }>,
+  ReasonBrand
+>;
+export const Reason: ReasonC = t.brand(
   t.partial({
     text: t.string,
     errorCode: t.string,
@@ -44,7 +51,8 @@ export interface ReasonBrand {
 // Errors
 // The default export. More information at the top.
 export type Errors = t.Branded<unknown, ErrorsBrand>;
-export const Errors = t.brand(
+export type ErrorsC = t.BrandC<t.UnknownC, ErrorsBrand>;
+export const Errors: ErrorsC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, ErrorsBrand> => true,
   'Errors',

@@ -15,7 +15,8 @@ export const schemaId = 'http://maasglobal.com/maas-backend/provider/sms/request
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<unknown, RequestBrand>;
-export const Request = t.brand(
+export type RequestC = t.BrandC<t.UnknownC, RequestBrand>;
+export const Request: RequestC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, RequestBrand> => true,
   'Request',

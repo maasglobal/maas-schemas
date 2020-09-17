@@ -17,7 +17,8 @@ export const schemaId = 'http://maasglobal.com/core/components/units.json';
 // Uuid
 // Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier
 export type Uuid = t.Branded<string, UuidBrand>;
-export const Uuid = t.brand(
+export type UuidC = t.BrandC<t.StringC, UuidBrand>;
+export const Uuid: UuidC = t.brand(
   t.string,
   (x): x is t.Branded<string, UuidBrand> =>
     typeof x !== 'string' ||
@@ -35,7 +36,8 @@ export const examplesUuid: NonEmptyArray<Uuid> = ([
 // HostnameLabel
 // single component of a hostname
 export type HostnameLabel = t.Branded<string, HostnameLabelBrand>;
-export const HostnameLabel = t.brand(
+export type HostnameLabelC = t.BrandC<t.StringC, HostnameLabelBrand>;
+export const HostnameLabel: HostnameLabelC = t.brand(
   t.string,
   (x): x is t.Branded<string, HostnameLabelBrand> =>
     (typeof x !== 'string' ||
@@ -59,7 +61,8 @@ export const examplesHostnameLabel: NonEmptyArray<HostnameLabel> = ([
 // Hostname
 // list of 1 or more hostname labels separated by dot
 export type Hostname = t.Branded<string, HostnameBrand>;
-export const Hostname = t.brand(
+export type HostnameC = t.BrandC<t.StringC, HostnameBrand>;
+export const Hostname: HostnameC = t.brand(
   t.string,
   (x): x is t.Branded<string, HostnameBrand> =>
     (typeof x !== 'string' ||
@@ -85,7 +88,8 @@ export const examplesHostname: NonEmptyArray<Hostname> = ([
 // Url
 // Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex
 export type Url = t.Branded<string, UrlBrand>;
-export const Url = t.brand(
+export type UrlC = t.BrandC<t.StringC, UrlBrand>;
+export const Url: UrlC = t.brand(
   t.string,
   (x): x is t.Branded<string, UrlBrand> =>
     typeof x !== 'string' ||
@@ -99,7 +103,8 @@ export interface UrlBrand {
 // Arn
 // The purpose of this remains a mystery
 export type Arn = t.Branded<string, ArnBrand>;
-export const Arn = t.brand(
+export type ArnC = t.BrandC<t.StringC, ArnBrand>;
+export const Arn: ArnC = t.brand(
   t.string,
   (x): x is t.Branded<string, ArnBrand> =>
     (typeof x !== 'string' ||
@@ -117,7 +122,8 @@ export interface ArnBrand {
 // ObsoleteIdentityId
 // The purpose of this remains a mystery
 export type ObsoleteIdentityId = t.Branded<string, ObsoleteIdentityIdBrand>;
-export const ObsoleteIdentityId = t.brand(
+export type ObsoleteIdentityIdC = t.BrandC<t.StringC, ObsoleteIdentityIdBrand>;
+export const ObsoleteIdentityId: ObsoleteIdentityIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, ObsoleteIdentityIdBrand> =>
     typeof x !== 'string' ||
@@ -137,7 +143,11 @@ export const examplesObsoleteIdentityId: NonEmptyArray<ObsoleteIdentityId> = ([
 // IdentityId
 // The purpose of this remains a mystery
 export type IdentityId = t.Branded<ObsoleteIdentityId | Uuid, IdentityIdBrand>;
-export const IdentityId = t.brand(
+export type IdentityIdC = t.BrandC<
+  t.UnionC<[typeof ObsoleteIdentityId, typeof Uuid]>,
+  IdentityIdBrand
+>;
+export const IdentityId: IdentityIdC = t.brand(
   t.union([ObsoleteIdentityId, Uuid]),
   (x): x is t.Branded<ObsoleteIdentityId | Uuid, IdentityIdBrand> => true,
   'IdentityId',
@@ -157,7 +167,24 @@ export type Currency = t.Branded<
   string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY'),
   CurrencyBrand
 >;
-export const Currency = t.brand(
+export type CurrencyC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<
+        [
+          t.LiteralC<'EUR'>,
+          t.LiteralC<'GBP'>,
+          t.LiteralC<'SGD'>,
+          t.LiteralC<'USD'>,
+          t.LiteralC<'JPY'>,
+        ]
+      >,
+    ]
+  >,
+  CurrencyBrand
+>;
+export const Currency: CurrencyC = t.brand(
   t.intersection([
     t.string,
     t.union([
@@ -179,7 +206,8 @@ export interface CurrencyBrand {
 // Time
 // POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time
 export type Time = t.Branded<number, TimeBrand>;
-export const Time = t.brand(
+export type TimeC = t.BrandC<t.NumberC, TimeBrand>;
+export const Time: TimeC = t.brand(
   t.number,
   (x): x is t.Branded<number, TimeBrand> =>
     (typeof x !== 'number' || x >= 1451606400) &&
@@ -194,7 +222,8 @@ export interface TimeBrand {
 // Duration
 // duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time
 export type Duration = t.Branded<number, DurationBrand>;
-export const Duration = t.brand(
+export type DurationC = t.BrandC<t.NumberC, DurationBrand>;
+export const Duration: DurationC = t.brand(
   t.number,
   (x): x is t.Branded<number, DurationBrand> =>
     (typeof x !== 'number' || x >= -9007199254740991) &&
@@ -209,7 +238,8 @@ export interface DurationBrand {
 // IsoDate
 // A date in the form YYYY-MM-DD without a time component
 export type IsoDate = t.Branded<string, IsoDateBrand>;
-export const IsoDate = t.brand(
+export type IsoDateC = t.BrandC<t.StringC, IsoDateBrand>;
+export const IsoDate: IsoDateC = t.brand(
   t.string,
   (x): x is t.Branded<string, IsoDateBrand> =>
     typeof x !== 'string' || x.match(RegExp('^\\d{4}-\\d{2}-\\d{2}')) !== null,
@@ -222,7 +252,8 @@ export interface IsoDateBrand {
 // Units
 // The default export. More information at the top.
 export type Units = t.Branded<unknown, UnitsBrand>;
-export const Units = t.brand(
+export type UnitsC = t.BrandC<t.UnknownC, UnitsBrand>;
+export const Units: UnitsC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, UnitsBrand> => true,
   'Units',

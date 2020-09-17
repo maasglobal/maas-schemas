@@ -16,21 +16,20 @@ import * as Units_ from '../../core/components/units';
 import * as AgencyOptions_ from '../../core/components/agencyOptions';
 import * as ApiCommon_ from '../../core/components/api-common';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/booking-option-create/request.json';
@@ -48,7 +47,18 @@ export type Option = t.Branded<
   },
   OptionBrand
 >;
-export const Option = t.brand(
+export type OptionC = t.BrandC<
+  t.PartialC<{
+    paymentSourceId: typeof Common_.PaymentSourceId;
+    productId: typeof Product_.Id;
+    customerSelection: typeof CustomerSelection_.CustomerSelection;
+    autoPurchaseId: typeof Units_.Uuid;
+    agencyOptions: typeof AgencyOptions_.AgencyOptions;
+    rollbackOnFailure: t.BooleanC;
+  }>,
+  OptionBrand
+>;
+export const Option: OptionC = t.brand(
   t.partial({
     paymentSourceId: Common_.PaymentSourceId,
     productId: Product_.Id,
@@ -90,7 +100,24 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof Units_.IdentityId;
+        payload: t.ArrayC<typeof Option>;
+        headers: typeof ApiCommon_.Headers;
+      }>,
+      t.TypeC<{
+        identityId: typeof Defined;
+        payload: typeof Defined;
+        headers: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,

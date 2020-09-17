@@ -17,28 +17,28 @@ import * as Leg_ from './leg';
 import * as ProductOption_ from './product-option';
 import * as Booking_ from './booking';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/itinerary.json';
 
 // Id
 // The purpose of this remains a mystery
 export type Id = Units_.Uuid;
-export const Id = Units_.Uuid;
+// exists type IdC extends t.AnyC
+export const Id: IdC = Units_.Uuid;
 
 // Itinerary
 // The default export. More information at the top.
@@ -65,7 +65,35 @@ export type Itinerary = t.Branded<
   },
   ItineraryBrand
 >;
-export const Itinerary = t.brand(
+export type ItineraryC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: typeof Id;
+        sourcePlanId: typeof Units_.Uuid;
+        isOvertaken: t.BooleanC;
+        identityId: typeof Units_.IdentityId;
+        signature: typeof Common_.Signature;
+        state: typeof State_.ItineraryState;
+        startTime: typeof Units_.Time;
+        endTime: typeof Units_.Time;
+        co2: t.NumberC;
+        fares: t.ArrayC<typeof Fare_.Fare>;
+        legs: t.ArrayC<typeof Leg_.Leg>;
+        productOptions: t.ArrayC<typeof ProductOption_.ProductOption>;
+        type: t.UnionC<[t.LiteralC<'outward'>, t.LiteralC<'return'>]>;
+        bookings: t.ArrayC<typeof Booking_.Booking>;
+      }>,
+      t.TypeC<{
+        startTime: typeof Defined;
+        endTime: typeof Defined;
+        legs: typeof Defined;
+      }>,
+    ]
+  >,
+  ItineraryBrand
+>;
+export const Itinerary: ItineraryC = t.brand(
   t.intersection([
     t.partial({
       id: Id,
@@ -120,6 +148,7 @@ export interface ItineraryBrand {
   readonly Itinerary: unique symbol;
 }
 
+export type IdC = Units_.UuidC;
 export default Itinerary;
 
 // Success

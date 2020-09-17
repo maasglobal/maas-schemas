@@ -15,7 +15,8 @@ export const schemaId = 'http://maasglobal.com/core/components/point-cost.json';
 // PointCost
 // The default export. More information at the top.
 export type PointCost = t.Branded<number, PointCostBrand>;
-export const PointCost = t.brand(
+export type PointCostC = t.BrandC<t.NumberC, PointCostBrand>;
+export const PointCost: PointCostC = t.brand(
   t.number,
   (x): x is t.Branded<number, PointCostBrand> => true,
   'PointCost',

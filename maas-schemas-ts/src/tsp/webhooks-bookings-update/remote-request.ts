@@ -14,21 +14,20 @@ import * as BookingOption_ from '../../core/booking-option';
 import * as BookingMeta_ from '../../core/booking-meta';
 import * as Errors_ from '../../core/components/errors';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/tsp/webhooks-bookings-update/remote-request.json';
@@ -58,7 +57,38 @@ export type RemoteRequest = t.Branded<
   },
   RemoteRequestBrand
 >;
-export const RemoteRequest = t.brand(
+export type RemoteRequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        tspId: typeof Booking_.TspId;
+        cost: typeof Booking_.Cost;
+        state: t.UnionC<
+          [
+            t.LiteralC<'RESERVED'>,
+            t.LiteralC<'CONFIRMED'>,
+            t.LiteralC<'ARRIVED'>,
+            t.LiteralC<'ACTIVATED'>,
+            t.LiteralC<'EXPIRED'>,
+            t.LiteralC<'CANCELLED'>,
+            t.LiteralC<'REJECTED'>,
+          ]
+        >;
+        leg: typeof BookingOption_.LegDelta;
+        meta: typeof BookingMeta_.BookingMeta;
+        terms: typeof Booking_.Terms;
+        token: typeof Booking_.Token;
+        reason: typeof Errors_.Reason;
+      }>,
+      t.TypeC<{
+        tspId: typeof Defined;
+        state: typeof Defined;
+      }>,
+    ]
+  >,
+  RemoteRequestBrand
+>;
+export const RemoteRequest: RemoteRequestC = t.brand(
   t.intersection([
     t.partial({
       tspId: Booking_.TspId,

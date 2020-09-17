@@ -11,21 +11,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from '../../../core/components/units';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/stats/response.json';
@@ -46,7 +45,26 @@ export type Response = t.Branded<
   },
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof Units_.IdentityId;
+        lifetimeBookingsCount: t.NumberC;
+        lifetimeItinerariesCount: t.NumberC;
+        profileCreationTimestamp: typeof Units_.Time;
+      }>,
+      t.TypeC<{
+        identityId: typeof Defined;
+        lifetimeBookingsCount: typeof Defined;
+        lifetimeItinerariesCount: typeof Defined;
+        profileCreationTimestamp: typeof Defined;
+      }>,
+    ]
+  >,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,

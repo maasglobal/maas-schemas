@@ -12,21 +12,20 @@ import * as t from 'io-ts';
 import * as Units_ from '../../../core/components/units';
 import * as ApiCommon_ from '../../../core/components/api-common';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/profile/profile-devices-put/request.json';
@@ -49,7 +48,30 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.PartialC<{
+    identityId: typeof Units_.IdentityId;
+    payload: t.IntersectionC<
+      [
+        t.PartialC<{
+          devicePushToken: t.StringC;
+          deviceIdentifier: typeof Units_.Uuid;
+          deviceType: t.IntersectionC<
+            [t.StringC, t.UnionC<[t.LiteralC<'iOS'>, t.LiteralC<'Android'>]>]
+          >;
+        }>,
+        t.TypeC<{
+          devicePushToken: typeof Defined;
+          deviceIdentifier: typeof Defined;
+          deviceType: typeof Defined;
+        }>,
+      ]
+    >;
+    headers: typeof ApiCommon_.Headers;
+  }>,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.partial({
     identityId: Units_.IdentityId,
     payload: t.intersection([

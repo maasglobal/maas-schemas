@@ -19,21 +19,20 @@ import * as Units_ from './components/units';
 import * as Place_ from './components/place';
 import * as Common_ from './components/common';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/booking-option.json';
 
@@ -57,7 +56,30 @@ export type Leg = t.Branded<
   },
   LegBrand
 >;
-export const Leg = t.brand(
+export type LegC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        mode: typeof TravelMode_.TravelMode;
+        startTime: typeof Units_.Time;
+        endTime: typeof Units_.Time;
+        from: typeof Place_.Place;
+        to: typeof Place_.Place;
+        departureDelay: typeof Units_.Duration;
+        agencyId: typeof Common_.AgencyId;
+      }>,
+      t.TypeC<{
+        mode: typeof Defined;
+        startTime: typeof Defined;
+        endTime: typeof Defined;
+        from: typeof Defined;
+        to: typeof Defined;
+      }>,
+    ]
+  >,
+  LegBrand
+>;
+export const Leg: LegC = t.brand(
   t.intersection([
     t.partial({
       mode: TravelMode_.TravelMode,
@@ -113,7 +135,21 @@ export type TspProduct = t.Branded<
   },
   TspProductBrand
 >;
-export const TspProduct = t.brand(
+export type TspProductC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.StringC;
+        name: t.StringC;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+      }>,
+    ]
+  >,
+  TspProductBrand
+>;
+export const TspProduct: TspProductC = t.brand(
   t.intersection([
     t.partial({
       id: t.string,
@@ -143,7 +179,8 @@ export interface TspProductBrand {
 // Customer
 // The purpose of this remains a mystery
 export type Customer = Customer_.Customer;
-export const Customer = Customer_.Customer;
+// exists type CustomerC extends t.AnyC
+export const Customer: CustomerC = Customer_.Customer;
 
 // ContentWithCost
 // The purpose of this remains a mystery
@@ -164,7 +201,29 @@ export type ContentWithCost = t.Branded<
   },
   ContentWithCostBrand
 >;
-export const ContentWithCost = t.brand(
+export type ContentWithCostC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        leg: typeof Leg;
+        terms: typeof Terms_.Terms;
+        meta: typeof BookingMeta_.BookingMeta;
+        tspProduct: typeof TspProduct;
+        cost: typeof Cost_.Cost;
+        customer: typeof Customer;
+      }>,
+      t.TypeC<{
+        leg: typeof Defined;
+        meta: typeof Defined;
+        terms: typeof Defined;
+        tspProduct: typeof Defined;
+        cost: typeof Defined;
+      }>,
+    ]
+  >,
+  ContentWithCostBrand
+>;
+export const ContentWithCost: ContentWithCostC = t.brand(
   t.intersection([
     t.partial({
       leg: Leg,
@@ -226,7 +285,29 @@ export type ContentWithConfigurator = t.Branded<
   },
   ContentWithConfiguratorBrand
 >;
-export const ContentWithConfigurator = t.brand(
+export type ContentWithConfiguratorC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        leg: typeof Leg;
+        terms: typeof Terms_.Terms;
+        meta: typeof BookingMeta_.BookingMeta;
+        tspProduct: typeof TspProduct;
+        configurator: typeof Configurator_.Configurator;
+        customer: typeof Customer;
+      }>,
+      t.TypeC<{
+        leg: typeof Defined;
+        meta: typeof Defined;
+        terms: typeof Defined;
+        tspProduct: typeof Defined;
+        configurator: typeof Defined;
+      }>,
+    ]
+  >,
+  ContentWithConfiguratorBrand
+>;
+export const ContentWithConfigurator: ContentWithConfiguratorC = t.brand(
   t.intersection([
     t.partial({
       leg: Leg,
@@ -282,7 +363,18 @@ export type LegDelta = t.Branded<
   },
   LegDeltaBrand
 >;
-export const LegDelta = t.brand(
+export type LegDeltaC = t.BrandC<
+  t.PartialC<{
+    mode: typeof TravelMode_.TravelMode;
+    startTime: typeof Units_.Time;
+    endTime: typeof Units_.Time;
+    departureDelay: typeof Units_.Duration;
+    from: typeof Place_.Place;
+    to: typeof Place_.Place;
+  }>,
+  LegDeltaBrand
+>;
+export const LegDelta: LegDeltaC = t.brand(
   t.partial({
     mode: TravelMode_.TravelMode,
     startTime: Units_.Time,
@@ -316,7 +408,11 @@ export type BookingOption = t.Branded<
   ContentWithCost | ContentWithConfigurator,
   BookingOptionBrand
 >;
-export const BookingOption = t.brand(
+export type BookingOptionC = t.BrandC<
+  t.UnionC<[typeof ContentWithCost, typeof ContentWithConfigurator]>,
+  BookingOptionBrand
+>;
+export const BookingOption: BookingOptionC = t.brand(
   t.union([ContentWithCost, ContentWithConfigurator]),
   (x): x is t.Branded<ContentWithCost | ContentWithConfigurator, BookingOptionBrand> =>
     true,
@@ -326,6 +422,7 @@ export interface BookingOptionBrand {
   readonly BookingOption: unique symbol;
 }
 
+export type CustomerC = Customer_.CustomerC;
 export default BookingOption;
 
 // Success

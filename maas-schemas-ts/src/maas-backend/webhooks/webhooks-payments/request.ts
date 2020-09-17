@@ -22,7 +22,11 @@ export type Request = t.Branded<
   Avainpay_.Request | Stripe_.Request | Yaband_.Request,
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.UnionC<[typeof Avainpay_.Request, typeof Stripe_.Request, typeof Yaband_.Request]>,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.union([Avainpay_.Request, Stripe_.Request, Yaband_.Request]),
   (
     x,

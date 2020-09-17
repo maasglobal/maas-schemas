@@ -11,21 +11,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Address_ from './components/address';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/region.json';
 
@@ -45,7 +44,26 @@ export type Region = t.Branded<
   },
   RegionBrand
 >;
-export const Region = t.brand(
+export type RegionC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.StringC;
+        name: t.StringC;
+        countryCode: typeof Address_.Country;
+        zipCode: typeof Address_.ZipCode;
+        availability: t.TypeC<{}>;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+        countryCode: typeof Defined;
+        zipCode: typeof Defined;
+      }>,
+    ]
+  >,
+  RegionBrand
+>;
+export const Region: RegionC = t.brand(
   t.intersection([
     t.partial({
       id: t.string,

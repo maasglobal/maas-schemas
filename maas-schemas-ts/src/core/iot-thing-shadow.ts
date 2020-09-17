@@ -36,7 +36,26 @@ export type IotThingShadow = t.Branded<
   },
   IotThingShadowBrand
 >;
-export const IotThingShadow = t.brand(
+export type IotThingShadowC = t.BrandC<
+  t.PartialC<{
+    desired: t.PartialC<{}>;
+    reported: t.PartialC<{
+      location: t.PartialC<{
+        lat: typeof UnitsGeo_.Latitude;
+        lon: typeof UnitsGeo_.Longitude;
+        timestamp: typeof Units_.Time;
+        legId: typeof Units_.Uuid;
+      }>;
+      leg: t.PartialC<{
+        id: typeof Units_.Uuid;
+        timestamp: typeof Units_.Time;
+        state: typeof State_.LegState;
+      }>;
+    }>;
+  }>,
+  IotThingShadowBrand
+>;
+export const IotThingShadow: IotThingShadowC = t.brand(
   t.partial({
     desired: t.partial({}),
     reported: t.partial({

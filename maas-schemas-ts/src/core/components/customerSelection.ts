@@ -15,7 +15,11 @@ export const schemaId = 'http://maasglobal.com/core/components/customerSelection
 // ConfigChoiceSelection
 // customerSelection format for configurator config type - choice
 export type ConfigChoiceSelection = t.Branded<Array<string>, ConfigChoiceSelectionBrand>;
-export const ConfigChoiceSelection = t.brand(
+export type ConfigChoiceSelectionC = t.BrandC<
+  t.ArrayC<t.StringC>,
+  ConfigChoiceSelectionBrand
+>;
+export const ConfigChoiceSelection: ConfigChoiceSelectionC = t.brand(
   t.array(t.string),
   (x): x is t.Branded<Array<string>, ConfigChoiceSelectionBrand> => true,
   'ConfigChoiceSelection',
@@ -27,7 +31,8 @@ export interface ConfigChoiceSelectionBrand {
 // TextInputSelection
 // customerSelection format for configurator config type - text
 export type TextInputSelection = t.Branded<string, TextInputSelectionBrand>;
-export const TextInputSelection = t.brand(
+export type TextInputSelectionC = t.BrandC<t.StringC, TextInputSelectionBrand>;
+export const TextInputSelection: TextInputSelectionC = t.brand(
   t.string,
   (x): x is t.Branded<string, TextInputSelectionBrand> =>
     typeof x !== 'string' || x.length <= 8192,
@@ -53,7 +58,21 @@ export type CustomerSelection = t.Branded<
   },
   CustomerSelectionBrand
 >;
-export const CustomerSelection = t.brand(
+export type CustomerSelectionC = t.BrandC<
+  t.PartialC<{
+    seatDirection: typeof ConfigChoiceSelection;
+    seatPosition: typeof ConfigChoiceSelection;
+    seatType: typeof ConfigChoiceSelection;
+    seatFeatures: typeof ConfigChoiceSelection;
+    outboundSingle: typeof ConfigChoiceSelection;
+    inboundSingle: typeof ConfigChoiceSelection;
+    openReturn: typeof ConfigChoiceSelection;
+    freeReturn: typeof ConfigChoiceSelection;
+    ticketCollectionPoint: typeof TextInputSelection;
+  }>,
+  CustomerSelectionBrand
+>;
+export const CustomerSelection: CustomerSelectionC = t.brand(
   t.partial({
     seatDirection: ConfigChoiceSelection,
     seatPosition: ConfigChoiceSelection,

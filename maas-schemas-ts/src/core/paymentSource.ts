@@ -12,21 +12,20 @@ import * as t from 'io-ts';
 import * as Units_ from './components/units';
 import * as Card_ from './card';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/paymentSource.json';
 
@@ -59,7 +58,45 @@ export type PaymentSource = t.Branded<
   },
   PaymentSourceBrand
 >;
-export const PaymentSource = t.brand(
+export type PaymentSourceC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.StringC;
+        customerId: typeof Units_.IdentityId;
+        type: t.IntersectionC<
+          [
+            t.StringC,
+            t.UnionC<
+              [
+                t.LiteralC<'card'>,
+                t.LiteralC<'paypal_express_checkout'>,
+                t.LiteralC<'amazon_payments'>,
+                t.LiteralC<'direct_debit'>,
+                t.LiteralC<'generic'>,
+                t.LiteralC<'alipay'>,
+                t.LiteralC<'unionpay'>,
+                t.LiteralC<'apple_pay'>,
+              ]
+            >,
+          ]
+        >;
+        gateway: t.StringC;
+        gatewayId: t.StringC;
+        temporaryToken: t.StringC;
+        status: t.StringC;
+        valid: t.BooleanC;
+        card: typeof Card_.Card;
+      }>,
+      t.TypeC<{
+        customerId: typeof Defined;
+        type: typeof Defined;
+      }>,
+    ]
+  >,
+  PaymentSourceBrand
+>;
+export const PaymentSource: PaymentSourceC = t.brand(
   t.intersection([
     t.partial({
       id: t.string,

@@ -10,28 +10,28 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/components/units-geo.json';
 
 // Latitude
 // Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
 export type Latitude = t.Branded<number, LatitudeBrand>;
-export const Latitude = t.brand(
+export type LatitudeC = t.BrandC<t.NumberC, LatitudeBrand>;
+export const Latitude: LatitudeC = t.brand(
   t.number,
   (x): x is t.Branded<number, LatitudeBrand> =>
     (typeof x !== 'number' || x >= -90) && (typeof x !== 'number' || x <= 90),
@@ -44,7 +44,8 @@ export interface LatitudeBrand {
 // Longitude
 // Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
 export type Longitude = t.Branded<number, LongitudeBrand>;
-export const Longitude = t.brand(
+export type LongitudeC = t.BrandC<t.NumberC, LongitudeBrand>;
+export const Longitude: LongitudeC = t.brand(
   t.number,
   (x): x is t.Branded<number, LongitudeBrand> =>
     (typeof x !== 'number' || x >= -180) && (typeof x !== 'number' || x <= 180),
@@ -57,7 +58,8 @@ export interface LongitudeBrand {
 // RelaxedLatitude
 // No-numeric precision version of MaaS core latitude
 export type RelaxedLatitude = t.Branded<number, RelaxedLatitudeBrand>;
-export const RelaxedLatitude = t.brand(
+export type RelaxedLatitudeC = t.BrandC<t.NumberC, RelaxedLatitudeBrand>;
+export const RelaxedLatitude: RelaxedLatitudeC = t.brand(
   t.number,
   (x): x is t.Branded<number, RelaxedLatitudeBrand> =>
     (typeof x !== 'number' || x >= -90) && (typeof x !== 'number' || x <= 90),
@@ -70,7 +72,8 @@ export interface RelaxedLatitudeBrand {
 // RelaxedLongitude
 // No-numeric precision version of MaaS core longitude
 export type RelaxedLongitude = t.Branded<number, RelaxedLongitudeBrand>;
-export const RelaxedLongitude = t.brand(
+export type RelaxedLongitudeC = t.BrandC<t.NumberC, RelaxedLongitudeBrand>;
+export const RelaxedLongitude: RelaxedLongitudeC = t.brand(
   t.number,
   (x): x is t.Branded<number, RelaxedLongitudeBrand> =>
     (typeof x !== 'number' || x >= -180) && (typeof x !== 'number' || x <= 180),
@@ -83,7 +86,8 @@ export interface RelaxedLongitudeBrand {
 // Distance
 // Distance in meters
 export type Distance = t.Branded<number, DistanceBrand>;
-export const Distance = t.brand(
+export type DistanceC = t.BrandC<t.NumberC, DistanceBrand>;
+export const Distance: DistanceC = t.brand(
   t.number,
   (x): x is t.Branded<number, DistanceBrand> =>
     (typeof x !== 'number' || x <= 40075000) && (typeof x !== 'number' || x % 1 === 0),
@@ -96,7 +100,8 @@ export interface DistanceBrand {
 // Polyline
 // Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm
 export type Polyline = t.Branded<string, PolylineBrand>;
-export const Polyline = t.brand(
+export type PolylineC = t.BrandC<t.StringC, PolylineBrand>;
+export const Polyline: PolylineC = t.brand(
   t.string,
   (x): x is t.Branded<string, PolylineBrand> =>
     (typeof x !== 'string' ||
@@ -121,7 +126,22 @@ export type Location = t.Branded<
   },
   LocationBrand
 >;
-export const Location = t.brand(
+export type LocationC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        lat: typeof Latitude;
+        lon: typeof Longitude;
+      }>,
+      t.TypeC<{
+        lat: typeof Defined;
+        lon: typeof Defined;
+      }>,
+    ]
+  >,
+  LocationBrand
+>;
+export const Location: LocationC = t.brand(
   t.intersection([
     t.partial({
       lat: Latitude,
@@ -162,7 +182,22 @@ export type RelaxedLocation = t.Branded<
   },
   RelaxedLocationBrand
 >;
-export const RelaxedLocation = t.brand(
+export type RelaxedLocationC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        lat: typeof RelaxedLatitude;
+        lon: typeof RelaxedLongitude;
+      }>,
+      t.TypeC<{
+        lat: typeof Defined;
+        lon: typeof Defined;
+      }>,
+    ]
+  >,
+  RelaxedLocationBrand
+>;
+export const RelaxedLocation: RelaxedLocationC = t.brand(
   t.intersection([
     t.partial({
       lat: RelaxedLatitude,
@@ -194,7 +229,11 @@ export interface RelaxedLocationBrand {
 // ShortLocation
 // Geographic latitude-longitude number-pair array in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
 export type ShortLocation = t.Branded<[Latitude, Longitude], ShortLocationBrand>;
-export const ShortLocation = t.brand(
+export type ShortLocationC = t.BrandC<
+  t.TupleC<[typeof Latitude, typeof Longitude]>,
+  ShortLocationBrand
+>;
+export const ShortLocation: ShortLocationC = t.brand(
   t.tuple([Latitude, Longitude]),
   (x): x is t.Branded<[Latitude, Longitude], ShortLocationBrand> => true,
   'ShortLocation',
@@ -206,7 +245,8 @@ export interface ShortLocationBrand {
 // ShortLocationString
 // Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
 export type ShortLocationString = t.Branded<string, ShortLocationStringBrand>;
-export const ShortLocationString = t.brand(
+export type ShortLocationStringC = t.BrandC<t.StringC, ShortLocationStringBrand>;
+export const ShortLocationString: ShortLocationStringC = t.brand(
   t.string,
   (x): x is t.Branded<string, ShortLocationStringBrand> =>
     (typeof x !== 'string' ||
@@ -222,7 +262,8 @@ export interface ShortLocationStringBrand {
 // UnitsGeo
 // The default export. More information at the top.
 export type UnitsGeo = t.Branded<unknown, UnitsGeoBrand>;
-export const UnitsGeo = t.brand(
+export type UnitsGeoC = t.BrandC<t.UnknownC, UnitsGeoBrand>;
+export const UnitsGeo: UnitsGeoC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, UnitsGeoBrand> => true,
   'UnitsGeo',

@@ -15,7 +15,11 @@ export const schemaId = 'http://maasglobal.com/core/components/travel-mode.json'
 // WaitingMode
 // A mode that only involves waiting in the current location
 export type WaitingMode = t.Branded<string & 'WAIT', WaitingModeBrand>;
-export const WaitingMode = t.brand(
+export type WaitingModeC = t.BrandC<
+  t.IntersectionC<[t.StringC, t.LiteralC<'WAIT'>]>,
+  WaitingModeBrand
+>;
+export const WaitingMode: WaitingModeC = t.brand(
   t.intersection([t.string, t.literal('WAIT')]),
   (x): x is t.Branded<string & 'WAIT', WaitingModeBrand> => true,
   'WaitingMode',
@@ -30,7 +34,13 @@ export type TransferMode = t.Branded<
   string & ('LEG_SWITCH' | 'TRANSFER'),
   TransferModeBrand
 >;
-export const TransferMode = t.brand(
+export type TransferModeC = t.BrandC<
+  t.IntersectionC<
+    [t.StringC, t.UnionC<[t.LiteralC<'LEG_SWITCH'>, t.LiteralC<'TRANSFER'>]>]
+  >,
+  TransferModeBrand
+>;
+export const TransferMode: TransferModeC = t.brand(
   t.intersection([t.string, t.union([t.literal('LEG_SWITCH'), t.literal('TRANSFER')])]),
   (x): x is t.Branded<string & ('LEG_SWITCH' | 'TRANSFER'), TransferModeBrand> => true,
   'TransferMode',
@@ -46,7 +56,25 @@ export type PersonalMode = t.Branded<
     ('BICYCLE' | 'CAR' | 'SCOOTER' | 'SHARED_BICYCLE' | 'WALK' | 'SHARED_E_BICYCLE'),
   PersonalModeBrand
 >;
-export const PersonalMode = t.brand(
+export type PersonalModeC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<
+        [
+          t.LiteralC<'BICYCLE'>,
+          t.LiteralC<'CAR'>,
+          t.LiteralC<'SCOOTER'>,
+          t.LiteralC<'SHARED_BICYCLE'>,
+          t.LiteralC<'WALK'>,
+          t.LiteralC<'SHARED_E_BICYCLE'>,
+        ]
+      >,
+    ]
+  >,
+  PersonalModeBrand
+>;
+export const PersonalMode: PersonalModeC = t.brand(
   t.intersection([
     t.string,
     t.union([
@@ -78,7 +106,27 @@ export type PublicTransitMode = t.Branded<
     ('AEROPLANE' | 'BUS' | 'FERRY' | 'RAIL' | 'SUBWAY' | 'TRAIN' | 'TRAM' | 'TRANSIT'),
   PublicTransitModeBrand
 >;
-export const PublicTransitMode = t.brand(
+export type PublicTransitModeC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<
+        [
+          t.LiteralC<'AEROPLANE'>,
+          t.LiteralC<'BUS'>,
+          t.LiteralC<'FERRY'>,
+          t.LiteralC<'RAIL'>,
+          t.LiteralC<'SUBWAY'>,
+          t.LiteralC<'TRAIN'>,
+          t.LiteralC<'TRAM'>,
+          t.LiteralC<'TRANSIT'>,
+        ]
+      >,
+    ]
+  >,
+  PublicTransitModeBrand
+>;
+export const PublicTransitMode: PublicTransitModeC = t.brand(
   t.intersection([
     t.string,
     t.union([
@@ -121,7 +169,27 @@ export type PrivateTransitMode = t.Branded<
     ),
   PrivateTransitModeBrand
 >;
-export const PrivateTransitMode = t.brand(
+export type PrivateTransitModeC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<
+        [
+          t.LiteralC<'BUSISH'>,
+          t.LiteralC<'CABLE_CAR'>,
+          t.LiteralC<'CAR'>,
+          t.LiteralC<'FUNICULAR'>,
+          t.LiteralC<'GONDOLA'>,
+          t.LiteralC<'SHARED_CAR'>,
+          t.LiteralC<'TAXI'>,
+          t.LiteralC<'TRAINISH'>,
+        ]
+      >,
+    ]
+  >,
+  PrivateTransitModeBrand
+>;
+export const PrivateTransitMode: PrivateTransitModeC = t.brand(
   t.intersection([
     t.string,
     t.union([
@@ -163,7 +231,19 @@ export type TravelMode = t.Branded<
   WaitingMode | TransferMode | PersonalMode | PublicTransitMode | PrivateTransitMode,
   TravelModeBrand
 >;
-export const TravelMode = t.brand(
+export type TravelModeC = t.BrandC<
+  t.UnionC<
+    [
+      typeof WaitingMode,
+      typeof TransferMode,
+      typeof PersonalMode,
+      typeof PublicTransitMode,
+      typeof PrivateTransitMode,
+    ]
+  >,
+  TravelModeBrand
+>;
+export const TravelMode: TravelModeC = t.brand(
   t.union([
     WaitingMode,
     TransferMode,

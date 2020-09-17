@@ -15,7 +15,8 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_CABLE_CAR.json';
 // MODE_CABLE_CAR
 // The default export. More information at the top.
 export type MODE_CABLE_CAR = t.Branded<{}, MODE_CABLE_CARBrand>;
-export const MODE_CABLE_CAR = t.brand(
+export type MODE_CABLE_CARC = t.BrandC<t.TypeC<{}>, MODE_CABLE_CARBrand>;
+export const MODE_CABLE_CAR: MODE_CABLE_CARC = t.brand(
   t.type({}),
   (x): x is t.Branded<{}, MODE_CABLE_CARBrand> => true,
   'MODE_CABLE_CAR',

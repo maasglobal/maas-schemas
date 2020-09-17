@@ -13,21 +13,20 @@ import * as UnitsGeo_ from './units-geo';
 import * as Address_ from './address';
 import * as Station_ from './station';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/components/place.json';
 
@@ -50,7 +49,35 @@ export type Place = t.Branded<
     }),
   PlaceBrand
 >;
-export const Place = t.brand(
+export type PlaceC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.TypeC<{}>,
+      t.TypeC<{
+        lat: typeof Defined;
+        lon: typeof Defined;
+      }>,
+      t.IntersectionC<
+        [
+          typeof UnitsGeo_.RelaxedLocation,
+          t.PartialC<{
+            name: typeof Address_.PlaceName;
+            address: typeof Address_.ComponentAddress;
+            localeAddress: t.StringC;
+            stopId: t.StringC;
+            stopCode: t.StringC;
+            stationId: t.StringC;
+            facilities: t.ArrayC<t.StringC>;
+            openingHours: typeof Station_.OpeningHours;
+            zone: typeof Station_.Zone;
+          }>,
+        ]
+      >,
+    ]
+  >,
+  PlaceBrand
+>;
+export const Place: PlaceC = t.brand(
   t.intersection([
     t.type({}),
     t.type({

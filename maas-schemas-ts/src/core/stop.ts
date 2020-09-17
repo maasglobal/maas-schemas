@@ -22,7 +22,18 @@ export type Stop = t.Branded<
   },
   StopBrand
 >;
-export const Stop = t.brand(
+export type StopC = t.BrandC<
+  t.IntersectionC<
+    [
+      typeof Place_.Place,
+      t.PartialC<{
+        startTime: typeof Units_.Time;
+      }>,
+    ]
+  >,
+  StopBrand
+>;
+export const Stop: StopC = t.brand(
   t.intersection([
     Place_.Place,
     t.partial({

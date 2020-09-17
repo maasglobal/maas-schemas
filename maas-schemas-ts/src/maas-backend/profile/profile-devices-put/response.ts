@@ -11,21 +11,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from '../../../core/components/units';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/profile/profile-devices-put/response.json';
@@ -44,7 +43,26 @@ export type Device = t.Branded<
   },
   DeviceBrand
 >;
-export const Device = t.brand(
+export type DeviceC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        devicePushToken: t.StringC;
+        deviceIdentifier: typeof Units_.Uuid;
+        deviceType: t.IntersectionC<
+          [t.StringC, t.UnionC<[t.LiteralC<'iOS'>, t.LiteralC<'Android'>]>]
+        >;
+      }>,
+      t.TypeC<{
+        devicePushToken: typeof Defined;
+        deviceIdentifier: typeof Defined;
+        deviceType: typeof Defined;
+      }>,
+    ]
+  >,
+  DeviceBrand
+>;
+export const Device: DeviceC = t.brand(
   t.intersection([
     t.partial({
       devicePushToken: t.string,
@@ -91,7 +109,21 @@ export type Response = t.Branded<
   },
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        device: typeof Device;
+        debug: t.TypeC<{}>;
+      }>,
+      t.TypeC<{
+        device: typeof Defined;
+      }>,
+    ]
+  >,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       device: Device,

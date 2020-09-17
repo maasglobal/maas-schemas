@@ -1,6 +1,6 @@
 {
   "name": "maas-schemas-ts",
-  "version": "14.6.5",
+  "version": "14.7.0",
   "description": "TypeScript types and io-ts validators for maas-schemas",
   "main": "index.js",
   "files": [
@@ -17,7 +17,7 @@
     "lint": "yarn eslint",
     "clean-src": "rm -rf src",
     "clean": "rm -rf lib",
-    "run-converter": "find ../maas-schemas/schemas -name '*.json' -print0|sort -V -z|xargs -0 -I {} ./node_modules/.bin/iotsfjs --inputFile {} --outputDir ./src --base http://maasglobal.com/",
+    "run-converter": "yarn iotsfjs --inputFile '../maas-schemas/schemas/**/*.json' --outputDir ./src --base http://maasglobal.com/",
     "build-package": "tsc",
     "build": "yarn clean && yarn build-package",
     "typecheck": "tsc --noEmit",
@@ -75,7 +75,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "fp-ts": "^2.0.5",
     "io-ts": "^2.1.2",
-    "io-ts-from-json-schema": "^0.0.3",
+    "io-ts-from-json-schema": "^0.0.10",
     "io-ts-types": "^0.5.2",
     "io-ts-validator": "^0.0.2",
     "jest": "^24.9.0",

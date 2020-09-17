@@ -13,21 +13,20 @@ import * as Common_ from '../../core/components/common';
 import * as Units_ from '../../core/components/units';
 import * as I18n_ from '../../core/components/i18n';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/tsp/customer-auth/request.json';
 
@@ -44,7 +43,23 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        nonce: typeof Common_.EncodedQueryParam;
+        returnUrl: typeof Units_.Url;
+        locale: typeof I18n_.Locale;
+      }>,
+      t.TypeC<{
+        nonce: typeof Defined;
+        returnUrl: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       nonce: Common_.EncodedQueryParam,

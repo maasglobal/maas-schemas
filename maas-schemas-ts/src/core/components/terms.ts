@@ -13,21 +13,20 @@ import * as Cost_ from './cost';
 import * as Fare_ from './fare';
 import * as Units_ from './units';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/components/terms.json';
 
@@ -41,7 +40,15 @@ export type Seat = t.Branded<
   },
   SeatBrand
 >;
-export const Seat = t.brand(
+export type SeatC = t.BrandC<
+  t.PartialC<{
+    route: t.StringC;
+    number: t.UnionC<[t.StringC, t.NumberC]>;
+    coach: t.UnionC<[t.StringC, t.NumberC]>;
+  }>,
+  SeatBrand
+>;
+export const Seat: SeatC = t.brand(
   t.partial({
     route: t.string,
     number: t.union([t.string, t.number]),
@@ -77,7 +84,24 @@ export type Cancellation = t.Branded<
   },
   CancellationBrand
 >;
-export const Cancellation = t.brand(
+export type CancellationC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        cancellable: t.BooleanC;
+        cost: typeof Cost_.Cost;
+        fare: typeof Fare_.Fare;
+        refunded: t.BooleanC;
+      }>,
+      t.TypeC<{
+        cancellable: typeof Defined;
+        refunded: typeof Defined;
+      }>,
+    ]
+  >,
+  CancellationBrand
+>;
+export const Cancellation: CancellationC = t.brand(
   t.intersection([
     t.partial({
       cancellable: t.boolean,
@@ -122,7 +146,22 @@ export type Amendment = t.Branded<
   },
   AmendmentBrand
 >;
-export const Amendment = t.brand(
+export type AmendmentC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        amendable: t.BooleanC;
+        cost: typeof Cost_.Cost;
+        fare: typeof Fare_.Fare;
+      }>,
+      t.TypeC<{
+        amendable: typeof Defined;
+      }>,
+    ]
+  >,
+  AmendmentBrand
+>;
+export const Amendment: AmendmentC = t.brand(
   t.intersection([
     t.partial({
       amendable: t.boolean,
@@ -164,7 +203,18 @@ export type Surcharge = t.Branded<
   },
   SurchargeBrand
 >;
-export const Surcharge = t.brand(
+export type SurchargeC = t.BrandC<
+  t.PartialC<{
+    isChargedUpfront: t.BooleanC;
+    amount: t.NumberC;
+    currency: typeof Units_.Currency;
+    percentage: t.NumberC;
+    minAmount: t.NumberC;
+    maxAmount: t.NumberC;
+  }>,
+  SurchargeBrand
+>;
+export const Surcharge: SurchargeC = t.brand(
   t.partial({
     isChargedUpfront: t.boolean,
     amount: t.number,
@@ -248,7 +298,74 @@ export type Terms = t.Branded<
   },
   TermsBrand
 >;
-export const Terms = t.brand(
+export type TermsC = t.BrandC<
+  t.PartialC<{
+    type: t.StringC;
+    seatings: t.ArrayC<typeof Seat>;
+    validity: t.IntersectionC<
+      [
+        t.PartialC<{
+          startTime: typeof Units_.Time;
+          endTime: typeof Units_.Time;
+          startTimeReturn: typeof Units_.Time;
+          endTimeReturn: typeof Units_.Time;
+        }>,
+        t.TypeC<{
+          startTime: typeof Defined;
+          endTime: typeof Defined;
+        }>,
+      ]
+    >;
+    reusable: t.BooleanC;
+    reconcilable: t.BooleanC;
+    restrictions: t.PartialC<{
+      singleDevice: t.BooleanC;
+      skipRestrictionCheck: t.BooleanC;
+      freeTicket: t.TypeC<{}>;
+    }>;
+    surcharges: t.PartialC<{
+      midnight: typeof Surcharge;
+      pickup: typeof Surcharge;
+    }>;
+    cancellation: t.PartialC<{
+      cancellationFormActionUrl: typeof Units_.Url;
+      outward: typeof Cancellation;
+      return: typeof Cancellation;
+    }>;
+    amendment: t.PartialC<{
+      outward: typeof Amendment;
+      return: typeof Amendment;
+    }>;
+    prePurchaseGuidanceUrl: typeof Units_.Url;
+    fareRates: t.ArrayC<
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            amount: t.NumberC;
+            currency: typeof Units_.Currency;
+            timeInterval: t.NumberC;
+            startAt: t.NumberC;
+            type: t.UnionC<
+              [
+                t.LiteralC<'maxRate'>,
+                t.LiteralC<'missedReturnPenalty'>,
+                t.LiteralC<'extra'>,
+                t.LiteralC<'perKilometer'>,
+                t.LiteralC<'perParkMinute'>,
+              ]
+            >;
+          }>,
+          t.TypeC<{
+            amount: typeof Defined;
+            currency: typeof Defined;
+          }>,
+        ]
+      >
+    >;
+  }>,
+  TermsBrand
+>;
+export const Terms: TermsC = t.brand(
   t.partial({
     type: t.string,
     seatings: t.array(Seat),

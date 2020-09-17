@@ -13,21 +13,20 @@ import * as Subscription_ from './subscription';
 import * as Cost_ from '../../core/components/cost';
 import * as Units_ from '../../core/components/units';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/maas-backend/subscriptions/pricing.json';
 
@@ -49,7 +48,28 @@ export type LineItem = t.Branded<
   },
   LineItemBrand
 >;
-export const LineItem = t.brand(
+export type LineItemC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: typeof Subscription_.SubscriptionItemId;
+        type: t.StringC;
+        description: t.StringC;
+        quantity: t.NumberC;
+        unitPrice: typeof Cost_.Cost;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+        type: typeof Defined;
+        description: typeof Defined;
+        quantity: typeof Defined;
+        unitPrice: typeof Defined;
+      }>,
+    ]
+  >,
+  LineItemBrand
+>;
+export const LineItem: LineItemC = t.brand(
   t.intersection([
     t.partial({
       id: Subscription_.SubscriptionItemId,
@@ -102,7 +122,22 @@ export type Discount = t.Branded<
   },
   DiscountBrand
 >;
-export const Discount = t.brand(
+export type DiscountC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        description: t.StringC;
+        discount: typeof Cost_.Cost;
+      }>,
+      t.TypeC<{
+        description: typeof Defined;
+        discount: typeof Defined;
+      }>,
+    ]
+  >,
+  DiscountBrand
+>;
+export const Discount: DiscountC = t.brand(
   t.intersection([
     t.partial({
       description: t.string,
@@ -147,7 +182,31 @@ export type Terms = t.Branded<
   },
   TermsBrand
 >;
-export const Terms = t.brand(
+export type TermsC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        validity: t.IntersectionC<
+          [
+            t.PartialC<{
+              startTime: typeof Units_.Time;
+              endTime: typeof Units_.Time;
+            }>,
+            t.TypeC<{
+              startTime: typeof Defined;
+              endTime: typeof Defined;
+            }>,
+          ]
+        >;
+      }>,
+      t.TypeC<{
+        validity: typeof Defined;
+      }>,
+    ]
+  >,
+  TermsBrand
+>;
+export const Terms: TermsC = t.brand(
   t.intersection([
     t.partial({
       validity: t.intersection([
@@ -201,7 +260,24 @@ export type Pricing = t.Branded<
   },
   PricingBrand
 >;
-export const Pricing = t.brand(
+export type PricingC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        lineItems: t.ArrayC<typeof LineItem>;
+        discounts: t.ArrayC<typeof Discount>;
+        total: typeof Cost_.Cost;
+        terms: typeof Terms;
+      }>,
+      t.TypeC<{
+        lineItems: typeof Defined;
+        total: typeof Defined;
+      }>,
+    ]
+  >,
+  PricingBrand
+>;
+export const Pricing: PricingC = t.brand(
   t.intersection([
     t.partial({
       lineItems: t.array(LineItem),

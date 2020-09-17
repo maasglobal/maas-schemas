@@ -12,21 +12,20 @@ import * as t from 'io-ts';
 import * as PaymentParameters_ from '../../../core/components/payment-parameters';
 import * as Itinerary_ from '../../../core/itinerary';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/itineraries/itinerary-create/response.json';
@@ -40,7 +39,14 @@ export type PaymentParameter = t.Branded<
   },
   PaymentParameterBrand
 >;
-export const PaymentParameter = t.brand(
+export type PaymentParameterC = t.BrandC<
+  t.PartialC<{
+    avainpay: typeof PaymentParameters_.AvainpayPaymentParameters;
+    stripe: typeof PaymentParameters_.StripePaymentParameters;
+  }>,
+  PaymentParameterBrand
+>;
+export const PaymentParameter: PaymentParameterC = t.brand(
   t.partial({
     avainpay: PaymentParameters_.AvainpayPaymentParameters,
     stripe: PaymentParameters_.StripePaymentParameters,
@@ -66,7 +72,11 @@ export type PaymentParameters = t.Branded<
   PaymentParameter | Array<PaymentParameter>,
   PaymentParametersBrand
 >;
-export const PaymentParameters = t.brand(
+export type PaymentParametersC = t.BrandC<
+  t.UnionC<[typeof PaymentParameter, t.ArrayC<typeof PaymentParameter>]>,
+  PaymentParametersBrand
+>;
+export const PaymentParameters: PaymentParametersC = t.brand(
   t.union([PaymentParameter, t.array(PaymentParameter)]),
   (
     x,
@@ -96,7 +106,37 @@ export type Response = t.Branded<
     }),
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.UnionC<
+    [
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            itinerary: typeof Itinerary_.Itinerary;
+            paymentParameters: typeof PaymentParameters;
+          }>,
+          t.TypeC<{
+            itinerary: typeof Defined;
+          }>,
+        ]
+      >,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            outward: typeof Itinerary_.Itinerary;
+            return: typeof Itinerary_.Itinerary;
+            paymentParameters: typeof PaymentParameters;
+          }>,
+          t.TypeC<{
+            outward: typeof Defined;
+          }>,
+        ]
+      >,
+    ]
+  >,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.union([
     t.intersection([
       t.partial({

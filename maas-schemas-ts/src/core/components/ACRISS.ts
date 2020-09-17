@@ -15,7 +15,8 @@ export const schemaId = 'http://maasglobal.com/core/components/ACRISS.json';
 // ACRISS
 // The default export. More information at the top.
 export type ACRISS = t.Branded<string, ACRISSBrand>;
-export const ACRISS = t.brand(
+export type ACRISSC = t.BrandC<t.StringC, ACRISSBrand>;
+export const ACRISS: ACRISSC = t.brand(
   t.string,
   (x): x is t.Branded<string, ACRISSBrand> =>
     typeof x !== 'string' ||

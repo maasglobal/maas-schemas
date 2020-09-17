@@ -15,7 +15,8 @@ export const schemaId = 'http://maasglobal.com/tsp/vehicle-alert/response.json';
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<{}, ResponseBrand>;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<t.PartialC<{}>, ResponseBrand>;
+export const Response: ResponseC = t.brand(
   t.partial({}),
   (x): x is t.Branded<{}, ResponseBrand> => true,
   'Response',

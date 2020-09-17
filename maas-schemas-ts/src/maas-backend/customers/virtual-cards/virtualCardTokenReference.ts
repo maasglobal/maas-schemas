@@ -12,21 +12,20 @@ import * as t from 'io-ts';
 import * as Common_ from '../../../core/components/common';
 import * as Units_ from '../../../core/components/units';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCardTokenReference.json';
@@ -68,7 +67,53 @@ export type VirtualCardTokenReference = t.Branded<
   ),
   VirtualCardTokenReferenceBrand
 >;
-export const VirtualCardTokenReference = t.brand(
+export type VirtualCardTokenReferenceC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.NumberC;
+        tokenReferenceId: t.StringC;
+        userDevicesId: t.NumberC;
+        appInstanceId: typeof Common_.AppInstanceId;
+        walletPlatform: t.IntersectionC<
+          [t.StringC, t.UnionC<[t.LiteralC<'APPLE'>, t.LiteralC<'GOOGLE'>]>]
+        >;
+        added: typeof Units_.Time;
+        deviceType: t.IntersectionC<
+          [t.StringC, t.UnionC<[t.LiteralC<'SMARTPHONE'>, t.LiteralC<'WEARABLE'>]>]
+        >;
+        hasExtendedData: t.BooleanC;
+        extendedData: t.StringC;
+      }>,
+      t.UnionC<
+        [
+          t.TypeC<{
+            id: typeof Defined;
+            userDevicesId: typeof Defined;
+            appInstanceId: typeof Defined;
+            walletPlatform: typeof Defined;
+            added: typeof Defined;
+            deviceType: typeof Defined;
+            hasExtendedData: typeof Defined;
+            tokenReferenceId: typeof Defined;
+          }>,
+          t.TypeC<{
+            id: typeof Defined;
+            userDevicesId: typeof Defined;
+            appInstanceId: typeof Defined;
+            walletPlatform: typeof Defined;
+            added: typeof Defined;
+            deviceType: typeof Defined;
+            hasExtendedData: typeof Defined;
+            extendedData: typeof Defined;
+          }>,
+        ]
+      >,
+    ]
+  >,
+  VirtualCardTokenReferenceBrand
+>;
+export const VirtualCardTokenReference: VirtualCardTokenReferenceC = t.brand(
   t.intersection([
     t.partial({
       id: t.number,

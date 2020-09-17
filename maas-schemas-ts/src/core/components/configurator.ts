@@ -13,21 +13,20 @@ import * as Cost_ from './cost';
 import * as Fare_ from './fare';
 import * as Terms_ from './terms';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/components/configurator.json';
 
@@ -50,7 +49,29 @@ export type Choice = t.Branded<
   },
   ChoiceBrand
 >;
-export const Choice = t.brand(
+export type ChoiceC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.StringC;
+        name: t.StringC;
+        description: t.StringC;
+        default: t.BooleanC;
+        cost: typeof Cost_.Cost;
+        fares: t.ArrayC<typeof Fare_.Fare>;
+        terms: typeof Terms_.Terms;
+        meta: t.TypeC<{}>;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+        name: typeof Defined;
+        default: typeof Defined;
+      }>,
+    ]
+  >,
+  ChoiceBrand
+>;
+export const Choice: ChoiceC = t.brand(
   t.intersection([
     t.partial({
       id: t.string,
@@ -108,7 +129,33 @@ export type Config = t.Branded<
   },
   ConfigBrand
 >;
-export const Config = t.brand(
+export type ConfigC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        type: t.UnionC<
+          [
+            t.LiteralC<'oneOf'>,
+            t.LiteralC<'someOf'>,
+            t.LiteralC<'allOf'>,
+            t.LiteralC<'oneOrNoneOf'>,
+            t.LiteralC<'someOrNoneOf'>,
+          ]
+        >;
+        name: t.StringC;
+        description: t.StringC;
+        choices: t.ArrayC<typeof Choice>;
+      }>,
+      t.TypeC<{
+        type: typeof Defined;
+        name: typeof Defined;
+        choices: typeof Defined;
+      }>,
+    ]
+  >,
+  ConfigBrand
+>;
+export const Config: ConfigC = t.brand(
   t.intersection([
     t.partial({
       type: t.union([
@@ -163,7 +210,24 @@ export type Text = t.Branded<
   },
   TextBrand
 >;
-export const Text = t.brand(
+export type TextC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        type: t.LiteralC<'text'>;
+        name: t.StringC;
+        description: t.StringC;
+        input: t.StringC;
+      }>,
+      t.TypeC<{
+        type: typeof Defined;
+        name: typeof Defined;
+      }>,
+    ]
+  >,
+  TextBrand
+>;
+export const Text: TextC = t.brand(
   t.intersection([
     t.partial({
       type: t.literal('text'),
@@ -212,7 +276,21 @@ export type Configurator = t.Branded<
   },
   ConfiguratorBrand
 >;
-export const Configurator = t.brand(
+export type ConfiguratorC = t.BrandC<
+  t.PartialC<{
+    seatDirection: typeof Config;
+    seatPosition: typeof Config;
+    seatType: typeof Config;
+    seatFeatures: typeof Config;
+    outboundSingle: typeof Config;
+    inboundSingle: typeof Config;
+    openReturn: typeof Config;
+    freeReturn: typeof Config;
+    ticketCollectionPoint: typeof Text;
+  }>,
+  ConfiguratorBrand
+>;
+export const Configurator: ConfiguratorC = t.brand(
   t.partial({
     seatDirection: Config,
     seatPosition: Config,

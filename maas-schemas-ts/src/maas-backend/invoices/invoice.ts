@@ -13,36 +13,93 @@ import * as InvoiceUnits_ from './invoiceUnits';
 import * as Units_ from '../../core/components/units';
 import * as InvoiceLineItem_ from './invoiceLineItem';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/maas-backend/invoices/invoice.json';
 
 // Invoice
-// The default export. More information at the top.
-export type Invoice = t.Branded<unknown, InvoiceBrand>;
-export const Invoice = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, InvoiceBrand> => true,
+// The purpose of this remains a mystery
+export type Invoice = t.Branded<
+  {
+    id?: InvoiceUnits_.InvoiceId;
+    customerId?: Units_.IdentityId;
+    bookingId?: Units_.Uuid;
+    lineItems?: Array<InvoiceLineItem_.InvoiceLineItem>;
+  } & {
+    id: Defined;
+    customerId: Defined;
+    bookingId: Defined;
+    lineItems: Defined;
+  },
+  InvoiceBrand
+>;
+export type InvoiceC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: typeof InvoiceUnits_.InvoiceId;
+        customerId: typeof Units_.IdentityId;
+        bookingId: typeof Units_.Uuid;
+        lineItems: t.ArrayC<typeof InvoiceLineItem_.InvoiceLineItem>;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+        customerId: typeof Defined;
+        bookingId: typeof Defined;
+        lineItems: typeof Defined;
+      }>,
+    ]
+  >,
+  InvoiceBrand
+>;
+export const Invoice: InvoiceC = t.brand(
+  t.intersection([
+    t.partial({
+      id: InvoiceUnits_.InvoiceId,
+      customerId: Units_.IdentityId,
+      bookingId: Units_.Uuid,
+      lineItems: t.array(InvoiceLineItem_.InvoiceLineItem),
+    }),
+    t.type({
+      id: Defined,
+      customerId: Defined,
+      bookingId: Defined,
+      lineItems: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      id?: InvoiceUnits_.InvoiceId;
+      customerId?: Units_.IdentityId;
+      bookingId?: Units_.Uuid;
+      lineItems?: Array<InvoiceLineItem_.InvoiceLineItem>;
+    } & {
+      id: Defined;
+      customerId: Defined;
+      bookingId: Defined;
+      lineItems: Defined;
+    },
+    InvoiceBrand
+  > => true,
   'Invoice',
 );
 export interface InvoiceBrand {
   readonly Invoice: unique symbol;
 }
-
-export default Invoice;
 
 // Success

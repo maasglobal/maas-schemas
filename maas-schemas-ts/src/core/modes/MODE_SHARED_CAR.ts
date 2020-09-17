@@ -15,8 +15,10 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_SHARED_CAR.json';
 // MODE_SHARED_CAR
 // The default export. More information at the top.
 export type MODE_SHARED_CAR = CarRental_.CarRental;
-export const MODE_SHARED_CAR = CarRental_.CarRental;
+// exists type MODE_SHARED_CARC extends t.AnyC
+export const MODE_SHARED_CAR: MODE_SHARED_CARC = CarRental_.CarRental;
 
 export default MODE_SHARED_CAR;
+export type MODE_SHARED_CARC = CarRental_.CarRentalC;
 
 // Success

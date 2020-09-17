@@ -29,7 +29,25 @@ export type VerificationFailureKey = t.Branded<
     ),
   VerificationFailureKeyBrand
 >;
-export const VerificationFailureKey = t.brand(
+export type VerificationFailureKeyC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<
+        [
+          t.LiteralC<'UNKNOWN_ERROR'>,
+          t.LiteralC<'NO_TOKEN_FOR_THE_USER'>,
+          t.LiteralC<'INVALID_USER_TOKEN'>,
+          t.LiteralC<'INVALID_USER'>,
+          t.LiteralC<'EMPTY_PRODUCTS'>,
+          t.LiteralC<'VERIFICATION_FAILURE'>,
+        ]
+      >,
+    ]
+  >,
+  VerificationFailureKeyBrand
+>;
+export const VerificationFailureKey: VerificationFailureKeyC = t.brand(
   t.intersection([
     t.string,
     t.union([
@@ -70,7 +88,16 @@ export type VerifiedProducts = t.Branded<
   }>,
   VerifiedProductsBrand
 >;
-export const VerifiedProducts = t.brand(
+export type VerifiedProductsC = t.BrandC<
+  t.ArrayC<
+    t.PartialC<{
+      id: typeof Booking_.TspId;
+      verified: t.BooleanC;
+    }>
+  >,
+  VerifiedProductsBrand
+>;
+export const VerifiedProducts: VerifiedProductsC = t.brand(
   t.array(
     t.partial({
       id: Booking_.TspId,
@@ -101,7 +128,16 @@ export type ProductsNeededVerification = t.Branded<
   }>,
   ProductsNeededVerificationBrand
 >;
-export const ProductsNeededVerification = t.brand(
+export type ProductsNeededVerificationC = t.BrandC<
+  t.ArrayC<
+    t.PartialC<{
+      id: typeof Booking_.TspId;
+      customerSelection: typeof CustomerSelection_.CustomerSelection;
+    }>
+  >,
+  ProductsNeededVerificationBrand
+>;
+export const ProductsNeededVerification: ProductsNeededVerificationC = t.brand(
   t.array(
     t.partial({
       id: Booking_.TspId,
@@ -126,7 +162,8 @@ export interface ProductsNeededVerificationBrand {
 // Definitions
 // The default export. More information at the top.
 export type Definitions = t.Branded<unknown, DefinitionsBrand>;
-export const Definitions = t.brand(
+export type DefinitionsC = t.BrandC<t.UnknownC, DefinitionsBrand>;
+export const Definitions: DefinitionsC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, DefinitionsBrand> => true,
   'Definitions',

@@ -10,21 +10,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_SHARED_BICYCLE.json';
 
@@ -41,7 +40,23 @@ export type MODE_SHARED_BICYCLE = t.Branded<
   },
   MODE_SHARED_BICYCLEBrand
 >;
-export const MODE_SHARED_BICYCLE = t.brand(
+export type MODE_SHARED_BICYCLEC = t.BrandC<
+  t.PartialC<{
+    bike: t.IntersectionC<
+      [
+        t.PartialC<{
+          id: t.StringC;
+          type: t.StringC;
+        }>,
+        t.TypeC<{
+          id: typeof Defined;
+        }>,
+      ]
+    >;
+  }>,
+  MODE_SHARED_BICYCLEBrand
+>;
+export const MODE_SHARED_BICYCLE: MODE_SHARED_BICYCLEC = t.brand(
   t.partial({
     bike: t.intersection([
       t.partial({

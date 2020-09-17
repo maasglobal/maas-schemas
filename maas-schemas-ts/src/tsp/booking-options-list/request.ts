@@ -16,21 +16,20 @@ import * as Address_ from '../../core/components/address';
 import * as Booking_ from '../../core/booking';
 import * as Common_ from '../../core/components/common';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/tsp/booking-options-list/request.json';
 
@@ -79,7 +78,64 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            mode: typeof TravelMode_.TravelMode;
+            startTime: typeof Units_.Time;
+            endTime: typeof Units_.Time;
+            from: typeof UnitsGeo_.ShortLocationString;
+            fromName: t.UnionC<[typeof Address_.PlaceName, t.StringC]>;
+            fromAddress: t.UnionC<[typeof Address_.ComponentAddress, t.StringC]>;
+            fromRadius: typeof UnitsGeo_.Distance;
+            to: t.UnionC<[typeof UnitsGeo_.ShortLocationString, t.StringC]>;
+            toName: t.UnionC<[typeof Address_.PlaceName, t.StringC]>;
+            toAddress: t.UnionC<[typeof Address_.ComponentAddress, t.StringC]>;
+            toRadius: typeof UnitsGeo_.Distance;
+            distance: typeof UnitsGeo_.Distance;
+            extraOptions: t.StringC;
+            tspProductIds: t.StringC;
+            tspIdToExtend: typeof Booking_.TspId;
+            purchasingAppInstanceId: typeof Common_.AppInstanceId;
+          }>,
+          t.RecordC<
+            t.StringC,
+            t.UnionC<
+              [
+                typeof TravelMode_.TravelMode,
+                typeof Units_.Time,
+                typeof Units_.Time,
+                typeof UnitsGeo_.ShortLocationString,
+                t.UnionC<[typeof Address_.PlaceName, t.StringC]>,
+                t.UnionC<[typeof Address_.ComponentAddress, t.StringC]>,
+                typeof UnitsGeo_.Distance,
+                t.UnionC<[typeof UnitsGeo_.ShortLocationString, t.StringC]>,
+                t.UnionC<[typeof Address_.PlaceName, t.StringC]>,
+                t.UnionC<[typeof Address_.ComponentAddress, t.StringC]>,
+                typeof UnitsGeo_.Distance,
+                typeof UnitsGeo_.Distance,
+                t.StringC,
+                t.StringC,
+                typeof Booking_.TspId,
+                typeof Common_.AppInstanceId,
+                t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>,
+              ]
+            >
+          >,
+        ]
+      >,
+      t.TypeC<{
+        startTime: typeof Defined;
+        from: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.intersection([
       t.partial({

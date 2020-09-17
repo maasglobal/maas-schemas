@@ -12,21 +12,20 @@ import * as t from 'io-ts';
 import * as Units_ from '../../../../core/components/units';
 import * as ApiCommon_ from '../../../../core/components/api-common';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/virtual-cards/add-token-reference/request.json';
@@ -63,7 +62,51 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof Units_.IdentityId;
+        customerId: typeof Units_.IdentityId;
+        virtualCardId: t.NumberC;
+        payload: t.IntersectionC<
+          [
+            t.PartialC<{
+              tokenReferenceId: t.StringC;
+              added: typeof Units_.Time;
+              deviceType: t.IntersectionC<
+                [t.StringC, t.UnionC<[t.LiteralC<'SMARTPHONE'>, t.LiteralC<'WEARABLE'>]>]
+              >;
+              extendedData: t.StringC;
+            }>,
+            t.UnionC<
+              [
+                t.TypeC<{
+                  tokenReferenceId: typeof Defined;
+                  deviceType: typeof Defined;
+                }>,
+                t.TypeC<{
+                  extendedData: typeof Defined;
+                  deviceType: typeof Defined;
+                }>,
+              ]
+            >,
+          ]
+        >;
+        headers: typeof ApiCommon_.Headers;
+      }>,
+      t.TypeC<{
+        identityId: typeof Defined;
+        customerId: typeof Defined;
+        virtualCardId: typeof Defined;
+        payload: typeof Defined;
+        headers: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,

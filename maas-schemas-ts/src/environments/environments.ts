@@ -14,21 +14,20 @@ import * as Units_ from '../core/components/units';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/environments/environments.json';
 
@@ -43,7 +42,21 @@ export type Developer = t.Branded<
   },
   DeveloperBrand
 >;
-export const Developer = t.brand(
+export type DeveloperC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        name: typeof Common_.PersonalName;
+        email: typeof Common_.Email;
+      }>,
+      t.TypeC<{
+        name: typeof Defined;
+      }>,
+    ]
+  >,
+  DeveloperBrand
+>;
+export const Developer: DeveloperC = t.brand(
   t.intersection([
     t.partial({
       name: Common_.PersonalName,
@@ -78,7 +91,11 @@ export const examplesDeveloper: NonEmptyArray<Developer> = ([
 // EnvironmentId
 // The purpose of this remains a mystery
 export type EnvironmentId = t.Branded<string & Units_.HostnameLabel, EnvironmentIdBrand>;
-export const EnvironmentId = t.brand(
+export type EnvironmentIdC = t.BrandC<
+  t.IntersectionC<[t.StringC, typeof Units_.HostnameLabel]>,
+  EnvironmentIdBrand
+>;
+export const EnvironmentId: EnvironmentIdC = t.brand(
   t.intersection([t.string, Units_.HostnameLabel]),
   (x): x is t.Branded<string & Units_.HostnameLabel, EnvironmentIdBrand> => true,
   'EnvironmentId',
@@ -97,7 +114,11 @@ export const examplesEnvironmentId: NonEmptyArray<EnvironmentId> = ([
 // EnvironmentUrl
 // The purpose of this remains a mystery
 export type EnvironmentUrl = t.Branded<string & Units_.Url, EnvironmentUrlBrand>;
-export const EnvironmentUrl = t.brand(
+export type EnvironmentUrlC = t.BrandC<
+  t.IntersectionC<[t.StringC, typeof Units_.Url]>,
+  EnvironmentUrlBrand
+>;
+export const EnvironmentUrl: EnvironmentUrlC = t.brand(
   t.intersection([t.string, Units_.Url]),
   (x): x is t.Branded<string & Units_.Url, EnvironmentUrlBrand> =>
     typeof x !== 'string' || x.match(RegExp('^https:')) !== null,
@@ -117,7 +138,8 @@ export const examplesEnvironmentUrl: NonEmptyArray<EnvironmentUrl> = ([
 // EnvironmentLive
 // Live environments are connected to actual payment and TSP services
 export type EnvironmentLive = t.Branded<boolean, EnvironmentLiveBrand>;
-export const EnvironmentLive = t.brand(
+export type EnvironmentLiveC = t.BrandC<t.BooleanC, EnvironmentLiveBrand>;
+export const EnvironmentLive: EnvironmentLiveC = t.brand(
   t.boolean,
   (x): x is t.Branded<boolean, EnvironmentLiveBrand> => true,
   'EnvironmentLive',
@@ -134,7 +156,8 @@ export const examplesEnvironmentLive: NonEmptyArray<EnvironmentLive> = ([
 // EnvironmentName
 // The purpose of this remains a mystery
 export type EnvironmentName = t.Branded<string, EnvironmentNameBrand>;
-export const EnvironmentName = t.brand(
+export type EnvironmentNameC = t.BrandC<t.StringC, EnvironmentNameBrand>;
+export const EnvironmentName: EnvironmentNameC = t.brand(
   t.string,
   (x): x is t.Branded<string, EnvironmentNameBrand> => true,
   'EnvironmentName',
@@ -153,7 +176,8 @@ export const examplesEnvironmentName: NonEmptyArray<EnvironmentName> = ([
 // EnvironmentDescription
 // The purpose of this remains a mystery
 export type EnvironmentDescription = t.Branded<string, EnvironmentDescriptionBrand>;
-export const EnvironmentDescription = t.brand(
+export type EnvironmentDescriptionC = t.BrandC<t.StringC, EnvironmentDescriptionBrand>;
+export const EnvironmentDescription: EnvironmentDescriptionC = t.brand(
   t.string,
   (x): x is t.Branded<string, EnvironmentDescriptionBrand> => true,
   'EnvironmentDescription',
@@ -186,7 +210,28 @@ export type Environment = t.Branded<
   },
   EnvironmentBrand
 >;
-export const Environment = t.brand(
+export type EnvironmentC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: typeof EnvironmentId;
+        api: typeof EnvironmentUrl;
+        live: typeof EnvironmentLive;
+        contact: typeof Developer;
+        name: typeof EnvironmentName;
+        description: typeof EnvironmentDescription;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+        api: typeof Defined;
+        live: typeof Defined;
+        contact: typeof Defined;
+      }>,
+    ]
+  >,
+  EnvironmentBrand
+>;
+export const Environment: EnvironmentC = t.brand(
   t.intersection([
     t.partial({
       id: EnvironmentId,
@@ -248,7 +293,25 @@ export type DevEnvironment = t.Branded<
     }),
   DevEnvironmentBrand
 >;
-export const DevEnvironment = t.brand(
+export type DevEnvironmentC = t.BrandC<
+  t.IntersectionC<
+    [
+      typeof Environment,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            live: t.LiteralC<false>;
+          }>,
+          t.TypeC<{
+            live: typeof Defined;
+          }>,
+        ]
+      >,
+    ]
+  >,
+  DevEnvironmentBrand
+>;
+export const DevEnvironment: DevEnvironmentC = t.brand(
   t.intersection([
     Environment,
     t.intersection([
@@ -290,7 +353,8 @@ export const examplesDevEnvironment: NonEmptyArray<DevEnvironment> = ([
 // EnvironmentGroupName
 // The purpose of this remains a mystery
 export type EnvironmentGroupName = t.Branded<string, EnvironmentGroupNameBrand>;
-export const EnvironmentGroupName = t.brand(
+export type EnvironmentGroupNameC = t.BrandC<t.StringC, EnvironmentGroupNameBrand>;
+export const EnvironmentGroupName: EnvironmentGroupNameC = t.brand(
   t.string,
   (x): x is t.Branded<string, EnvironmentGroupNameBrand> => true,
   'EnvironmentGroupName',
@@ -310,7 +374,11 @@ export type EnvironmentGroupDescription = t.Branded<
   string,
   EnvironmentGroupDescriptionBrand
 >;
-export const EnvironmentGroupDescription = t.brand(
+export type EnvironmentGroupDescriptionC = t.BrandC<
+  t.StringC,
+  EnvironmentGroupDescriptionBrand
+>;
+export const EnvironmentGroupDescription: EnvironmentGroupDescriptionC = t.brand(
   t.string,
   (x): x is t.Branded<string, EnvironmentGroupDescriptionBrand> => true,
   'EnvironmentGroupDescription',
@@ -338,7 +406,23 @@ export type EnvironmentGroup = t.Branded<
   },
   EnvironmentGroupBrand
 >;
-export const EnvironmentGroup = t.brand(
+export type EnvironmentGroupC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        name: typeof EnvironmentGroupName;
+        envs: t.ArrayC<typeof Environment>;
+        description: typeof EnvironmentGroupDescription;
+      }>,
+      t.TypeC<{
+        name: typeof Defined;
+        envs: typeof Defined;
+      }>,
+    ]
+  >,
+  EnvironmentGroupBrand
+>;
+export const EnvironmentGroup: EnvironmentGroupC = t.brand(
   t.intersection([
     t.partial({
       name: EnvironmentGroupName,
@@ -414,7 +498,20 @@ export type Environments = t.Branded<
   },
   EnvironmentsBrand
 >;
-export const Environments = t.brand(
+export type EnvironmentsC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        index: t.ArrayC<typeof EnvironmentGroup>;
+      }>,
+      t.TypeC<{
+        index: typeof Defined;
+      }>,
+    ]
+  >,
+  EnvironmentsBrand
+>;
+export const Environments: EnvironmentsC = t.brand(
   t.intersection([
     t.partial({
       index: t.array(EnvironmentGroup),

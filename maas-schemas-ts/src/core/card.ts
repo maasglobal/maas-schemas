@@ -11,21 +11,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Address_ from './components/address';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/card.json';
 
@@ -50,7 +49,43 @@ export type Card = t.Branded<
   },
   CardBrand
 >;
-export const Card = t.brand(
+export type CardC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        issuer: t.StringC;
+        expiryMonth: t.NumberC;
+        expiryYear: t.NumberC;
+        maskedNumber: t.StringC;
+        fundingType: t.IntersectionC<
+          [
+            t.StringC,
+            t.UnionC<
+              [
+                t.LiteralC<'credit'>,
+                t.LiteralC<'debit'>,
+                t.LiteralC<'prepaid'>,
+                t.LiteralC<'not_known'>,
+                t.LiteralC<'not_applicable'>,
+              ]
+            >,
+          ]
+        >;
+        billingCity: typeof Address_.City;
+        billingCountry: typeof Address_.Country;
+        billingZip: typeof Address_.ZipCode;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+        customerId: typeof Defined;
+        status: typeof Defined;
+        valid: typeof Defined;
+      }>,
+    ]
+  >,
+  CardBrand
+>;
+export const Card: CardC = t.brand(
   t.intersection([
     t.partial({
       issuer: t.string,

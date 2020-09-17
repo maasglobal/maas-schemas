@@ -12,21 +12,20 @@ import * as t from 'io-ts';
 import * as Units_ from '../../../core/components/units';
 import * as StateLog_ from '../../../core/components/state-log';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/verification/verification-object.json';
@@ -53,7 +52,32 @@ export type Verification = t.Branded<
   },
   VerificationBrand
 >;
-export const Verification = t.brand(
+export type VerificationC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.StringC;
+        identityId: typeof Units_.IdentityId;
+        kycServiceId: t.StringC;
+        url: typeof Units_.Url;
+        token: t.StringC;
+        status: t.StringC;
+        stateLog: typeof StateLog_.StateLog;
+        created: typeof Units_.Time;
+        modified: typeof Units_.Time;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+        identityId: typeof Defined;
+        kycServiceId: typeof Defined;
+        status: typeof Defined;
+        stateLog: typeof Defined;
+      }>,
+    ]
+  >,
+  VerificationBrand
+>;
+export const Verification: VerificationC = t.brand(
   t.intersection([
     t.partial({
       id: t.string,
@@ -105,7 +129,8 @@ export interface VerificationBrand {
 // VerificationObject
 // The default export. More information at the top.
 export type VerificationObject = t.Branded<unknown, VerificationObjectBrand>;
-export const VerificationObject = t.brand(
+export type VerificationObjectC = t.BrandC<t.UnknownC, VerificationObjectBrand>;
+export const VerificationObject: VerificationObjectC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, VerificationObjectBrand> => true,
   'VerificationObject',

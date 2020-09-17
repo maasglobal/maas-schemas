@@ -12,21 +12,20 @@ import * as t from 'io-ts';
 import * as Station_ from '../../../core/components/station';
 import * as Address_ from '../../../core/components/address';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json';
@@ -34,7 +33,8 @@ export const schemaId =
 // PaymentSourceId
 // The purpose of this remains a mystery
 export type PaymentSourceId = t.Branded<string, PaymentSourceIdBrand>;
-export const PaymentSourceId = t.brand(
+export type PaymentSourceIdC = t.BrandC<t.StringC, PaymentSourceIdBrand>;
+export const PaymentSourceId: PaymentSourceIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, PaymentSourceIdBrand> =>
     typeof x !== 'string' || x.length >= 2,
@@ -47,7 +47,8 @@ export interface PaymentSourceIdBrand {
 // GatewayName
 // The purpose of this remains a mystery
 export type GatewayName = t.Branded<string, GatewayNameBrand>;
-export const GatewayName = t.brand(
+export type GatewayNameC = t.BrandC<t.StringC, GatewayNameBrand>;
+export const GatewayName: GatewayNameC = t.brand(
   t.string,
   (x): x is t.Branded<string, GatewayNameBrand> =>
     (typeof x !== 'string' || x.length >= 3) &&
@@ -61,7 +62,8 @@ export interface GatewayNameBrand {
 // Type
 // The purpose of this remains a mystery
 export type Type = t.Branded<string, TypeBrand>;
-export const Type = t.brand(
+export type TypeC = t.BrandC<t.StringC, TypeBrand>;
+export const Type: TypeC = t.brand(
   t.string,
   (x): x is t.Branded<string, TypeBrand> =>
     (typeof x !== 'string' || x.length >= 3) &&
@@ -75,7 +77,8 @@ export interface TypeBrand {
 // Alias
 // The purpose of this remains a mystery
 export type Alias = t.Branded<string, AliasBrand>;
-export const Alias = t.brand(
+export type AliasC = t.BrandC<t.StringC, AliasBrand>;
+export const Alias: AliasC = t.brand(
   t.string,
   (x): x is t.Branded<string, AliasBrand> =>
     (typeof x !== 'string' || x.length >= 3) &&
@@ -89,7 +92,8 @@ export interface AliasBrand {
 // Status
 // The purpose of this remains a mystery
 export type Status = t.Branded<string, StatusBrand>;
-export const Status = t.brand(
+export type StatusC = t.BrandC<t.StringC, StatusBrand>;
+export const Status: StatusC = t.brand(
   t.string,
   (x): x is t.Branded<string, StatusBrand> =>
     (typeof x !== 'string' || x.length >= 2) &&
@@ -103,7 +107,8 @@ export interface StatusBrand {
 // SetupIntentId
 // The purpose of this remains a mystery
 export type SetupIntentId = t.Branded<string, SetupIntentIdBrand>;
-export const SetupIntentId = t.brand(
+export type SetupIntentIdC = t.BrandC<t.StringC, SetupIntentIdBrand>;
+export const SetupIntentId: SetupIntentIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, SetupIntentIdBrand> =>
     (typeof x !== 'string' || x.length >= 2) &&
@@ -115,17 +120,119 @@ export interface SetupIntentIdBrand {
 }
 
 // PaymentSource
-// The default export. More information at the top.
-export type PaymentSource = t.Branded<unknown, PaymentSourceBrand>;
-export const PaymentSource = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, PaymentSourceBrand> => true,
+// Payment source
+export type PaymentSource = t.Branded<
+  {
+    paymentSourceId?: PaymentSourceId;
+    gatewayName?: GatewayName;
+    type?: Type;
+    expiryYear?: number;
+    expiryMonth?: number;
+    cardNumbers?: string;
+    issuer?: string;
+    billingCountry?: Station_.Country;
+    billingZip?: Address_.ZipCode;
+    isValid?: boolean;
+    isDefault?: boolean;
+    alias?: Alias;
+    status?: Status;
+    setupIntentId?: SetupIntentId;
+  } & {
+    paymentSourceId: Defined;
+    gatewayName: Defined;
+    type: Defined;
+    isDefault: Defined;
+    status: Defined;
+  },
+  PaymentSourceBrand
+>;
+export type PaymentSourceC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        paymentSourceId: typeof PaymentSourceId;
+        gatewayName: typeof GatewayName;
+        type: typeof Type;
+        expiryYear: t.NumberC;
+        expiryMonth: t.NumberC;
+        cardNumbers: t.StringC;
+        issuer: t.StringC;
+        billingCountry: typeof Station_.Country;
+        billingZip: typeof Address_.ZipCode;
+        isValid: t.BooleanC;
+        isDefault: t.BooleanC;
+        alias: typeof Alias;
+        status: typeof Status;
+        setupIntentId: typeof SetupIntentId;
+      }>,
+      t.TypeC<{
+        paymentSourceId: typeof Defined;
+        gatewayName: typeof Defined;
+        type: typeof Defined;
+        isDefault: typeof Defined;
+        status: typeof Defined;
+      }>,
+    ]
+  >,
+  PaymentSourceBrand
+>;
+export const PaymentSource: PaymentSourceC = t.brand(
+  t.intersection([
+    t.partial({
+      paymentSourceId: PaymentSourceId,
+      gatewayName: GatewayName,
+      type: Type,
+      expiryYear: t.number,
+      expiryMonth: t.number,
+      cardNumbers: t.string,
+      issuer: t.string,
+      billingCountry: Station_.Country,
+      billingZip: Address_.ZipCode,
+      isValid: t.boolean,
+      isDefault: t.boolean,
+      alias: Alias,
+      status: Status,
+      setupIntentId: SetupIntentId,
+    }),
+    t.type({
+      paymentSourceId: Defined,
+      gatewayName: Defined,
+      type: Defined,
+      isDefault: Defined,
+      status: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      paymentSourceId?: PaymentSourceId;
+      gatewayName?: GatewayName;
+      type?: Type;
+      expiryYear?: number;
+      expiryMonth?: number;
+      cardNumbers?: string;
+      issuer?: string;
+      billingCountry?: Station_.Country;
+      billingZip?: Address_.ZipCode;
+      isValid?: boolean;
+      isDefault?: boolean;
+      alias?: Alias;
+      status?: Status;
+      setupIntentId?: SetupIntentId;
+    } & {
+      paymentSourceId: Defined;
+      gatewayName: Defined;
+      type: Defined;
+      isDefault: Defined;
+      status: Defined;
+    },
+    PaymentSourceBrand
+  > => true,
   'PaymentSource',
 );
 export interface PaymentSourceBrand {
   readonly PaymentSource: unique symbol;
 }
-
-export default PaymentSource;
 
 // Success

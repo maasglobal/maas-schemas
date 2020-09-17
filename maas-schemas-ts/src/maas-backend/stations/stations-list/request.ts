@@ -14,21 +14,20 @@ import * as Common_ from '../../../core/components/common';
 import * as UnitsGeo_ from '../../../core/components/units-geo';
 import * as ApiCommon_ from '../../../core/components/api-common';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/stations/stations-list/request.json';
@@ -68,7 +67,70 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof Units_.IdentityId;
+        agencyId: typeof Common_.AgencyId;
+        payload: t.UnionC<
+          [
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  lat: typeof UnitsGeo_.RelaxedLatitude;
+                  lon: typeof UnitsGeo_.RelaxedLatitude;
+                  radius: t.NumberC;
+                  type: t.UnionC<
+                    [
+                      t.LiteralC<'origin'>,
+                      t.LiteralC<'destination'>,
+                      t.LiteralC<'viaAvoid'>,
+                    ]
+                  >;
+                }>,
+                t.TypeC<{
+                  lat: typeof Defined;
+                  lon: typeof Defined;
+                  type: typeof Defined;
+                }>,
+              ]
+            >,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  agencyId: typeof Common_.AgencyId;
+                  name: t.StringC;
+                  count: t.NumberC;
+                  type: t.UnionC<
+                    [
+                      t.LiteralC<'origin'>,
+                      t.LiteralC<'destination'>,
+                      t.LiteralC<'viaAvoid'>,
+                    ]
+                  >;
+                }>,
+                t.TypeC<{
+                  name: typeof Defined;
+                  count: typeof Defined;
+                  type: typeof Defined;
+                }>,
+              ]
+            >,
+          ]
+        >;
+        headers: typeof ApiCommon_.Headers;
+      }>,
+      t.TypeC<{
+        identityId: typeof Defined;
+        agencyId: typeof Defined;
+        payload: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,

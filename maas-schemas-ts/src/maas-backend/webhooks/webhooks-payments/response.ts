@@ -10,21 +10,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/webhooks/webhooks-payments/response.json';
@@ -48,7 +47,29 @@ export type AvainpayResponse = t.Branded<
   },
   AvainpayResponseBrand
 >;
-export const AvainpayResponse = t.brand(
+export type AvainpayResponseC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        action_str: t.StringC;
+        data_type: t.StringC;
+        log_list: t.UnknownArrayC;
+        trans_map: t.PartialC<{
+          system_time: t.NumberC;
+          nonce: t.StringC;
+          signature: t.StringC;
+        }>;
+        response_map: t.TypeC<{}>;
+      }>,
+      t.TypeC<{
+        action_str: typeof Defined;
+        data_type: typeof Defined;
+      }>,
+    ]
+  >,
+  AvainpayResponseBrand
+>;
+export const AvainpayResponse: AvainpayResponseC = t.brand(
   t.intersection([
     t.partial({
       action_str: t.string,
@@ -94,7 +115,8 @@ export interface AvainpayResponseBrand {
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<AvainpayResponse, ResponseBrand>;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<typeof AvainpayResponse, ResponseBrand>;
+export const Response: ResponseC = t.brand(
   AvainpayResponse,
   (x): x is t.Branded<AvainpayResponse, ResponseBrand> => true,
   'Response',

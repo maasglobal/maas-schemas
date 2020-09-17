@@ -32,7 +32,19 @@ export type OutwardReturnWrapper = t.Branded<
   },
   OutwardReturnWrapperBrand
 >;
-export const OutwardReturnWrapper = t.brand(
+export type OutwardReturnWrapperC = t.BrandC<
+  t.PartialC<{
+    itinerary: typeof Itinerary_.Itinerary;
+    customerSelections: t.ArrayC<
+      t.PartialC<{
+        ref: typeof ProductOption_.Ref;
+        customerSelection: typeof CustomerSelection_.CustomerSelection;
+      }>
+    >;
+  }>,
+  OutwardReturnWrapperBrand
+>;
+export const OutwardReturnWrapper: OutwardReturnWrapperC = t.brand(
   t.partial({
     itinerary: Itinerary_.Itinerary,
     customerSelections: t.array(
@@ -76,7 +88,21 @@ export type Request = t.Branded<
   },
   RequestBrand
 >;
-export const Request = t.brand(
+export type RequestC = t.BrandC<
+  t.PartialC<{
+    identityId: typeof Units_.IdentityId;
+    headers: typeof ApiCommon_.Headers;
+    payload: t.PartialC<{
+      itinerary: typeof Itinerary_.Itinerary;
+      paymentSourceId: typeof Common_.PaymentSourceId;
+      outward: typeof OutwardReturnWrapper;
+      return: typeof OutwardReturnWrapper;
+      message: typeof Message_.Message;
+    }>;
+  }>,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
   t.partial({
     identityId: Units_.IdentityId,
     headers: ApiCommon_.Headers,

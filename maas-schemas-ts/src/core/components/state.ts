@@ -33,7 +33,32 @@ export type BookingState = t.Branded<
     ),
   BookingStateBrand
 >;
-export const BookingState = t.brand(
+export type BookingStateC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<
+        [
+          t.LiteralC<'START'>,
+          t.LiteralC<'PENDING'>,
+          t.LiteralC<'PAID'>,
+          t.LiteralC<'RESERVED'>,
+          t.LiteralC<'CONFIRMED'>,
+          t.LiteralC<'ARRIVED'>,
+          t.LiteralC<'ACTIVATED'>,
+          t.LiteralC<'ON_HOLD'>,
+          t.LiteralC<'CANCELLED'>,
+          t.LiteralC<'EXPIRED'>,
+          t.LiteralC<'REJECTED'>,
+          t.LiteralC<'FINISHED'>,
+          t.LiteralC<'UNKNOWN'>,
+        ]
+      >,
+    ]
+  >,
+  BookingStateBrand
+>;
+export const BookingState: BookingStateC = t.brand(
   t.intersection([
     t.string,
     t.union([
@@ -85,7 +110,25 @@ export type LegState = t.Branded<
   string & ('START' | 'PLANNED' | 'PAID' | 'ACTIVATED' | 'CANCELLED' | 'FINISHED'),
   LegStateBrand
 >;
-export const LegState = t.brand(
+export type LegStateC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<
+        [
+          t.LiteralC<'START'>,
+          t.LiteralC<'PLANNED'>,
+          t.LiteralC<'PAID'>,
+          t.LiteralC<'ACTIVATED'>,
+          t.LiteralC<'CANCELLED'>,
+          t.LiteralC<'FINISHED'>,
+        ]
+      >,
+    ]
+  >,
+  LegStateBrand
+>;
+export const LegState: LegStateC = t.brand(
   t.intersection([
     t.string,
     t.union([
@@ -124,7 +167,26 @@ export type ItineraryState = t.Branded<
     ),
   ItineraryStateBrand
 >;
-export const ItineraryState = t.brand(
+export type ItineraryStateC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<
+        [
+          t.LiteralC<'START'>,
+          t.LiteralC<'PLANNED'>,
+          t.LiteralC<'PAID'>,
+          t.LiteralC<'ACTIVATED'>,
+          t.LiteralC<'CANCELLED'>,
+          t.LiteralC<'CANCELLED_WITH_ERRORS'>,
+          t.LiteralC<'FINISHED'>,
+        ]
+      >,
+    ]
+  >,
+  ItineraryStateBrand
+>;
+export const ItineraryState: ItineraryStateC = t.brand(
   t.intersection([
     t.string,
     t.union([
@@ -174,7 +236,27 @@ export type SubscriptionIntentState = t.Branded<
     ),
   SubscriptionIntentStateBrand
 >;
-export const SubscriptionIntentState = t.brand(
+export type SubscriptionIntentStateC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<
+        [
+          t.LiteralC<'START'>,
+          t.LiteralC<'DETAILS'>,
+          t.LiteralC<'CUSTOMISATION'>,
+          t.LiteralC<'PAYMENT'>,
+          t.LiteralC<'VERIFICATION'>,
+          t.LiteralC<'CANCELLED'>,
+          t.LiteralC<'CANCELLED_WITH_ERRORS'>,
+          t.LiteralC<'FINISHED'>,
+        ]
+      >,
+    ]
+  >,
+  SubscriptionIntentStateBrand
+>;
+export const SubscriptionIntentState: SubscriptionIntentStateC = t.brand(
   t.intersection([
     t.string,
     t.union([
@@ -213,7 +295,8 @@ export interface SubscriptionIntentStateBrand {
 // State
 // The default export. More information at the top.
 export type State = t.Branded<unknown, StateBrand>;
-export const State = t.brand(
+export type StateC = t.BrandC<t.UnknownC, StateBrand>;
+export const State: StateC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, StateBrand> => true,
   'State',

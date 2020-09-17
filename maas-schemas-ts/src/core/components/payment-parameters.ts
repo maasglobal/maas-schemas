@@ -22,7 +22,14 @@ export type StripePaymentParameters = t.Branded<
   },
   StripePaymentParametersBrand
 >;
-export const StripePaymentParameters = t.brand(
+export type StripePaymentParametersC = t.BrandC<
+  t.PartialC<{
+    bookingId: typeof Units_.Uuid;
+    clientSecret: t.StringC;
+  }>,
+  StripePaymentParametersBrand
+>;
+export const StripePaymentParameters: StripePaymentParametersC = t.brand(
   t.partial({
     bookingId: Units_.Uuid,
     clientSecret: t.string,
@@ -82,7 +89,49 @@ export type AvainpayPaymentParameters = t.Branded<
     },
   AvainpayPaymentParametersBrand
 >;
-export const AvainpayPaymentParameters = t.brand(
+export type AvainpayPaymentParametersC = t.BrandC<
+  t.UnionC<
+    [
+      t.PartialC<{
+        return_code: t.StringC;
+        appid: t.StringC;
+        sub_appid: t.StringC;
+        mch_id: t.StringC;
+        sub_mch_id: t.StringC;
+        nonce_str: t.StringC;
+        result_code: t.StringC;
+        prepay_id: t.StringC;
+        trade_type: t.StringC;
+        code_url: t.StringC;
+        sign: t.StringC;
+        paySign: t.StringC;
+        timeStamp: t.StringC;
+      }>,
+      t.PartialC<{
+        appId: t.StringC;
+        timeStamp: t.StringC;
+        nonceStr: t.StringC;
+        package: t.StringC;
+        signType: t.StringC;
+        paySign: t.StringC;
+      }>,
+      t.PartialC<{
+        return_code: t.StringC;
+        appid: t.StringC;
+        mch_id: t.StringC;
+        sub_mch_id: t.StringC;
+        nonce_str: t.StringC;
+        result_code: t.StringC;
+        prepay_id: t.StringC;
+        trade_type: t.StringC;
+        code_url: t.StringC;
+        sign: t.StringC;
+      }>,
+    ]
+  >,
+  AvainpayPaymentParametersBrand
+>;
+export const AvainpayPaymentParameters: AvainpayPaymentParametersC = t.brand(
   t.union([
     t.partial({
       return_code: t.string,
@@ -169,7 +218,8 @@ export interface AvainpayPaymentParametersBrand {
 // PaymentParameters
 // The default export. More information at the top.
 export type PaymentParameters = t.Branded<unknown, PaymentParametersBrand>;
-export const PaymentParameters = t.brand(
+export type PaymentParametersC = t.BrandC<t.UnknownC, PaymentParametersBrand>;
+export const PaymentParameters: PaymentParametersC = t.brand(
   t.unknown,
   (x): x is t.Branded<unknown, PaymentParametersBrand> => true,
   'PaymentParameters',

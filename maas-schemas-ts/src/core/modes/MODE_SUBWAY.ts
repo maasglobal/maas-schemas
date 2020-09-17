@@ -15,7 +15,8 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_SUBWAY.json';
 // MODE_SUBWAY
 // The default export. More information at the top.
 export type MODE_SUBWAY = t.Branded<{}, MODE_SUBWAYBrand>;
-export const MODE_SUBWAY = t.brand(
+export type MODE_SUBWAYC = t.BrandC<t.TypeC<{}>, MODE_SUBWAYBrand>;
+export const MODE_SUBWAY: MODE_SUBWAYC = t.brand(
   t.type({}),
   (x): x is t.Branded<{}, MODE_SUBWAYBrand> => true,
   'MODE_SUBWAY',

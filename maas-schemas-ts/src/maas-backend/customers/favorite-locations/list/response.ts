@@ -11,21 +11,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as PartialFavoriteLocation_ from '../../../../core/partialFavoriteLocation';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/favorite-locations/list/response.json';
@@ -46,7 +45,26 @@ export type Response = t.Branded<
   },
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.PartialC<{
+    favoriteLocations: t.ArrayC<
+      t.IntersectionC<
+        [
+          typeof PartialFavoriteLocation_.PartialFavoriteLocation,
+          t.TypeC<{
+            type: typeof Defined;
+            name: typeof Defined;
+            location: typeof Defined;
+            id: typeof Defined;
+            identityId: typeof Defined;
+          }>,
+        ]
+      >
+    >;
+  }>,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.partial({
     favoriteLocations: t.array(
       t.intersection([

@@ -20,7 +20,8 @@ export const schemaId = 'http://maasglobal.com/core/components/station.json';
 // Id
 // The purpose of this remains a mystery
 export type Id = t.Branded<string, IdBrand>;
-export const Id = t.brand(
+export type IdC = t.BrandC<t.StringC, IdBrand>;
+export const Id: IdC = t.brand(
   t.string,
   (x): x is t.Branded<string, IdBrand> =>
     (typeof x !== 'string' || x.length >= 1) && (typeof x !== 'string' || x.length <= 64),
@@ -33,7 +34,8 @@ export interface IdBrand {
 // Code
 // The purpose of this remains a mystery
 export type Code = t.Branded<string, CodeBrand>;
-export const Code = t.brand(
+export type CodeC = t.BrandC<t.StringC, CodeBrand>;
+export const Code: CodeC = t.brand(
   t.string,
   (x): x is t.Branded<string, CodeBrand> => true,
   'Code',
@@ -45,7 +47,8 @@ export interface CodeBrand {
 // Name
 // The purpose of this remains a mystery
 export type Name = t.Branded<string, NameBrand>;
-export const Name = t.brand(
+export type NameC = t.BrandC<t.StringC, NameBrand>;
+export const Name: NameC = t.brand(
   t.string,
   (x): x is t.Branded<string, NameBrand> => true,
   'Name',
@@ -57,32 +60,38 @@ export interface NameBrand {
 // Location
 // The purpose of this remains a mystery
 export type Location = UnitsGeo_.ShortLocationString;
-export const Location = UnitsGeo_.ShortLocationString;
+// exists type LocationC extends t.AnyC
+export const Location: LocationC = UnitsGeo_.ShortLocationString;
 
 // Address
 // The purpose of this remains a mystery
 export type Address = Address_.Address;
-export const Address = Address_.Address;
+// exists type AddressC extends t.AnyC
+export const Address: AddressC = Address_.Address;
 
 // City
 // The purpose of this remains a mystery
 export type City = Address_.City;
-export const City = Address_.City;
+// exists type CityC extends t.AnyC
+export const City: CityC = Address_.City;
 
 // Country
 // The purpose of this remains a mystery
 export type Country = Address_.Country;
-export const Country = Address_.Country;
+// exists type CountryC extends t.AnyC
+export const Country: CountryC = Address_.Country;
 
 // AgencyId
 // The purpose of this remains a mystery
 export type AgencyId = Common_.AgencyId;
-export const AgencyId = Common_.AgencyId;
+// exists type AgencyIdC extends t.AnyC
+export const AgencyId: AgencyIdC = Common_.AgencyId;
 
 // OpeningHours
 // Opening hour of the station, object format is left for TSP to decide
 export type OpeningHours = t.Branded<{}, OpeningHoursBrand>;
-export const OpeningHours = t.brand(
+export type OpeningHoursC = t.BrandC<t.TypeC<{}>, OpeningHoursBrand>;
+export const OpeningHours: OpeningHoursC = t.brand(
   t.type({}),
   (x): x is t.Branded<{}, OpeningHoursBrand> => true,
   'OpeningHours',
@@ -94,7 +103,8 @@ export interface OpeningHoursBrand {
 // Facilities
 // Station facilities, including services and features
 export type Facilities = t.Branded<Array<string>, FacilitiesBrand>;
-export const Facilities = t.brand(
+export type FacilitiesC = t.BrandC<t.ArrayC<t.StringC>, FacilitiesBrand>;
+export const Facilities: FacilitiesC = t.brand(
   t.array(t.string),
   (x): x is t.Branded<Array<string>, FacilitiesBrand> => true,
   'Facilities',
@@ -106,7 +116,8 @@ export interface FacilitiesBrand {
 // Services
 // What agency and mode of transport will occupy this station
 export type Services = t.Branded<Array<TravelMode_.TravelMode>, ServicesBrand>;
-export const Services = t.brand(
+export type ServicesC = t.BrandC<t.ArrayC<typeof TravelMode_.TravelMode>, ServicesBrand>;
+export const Services: ServicesC = t.brand(
   t.array(TravelMode_.TravelMode),
   (x): x is t.Branded<Array<TravelMode_.TravelMode>, ServicesBrand> => true,
   'Services',
@@ -129,7 +140,21 @@ export type Timetables = t.Branded<
   }>,
   TimetablesBrand
 >;
-export const Timetables = t.brand(
+export type TimetablesC = t.BrandC<
+  t.ArrayC<
+    t.PartialC<{
+      id: t.StringC;
+      mode: typeof TravelMode_.TravelMode;
+      name: t.StringC;
+      longName: t.StringC;
+      schedule: typeof Units_.Time;
+      realtime: typeof Units_.Time;
+      isRealtime: t.BooleanC;
+    }>
+  >,
+  TimetablesBrand
+>;
+export const Timetables: TimetablesC = t.brand(
   t.array(
     t.partial({
       id: t.string,
@@ -164,7 +189,8 @@ export interface TimetablesBrand {
 // Zone
 // Geofencing zone defined by provider that the station is within
 export type Zone = t.Branded<number | string, ZoneBrand>;
-export const Zone = t.brand(
+export type ZoneC = t.BrandC<t.UnionC<[t.NumberC, t.StringC]>, ZoneBrand>;
+export const Zone: ZoneC = t.brand(
   t.union([t.number, t.string]),
   (x): x is t.Branded<number | string, ZoneBrand> => true,
   'Zone',
@@ -176,7 +202,8 @@ export interface ZoneBrand {
 // PlatformCode
 // Platform number
 export type PlatformCode = t.Branded<number | string, PlatformCodeBrand>;
-export const PlatformCode = t.brand(
+export type PlatformCodeC = t.BrandC<t.UnionC<[t.NumberC, t.StringC]>, PlatformCodeBrand>;
+export const PlatformCode: PlatformCodeC = t.brand(
   t.union([t.number, t.string]),
   (x): x is t.Branded<number | string, PlatformCodeBrand> => true,
   'PlatformCode',
@@ -188,7 +215,8 @@ export interface PlatformCodeBrand {
 // Station
 // The default export. More information at the top.
 export type Station = t.Branded<{}, StationBrand>;
-export const Station = t.brand(
+export type StationC = t.BrandC<t.TypeC<{}>, StationBrand>;
+export const Station: StationC = t.brand(
   t.type({}),
   (x): x is t.Branded<{}, StationBrand> => true,
   'Station',
@@ -197,6 +225,11 @@ export interface StationBrand {
   readonly Station: unique symbol;
 }
 
+export type LocationC = UnitsGeo_.ShortLocationStringC;
+export type AddressC = Address_.AddressC;
+export type CityC = Address_.CityC;
+export type CountryC = Address_.CountryC;
+export type AgencyIdC = Common_.AgencyIdC;
 export default Station;
 
 // Success

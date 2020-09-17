@@ -11,21 +11,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as UnitsGeo_ from './units-geo';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/components/bike-station.json';
 
@@ -52,7 +51,38 @@ export type BikeStation = t.Branded<
   },
   BikeStationBrand
 >;
-export const BikeStation = t.brand(
+export type BikeStationC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.StringC;
+        name: t.StringC;
+        location: typeof UnitsGeo_.Location;
+        slots: t.IntersectionC<
+          [
+            t.PartialC<{
+              total: t.NumberC;
+              empty: t.NumberC;
+              bikes: t.NumberC;
+            }>,
+            t.TypeC<{
+              total: typeof Defined;
+              empty: typeof Defined;
+              bikes: typeof Defined;
+            }>,
+          ]
+        >;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+        name: typeof Defined;
+        location: typeof Defined;
+      }>,
+    ]
+  >,
+  BikeStationBrand
+>;
+export const BikeStation: BikeStationC = t.brand(
   t.intersection([
     t.partial({
       id: t.string,

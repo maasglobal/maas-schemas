@@ -12,21 +12,20 @@ import * as t from 'io-ts';
 import * as Common_ from '../../../../core/components/common';
 import * as PaymentSource_ from '../paymentSource';
 
-type Defined =
-  | Record<string, unknown>
-  | Array<unknown>
-  | string
-  | boolean
-  | number
-  | null;
-const Defined = t.union([
-  t.UnknownRecord,
-  t.UnknownArray,
-  t.string,
-  t.boolean,
-  t.number,
-  t.null,
-]);
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/payment-sources/setup-intent/response.json';
@@ -55,7 +54,39 @@ export type Response = t.Branded<
   },
   ResponseBrand
 >;
-export const Response = t.brand(
+export type ResponseC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        setupIntent: t.IntersectionC<
+          [
+            t.PartialC<{
+              setupIntentId: typeof Common_.PaymentSourceId;
+              type: typeof PaymentSource_.Type;
+              gatewayName: typeof PaymentSource_.GatewayName;
+              clientSecret: t.StringC;
+              isDefault: t.BooleanC;
+              alias: typeof PaymentSource_.Alias;
+              status: typeof PaymentSource_.Status;
+            }>,
+            t.TypeC<{
+              setupIntentId: typeof Defined;
+              type: typeof Defined;
+              gatewayName: typeof Defined;
+              isDefault: typeof Defined;
+              status: typeof Defined;
+            }>,
+          ]
+        >;
+      }>,
+      t.TypeC<{
+        setupIntent: typeof Defined;
+      }>,
+    ]
+  >,
+  ResponseBrand
+>;
+export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       setupIntent: t.intersection([
