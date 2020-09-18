@@ -10,7 +10,6 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 import * as Units_ from '../../../../core/components/units';
-import * as Common_ from '../../../../core/components/common';
 import * as ApiCommon_ from '../../../../core/components/api-common';
 
 export type Defined = {} | null;
@@ -37,15 +36,12 @@ export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
     customerId?: Units_.IdentityId;
-    payload?: {
-      id?: Units_.Uuid | Common_.AgencyId;
-    } & {
-      id: Defined;
-    };
+    consentId?: Units_.Uuid;
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
-    payload: Defined;
+    customerId: Defined;
+    consentId: Defined;
     headers: Defined;
   },
   RequestBrand
@@ -56,21 +52,13 @@ export type RequestC = t.BrandC<
       t.PartialC<{
         identityId: typeof Units_.IdentityId;
         customerId: typeof Units_.IdentityId;
-        payload: t.IntersectionC<
-          [
-            t.PartialC<{
-              id: t.UnionC<[typeof Units_.Uuid, typeof Common_.AgencyId]>;
-            }>,
-            t.TypeC<{
-              id: typeof Defined;
-            }>,
-          ]
-        >;
+        consentId: typeof Units_.Uuid;
         headers: typeof ApiCommon_.Headers;
       }>,
       t.TypeC<{
         identityId: typeof Defined;
-        payload: typeof Defined;
+        customerId: typeof Defined;
+        consentId: typeof Defined;
         headers: typeof Defined;
       }>,
     ]
@@ -82,19 +70,13 @@ export const Request: RequestC = t.brand(
     t.partial({
       identityId: Units_.IdentityId,
       customerId: Units_.IdentityId,
-      payload: t.intersection([
-        t.partial({
-          id: t.union([Units_.Uuid, Common_.AgencyId]),
-        }),
-        t.type({
-          id: Defined,
-        }),
-      ]),
+      consentId: Units_.Uuid,
       headers: ApiCommon_.Headers,
     }),
     t.type({
       identityId: Defined,
-      payload: Defined,
+      customerId: Defined,
+      consentId: Defined,
       headers: Defined,
     }),
   ]),
@@ -104,15 +86,12 @@ export const Request: RequestC = t.brand(
     {
       identityId?: Units_.IdentityId;
       customerId?: Units_.IdentityId;
-      payload?: {
-        id?: Units_.Uuid | Common_.AgencyId;
-      } & {
-        id: Defined;
-      };
+      consentId?: Units_.Uuid;
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;
-      payload: Defined;
+      customerId: Defined;
+      consentId: Defined;
       headers: Defined;
     },
     RequestBrand
