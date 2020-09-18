@@ -40,29 +40,29 @@
         },
         "fromName": {
           "description": "The human understandable name for 'from'",
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName" }]
         },
         "fromAddress": {
           "description": "Componentized from address",
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress" }]
         },
         "fromRadius": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance" }]
         },
         "toName": {
           "description": "The human understandable name for 'to'",
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName" }]
         },
         "toAddress": {
           "description": "Componentized to address",
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress" }]
         },
         "toRadius": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance" }]
         },
         "bookingIdToExtend": {
           "description": "bookingId to fetch possible extension options for",
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid" }]
         }
       },
       "patternProperties": {

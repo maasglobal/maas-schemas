@@ -95,22 +95,22 @@
         },
         "location": {
           "description": "Current geo location",
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location" }]
         }
       },
       "required": ["classification"]
     },
     "pickupInfo": {
       "description": "Pickup instructions in HTML format",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/htmlBlock"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/htmlBlock" }]
     },
     "returnInfo": {
       "description": "Return Instructions in HTML format",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/htmlBlock"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/htmlBlock" }]
     },
     "startEndGeoRegionUrl": {
       "description": "Region in which car can be rented and returned. Url to GeoJSON file",
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
     },
     "instructions": {
       "description": "Additional instruction sections displayed for booking",

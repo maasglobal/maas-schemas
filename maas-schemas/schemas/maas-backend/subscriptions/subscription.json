@@ -3,19 +3,37 @@
   "description": "MaaS subscription schema",
   "definitions": {
     "subscription": {
-      "$ref": "#/definitions/subscriptionBase",
-      "required": ["plan", "addons", "coupons", "changeState"],
-      "additionalProperties": true
+      "allOf": [
+        {
+          "$ref": "#/definitions/subscriptionBase"
+        },
+        {
+          "required": ["plan", "addons", "coupons", "changeState"],
+          "additionalProperties": true
+        }
+      ]
     },
     "subscriptionCreatePayload": {
-      "$ref": "#/definitions/subscriptionBase",
-      "required": ["plan", "addons"],
-      "additionalProperties": true
+      "allOf": [
+        {
+          "$ref": "#/definitions/subscriptionBase"
+        },
+        {
+          "required": ["plan", "addons"],
+          "additionalProperties": true
+        }
+      ]
     },
     "subscriptionUpdatePayload": {
-      "$ref": "#/definitions/subscriptionBase",
-      "required": [],
-      "additionalProperties": true
+      "allOf": [
+        {
+          "$ref": "#/definitions/subscriptionBase"
+        },
+        {
+          "required": [],
+          "additionalProperties": true
+        }
+      ]
     },
     "subscriptionBase": {
       "type": "object",

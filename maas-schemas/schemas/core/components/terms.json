@@ -21,19 +21,19 @@
       "type": "object",
       "properties": {
         "startTime": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }],
           "description": "Epoch when the outbound ticket will be valid"
         },
         "endTime": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }],
           "description": "Epoch when the outbound ticket will be invalid"
         },
         "startTimeReturn": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }],
           "description": "Epoch when the return ticket will be valid"
         },
         "endTimeReturn": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }],
           "description": "Epoch when the return ticket will be invalid"
         }
       },
@@ -71,11 +71,11 @@
       "properties": {
         "midnight": {
           "description": "Fee for booking during night time",
-          "$ref": "#/definitions/surcharge"
+          "allOf": [{ "$ref": "#/definitions/surcharge" }]
         },
         "pickup": {
           "description": "Fee for pickup, usually for TAXI bookings",
-          "$ref": "#/definitions/surcharge"
+          "allOf": [{ "$ref": "#/definitions/surcharge" }]
         }
       }
     },
@@ -84,7 +84,7 @@
       "properties": {
         "cancellationFormActionUrl": {
           "description": "User will fill in this form to cancel their ticket should programmed cancellation does not function. Edge case support",
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
         },
         "outward": {
           "$ref": "#/definitions/cancellation"
@@ -107,7 +107,7 @@
     },
     "prePurchaseGuidanceUrl": {
       "description": "If flow requires additional instructions or resources presented to the customer before purchase, they can be embedded in the HTML page and booking option can link to that",
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
     },
     "fareRates": {
       "type": "array",

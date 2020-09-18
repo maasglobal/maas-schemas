@@ -12,7 +12,7 @@
       "enum": ["VALID", "INVALID"]
     },
     "validTo": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time",
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }],
       "description": "Epoch when the authorization will be invalid"
     },
     "created": {

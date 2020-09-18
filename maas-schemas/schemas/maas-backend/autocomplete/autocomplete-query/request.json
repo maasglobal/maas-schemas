@@ -25,8 +25,14 @@
           "default": 5
         },
         "radius": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance",
-          "default": 5000
+          "allOf": [
+            {
+              "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
+            },
+            {
+              "default": 5000
+            }
+          ]
         }
       },
       "required": ["name"],

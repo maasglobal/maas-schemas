@@ -8,7 +8,7 @@
     },
     "bookingId": {
       "description": "bookingId of the requested booking",
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid" }]
     },
     "payload": {
       "$ref": "http://maasglobal.com/core/booking.json"

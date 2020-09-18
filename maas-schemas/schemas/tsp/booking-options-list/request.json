@@ -30,7 +30,7 @@
       "anyOf": [
         {
           "description": "Componentized from address",
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress" }]
         },
         {
           "type": "string",
@@ -40,7 +40,7 @@
     },
     "fromRadius": {
       "description": "'from' location radius in meters",
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance" }]
     },
     "to": {
       "anyOf": [
@@ -77,7 +77,7 @@
     },
     "toRadius": {
       "description": "'to' location radius in meters",
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance" }]
     },
     "distance": {
       "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
@@ -94,11 +94,11 @@
     },
     "tspIdToExtend": {
       "description": "Request for possible booking extension options for tspId",
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId" }]
     },
     "purchasingAppInstanceId": {
       "description": "appInstanceId to use for options and purchase",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/appInstanceId"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/appInstanceId" }]
     }
   },
   "patternProperties": {

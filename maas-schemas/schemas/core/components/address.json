@@ -35,19 +35,19 @@
     },
     "firstName": {
       "description": "First name of the customer (e.g. John)",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName" }]
     },
     "lastName": {
       "description": "Last name of the customer (e.g. Doe)",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName" }]
     },
     "phone": {
       "description": "ITU-T E.164 phone number",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone" }]
     },
     "email": {
       "description": "Rough validation of a valid e-mail address",
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email" }]
     },
     "address": {
       "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",

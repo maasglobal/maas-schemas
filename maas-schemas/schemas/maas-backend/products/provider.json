@@ -34,15 +34,15 @@
         },
         "icon": {
           "description": "Icon shown in whim wheel, url to 240x240 png",
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
         },
         "logoSolidColor": {
           "description": "Icon that can be shown against dark or light background, url to ???x105 png",
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
         },
         "logoFullColor": {
           "description": "Icon that retains the providers brand identity, url to ???x105 png",
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
         }
       }
     },
@@ -76,9 +76,9 @@
               "multipleOf": 0.01
             },
             "fixedFareCurrency": {
+              "description": "The currency of the maximum fixed fare",
               "oneOf": [
                 {
-                  "description": "The currency of the maximum fixed fare",
                   "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
                 },
                 {
