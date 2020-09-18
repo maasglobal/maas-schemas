@@ -1965,10 +1965,10 @@ io-ts-codegen@^0.4.5:
   resolved "https://registry.yarnpkg.com/io-ts-codegen/-/io-ts-codegen-0.4.5.tgz#67a5e0e0d72751451ab6c2c70e2f304408f398de"
   integrity sha512-7Q6CbNyYOIelPt2OddqMIk5jGfUM5Z+Y2OSsPAJnaSRroCwedAp0cFNh5h02nsE/33P9xjyGhKTajMkPApEdcA==
 
-io-ts-from-json-schema@^0.0.10:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/io-ts-from-json-schema/-/io-ts-from-json-schema-0.0.10.tgz#d650b49b43029d6257f34696ea98b69196bda561"
-  integrity sha512-peVbEXKehdzyYYCInxOVkTjly2HupKCuNwPRNipacC/n9pW6fIQbKwL+VnFt//knWY/RHIUgYIqV8fD+Vz9plA==
+io-ts-from-json-schema@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/io-ts-from-json-schema/-/io-ts-from-json-schema-0.0.11.tgz#bd68172e4ab5afbb50abb3876e5b597a0194b4b2"
+  integrity sha512-cTiS+0uRUn9tEs9zOj6dJgGXv+hYvwLxif0GBpYecBEDmgzncqLsA3WNi6b6h7cfJAMNdr8H47oB6cJZ97tz4w==
   dependencies:
     glob "^7.1.6"
     io-ts-codegen "^0.4.5"
