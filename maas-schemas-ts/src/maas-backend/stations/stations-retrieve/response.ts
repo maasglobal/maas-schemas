@@ -8,6 +8,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import * as t from 'io-ts';
 import * as Response_ from '../../../tsp/stations-retrieve/response';
 
 export const schemaId =
@@ -15,11 +16,17 @@ export const schemaId =
 
 // Response
 // The default export. More information at the top.
-export type Response = Response_.Response;
-// exists type ResponseC extends t.AnyC
-export const Response: ResponseC = Response_.Response;
+export type Response = t.Branded<Response_.Response, ResponseBrand>;
+export type ResponseC = t.BrandC<typeof Response_.Response, ResponseBrand>;
+export const Response: ResponseC = t.brand(
+  Response_.Response,
+  (x): x is t.Branded<Response_.Response, ResponseBrand> => true,
+  'Response',
+);
+export interface ResponseBrand {
+  readonly Response: unique symbol;
+}
 
 export default Response;
-export type ResponseC = Response_.ResponseC;
 
 // Success
