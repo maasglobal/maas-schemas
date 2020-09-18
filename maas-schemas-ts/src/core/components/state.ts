@@ -20,6 +20,7 @@ export type BookingState = t.Branded<
       | 'START'
       | 'PENDING'
       | 'PAID'
+      | 'PENDING_RESERVATION'
       | 'RESERVED'
       | 'CONFIRMED'
       | 'ARRIVED'
@@ -42,6 +43,7 @@ export type BookingStateC = t.BrandC<
           t.LiteralC<'START'>,
           t.LiteralC<'PENDING'>,
           t.LiteralC<'PAID'>,
+          t.LiteralC<'PENDING_RESERVATION'>,
           t.LiteralC<'RESERVED'>,
           t.LiteralC<'CONFIRMED'>,
           t.LiteralC<'ARRIVED'>,
@@ -65,6 +67,7 @@ export const BookingState: BookingStateC = t.brand(
       t.literal('START'),
       t.literal('PENDING'),
       t.literal('PAID'),
+      t.literal('PENDING_RESERVATION'),
       t.literal('RESERVED'),
       t.literal('CONFIRMED'),
       t.literal('ARRIVED'),
@@ -85,6 +88,7 @@ export const BookingState: BookingStateC = t.brand(
         | 'START'
         | 'PENDING'
         | 'PAID'
+        | 'PENDING_RESERVATION'
         | 'RESERVED'
         | 'CONFIRMED'
         | 'ARRIVED'
