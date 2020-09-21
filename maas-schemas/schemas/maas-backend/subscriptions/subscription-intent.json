@@ -14,7 +14,7 @@
             "$ref": "#/definitions/addonId"
           }
         },
-        "coupons": {
+        "planCoupons": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/couponId"
@@ -24,7 +24,7 @@
           "$ref": "http://maasglobal.com/core/components/state.json#/definitions/subscriptionIntentState"
         }
       },
-      "required": ["planId", "planAddons", "coupons"]
+      "required": ["planId", "planAddons"]
     },
     "subscriptionIntentBase": {
       "type": "object",
