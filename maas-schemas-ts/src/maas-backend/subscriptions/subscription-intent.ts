@@ -96,13 +96,12 @@ export type SubscriptionIntentCreateC = t.BrandC<
       t.PartialC<{
         planId: typeof PlanId;
         planAddons: t.ArrayC<typeof AddonId>;
-        coupons: t.ArrayC<typeof CouponId>;
+        planCoupons: t.ArrayC<typeof CouponId>;
         state: typeof State_.SubscriptionIntentState;
       }>,
       t.TypeC<{
         planId: typeof Defined;
         planAddons: typeof Defined;
-        coupons: typeof Defined;
       }>,
     ]
   >,
