@@ -177,10 +177,17 @@ export interface TspProductBrand {
 }
 
 // Customer
-// The purpose of this remains a mystery
-export type Customer = Customer_.Customer;
-// exists type CustomerC extends t.AnyC
-export const Customer: CustomerC = Customer_.Customer;
+// MaaS booking customer
+export type Customer = t.Branded<Customer_.Customer, CustomerBrand>;
+export type CustomerC = t.BrandC<typeof Customer_.Customer, CustomerBrand>;
+export const Customer: CustomerC = t.brand(
+  Customer_.Customer,
+  (x): x is t.Branded<Customer_.Customer, CustomerBrand> => true,
+  'Customer',
+);
+export interface CustomerBrand {
+  readonly Customer: unique symbol;
+}
 
 // ContentWithCost
 // The purpose of this remains a mystery
@@ -422,7 +429,6 @@ export interface BookingOptionBrand {
   readonly BookingOption: unique symbol;
 }
 
-export type CustomerC = Customer_.CustomerC;
 export default BookingOption;
 
 // Success

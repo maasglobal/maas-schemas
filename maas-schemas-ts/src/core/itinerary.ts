@@ -36,9 +36,16 @@ export const schemaId = 'http://maasglobal.com/core/itinerary.json';
 
 // Id
 // The purpose of this remains a mystery
-export type Id = Units_.Uuid;
-// exists type IdC extends t.AnyC
-export const Id: IdC = Units_.Uuid;
+export type Id = t.Branded<Units_.Uuid, IdBrand>;
+export type IdC = t.BrandC<typeof Units_.Uuid, IdBrand>;
+export const Id: IdC = t.brand(
+  Units_.Uuid,
+  (x): x is t.Branded<Units_.Uuid, IdBrand> => true,
+  'Id',
+);
+export interface IdBrand {
+  readonly Id: unique symbol;
+}
 
 // Itinerary
 // The default export. More information at the top.
@@ -148,7 +155,6 @@ export interface ItineraryBrand {
   readonly Itinerary: unique symbol;
 }
 
-export type IdC = Units_.UuidC;
 export default Itinerary;
 
 // Success

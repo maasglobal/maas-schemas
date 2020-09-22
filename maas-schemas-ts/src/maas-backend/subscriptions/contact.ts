@@ -32,9 +32,16 @@ export const schemaId = 'http://maasglobal.com/maas-backend/subscriptions/contac
 
 // IdentityId
 // The purpose of this remains a mystery
-export type IdentityId = Units_.IdentityId;
-// exists type IdentityIdC extends t.AnyC
-export const IdentityId: IdentityIdC = Units_.IdentityId;
+export type IdentityId = t.Branded<Units_.IdentityId, IdentityIdBrand>;
+export type IdentityIdC = t.BrandC<typeof Units_.IdentityId, IdentityIdBrand>;
+export const IdentityId: IdentityIdC = t.brand(
+  Units_.IdentityId,
+  (x): x is t.Branded<Units_.IdentityId, IdentityIdBrand> => true,
+  'IdentityId',
+);
+export interface IdentityIdBrand {
+  readonly IdentityId: unique symbol;
+}
 
 // ContactBase
 // The purpose of this remains a mystery
@@ -505,7 +512,6 @@ export interface ContactBrand {
   readonly Contact: unique symbol;
 }
 
-export type IdentityIdC = Units_.IdentityIdC;
 export default Contact;
 
 // Success

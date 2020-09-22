@@ -59,33 +59,68 @@ export interface NameBrand {
 
 // Location
 // The purpose of this remains a mystery
-export type Location = UnitsGeo_.ShortLocationString;
-// exists type LocationC extends t.AnyC
-export const Location: LocationC = UnitsGeo_.ShortLocationString;
+export type Location = t.Branded<UnitsGeo_.ShortLocationString, LocationBrand>;
+export type LocationC = t.BrandC<typeof UnitsGeo_.ShortLocationString, LocationBrand>;
+export const Location: LocationC = t.brand(
+  UnitsGeo_.ShortLocationString,
+  (x): x is t.Branded<UnitsGeo_.ShortLocationString, LocationBrand> => true,
+  'Location',
+);
+export interface LocationBrand {
+  readonly Location: unique symbol;
+}
 
 // Address
 // The purpose of this remains a mystery
-export type Address = Address_.Address;
-// exists type AddressC extends t.AnyC
-export const Address: AddressC = Address_.Address;
+export type Address = t.Branded<Address_.Address, AddressBrand>;
+export type AddressC = t.BrandC<typeof Address_.Address, AddressBrand>;
+export const Address: AddressC = t.brand(
+  Address_.Address,
+  (x): x is t.Branded<Address_.Address, AddressBrand> => true,
+  'Address',
+);
+export interface AddressBrand {
+  readonly Address: unique symbol;
+}
 
 // City
 // The purpose of this remains a mystery
-export type City = Address_.City;
-// exists type CityC extends t.AnyC
-export const City: CityC = Address_.City;
+export type City = t.Branded<Address_.City, CityBrand>;
+export type CityC = t.BrandC<typeof Address_.City, CityBrand>;
+export const City: CityC = t.brand(
+  Address_.City,
+  (x): x is t.Branded<Address_.City, CityBrand> => true,
+  'City',
+);
+export interface CityBrand {
+  readonly City: unique symbol;
+}
 
 // Country
 // The purpose of this remains a mystery
-export type Country = Address_.Country;
-// exists type CountryC extends t.AnyC
-export const Country: CountryC = Address_.Country;
+export type Country = t.Branded<Address_.Country, CountryBrand>;
+export type CountryC = t.BrandC<typeof Address_.Country, CountryBrand>;
+export const Country: CountryC = t.brand(
+  Address_.Country,
+  (x): x is t.Branded<Address_.Country, CountryBrand> => true,
+  'Country',
+);
+export interface CountryBrand {
+  readonly Country: unique symbol;
+}
 
 // AgencyId
 // The purpose of this remains a mystery
-export type AgencyId = Common_.AgencyId;
-// exists type AgencyIdC extends t.AnyC
-export const AgencyId: AgencyIdC = Common_.AgencyId;
+export type AgencyId = t.Branded<Common_.AgencyId, AgencyIdBrand>;
+export type AgencyIdC = t.BrandC<typeof Common_.AgencyId, AgencyIdBrand>;
+export const AgencyId: AgencyIdC = t.brand(
+  Common_.AgencyId,
+  (x): x is t.Branded<Common_.AgencyId, AgencyIdBrand> => true,
+  'AgencyId',
+);
+export interface AgencyIdBrand {
+  readonly AgencyId: unique symbol;
+}
 
 // OpeningHours
 // Opening hour of the station, object format is left for TSP to decide
@@ -225,11 +260,6 @@ export interface StationBrand {
   readonly Station: unique symbol;
 }
 
-export type LocationC = UnitsGeo_.ShortLocationStringC;
-export type AddressC = Address_.AddressC;
-export type CityC = Address_.CityC;
-export type CountryC = Address_.CountryC;
-export type AgencyIdC = Common_.AgencyIdC;
 export default Station;
 
 // Success

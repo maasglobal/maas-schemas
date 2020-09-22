@@ -42,7 +42,7 @@ export type Request = t.Branded<
       lat?: UnitsGeo_.RelaxedLatitude;
       lon?: UnitsGeo_.RelaxedLongitude;
       count?: number;
-      radius?: UnitsGeo_.Distance;
+      radius?: UnitsGeo_.Distance & unknown;
     } & {
       name: Defined;
     };
@@ -60,7 +60,7 @@ export type RequestC = t.BrandC<
           lat: typeof UnitsGeo_.RelaxedLatitude;
           lon: typeof UnitsGeo_.RelaxedLongitude;
           count: t.NumberC;
-          radius: typeof UnitsGeo_.Distance;
+          radius: t.IntersectionC<[typeof UnitsGeo_.Distance, t.UnknownC]>;
         }>,
         t.TypeC<{
           name: typeof Defined;
@@ -80,7 +80,7 @@ export const Request: RequestC = t.brand(
         lat: UnitsGeo_.RelaxedLatitude,
         lon: UnitsGeo_.RelaxedLongitude,
         count: t.number,
-        radius: UnitsGeo_.Distance,
+        radius: t.intersection([UnitsGeo_.Distance, t.unknown]),
       }),
       t.type({
         name: Defined,
@@ -98,7 +98,7 @@ export const Request: RequestC = t.brand(
         lat?: UnitsGeo_.RelaxedLatitude;
         lon?: UnitsGeo_.RelaxedLongitude;
         count?: number;
-        radius?: UnitsGeo_.Distance;
+        radius?: UnitsGeo_.Distance & unknown;
       } & {
         name: Defined;
       };

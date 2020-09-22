@@ -8,17 +8,27 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import * as t from 'io-ts';
 import * as CarRental_ from '../components/car-rental';
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_SHARED_CAR.json';
 
 // MODE_SHARED_CAR
 // The default export. More information at the top.
-export type MODE_SHARED_CAR = CarRental_.CarRental;
-// exists type MODE_SHARED_CARC extends t.AnyC
-export const MODE_SHARED_CAR: MODE_SHARED_CARC = CarRental_.CarRental;
+export type MODE_SHARED_CAR = t.Branded<CarRental_.CarRental, MODE_SHARED_CARBrand>;
+export type MODE_SHARED_CARC = t.BrandC<
+  typeof CarRental_.CarRental,
+  MODE_SHARED_CARBrand
+>;
+export const MODE_SHARED_CAR: MODE_SHARED_CARC = t.brand(
+  CarRental_.CarRental,
+  (x): x is t.Branded<CarRental_.CarRental, MODE_SHARED_CARBrand> => true,
+  'MODE_SHARED_CAR',
+);
+export interface MODE_SHARED_CARBrand {
+  readonly MODE_SHARED_CAR: unique symbol;
+}
 
 export default MODE_SHARED_CAR;
-export type MODE_SHARED_CARC = CarRental_.CarRentalC;
 
 // Success
