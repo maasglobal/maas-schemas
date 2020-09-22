@@ -37,7 +37,11 @@ export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
     customerId?: Units_.IdentityId;
-    payload?: PartialFavoriteLocation_.PartialFavoriteLocation;
+    payload?: PartialFavoriteLocation_.PartialFavoriteLocation & {
+      type: Defined;
+      name: Defined;
+      location: Defined;
+    };
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
@@ -53,7 +57,16 @@ export type RequestC = t.BrandC<
       t.PartialC<{
         identityId: typeof Units_.IdentityId;
         customerId: typeof Units_.IdentityId;
-        payload: typeof PartialFavoriteLocation_.PartialFavoriteLocation;
+        payload: t.IntersectionC<
+          [
+            typeof PartialFavoriteLocation_.PartialFavoriteLocation,
+            t.TypeC<{
+              type: typeof Defined;
+              name: typeof Defined;
+              location: typeof Defined;
+            }>,
+          ]
+        >;
         headers: typeof ApiCommon_.Headers;
       }>,
       t.TypeC<{
@@ -71,7 +84,14 @@ export const Request: RequestC = t.brand(
     t.partial({
       identityId: Units_.IdentityId,
       customerId: Units_.IdentityId,
-      payload: PartialFavoriteLocation_.PartialFavoriteLocation,
+      payload: t.intersection([
+        PartialFavoriteLocation_.PartialFavoriteLocation,
+        t.type({
+          type: Defined,
+          name: Defined,
+          location: Defined,
+        }),
+      ]),
       headers: ApiCommon_.Headers,
     }),
     t.type({
@@ -87,7 +107,11 @@ export const Request: RequestC = t.brand(
     {
       identityId?: Units_.IdentityId;
       customerId?: Units_.IdentityId;
-      payload?: PartialFavoriteLocation_.PartialFavoriteLocation;
+      payload?: PartialFavoriteLocation_.PartialFavoriteLocation & {
+        type: Defined;
+        name: Defined;
+        location: Defined;
+      };
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;

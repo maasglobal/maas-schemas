@@ -71,28 +71,56 @@ export interface PlaceNameBrand {
 }
 
 // FirstName
-// The purpose of this remains a mystery
-export type FirstName = Common_.PersonalName;
-// exists type FirstNameC extends t.AnyC
-export const FirstName: FirstNameC = Common_.PersonalName;
+// First name of the customer (e.g. John)
+export type FirstName = t.Branded<Common_.PersonalName, FirstNameBrand>;
+export type FirstNameC = t.BrandC<typeof Common_.PersonalName, FirstNameBrand>;
+export const FirstName: FirstNameC = t.brand(
+  Common_.PersonalName,
+  (x): x is t.Branded<Common_.PersonalName, FirstNameBrand> => true,
+  'FirstName',
+);
+export interface FirstNameBrand {
+  readonly FirstName: unique symbol;
+}
 
 // LastName
-// The purpose of this remains a mystery
-export type LastName = Common_.PersonalName;
-// exists type LastNameC extends t.AnyC
-export const LastName: LastNameC = Common_.PersonalName;
+// Last name of the customer (e.g. Doe)
+export type LastName = t.Branded<Common_.PersonalName, LastNameBrand>;
+export type LastNameC = t.BrandC<typeof Common_.PersonalName, LastNameBrand>;
+export const LastName: LastNameC = t.brand(
+  Common_.PersonalName,
+  (x): x is t.Branded<Common_.PersonalName, LastNameBrand> => true,
+  'LastName',
+);
+export interface LastNameBrand {
+  readonly LastName: unique symbol;
+}
 
 // Phone
-// The purpose of this remains a mystery
-export type Phone = Common_.Phone;
-// exists type PhoneC extends t.AnyC
-export const Phone: PhoneC = Common_.Phone;
+// ITU-T E.164 phone number
+export type Phone = t.Branded<Common_.Phone, PhoneBrand>;
+export type PhoneC = t.BrandC<typeof Common_.Phone, PhoneBrand>;
+export const Phone: PhoneC = t.brand(
+  Common_.Phone,
+  (x): x is t.Branded<Common_.Phone, PhoneBrand> => true,
+  'Phone',
+);
+export interface PhoneBrand {
+  readonly Phone: unique symbol;
+}
 
 // Email
-// The purpose of this remains a mystery
-export type Email = Common_.Email;
-// exists type EmailC extends t.AnyC
-export const Email: EmailC = Common_.Email;
+// Rough validation of a valid e-mail address
+export type Email = t.Branded<Common_.Email, EmailBrand>;
+export type EmailC = t.BrandC<typeof Common_.Email, EmailBrand>;
+export const Email: EmailC = t.brand(
+  Common_.Email,
+  (x): x is t.Branded<Common_.Email, EmailBrand> => true,
+  'Email',
+);
+export interface EmailBrand {
+  readonly Email: unique symbol;
+}
 
 // Address
 // Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html
@@ -177,10 +205,5 @@ export const City: CityC = t.brand(
 export interface CityBrand {
   readonly City: unique symbol;
 }
-
-export type FirstNameC = Common_.PersonalNameC;
-export type LastNameC = Common_.PersonalNameC;
-export type PhoneC = Common_.PhoneC;
-export type EmailC = Common_.EmailC;
 
 // Success

@@ -14,8 +14,14 @@
         "count": { "type": "integer", "minimum": 1, "maximum": 100, "default": 5 },
         "radius": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance" },
         "locale": {
-          "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale",
-          "default": "fi-FI"
+          "allOf": [
+            {
+              "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale"
+            },
+            {
+              "default": "fi-FI"
+            }
+          ]
         }
       },
       "required": ["lat", "lon"],

@@ -17,7 +17,7 @@
     },
     "total": {
       "description": "Sum of the quantity * unitPrice - sum of discounts",
-      "$ref": "http://maasglobal.com/core/components/cost.json"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/cost.json" }]
     },
     "terms": {
       "$ref": "#/definitions/terms"
@@ -49,7 +49,7 @@
         },
         "unitPrice": {
           "description": "Price of one unit after all taxes & discounts",
-          "$ref": "http://maasglobal.com/core/components/cost.json"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/cost.json" }]
         }
       },
       "required": ["id", "type", "description", "quantity", "unitPrice"],
@@ -65,7 +65,7 @@
         },
         "discount": {
           "description": "Price of one unit after all taxes & discounts",
-          "$ref": "http://maasglobal.com/core/components/cost.json"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/cost.json" }]
         }
       },
       "required": ["description", "discount"],

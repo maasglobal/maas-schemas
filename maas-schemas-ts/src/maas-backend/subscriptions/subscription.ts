@@ -51,9 +51,16 @@ export interface SubscriptionItemIdBrand {
 
 // Price
 // The purpose of this remains a mystery
-export type Price = Cost_.Cost;
-// exists type PriceC extends t.AnyC
-export const Price: PriceC = Cost_.Cost;
+export type Price = t.Branded<Cost_.Cost, PriceBrand>;
+export type PriceC = t.BrandC<typeof Cost_.Cost, PriceBrand>;
+export const Price: PriceC = t.brand(
+  Cost_.Cost,
+  (x): x is t.Branded<Cost_.Cost, PriceBrand> => true,
+  'Price',
+);
+export interface PriceBrand {
+  readonly Price: unique symbol;
+}
 
 // Plan
 // Customer subscription plan
@@ -445,25 +452,117 @@ export interface SubscriptionBaseBrand {
 
 // Subscription
 // The purpose of this remains a mystery
-export type Subscription = SubscriptionBase;
-// exists type SubscriptionC extends t.AnyC
-export const Subscription: SubscriptionC = SubscriptionBase;
+export type Subscription = t.Branded<
+  SubscriptionBase & {
+    plan: Defined;
+    addons: Defined;
+    coupons: Defined;
+    changeState: Defined;
+  },
+  SubscriptionBrand
+>;
+export type SubscriptionC = t.BrandC<
+  t.IntersectionC<
+    [
+      typeof SubscriptionBase,
+      t.TypeC<{
+        plan: typeof Defined;
+        addons: typeof Defined;
+        coupons: typeof Defined;
+        changeState: typeof Defined;
+      }>,
+    ]
+  >,
+  SubscriptionBrand
+>;
+export const Subscription: SubscriptionC = t.brand(
+  t.intersection([
+    SubscriptionBase,
+    t.type({
+      plan: Defined,
+      addons: Defined,
+      coupons: Defined,
+      changeState: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    SubscriptionBase & {
+      plan: Defined;
+      addons: Defined;
+      coupons: Defined;
+      changeState: Defined;
+    },
+    SubscriptionBrand
+  > => true,
+  'Subscription',
+);
+export interface SubscriptionBrand {
+  readonly Subscription: unique symbol;
+}
 
 // SubscriptionCreatePayload
 // The purpose of this remains a mystery
-export type SubscriptionCreatePayload = SubscriptionBase;
-// exists type SubscriptionCreatePayloadC extends t.AnyC
-export const SubscriptionCreatePayload: SubscriptionCreatePayloadC = SubscriptionBase;
+export type SubscriptionCreatePayload = t.Branded<
+  SubscriptionBase & {
+    plan: Defined;
+    addons: Defined;
+  },
+  SubscriptionCreatePayloadBrand
+>;
+export type SubscriptionCreatePayloadC = t.BrandC<
+  t.IntersectionC<
+    [
+      typeof SubscriptionBase,
+      t.TypeC<{
+        plan: typeof Defined;
+        addons: typeof Defined;
+      }>,
+    ]
+  >,
+  SubscriptionCreatePayloadBrand
+>;
+export const SubscriptionCreatePayload: SubscriptionCreatePayloadC = t.brand(
+  t.intersection([
+    SubscriptionBase,
+    t.type({
+      plan: Defined,
+      addons: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    SubscriptionBase & {
+      plan: Defined;
+      addons: Defined;
+    },
+    SubscriptionCreatePayloadBrand
+  > => true,
+  'SubscriptionCreatePayload',
+);
+export interface SubscriptionCreatePayloadBrand {
+  readonly SubscriptionCreatePayload: unique symbol;
+}
 
 // SubscriptionUpdatePayload
 // The purpose of this remains a mystery
-export type SubscriptionUpdatePayload = SubscriptionBase;
-// exists type SubscriptionUpdatePayloadC extends t.AnyC
-export const SubscriptionUpdatePayload: SubscriptionUpdatePayloadC = SubscriptionBase;
-
-export type SubscriptionC = SubscriptionBaseC;
-export type SubscriptionCreatePayloadC = SubscriptionBaseC;
-export type SubscriptionUpdatePayloadC = SubscriptionBaseC;
-export type PriceC = Cost_.CostC;
+export type SubscriptionUpdatePayload = t.Branded<
+  SubscriptionBase & {},
+  SubscriptionUpdatePayloadBrand
+>;
+export type SubscriptionUpdatePayloadC = t.BrandC<
+  t.IntersectionC<[typeof SubscriptionBase, t.TypeC<{}>]>,
+  SubscriptionUpdatePayloadBrand
+>;
+export const SubscriptionUpdatePayload: SubscriptionUpdatePayloadC = t.brand(
+  t.intersection([SubscriptionBase, t.type({})]),
+  (x): x is t.Branded<SubscriptionBase & {}, SubscriptionUpdatePayloadBrand> => true,
+  'SubscriptionUpdatePayload',
+);
+export interface SubscriptionUpdatePayloadBrand {
+  readonly SubscriptionUpdatePayload: unique symbol;
+}
 
 // Success

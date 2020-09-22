@@ -117,11 +117,11 @@
           "properties": {
             "startTime": {
               "description": "The starting time from which the ticket is valid",
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+              "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }]
             },
             "endTime": {
               "description": "The finishing time the ticket is valid for",
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+              "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }]
             }
           }
         },

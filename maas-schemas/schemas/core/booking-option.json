@@ -60,7 +60,7 @@
     },
     "customer": {
       "description": "MaaS booking customer",
-      "$ref": "http://maasglobal.com/core/customer.json"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/customer.json" }]
     },
     "leg": {
       "type": "object",
@@ -77,7 +77,7 @@
         },
         "from": {
           "description": "Starting location's lat and lon pair of this request",
-          "$ref": "http://maasglobal.com/core/components/place.json"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/place.json" }]
         },
         "to": {
           "$ref": "http://maasglobal.com/core/components/place.json"

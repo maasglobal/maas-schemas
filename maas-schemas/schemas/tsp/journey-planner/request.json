@@ -19,7 +19,7 @@
         },
         "fromAddress": {
           "description": "Componentized from address",
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress" }]
         },
         "fromStationId": {
           "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
@@ -32,7 +32,7 @@
         },
         "toAddress": {
           "description": "Componentized to address",
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress" }]
         },
         "toStationId": {
           "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"

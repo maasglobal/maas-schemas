@@ -10,7 +10,7 @@
         },
         "paymentParameters": {
           "description": "Payment parameters for asynchronous payment methods",
-          "$ref": "#/definitions/paymentParameters"
+          "allOf": [{ "$ref": "#/definitions/paymentParameters" }]
         }
       },
       "required": ["itinerary"]
@@ -26,7 +26,7 @@
         },
         "paymentParameters": {
           "description": "Payment parameters for asynchronous payment methods",
-          "$ref": "#/definitions/paymentParameters"
+          "allOf": [{ "$ref": "#/definitions/paymentParameters" }]
         }
       },
       "required": ["outward"]

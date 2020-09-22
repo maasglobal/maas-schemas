@@ -5,7 +5,7 @@
   "properties": {
     "id": {
       "description": "Subscription change state id",
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid" }]
     },
     "state": {
       "description": "State enum",

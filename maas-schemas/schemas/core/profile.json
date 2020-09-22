@@ -75,7 +75,7 @@
         },
         "expiry": {
           "description": "When this payment method expires",
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }]
         }
       },
       "required": ["type", "valid"]

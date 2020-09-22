@@ -43,7 +43,7 @@ export type Request = t.Branded<
       lon?: UnitsGeo_.RelaxedLongitude;
       count?: number;
       distance?: UnitsGeo_.Distance;
-      locale?: I18n_.Locale;
+      locale?: I18n_.Locale & unknown;
     } & {
       name: Defined;
       lat: Defined;
@@ -68,7 +68,7 @@ export type RequestC = t.BrandC<
               lon: typeof UnitsGeo_.RelaxedLongitude;
               count: t.NumberC;
               distance: typeof UnitsGeo_.Distance;
-              locale: typeof I18n_.Locale;
+              locale: t.IntersectionC<[typeof I18n_.Locale, t.UnknownC]>;
             }>,
             t.TypeC<{
               name: typeof Defined;
@@ -97,7 +97,7 @@ export const Request: RequestC = t.brand(
           lon: UnitsGeo_.RelaxedLongitude,
           count: t.number,
           distance: UnitsGeo_.Distance,
-          locale: I18n_.Locale,
+          locale: t.intersection([I18n_.Locale, t.unknown]),
         }),
         t.type({
           name: Defined,
@@ -122,7 +122,7 @@ export const Request: RequestC = t.brand(
         lon?: UnitsGeo_.RelaxedLongitude;
         count?: number;
         distance?: UnitsGeo_.Distance;
-        locale?: I18n_.Locale;
+        locale?: I18n_.Locale & unknown;
       } & {
         name: Defined;
         lat: Defined;

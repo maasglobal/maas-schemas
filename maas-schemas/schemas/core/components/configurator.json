@@ -9,19 +9,19 @@
     "seatFeatures": { "$ref": "#/definitions/config" },
     "outboundSingle": {
       "description": "Single ticket for outwardJourney",
-      "$ref": "#/definitions/config"
+      "allOf": [{ "$ref": "#/definitions/config" }]
     },
     "inboundSingle": {
       "description": "Single ticket for return journey, go as a pair with outboundSingle",
-      "$ref": "#/definitions/config"
+      "allOf": [{ "$ref": "#/definitions/config" }]
     },
     "openReturn": {
       "description": "Open return ticket can be used for both outward and return journeys",
-      "$ref": "#/definitions/config"
+      "allOf": [{ "$ref": "#/definitions/config" }]
     },
     "freeReturn": {
       "description": "Going as a pair with open return, providing options for clients to choose return journey for it's open return tickets",
-      "$ref": "#/definitions/config"
+      "allOf": [{ "$ref": "#/definitions/config" }]
     },
     "ticketCollectionPoint": { "$ref": "#/definitions/text" }
   },

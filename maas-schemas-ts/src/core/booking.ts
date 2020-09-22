@@ -44,9 +44,16 @@ export const schemaId = 'http://maasglobal.com/core/booking.json';
 
 // Id
 // The purpose of this remains a mystery
-export type Id = Units_.Uuid;
-// exists type IdC extends t.AnyC
-export const Id: IdC = Units_.Uuid;
+export type Id = t.Branded<Units_.Uuid, IdBrand>;
+export type IdC = t.BrandC<typeof Units_.Uuid, IdBrand>;
+export const Id: IdC = t.brand(
+  Units_.Uuid,
+  (x): x is t.Branded<Units_.Uuid, IdBrand> => true,
+  'Id',
+);
+export interface IdBrand {
+  readonly Id: unique symbol;
+}
 
 // Fares
 // The purpose of this remains a mystery
@@ -63,15 +70,32 @@ export interface FaresBrand {
 
 // Cost
 // The purpose of this remains a mystery
-export type Cost = Cost_.Cost;
-// exists type CostC extends t.AnyC
-export const Cost: CostC = Cost_.Cost;
+export type Cost = t.Branded<Cost_.Cost, CostBrand>;
+export type CostC = t.BrandC<typeof Cost_.Cost, CostBrand>;
+export const Cost: CostC = t.brand(
+  Cost_.Cost,
+  (x): x is t.Branded<Cost_.Cost, CostBrand> => true,
+  'Cost',
+);
+export interface CostBrand {
+  readonly Cost: unique symbol;
+}
 
 // Configurator
 // The purpose of this remains a mystery
-export type Configurator = Configurator_.Configurator;
-// exists type ConfiguratorC extends t.AnyC
-export const Configurator: ConfiguratorC = Configurator_.Configurator;
+export type Configurator = t.Branded<Configurator_.Configurator, ConfiguratorBrand>;
+export type ConfiguratorC = t.BrandC<
+  typeof Configurator_.Configurator,
+  ConfiguratorBrand
+>;
+export const Configurator: ConfiguratorC = t.brand(
+  Configurator_.Configurator,
+  (x): x is t.Branded<Configurator_.Configurator, ConfiguratorBrand> => true,
+  'Configurator',
+);
+export interface ConfiguratorBrand {
+  readonly Configurator: unique symbol;
+}
 
 // TspId
 // The purpose of this remains a mystery
@@ -190,9 +214,16 @@ export interface LegBrand {
 
 // Terms
 // The purpose of this remains a mystery
-export type Terms = Terms_.Terms;
-// exists type TermsC extends t.AnyC
-export const Terms: TermsC = Terms_.Terms;
+export type Terms = t.Branded<Terms_.Terms, TermsBrand>;
+export type TermsC = t.BrandC<typeof Terms_.Terms, TermsBrand>;
+export const Terms: TermsC = t.brand(
+  Terms_.Terms,
+  (x): x is t.Branded<Terms_.Terms, TermsBrand> => true,
+  'Terms',
+);
+export interface TermsBrand {
+  readonly Terms: unique symbol;
+}
 
 // Token
 // The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.
@@ -513,10 +544,6 @@ export const examplesBooking: NonEmptyArray<Booking> = ([
   },
 ] as unknown) as NonEmptyArray<Booking>;
 
-export type IdC = Units_.UuidC;
-export type CostC = Cost_.CostC;
-export type ConfiguratorC = Configurator_.ConfiguratorC;
-export type TermsC = Terms_.TermsC;
 export default Booking;
 
 // Success

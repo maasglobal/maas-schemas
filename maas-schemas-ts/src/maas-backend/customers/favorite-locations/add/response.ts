@@ -11,6 +11,21 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as PartialFavoriteLocation_ from '../../../../core/partialFavoriteLocation';
 
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
+
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/favorite-locations/add/response.json';
 
@@ -18,25 +33,57 @@ export const schemaId =
 // The default export. More information at the top.
 export type Response = t.Branded<
   {
-    favoriteLocation?: PartialFavoriteLocation_.PartialFavoriteLocation;
+    favoriteLocation?: PartialFavoriteLocation_.PartialFavoriteLocation & {
+      type: Defined;
+      name: Defined;
+      location: Defined;
+      id: Defined;
+      identityId: Defined;
+    };
   },
   ResponseBrand
 >;
 export type ResponseC = t.BrandC<
   t.PartialC<{
-    favoriteLocation: typeof PartialFavoriteLocation_.PartialFavoriteLocation;
+    favoriteLocation: t.IntersectionC<
+      [
+        typeof PartialFavoriteLocation_.PartialFavoriteLocation,
+        t.TypeC<{
+          type: typeof Defined;
+          name: typeof Defined;
+          location: typeof Defined;
+          id: typeof Defined;
+          identityId: typeof Defined;
+        }>,
+      ]
+    >;
   }>,
   ResponseBrand
 >;
 export const Response: ResponseC = t.brand(
   t.partial({
-    favoriteLocation: PartialFavoriteLocation_.PartialFavoriteLocation,
+    favoriteLocation: t.intersection([
+      PartialFavoriteLocation_.PartialFavoriteLocation,
+      t.type({
+        type: Defined,
+        name: Defined,
+        location: Defined,
+        id: Defined,
+        identityId: Defined,
+      }),
+    ]),
   }),
   (
     x,
   ): x is t.Branded<
     {
-      favoriteLocation?: PartialFavoriteLocation_.PartialFavoriteLocation;
+      favoriteLocation?: PartialFavoriteLocation_.PartialFavoriteLocation & {
+        type: Defined;
+        name: Defined;
+        location: Defined;
+        id: Defined;
+        identityId: Defined;
+      };
     },
     ResponseBrand
   > => true,

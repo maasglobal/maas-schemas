@@ -8,6 +8,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import * as t from 'io-ts';
 import * as KycService_ from '../../../../core/kyc-service';
 
 export const schemaId =
@@ -15,11 +16,17 @@ export const schemaId =
 
 // Response
 // The default export. More information at the top.
-export type Response = KycService_.KycService;
-// exists type ResponseC extends t.AnyC
-export const Response: ResponseC = KycService_.KycService;
+export type Response = t.Branded<KycService_.KycService, ResponseBrand>;
+export type ResponseC = t.BrandC<typeof KycService_.KycService, ResponseBrand>;
+export const Response: ResponseC = t.brand(
+  KycService_.KycService,
+  (x): x is t.Branded<KycService_.KycService, ResponseBrand> => true,
+  'Response',
+);
+export interface ResponseBrand {
+  readonly Response: unique symbol;
+}
 
 export default Response;
-export type ResponseC = KycService_.KycServiceC;
 
 // Success

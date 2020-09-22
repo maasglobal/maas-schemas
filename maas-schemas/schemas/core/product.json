@@ -57,7 +57,7 @@
         },
         "minimumExtra": {
           "description": "Minimum amount, expressed as a fare, that will be added as a safety margin to the estimated fare",
-          "$ref": "http://maasglobal.com/core/components/fare.json"
+          "allOf": [{ "$ref": "http://maasglobal.com/core/components/fare.json" }]
         }
       },
       "additionalProperties": false
