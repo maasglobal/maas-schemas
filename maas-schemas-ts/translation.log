@@ -1878,6 +1878,10 @@ WARNING: patternProperty support has limitations
   in ../maas-schemas/schemas/tsp/journey-planner/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/tsp/journey-planner/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/tsp/manage/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/tsp/manage/response.json
 INFO: primitive type "number" used outside top-level definitions
   in ../maas-schemas/schemas/tsp/post-kyc-verification-update/response.json
 INFO: primitive type "string" used outside top-level definitions
