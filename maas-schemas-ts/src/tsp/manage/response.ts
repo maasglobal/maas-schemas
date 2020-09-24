@@ -9,6 +9,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as BookingMeta_ from '../../core/booking-meta';
+import * as Booking_ from '../../core/booking';
+import * as BookingOption_ from '../../core/booking-option';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -33,6 +36,12 @@ export type Response = t.Branded<
   {
     success?: boolean;
     message?: string;
+    updateBookingsWith?: {
+      meta?: BookingMeta_.BookingMeta;
+      terms?: Booking_.Terms;
+      token?: Booking_.Token;
+      tspProducts?: Array<BookingOption_.TspProduct>;
+    };
   } & {
     success: Defined;
   },
@@ -44,6 +53,12 @@ export type ResponseC = t.BrandC<
       t.PartialC<{
         success: t.BooleanC;
         message: t.StringC;
+        updateBookingsWith: t.PartialC<{
+          meta: typeof BookingMeta_.BookingMeta;
+          terms: typeof Booking_.Terms;
+          token: typeof Booking_.Token;
+          tspProducts: t.ArrayC<typeof BookingOption_.TspProduct>;
+        }>;
       }>,
       t.TypeC<{
         success: typeof Defined;
@@ -57,6 +72,12 @@ export const Response: ResponseC = t.brand(
     t.partial({
       success: t.boolean,
       message: t.string,
+      updateBookingsWith: t.partial({
+        meta: BookingMeta_.BookingMeta,
+        terms: Booking_.Terms,
+        token: Booking_.Token,
+        tspProducts: t.array(BookingOption_.TspProduct),
+      }),
     }),
     t.type({
       success: Defined,
@@ -68,6 +89,12 @@ export const Response: ResponseC = t.brand(
     {
       success?: boolean;
       message?: string;
+      updateBookingsWith?: {
+        meta?: BookingMeta_.BookingMeta;
+        terms?: Booking_.Terms;
+        token?: Booking_.Token;
+        tspProducts?: Array<BookingOption_.TspProduct>;
+      };
     } & {
       success: Defined;
     },
