@@ -1,0 +1,15 @@
+{
+  "$id": "http://maasglobal.com/tsp/manage/request.json",
+  "description": "Request schema for managing TSP",
+  "type": "object",
+  "properties": {
+    "operation": {
+      "type": "string"
+    },
+    "customer": {
+      "$ref": "http://maasglobal.com/core/customer.json"
+    }
+  },
+  "required": ["operation"],
+  "additionalProperties": true
+}
