@@ -1,0 +1,44 @@
+{
+  "name": "providerName",
+  "agencyId": "careco-cug",
+  "groupId": "someGroupId",
+  "hidden": false,
+  "branding": {},
+  "features": {
+    "ticket": true,
+    "stationsList": true,
+    "stationsRetrieve": true
+  },
+  "personalDataOptionsAllow": [],
+  "personalDataCreateAllow": [],
+  "optionalParameters": [
+    {
+      "id": "ontrack_jp_via_avoid",
+      "name": "Travel via or avoid",
+      "type": "oneOrNoneOf",
+      "userSelectable": true,
+      "inputs": [
+        {
+          "id": "via",
+          "name": "Via",
+          "type": "station"
+        },
+        {
+          "id": "avoid",
+          "name": "Avoid",
+          "type": "station"
+        }
+      ]
+    },
+    {
+      "message": {
+        "property": "messageToDriver",
+        "maxLength": 120
+      }
+    },
+    {
+      "startTime": "2 hour",
+      "endTime": "1 week"
+    }
+  ]
+}

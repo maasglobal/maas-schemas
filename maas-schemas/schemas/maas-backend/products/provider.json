@@ -147,46 +147,17 @@
     "optionalParameters": {
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
+        "anyOf": [
+          {
+            "$ref": "#/definitions/selection"
           },
-          "name": {
-            "type": "string"
+          {
+            "$ref": "#/definitions/messageToDriver"
           },
-          "type": {
-            "enum": ["oneOf", "someOf", "allOf", "oneOrNoneOf", "someOrNoneOf"]
-          },
-          "userSelectable": {
-            "type": "boolean"
-          },
-          "inputs": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "type": {
-                  "enum": ["string", "number", "boolean", "station"]
-                },
-                "default": {
-                  "type": ["string", "number", "boolean"]
-                }
-              },
-              "required": ["id", "name", "type"],
-              "additionalProperties": false
-            },
-            "minItems": 1
+          {
+            "$ref": "#/definitions/defaultSchedule"
           }
-        },
-        "required": ["id", "name", "inputs"],
-        "additionalProperties": false
+        ]
       }
     },
     "disruption": {
@@ -205,5 +176,84 @@
     "personalDataCreateAllow",
     "optionalParameters"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "definitions": {
+    "selection": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "enum": ["oneOf", "someOf", "allOf", "oneOrNoneOf", "someOrNoneOf"]
+        },
+        "userSelectable": {
+          "type": "boolean"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "enum": ["string", "number", "boolean", "station"]
+              },
+              "default": {
+                "type": ["string", "number", "boolean"]
+              }
+            },
+            "required": ["id", "name", "type"],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        }
+      },
+      "required": ["id", "name", "inputs"]
+    },
+    "messageToDriver": {
+      "type": "object",
+      "required": ["message"],
+      "properties": {
+        "message": {
+          "required": ["property", "maxLength"],
+          "type": "object",
+          "properties": {
+            "property": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255
+            },
+            "maxLength": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "defaultSchedule": {
+      "type": "object",
+      "required": ["startTime", "endTime"],
+      "properties": {
+        "startTime": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "endTime": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        }
+      }
+    }
+  }
 }
