@@ -32,6 +32,316 @@ export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/maas-backend/products/provider.json';
 
+// Selection
+// Optional parameter for selections
+export type Selection = t.Branded<
+  {
+    id?: string;
+    name?: string;
+    type?: 'oneOf' | 'someOf' | 'allOf' | 'oneOrNoneOf' | 'someOrNoneOf';
+    userSelectable?: boolean;
+    inputs?: Array<
+      {
+        id?: string;
+        name?: string;
+        type?: 'string' | 'number' | 'boolean' | 'station';
+        default?: string | number | boolean;
+      } & {
+        id: Defined;
+        name: Defined;
+        type: Defined;
+      }
+    >;
+  } & {
+    id: Defined;
+    name: Defined;
+    inputs: Defined;
+  },
+  SelectionBrand
+>;
+export type SelectionC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.StringC;
+        name: t.StringC;
+        type: t.UnionC<
+          [
+            t.LiteralC<'oneOf'>,
+            t.LiteralC<'someOf'>,
+            t.LiteralC<'allOf'>,
+            t.LiteralC<'oneOrNoneOf'>,
+            t.LiteralC<'someOrNoneOf'>,
+          ]
+        >;
+        userSelectable: t.BooleanC;
+        inputs: t.ArrayC<
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                id: t.StringC;
+                name: t.StringC;
+                type: t.UnionC<
+                  [
+                    t.LiteralC<'string'>,
+                    t.LiteralC<'number'>,
+                    t.LiteralC<'boolean'>,
+                    t.LiteralC<'station'>,
+                  ]
+                >;
+                default: t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>;
+              }>,
+              t.TypeC<{
+                id: typeof Defined;
+                name: typeof Defined;
+                type: typeof Defined;
+              }>,
+            ]
+          >
+        >;
+      }>,
+      t.TypeC<{
+        id: typeof Defined;
+        name: typeof Defined;
+        inputs: typeof Defined;
+      }>,
+    ]
+  >,
+  SelectionBrand
+>;
+export const Selection: SelectionC = t.brand(
+  t.intersection([
+    t.partial({
+      id: t.string,
+      name: t.string,
+      type: t.union([
+        t.literal('oneOf'),
+        t.literal('someOf'),
+        t.literal('allOf'),
+        t.literal('oneOrNoneOf'),
+        t.literal('someOrNoneOf'),
+      ]),
+      userSelectable: t.boolean,
+      inputs: t.array(
+        t.intersection([
+          t.partial({
+            id: t.string,
+            name: t.string,
+            type: t.union([
+              t.literal('string'),
+              t.literal('number'),
+              t.literal('boolean'),
+              t.literal('station'),
+            ]),
+            default: t.union([t.string, t.number, t.boolean]),
+          }),
+          t.type({
+            id: Defined,
+            name: Defined,
+            type: Defined,
+          }),
+        ]),
+      ),
+    }),
+    t.type({
+      id: Defined,
+      name: Defined,
+      inputs: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      id?: string;
+      name?: string;
+      type?: 'oneOf' | 'someOf' | 'allOf' | 'oneOrNoneOf' | 'someOrNoneOf';
+      userSelectable?: boolean;
+      inputs?: Array<
+        {
+          id?: string;
+          name?: string;
+          type?: 'string' | 'number' | 'boolean' | 'station';
+          default?: string | number | boolean;
+        } & {
+          id: Defined;
+          name: Defined;
+          type: Defined;
+        }
+      >;
+    } & {
+      id: Defined;
+      name: Defined;
+      inputs: Defined;
+    },
+    SelectionBrand
+  > => true,
+  'Selection',
+);
+export interface SelectionBrand {
+  readonly Selection: unique symbol;
+}
+
+// MessageToDriver
+// Optional parameter for a message to driver
+export type MessageToDriver = t.Branded<
+  {
+    message?: {
+      property?: string;
+      maxLength?: number;
+    } & {
+      property: Defined;
+      maxLength: Defined;
+    };
+  } & {
+    message: Defined;
+  },
+  MessageToDriverBrand
+>;
+export type MessageToDriverC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        message: t.IntersectionC<
+          [
+            t.PartialC<{
+              property: t.StringC;
+              maxLength: t.NumberC;
+            }>,
+            t.TypeC<{
+              property: typeof Defined;
+              maxLength: typeof Defined;
+            }>,
+          ]
+        >;
+      }>,
+      t.TypeC<{
+        message: typeof Defined;
+      }>,
+    ]
+  >,
+  MessageToDriverBrand
+>;
+export const MessageToDriver: MessageToDriverC = t.brand(
+  t.intersection([
+    t.partial({
+      message: t.intersection([
+        t.partial({
+          property: t.string,
+          maxLength: t.number,
+        }),
+        t.type({
+          property: Defined,
+          maxLength: Defined,
+        }),
+      ]),
+    }),
+    t.type({
+      message: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      message?: {
+        property?: string;
+        maxLength?: number;
+      } & {
+        property: Defined;
+        maxLength: Defined;
+      };
+    } & {
+      message: Defined;
+    },
+    MessageToDriverBrand
+  > => true,
+  'MessageToDriver',
+);
+export interface MessageToDriverBrand {
+  readonly MessageToDriver: unique symbol;
+}
+
+// BookingPeriod
+// Optional parameter for default booking period
+export type BookingPeriod = t.Branded<
+  {
+    defaultBookingPeriod?: {
+      startTime?: string;
+      endTime?: string;
+    } & {
+      startTime: Defined;
+      endTime: Defined;
+    };
+  } & {
+    defaultBookingPeriod: Defined;
+  },
+  BookingPeriodBrand
+>;
+export type BookingPeriodC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        defaultBookingPeriod: t.IntersectionC<
+          [
+            t.PartialC<{
+              startTime: t.StringC;
+              endTime: t.StringC;
+            }>,
+            t.TypeC<{
+              startTime: typeof Defined;
+              endTime: typeof Defined;
+            }>,
+          ]
+        >;
+      }>,
+      t.TypeC<{
+        defaultBookingPeriod: typeof Defined;
+      }>,
+    ]
+  >,
+  BookingPeriodBrand
+>;
+export const BookingPeriod: BookingPeriodC = t.brand(
+  t.intersection([
+    t.partial({
+      defaultBookingPeriod: t.intersection([
+        t.partial({
+          startTime: t.string,
+          endTime: t.string,
+        }),
+        t.type({
+          startTime: Defined,
+          endTime: Defined,
+        }),
+      ]),
+    }),
+    t.type({
+      defaultBookingPeriod: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      defaultBookingPeriod?: {
+        startTime?: string;
+        endTime?: string;
+      } & {
+        startTime: Defined;
+        endTime: Defined;
+      };
+    } & {
+      defaultBookingPeriod: Defined;
+    },
+    BookingPeriodBrand
+  > => true,
+  'BookingPeriod',
+);
+export interface BookingPeriodBrand {
+  readonly BookingPeriod: unique symbol;
+}
+
 // Provider
 // The default export. More information at the top.
 export type Provider = t.Branded<
@@ -83,30 +393,7 @@ export type Provider = t.Branded<
     requiredPersonalDocuments?: Array<
       PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
     >;
-    optionalParameters?: Array<
-      {
-        id?: string;
-        name?: string;
-        type?: 'oneOf' | 'someOf' | 'allOf' | 'oneOrNoneOf' | 'someOrNoneOf';
-        userSelectable?: boolean;
-        inputs?: Array<
-          {
-            id?: string;
-            name?: string;
-            type?: 'string' | 'number' | 'boolean' | 'station';
-            default?: string | number | boolean;
-          } & {
-            id: Defined;
-            name: Defined;
-            type: Defined;
-          }
-        >;
-      } & {
-        id: Defined;
-        name: Defined;
-        inputs: Defined;
-      }
-    >;
+    optionalParameters?: Array<Selection | MessageToDriver | BookingPeriod>;
     disruption?: {};
   } & {
     name: Defined;
@@ -196,53 +483,7 @@ export type ProviderC = t.BrandC<
           typeof PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
         >;
         optionalParameters: t.ArrayC<
-          t.IntersectionC<
-            [
-              t.PartialC<{
-                id: t.StringC;
-                name: t.StringC;
-                type: t.UnionC<
-                  [
-                    t.LiteralC<'oneOf'>,
-                    t.LiteralC<'someOf'>,
-                    t.LiteralC<'allOf'>,
-                    t.LiteralC<'oneOrNoneOf'>,
-                    t.LiteralC<'someOrNoneOf'>,
-                  ]
-                >;
-                userSelectable: t.BooleanC;
-                inputs: t.ArrayC<
-                  t.IntersectionC<
-                    [
-                      t.PartialC<{
-                        id: t.StringC;
-                        name: t.StringC;
-                        type: t.UnionC<
-                          [
-                            t.LiteralC<'string'>,
-                            t.LiteralC<'number'>,
-                            t.LiteralC<'boolean'>,
-                            t.LiteralC<'station'>,
-                          ]
-                        >;
-                        default: t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>;
-                      }>,
-                      t.TypeC<{
-                        id: typeof Defined;
-                        name: typeof Defined;
-                        type: typeof Defined;
-                      }>,
-                    ]
-                  >
-                >;
-              }>,
-              t.TypeC<{
-                id: typeof Defined;
-                name: typeof Defined;
-                inputs: typeof Defined;
-              }>,
-            ]
-          >
+          t.UnionC<[typeof Selection, typeof MessageToDriver, typeof BookingPeriod]>
         >;
         disruption: t.TypeC<{}>;
       }>,
@@ -320,47 +561,7 @@ export const Provider: ProviderC = t.brand(
       requiredPersonalDocuments: t.array(
         PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem,
       ),
-      optionalParameters: t.array(
-        t.intersection([
-          t.partial({
-            id: t.string,
-            name: t.string,
-            type: t.union([
-              t.literal('oneOf'),
-              t.literal('someOf'),
-              t.literal('allOf'),
-              t.literal('oneOrNoneOf'),
-              t.literal('someOrNoneOf'),
-            ]),
-            userSelectable: t.boolean,
-            inputs: t.array(
-              t.intersection([
-                t.partial({
-                  id: t.string,
-                  name: t.string,
-                  type: t.union([
-                    t.literal('string'),
-                    t.literal('number'),
-                    t.literal('boolean'),
-                    t.literal('station'),
-                  ]),
-                  default: t.union([t.string, t.number, t.boolean]),
-                }),
-                t.type({
-                  id: Defined,
-                  name: Defined,
-                  type: Defined,
-                }),
-              ]),
-            ),
-          }),
-          t.type({
-            id: Defined,
-            name: Defined,
-            inputs: Defined,
-          }),
-        ]),
-      ),
+      optionalParameters: t.array(t.union([Selection, MessageToDriver, BookingPeriod])),
       disruption: t.type({}),
     }),
     t.type({
@@ -426,30 +627,7 @@ export const Provider: ProviderC = t.brand(
       requiredPersonalDocuments?: Array<
         PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
       >;
-      optionalParameters?: Array<
-        {
-          id?: string;
-          name?: string;
-          type?: 'oneOf' | 'someOf' | 'allOf' | 'oneOrNoneOf' | 'someOrNoneOf';
-          userSelectable?: boolean;
-          inputs?: Array<
-            {
-              id?: string;
-              name?: string;
-              type?: 'string' | 'number' | 'boolean' | 'station';
-              default?: string | number | boolean;
-            } & {
-              id: Defined;
-              name: Defined;
-              type: Defined;
-            }
-          >;
-        } & {
-          id: Defined;
-          name: Defined;
-          inputs: Defined;
-        }
-      >;
+      optionalParameters?: Array<Selection | MessageToDriver | BookingPeriod>;
       disruption?: {};
     } & {
       name: Defined;

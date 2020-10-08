@@ -155,7 +155,7 @@
             "$ref": "#/definitions/messageToDriver"
           },
           {
-            "$ref": "#/definitions/defaultSchedule"
+            "$ref": "#/definitions/bookingPeriod"
           }
         ]
       }
@@ -179,6 +179,7 @@
   "additionalProperties": false,
   "definitions": {
     "selection": {
+      "description": "Optional parameter for selections",
       "type": "object",
       "properties": {
         "id": {
@@ -220,6 +221,7 @@
       "required": ["id", "name", "inputs"]
     },
     "messageToDriver": {
+      "description": "Optional parameter for a message to driver",
       "type": "object",
       "required": ["message"],
       "properties": {
@@ -228,9 +230,7 @@
           "type": "object",
           "properties": {
             "property": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 255
+              "type": "string"
             },
             "maxLength": {
               "type": "number"
@@ -239,19 +239,22 @@
         }
       }
     },
-    "defaultSchedule": {
+    "bookingPeriod": {
+      "description": "Optional parameter for default booking period",
       "type": "object",
-      "required": ["startTime", "endTime"],
+      "required": ["defaultBookingPeriod"],
       "properties": {
-        "startTime": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 255
-        },
-        "endTime": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 255
+        "defaultBookingPeriod": {
+          "type": "object",
+          "required": ["startTime", "endTime"],
+          "properties": {
+            "startTime": {
+              "type": "string"
+            },
+            "endTime": {
+              "type": "string"
+            }
+          }
         }
       }
     }

@@ -37,8 +37,10 @@
       }
     },
     {
-      "startTime": "2 hour",
-      "endTime": "1 week"
+      "defaultBookingPeriod": {
+        "startTime": "2 hour",
+        "endTime": "1 week"
+      }
     }
   ]
 }
