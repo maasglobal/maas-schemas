@@ -37,12 +37,7 @@
       }
     },
     {
-      "defaultBookingPeriod": {
-        "startTimeConfig": "2 hour",
-        "endTimeConfig": "1 week",
-        "startTime": 1602232819684,
-        "endTime": 1602232827882
-      }
+      "searchDefault": 120
     }
   ]
 }

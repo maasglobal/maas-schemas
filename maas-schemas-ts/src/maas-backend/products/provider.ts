@@ -266,17 +266,9 @@ export interface MessageToDriverBrand {
 // Optional parameter for default booking period
 export type BookingPeriod = t.Branded<
   {
-    defaultBookingPeriod?: {
-      startTimeConfig?: string;
-      startTime?: number;
-      endTimeConfig?: string;
-      endTime?: number;
-    } & {
-      startTimeConfig: Defined;
-      endTimeConfig: Defined;
-    };
+    searchDefault?: number;
   } & {
-    defaultBookingPeriod: Defined;
+    searchDefault: Defined;
   },
   BookingPeriodBrand
 >;
@@ -284,23 +276,10 @@ export type BookingPeriodC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        defaultBookingPeriod: t.IntersectionC<
-          [
-            t.PartialC<{
-              startTimeConfig: t.StringC;
-              startTime: t.NumberC;
-              endTimeConfig: t.StringC;
-              endTime: t.NumberC;
-            }>,
-            t.TypeC<{
-              startTimeConfig: typeof Defined;
-              endTimeConfig: typeof Defined;
-            }>,
-          ]
-        >;
+        searchDefault: t.NumberC;
       }>,
       t.TypeC<{
-        defaultBookingPeriod: typeof Defined;
+        searchDefault: typeof Defined;
       }>,
     ]
   >,
@@ -309,38 +288,19 @@ export type BookingPeriodC = t.BrandC<
 export const BookingPeriod: BookingPeriodC = t.brand(
   t.intersection([
     t.partial({
-      defaultBookingPeriod: t.intersection([
-        t.partial({
-          startTimeConfig: t.string,
-          startTime: t.number,
-          endTimeConfig: t.string,
-          endTime: t.number,
-        }),
-        t.type({
-          startTimeConfig: Defined,
-          endTimeConfig: Defined,
-        }),
-      ]),
+      searchDefault: t.number,
     }),
     t.type({
-      defaultBookingPeriod: Defined,
+      searchDefault: Defined,
     }),
   ]),
   (
     x,
   ): x is t.Branded<
     {
-      defaultBookingPeriod?: {
-        startTimeConfig?: string;
-        startTime?: number;
-        endTimeConfig?: string;
-        endTime?: number;
-      } & {
-        startTimeConfig: Defined;
-        endTimeConfig: Defined;
-      };
+      searchDefault?: number;
     } & {
-      defaultBookingPeriod: Defined;
+      searchDefault: Defined;
     },
     BookingPeriodBrand
   > => true,
