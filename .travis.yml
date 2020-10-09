@@ -8,7 +8,6 @@ cache:
 
 install:
   - yarn --cwd maas-schemas
-  - yarn --cwd maas-schemas upgrade # Ensure to use latest versions of dependencies
   - yarn --cwd maas-schemas-ts
 
 stages:
