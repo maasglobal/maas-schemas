@@ -246,13 +246,19 @@
       "properties": {
         "defaultBookingPeriod": {
           "type": "object",
-          "required": ["startTime", "endTime"],
+          "required": ["startTimeConfig", "endTimeConfig"],
           "properties": {
+            "startTimeConfig": {
+              "type": "string"
+            },
             "startTime": {
+              "type": "number"
+            },
+            "endTimeConfig": {
               "type": "string"
             },
             "endTime": {
-              "type": "string"
+              "type": "number"
             }
           }
         }

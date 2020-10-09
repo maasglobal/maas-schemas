@@ -267,11 +267,13 @@ export interface MessageToDriverBrand {
 export type BookingPeriod = t.Branded<
   {
     defaultBookingPeriod?: {
-      startTime?: string;
-      endTime?: string;
+      startTimeConfig?: string;
+      startTime?: number;
+      endTimeConfig?: string;
+      endTime?: number;
     } & {
-      startTime: Defined;
-      endTime: Defined;
+      startTimeConfig: Defined;
+      endTimeConfig: Defined;
     };
   } & {
     defaultBookingPeriod: Defined;
@@ -285,12 +287,14 @@ export type BookingPeriodC = t.BrandC<
         defaultBookingPeriod: t.IntersectionC<
           [
             t.PartialC<{
-              startTime: t.StringC;
-              endTime: t.StringC;
+              startTimeConfig: t.StringC;
+              startTime: t.NumberC;
+              endTimeConfig: t.StringC;
+              endTime: t.NumberC;
             }>,
             t.TypeC<{
-              startTime: typeof Defined;
-              endTime: typeof Defined;
+              startTimeConfig: typeof Defined;
+              endTimeConfig: typeof Defined;
             }>,
           ]
         >;
@@ -307,12 +311,14 @@ export const BookingPeriod: BookingPeriodC = t.brand(
     t.partial({
       defaultBookingPeriod: t.intersection([
         t.partial({
-          startTime: t.string,
-          endTime: t.string,
+          startTimeConfig: t.string,
+          startTime: t.number,
+          endTimeConfig: t.string,
+          endTime: t.number,
         }),
         t.type({
-          startTime: Defined,
-          endTime: Defined,
+          startTimeConfig: Defined,
+          endTimeConfig: Defined,
         }),
       ]),
     }),
@@ -325,11 +331,13 @@ export const BookingPeriod: BookingPeriodC = t.brand(
   ): x is t.Branded<
     {
       defaultBookingPeriod?: {
-        startTime?: string;
-        endTime?: string;
+        startTimeConfig?: string;
+        startTime?: number;
+        endTimeConfig?: string;
+        endTime?: number;
       } & {
-        startTime: Defined;
-        endTime: Defined;
+        startTimeConfig: Defined;
+        endTimeConfig: Defined;
       };
     } & {
       defaultBookingPeriod: Defined;
