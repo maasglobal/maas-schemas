@@ -1,6 +1,6 @@
 {
   "name": "providerName",
-  "agencyId": "careco-cug",
+  "agencyId": "someAgency",
   "groupId": "someGroupId",
   "hidden": false,
   "branding": {},
@@ -13,8 +13,8 @@
   "personalDataCreateAllow": [],
   "optionalParameters": [
     {
-      "id": "ontrack_jp_via_avoid",
-      "name": "Travel via or avoid",
+      "id": "someId",
+      "name": "someName",
       "type": "oneOrNoneOf",
       "userSelectable": true,
       "inputs": [
