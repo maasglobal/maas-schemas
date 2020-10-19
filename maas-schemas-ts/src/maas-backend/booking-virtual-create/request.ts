@@ -38,11 +38,17 @@ export const schemaId =
 export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
-    payload?: Array<{
-      paymentSourceId?: Common_.PaymentSourceId;
-      productId?: Product_.Id;
-      fares?: Array<Fare_.Fare>;
-    }>;
+    payload?: Array<
+      {
+        paymentSourceId?: Common_.PaymentSourceId;
+        productId?: Product_.Id;
+        fare?: Fare_.Fare;
+        description?: string;
+      } & {
+        productId: Defined;
+        fare: Defined;
+      }
+    >;
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
@@ -57,11 +63,20 @@ export type RequestC = t.BrandC<
       t.PartialC<{
         identityId: typeof Units_.IdentityId;
         payload: t.ArrayC<
-          t.PartialC<{
-            paymentSourceId: typeof Common_.PaymentSourceId;
-            productId: typeof Product_.Id;
-            fares: t.ArrayC<typeof Fare_.Fare>;
-          }>
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                paymentSourceId: typeof Common_.PaymentSourceId;
+                productId: typeof Product_.Id;
+                fare: typeof Fare_.Fare;
+                description: t.StringC;
+              }>,
+              t.TypeC<{
+                productId: typeof Defined;
+                fare: typeof Defined;
+              }>,
+            ]
+          >
         >;
         headers: typeof ApiCommon_.Headers;
       }>,
@@ -79,11 +94,18 @@ export const Request: RequestC = t.brand(
     t.partial({
       identityId: Units_.IdentityId,
       payload: t.array(
-        t.partial({
-          paymentSourceId: Common_.PaymentSourceId,
-          productId: Product_.Id,
-          fares: t.array(Fare_.Fare),
-        }),
+        t.intersection([
+          t.partial({
+            paymentSourceId: Common_.PaymentSourceId,
+            productId: Product_.Id,
+            fare: Fare_.Fare,
+            description: t.string,
+          }),
+          t.type({
+            productId: Defined,
+            fare: Defined,
+          }),
+        ]),
       ),
       headers: ApiCommon_.Headers,
     }),
@@ -98,11 +120,17 @@ export const Request: RequestC = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
-      payload?: Array<{
-        paymentSourceId?: Common_.PaymentSourceId;
-        productId?: Product_.Id;
-        fares?: Array<Fare_.Fare>;
-      }>;
+      payload?: Array<
+        {
+          paymentSourceId?: Common_.PaymentSourceId;
+          productId?: Product_.Id;
+          fare?: Fare_.Fare;
+          description?: string;
+        } & {
+          productId: Defined;
+          fare: Defined;
+        }
+      >;
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;
