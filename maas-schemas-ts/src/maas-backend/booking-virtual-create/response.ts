@@ -16,11 +16,30 @@ export const schemaId =
 
 // Response
 // The default export. More information at the top.
-export type Response = t.Branded<Array<Invoice_.Invoice>, ResponseBrand>;
-export type ResponseC = t.BrandC<t.ArrayC<typeof Invoice_.Invoice>, ResponseBrand>;
+export type Response = t.Branded<
+  {
+    invoices?: Array<Invoice_.Invoice>;
+  },
+  ResponseBrand
+>;
+export type ResponseC = t.BrandC<
+  t.PartialC<{
+    invoices: t.ArrayC<typeof Invoice_.Invoice>;
+  }>,
+  ResponseBrand
+>;
 export const Response: ResponseC = t.brand(
-  t.array(Invoice_.Invoice),
-  (x): x is t.Branded<Array<Invoice_.Invoice>, ResponseBrand> => true,
+  t.partial({
+    invoices: t.array(Invoice_.Invoice),
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      invoices?: Array<Invoice_.Invoice>;
+    },
+    ResponseBrand
+  > => true,
   'Response',
 );
 export interface ResponseBrand {
