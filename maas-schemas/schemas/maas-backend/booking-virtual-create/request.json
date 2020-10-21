@@ -22,6 +22,6 @@
         "type": "string"
       }
     },
-    "required": ["productId", "fare"]
+    "required": ["productId", "fare", "identityId"]
   }
 }

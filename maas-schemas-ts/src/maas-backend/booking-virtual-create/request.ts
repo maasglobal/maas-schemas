@@ -45,6 +45,7 @@ export type Request = t.Branded<
     } & {
       productId: Defined;
       fare: Defined;
+      identityId: Defined;
     }
   >,
   RequestBrand
@@ -63,6 +64,7 @@ export type RequestC = t.BrandC<
         t.TypeC<{
           productId: typeof Defined;
           fare: typeof Defined;
+          identityId: typeof Defined;
         }>,
       ]
     >
@@ -82,6 +84,7 @@ export const Request: RequestC = t.brand(
       t.type({
         productId: Defined,
         fare: Defined,
+        identityId: Defined,
       }),
     ]),
   ),
@@ -98,6 +101,7 @@ export const Request: RequestC = t.brand(
       } & {
         productId: Defined;
         fare: Defined;
+        identityId: Defined;
       }
     >,
     RequestBrand
