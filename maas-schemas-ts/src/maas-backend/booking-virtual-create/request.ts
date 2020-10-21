@@ -9,11 +9,10 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from '../../core/components/units';
 import * as Common_ from '../../core/components/common';
 import * as Product_ from '../../core/product';
+import * as Units_ from '../../core/components/units';
 import * as Fare_ from '../../core/components/fare';
-import * as ApiCommon_ from '../../core/components/api-common';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -36,107 +35,71 @@ export const schemaId =
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  {
-    identityId?: Units_.IdentityId;
-    payload?: Array<
+  Array<
+    {
+      paymentSourceId?: Common_.PaymentSourceId;
+      productId?: Product_.Id;
+      identityId?: Units_.IdentityId;
+      fare?: Fare_.Fare;
+      description?: string;
+    } & {
+      productId: Defined;
+      fare: Defined;
+    }
+  >,
+  RequestBrand
+>;
+export type RequestC = t.BrandC<
+  t.ArrayC<
+    t.IntersectionC<
+      [
+        t.PartialC<{
+          paymentSourceId: typeof Common_.PaymentSourceId;
+          productId: typeof Product_.Id;
+          identityId: typeof Units_.IdentityId;
+          fare: typeof Fare_.Fare;
+          description: t.StringC;
+        }>,
+        t.TypeC<{
+          productId: typeof Defined;
+          fare: typeof Defined;
+        }>,
+      ]
+    >
+  >,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
+  t.array(
+    t.intersection([
+      t.partial({
+        paymentSourceId: Common_.PaymentSourceId,
+        productId: Product_.Id,
+        identityId: Units_.IdentityId,
+        fare: Fare_.Fare,
+        description: t.string,
+      }),
+      t.type({
+        productId: Defined,
+        fare: Defined,
+      }),
+    ]),
+  ),
+  (
+    x,
+  ): x is t.Branded<
+    Array<
       {
         paymentSourceId?: Common_.PaymentSourceId;
         productId?: Product_.Id;
+        identityId?: Units_.IdentityId;
         fare?: Fare_.Fare;
         description?: string;
       } & {
         productId: Defined;
         fare: Defined;
       }
-    >;
-    headers?: ApiCommon_.Headers;
-  } & {
-    identityId: Defined;
-    payload: Defined;
-    headers: Defined;
-  },
-  RequestBrand
->;
-export type RequestC = t.BrandC<
-  t.IntersectionC<
-    [
-      t.PartialC<{
-        identityId: typeof Units_.IdentityId;
-        payload: t.ArrayC<
-          t.IntersectionC<
-            [
-              t.PartialC<{
-                paymentSourceId: typeof Common_.PaymentSourceId;
-                productId: typeof Product_.Id;
-                fare: typeof Fare_.Fare;
-                description: t.StringC;
-              }>,
-              t.TypeC<{
-                productId: typeof Defined;
-                fare: typeof Defined;
-              }>,
-            ]
-          >
-        >;
-        headers: typeof ApiCommon_.Headers;
-      }>,
-      t.TypeC<{
-        identityId: typeof Defined;
-        payload: typeof Defined;
-        headers: typeof Defined;
-      }>,
-    ]
-  >,
-  RequestBrand
->;
-export const Request: RequestC = t.brand(
-  t.intersection([
-    t.partial({
-      identityId: Units_.IdentityId,
-      payload: t.array(
-        t.intersection([
-          t.partial({
-            paymentSourceId: Common_.PaymentSourceId,
-            productId: Product_.Id,
-            fare: Fare_.Fare,
-            description: t.string,
-          }),
-          t.type({
-            productId: Defined,
-            fare: Defined,
-          }),
-        ]),
-      ),
-      headers: ApiCommon_.Headers,
-    }),
-    t.type({
-      identityId: Defined,
-      payload: Defined,
-      headers: Defined,
-    }),
-  ]),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      identityId?: Units_.IdentityId;
-      payload?: Array<
-        {
-          paymentSourceId?: Common_.PaymentSourceId;
-          productId?: Product_.Id;
-          fare?: Fare_.Fare;
-          description?: string;
-        } & {
-          productId: Defined;
-          fare: Defined;
-        }
-      >;
-      headers?: ApiCommon_.Headers;
-    } & {
-      identityId: Defined;
-      payload: Defined;
-      headers: Defined;
-    },
+    >,
     RequestBrand
   > => true,
   'Request',
