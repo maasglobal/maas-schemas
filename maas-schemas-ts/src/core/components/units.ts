@@ -164,7 +164,7 @@ export const examplesIdentityId: NonEmptyArray<IdentityId> = ([
 // Currency
 // Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1
 export type Currency = t.Branded<
-  string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY'),
+  string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY' | 'CHF'),
   CurrencyBrand
 >;
 export type CurrencyC = t.BrandC<
@@ -178,6 +178,7 @@ export type CurrencyC = t.BrandC<
           t.LiteralC<'SGD'>,
           t.LiteralC<'USD'>,
           t.LiteralC<'JPY'>,
+          t.LiteralC<'CHF'>,
         ]
       >,
     ]
@@ -193,10 +194,15 @@ export const Currency: CurrencyC = t.brand(
       t.literal('SGD'),
       t.literal('USD'),
       t.literal('JPY'),
+      t.literal('CHF'),
     ]),
   ]),
-  (x): x is t.Branded<string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY'), CurrencyBrand> =>
-    true,
+  (
+    x,
+  ): x is t.Branded<
+    string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY' | 'CHF'),
+    CurrencyBrand
+  > => true,
   'Currency',
 );
 export interface CurrencyBrand {
