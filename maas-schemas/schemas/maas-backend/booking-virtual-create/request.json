@@ -1,37 +1,27 @@
 {
   "$id": "http://maasglobal.com/maas-backend/booking-virtual-create/request.json",
   "description": "Request schema for booking-virtual-create",
-  "type": "object",
-  "additionalProperties": false,
-  "required": ["identityId", "payload", "headers"],
-  "properties": {
-    "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
-    },
-    "payload": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "paymentSourceId": {
-            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
-          },
-          "productId": {
-            "$ref": "http://maasglobal.com/core/product.json#/definitions/id"
-          },
-          "fare": {
-            "$ref": "http://maasglobal.com/core/components/fare.json"
-          },
-          "description": {
-            "type": "string"
-          }
-        },
-        "required": ["productId", "fare"]
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "paymentSourceId": {
+        "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
+      },
+      "productId": {
+        "$ref": "http://maasglobal.com/core/product.json#/definitions/id"
+      },
+      "identityId": {
+        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      },
+      "fare": {
+        "$ref": "http://maasglobal.com/core/components/fare.json"
+      },
+      "description": {
+        "type": "string"
       }
     },
-    "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
-    }
+    "required": ["productId", "fare", "identityId"]
   }
 }
