@@ -42,6 +42,8 @@ export type Request = t.Branded<
       identityId?: Units_.IdentityId;
       fare?: Fare_.Fare;
       description?: string;
+      startTime?: Units_.Time;
+      endTime?: Units_.Time;
     } & {
       productId: Defined;
       fare: Defined;
@@ -60,6 +62,8 @@ export type RequestC = t.BrandC<
           identityId: typeof Units_.IdentityId;
           fare: typeof Fare_.Fare;
           description: t.StringC;
+          startTime: typeof Units_.Time;
+          endTime: typeof Units_.Time;
         }>,
         t.TypeC<{
           productId: typeof Defined;
@@ -80,6 +84,8 @@ export const Request: RequestC = t.brand(
         identityId: Units_.IdentityId,
         fare: Fare_.Fare,
         description: t.string,
+        startTime: Units_.Time,
+        endTime: Units_.Time,
       }),
       t.type({
         productId: Defined,
@@ -98,6 +104,8 @@ export const Request: RequestC = t.brand(
         identityId?: Units_.IdentityId;
         fare?: Fare_.Fare;
         description?: string;
+        startTime?: Units_.Time;
+        endTime?: Units_.Time;
       } & {
         productId: Defined;
         fare: Defined;
