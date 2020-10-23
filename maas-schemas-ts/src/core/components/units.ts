@@ -216,7 +216,7 @@ export type TimeC = t.BrandC<t.NumberC, TimeBrand>;
 export const Time: TimeC = t.brand(
   t.number,
   (x): x is t.Branded<number, TimeBrand> =>
-    (typeof x !== 'number' || x >= 1451606400) &&
+    (typeof x !== 'number' || x >= 126230400000) &&
     (typeof x !== 'number' || x <= 9007199254740991) &&
     Number.isInteger(x),
   'Time',
