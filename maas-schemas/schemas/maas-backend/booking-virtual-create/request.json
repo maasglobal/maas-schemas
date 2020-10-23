@@ -4,7 +4,7 @@
   "type": "array",
   "items": {
     "type": "object",
-    "additionalProperties": false,
+    "additionalProperties": true,
     "properties": {
       "paymentSourceId": {
         "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
@@ -20,6 +20,12 @@
       },
       "description": {
         "type": "string"
+      },
+      "startTime": {
+        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      },
+      "endTime": {
+        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
       }
     },
     "required": ["productId", "fare", "identityId"]
