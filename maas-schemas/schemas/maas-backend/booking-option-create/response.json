@@ -3,9 +3,10 @@
   "description": "Response schema for booking-option-create",
   "anyOf": [
     {
-      "type": "array",
+      "type": "object",
       "properties": {
         "bookings": {
+          "type": "array",
           "items": {
             "$ref": "http://maasglobal.com/core/booking.json"
           }
@@ -14,22 +15,25 @@
       "required": ["bookings"]
     },
     {
-      "type": "array",
+      "type": "object",
       "properties": {
         "failures": {
-          "type": "object",
-          "properties": {
-            "message": {
-              "type": "string",
-              "description": "A human readable error message (preferably in English)",
-              "minLength": 1,
-              "maxLength": 255
-            },
-            "productId": {
-              "type": "string",
-              "description": "ProductId of failed booking",
-              "minLength": 1,
-              "maxLength": 255
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "A human readable error message (preferably in English)",
+                "minLength": 1,
+                "maxLength": 255
+              },
+              "productId": {
+                "type": "string",
+                "description": "ProductId of failed booking",
+                "minLength": 1,
+                "maxLength": 255
+              }
             }
           }
         }
