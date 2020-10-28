@@ -4,6 +4,7 @@
   "type": "object",
   "properties": {
     "results": {
+      "type": "object",
       "properties": {
         "successCount": { "type": "integer", "minimum": 0 },
         "failureCount": { "type": "integer", "minimum": 0 }

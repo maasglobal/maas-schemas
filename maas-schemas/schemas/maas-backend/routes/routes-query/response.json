@@ -1,6 +1,7 @@
 {
   "$id": "http://maasglobal.com/maas-backend/routes/routes-query/response.json",
   "description": "MaaS.fi routes-query response schema",
+  "type": "object",
   "properties": {
     "plan": {
       "$ref": "http://maasglobal.com/core/plan.json"
