@@ -1,6 +1,7 @@
 {
   "$id": "http://maasglobal.com/maas-backend/bookings/bookings-cancel/response.json",
   "description": "Response schema for bookings-retrieve",
+  "type": "object",
   "properties": {
     "booking": {
       "allOf": [

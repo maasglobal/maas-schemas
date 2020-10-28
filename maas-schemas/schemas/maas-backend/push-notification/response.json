@@ -7,6 +7,7 @@
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "results": {
+      "type": "object",
       "properties": {
         "successCount": { "type": "integer", "minimum": 0 },
         "failureCount": { "type": "integer", "minimum": 0 }
