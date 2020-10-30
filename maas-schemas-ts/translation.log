@@ -943,6 +943,18 @@ INFO: primitive type "string" used outside top-level definitions
 INFO: missing description
   in ../maas-schemas/schemas/maas-backend/booking-option-create/request.json
 INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/booking-option-create/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/booking-option-create/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/booking-option-create/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/booking-option-create/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/booking-option-create/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/booking-option-create/response.json
+INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/booking-virtual-create/request.json
 WARNING: patternProperty support has limitations
   in ../maas-schemas/schemas/maas-backend/bookings/bookings-agency-options/request.json

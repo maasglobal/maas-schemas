@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Booking_ from '../../core/booking';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -31,10 +32,17 @@ export const schemaId =
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  | (Array<unknown> & {
+  | ({
+      bookings?: Array<Booking_.Booking>;
+    } & {
       bookings: Defined;
     })
-  | (Array<unknown> & {
+  | ({
+      failures?: Array<{
+        message?: string;
+        productId?: string;
+      }>;
+    } & {
       failures: Defined;
     }),
   ResponseBrand
@@ -44,7 +52,9 @@ export type ResponseC = t.BrandC<
     [
       t.IntersectionC<
         [
-          t.UnknownArrayC,
+          t.PartialC<{
+            bookings: t.ArrayC<typeof Booking_.Booking>;
+          }>,
           t.TypeC<{
             bookings: typeof Defined;
           }>,
@@ -52,7 +62,14 @@ export type ResponseC = t.BrandC<
       >,
       t.IntersectionC<
         [
-          t.UnknownArrayC,
+          t.PartialC<{
+            failures: t.ArrayC<
+              t.PartialC<{
+                message: t.StringC;
+                productId: t.StringC;
+              }>
+            >;
+          }>,
           t.TypeC<{
             failures: typeof Defined;
           }>,
@@ -65,13 +82,22 @@ export type ResponseC = t.BrandC<
 export const Response: ResponseC = t.brand(
   t.union([
     t.intersection([
-      t.UnknownArray,
+      t.partial({
+        bookings: t.array(Booking_.Booking),
+      }),
       t.type({
         bookings: Defined,
       }),
     ]),
     t.intersection([
-      t.UnknownArray,
+      t.partial({
+        failures: t.array(
+          t.partial({
+            message: t.string,
+            productId: t.string,
+          }),
+        ),
+      }),
       t.type({
         failures: Defined,
       }),
@@ -80,10 +106,17 @@ export const Response: ResponseC = t.brand(
   (
     x,
   ): x is t.Branded<
-    | (Array<unknown> & {
+    | ({
+        bookings?: Array<Booking_.Booking>;
+      } & {
         bookings: Defined;
       })
-    | (Array<unknown> & {
+    | ({
+        failures?: Array<{
+          message?: string;
+          productId?: string;
+        }>;
+      } & {
         failures: Defined;
       }),
     ResponseBrand
