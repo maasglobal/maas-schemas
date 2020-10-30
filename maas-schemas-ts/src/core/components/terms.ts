@@ -262,7 +262,7 @@ export type Terms = t.Branded<
     restrictions?: {
       singleDevice?: boolean;
       skipRestrictionCheck?: boolean;
-      freeTicket?: {};
+      freeTicket?: Record<string, unknown>;
     };
     surcharges?: {
       midnight?: Surcharge;
@@ -295,135 +295,143 @@ export type Terms = t.Branded<
         currency: Defined;
       }
     >;
-  },
+  } & Record<string, unknown>,
   TermsBrand
 >;
 export type TermsC = t.BrandC<
-  t.PartialC<{
-    type: t.StringC;
-    seatings: t.ArrayC<typeof Seat>;
-    validity: t.IntersectionC<
-      [
-        t.PartialC<{
-          startTime: typeof Units_.Time;
-          endTime: typeof Units_.Time;
-          startTimeReturn: typeof Units_.Time;
-          endTimeReturn: typeof Units_.Time;
-        }>,
-        t.TypeC<{
-          startTime: typeof Defined;
-          endTime: typeof Defined;
-        }>,
-      ]
-    >;
-    reusable: t.BooleanC;
-    reconcilable: t.BooleanC;
-    restrictions: t.PartialC<{
-      singleDevice: t.BooleanC;
-      skipRestrictionCheck: t.BooleanC;
-      freeTicket: t.TypeC<{}>;
-    }>;
-    surcharges: t.PartialC<{
-      midnight: typeof Surcharge;
-      pickup: typeof Surcharge;
-    }>;
-    cancellation: t.PartialC<{
-      cancellationFormActionUrl: typeof Units_.Url;
-      outward: typeof Cancellation;
-      return: typeof Cancellation;
-    }>;
-    amendment: t.PartialC<{
-      outward: typeof Amendment;
-      return: typeof Amendment;
-    }>;
-    prePurchaseGuidanceUrl: typeof Units_.Url;
-    fareRates: t.ArrayC<
-      t.IntersectionC<
-        [
-          t.PartialC<{
-            amount: t.NumberC;
-            currency: typeof Units_.Currency;
-            timeInterval: t.NumberC;
-            startAt: t.NumberC;
-            type: t.UnionC<
-              [
-                t.LiteralC<'maxRate'>,
-                t.LiteralC<'missedReturnPenalty'>,
-                t.LiteralC<'extra'>,
-                t.LiteralC<'perKilometer'>,
-                t.LiteralC<'perParkMinute'>,
-              ]
-            >;
-          }>,
-          t.TypeC<{
-            amount: typeof Defined;
-            currency: typeof Defined;
-          }>,
-        ]
-      >
-    >;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        type: t.StringC;
+        seatings: t.ArrayC<typeof Seat>;
+        validity: t.IntersectionC<
+          [
+            t.PartialC<{
+              startTime: typeof Units_.Time;
+              endTime: typeof Units_.Time;
+              startTimeReturn: typeof Units_.Time;
+              endTimeReturn: typeof Units_.Time;
+            }>,
+            t.TypeC<{
+              startTime: typeof Defined;
+              endTime: typeof Defined;
+            }>,
+          ]
+        >;
+        reusable: t.BooleanC;
+        reconcilable: t.BooleanC;
+        restrictions: t.PartialC<{
+          singleDevice: t.BooleanC;
+          skipRestrictionCheck: t.BooleanC;
+          freeTicket: t.UnknownRecordC;
+        }>;
+        surcharges: t.PartialC<{
+          midnight: typeof Surcharge;
+          pickup: typeof Surcharge;
+        }>;
+        cancellation: t.PartialC<{
+          cancellationFormActionUrl: typeof Units_.Url;
+          outward: typeof Cancellation;
+          return: typeof Cancellation;
+        }>;
+        amendment: t.PartialC<{
+          outward: typeof Amendment;
+          return: typeof Amendment;
+        }>;
+        prePurchaseGuidanceUrl: typeof Units_.Url;
+        fareRates: t.ArrayC<
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                amount: t.NumberC;
+                currency: typeof Units_.Currency;
+                timeInterval: t.NumberC;
+                startAt: t.NumberC;
+                type: t.UnionC<
+                  [
+                    t.LiteralC<'maxRate'>,
+                    t.LiteralC<'missedReturnPenalty'>,
+                    t.LiteralC<'extra'>,
+                    t.LiteralC<'perKilometer'>,
+                    t.LiteralC<'perParkMinute'>,
+                  ]
+                >;
+              }>,
+              t.TypeC<{
+                amount: typeof Defined;
+                currency: typeof Defined;
+              }>,
+            ]
+          >
+        >;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   TermsBrand
 >;
 export const Terms: TermsC = t.brand(
-  t.partial({
-    type: t.string,
-    seatings: t.array(Seat),
-    validity: t.intersection([
-      t.partial({
-        startTime: Units_.Time,
-        endTime: Units_.Time,
-        startTimeReturn: Units_.Time,
-        endTimeReturn: Units_.Time,
-      }),
-      t.type({
-        startTime: Defined,
-        endTime: Defined,
-      }),
-    ]),
-    reusable: t.boolean,
-    reconcilable: t.boolean,
-    restrictions: t.partial({
-      singleDevice: t.boolean,
-      skipRestrictionCheck: t.boolean,
-      freeTicket: t.type({}),
-    }),
-    surcharges: t.partial({
-      midnight: Surcharge,
-      pickup: Surcharge,
-    }),
-    cancellation: t.partial({
-      cancellationFormActionUrl: Units_.Url,
-      outward: Cancellation,
-      return: Cancellation,
-    }),
-    amendment: t.partial({
-      outward: Amendment,
-      return: Amendment,
-    }),
-    prePurchaseGuidanceUrl: Units_.Url,
-    fareRates: t.array(
-      t.intersection([
+  t.intersection([
+    t.partial({
+      type: t.string,
+      seatings: t.array(Seat),
+      validity: t.intersection([
         t.partial({
-          amount: t.number,
-          currency: Units_.Currency,
-          timeInterval: t.number,
-          startAt: t.number,
-          type: t.union([
-            t.literal('maxRate'),
-            t.literal('missedReturnPenalty'),
-            t.literal('extra'),
-            t.literal('perKilometer'),
-            t.literal('perParkMinute'),
-          ]),
+          startTime: Units_.Time,
+          endTime: Units_.Time,
+          startTimeReturn: Units_.Time,
+          endTimeReturn: Units_.Time,
         }),
         t.type({
-          amount: Defined,
-          currency: Defined,
+          startTime: Defined,
+          endTime: Defined,
         }),
       ]),
-    ),
-  }),
+      reusable: t.boolean,
+      reconcilable: t.boolean,
+      restrictions: t.partial({
+        singleDevice: t.boolean,
+        skipRestrictionCheck: t.boolean,
+        freeTicket: t.UnknownRecord,
+      }),
+      surcharges: t.partial({
+        midnight: Surcharge,
+        pickup: Surcharge,
+      }),
+      cancellation: t.partial({
+        cancellationFormActionUrl: Units_.Url,
+        outward: Cancellation,
+        return: Cancellation,
+      }),
+      amendment: t.partial({
+        outward: Amendment,
+        return: Amendment,
+      }),
+      prePurchaseGuidanceUrl: Units_.Url,
+      fareRates: t.array(
+        t.intersection([
+          t.partial({
+            amount: t.number,
+            currency: Units_.Currency,
+            timeInterval: t.number,
+            startAt: t.number,
+            type: t.union([
+              t.literal('maxRate'),
+              t.literal('missedReturnPenalty'),
+              t.literal('extra'),
+              t.literal('perKilometer'),
+              t.literal('perParkMinute'),
+            ]),
+          }),
+          t.type({
+            amount: Defined,
+            currency: Defined,
+          }),
+        ]),
+      ),
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
@@ -444,7 +452,7 @@ export const Terms: TermsC = t.brand(
       restrictions?: {
         singleDevice?: boolean;
         skipRestrictionCheck?: boolean;
-        freeTicket?: {};
+        freeTicket?: Record<string, unknown>;
       };
       surcharges?: {
         midnight?: Surcharge;
@@ -477,7 +485,7 @@ export const Terms: TermsC = t.brand(
           currency: Defined;
         }
       >;
-    },
+    } & Record<string, unknown>,
     TermsBrand
   > => true,
   'Terms',

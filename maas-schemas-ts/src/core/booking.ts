@@ -233,8 +233,8 @@ export type Token = t.Branded<
       startTime?: Units_.Time;
       endTime?: Units_.Time;
     };
-    data?: {};
-    meta?: {};
+    data?: Record<string, unknown>;
+    meta?: Record<string, unknown>;
   },
   TokenBrand
 >;
@@ -244,8 +244,8 @@ export type TokenC = t.BrandC<
       startTime: typeof Units_.Time;
       endTime: typeof Units_.Time;
     }>;
-    data: t.TypeC<{}>;
-    meta: t.TypeC<{}>;
+    data: t.UnknownRecordC;
+    meta: t.UnknownRecordC;
   }>,
   TokenBrand
 >;
@@ -255,8 +255,8 @@ export const Token: TokenC = t.brand(
       startTime: Units_.Time,
       endTime: Units_.Time,
     }),
-    data: t.type({}),
-    meta: t.type({}),
+    data: t.UnknownRecord,
+    meta: t.UnknownRecord,
   }),
   (
     x,
@@ -266,8 +266,8 @@ export const Token: TokenC = t.brand(
         startTime?: Units_.Time;
         endTime?: Units_.Time;
       };
-      data?: {};
-      meta?: {};
+      data?: Record<string, unknown>;
+      meta?: Record<string, unknown>;
     },
     TokenBrand
   > => true,

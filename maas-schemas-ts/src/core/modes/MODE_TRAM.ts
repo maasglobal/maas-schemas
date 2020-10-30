@@ -14,11 +14,11 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_TRAM.json';
 
 // MODE_TRAM
 // The default export. More information at the top.
-export type MODE_TRAM = t.Branded<{}, MODE_TRAMBrand>;
-export type MODE_TRAMC = t.BrandC<t.TypeC<{}>, MODE_TRAMBrand>;
+export type MODE_TRAM = t.Branded<Record<string, unknown>, MODE_TRAMBrand>;
+export type MODE_TRAMC = t.BrandC<t.UnknownRecordC, MODE_TRAMBrand>;
 export const MODE_TRAM: MODE_TRAMC = t.brand(
-  t.type({}),
-  (x): x is t.Branded<{}, MODE_TRAMBrand> => true,
+  t.UnknownRecord,
+  (x): x is t.Branded<Record<string, unknown>, MODE_TRAMBrand> => true,
   'MODE_TRAM',
 );
 export interface MODE_TRAMBrand {

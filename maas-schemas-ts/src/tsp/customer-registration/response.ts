@@ -30,9 +30,9 @@ export const schemaId = 'http://maasglobal.com/tsp/customer-registration/respons
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  {
-    customer?: {};
-  } & {
+  ({
+    customer?: Record<string, unknown>;
+  } & Record<string, unknown>) & {
     customer: Defined;
   },
   ResponseBrand
@@ -40,9 +40,14 @@ export type Response = t.Branded<
 export type ResponseC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        customer: t.TypeC<{}>;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            customer: t.UnknownRecordC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         customer: typeof Defined;
       }>,
@@ -52,9 +57,12 @@ export type ResponseC = t.BrandC<
 >;
 export const Response: ResponseC = t.brand(
   t.intersection([
-    t.partial({
-      customer: t.type({}),
-    }),
+    t.intersection([
+      t.partial({
+        customer: t.UnknownRecord,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       customer: Defined,
     }),
@@ -62,9 +70,9 @@ export const Response: ResponseC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
-      customer?: {};
-    } & {
+    ({
+      customer?: Record<string, unknown>;
+    } & Record<string, unknown>) & {
       customer: Defined;
     },
     ResponseBrand

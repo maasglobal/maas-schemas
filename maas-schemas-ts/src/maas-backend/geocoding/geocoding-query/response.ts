@@ -35,7 +35,7 @@ export type Response = t.Branded<
   {
     type?: 'FeatureCollection';
     features?: Array<Geolocation_.Feature>;
-    debug?: {};
+    debug?: Record<string, unknown>;
   } & {
     type: Defined;
     features: Defined;
@@ -48,7 +48,7 @@ export type ResponseC = t.BrandC<
       t.PartialC<{
         type: t.LiteralC<'FeatureCollection'>;
         features: t.ArrayC<typeof Geolocation_.Feature>;
-        debug: t.TypeC<{}>;
+        debug: t.UnknownRecordC;
       }>,
       t.TypeC<{
         type: typeof Defined;
@@ -63,7 +63,7 @@ export const Response: ResponseC = t.brand(
     t.partial({
       type: t.literal('FeatureCollection'),
       features: t.array(Geolocation_.Feature),
-      debug: t.type({}),
+      debug: t.UnknownRecord,
     }),
     t.type({
       type: Defined,
@@ -76,7 +76,7 @@ export const Response: ResponseC = t.brand(
     {
       type?: 'FeatureCollection';
       features?: Array<Geolocation_.Feature>;
-      debug?: {};
+      debug?: Record<string, unknown>;
     } & {
       type: Defined;
       features: Defined;

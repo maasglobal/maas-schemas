@@ -362,7 +362,7 @@ export type Provider = t.Branded<
       PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
     >;
     optionalParameters?: Array<Selection | MessageToDriver | BookingPeriod>;
-    disruption?: {};
+    disruption?: Record<string, unknown>;
   } & {
     name: Defined;
     agencyId: Defined;
@@ -453,7 +453,7 @@ export type ProviderC = t.BrandC<
         optionalParameters: t.ArrayC<
           t.UnionC<[typeof Selection, typeof MessageToDriver, typeof BookingPeriod]>
         >;
-        disruption: t.TypeC<{}>;
+        disruption: t.UnknownRecordC;
       }>,
       t.TypeC<{
         name: typeof Defined;
@@ -530,7 +530,7 @@ export const Provider: ProviderC = t.brand(
         PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem,
       ),
       optionalParameters: t.array(t.union([Selection, MessageToDriver, BookingPeriod])),
-      disruption: t.type({}),
+      disruption: t.UnknownRecord,
     }),
     t.type({
       name: Defined,
@@ -596,7 +596,7 @@ export const Provider: ProviderC = t.brand(
         PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
       >;
       optionalParameters?: Array<Selection | MessageToDriver | BookingPeriod>;
-      disruption?: {};
+      disruption?: Record<string, unknown>;
     } & {
       name: Defined;
       agencyId: Defined;

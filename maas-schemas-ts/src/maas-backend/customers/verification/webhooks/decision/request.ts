@@ -44,7 +44,7 @@ export type Request = t.Branded<
         person?: {
           firstName?: Common_.PersonalName | null;
           lastName?: Common_.PersonalName | null;
-        };
+        } & Record<string, unknown>;
         document?: {
           number?: string | null;
           type?: PersonalDocument_.DocumentType;
@@ -55,7 +55,7 @@ export type Request = t.Branded<
         reason?: string;
         reasonCode?: number | null;
         status?: string;
-        additionalVerifiedData?: {};
+        additionalVerifiedData?: Record<string, unknown>;
         vendorData?: string;
         decisionTime?: string;
         acceptanceTime?: string;
@@ -115,10 +115,15 @@ export type RequestC = t.BrandC<
                         >,
                       ]
                     >;
-                    person: t.PartialC<{
-                      firstName: t.UnionC<[typeof Common_.PersonalName, t.NullC]>;
-                      lastName: t.UnionC<[typeof Common_.PersonalName, t.NullC]>;
-                    }>;
+                    person: t.IntersectionC<
+                      [
+                        t.PartialC<{
+                          firstName: t.UnionC<[typeof Common_.PersonalName, t.NullC]>;
+                          lastName: t.UnionC<[typeof Common_.PersonalName, t.NullC]>;
+                        }>,
+                        t.RecordC<t.StringC, t.UnknownC>,
+                      ]
+                    >;
                     document: t.PartialC<{
                       number: t.UnionC<[t.StringC, t.NullC]>;
                       type: typeof PersonalDocument_.DocumentType;
@@ -129,7 +134,7 @@ export type RequestC = t.BrandC<
                     reason: t.StringC;
                     reasonCode: t.UnionC<[t.NumberC, t.NullC]>;
                     status: t.StringC;
-                    additionalVerifiedData: t.TypeC<{}>;
+                    additionalVerifiedData: t.UnknownRecordC;
                     vendorData: t.StringC;
                     decisionTime: t.StringC;
                     acceptanceTime: t.StringC;
@@ -197,10 +202,13 @@ export const Request: RequestC = t.brand(
                   t.literal(9121),
                 ]),
               ]),
-              person: t.partial({
-                firstName: t.union([Common_.PersonalName, t.null]),
-                lastName: t.union([Common_.PersonalName, t.null]),
-              }),
+              person: t.intersection([
+                t.partial({
+                  firstName: t.union([Common_.PersonalName, t.null]),
+                  lastName: t.union([Common_.PersonalName, t.null]),
+                }),
+                t.record(t.string, t.unknown),
+              ]),
               document: t.partial({
                 number: t.union([t.string, t.null]),
                 type: PersonalDocument_.DocumentType,
@@ -211,7 +219,7 @@ export const Request: RequestC = t.brand(
               reason: t.string,
               reasonCode: t.union([t.number, t.null]),
               status: t.string,
-              additionalVerifiedData: t.type({}),
+              additionalVerifiedData: t.UnknownRecord,
               vendorData: t.string,
               decisionTime: t.string,
               acceptanceTime: t.string,
@@ -262,7 +270,7 @@ export const Request: RequestC = t.brand(
           person?: {
             firstName?: Common_.PersonalName | null;
             lastName?: Common_.PersonalName | null;
-          };
+          } & Record<string, unknown>;
           document?: {
             number?: string | null;
             type?: PersonalDocument_.DocumentType;
@@ -273,7 +281,7 @@ export const Request: RequestC = t.brand(
           reason?: string;
           reasonCode?: number | null;
           status?: string;
-          additionalVerifiedData?: {};
+          additionalVerifiedData?: Record<string, unknown>;
           vendorData?: string;
           decisionTime?: string;
           acceptanceTime?: string;

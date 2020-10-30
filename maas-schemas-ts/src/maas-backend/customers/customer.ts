@@ -49,7 +49,7 @@ export type Customer = t.Branded<
     balances?: Array<Fare_.Fare>;
     region?: Region_.Region;
     authorizations?: Array<Authorization_.Authorization>;
-    favoriteLocations?: Array<{}>;
+    favoriteLocations?: Array<Record<string, unknown>>;
     personalDocuments?: Array<
       {
         type?: PersonalDocument_.DocumentType;
@@ -83,7 +83,7 @@ export type CustomerC = t.BrandC<
         balances: t.ArrayC<typeof Fare_.Fare>;
         region: typeof Region_.Region;
         authorizations: t.ArrayC<typeof Authorization_.Authorization>;
-        favoriteLocations: t.ArrayC<t.TypeC<{}>>;
+        favoriteLocations: t.ArrayC<t.UnknownRecordC>;
         personalDocuments: t.ArrayC<
           t.IntersectionC<
             [
@@ -124,7 +124,7 @@ export const Customer: CustomerC = t.brand(
       balances: t.array(Fare_.Fare),
       region: Region_.Region,
       authorizations: t.array(Authorization_.Authorization),
-      favoriteLocations: t.array(t.type({})),
+      favoriteLocations: t.array(t.UnknownRecord),
       personalDocuments: t.array(
         t.intersection([
           t.partial({
@@ -161,7 +161,7 @@ export const Customer: CustomerC = t.brand(
       balances?: Array<Fare_.Fare>;
       region?: Region_.Region;
       authorizations?: Array<Authorization_.Authorization>;
-      favoriteLocations?: Array<{}>;
+      favoriteLocations?: Array<Record<string, unknown>>;
       personalDocuments?: Array<
         {
           type?: PersonalDocument_.DocumentType;

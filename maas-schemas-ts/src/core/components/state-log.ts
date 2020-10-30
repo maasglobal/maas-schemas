@@ -47,13 +47,13 @@ export interface ObsoleteTimeBrand {
 // BookingStateTransition
 // The purpose of this remains a mystery
 export type BookingStateTransition = t.Branded<
-  {
+  ({
     timestamp?: Units_.Time | ObsoleteTime;
     oldState?: State_.BookingState;
     newState?: State_.BookingState;
     invalid?: boolean;
     reason?: Errors_.Reason;
-  } & {
+  } & Record<string, unknown>) & {
     newState: Defined;
     oldState: Defined;
     timestamp: Defined;
@@ -63,13 +63,18 @@ export type BookingStateTransition = t.Branded<
 export type BookingStateTransitionC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        timestamp: t.UnionC<[typeof Units_.Time, typeof ObsoleteTime]>;
-        oldState: typeof State_.BookingState;
-        newState: typeof State_.BookingState;
-        invalid: t.BooleanC;
-        reason: typeof Errors_.Reason;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            timestamp: t.UnionC<[typeof Units_.Time, typeof ObsoleteTime]>;
+            oldState: typeof State_.BookingState;
+            newState: typeof State_.BookingState;
+            invalid: t.BooleanC;
+            reason: typeof Errors_.Reason;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         newState: typeof Defined;
         oldState: typeof Defined;
@@ -81,13 +86,16 @@ export type BookingStateTransitionC = t.BrandC<
 >;
 export const BookingStateTransition: BookingStateTransitionC = t.brand(
   t.intersection([
-    t.partial({
-      timestamp: t.union([Units_.Time, ObsoleteTime]),
-      oldState: State_.BookingState,
-      newState: State_.BookingState,
-      invalid: t.boolean,
-      reason: Errors_.Reason,
-    }),
+    t.intersection([
+      t.partial({
+        timestamp: t.union([Units_.Time, ObsoleteTime]),
+        oldState: State_.BookingState,
+        newState: State_.BookingState,
+        invalid: t.boolean,
+        reason: Errors_.Reason,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       newState: Defined,
       oldState: Defined,
@@ -97,13 +105,13 @@ export const BookingStateTransition: BookingStateTransitionC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       timestamp?: Units_.Time | ObsoleteTime;
       oldState?: State_.BookingState;
       newState?: State_.BookingState;
       invalid?: boolean;
       reason?: Errors_.Reason;
-    } & {
+    } & Record<string, unknown>) & {
       newState: Defined;
       oldState: Defined;
       timestamp: Defined;

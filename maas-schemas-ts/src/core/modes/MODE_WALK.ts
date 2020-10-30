@@ -14,11 +14,11 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_WALK.json';
 
 // MODE_WALK
 // The default export. More information at the top.
-export type MODE_WALK = t.Branded<{}, MODE_WALKBrand>;
-export type MODE_WALKC = t.BrandC<t.TypeC<{}>, MODE_WALKBrand>;
+export type MODE_WALK = t.Branded<Record<string, unknown>, MODE_WALKBrand>;
+export type MODE_WALKC = t.BrandC<t.UnknownRecordC, MODE_WALKBrand>;
 export const MODE_WALK: MODE_WALKC = t.brand(
-  t.type({}),
-  (x): x is t.Branded<{}, MODE_WALKBrand> => true,
+  t.UnknownRecord,
+  (x): x is t.Branded<Record<string, unknown>, MODE_WALKBrand> => true,
   'MODE_WALK',
 );
 export interface MODE_WALKBrand {

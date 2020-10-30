@@ -33,79 +33,11 @@ export const schemaId = 'http://maasglobal.com/core/components/place.json';
 // Place
 // The default export. More information at the top.
 export type Place = t.Branded<
-  {} & {
+  Record<string, unknown> & {
     lat: Defined;
     lon: Defined;
-  } & (UnitsGeo_.RelaxedLocation & {
-      name?: Address_.PlaceName;
-      address?: Address_.ComponentAddress;
-      localeAddress?: string;
-      stopId?: string;
-      stopCode?: string;
-      stationId?: string;
-      facilities?: Array<string>;
-      openingHours?: Station_.OpeningHours;
-      zone?: Station_.Zone;
-    }),
-  PlaceBrand
->;
-export type PlaceC = t.BrandC<
-  t.IntersectionC<
-    [
-      t.TypeC<{}>,
-      t.TypeC<{
-        lat: typeof Defined;
-        lon: typeof Defined;
-      }>,
-      t.IntersectionC<
-        [
-          typeof UnitsGeo_.RelaxedLocation,
-          t.PartialC<{
-            name: typeof Address_.PlaceName;
-            address: typeof Address_.ComponentAddress;
-            localeAddress: t.StringC;
-            stopId: t.StringC;
-            stopCode: t.StringC;
-            stationId: t.StringC;
-            facilities: t.ArrayC<t.StringC>;
-            openingHours: typeof Station_.OpeningHours;
-            zone: typeof Station_.Zone;
-          }>,
-        ]
-      >,
-    ]
-  >,
-  PlaceBrand
->;
-export const Place: PlaceC = t.brand(
-  t.intersection([
-    t.type({}),
-    t.type({
-      lat: Defined,
-      lon: Defined,
-    }),
-    t.intersection([
-      UnitsGeo_.RelaxedLocation,
-      t.partial({
-        name: Address_.PlaceName,
-        address: Address_.ComponentAddress,
-        localeAddress: t.string,
-        stopId: t.string,
-        stopCode: t.string,
-        stationId: t.string,
-        facilities: t.array(t.string),
-        openingHours: Station_.OpeningHours,
-        zone: Station_.Zone,
-      }),
-    ]),
-  ]),
-  (
-    x,
-  ): x is t.Branded<
-    {} & {
-      lat: Defined;
-      lon: Defined;
-    } & (UnitsGeo_.RelaxedLocation & {
+  } & (UnitsGeo_.RelaxedLocation &
+      ({
         name?: Address_.PlaceName;
         address?: Address_.ComponentAddress;
         localeAddress?: string;
@@ -115,7 +47,85 @@ export const Place: PlaceC = t.brand(
         facilities?: Array<string>;
         openingHours?: Station_.OpeningHours;
         zone?: Station_.Zone;
-      }),
+      } & Record<string, unknown>)),
+  PlaceBrand
+>;
+export type PlaceC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.RecordC<t.StringC, t.UnknownC>,
+      t.TypeC<{
+        lat: typeof Defined;
+        lon: typeof Defined;
+      }>,
+      t.IntersectionC<
+        [
+          typeof UnitsGeo_.RelaxedLocation,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                name: typeof Address_.PlaceName;
+                address: typeof Address_.ComponentAddress;
+                localeAddress: t.StringC;
+                stopId: t.StringC;
+                stopCode: t.StringC;
+                stationId: t.StringC;
+                facilities: t.ArrayC<t.StringC>;
+                openingHours: typeof Station_.OpeningHours;
+                zone: typeof Station_.Zone;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
+        ]
+      >,
+    ]
+  >,
+  PlaceBrand
+>;
+export const Place: PlaceC = t.brand(
+  t.intersection([
+    t.record(t.string, t.unknown),
+    t.type({
+      lat: Defined,
+      lon: Defined,
+    }),
+    t.intersection([
+      UnitsGeo_.RelaxedLocation,
+      t.intersection([
+        t.partial({
+          name: Address_.PlaceName,
+          address: Address_.ComponentAddress,
+          localeAddress: t.string,
+          stopId: t.string,
+          stopCode: t.string,
+          stationId: t.string,
+          facilities: t.array(t.string),
+          openingHours: Station_.OpeningHours,
+          zone: Station_.Zone,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
+    ]),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    Record<string, unknown> & {
+      lat: Defined;
+      lon: Defined;
+    } & (UnitsGeo_.RelaxedLocation &
+        ({
+          name?: Address_.PlaceName;
+          address?: Address_.ComponentAddress;
+          localeAddress?: string;
+          stopId?: string;
+          stopCode?: string;
+          stationId?: string;
+          facilities?: Array<string>;
+          openingHours?: Station_.OpeningHours;
+          zone?: Station_.Zone;
+        } & Record<string, unknown>)),
     PlaceBrand
   > => true,
   'Place',

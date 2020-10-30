@@ -35,6 +35,9 @@ export type Response = t.Branded<
   {
     identityId?: Units_.IdentityId;
     results?: {
+      successCount?: number;
+      failureCount?: number;
+    } & {
       successCount: Defined;
       failureCount: Defined;
     };
@@ -49,10 +52,18 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         identityId: typeof Units_.IdentityId;
-        results: t.TypeC<{
-          successCount: typeof Defined;
-          failureCount: typeof Defined;
-        }>;
+        results: t.IntersectionC<
+          [
+            t.PartialC<{
+              successCount: t.NumberC;
+              failureCount: t.NumberC;
+            }>,
+            t.TypeC<{
+              successCount: typeof Defined;
+              failureCount: typeof Defined;
+            }>,
+          ]
+        >;
       }>,
       t.TypeC<{
         identityId: typeof Defined;
@@ -66,10 +77,16 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
-      results: t.type({
-        successCount: Defined,
-        failureCount: Defined,
-      }),
+      results: t.intersection([
+        t.partial({
+          successCount: t.number,
+          failureCount: t.number,
+        }),
+        t.type({
+          successCount: Defined,
+          failureCount: Defined,
+        }),
+      ]),
     }),
     t.type({
       identityId: Defined,
@@ -82,6 +99,9 @@ export const Response: ResponseC = t.brand(
     {
       identityId?: Units_.IdentityId;
       results?: {
+        successCount?: number;
+        failureCount?: number;
+      } & {
         successCount: Defined;
         failureCount: Defined;
       };

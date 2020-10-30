@@ -39,7 +39,7 @@ export type Response = t.Branded<
       avainpay?: PaymentParameters_.AvainpayPaymentParameters;
       stripe?: PaymentParameters_.StripePaymentParameters;
     };
-    debug?: {};
+    debug?: Record<string, unknown>;
   } & {
     booking: Defined;
   },
@@ -54,7 +54,7 @@ export type ResponseC = t.BrandC<
           avainpay: typeof PaymentParameters_.AvainpayPaymentParameters;
           stripe: typeof PaymentParameters_.StripePaymentParameters;
         }>;
-        debug: t.TypeC<{}>;
+        debug: t.RecordC<t.StringC, t.UnknownC>;
       }>,
       t.TypeC<{
         booking: typeof Defined;
@@ -71,7 +71,7 @@ export const Response: ResponseC = t.brand(
         avainpay: PaymentParameters_.AvainpayPaymentParameters,
         stripe: PaymentParameters_.StripePaymentParameters,
       }),
-      debug: t.type({}),
+      debug: t.record(t.string, t.unknown),
     }),
     t.type({
       booking: Defined,
@@ -86,7 +86,7 @@ export const Response: ResponseC = t.brand(
         avainpay?: PaymentParameters_.AvainpayPaymentParameters;
         stripe?: PaymentParameters_.StripePaymentParameters;
       };
-      debug?: {};
+      debug?: Record<string, unknown>;
     } & {
       booking: Defined;
     },

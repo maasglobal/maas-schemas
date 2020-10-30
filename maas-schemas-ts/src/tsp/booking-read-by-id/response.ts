@@ -9,6 +9,10 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Booking_ from '../../core/booking';
+import * as State_ from '../../core/components/state';
+import * as BookingOption_ from '../../core/booking-option';
+import * as BookingMeta_ from '../../core/booking-meta';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -31,27 +35,71 @@ export const schemaId = 'http://maasglobal.com/tsp/booking-read-by-id/response.j
 // The default export. More information at the top.
 export type Response = t.Branded<
   {
+    tspId?: Booking_.TspId;
+    cost?: Booking_.Cost;
+    state?: State_.BookingState;
+    leg?: BookingOption_.LegDelta;
+    meta?: BookingMeta_.BookingMeta;
+    terms?: Booking_.Terms;
+    token?: Booking_.Token;
+    tspProduct?: BookingOption_.TspProduct;
+  } & {
     tspId: Defined;
     state: Defined;
   },
   ResponseBrand
 >;
 export type ResponseC = t.BrandC<
-  t.TypeC<{
-    tspId: typeof Defined;
-    state: typeof Defined;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        tspId: typeof Booking_.TspId;
+        cost: typeof Booking_.Cost;
+        state: typeof State_.BookingState;
+        leg: typeof BookingOption_.LegDelta;
+        meta: typeof BookingMeta_.BookingMeta;
+        terms: typeof Booking_.Terms;
+        token: typeof Booking_.Token;
+        tspProduct: typeof BookingOption_.TspProduct;
+      }>,
+      t.TypeC<{
+        tspId: typeof Defined;
+        state: typeof Defined;
+      }>,
+    ]
+  >,
   ResponseBrand
 >;
 export const Response: ResponseC = t.brand(
-  t.type({
-    tspId: Defined,
-    state: Defined,
-  }),
+  t.intersection([
+    t.partial({
+      tspId: Booking_.TspId,
+      cost: Booking_.Cost,
+      state: State_.BookingState,
+      leg: BookingOption_.LegDelta,
+      meta: BookingMeta_.BookingMeta,
+      terms: Booking_.Terms,
+      token: Booking_.Token,
+      tspProduct: BookingOption_.TspProduct,
+    }),
+    t.type({
+      tspId: Defined,
+      state: Defined,
+    }),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
+      tspId?: Booking_.TspId;
+      cost?: Booking_.Cost;
+      state?: State_.BookingState;
+      leg?: BookingOption_.LegDelta;
+      meta?: BookingMeta_.BookingMeta;
+      terms?: Booking_.Terms;
+      token?: Booking_.Token;
+      tspProduct?: BookingOption_.TspProduct;
+    } & {
       tspId: Defined;
       state: Defined;
     },

@@ -47,26 +47,26 @@ export type Request = t.Branded<
       | 'VerificationUpdate'
       | 'AuthRequired';
     data?:
-      | ({
+      | (({
           objectType?: 'Itinerary' | 'Booking';
           ids?: Array<Units_.Uuid>;
-        } & {
+        } & Record<string, unknown>) & {
           objectType: Defined;
           ids: Defined;
         })
       | null
       | string
-      | ({
+      | (({
           objectType?: 'Profile' | 'Subscription';
           ids?: Array<Units_.IdentityId>;
-        } & {
+        } & Record<string, unknown>) & {
           objectType: Defined;
           ids: Defined;
         })
-      | ({
+      | (({
           objectType?: 'Reminder';
           authUrl?: Units_.Url;
-        } & {
+        } & Record<string, unknown>) & {
           objectType: Defined;
           authUrl: Defined;
         });
@@ -104,10 +104,17 @@ export type RequestC = t.BrandC<
           [
             t.IntersectionC<
               [
-                t.PartialC<{
-                  objectType: t.UnionC<[t.LiteralC<'Itinerary'>, t.LiteralC<'Booking'>]>;
-                  ids: t.ArrayC<typeof Units_.Uuid>;
-                }>,
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      objectType: t.UnionC<
+                        [t.LiteralC<'Itinerary'>, t.LiteralC<'Booking'>]
+                      >;
+                      ids: t.ArrayC<typeof Units_.Uuid>;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
                 t.TypeC<{
                   objectType: typeof Defined;
                   ids: typeof Defined;
@@ -118,12 +125,17 @@ export type RequestC = t.BrandC<
             t.StringC,
             t.IntersectionC<
               [
-                t.PartialC<{
-                  objectType: t.UnionC<
-                    [t.LiteralC<'Profile'>, t.LiteralC<'Subscription'>]
-                  >;
-                  ids: t.ArrayC<typeof Units_.IdentityId>;
-                }>,
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      objectType: t.UnionC<
+                        [t.LiteralC<'Profile'>, t.LiteralC<'Subscription'>]
+                      >;
+                      ids: t.ArrayC<typeof Units_.IdentityId>;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
                 t.TypeC<{
                   objectType: typeof Defined;
                   ids: typeof Defined;
@@ -132,10 +144,15 @@ export type RequestC = t.BrandC<
             >,
             t.IntersectionC<
               [
-                t.PartialC<{
-                  objectType: t.LiteralC<'Reminder'>;
-                  authUrl: typeof Units_.Url;
-                }>,
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      objectType: t.LiteralC<'Reminder'>;
+                      authUrl: typeof Units_.Url;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
                 t.TypeC<{
                   objectType: typeof Defined;
                   authUrl: typeof Defined;
@@ -178,10 +195,13 @@ export const Request: RequestC = t.brand(
       ]),
       data: t.union([
         t.intersection([
-          t.partial({
-            objectType: t.union([t.literal('Itinerary'), t.literal('Booking')]),
-            ids: t.array(Units_.Uuid),
-          }),
+          t.intersection([
+            t.partial({
+              objectType: t.union([t.literal('Itinerary'), t.literal('Booking')]),
+              ids: t.array(Units_.Uuid),
+            }),
+            t.record(t.string, t.unknown),
+          ]),
           t.type({
             objectType: Defined,
             ids: Defined,
@@ -190,20 +210,26 @@ export const Request: RequestC = t.brand(
         t.null,
         t.string,
         t.intersection([
-          t.partial({
-            objectType: t.union([t.literal('Profile'), t.literal('Subscription')]),
-            ids: t.array(Units_.IdentityId),
-          }),
+          t.intersection([
+            t.partial({
+              objectType: t.union([t.literal('Profile'), t.literal('Subscription')]),
+              ids: t.array(Units_.IdentityId),
+            }),
+            t.record(t.string, t.unknown),
+          ]),
           t.type({
             objectType: Defined,
             ids: Defined,
           }),
         ]),
         t.intersection([
-          t.partial({
-            objectType: t.literal('Reminder'),
-            authUrl: Units_.Url,
-          }),
+          t.intersection([
+            t.partial({
+              objectType: t.literal('Reminder'),
+              authUrl: Units_.Url,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
           t.type({
             objectType: Defined,
             authUrl: Defined,
@@ -236,26 +262,26 @@ export const Request: RequestC = t.brand(
         | 'VerificationUpdate'
         | 'AuthRequired';
       data?:
-        | ({
+        | (({
             objectType?: 'Itinerary' | 'Booking';
             ids?: Array<Units_.Uuid>;
-          } & {
+          } & Record<string, unknown>) & {
             objectType: Defined;
             ids: Defined;
           })
         | null
         | string
-        | ({
+        | (({
             objectType?: 'Profile' | 'Subscription';
             ids?: Array<Units_.IdentityId>;
-          } & {
+          } & Record<string, unknown>) & {
             objectType: Defined;
             ids: Defined;
           })
-        | ({
+        | (({
             objectType?: 'Reminder';
             authUrl?: Units_.Url;
-          } & {
+          } & Record<string, unknown>) & {
             objectType: Defined;
             authUrl: Defined;
           });

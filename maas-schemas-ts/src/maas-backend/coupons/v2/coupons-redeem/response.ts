@@ -33,13 +33,13 @@ export const schemaId =
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  {
+  ({
     code?: Code_.Code;
     success?: boolean;
     data?: {
       subscription?: Subscription_.Subscription;
     };
-  } & {
+  } & Record<string, unknown>) & {
     code: Defined;
     success: Defined;
     data: Defined;
@@ -49,13 +49,18 @@ export type Response = t.Branded<
 export type ResponseC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        code: typeof Code_.Code;
-        success: t.BooleanC;
-        data: t.PartialC<{
-          subscription: typeof Subscription_.Subscription;
-        }>;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            code: typeof Code_.Code;
+            success: t.BooleanC;
+            data: t.PartialC<{
+              subscription: typeof Subscription_.Subscription;
+            }>;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         code: typeof Defined;
         success: typeof Defined;
@@ -67,13 +72,16 @@ export type ResponseC = t.BrandC<
 >;
 export const Response: ResponseC = t.brand(
   t.intersection([
-    t.partial({
-      code: Code_.Code,
-      success: t.boolean,
-      data: t.partial({
-        subscription: Subscription_.Subscription,
+    t.intersection([
+      t.partial({
+        code: Code_.Code,
+        success: t.boolean,
+        data: t.partial({
+          subscription: Subscription_.Subscription,
+        }),
       }),
-    }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       code: Defined,
       success: Defined,
@@ -83,13 +91,13 @@ export const Response: ResponseC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       code?: Code_.Code;
       success?: boolean;
       data?: {
         subscription?: Subscription_.Subscription;
       };
-    } & {
+    } & Record<string, unknown>) & {
       code: Defined;
       success: Defined;
       data: Defined;

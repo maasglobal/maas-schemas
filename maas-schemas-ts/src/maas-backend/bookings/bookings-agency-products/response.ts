@@ -34,16 +34,16 @@ export const schemaId =
 // Product
 // The purpose of this remains a mystery
 export type Product = t.Branded<
-  {
+  ({
     id?: string;
     agencyId?: string;
     tspProductId?: string;
     name?: string;
-    meta?: {};
+    meta?: Record<string, unknown>;
     icon?: Units_.Url;
     fares?: Array<Fare_.Fare>;
     description?: string;
-  } & {
+  } & Record<string, unknown>) & {
     id: Defined;
     agencyId: Defined;
     tspProductId: Defined;
@@ -57,16 +57,21 @@ export type Product = t.Branded<
 export type ProductC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        id: t.StringC;
-        agencyId: t.StringC;
-        tspProductId: t.StringC;
-        name: t.StringC;
-        meta: t.TypeC<{}>;
-        icon: typeof Units_.Url;
-        fares: t.ArrayC<typeof Fare_.Fare>;
-        description: t.StringC;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            id: t.StringC;
+            agencyId: t.StringC;
+            tspProductId: t.StringC;
+            name: t.StringC;
+            meta: t.RecordC<t.StringC, t.UnknownC>;
+            icon: typeof Units_.Url;
+            fares: t.ArrayC<typeof Fare_.Fare>;
+            description: t.StringC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         id: typeof Defined;
         agencyId: typeof Defined;
@@ -82,16 +87,19 @@ export type ProductC = t.BrandC<
 >;
 export const Product: ProductC = t.brand(
   t.intersection([
-    t.partial({
-      id: t.string,
-      agencyId: t.string,
-      tspProductId: t.string,
-      name: t.string,
-      meta: t.type({}),
-      icon: Units_.Url,
-      fares: t.array(Fare_.Fare),
-      description: t.string,
-    }),
+    t.intersection([
+      t.partial({
+        id: t.string,
+        agencyId: t.string,
+        tspProductId: t.string,
+        name: t.string,
+        meta: t.record(t.string, t.unknown),
+        icon: Units_.Url,
+        fares: t.array(Fare_.Fare),
+        description: t.string,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       id: Defined,
       agencyId: Defined,
@@ -105,16 +113,16 @@ export const Product: ProductC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       id?: string;
       agencyId?: string;
       tspProductId?: string;
       name?: string;
-      meta?: {};
+      meta?: Record<string, unknown>;
       icon?: Units_.Url;
       fares?: Array<Fare_.Fare>;
       description?: string;
-    } & {
+    } & Record<string, unknown>) & {
       id: Defined;
       agencyId: Defined;
       tspProductId: Defined;
