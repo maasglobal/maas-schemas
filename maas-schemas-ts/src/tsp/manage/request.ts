@@ -31,10 +31,10 @@ export const schemaId = 'http://maasglobal.com/tsp/manage/request.json';
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  {
+  ({
     operation?: string;
     customer?: Customer_.Customer;
-  } & {
+  } & Record<string, unknown>) & {
     operation: Defined;
   },
   RequestBrand
@@ -42,10 +42,15 @@ export type Request = t.Branded<
 export type RequestC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        operation: t.StringC;
-        customer: typeof Customer_.Customer;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            operation: t.StringC;
+            customer: typeof Customer_.Customer;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         operation: typeof Defined;
       }>,
@@ -55,10 +60,13 @@ export type RequestC = t.BrandC<
 >;
 export const Request: RequestC = t.brand(
   t.intersection([
-    t.partial({
-      operation: t.string,
-      customer: Customer_.Customer,
-    }),
+    t.intersection([
+      t.partial({
+        operation: t.string,
+        customer: Customer_.Customer,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       operation: Defined,
     }),
@@ -66,10 +74,10 @@ export const Request: RequestC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       operation?: string;
       customer?: Customer_.Customer;
-    } & {
+    } & Record<string, unknown>) & {
       operation: Defined;
     },
     RequestBrand

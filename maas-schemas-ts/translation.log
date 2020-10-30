@@ -997,6 +997,8 @@ WARNING: maxLength field not supported outside top-level definitions
 INFO: missing description
   in ../maas-schemas/schemas/maas-backend/bookings/bookings-agency-products/response.json
 INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/bookings/bookings-cancel/response.json
+INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/bookings/bookings-list/request.json
 WARNING: pattern field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/bookings/bookings-list/request.json
@@ -1478,6 +1480,14 @@ WARNING: minItems field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/push-notification/request.json
 WARNING: maxItems field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/push-notification/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/push-notification/response.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/push-notification/response.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/push-notification/response.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/push-notification/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/routes/routes-query/request.json
 INFO: primitive type "string" used outside top-level definitions
@@ -1818,6 +1828,14 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/request.json
 WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/response.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/response.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/response.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/webhooks/zendesk-push-notification/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/tsp/booking-options-list/request.json
 WARNING: maxLength field not supported outside top-level definitions

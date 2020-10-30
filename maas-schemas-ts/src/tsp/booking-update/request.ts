@@ -34,14 +34,14 @@ export const schemaId = 'http://maasglobal.com/tsp/booking-update/request.json';
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  {
+  ({
     tspId?: Booking_.TspId;
     state?: 'RESERVED' | 'ACTIVATED' | 'ON_HOLD' | 'EXPIRED';
     configurator?: Configurator_.Configurator;
     meta?: BookingMeta_.BookingMeta;
     terms?: Booking_.Terms;
     customerSelection?: CustomerSelection_.CustomerSelection;
-  } & {
+  } & Record<string, unknown>) & {
     tspId: Defined;
   },
   RequestBrand
@@ -49,21 +49,26 @@ export type Request = t.Branded<
 export type RequestC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        tspId: typeof Booking_.TspId;
-        state: t.UnionC<
-          [
-            t.LiteralC<'RESERVED'>,
-            t.LiteralC<'ACTIVATED'>,
-            t.LiteralC<'ON_HOLD'>,
-            t.LiteralC<'EXPIRED'>,
-          ]
-        >;
-        configurator: typeof Configurator_.Configurator;
-        meta: typeof BookingMeta_.BookingMeta;
-        terms: typeof Booking_.Terms;
-        customerSelection: typeof CustomerSelection_.CustomerSelection;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            tspId: typeof Booking_.TspId;
+            state: t.UnionC<
+              [
+                t.LiteralC<'RESERVED'>,
+                t.LiteralC<'ACTIVATED'>,
+                t.LiteralC<'ON_HOLD'>,
+                t.LiteralC<'EXPIRED'>,
+              ]
+            >;
+            configurator: typeof Configurator_.Configurator;
+            meta: typeof BookingMeta_.BookingMeta;
+            terms: typeof Booking_.Terms;
+            customerSelection: typeof CustomerSelection_.CustomerSelection;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         tspId: typeof Defined;
       }>,
@@ -73,19 +78,22 @@ export type RequestC = t.BrandC<
 >;
 export const Request: RequestC = t.brand(
   t.intersection([
-    t.partial({
-      tspId: Booking_.TspId,
-      state: t.union([
-        t.literal('RESERVED'),
-        t.literal('ACTIVATED'),
-        t.literal('ON_HOLD'),
-        t.literal('EXPIRED'),
-      ]),
-      configurator: Configurator_.Configurator,
-      meta: BookingMeta_.BookingMeta,
-      terms: Booking_.Terms,
-      customerSelection: CustomerSelection_.CustomerSelection,
-    }),
+    t.intersection([
+      t.partial({
+        tspId: Booking_.TspId,
+        state: t.union([
+          t.literal('RESERVED'),
+          t.literal('ACTIVATED'),
+          t.literal('ON_HOLD'),
+          t.literal('EXPIRED'),
+        ]),
+        configurator: Configurator_.Configurator,
+        meta: BookingMeta_.BookingMeta,
+        terms: Booking_.Terms,
+        customerSelection: CustomerSelection_.CustomerSelection,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       tspId: Defined,
     }),
@@ -93,14 +101,14 @@ export const Request: RequestC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       tspId?: Booking_.TspId;
       state?: 'RESERVED' | 'ACTIVATED' | 'ON_HOLD' | 'EXPIRED';
       configurator?: Configurator_.Configurator;
       meta?: BookingMeta_.BookingMeta;
       terms?: Booking_.Terms;
       customerSelection?: CustomerSelection_.CustomerSelection;
-    } & {
+    } & Record<string, unknown>) & {
       tspId: Defined;
     },
     RequestBrand

@@ -33,7 +33,7 @@ export const schemaId = 'http://maasglobal.com/tsp/manage/response.json';
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  {
+  ({
     success?: boolean;
     message?: string;
     updateBookingsWith?: {
@@ -42,7 +42,7 @@ export type Response = t.Branded<
       token?: Booking_.Token;
       tspProducts?: Array<BookingOption_.TspProduct>;
     };
-  } & {
+  } & Record<string, unknown>) & {
     success: Defined;
   },
   ResponseBrand
@@ -50,16 +50,21 @@ export type Response = t.Branded<
 export type ResponseC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        success: t.BooleanC;
-        message: t.StringC;
-        updateBookingsWith: t.PartialC<{
-          meta: typeof BookingMeta_.BookingMeta;
-          terms: typeof Booking_.Terms;
-          token: typeof Booking_.Token;
-          tspProducts: t.ArrayC<typeof BookingOption_.TspProduct>;
-        }>;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            success: t.BooleanC;
+            message: t.StringC;
+            updateBookingsWith: t.PartialC<{
+              meta: typeof BookingMeta_.BookingMeta;
+              terms: typeof Booking_.Terms;
+              token: typeof Booking_.Token;
+              tspProducts: t.ArrayC<typeof BookingOption_.TspProduct>;
+            }>;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         success: typeof Defined;
       }>,
@@ -69,16 +74,19 @@ export type ResponseC = t.BrandC<
 >;
 export const Response: ResponseC = t.brand(
   t.intersection([
-    t.partial({
-      success: t.boolean,
-      message: t.string,
-      updateBookingsWith: t.partial({
-        meta: BookingMeta_.BookingMeta,
-        terms: Booking_.Terms,
-        token: Booking_.Token,
-        tspProducts: t.array(BookingOption_.TspProduct),
+    t.intersection([
+      t.partial({
+        success: t.boolean,
+        message: t.string,
+        updateBookingsWith: t.partial({
+          meta: BookingMeta_.BookingMeta,
+          terms: Booking_.Terms,
+          token: Booking_.Token,
+          tspProducts: t.array(BookingOption_.TspProduct),
+        }),
       }),
-    }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       success: Defined,
     }),
@@ -86,7 +94,7 @@ export const Response: ResponseC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       success?: boolean;
       message?: string;
       updateBookingsWith?: {
@@ -95,7 +103,7 @@ export const Response: ResponseC = t.brand(
         token?: Booking_.Token;
         tspProducts?: Array<BookingOption_.TspProduct>;
       };
-    } & {
+    } & Record<string, unknown>) & {
       success: Defined;
     },
     ResponseBrand

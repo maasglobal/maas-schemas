@@ -33,7 +33,7 @@ export const schemaId =
 export type Response = t.Branded<
   {
     suggestions?: Array<string>;
-    debug?: {};
+    debug?: Record<string, unknown>;
   } & {
     suggestions: Defined;
   },
@@ -44,7 +44,7 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         suggestions: t.ArrayC<t.StringC>;
-        debug: t.TypeC<{}>;
+        debug: t.UnknownRecordC;
       }>,
       t.TypeC<{
         suggestions: typeof Defined;
@@ -57,7 +57,7 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       suggestions: t.array(t.string),
-      debug: t.type({}),
+      debug: t.UnknownRecord,
     }),
     t.type({
       suggestions: Defined,
@@ -68,7 +68,7 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       suggestions?: Array<string>;
-      debug?: {};
+      debug?: Record<string, unknown>;
     } & {
       suggestions: Defined;
     },

@@ -38,7 +38,7 @@ export const schemaId = 'http://maasglobal.com/tsp/booking-create/request.json';
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  {
+  ({
     leg?: BookingOption_.Leg;
     meta?: BookingMeta_.BookingMeta;
     terms?: Booking_.Terms;
@@ -46,7 +46,7 @@ export type Request = t.Branded<
     tspProduct?: BookingOption_.TspProduct;
     configurator?: Configurator_.Configurator;
     customerSelection?: CustomerSelection_.CustomerSelection;
-  } & {
+  } & Record<string, unknown>) & {
     leg: Defined;
     meta: Defined;
     terms: Defined;
@@ -58,15 +58,20 @@ export type Request = t.Branded<
 export type RequestC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        leg: typeof BookingOption_.Leg;
-        meta: typeof BookingMeta_.BookingMeta;
-        terms: typeof Booking_.Terms;
-        customer: typeof Customer_.Customer;
-        tspProduct: typeof BookingOption_.TspProduct;
-        configurator: typeof Configurator_.Configurator;
-        customerSelection: typeof CustomerSelection_.CustomerSelection;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            leg: typeof BookingOption_.Leg;
+            meta: typeof BookingMeta_.BookingMeta;
+            terms: typeof Booking_.Terms;
+            customer: typeof Customer_.Customer;
+            tspProduct: typeof BookingOption_.TspProduct;
+            configurator: typeof Configurator_.Configurator;
+            customerSelection: typeof CustomerSelection_.CustomerSelection;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         leg: typeof Defined;
         meta: typeof Defined;
@@ -80,15 +85,18 @@ export type RequestC = t.BrandC<
 >;
 export const Request: RequestC = t.brand(
   t.intersection([
-    t.partial({
-      leg: BookingOption_.Leg,
-      meta: BookingMeta_.BookingMeta,
-      terms: Booking_.Terms,
-      customer: Customer_.Customer,
-      tspProduct: BookingOption_.TspProduct,
-      configurator: Configurator_.Configurator,
-      customerSelection: CustomerSelection_.CustomerSelection,
-    }),
+    t.intersection([
+      t.partial({
+        leg: BookingOption_.Leg,
+        meta: BookingMeta_.BookingMeta,
+        terms: Booking_.Terms,
+        customer: Customer_.Customer,
+        tspProduct: BookingOption_.TspProduct,
+        configurator: Configurator_.Configurator,
+        customerSelection: CustomerSelection_.CustomerSelection,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       leg: Defined,
       meta: Defined,
@@ -100,7 +108,7 @@ export const Request: RequestC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       leg?: BookingOption_.Leg;
       meta?: BookingMeta_.BookingMeta;
       terms?: Booking_.Terms;
@@ -108,7 +116,7 @@ export const Request: RequestC = t.brand(
       tspProduct?: BookingOption_.TspProduct;
       configurator?: Configurator_.Configurator;
       customerSelection?: CustomerSelection_.CustomerSelection;
-    } & {
+    } & Record<string, unknown>) & {
       leg: Defined;
       meta: Defined;
       terms: Defined;

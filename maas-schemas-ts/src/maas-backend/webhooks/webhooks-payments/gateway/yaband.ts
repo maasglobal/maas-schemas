@@ -32,24 +32,24 @@ export const schemaId =
 // The purpose of this remains a mystery
 export type Request = t.Branded<
   {
-    payload?: {
+    payload?: ({
       sign?: string;
-      data?: {
+      data?: ({
         type?: string;
         order_id?: string;
         trade_id?: string;
         transaction_id?: string;
         state?: string;
-      } & {
+      } & Record<string, unknown>) & {
         type: Defined;
         order_id: Defined;
         state: Defined;
       };
-    } & {
+    } & Record<string, unknown>) & {
       sign: Defined;
       data: Defined;
     };
-    headers?: {};
+    headers?: Record<string, unknown>;
     params?: {
       gatewayName?: string & 'yaband';
     } & {
@@ -67,32 +67,42 @@ export type RequestC = t.BrandC<
       t.PartialC<{
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              sign: t.StringC;
-              data: t.IntersectionC<
-                [
-                  t.PartialC<{
-                    type: t.StringC;
-                    order_id: t.StringC;
-                    trade_id: t.StringC;
-                    transaction_id: t.StringC;
-                    state: t.StringC;
-                  }>,
-                  t.TypeC<{
-                    type: typeof Defined;
-                    order_id: typeof Defined;
-                    state: typeof Defined;
-                  }>,
-                ]
-              >;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  sign: t.StringC;
+                  data: t.IntersectionC<
+                    [
+                      t.IntersectionC<
+                        [
+                          t.PartialC<{
+                            type: t.StringC;
+                            order_id: t.StringC;
+                            trade_id: t.StringC;
+                            transaction_id: t.StringC;
+                            state: t.StringC;
+                          }>,
+                          t.RecordC<t.StringC, t.UnknownC>,
+                        ]
+                      >,
+                      t.TypeC<{
+                        type: typeof Defined;
+                        order_id: typeof Defined;
+                        state: typeof Defined;
+                      }>,
+                    ]
+                  >;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               sign: typeof Defined;
               data: typeof Defined;
             }>,
           ]
         >;
-        headers: t.TypeC<{}>;
+        headers: t.UnknownRecordC;
         params: t.IntersectionC<
           [
             t.PartialC<{
@@ -116,29 +126,35 @@ export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       payload: t.intersection([
-        t.partial({
-          sign: t.string,
-          data: t.intersection([
-            t.partial({
-              type: t.string,
-              order_id: t.string,
-              trade_id: t.string,
-              transaction_id: t.string,
-              state: t.string,
-            }),
-            t.type({
-              type: Defined,
-              order_id: Defined,
-              state: Defined,
-            }),
-          ]),
-        }),
+        t.intersection([
+          t.partial({
+            sign: t.string,
+            data: t.intersection([
+              t.intersection([
+                t.partial({
+                  type: t.string,
+                  order_id: t.string,
+                  trade_id: t.string,
+                  transaction_id: t.string,
+                  state: t.string,
+                }),
+                t.record(t.string, t.unknown),
+              ]),
+              t.type({
+                type: Defined,
+                order_id: Defined,
+                state: Defined,
+              }),
+            ]),
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           sign: Defined,
           data: Defined,
         }),
       ]),
-      headers: t.type({}),
+      headers: t.UnknownRecord,
       params: t.intersection([
         t.partial({
           gatewayName: t.intersection([t.string, t.literal('yaband')]),
@@ -157,24 +173,24 @@ export const Request: RequestC = t.brand(
     x,
   ): x is t.Branded<
     {
-      payload?: {
+      payload?: ({
         sign?: string;
-        data?: {
+        data?: ({
           type?: string;
           order_id?: string;
           trade_id?: string;
           transaction_id?: string;
           state?: string;
-        } & {
+        } & Record<string, unknown>) & {
           type: Defined;
           order_id: Defined;
           state: Defined;
         };
-      } & {
+      } & Record<string, unknown>) & {
         sign: Defined;
         data: Defined;
       };
-      headers?: {};
+      headers?: Record<string, unknown>;
       params?: {
         gatewayName?: string & 'yaband';
       } & {

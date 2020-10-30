@@ -34,7 +34,7 @@ export const schemaId =
 export type Response = t.Branded<
   {
     booking?: Booking_.Booking;
-    debug?: {};
+    debug?: Record<string, unknown>;
   } & {
     booking: Defined;
   },
@@ -45,7 +45,7 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         booking: typeof Booking_.Booking;
-        debug: t.TypeC<{}>;
+        debug: t.RecordC<t.StringC, t.UnknownC>;
       }>,
       t.TypeC<{
         booking: typeof Defined;
@@ -58,7 +58,7 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       booking: Booking_.Booking,
-      debug: t.type({}),
+      debug: t.record(t.string, t.unknown),
     }),
     t.type({
       booking: Defined,
@@ -69,7 +69,7 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       booking?: Booking_.Booking;
-      debug?: {};
+      debug?: Record<string, unknown>;
     } & {
       booking: Defined;
     },

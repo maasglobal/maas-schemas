@@ -41,7 +41,7 @@ export type Choice = t.Branded<
     cost?: Cost_.Cost;
     fares?: Array<Fare_.Fare>;
     terms?: Terms_.Terms;
-    meta?: {};
+    meta?: Record<string, unknown>;
   } & {
     id: Defined;
     name: Defined;
@@ -60,7 +60,7 @@ export type ChoiceC = t.BrandC<
         cost: typeof Cost_.Cost;
         fares: t.ArrayC<typeof Fare_.Fare>;
         terms: typeof Terms_.Terms;
-        meta: t.TypeC<{}>;
+        meta: t.UnknownRecordC;
       }>,
       t.TypeC<{
         id: typeof Defined;
@@ -81,7 +81,7 @@ export const Choice: ChoiceC = t.brand(
       cost: Cost_.Cost,
       fares: t.array(Fare_.Fare),
       terms: Terms_.Terms,
-      meta: t.type({}),
+      meta: t.UnknownRecord,
     }),
     t.type({
       id: Defined,
@@ -100,7 +100,7 @@ export const Choice: ChoiceC = t.brand(
       cost?: Cost_.Cost;
       fares?: Array<Fare_.Fare>;
       terms?: Terms_.Terms;
-      meta?: {};
+      meta?: Record<string, unknown>;
     } & {
       id: Defined;
       name: Defined;

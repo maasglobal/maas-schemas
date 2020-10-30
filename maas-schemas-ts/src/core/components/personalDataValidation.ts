@@ -29,7 +29,7 @@ export type PersonalDataValidation = t.Branded<
         value?: string | number | boolean;
         name?: string;
         description?: string;
-        meta?: {};
+        meta?: Record<string, unknown>;
       }>;
       length?: number;
       regex?: string;
@@ -39,7 +39,7 @@ export type PersonalDataValidation = t.Branded<
         day?: number;
         hour?: number;
       };
-      meta?: {};
+      meta?: Record<string, unknown>;
     };
     errorCode?: string;
   },
@@ -79,7 +79,7 @@ export type PersonalDataValidationC = t.BrandC<
           value: t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>;
           name: t.StringC;
           description: t.StringC;
-          meta: t.TypeC<{}>;
+          meta: t.UnknownRecordC;
         }>
       >;
       length: t.NumberC;
@@ -90,7 +90,7 @@ export type PersonalDataValidationC = t.BrandC<
         day: t.NumberC;
         hour: t.NumberC;
       }>;
-      meta: t.TypeC<{}>;
+      meta: t.UnknownRecordC;
     }>;
     errorCode: t.StringC;
   }>,
@@ -126,7 +126,7 @@ export const PersonalDataValidation: PersonalDataValidationC = t.brand(
           value: t.union([t.string, t.number, t.boolean]),
           name: t.string,
           description: t.string,
-          meta: t.type({}),
+          meta: t.UnknownRecord,
         }),
       ),
       length: t.number,
@@ -137,7 +137,7 @@ export const PersonalDataValidation: PersonalDataValidationC = t.brand(
         day: t.number,
         hour: t.number,
       }),
-      meta: t.type({}),
+      meta: t.UnknownRecord,
     }),
     errorCode: t.string,
   }),
@@ -157,7 +157,7 @@ export const PersonalDataValidation: PersonalDataValidationC = t.brand(
           value?: string | number | boolean;
           name?: string;
           description?: string;
-          meta?: {};
+          meta?: Record<string, unknown>;
         }>;
         length?: number;
         regex?: string;
@@ -167,7 +167,7 @@ export const PersonalDataValidation: PersonalDataValidationC = t.brand(
           day?: number;
           hour?: number;
         };
-        meta?: {};
+        meta?: Record<string, unknown>;
       };
       errorCode?: string;
     },

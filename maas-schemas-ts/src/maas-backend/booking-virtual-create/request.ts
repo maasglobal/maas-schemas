@@ -36,7 +36,7 @@ export const schemaId =
 // The default export. More information at the top.
 export type Request = t.Branded<
   Array<
-    {
+    ({
       paymentSourceId?: Common_.PaymentSourceId;
       productId?: Product_.Id;
       identityId?: Units_.IdentityId;
@@ -44,7 +44,7 @@ export type Request = t.Branded<
       description?: string;
       startTime?: Units_.Time;
       endTime?: Units_.Time;
-    } & {
+    } & Record<string, unknown>) & {
       productId: Defined;
       fare: Defined;
       identityId: Defined;
@@ -56,15 +56,20 @@ export type RequestC = t.BrandC<
   t.ArrayC<
     t.IntersectionC<
       [
-        t.PartialC<{
-          paymentSourceId: typeof Common_.PaymentSourceId;
-          productId: typeof Product_.Id;
-          identityId: typeof Units_.IdentityId;
-          fare: typeof Fare_.Fare;
-          description: t.StringC;
-          startTime: typeof Units_.Time;
-          endTime: typeof Units_.Time;
-        }>,
+        t.IntersectionC<
+          [
+            t.PartialC<{
+              paymentSourceId: typeof Common_.PaymentSourceId;
+              productId: typeof Product_.Id;
+              identityId: typeof Units_.IdentityId;
+              fare: typeof Fare_.Fare;
+              description: t.StringC;
+              startTime: typeof Units_.Time;
+              endTime: typeof Units_.Time;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >,
         t.TypeC<{
           productId: typeof Defined;
           fare: typeof Defined;
@@ -78,15 +83,18 @@ export type RequestC = t.BrandC<
 export const Request: RequestC = t.brand(
   t.array(
     t.intersection([
-      t.partial({
-        paymentSourceId: Common_.PaymentSourceId,
-        productId: Product_.Id,
-        identityId: Units_.IdentityId,
-        fare: Fare_.Fare,
-        description: t.string,
-        startTime: Units_.Time,
-        endTime: Units_.Time,
-      }),
+      t.intersection([
+        t.partial({
+          paymentSourceId: Common_.PaymentSourceId,
+          productId: Product_.Id,
+          identityId: Units_.IdentityId,
+          fare: Fare_.Fare,
+          description: t.string,
+          startTime: Units_.Time,
+          endTime: Units_.Time,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       t.type({
         productId: Defined,
         fare: Defined,
@@ -98,7 +106,7 @@ export const Request: RequestC = t.brand(
     x,
   ): x is t.Branded<
     Array<
-      {
+      ({
         paymentSourceId?: Common_.PaymentSourceId;
         productId?: Product_.Id;
         identityId?: Units_.IdentityId;
@@ -106,7 +114,7 @@ export const Request: RequestC = t.brand(
         description?: string;
         startTime?: Units_.Time;
         endTime?: Units_.Time;
-      } & {
+      } & Record<string, unknown>) & {
         productId: Defined;
         fare: Defined;
         identityId: Defined;

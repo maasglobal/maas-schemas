@@ -35,7 +35,7 @@ export type Response = t.Branded<
   {
     estimate?: Pricing_.Pricing;
     immediateUpdate?: boolean;
-    debug?: {};
+    debug?: Record<string, unknown>;
   } & {
     estimate: Defined;
   },
@@ -47,7 +47,7 @@ export type ResponseC = t.BrandC<
       t.PartialC<{
         estimate: typeof Pricing_.Pricing;
         immediateUpdate: t.BooleanC;
-        debug: t.TypeC<{}>;
+        debug: t.RecordC<t.StringC, t.UnknownC>;
       }>,
       t.TypeC<{
         estimate: typeof Defined;
@@ -61,7 +61,7 @@ export const Response: ResponseC = t.brand(
     t.partial({
       estimate: Pricing_.Pricing,
       immediateUpdate: t.boolean,
-      debug: t.type({}),
+      debug: t.record(t.string, t.unknown),
     }),
     t.type({
       estimate: Defined,
@@ -73,7 +73,7 @@ export const Response: ResponseC = t.brand(
     {
       estimate?: Pricing_.Pricing;
       immediateUpdate?: boolean;
-      debug?: {};
+      debug?: Record<string, unknown>;
     } & {
       estimate: Defined;
     },

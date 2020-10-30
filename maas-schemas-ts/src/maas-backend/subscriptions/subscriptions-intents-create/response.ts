@@ -34,7 +34,7 @@ export const schemaId =
 export type Response = t.Branded<
   {
     subscriptionIntent?: SubscriptionIntent_.SubscriptionIntentBase;
-    debug?: {};
+    debug?: Record<string, unknown>;
   } & {
     subscriptionIntent: Defined;
   },
@@ -45,7 +45,7 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         subscriptionIntent: typeof SubscriptionIntent_.SubscriptionIntentBase;
-        debug: t.TypeC<{}>;
+        debug: t.RecordC<t.StringC, t.UnknownC>;
       }>,
       t.TypeC<{
         subscriptionIntent: typeof Defined;
@@ -58,7 +58,7 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       subscriptionIntent: SubscriptionIntent_.SubscriptionIntentBase,
-      debug: t.type({}),
+      debug: t.record(t.string, t.unknown),
     }),
     t.type({
       subscriptionIntent: Defined,
@@ -69,7 +69,7 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       subscriptionIntent?: SubscriptionIntent_.SubscriptionIntentBase;
-      debug?: {};
+      debug?: Record<string, unknown>;
     } & {
       subscriptionIntent: Defined;
     },

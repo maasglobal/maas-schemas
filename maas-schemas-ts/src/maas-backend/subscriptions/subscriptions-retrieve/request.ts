@@ -37,7 +37,7 @@ export type Request = t.Branded<
     identityId?: Units_.IdentityId;
     userId?: Units_.IdentityId;
     nextPeriod?: boolean;
-    payload?: {};
+    payload?: Record<string, unknown>;
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
@@ -52,7 +52,7 @@ export type RequestC = t.BrandC<
         identityId: typeof Units_.IdentityId;
         userId: typeof Units_.IdentityId;
         nextPeriod: t.BooleanC;
-        payload: t.TypeC<{}>;
+        payload: t.UnknownRecordC;
         headers: typeof ApiCommon_.Headers;
       }>,
       t.TypeC<{
@@ -69,7 +69,7 @@ export const Request: RequestC = t.brand(
       identityId: Units_.IdentityId,
       userId: Units_.IdentityId,
       nextPeriod: t.boolean,
-      payload: t.type({}),
+      payload: t.UnknownRecord,
       headers: ApiCommon_.Headers,
     }),
     t.type({
@@ -84,7 +84,7 @@ export const Request: RequestC = t.brand(
       identityId?: Units_.IdentityId;
       userId?: Units_.IdentityId;
       nextPeriod?: boolean;
-      payload?: {};
+      payload?: Record<string, unknown>;
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;

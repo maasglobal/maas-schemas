@@ -52,7 +52,7 @@ export type Payload = t.Branded<
     modes?: string &
       ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT');
     transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
-    options?: {};
+    options?: Record<string, unknown>;
     bookingIdToExtend?: Units_.Uuid;
   } & Record<
     string,
@@ -70,7 +70,7 @@ export type Payload = t.Branded<
     | Units_.Time
     | (string & ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT'))
     | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
-    | {}
+    | Record<string, unknown>
     | Units_.Uuid
     | (string | number | boolean)
   >) & {
@@ -126,7 +126,7 @@ export type PayloadC = t.BrandC<
                 >,
               ]
             >;
-            options: t.TypeC<{}>;
+            options: t.UnknownRecordC;
             bookingIdToExtend: typeof Units_.Uuid;
           }>,
           t.RecordC<
@@ -174,7 +174,7 @@ export type PayloadC = t.BrandC<
                     >,
                   ]
                 >,
-                t.TypeC<{}>,
+                t.UnknownRecordC,
                 typeof Units_.Uuid,
                 t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>,
               ]
@@ -227,7 +227,7 @@ export const Payload: PayloadC = t.brand(
             t.literal('RAIL'),
           ]),
         ]),
-        options: t.type({}),
+        options: t.UnknownRecord,
         bookingIdToExtend: Units_.Uuid,
       }),
       t.record(
@@ -266,7 +266,7 @@ export const Payload: PayloadC = t.brand(
               t.literal('RAIL'),
             ]),
           ]),
-          t.type({}),
+          t.UnknownRecord,
           Units_.Uuid,
           t.union([t.string, t.number, t.boolean]),
         ]),
@@ -296,7 +296,7 @@ export const Payload: PayloadC = t.brand(
       modes?: string &
         ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT');
       transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
-      options?: {};
+      options?: Record<string, unknown>;
       bookingIdToExtend?: Units_.Uuid;
     } & Record<
       string,
@@ -315,7 +315,7 @@ export const Payload: PayloadC = t.brand(
       | (string &
           ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT'))
       | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
-      | {}
+      | Record<string, unknown>
       | Units_.Uuid
       | (string | number | boolean)
     >) & {

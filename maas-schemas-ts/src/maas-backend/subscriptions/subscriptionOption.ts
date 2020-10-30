@@ -35,13 +35,13 @@ export const schemaId =
 // SubscriptionAdditions
 // The purpose of this remains a mystery
 export type SubscriptionAdditions = t.Branded<
-  {
+  ({
     discounts?: Array<unknown>;
     requiredAuthorizations?: Array<Common_.AgencyId>;
     regionDefault?: boolean;
     personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
     personalDataValidations?: Array<PersonalDataValidation_.PersonalDataValidation>;
-  } & {
+  } & Record<string, unknown>) & {
     plan: Defined;
     wmpGrant: Defined;
     pointCost: Defined;
@@ -55,17 +55,22 @@ export type SubscriptionAdditions = t.Branded<
 export type SubscriptionAdditionsC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        discounts: t.UnknownArrayC;
-        requiredAuthorizations: t.ArrayC<typeof Common_.AgencyId>;
-        regionDefault: t.BooleanC;
-        personalDataCreateAllow: t.ArrayC<
-          typeof PersonalDataAllowItem_.PersonalDataAllowItem
-        >;
-        personalDataValidations: t.ArrayC<
-          typeof PersonalDataValidation_.PersonalDataValidation
-        >;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            discounts: t.UnknownArrayC;
+            requiredAuthorizations: t.ArrayC<typeof Common_.AgencyId>;
+            regionDefault: t.BooleanC;
+            personalDataCreateAllow: t.ArrayC<
+              typeof PersonalDataAllowItem_.PersonalDataAllowItem
+            >;
+            personalDataValidations: t.ArrayC<
+              typeof PersonalDataValidation_.PersonalDataValidation
+            >;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         plan: typeof Defined;
         wmpGrant: typeof Defined;
@@ -81,13 +86,16 @@ export type SubscriptionAdditionsC = t.BrandC<
 >;
 export const SubscriptionAdditions: SubscriptionAdditionsC = t.brand(
   t.intersection([
-    t.partial({
-      discounts: t.UnknownArray,
-      requiredAuthorizations: t.array(Common_.AgencyId),
-      regionDefault: t.boolean,
-      personalDataCreateAllow: t.array(PersonalDataAllowItem_.PersonalDataAllowItem),
-      personalDataValidations: t.array(PersonalDataValidation_.PersonalDataValidation),
-    }),
+    t.intersection([
+      t.partial({
+        discounts: t.UnknownArray,
+        requiredAuthorizations: t.array(Common_.AgencyId),
+        regionDefault: t.boolean,
+        personalDataCreateAllow: t.array(PersonalDataAllowItem_.PersonalDataAllowItem),
+        personalDataValidations: t.array(PersonalDataValidation_.PersonalDataValidation),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       plan: Defined,
       wmpGrant: Defined,
@@ -101,13 +109,13 @@ export const SubscriptionAdditions: SubscriptionAdditionsC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       discounts?: Array<unknown>;
       requiredAuthorizations?: Array<Common_.AgencyId>;
       regionDefault?: boolean;
       personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
       personalDataValidations?: Array<PersonalDataValidation_.PersonalDataValidation>;
-    } & {
+    } & Record<string, unknown>) & {
       plan: Defined;
       wmpGrant: Defined;
       pointCost: Defined;

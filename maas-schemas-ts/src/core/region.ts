@@ -31,13 +31,13 @@ export const schemaId = 'http://maasglobal.com/core/region.json';
 // Region
 // The default export. More information at the top.
 export type Region = t.Branded<
-  {
+  ({
     id?: string;
     name?: string;
     countryCode?: Address_.Country;
     zipCode?: Address_.ZipCode;
-    availability?: {};
-  } & {
+    availability?: Record<string, unknown>;
+  } & Record<string, unknown>) & {
     id: Defined;
     countryCode: Defined;
     zipCode: Defined;
@@ -47,13 +47,18 @@ export type Region = t.Branded<
 export type RegionC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        id: t.StringC;
-        name: t.StringC;
-        countryCode: typeof Address_.Country;
-        zipCode: typeof Address_.ZipCode;
-        availability: t.TypeC<{}>;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            id: t.StringC;
+            name: t.StringC;
+            countryCode: typeof Address_.Country;
+            zipCode: typeof Address_.ZipCode;
+            availability: t.RecordC<t.StringC, t.UnknownC>;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         id: typeof Defined;
         countryCode: typeof Defined;
@@ -65,13 +70,16 @@ export type RegionC = t.BrandC<
 >;
 export const Region: RegionC = t.brand(
   t.intersection([
-    t.partial({
-      id: t.string,
-      name: t.string,
-      countryCode: Address_.Country,
-      zipCode: Address_.ZipCode,
-      availability: t.type({}),
-    }),
+    t.intersection([
+      t.partial({
+        id: t.string,
+        name: t.string,
+        countryCode: Address_.Country,
+        zipCode: Address_.ZipCode,
+        availability: t.record(t.string, t.unknown),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       id: Defined,
       countryCode: Defined,
@@ -81,13 +89,13 @@ export const Region: RegionC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       id?: string;
       name?: string;
       countryCode?: Address_.Country;
       zipCode?: Address_.ZipCode;
-      availability?: {};
-    } & {
+      availability?: Record<string, unknown>;
+    } & Record<string, unknown>) & {
       id: Defined;
       countryCode: Defined;
       zipCode: Defined;

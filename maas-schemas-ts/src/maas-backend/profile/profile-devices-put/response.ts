@@ -103,7 +103,7 @@ export interface DeviceBrand {
 export type Response = t.Branded<
   {
     device?: Device;
-    debug?: {};
+    debug?: Record<string, unknown>;
   } & {
     device: Defined;
   },
@@ -114,7 +114,7 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         device: typeof Device;
-        debug: t.TypeC<{}>;
+        debug: t.UnknownRecordC;
       }>,
       t.TypeC<{
         device: typeof Defined;
@@ -127,7 +127,7 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       device: Device,
-      debug: t.type({}),
+      debug: t.UnknownRecord,
     }),
     t.type({
       device: Defined,
@@ -138,7 +138,7 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       device?: Device;
-      debug?: {};
+      debug?: Record<string, unknown>;
     } & {
       device: Defined;
     },

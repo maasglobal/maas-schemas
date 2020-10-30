@@ -14,11 +14,11 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_BUSISH.json';
 
 // MODE_BUSISH
 // The default export. More information at the top.
-export type MODE_BUSISH = t.Branded<{}, MODE_BUSISHBrand>;
-export type MODE_BUSISHC = t.BrandC<t.TypeC<{}>, MODE_BUSISHBrand>;
+export type MODE_BUSISH = t.Branded<Record<string, unknown>, MODE_BUSISHBrand>;
+export type MODE_BUSISHC = t.BrandC<t.UnknownRecordC, MODE_BUSISHBrand>;
 export const MODE_BUSISH: MODE_BUSISHC = t.brand(
-  t.type({}),
-  (x): x is t.Branded<{}, MODE_BUSISHBrand> => true,
+  t.UnknownRecord,
+  (x): x is t.Branded<Record<string, unknown>, MODE_BUSISHBrand> => true,
   'MODE_BUSISH',
 );
 export interface MODE_BUSISHBrand {

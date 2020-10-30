@@ -34,7 +34,7 @@ export const schemaId =
 export type Response = t.Branded<
   {
     virtualCard?: VirtualCard_.VirtualCard;
-    provisionData?: {};
+    provisionData?: Record<string, unknown>;
   } & {
     virtualCard: Defined;
     provisionData: Defined;
@@ -46,7 +46,7 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         virtualCard: typeof VirtualCard_.VirtualCard;
-        provisionData: t.TypeC<{}>;
+        provisionData: t.UnknownRecordC;
       }>,
       t.TypeC<{
         virtualCard: typeof Defined;
@@ -60,7 +60,7 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       virtualCard: VirtualCard_.VirtualCard,
-      provisionData: t.type({}),
+      provisionData: t.UnknownRecord,
     }),
     t.type({
       virtualCard: Defined,
@@ -72,7 +72,7 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       virtualCard?: VirtualCard_.VirtualCard;
-      provisionData?: {};
+      provisionData?: Record<string, unknown>;
     } & {
       virtualCard: Defined;
       provisionData: Defined;

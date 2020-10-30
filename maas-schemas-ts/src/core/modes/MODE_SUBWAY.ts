@@ -14,11 +14,11 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_SUBWAY.json';
 
 // MODE_SUBWAY
 // The default export. More information at the top.
-export type MODE_SUBWAY = t.Branded<{}, MODE_SUBWAYBrand>;
-export type MODE_SUBWAYC = t.BrandC<t.TypeC<{}>, MODE_SUBWAYBrand>;
+export type MODE_SUBWAY = t.Branded<Record<string, unknown>, MODE_SUBWAYBrand>;
+export type MODE_SUBWAYC = t.BrandC<t.UnknownRecordC, MODE_SUBWAYBrand>;
 export const MODE_SUBWAY: MODE_SUBWAYC = t.brand(
-  t.type({}),
-  (x): x is t.Branded<{}, MODE_SUBWAYBrand> => true,
+  t.UnknownRecord,
+  (x): x is t.Branded<Record<string, unknown>, MODE_SUBWAYBrand> => true,
   'MODE_SUBWAY',
 );
 export interface MODE_SUBWAYBrand {
