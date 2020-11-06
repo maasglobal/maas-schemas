@@ -48,7 +48,8 @@ export type Cost = t.Branded<
     discount?: number;
     taxes?: number;
     isFixedPrice?: boolean;
-    currency?: Units_.Currency | Null;
+    currency?: Units_.Currency | null;
+    type?: string & 'promotional_credits';
   } & {
     amount: Defined;
     currency: Defined;
@@ -64,7 +65,8 @@ export type CostC = t.BrandC<
         discount: t.NumberC;
         taxes: t.NumberC;
         isFixedPrice: t.BooleanC;
-        currency: t.UnionC<[typeof Units_.Currency, typeof Null]>;
+        currency: t.UnionC<[typeof Units_.Currency, t.NullC]>;
+        type: t.IntersectionC<[t.StringC, t.LiteralC<'promotional_credits'>]>;
       }>,
       t.TypeC<{
         amount: typeof Defined;
@@ -82,7 +84,8 @@ export const Cost: CostC = t.brand(
       discount: t.number,
       taxes: t.number,
       isFixedPrice: t.boolean,
-      currency: t.union([Units_.Currency, Null]),
+      currency: t.union([Units_.Currency, t.null]),
+      type: t.intersection([t.string, t.literal('promotional_credits')]),
     }),
     t.type({
       amount: Defined,
@@ -98,7 +101,8 @@ export const Cost: CostC = t.brand(
       discount?: number;
       taxes?: number;
       isFixedPrice?: boolean;
-      currency?: Units_.Currency | Null;
+      currency?: Units_.Currency | null;
+      type?: string & 'promotional_credits';
     } & {
       amount: Defined;
       currency: Defined;

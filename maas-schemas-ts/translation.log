@@ -245,6 +245,8 @@ WARNING: minimum field not supported outside top-level definitions
 WARNING: multipleOf field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/cost.json
 INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/cost.json
+INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/customerSelection.json
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/customerSelection.json
