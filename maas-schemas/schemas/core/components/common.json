@@ -26,11 +26,6 @@
       "type": "string",
       "minLength": 2
     },
-    "balanceCurrency": {
-      "description": "Currency codes allowed in customer's balance",
-      "type": "string",
-      "enum": ["EUR", "GBP", "SGD", "USD", "JPY", "CHF", "WMP", "TOKEN"]
-    },
     "metaCurrency": {
       "type": "string",
       "enum": ["WMP", "TOKEN"]
