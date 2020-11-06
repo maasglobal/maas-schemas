@@ -83,6 +83,58 @@ export interface JsonParamBrand {
   readonly JsonParam: unique symbol;
 }
 
+// BalanceCurrency
+// Currency codes allowed in customer's balance
+export type BalanceCurrency = t.Branded<
+  string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY' | 'CHF' | 'WMP' | 'TOKEN'),
+  BalanceCurrencyBrand
+>;
+export type BalanceCurrencyC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<
+        [
+          t.LiteralC<'EUR'>,
+          t.LiteralC<'GBP'>,
+          t.LiteralC<'SGD'>,
+          t.LiteralC<'USD'>,
+          t.LiteralC<'JPY'>,
+          t.LiteralC<'CHF'>,
+          t.LiteralC<'WMP'>,
+          t.LiteralC<'TOKEN'>,
+        ]
+      >,
+    ]
+  >,
+  BalanceCurrencyBrand
+>;
+export const BalanceCurrency: BalanceCurrencyC = t.brand(
+  t.intersection([
+    t.string,
+    t.union([
+      t.literal('EUR'),
+      t.literal('GBP'),
+      t.literal('SGD'),
+      t.literal('USD'),
+      t.literal('JPY'),
+      t.literal('CHF'),
+      t.literal('WMP'),
+      t.literal('TOKEN'),
+    ]),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY' | 'CHF' | 'WMP' | 'TOKEN'),
+    BalanceCurrencyBrand
+  > => true,
+  'BalanceCurrency',
+);
+export interface BalanceCurrencyBrand {
+  readonly BalanceCurrency: unique symbol;
+}
+
 // MetaCurrency
 // The purpose of this remains a mystery
 export type MetaCurrency = t.Branded<string & ('WMP' | 'TOKEN'), MetaCurrencyBrand>;
