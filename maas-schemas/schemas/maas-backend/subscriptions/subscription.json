@@ -167,7 +167,8 @@
             "providerName": {
               "type": "string"
             }
-          }
+          },
+          "required": ["providerName"]
         }
       },
       "required": ["id", "quantity"],
