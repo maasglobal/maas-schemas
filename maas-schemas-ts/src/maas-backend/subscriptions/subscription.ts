@@ -132,6 +132,11 @@ export type Addon = t.Branded<
     quantity?: number;
     unitPrice?: Price;
     image?: Units_.Url;
+    virtualCardIssue?: {
+      providerName?: string;
+    } & {
+      providerName: Defined;
+    };
   } & {
     id: Defined;
     quantity: Defined;
@@ -148,6 +153,16 @@ export type AddonC = t.BrandC<
         quantity: t.NumberC;
         unitPrice: typeof Price;
         image: typeof Units_.Url;
+        virtualCardIssue: t.IntersectionC<
+          [
+            t.PartialC<{
+              providerName: t.StringC;
+            }>,
+            t.TypeC<{
+              providerName: typeof Defined;
+            }>,
+          ]
+        >;
       }>,
       t.TypeC<{
         id: typeof Defined;
@@ -166,6 +181,14 @@ export const Addon: AddonC = t.brand(
       quantity: t.number,
       unitPrice: Price,
       image: Units_.Url,
+      virtualCardIssue: t.intersection([
+        t.partial({
+          providerName: t.string,
+        }),
+        t.type({
+          providerName: Defined,
+        }),
+      ]),
     }),
     t.type({
       id: Defined,
@@ -182,6 +205,11 @@ export const Addon: AddonC = t.brand(
       quantity?: number;
       unitPrice?: Price;
       image?: Units_.Url;
+      virtualCardIssue?: {
+        providerName?: string;
+      } & {
+        providerName: Defined;
+      };
     } & {
       id: Defined;
       quantity: Defined;

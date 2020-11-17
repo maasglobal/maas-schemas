@@ -160,6 +160,15 @@
         },
         "image": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+        },
+        "virtualCardIssue": {
+          "type": "object",
+          "properties": {
+            "providerName": {
+              "type": "string"
+            }
+          },
+          "required": ["providerName"]
         }
       },
       "required": ["id", "quantity"],
