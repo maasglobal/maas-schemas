@@ -414,65 +414,60 @@ export type SubscriptionBase = t.Branded<
     selectable?: boolean;
     topUpId?: string;
     changeState?: SubscriptionChangeState_.SubscriptionChangeState;
-  } & Record<string, unknown>,
+    cycles?: number;
+  },
   SubscriptionBaseBrand
 >;
 export type SubscriptionBaseC = t.BrandC<
-  t.IntersectionC<
-    [
-      t.PartialC<{
-        id: typeof Contact_.IdentityId;
-        customerId: typeof Contact_.IdentityId;
-        plan: typeof Plan;
-        addons: t.ArrayC<typeof Addon>;
-        coupons: t.ArrayC<typeof Coupon>;
-        terms: typeof Terms;
-        pointCost: typeof PointCost_.PointCost;
-        region: typeof Region_.Region;
-        shippingAddress: typeof SubscriptionAddress_.SubscriptionAddress;
-        availability: t.RecordC<t.StringC, t.UnknownC>;
-        name: t.StringC;
-        description: t.StringC;
-        meta: t.RecordC<t.StringC, t.UnknownC>;
-        level: t.NumberC;
-        wmpGrant: t.NumberC;
-        active: t.BooleanC;
-        hidden: t.BooleanC;
-        selectable: t.BooleanC;
-        topUpId: t.StringC;
-        changeState: typeof SubscriptionChangeState_.SubscriptionChangeState;
-      }>,
-      t.RecordC<t.StringC, t.UnknownC>,
-    ]
-  >,
+  t.PartialC<{
+    id: typeof Contact_.IdentityId;
+    customerId: typeof Contact_.IdentityId;
+    plan: typeof Plan;
+    addons: t.ArrayC<typeof Addon>;
+    coupons: t.ArrayC<typeof Coupon>;
+    terms: typeof Terms;
+    pointCost: typeof PointCost_.PointCost;
+    region: typeof Region_.Region;
+    shippingAddress: typeof SubscriptionAddress_.SubscriptionAddress;
+    availability: t.TypeC<{}>;
+    name: t.StringC;
+    description: t.StringC;
+    meta: t.TypeC<{}>;
+    level: t.NumberC;
+    wmpGrant: t.NumberC;
+    active: t.BooleanC;
+    hidden: t.BooleanC;
+    selectable: t.BooleanC;
+    topUpId: t.StringC;
+    changeState: typeof SubscriptionChangeState_.SubscriptionChangeState;
+    cycles: t.NumberC;
+  }>,
   SubscriptionBaseBrand
 >;
 export const SubscriptionBase: SubscriptionBaseC = t.brand(
-  t.intersection([
-    t.partial({
-      id: Contact_.IdentityId,
-      customerId: Contact_.IdentityId,
-      plan: Plan,
-      addons: t.array(Addon),
-      coupons: t.array(Coupon),
-      terms: Terms,
-      pointCost: PointCost_.PointCost,
-      region: Region_.Region,
-      shippingAddress: SubscriptionAddress_.SubscriptionAddress,
-      availability: t.record(t.string, t.unknown),
-      name: t.string,
-      description: t.string,
-      meta: t.record(t.string, t.unknown),
-      level: t.number,
-      wmpGrant: t.number,
-      active: t.boolean,
-      hidden: t.boolean,
-      selectable: t.boolean,
-      topUpId: t.string,
-      changeState: SubscriptionChangeState_.SubscriptionChangeState,
-    }),
-    t.record(t.string, t.unknown),
-  ]),
+  t.partial({
+    id: Contact_.IdentityId,
+    customerId: Contact_.IdentityId,
+    plan: Plan,
+    addons: t.array(Addon),
+    coupons: t.array(Coupon),
+    terms: Terms,
+    pointCost: PointCost_.PointCost,
+    region: Region_.Region,
+    shippingAddress: SubscriptionAddress_.SubscriptionAddress,
+    availability: t.type({}),
+    name: t.string,
+    description: t.string,
+    meta: t.type({}),
+    level: t.number,
+    wmpGrant: t.number,
+    active: t.boolean,
+    hidden: t.boolean,
+    selectable: t.boolean,
+    topUpId: t.string,
+    changeState: SubscriptionChangeState_.SubscriptionChangeState,
+    cycles: t.number,
+  }),
   (
     x,
   ): x is t.Branded<
@@ -497,7 +492,8 @@ export const SubscriptionBase: SubscriptionBaseC = t.brand(
       selectable?: boolean;
       topUpId?: string;
       changeState?: SubscriptionChangeState_.SubscriptionChangeState;
-    } & Record<string, unknown>,
+      cycles?: number;
+    },
     SubscriptionBaseBrand
   > => true,
   'SubscriptionBase',

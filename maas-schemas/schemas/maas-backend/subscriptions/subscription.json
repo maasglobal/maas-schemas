@@ -113,6 +113,10 @@
         },
         "changeState": {
           "$ref": "http://maasglobal.com/core/components/subscriptionChangeState.json"
+        },
+        "cycles": {
+          "description": "Number of subscription cycles (e.g. months) that the subscription is paid in advance",
+          "type": "integer"
         }
       },
       "additionalProperties": true
