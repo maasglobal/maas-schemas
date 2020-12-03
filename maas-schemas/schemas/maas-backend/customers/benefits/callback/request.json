@@ -1,0 +1,19 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/benefits/callback/request.json",
+  "additionalProperties": false,
+  "description": "MaaS customer benefits callback",
+  "properties": {
+    "payload": {
+      "properties": {
+        "jwt": {
+          "type": "string",
+          "description": "JWT Token"
+        }
+      },
+      "required": ["jwt"],
+      "type": "object"
+    }
+  },
+  "required": ["payload"],
+  "type": "object"
+}
