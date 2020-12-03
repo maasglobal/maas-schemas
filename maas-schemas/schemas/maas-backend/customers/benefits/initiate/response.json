@@ -1,0 +1,12 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/benefist/initiate/response.json",
+  "description": "MaaS customer benefits initiate",
+  "type": "object",
+  "properties": {
+    "checkoutUrl": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+    }
+  },
+  "required": ["checkoutUrl"],
+  "additionalProperties": false
+}

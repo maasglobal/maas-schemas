@@ -1,0 +1,32 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/benefits/initiate/request.json",
+  "additionalProperties": false,
+  "description": "MaaS customer benefits initiate",
+  "properties": {
+    "customerId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    },
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "properties": {
+        "amount": {
+          "type": "integer",
+          "description": "Amount of money to transfer in cents"
+        },
+        "currency": {
+          "enum": ["EUR"],
+          "description": "Currency code. Currently supported is EUR only"
+        }
+      },
+      "required": ["amount"],
+      "type": "object"
+    }
+  },
+  "required": ["identityId", "customerId", "payload", "headers"],
+  "type": "object"
+}
