@@ -11,7 +11,7 @@
         "planAddons": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/addonId"
+            "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/addon"
           }
         },
         "planCoupons": {
@@ -44,7 +44,7 @@
         "nextPlanAddons": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/addonId"
+            "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/addon"
           }
         },
         "nextPlanCoupons": {
@@ -59,7 +59,7 @@
         "prevPlanAddons": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/addonId"
+            "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/addon"
           }
         },
         "state": {
