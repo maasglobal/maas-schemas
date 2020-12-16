@@ -10,6 +10,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 import * as Units_ from './components/units';
+import * as Common_ from './components/common';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -158,10 +159,12 @@ export type PersonalDocument = t.Branded<
         context: Defined;
       }
     >;
+    kycServiceId?: string;
+    firstName?: Common_.PersonalName;
+    lastName?: Common_.PersonalName;
   } & {
     type: Defined;
     documentNumber: Defined;
-    nameOnDocument: Defined;
     issuingCountry: Defined;
     status: Defined;
     validFrom: Defined;
@@ -199,11 +202,13 @@ export type PersonalDocumentC = t.BrandC<
             ]
           >
         >;
+        kycServiceId: t.StringC;
+        firstName: typeof Common_.PersonalName;
+        lastName: typeof Common_.PersonalName;
       }>,
       t.TypeC<{
         type: typeof Defined;
         documentNumber: typeof Defined;
-        nameOnDocument: typeof Defined;
         issuingCountry: typeof Defined;
         status: typeof Defined;
         validFrom: typeof Defined;
@@ -240,11 +245,13 @@ export const PersonalDocument: PersonalDocumentC = t.brand(
           }),
         ]),
       ),
+      kycServiceId: t.string,
+      firstName: Common_.PersonalName,
+      lastName: Common_.PersonalName,
     }),
     t.type({
       type: Defined,
       documentNumber: Defined,
-      nameOnDocument: Defined,
       issuingCountry: Defined,
       status: Defined,
       validFrom: Defined,
@@ -276,10 +283,12 @@ export const PersonalDocument: PersonalDocumentC = t.brand(
           context: Defined;
         }
       >;
+      kycServiceId?: string;
+      firstName?: Common_.PersonalName;
+      lastName?: Common_.PersonalName;
     } & {
       type: Defined;
       documentNumber: Defined;
-      nameOnDocument: Defined;
       issuingCountry: Defined;
       status: Defined;
       validFrom: Defined;
