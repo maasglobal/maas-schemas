@@ -40,6 +40,34 @@
         },
         "modified": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        "metadata": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "agencyId": {
+                  "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+                },
+                "locale": {
+                  "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "properties": {
+                "planId": {
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 255
+                },
+                "locale": {
+                  "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale"
+                }
+              }
+            }
+          ]
         }
       },
       "required": ["id", "identityId", "kycServiceId", "status", "stateLog"]

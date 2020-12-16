@@ -12,6 +12,7 @@ import * as t from 'io-ts';
 import * as Units_ from '../../../../core/components/units';
 import * as ApiCommon_ from '../../../../core/components/api-common';
 import * as UnitsGeo_ from '../../../../core/components/units-geo';
+import * as Common_ from '../../../../core/components/common';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -40,6 +41,13 @@ export type Request = t.Branded<
     identityId?: Units_.IdentityId;
     payload?: {
       location?: UnitsGeo_.ShortLocationString;
+      metadata?:
+        | {
+            agencyId?: Common_.AgencyId;
+          }
+        | {
+            planId?: string;
+          };
     } & {
       location: Defined;
     };
@@ -62,6 +70,16 @@ export type RequestC = t.BrandC<
           [
             t.PartialC<{
               location: typeof UnitsGeo_.ShortLocationString;
+              metadata: t.UnionC<
+                [
+                  t.PartialC<{
+                    agencyId: typeof Common_.AgencyId;
+                  }>,
+                  t.PartialC<{
+                    planId: t.StringC;
+                  }>,
+                ]
+              >;
             }>,
             t.TypeC<{
               location: typeof Defined;
@@ -88,6 +106,14 @@ export const Request: RequestC = t.brand(
       payload: t.intersection([
         t.partial({
           location: UnitsGeo_.ShortLocationString,
+          metadata: t.union([
+            t.partial({
+              agencyId: Common_.AgencyId,
+            }),
+            t.partial({
+              planId: t.string,
+            }),
+          ]),
         }),
         t.type({
           location: Defined,
@@ -110,6 +136,13 @@ export const Request: RequestC = t.brand(
       identityId?: Units_.IdentityId;
       payload?: {
         location?: UnitsGeo_.ShortLocationString;
+        metadata?:
+          | {
+              agencyId?: Common_.AgencyId;
+            }
+          | {
+              planId?: string;
+            };
       } & {
         location: Defined;
       };
