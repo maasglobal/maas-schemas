@@ -746,6 +746,10 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/personal-document.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/personal-document.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/personal-document.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/personal-document.json
 INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json
 INFO: missing description
@@ -1101,6 +1105,12 @@ INFO: primitive type "integer" used outside top-level definitions
 WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/stats/response.json
 INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/verification/initiate/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/verification/initiate/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/verification/initiate/request.json
+INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/verification/media/get/request.json
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/verification/media/get/request.json
@@ -1110,6 +1120,12 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/verification/media/get/request.json
 WARNING: minItems field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/verification/status/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/verification/verification-object.json
 WARNING: minLength field not supported outside top-level definitions

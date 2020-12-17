@@ -11,6 +11,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from '../../../core/components/units';
 import * as StateLog_ from '../../../core/components/state-log';
+import * as Common_ from '../../../core/components/common';
+import * as I18n_ from '../../../core/components/i18n';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -43,6 +45,15 @@ export type Verification = t.Branded<
     stateLog?: StateLog_.StateLog;
     created?: Units_.Time;
     modified?: Units_.Time;
+    metadata?:
+      | {
+          agencyId?: Common_.AgencyId;
+          locale?: I18n_.Locale;
+        }
+      | {
+          planId?: string;
+          locale?: I18n_.Locale;
+        };
   } & {
     id: Defined;
     identityId: Defined;
@@ -65,6 +76,18 @@ export type VerificationC = t.BrandC<
         stateLog: typeof StateLog_.StateLog;
         created: typeof Units_.Time;
         modified: typeof Units_.Time;
+        metadata: t.UnionC<
+          [
+            t.PartialC<{
+              agencyId: typeof Common_.AgencyId;
+              locale: typeof I18n_.Locale;
+            }>,
+            t.PartialC<{
+              planId: t.StringC;
+              locale: typeof I18n_.Locale;
+            }>,
+          ]
+        >;
       }>,
       t.TypeC<{
         id: typeof Defined;
@@ -89,6 +112,16 @@ export const Verification: VerificationC = t.brand(
       stateLog: StateLog_.StateLog,
       created: Units_.Time,
       modified: Units_.Time,
+      metadata: t.union([
+        t.partial({
+          agencyId: Common_.AgencyId,
+          locale: I18n_.Locale,
+        }),
+        t.partial({
+          planId: t.string,
+          locale: I18n_.Locale,
+        }),
+      ]),
     }),
     t.type({
       id: Defined,
@@ -111,6 +144,15 @@ export const Verification: VerificationC = t.brand(
       stateLog?: StateLog_.StateLog;
       created?: Units_.Time;
       modified?: Units_.Time;
+      metadata?:
+        | {
+            agencyId?: Common_.AgencyId;
+            locale?: I18n_.Locale;
+          }
+        | {
+            planId?: string;
+            locale?: I18n_.Locale;
+          };
     } & {
       id: Defined;
       identityId: Defined;
