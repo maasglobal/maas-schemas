@@ -42,12 +42,16 @@ export type Request = t.Branded<
     payload?: {
       location?: UnitsGeo_.ShortLocationString;
       metadata?:
-        | {
+        | ({
             agencyId?: Common_.AgencyId;
-          }
-        | {
+          } & {
+            agencyId: Defined;
+          })
+        | ({
             planId?: string;
-          };
+          } & {
+            planId: Defined;
+          });
     } & {
       location: Defined;
     };
@@ -72,12 +76,26 @@ export type RequestC = t.BrandC<
               location: typeof UnitsGeo_.ShortLocationString;
               metadata: t.UnionC<
                 [
-                  t.PartialC<{
-                    agencyId: typeof Common_.AgencyId;
-                  }>,
-                  t.PartialC<{
-                    planId: t.StringC;
-                  }>,
+                  t.IntersectionC<
+                    [
+                      t.PartialC<{
+                        agencyId: typeof Common_.AgencyId;
+                      }>,
+                      t.TypeC<{
+                        agencyId: typeof Defined;
+                      }>,
+                    ]
+                  >,
+                  t.IntersectionC<
+                    [
+                      t.PartialC<{
+                        planId: t.StringC;
+                      }>,
+                      t.TypeC<{
+                        planId: typeof Defined;
+                      }>,
+                    ]
+                  >,
                 ]
               >;
             }>,
@@ -107,12 +125,22 @@ export const Request: RequestC = t.brand(
         t.partial({
           location: UnitsGeo_.ShortLocationString,
           metadata: t.union([
-            t.partial({
-              agencyId: Common_.AgencyId,
-            }),
-            t.partial({
-              planId: t.string,
-            }),
+            t.intersection([
+              t.partial({
+                agencyId: Common_.AgencyId,
+              }),
+              t.type({
+                agencyId: Defined,
+              }),
+            ]),
+            t.intersection([
+              t.partial({
+                planId: t.string,
+              }),
+              t.type({
+                planId: Defined,
+              }),
+            ]),
           ]),
         }),
         t.type({
@@ -137,12 +165,16 @@ export const Request: RequestC = t.brand(
       payload?: {
         location?: UnitsGeo_.ShortLocationString;
         metadata?:
-          | {
+          | ({
               agencyId?: Common_.AgencyId;
-            }
-          | {
+            } & {
+              agencyId: Defined;
+            })
+          | ({
               planId?: string;
-            };
+            } & {
+              planId: Defined;
+            });
       } & {
         location: Defined;
       };
