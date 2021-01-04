@@ -160,8 +160,8 @@ export type PersonalDocument = t.Branded<
       }
     >;
     kycServiceId?: string;
-    firstName?: Common_.PersonalName;
-    lastName?: Common_.PersonalName;
+    firstName?: Common_.PersonalName | null;
+    lastName?: Common_.PersonalName | null;
   } & {
     type: Defined;
     documentNumber: Defined;
@@ -203,8 +203,8 @@ export type PersonalDocumentC = t.BrandC<
           >
         >;
         kycServiceId: t.StringC;
-        firstName: typeof Common_.PersonalName;
-        lastName: typeof Common_.PersonalName;
+        firstName: t.UnionC<[typeof Common_.PersonalName, t.NullC]>;
+        lastName: t.UnionC<[typeof Common_.PersonalName, t.NullC]>;
       }>,
       t.TypeC<{
         type: typeof Defined;
@@ -246,8 +246,8 @@ export const PersonalDocument: PersonalDocumentC = t.brand(
         ]),
       ),
       kycServiceId: t.string,
-      firstName: Common_.PersonalName,
-      lastName: Common_.PersonalName,
+      firstName: t.union([Common_.PersonalName, t.null]),
+      lastName: t.union([Common_.PersonalName, t.null]),
     }),
     t.type({
       type: Defined,
@@ -284,8 +284,8 @@ export const PersonalDocument: PersonalDocumentC = t.brand(
         }
       >;
       kycServiceId?: string;
-      firstName?: Common_.PersonalName;
-      lastName?: Common_.PersonalName;
+      firstName?: Common_.PersonalName | null;
+      lastName?: Common_.PersonalName | null;
     } & {
       type: Defined;
       documentNumber: Defined;

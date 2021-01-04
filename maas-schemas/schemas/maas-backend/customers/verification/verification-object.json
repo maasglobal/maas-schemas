@@ -42,7 +42,7 @@
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         },
         "metadata": {
-          "oneOf": [
+          "anyOf": [
             {
               "type": "object",
               "properties": {

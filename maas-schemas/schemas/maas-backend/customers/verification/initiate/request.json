@@ -25,7 +25,9 @@
                 "agencyId": {
                   "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
                 }
-              }
+              },
+              "required": ["agencyId"],
+              "additionalProperties": false
             },
             {
               "type": "object",
@@ -35,7 +37,9 @@
                   "minLength": 2,
                   "maxLength": 255
                 }
-              }
+              },
+              "required": ["planId"],
+              "additionalProperties": false
             }
           ]
         }

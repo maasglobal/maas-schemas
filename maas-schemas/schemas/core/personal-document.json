@@ -81,10 +81,24 @@
       "minLength": 2
     },
     "firstName": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+      "oneOf": [
+        {
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "lastName": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+      "oneOf": [
+        {
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+        },
+        {
+          "type": "null"
+        }
+      ]
     }
   },
   "additionalProperties": false,
