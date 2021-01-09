@@ -1,7 +1,7 @@
 {
   "$id": "http://maasglobal.com/maas-backend/customers/verification/initiate/request.json",
-  "additionalProperties": false,
   "description": "MaaS customer verification initiate",
+  "type": "object",
   "properties": {
     "customerId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
@@ -13,41 +13,30 @@
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
+      "type": "object",
       "properties": {
         "location": {
           "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
         },
         "metadata": {
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "agencyId": {
-                  "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
-                }
-              },
-              "required": ["agencyId"],
-              "additionalProperties": false
+          "type": "object",
+          "properties": {
+            "agencyId": {
+              "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
             },
-            {
-              "type": "object",
-              "properties": {
-                "planId": {
-                  "type": "string",
-                  "minLength": 2,
-                  "maxLength": 255
-                }
-              },
-              "required": ["planId"],
-              "additionalProperties": false
+            "planId": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 255
             }
-          ]
+          },
+          "additionalProperties": false,
+          "oneOf": [{ "required": ["agencyId"] }, { "required": ["planId"] }]
         }
       },
-      "required": ["location"],
-      "type": "object"
+      "required": ["location"]
     }
   },
-  "required": ["identityId", "customerId", "payload", "headers"],
-  "type": "object"
+  "additionalProperties": false,
+  "required": ["identityId", "customerId", "payload", "headers"]
 }

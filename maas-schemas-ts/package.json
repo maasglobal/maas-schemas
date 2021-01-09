@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.deployment.maas.global/repository/npm-maas/"
   },
-  "version": "14.12.0-rc1",
+  "version": "14.12.0-rc7",
   "description": "TypeScript types and io-ts validators for maas-schemas",
   "main": "index.js",
   "files": [
