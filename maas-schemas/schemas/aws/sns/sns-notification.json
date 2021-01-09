@@ -1,0 +1,40 @@
+{
+  "$id": "http://maasglobal.com/aws/sns/notification.json",
+  "description": "AWS SNS Notification JSON Payload",
+  "type": "object",
+  "properties": {
+    "Type": {
+      "type": "string",
+      "const": "Notification"
+    },
+    "MessageId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+    },
+    "TopicArn": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/arn"
+    },
+    "Subject": {
+      "type": "string"
+    },
+    "Message": {
+      "type": "string"
+    },
+    "Timestamp": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDateTime"
+    },
+    "SignatureVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "Signature": {
+      "type": "string",
+      "description": "base64"
+    },
+    "SigningCertURL": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+    },
+    "UnsubscribeURL": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+    }
+  }
+}

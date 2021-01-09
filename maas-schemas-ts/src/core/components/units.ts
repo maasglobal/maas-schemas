@@ -255,6 +255,21 @@ export interface IsoDateBrand {
   readonly IsoDate: unique symbol;
 }
 
+// IsoDateTime
+// A date in the form YYYY-MM-DDTHH:MM:SS.mmmZ
+export type IsoDateTime = t.Branded<string, IsoDateTimeBrand>;
+export type IsoDateTimeC = t.BrandC<t.StringC, IsoDateTimeBrand>;
+export const IsoDateTime: IsoDateTimeC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, IsoDateTimeBrand> =>
+    typeof x !== 'string' ||
+    x.match(RegExp('^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{3})?Z')) !== null,
+  'IsoDateTime',
+);
+export interface IsoDateTimeBrand {
+  readonly IsoDateTime: unique symbol;
+}
+
 // Units
 // The default export. More information at the top.
 export type Units = t.Branded<unknown, UnitsBrand>;

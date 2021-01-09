@@ -1,0 +1,130 @@
+{
+  "$id": "http://maasglobal.com/aws/s3/event.json",
+  "description": "AWS S3 Event JSON Payload",
+  "type": "object",
+  "properties": {
+    "eventVersion": {
+      "type": "number"
+    },
+    "eventSource": {
+      "type": "string",
+      "const": "aws:s3"
+    },
+    "awsRegion": {
+      "type": "string",
+      "pattern": "[\\w\\-]+"
+    },
+    "eventTime": {
+      "description": "The time when Amazon S3 finished processing the request",
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDateTime"
+    },
+    "eventName": {
+      "description": "Event type, see: https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations"
+    },
+    "userIdentity": {
+      "type": "object",
+      "properties": {
+        "principalId": {
+          "type": "string",
+          "description": "Amazon customer ID of the user who caused the event",
+          "pattern": "\\w+"
+        }
+      }
+    },
+    "requestParameters": {
+      "type": "object",
+      "properties": {
+        "sourceIPAddress": {
+          "description": "IP address where request came from",
+          "type": "string"
+        }
+      }
+    },
+    "responseElements": {
+      "type": "object",
+      "properties": {
+        "x-amz-request-id": {
+          "description": "Amazon S3 generated request ID",
+          "type": "string"
+        },
+        "x-amz-id-2": {
+          "description": "Amazon S3 host that processed the request",
+          "type": "string"
+        }
+      }
+    },
+    "s3": {
+      "type": "object",
+      "properties": {
+        "s3SchemaVersion": {
+          "type": "number"
+        },
+        "configurationId": {
+          "description": "ID found in the bucket notification configuration",
+          "type": "string"
+        },
+        "bucket": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "pattern": "[\\w-]+"
+            },
+            "ownerIdentity": {
+              "type": "object",
+              "properties": {
+                "principalId": {
+                  "description": "Amazon customer ID of the bucket owner",
+                  "type": "string",
+                  "pattern": "\\w+"
+                }
+              }
+            },
+            "arn": {
+              "description": "bucket ARN",
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/arn"
+            }
+          }
+        },
+        "object": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "size": {
+              "type": "number"
+            },
+            "eTag": { "description": "object eTag", "type": "string" },
+            "versionId": {
+              "description": "object version if bucket is versioning-enabled, otherwise null",
+              "type": "string"
+            },
+            "sequencer": {
+              "description": "a string representation of a hexadecimal value used to determine event sequence, only used with PUTs and DELETEs",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "glacierEventData": {
+      "type": "object",
+      "properties": {
+        "restoreEventData": {
+          "type": "object",
+          "properties": {
+            "lifecycleRestorationExpiryTime": {
+              "description": "The time of Restore Expiry",
+              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDateTime"
+            },
+            "lifecycleRestoreStorageClass": {
+              "description": "Source storage class for restore",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
