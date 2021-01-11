@@ -83,6 +83,14 @@
       "type": "string",
       "enum": ["whim", "wechat"]
     },
+    "clientIdWHIM": {
+      "default": "whim",
+      "allOf": [{ "$ref": "#/definitions/clientId" }, { "const": "whim" }]
+    },
+    "clientIdWECHAT": {
+      "default": "wechat",
+      "allOf": [{ "$ref": "#/definitions/clientId" }, { "const": "wechat" }]
+    },
     "ssid": {
       "description": "Social Security ID",
       "type": "string",

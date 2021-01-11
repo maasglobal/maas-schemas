@@ -2,16 +2,8 @@
   "$id": "http://maasglobal.com/core/paymentSource.json",
   "description": "MaaS region schema",
   "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "minLength": 2,
-      "maxLength": 255
-    },
-    "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
-    },
-    "type": {
+  "definitions": {
+    "paymentSourceType": {
       "type": "string",
       "enum": [
         "card",
@@ -24,6 +16,49 @@
         "apple_pay"
       ]
     },
+    "paymentSourceTypeCARD": {
+      "default": "card",
+      "allOf": [{ "$ref": "#/definitions/paymentSourceType" }, { "const": "card" }]
+    },
+    "paymentSourceTypePAYPAL_EXPRESS_CHECKOUT": {
+      "default": "paypal_express_checkout",
+      "allOf": [{ "$ref": "#/definitions/paymentSourceType" }, { "const": "paypal_express_checkout" }]
+    },
+    "paymentSourceTypeAMAZON_PAYMENTS": {
+      "default": "amazon_payments",
+      "allOf": [{ "$ref": "#/definitions/paymentSourceType" }, { "const": "amazon_payments" }]
+    },
+    "paymentSourceTypeDIRECT_DEBIT": {
+      "default": "direct_debit",
+      "allOf": [{ "$ref": "#/definitions/paymentSourceType" }, { "const": "direct_debit" }]
+    },
+    "paymentSourceTypeGENERIC": {
+      "default": "generic",
+      "allOf": [{ "$ref": "#/definitions/paymentSourceType" }, { "const": "generic" }]
+    },
+    "paymentSourceTypeALIPAY": {
+      "default": "alipay",
+      "allOf": [{ "$ref": "#/definitions/paymentSourceType" }, { "const": "alipay" }]
+    },
+    "paymentSourceTypeUNIONPAY": {
+      "default": "unionpay",
+      "allOf": [{ "$ref": "#/definitions/paymentSourceType" }, { "const": "unionpay" }]
+    },
+    "paymentSourceTypeAPPLE_PAY": {
+      "default": "apple_pay",
+      "allOf": [{ "$ref": "#/definitions/paymentSourceType" }, { "const": "apple_pay" }]
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 255
+    },
+    "customerId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "type": { "$ref": "#/definitions/paymentSourceType" },
     "gateway": {
       "type": "string",
       "minLength": 2,

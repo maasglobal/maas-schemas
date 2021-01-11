@@ -14,25 +14,125 @@
       "type": "string",
       "enum": ["WAIT"]
     },
+    "waitingModeWAIT": {
+      "default": "WAIT",
+      "allOf": [{ "$ref": "#/definitions/waitingMode" }, { "const": "WAIT" }]
+    },
     "transferMode": {
       "description": "A mode that involves changing transports",
       "type": "string",
       "enum": ["LEG_SWITCH", "TRANSFER"]
+    },
+    "transferModeLEG_SWITCH": {
+      "default": "LEG_SWITCH",
+      "allOf": [{ "$ref": "#/definitions/transferMode" }, { "const": "LEG_SWITCH" }]
+    },
+    "transferModeTRANSFER": {
+      "default": "TRANSFER",
+      "allOf": [{ "$ref": "#/definitions/transferMode" }, { "const": "TRANSFER" }]
     },
     "personalMode": {
       "description": "A mode that involves using your personal vehicle or legs",
       "type": "string",
       "enum": ["BICYCLE", "CAR", "SCOOTER", "SHARED_BICYCLE", "WALK", "SHARED_E_BICYCLE"]
     },
+    "personalModeBICYCLE": {
+      "default": "BICYCLE",
+      "allOf": [{ "$ref": "#/definitions/personalMode" }, { "const": "BICYCLE" }]
+    },
+    "personalModeCAR": {
+      "default": "CAR",
+      "allOf": [{ "$ref": "#/definitions/personalMode" }, { "const": "CAR" }]
+    },
+    "personalModeSCOOTER": {
+      "default": "SCOOTER",
+      "allOf": [{ "$ref": "#/definitions/personalMode" }, { "const": "SCOOTER" }]
+    },
+    "personalModeSHARED_BICYCLE": {
+      "default": "SHARED_BICYCLE",
+      "allOf": [{ "$ref": "#/definitions/personalMode" }, { "const": "SHARED_BICYCLE" }]
+    },
+    "personalModeWALK": {
+      "default": "WALK",
+      "allOf": [{ "$ref": "#/definitions/personalMode" }, { "const": "WALK" }]
+    },
+    "personalModeSHARED_E_BICYCLE": {
+      "default": "SHARED_E_BICYCLE",
+      "allOf": [{ "$ref": "#/definitions/personalMode" }, { "const": "SHARED_E_BICYCLE" }]
+    },
     "publicTransitMode": {
       "description": "A mode that involves transit with fixed schedules",
       "type": "string",
       "enum": ["AEROPLANE", "BUS", "FERRY", "RAIL", "SUBWAY", "TRAIN", "TRAM", "TRANSIT"]
     },
+    "publicTransitModeAEROPLANE": {
+      "default": "AEROPLANE",
+      "allOf": [{ "$ref": "#/definitions/publicTransitMode" }, { "const": "AEROPLANE" }]
+    },
+    "publicTransitModeBUS": {
+      "default": "BUS",
+      "allOf": [{ "$ref": "#/definitions/publicTransitMode" }, { "const": "BUS" }]
+    },
+    "publicTransitModeFERRY": {
+      "default": "FERRY",
+      "allOf": [{ "$ref": "#/definitions/publicTransitMode" }, { "const": "FERRY" }]
+    },
+    "publicTransitModeRAIL": {
+      "default": "RAIL",
+      "allOf": [{ "$ref": "#/definitions/publicTransitMode" }, { "const": "RAIL" }]
+    },
+    "publicTransitModeSUBWAY": {
+      "default": "SUBWAY",
+      "allOf": [{ "$ref": "#/definitions/publicTransitMode" }, { "const": "SUBWAY" }]
+    },
+    "publicTransitModeTRAIN": {
+      "default": "TRAIN",
+      "allOf": [{ "$ref": "#/definitions/publicTransitMode" }, { "const": "TRAIN" }]
+    },
+    "publicTransitModeTRAM": {
+      "default": "TRAM",
+      "allOf": [{ "$ref": "#/definitions/publicTransitMode" }, { "const": "TRAM" }]
+    },
+    "publicTransitModeTRANSIT": {
+      "default": "TRANSIT",
+      "allOf": [{ "$ref": "#/definitions/publicTransitMode" }, { "const": "TRANSIT" }]
+    },
     "privateTransitMode": {
       "description": "A mode that is available on-demand for your personal use",
       "type": "string",
       "enum": ["BUSISH", "CABLE_CAR", "CAR", "FUNICULAR", "GONDOLA", "SHARED_CAR", "TAXI", "TRAINISH"]
+    },
+    "privateTransitModeBUSISH": {
+      "default": "BUSISH",
+      "allOf": [{ "$ref": "#/definitions/privateTransitMode" }, { "const": "BUSISH" }]
+    },
+    "privateTransitModeCABLE_CAR": {
+      "default": "CABLE_CAR",
+      "allOf": [{ "$ref": "#/definitions/privateTransitMode" }, { "const": "CABLE_CAR" }]
+    },
+    "privateTransitModeCAR": {
+      "default": "CAR",
+      "allOf": [{ "$ref": "#/definitions/privateTransitMode" }, { "const": "CAR" }]
+    },
+    "privateTransitModeFUNICULAR": {
+      "default": "FUNICULAR",
+      "allOf": [{ "$ref": "#/definitions/privateTransitMode" }, { "const": "FUNICULAR" }]
+    },
+    "privateTransitModeGONDOLA": {
+      "default": "GONDOLA",
+      "allOf": [{ "$ref": "#/definitions/privateTransitMode" }, { "const": "GONDOLA" }]
+    },
+    "privateTransitModeSHARED_CAR": {
+      "default": "SHARED_CAR",
+      "allOf": [{ "$ref": "#/definitions/privateTransitMode" }, { "const": "SHARED_CAR" }]
+    },
+    "privateTransitModeTAXI": {
+      "default": "TAXI",
+      "allOf": [{ "$ref": "#/definitions/privateTransitMode" }, { "const": "TAXI" }]
+    },
+    "privateTransitModeTRAINISH": {
+      "default": "TRAINISH",
+      "allOf": [{ "$ref": "#/definitions/privateTransitMode" }, { "const": "TRAINISH" }]
     }
   }
 }

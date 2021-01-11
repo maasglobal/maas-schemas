@@ -2,24 +2,52 @@
   "$id": "http://maasglobal.com/core/components/subscriptionChangeState.json",
   "description": "MaaS state schemas",
   "type": "object",
-  "properties": {
-    "id": {
-      "description": "Subscription change state id",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid" }]
-    },
+  "definitions": {
     "state": {
       "description": "State enum",
       "type": "string",
       "enum": ["IN_PROGRESS", "COMPLETED", "FAILED"]
     },
-    "created": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+    "stateIN_PROGRESS": {
+      "default": "IN_PROGRESS",
+      "allOf": [{ "$ref": "#/definitions/state" }, { "const": "IN_PROGRESS" }]
+    },
+    "stateCOMPLETED": {
+      "default": "COMPLETED",
+      "allOf": [{ "$ref": "#/definitions/state" }, { "const": "COMPLETED" }]
+    },
+    "stateFAILED": {
+      "default": "FAILED",
+      "allOf": [{ "$ref": "#/definitions/state" }, { "const": "FAILED" }]
     },
     "failureKey": {
       "description": "Failure key enum, identifying reason for the failure",
       "type": "string",
       "enum": ["UNKNOWN_ERROR", "NOT_ELIGIBLE", "EXISTING_TICKET"]
+    },
+    "failureKeyUNKNOWN_ERROR": {
+      "default": "UNKNOWN_ERROR",
+      "allOf": [{ "$ref": "#/definitions/failureKey" }, { "const": "UNKNOWN_ERROR" }]
+    },
+    "failureKeyNOT_ELIGIBLE": {
+      "default": "NOT_ELIGIBLE",
+      "allOf": [{ "$ref": "#/definitions/failureKey" }, { "const": "NOT_ELIGIBLE" }]
+    },
+    "failureKeyEXISTING_TICKET": {
+      "default": "EXISTING_TICKET",
+      "allOf": [{ "$ref": "#/definitions/failureKey" }, { "const": "EXISTING_TICKET" }]
     }
+  },
+  "properties": {
+    "id": {
+      "description": "Subscription change state id",
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid" }]
+    },
+    "state": { "$ref": "#/definitions/state" },
+    "created": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+    },
+    "failureKey": { "$ref": "#/definitions/failureKey" }
   },
   "required": ["id", "state"]
 }

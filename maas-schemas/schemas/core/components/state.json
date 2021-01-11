@@ -22,15 +22,124 @@
         "UNKNOWN"
       ]
     },
+    "bookingStateSTART": {
+      "default": "START",
+      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "START" }]
+    },
+    "bookingStatePENDING": {
+      "default": "PENDING",
+      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "PENDING" }]
+    },
+    "bookingStatePAID": {
+      "default": "PAID",
+      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "PAID" }]
+    },
+    "bookingStatePENDING_RESERVATION": {
+      "default": "PENDING_RESERVATION",
+      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "PENDING_RESERVATION" }]
+    },
+    "bookingStateRESERVED": {
+      "default": "RESERVED",
+      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "RESERVED" }]
+    },
+    "bookingStateCONFIRMED": {
+      "default": "CONFIRMED",
+      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "CONFIRMED" }]
+    },
+    "bookingStateARRIVED": {
+      "default": "ARRIVED",
+      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "ARRIVED" }]
+    },
+    "bookingStateACTIVATED": {
+      "default": "ACTIVATED",
+      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "ACTIVATED" }]
+    },
+    "bookingStateON_HOLD": {
+      "default": "ON_HOLD",
+      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "ON_HOLD" }]
+    },
+    "bookingStateCANCELLED": {
+      "default": "CANCELLED",
+      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "CANCELLED" }]
+    },
+    "bookingStateEXPIRED": {
+      "default": "EXPIRED",
+      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "EXPIRED" }]
+    },
+    "bookingStateREJECTED": {
+      "default": "REJECTED",
+      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "REJECTED" }]
+    },
+    "bookingStateFINISHED": {
+      "default": "FINISHED",
+      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "FINISHED" }]
+    },
+    "bookingStateUNKNOWN": {
+      "default": "UNKNOWN",
+      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "UNKNOWN" }]
+    },
+
     "legState": {
       "description": "The life-cycle state of a leg",
       "type": "string",
       "enum": ["START", "PLANNED", "PAID", "ACTIVATED", "CANCELLED", "FINISHED"]
     },
+    "legStateSTART": {
+      "default": "START",
+      "allOf": [{ "$ref": "#/definitions/legState" }, { "const": "START" }]
+    },
+    "legStatePLANNED": {
+      "default": "PLANNED",
+      "allOf": [{ "$ref": "#/definitions/legState" }, { "const": "PLANNED" }]
+    },
+    "legStatePAID": {
+      "default": "PAID",
+      "allOf": [{ "$ref": "#/definitions/legState" }, { "const": "PAID" }]
+    },
+    "legStateACTIVATED": {
+      "default": "ACTIVATED",
+      "allOf": [{ "$ref": "#/definitions/legState" }, { "const": "ACTIVATED" }]
+    },
+    "legStateCANCELLED": {
+      "default": "CANCELLED",
+      "allOf": [{ "$ref": "#/definitions/legState" }, { "const": "CANCELLED" }]
+    },
+    "legStateFINISHED": {
+      "default": "FINISHED",
+      "allOf": [{ "$ref": "#/definitions/legState" }, { "const": "FINISHED" }]
+    },
     "itineraryState": {
       "description": "The life-cycle state of an itinerary",
       "type": "string",
       "enum": ["START", "PLANNED", "PAID", "ACTIVATED", "CANCELLED", "CANCELLED_WITH_ERRORS", "FINISHED"]
+    },
+    "itineraryStateSTART": {
+      "default": "START",
+      "allOf": [{ "$ref": "#/definitions/itineraryState" }, { "const": "START" }]
+    },
+    "itineraryStatePLANNED": {
+      "default": "PLANNED",
+      "allOf": [{ "$ref": "#/definitions/itineraryState" }, { "const": "PLANNED" }]
+    },
+    "itineraryStatePAID": {
+      "default": "PAID",
+      "allOf": [{ "$ref": "#/definitions/itineraryState" }, { "const": "PAID" }]
+    },
+    "itineraryStateACTIVATED": {
+      "default": "ACTIVATED",
+      "allOf": [{ "$ref": "#/definitions/itineraryState" }, { "const": "ACTIVATED" }]
+    },
+    "itineraryStateCANCELLED": {
+      "default": "CANCELLED",
+      "allOf": [{ "$ref": "#/definitions/itineraryState" }, { "const": "CANCELLED" }]
+    },
+    "itineraryStateCANCELLED_WITH_ERRORS": {
+      "default": "CANCELLED_WITH_ERRORS",
+      "allOf": [{ "$ref": "#/definitions/itineraryState" }, { "const": "CANCELLED_WITH_ERRORS" }]
+    },
+    "itineraryStateFINISHED": {
+      "default": "FINISHED",
+      "allOf": [{ "$ref": "#/definitions/itineraryState" }, { "const": "FINISHED" }]
     },
     "subscriptionIntentState": {
       "description": "The life-cycle state of an subscription intent",
@@ -45,6 +154,38 @@
         "CANCELLED_WITH_ERRORS",
         "FINISHED"
       ]
+    },
+    "subscriptionIntentStateSTART": {
+      "default": "START",
+      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "START" }]
+    },
+    "subscriptionIntentStateDETAILS": {
+      "default": "DETAILS",
+      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "DETAILS" }]
+    },
+    "subscriptionIntentStateCUSTOMISATION": {
+      "default": "CUSTOMISATION",
+      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "CUSTOMISATION" }]
+    },
+    "subscriptionIntentStatePAYMENT": {
+      "default": "PAYMENT",
+      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "PAYMENT" }]
+    },
+    "subscriptionIntentStateVERIFICATION": {
+      "default": "VERIFICATION",
+      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "VERIFICATION" }]
+    },
+    "subscriptionIntentStateCANCELLED": {
+      "default": "CANCELLED",
+      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "CANCELLED" }]
+    },
+    "subscriptionIntentStateCANCELLED_WITH_ERRORS": {
+      "default": "CANCELLED_WITH_ERRORS",
+      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "CANCELLED_WITH_ERRORS" }]
+    },
+    "subscriptionIntentStateFINISHED": {
+      "default": "FINISHED",
+      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "FINISHED" }]
     }
   }
 }

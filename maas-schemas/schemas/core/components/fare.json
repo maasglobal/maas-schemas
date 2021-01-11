@@ -6,6 +6,18 @@
     "tokenId": {
       "type": "string",
       "pattern": "^[a-z]+(-[a-z0-9_]+)+$"
+    },
+    "fareType": {
+      "type": "string",
+      "enum": ["charge", "refund"]
+    },
+    "fareTypeCHARGE": {
+      "default": "charge",
+      "allOf": [{ "$ref": "#/definitions/fareType" }, { "const": "charge" }]
+    },
+    "fareTypeREFUND": {
+      "default": "refund",
+      "allOf": [{ "$ref": "#/definitions/fareType" }, { "const": "refund" }]
     }
   },
   "properties": {
@@ -31,10 +43,7 @@
       "type": ["integer", "null"],
       "minimum": 0
     },
-    "type": {
-      "type": "string",
-      "enum": ["charge", "refund"]
-    }
+    "type": { "$ref": "#/definitions/fareType" }
   },
   "required": ["amount", "currency"],
   "additionalProperties": false
