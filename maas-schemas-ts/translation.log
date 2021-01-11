@@ -150,6 +150,10 @@ INFO: missing description
   in ../maas-schemas/schemas/core/components/common.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/common.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/common.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/common.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/configurator.json
 WARNING: minLength field not supported outside top-level definitions
@@ -222,7 +226,11 @@ WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/fare.json
 WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/fare.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/fare.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/fare.json
+INFO: missing description
   in ../maas-schemas/schemas/core/components/fare.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/fare.json
@@ -432,6 +440,76 @@ INFO: missing description
   in ../maas-schemas/schemas/core/components/state-log.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/state-log.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/station.json
 INFO: primitive type "string" used outside top-level definitions
@@ -464,9 +542,17 @@ INFO: missing description
   in ../maas-schemas/schemas/core/components/station.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/station.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/core/components/subscriptionChangeState.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/subscriptionChangeState.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/subscriptionChangeState.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/subscriptionChangeState.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/subscriptionChangeState.json
+INFO: missing description
   in ../maas-schemas/schemas/core/components/subscriptionChangeState.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/terms.json
@@ -522,6 +608,68 @@ INFO: missing description
   in ../maas-schemas/schemas/core/components/terms.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/terms.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/travel-mode.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/units.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/units.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/units.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/units.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/units.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/units.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/units.json
 INFO: missing description
@@ -700,20 +848,10 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/partialFavoriteLocation.json
 INFO: missing description
   in ../maas-schemas/schemas/core/partialFavoriteLocation.json
-INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/paymentSource.json
-WARNING: minLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/paymentSource.json
-WARNING: maxLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/paymentSource.json
-INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/paymentSource.json
-INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/paymentSource.json
-WARNING: minLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/paymentSource.json
-WARNING: maxLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/paymentSource.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/partialFavoriteLocation.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/partialFavoriteLocation.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/paymentSource.json
 WARNING: minLength field not supported outside top-level definitions
@@ -733,6 +871,36 @@ WARNING: minLength field not supported outside top-level definitions
 WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/paymentSource.json
 INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/paymentSource.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/paymentSource.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/paymentSource.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/paymentSource.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/paymentSource.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/paymentSource.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/paymentSource.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/paymentSource.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/paymentSource.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/paymentSource.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/paymentSource.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/personal-document.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/personal-document.json
@@ -749,6 +917,18 @@ INFO: primitive type "string" used outside top-level definitions
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/personal-document.json
 WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/personal-document.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/personal-document.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/personal-document.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/personal-document.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/personal-document.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/personal-document.json
+INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json
 INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json

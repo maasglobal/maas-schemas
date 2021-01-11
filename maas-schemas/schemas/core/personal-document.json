@@ -10,6 +10,30 @@
       "type": "string",
       "enum": ["PENDING", "APPROVED", "DECLINED", "EXPIRED", "RESUBMISSION_REQUESTED", "ABANDONED"]
     },
+    "documentStatusPENDING": {
+      "default": "PENDING",
+      "allOf": [{ "$ref": "#/definitions/documentStatus" }, { "const": "PENDING" }]
+    },
+    "documentStatusAPPROVED": {
+      "default": "APPROVED",
+      "allOf": [{ "$ref": "#/definitions/documentStatus" }, { "const": "APPROVED" }]
+    },
+    "documentStatusDECLINED": {
+      "default": "DECLINED",
+      "allOf": [{ "$ref": "#/definitions/documentStatus" }, { "const": "DECLINED" }]
+    },
+    "documentStatusEXPIRED": {
+      "default": "EXPIRED",
+      "allOf": [{ "$ref": "#/definitions/documentStatus" }, { "const": "EXPIRED" }]
+    },
+    "documentStatusRESUBMISSION_REQUESTED": {
+      "default": "RESUBMISSION_REQUESTED",
+      "allOf": [{ "$ref": "#/definitions/documentStatus" }, { "const": "RESUBMISSION_REQUESTED" }]
+    },
+    "documentStatusABANDONED": {
+      "default": "ABANDONED",
+      "allOf": [{ "$ref": "#/definitions/documentStatus" }, { "const": "ABANDONED" }]
+    },
     "partyId": {
       "type": "string",
       "minLength": 1,

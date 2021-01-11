@@ -42,6 +42,58 @@ export interface TokenIdBrand {
   readonly TokenId: unique symbol;
 }
 
+// FareType
+// The purpose of this remains a mystery
+export type FareType = t.Branded<string & ('charge' | 'refund'), FareTypeBrand>;
+export type FareTypeC = t.BrandC<
+  t.IntersectionC<[t.StringC, t.UnionC<[t.LiteralC<'charge'>, t.LiteralC<'refund'>]>]>,
+  FareTypeBrand
+>;
+export const FareType: FareTypeC = t.brand(
+  t.intersection([t.string, t.union([t.literal('charge'), t.literal('refund')])]),
+  (x): x is t.Branded<string & ('charge' | 'refund'), FareTypeBrand> => true,
+  'FareType',
+);
+export interface FareTypeBrand {
+  readonly FareType: unique symbol;
+}
+
+// FareTypeCHARGE
+// The purpose of this remains a mystery
+export type FareTypeCHARGE = t.Branded<FareType & 'charge', FareTypeCHARGEBrand>;
+export type FareTypeCHARGEC = t.BrandC<
+  t.IntersectionC<[typeof FareType, t.LiteralC<'charge'>]>,
+  FareTypeCHARGEBrand
+>;
+export const FareTypeCHARGE: FareTypeCHARGEC = t.brand(
+  t.intersection([FareType, t.literal('charge')]),
+  (x): x is t.Branded<FareType & 'charge', FareTypeCHARGEBrand> => true,
+  'FareTypeCHARGE',
+);
+export interface FareTypeCHARGEBrand {
+  readonly FareTypeCHARGE: unique symbol;
+}
+/** require('io-ts-validator').validator(FareTypeCHARGE).decodeSync(defaultFareTypeCHARGE) // => defaultFareTypeCHARGE */
+export const defaultFareTypeCHARGE: FareTypeCHARGE = ('charge' as unknown) as FareTypeCHARGE;
+
+// FareTypeREFUND
+// The purpose of this remains a mystery
+export type FareTypeREFUND = t.Branded<FareType & 'refund', FareTypeREFUNDBrand>;
+export type FareTypeREFUNDC = t.BrandC<
+  t.IntersectionC<[typeof FareType, t.LiteralC<'refund'>]>,
+  FareTypeREFUNDBrand
+>;
+export const FareTypeREFUND: FareTypeREFUNDC = t.brand(
+  t.intersection([FareType, t.literal('refund')]),
+  (x): x is t.Branded<FareType & 'refund', FareTypeREFUNDBrand> => true,
+  'FareTypeREFUND',
+);
+export interface FareTypeREFUNDBrand {
+  readonly FareTypeREFUND: unique symbol;
+}
+/** require('io-ts-validator').validator(FareTypeREFUND).decodeSync(defaultFareTypeREFUND) // => defaultFareTypeREFUND */
+export const defaultFareTypeREFUND: FareTypeREFUND = ('refund' as unknown) as FareTypeREFUND;
+
 // Fare
 // The default export. More information at the top.
 export type Fare = t.Branded<
@@ -52,7 +104,7 @@ export type Fare = t.Branded<
     hidden?: boolean;
     originalAmount?: number | null;
     productionAmount?: number | null;
-    type?: string & ('charge' | 'refund');
+    type?: FareType;
   } & {
     amount: Defined;
     currency: Defined;
@@ -69,9 +121,7 @@ export type FareC = t.BrandC<
         hidden: t.BooleanC;
         originalAmount: t.UnionC<[t.NumberC, t.NullC]>;
         productionAmount: t.UnionC<[t.NumberC, t.NullC]>;
-        type: t.IntersectionC<
-          [t.StringC, t.UnionC<[t.LiteralC<'charge'>, t.LiteralC<'refund'>]>]
-        >;
+        type: typeof FareType;
       }>,
       t.TypeC<{
         amount: typeof Defined;
@@ -90,10 +140,7 @@ export const Fare: FareC = t.brand(
       hidden: t.boolean,
       originalAmount: t.union([t.number, t.null]),
       productionAmount: t.union([t.number, t.null]),
-      type: t.intersection([
-        t.string,
-        t.union([t.literal('charge'), t.literal('refund')]),
-      ]),
+      type: FareType,
     }),
     t.type({
       amount: Defined,
@@ -110,7 +157,7 @@ export const Fare: FareC = t.brand(
       hidden?: boolean;
       originalAmount?: number | null;
       productionAmount?: number | null;
-      type?: string & ('charge' | 'refund');
+      type?: FareType;
     } & {
       amount: Defined;
       currency: Defined;

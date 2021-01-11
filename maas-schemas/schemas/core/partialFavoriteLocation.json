@@ -6,6 +6,14 @@
     "favoriteLocationTypes": {
       "type": "string",
       "enum": ["ADDRESS", "STOP"]
+    },
+    "favoriteLocationTypesADDRESS": {
+      "default": "ADDRESS",
+      "allOf": [{ "$ref": "#/definitions/favoriteLocationTypes" }, { "const": "ADDRESS" }]
+    },
+    "favoriteLocationTypesSTOP": {
+      "default": "STOP",
+      "allOf": [{ "$ref": "#/definitions/favoriteLocationTypes" }, { "const": "STOP" }]
     }
   },
   "properties": {

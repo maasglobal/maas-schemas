@@ -262,6 +262,42 @@ export interface ClientIdBrand {
   readonly ClientId: unique symbol;
 }
 
+// ClientIdWHIM
+// The purpose of this remains a mystery
+export type ClientIdWHIM = t.Branded<ClientId & 'whim', ClientIdWHIMBrand>;
+export type ClientIdWHIMC = t.BrandC<
+  t.IntersectionC<[typeof ClientId, t.LiteralC<'whim'>]>,
+  ClientIdWHIMBrand
+>;
+export const ClientIdWHIM: ClientIdWHIMC = t.brand(
+  t.intersection([ClientId, t.literal('whim')]),
+  (x): x is t.Branded<ClientId & 'whim', ClientIdWHIMBrand> => true,
+  'ClientIdWHIM',
+);
+export interface ClientIdWHIMBrand {
+  readonly ClientIdWHIM: unique symbol;
+}
+/** require('io-ts-validator').validator(ClientIdWHIM).decodeSync(defaultClientIdWHIM) // => defaultClientIdWHIM */
+export const defaultClientIdWHIM: ClientIdWHIM = ('whim' as unknown) as ClientIdWHIM;
+
+// ClientIdWECHAT
+// The purpose of this remains a mystery
+export type ClientIdWECHAT = t.Branded<ClientId & 'wechat', ClientIdWECHATBrand>;
+export type ClientIdWECHATC = t.BrandC<
+  t.IntersectionC<[typeof ClientId, t.LiteralC<'wechat'>]>,
+  ClientIdWECHATBrand
+>;
+export const ClientIdWECHAT: ClientIdWECHATC = t.brand(
+  t.intersection([ClientId, t.literal('wechat')]),
+  (x): x is t.Branded<ClientId & 'wechat', ClientIdWECHATBrand> => true,
+  'ClientIdWECHAT',
+);
+export interface ClientIdWECHATBrand {
+  readonly ClientIdWECHAT: unique symbol;
+}
+/** require('io-ts-validator').validator(ClientIdWECHAT).decodeSync(defaultClientIdWECHAT) // => defaultClientIdWECHAT */
+export const defaultClientIdWECHAT: ClientIdWECHAT = ('wechat' as unknown) as ClientIdWECHAT;
+
 // Ssid
 // Social Security ID
 export type Ssid = t.Branded<string, SsidBrand>;
