@@ -16,17 +16,6 @@
       "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/hostnameLabel" }],
       "examples": ["production", "testing", "environment13", "fantasy-topping"]
     },
-    "environmentUrl": {
-      "type": "string",
-      "pattern": "^https:",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }],
-      "examples": [
-        "https://production.example.com/api/",
-        "https://testing.example.com/api/",
-        "https://environment13.example.com/api/",
-        "https://fantasy-toppign.example.com/api/"
-      ]
-    },
     "environmentLive": {
       "description": "Live environments are connected to actual payment and TSP services",
       "type": "boolean",
@@ -44,19 +33,23 @@
       "type": "object",
       "properties": {
         "id": { "$ref": "#/definitions/environmentId" },
-        "api": { "$ref": "#/definitions/environmentUrl" },
+        "api": { "$ref": "http://maasglobal.com/environments/apis.json#/definitions/apiUrl" },
+        "apis": { "$ref": "http://maasglobal.com/environments/apis.json#/definitions/apiConfigs" },
         "live": { "$ref": "#/definitions/environmentLive" },
         "contact": { "$ref": "#/definitions/developer" },
         "account": { "$ref": "http://maasglobal.com/environments/accounts.json#/definitions/accountAlias" },
         "name": { "$ref": "#/definitions/environmentName" },
         "description": { "$ref": "#/definitions/environmentDescription" }
       },
-      "required": ["id", "api", "live", "contact", "account"],
+      "required": ["id", "api", "apis", "live", "contact", "account"],
       "additionalProperties": false,
       "examples": [
         {
           "id": "production",
           "api": "https://production.example.com/api/",
+          "apis": {
+            "main": { "url": "https://production.example.com/api/" }
+          },
           "live": true,
           "account": "production",
           "contact": { "name": "Alisha Admin", "email": "admin@example.com" },
@@ -82,6 +75,9 @@
         {
           "id": "testing",
           "api": "https://testing.example.com/api/",
+          "apis": {
+            "main": { "url": "https://testing.example.com/api/" }
+          },
           "live": false,
           "account": "testing",
           "contact": { "name": "Alisha Admin" },
@@ -120,6 +116,9 @@
             {
               "id": "production",
               "api": "https://production.example.com/api/",
+              "apis": {
+                "main": { "url": "https://production.example.com/api/" }
+              },
               "live": true,
               "account": "production",
               "contact": { "name": "Alisha Admin", "email": "admin@example.com" },
@@ -128,6 +127,9 @@
             {
               "id": "testing",
               "api": "https://testing.example.com/api/",
+              "apis": {
+                "main": { "url": "https://testing.example.com/api/" }
+              },
               "live": false,
               "account": "testing",
               "contact": { "name": "Alisha Admin" },
@@ -141,6 +143,9 @@
             {
               "id": "fantasy-topping",
               "api": "https://fantasy-topping.example.com/api/",
+              "apis": {
+                "main": { "url": "https://fantasy-topping.example.com/api/" }
+              },
               "live": false,
               "account": "testing",
               "contact": { "name": "Dennis Developer" },
@@ -162,6 +167,9 @@
     "accounts": {
       "$ref": "http://maasglobal.com/environments/accounts.json#/definitions/accountIndex"
     },
+    "apis": {
+      "$ref": "http://maasglobal.com/environments/apis.json#/definitions/apiIndex"
+    },
     "index": {
       "$ref": "#/definitions/environmentIndex"
     }
@@ -180,6 +188,12 @@
           "id": "101234567890"
         }
       },
+      "apis": {
+        "main": {
+          "name": "The Main Api",
+          "description": "This is the only api available at the moment."
+        }
+      },
       "index": [
         {
           "name": "Core Environments",
@@ -187,6 +201,9 @@
             {
               "id": "production",
               "api": "https://production.example.com/api/",
+              "apis": {
+                "main": { "url": "https://production.example.com/api/" }
+              },
               "live": true,
               "account": "production",
               "contact": { "name": "Alisha Admin", "email": "admin@example.com" },
@@ -195,6 +212,9 @@
             {
               "id": "testing",
               "api": "https://testing.example.com/api/",
+              "apis": {
+                "main": { "url": "https://testing.example.com/api/" }
+              },
               "live": false,
               "account": "testing",
               "contact": { "name": "Alisha Admin" },
@@ -208,6 +228,10 @@
             {
               "id": "fantasy-topping",
               "api": "https://fantasy-topping.example.com/api/",
+              "apis": {
+                "fun": { "url": "https://fantasy-topping.example.com/fun/" },
+                "boring": { "url": "https://fantasy-topping.example.com/boring/" }
+              },
               "live": false,
               "account": "testing",
               "contact": { "name": "Dennis Developer" },
