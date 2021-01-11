@@ -34,7 +34,7 @@ export const schemaId =
 export type Response = t.Branded<
   {
     itineraries?: Array<Itinerary_.Itinerary>;
-    maas?: {};
+    maas?: Record<string, unknown>;
   } & {
     itineraries: Defined;
   },
@@ -45,7 +45,7 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         itineraries: t.ArrayC<typeof Itinerary_.Itinerary>;
-        maas: t.TypeC<{}>;
+        maas: t.RecordC<t.StringC, t.UnknownC>;
       }>,
       t.TypeC<{
         itineraries: typeof Defined;
@@ -58,7 +58,7 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       itineraries: t.array(Itinerary_.Itinerary),
-      maas: t.type({}),
+      maas: t.record(t.string, t.unknown),
     }),
     t.type({
       itineraries: Defined,
@@ -69,7 +69,7 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       itineraries?: Array<Itinerary_.Itinerary>;
-      maas?: {};
+      maas?: Record<string, unknown>;
     } & {
       itineraries: Defined;
     },

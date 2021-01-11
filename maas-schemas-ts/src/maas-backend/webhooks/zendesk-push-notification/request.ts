@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Common_ from '../../../core/components/common';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -32,10 +33,15 @@ export const schemaId =
 // The default export. More information at the top.
 export type Request = t.Branded<
   {
-    devices?: Array<{
-      identifier: Defined;
-      type: Defined;
-    }>;
+    devices?: Array<
+      {
+        identifier?: Common_.DeviceToken;
+        type?: 'ios' | 'android';
+      } & {
+        identifier: Defined;
+        type: Defined;
+      }
+    >;
     notification?: {
       body?: string;
       title?: string;
@@ -52,10 +58,18 @@ export type RequestC = t.BrandC<
     [
       t.PartialC<{
         devices: t.ArrayC<
-          t.TypeC<{
-            identifier: typeof Defined;
-            type: typeof Defined;
-          }>
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                identifier: typeof Common_.DeviceToken;
+                type: t.UnionC<[t.LiteralC<'ios'>, t.LiteralC<'android'>]>;
+              }>,
+              t.TypeC<{
+                identifier: typeof Defined;
+                type: typeof Defined;
+              }>,
+            ]
+          >
         >;
         notification: t.PartialC<{
           body: t.StringC;
@@ -75,10 +89,16 @@ export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       devices: t.array(
-        t.type({
-          identifier: Defined,
-          type: Defined,
-        }),
+        t.intersection([
+          t.partial({
+            identifier: Common_.DeviceToken,
+            type: t.union([t.literal('ios'), t.literal('android')]),
+          }),
+          t.type({
+            identifier: Defined,
+            type: Defined,
+          }),
+        ]),
       ),
       notification: t.partial({
         body: t.string,
@@ -95,10 +115,15 @@ export const Request: RequestC = t.brand(
     x,
   ): x is t.Branded<
     {
-      devices?: Array<{
-        identifier: Defined;
-        type: Defined;
-      }>;
+      devices?: Array<
+        {
+          identifier?: Common_.DeviceToken;
+          type?: 'ios' | 'android';
+        } & {
+          identifier: Defined;
+          type: Defined;
+        }
+      >;
       notification?: {
         body?: string;
         title?: string;

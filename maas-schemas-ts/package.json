@@ -75,7 +75,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "fp-ts": "^2.0.5",
     "io-ts": "^2.1.2",
-    "io-ts-from-json-schema": "^0.0.12",
+    "io-ts-from-json-schema": "^0.0.15",
     "io-ts-types": "^0.5.2",
     "io-ts-validator": "^0.0.2",
     "jest": "^24.9.0",

@@ -286,9 +286,9 @@ export const examplesEnvironment: NonEmptyArray<Environment> = ([
 // The purpose of this remains a mystery
 export type DevEnvironment = t.Branded<
   Environment &
-    ({
+    (({
       live?: false;
-    } & {
+    } & Record<string, unknown>) & {
       live: Defined;
     }),
   DevEnvironmentBrand
@@ -299,9 +299,14 @@ export type DevEnvironmentC = t.BrandC<
       typeof Environment,
       t.IntersectionC<
         [
-          t.PartialC<{
-            live: t.LiteralC<false>;
-          }>,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                live: t.LiteralC<false>;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
           t.TypeC<{
             live: typeof Defined;
           }>,
@@ -315,9 +320,12 @@ export const DevEnvironment: DevEnvironmentC = t.brand(
   t.intersection([
     Environment,
     t.intersection([
-      t.partial({
-        live: t.literal(false),
-      }),
+      t.intersection([
+        t.partial({
+          live: t.literal(false),
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       t.type({
         live: Defined,
       }),
@@ -327,9 +335,9 @@ export const DevEnvironment: DevEnvironmentC = t.brand(
     x,
   ): x is t.Branded<
     Environment &
-      ({
+      (({
         live?: false;
-      } & {
+      } & Record<string, unknown>) & {
         live: Defined;
       }),
     DevEnvironmentBrand

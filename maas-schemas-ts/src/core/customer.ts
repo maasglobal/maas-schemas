@@ -61,27 +61,27 @@ export type Customer = t.Branded<
     ssid?: boolean | Common_.Ssid;
     documents?: Array<PersonalDocument_.PersonalDocument>;
     balances?: ({
-      WMP?: {
+      WMP?: ({
         currency?: Common_.MetaCurrencyWMP;
         amount?: number;
-      } & {
+      } & Record<string, unknown>) & {
         currency: Defined;
         amount: Defined;
       };
     } & Record<
       string,
-      | ({
+      | (({
           currency?: Common_.MetaCurrencyWMP;
           amount?: number;
-        } & {
+        } & Record<string, unknown>) & {
           currency: Defined;
           amount: Defined;
         })
-      | ({
+      | (({
           currency?: Common_.MetaCurrencyTOKEN;
           tokenId?: Fare_.TokenId;
           amount?: number | null;
-        } & {
+        } & Record<string, unknown>) & {
           currency: Defined;
           tokenId: Defined;
           amount: Defined;
@@ -128,10 +128,15 @@ export type CustomerC = t.BrandC<
             t.PartialC<{
               WMP: t.IntersectionC<
                 [
-                  t.PartialC<{
-                    currency: typeof Common_.MetaCurrencyWMP;
-                    amount: t.NumberC;
-                  }>,
+                  t.IntersectionC<
+                    [
+                      t.PartialC<{
+                        currency: typeof Common_.MetaCurrencyWMP;
+                        amount: t.NumberC;
+                      }>,
+                      t.RecordC<t.StringC, t.UnknownC>,
+                    ]
+                  >,
                   t.TypeC<{
                     currency: typeof Defined;
                     amount: typeof Defined;
@@ -145,10 +150,15 @@ export type CustomerC = t.BrandC<
                 [
                   t.IntersectionC<
                     [
-                      t.PartialC<{
-                        currency: typeof Common_.MetaCurrencyWMP;
-                        amount: t.NumberC;
-                      }>,
+                      t.IntersectionC<
+                        [
+                          t.PartialC<{
+                            currency: typeof Common_.MetaCurrencyWMP;
+                            amount: t.NumberC;
+                          }>,
+                          t.RecordC<t.StringC, t.UnknownC>,
+                        ]
+                      >,
                       t.TypeC<{
                         currency: typeof Defined;
                         amount: typeof Defined;
@@ -157,11 +167,16 @@ export type CustomerC = t.BrandC<
                   >,
                   t.IntersectionC<
                     [
-                      t.PartialC<{
-                        currency: typeof Common_.MetaCurrencyTOKEN;
-                        tokenId: typeof Fare_.TokenId;
-                        amount: t.UnionC<[t.NumberC, t.NullC]>;
-                      }>,
+                      t.IntersectionC<
+                        [
+                          t.PartialC<{
+                            currency: typeof Common_.MetaCurrencyTOKEN;
+                            tokenId: typeof Fare_.TokenId;
+                            amount: t.UnionC<[t.NumberC, t.NullC]>;
+                          }>,
+                          t.RecordC<t.StringC, t.UnknownC>,
+                        ]
+                      >,
                       t.TypeC<{
                         currency: typeof Defined;
                         tokenId: typeof Defined;
@@ -215,10 +230,13 @@ export const Customer: CustomerC = t.brand(
       t.intersection([
         t.partial({
           WMP: t.intersection([
-            t.partial({
-              currency: Common_.MetaCurrencyWMP,
-              amount: t.number,
-            }),
+            t.intersection([
+              t.partial({
+                currency: Common_.MetaCurrencyWMP,
+                amount: t.number,
+              }),
+              t.record(t.string, t.unknown),
+            ]),
             t.type({
               currency: Defined,
               amount: Defined,
@@ -229,21 +247,27 @@ export const Customer: CustomerC = t.brand(
           t.string,
           t.union([
             t.intersection([
-              t.partial({
-                currency: Common_.MetaCurrencyWMP,
-                amount: t.number,
-              }),
+              t.intersection([
+                t.partial({
+                  currency: Common_.MetaCurrencyWMP,
+                  amount: t.number,
+                }),
+                t.record(t.string, t.unknown),
+              ]),
               t.type({
                 currency: Defined,
                 amount: Defined,
               }),
             ]),
             t.intersection([
-              t.partial({
-                currency: Common_.MetaCurrencyTOKEN,
-                tokenId: Fare_.TokenId,
-                amount: t.union([t.number, t.null]),
-              }),
+              t.intersection([
+                t.partial({
+                  currency: Common_.MetaCurrencyTOKEN,
+                  tokenId: Fare_.TokenId,
+                  amount: t.union([t.number, t.null]),
+                }),
+                t.record(t.string, t.unknown),
+              ]),
               t.type({
                 currency: Defined,
                 tokenId: Defined,
@@ -290,27 +314,27 @@ export const Customer: CustomerC = t.brand(
       ssid?: boolean | Common_.Ssid;
       documents?: Array<PersonalDocument_.PersonalDocument>;
       balances?: ({
-        WMP?: {
+        WMP?: ({
           currency?: Common_.MetaCurrencyWMP;
           amount?: number;
-        } & {
+        } & Record<string, unknown>) & {
           currency: Defined;
           amount: Defined;
         };
       } & Record<
         string,
-        | ({
+        | (({
             currency?: Common_.MetaCurrencyWMP;
             amount?: number;
-          } & {
+          } & Record<string, unknown>) & {
             currency: Defined;
             amount: Defined;
           })
-        | ({
+        | (({
             currency?: Common_.MetaCurrencyTOKEN;
             tokenId?: Fare_.TokenId;
             amount?: number | null;
-          } & {
+          } & Record<string, unknown>) & {
             currency: Defined;
             tokenId: Defined;
             amount: Defined;

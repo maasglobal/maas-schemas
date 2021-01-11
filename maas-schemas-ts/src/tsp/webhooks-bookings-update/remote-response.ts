@@ -143,28 +143,28 @@ export interface BookingDeltaBrand {
 export type RemoteResponse = t.Branded<
   {
     booking?: BookingDelta;
-    debug?: {};
+    debug?: Record<string, unknown>;
   },
   RemoteResponseBrand
 >;
 export type RemoteResponseC = t.BrandC<
   t.PartialC<{
     booking: typeof BookingDelta;
-    debug: t.TypeC<{}>;
+    debug: t.RecordC<t.StringC, t.UnknownC>;
   }>,
   RemoteResponseBrand
 >;
 export const RemoteResponse: RemoteResponseC = t.brand(
   t.partial({
     booking: BookingDelta,
-    debug: t.type({}),
+    debug: t.record(t.string, t.unknown),
   }),
   (
     x,
   ): x is t.Branded<
     {
       booking?: BookingDelta;
-      debug?: {};
+      debug?: Record<string, unknown>;
     },
     RemoteResponseBrand
   > => true,

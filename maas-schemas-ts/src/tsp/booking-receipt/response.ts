@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Booking_ from '../../core/booking';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -31,27 +32,51 @@ export const schemaId = 'http://maasglobal.com/tsp/booking-receipt/response.json
 // The default export. More information at the top.
 export type Response = t.Branded<
   {
+    tspId?: Booking_.TspId;
+    cost?: Booking_.Cost;
+    receipt?: Record<string, unknown>;
+  } & {
     tspId: Defined;
     cost: Defined;
   },
   ResponseBrand
 >;
 export type ResponseC = t.BrandC<
-  t.TypeC<{
-    tspId: typeof Defined;
-    cost: typeof Defined;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        tspId: typeof Booking_.TspId;
+        cost: typeof Booking_.Cost;
+        receipt: t.UnknownRecordC;
+      }>,
+      t.TypeC<{
+        tspId: typeof Defined;
+        cost: typeof Defined;
+      }>,
+    ]
+  >,
   ResponseBrand
 >;
 export const Response: ResponseC = t.brand(
-  t.type({
-    tspId: Defined,
-    cost: Defined,
-  }),
+  t.intersection([
+    t.partial({
+      tspId: Booking_.TspId,
+      cost: Booking_.Cost,
+      receipt: t.UnknownRecord,
+    }),
+    t.type({
+      tspId: Defined,
+      cost: Defined,
+    }),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
+      tspId?: Booking_.TspId;
+      cost?: Booking_.Cost;
+      receipt?: Record<string, unknown>;
+    } & {
       tspId: Defined;
       cost: Defined;
     },

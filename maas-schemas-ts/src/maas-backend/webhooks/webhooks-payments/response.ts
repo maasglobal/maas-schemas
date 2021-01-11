@@ -31,7 +31,7 @@ export const schemaId =
 // AvainpayResponse
 // The purpose of this remains a mystery
 export type AvainpayResponse = t.Branded<
-  {
+  ({
     action_str?: string;
     data_type?: string;
     log_list?: Array<unknown>;
@@ -40,8 +40,8 @@ export type AvainpayResponse = t.Branded<
       nonce?: string;
       signature?: string;
     };
-    response_map?: {};
-  } & {
+    response_map?: Record<string, unknown>;
+  } & Record<string, unknown>) & {
     action_str: Defined;
     data_type: Defined;
   },
@@ -50,17 +50,22 @@ export type AvainpayResponse = t.Branded<
 export type AvainpayResponseC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        action_str: t.StringC;
-        data_type: t.StringC;
-        log_list: t.UnknownArrayC;
-        trans_map: t.PartialC<{
-          system_time: t.NumberC;
-          nonce: t.StringC;
-          signature: t.StringC;
-        }>;
-        response_map: t.TypeC<{}>;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            action_str: t.StringC;
+            data_type: t.StringC;
+            log_list: t.UnknownArrayC;
+            trans_map: t.PartialC<{
+              system_time: t.NumberC;
+              nonce: t.StringC;
+              signature: t.StringC;
+            }>;
+            response_map: t.UnknownRecordC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         action_str: typeof Defined;
         data_type: typeof Defined;
@@ -71,17 +76,20 @@ export type AvainpayResponseC = t.BrandC<
 >;
 export const AvainpayResponse: AvainpayResponseC = t.brand(
   t.intersection([
-    t.partial({
-      action_str: t.string,
-      data_type: t.string,
-      log_list: t.UnknownArray,
-      trans_map: t.partial({
-        system_time: t.number,
-        nonce: t.string,
-        signature: t.string,
+    t.intersection([
+      t.partial({
+        action_str: t.string,
+        data_type: t.string,
+        log_list: t.UnknownArray,
+        trans_map: t.partial({
+          system_time: t.number,
+          nonce: t.string,
+          signature: t.string,
+        }),
+        response_map: t.UnknownRecord,
       }),
-      response_map: t.type({}),
-    }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       action_str: Defined,
       data_type: Defined,
@@ -90,7 +98,7 @@ export const AvainpayResponse: AvainpayResponseC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       action_str?: string;
       data_type?: string;
       log_list?: Array<unknown>;
@@ -99,8 +107,8 @@ export const AvainpayResponse: AvainpayResponseC = t.brand(
         nonce?: string;
         signature?: string;
       };
-      response_map?: {};
-    } & {
+      response_map?: Record<string, unknown>;
+    } & Record<string, unknown>) & {
       action_str: Defined;
       data_type: Defined;
     },

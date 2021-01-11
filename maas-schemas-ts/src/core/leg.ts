@@ -604,13 +604,13 @@ export interface TransferLegBrand {
 // Leg
 // The default export. More information at the top.
 export type Leg = t.Branded<
-  {} & (LegExtensions & (LegCore | WaitingLeg | TransferLeg)),
+  Record<string, unknown> & (LegExtensions & (LegCore | WaitingLeg | TransferLeg)),
   LegBrand
 >;
 export type LegC = t.BrandC<
   t.IntersectionC<
     [
-      t.TypeC<{}>,
+      t.UnknownRecordC,
       t.IntersectionC<
         [
           typeof LegExtensions,
@@ -623,13 +623,13 @@ export type LegC = t.BrandC<
 >;
 export const Leg: LegC = t.brand(
   t.intersection([
-    t.type({}),
+    t.UnknownRecord,
     t.intersection([LegExtensions, t.union([LegCore, WaitingLeg, TransferLeg])]),
   ]),
   (
     x,
   ): x is t.Branded<
-    {} & (LegExtensions & (LegCore | WaitingLeg | TransferLeg)),
+    Record<string, unknown> & (LegExtensions & (LegCore | WaitingLeg | TransferLeg)),
     LegBrand
   > => true,
   'Leg',

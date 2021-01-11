@@ -124,11 +124,11 @@ export interface AgencyIdBrand {
 
 // OpeningHours
 // Opening hour of the station, object format is left for TSP to decide
-export type OpeningHours = t.Branded<{}, OpeningHoursBrand>;
-export type OpeningHoursC = t.BrandC<t.TypeC<{}>, OpeningHoursBrand>;
+export type OpeningHours = t.Branded<Record<string, unknown>, OpeningHoursBrand>;
+export type OpeningHoursC = t.BrandC<t.UnknownRecordC, OpeningHoursBrand>;
 export const OpeningHours: OpeningHoursC = t.brand(
-  t.type({}),
-  (x): x is t.Branded<{}, OpeningHoursBrand> => true,
+  t.UnknownRecord,
+  (x): x is t.Branded<Record<string, unknown>, OpeningHoursBrand> => true,
   'OpeningHours',
 );
 export interface OpeningHoursBrand {
@@ -249,11 +249,11 @@ export interface PlatformCodeBrand {
 
 // Station
 // The default export. More information at the top.
-export type Station = t.Branded<{}, StationBrand>;
-export type StationC = t.BrandC<t.TypeC<{}>, StationBrand>;
+export type Station = t.Branded<Record<string, unknown>, StationBrand>;
+export type StationC = t.BrandC<t.UnknownRecordC, StationBrand>;
 export const Station: StationC = t.brand(
-  t.type({}),
-  (x): x is t.Branded<{}, StationBrand> => true,
+  t.UnknownRecord,
+  (x): x is t.Branded<Record<string, unknown>, StationBrand> => true,
   'Station',
 );
 export interface StationBrand {

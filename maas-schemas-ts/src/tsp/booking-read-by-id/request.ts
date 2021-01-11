@@ -33,7 +33,7 @@ export const schemaId = 'http://maasglobal.com/tsp/booking-read-by-id/request.js
 export type Request = t.Branded<
   {
     tspId?: Booking_.TspId;
-    query?: {};
+    query?: Record<string, unknown>;
   } & {
     tspId: Defined;
   },
@@ -44,7 +44,7 @@ export type RequestC = t.BrandC<
     [
       t.PartialC<{
         tspId: typeof Booking_.TspId;
-        query: t.TypeC<{}>;
+        query: t.UnknownRecordC;
       }>,
       t.TypeC<{
         tspId: typeof Defined;
@@ -57,7 +57,7 @@ export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       tspId: Booking_.TspId,
-      query: t.type({}),
+      query: t.UnknownRecord,
     }),
     t.type({
       tspId: Defined,
@@ -68,7 +68,7 @@ export const Request: RequestC = t.brand(
   ): x is t.Branded<
     {
       tspId?: Booking_.TspId;
-      query?: {};
+      query?: Record<string, unknown>;
     } & {
       tspId: Defined;
     },

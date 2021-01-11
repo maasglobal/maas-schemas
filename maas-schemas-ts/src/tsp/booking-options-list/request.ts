@@ -72,7 +72,8 @@ export type Request = t.Branded<
     | Booking_.TspId
     | Common_.AppInstanceId
     | (string | number | boolean)
-  >) & {
+  > &
+    Record<string, unknown>) & {
     startTime: Defined;
     from: Defined;
   },
@@ -125,6 +126,7 @@ export type RequestC = t.BrandC<
               ]
             >
           >,
+          t.RecordC<t.StringC, t.UnknownC>,
         ]
       >,
       t.TypeC<{
@@ -178,6 +180,7 @@ export const Request: RequestC = t.brand(
           t.union([t.string, t.number, t.boolean]),
         ]),
       ),
+      t.record(t.string, t.unknown),
     ]),
     t.type({
       startTime: Defined,
@@ -223,7 +226,8 @@ export const Request: RequestC = t.brand(
       | Booking_.TspId
       | Common_.AppInstanceId
       | (string | number | boolean)
-    >) & {
+    > &
+      Record<string, unknown>) & {
       startTime: Defined;
       from: Defined;
     },

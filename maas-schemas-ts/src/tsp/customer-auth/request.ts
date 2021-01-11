@@ -33,11 +33,11 @@ export const schemaId = 'http://maasglobal.com/tsp/customer-auth/request.json';
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  {
+  ({
     nonce?: Common_.EncodedQueryParam;
     returnUrl?: Units_.Url;
     locale?: I18n_.Locale;
-  } & {
+  } & Record<string, unknown>) & {
     nonce: Defined;
     returnUrl: Defined;
   },
@@ -46,11 +46,16 @@ export type Request = t.Branded<
 export type RequestC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        nonce: typeof Common_.EncodedQueryParam;
-        returnUrl: typeof Units_.Url;
-        locale: typeof I18n_.Locale;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            nonce: typeof Common_.EncodedQueryParam;
+            returnUrl: typeof Units_.Url;
+            locale: typeof I18n_.Locale;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         nonce: typeof Defined;
         returnUrl: typeof Defined;
@@ -61,11 +66,14 @@ export type RequestC = t.BrandC<
 >;
 export const Request: RequestC = t.brand(
   t.intersection([
-    t.partial({
-      nonce: Common_.EncodedQueryParam,
-      returnUrl: Units_.Url,
-      locale: I18n_.Locale,
-    }),
+    t.intersection([
+      t.partial({
+        nonce: Common_.EncodedQueryParam,
+        returnUrl: Units_.Url,
+        locale: I18n_.Locale,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       nonce: Defined,
       returnUrl: Defined,
@@ -74,11 +82,11 @@ export const Request: RequestC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       nonce?: Common_.EncodedQueryParam;
       returnUrl?: Units_.Url;
       locale?: I18n_.Locale;
-    } & {
+    } & Record<string, unknown>) & {
       nonce: Defined;
       returnUrl: Defined;
     },

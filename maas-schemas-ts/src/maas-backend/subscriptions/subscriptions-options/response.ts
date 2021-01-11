@@ -34,7 +34,7 @@ export const schemaId =
 export type Response = t.Branded<
   {
     options?: Array<SubscriptionOption_.SubscriptionOption>;
-    debug?: {};
+    debug?: Record<string, unknown>;
   } & {
     options: Defined;
   },
@@ -45,7 +45,7 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         options: t.ArrayC<typeof SubscriptionOption_.SubscriptionOption>;
-        debug: t.TypeC<{}>;
+        debug: t.RecordC<t.StringC, t.UnknownC>;
       }>,
       t.TypeC<{
         options: typeof Defined;
@@ -58,7 +58,7 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       options: t.array(SubscriptionOption_.SubscriptionOption),
-      debug: t.type({}),
+      debug: t.record(t.string, t.unknown),
     }),
     t.type({
       options: Defined,
@@ -69,7 +69,7 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       options?: Array<SubscriptionOption_.SubscriptionOption>;
-      debug?: {};
+      debug?: Record<string, unknown>;
     } & {
       options: Defined;
     },

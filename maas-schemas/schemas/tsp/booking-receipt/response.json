@@ -1,6 +1,7 @@
 {
   "$id": "http://maasglobal.com/tsp/booking-receipt/response.json",
   "description": "Response schema for getting a receipt for specific booking",
+  "type": "object",
   "properties": {
     "tspId": {
       "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"

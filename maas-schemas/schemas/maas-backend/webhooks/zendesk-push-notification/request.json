@@ -8,6 +8,7 @@
       "minItems": 1,
       "maxItems": 50,
       "items": {
+        "type": "object",
         "properties": {
           "identifier": {
             "$ref": "http://maasglobal.com/core/components/common.json#/definitions/deviceToken"

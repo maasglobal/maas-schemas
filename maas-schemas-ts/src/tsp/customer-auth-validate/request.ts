@@ -31,10 +31,10 @@ export const schemaId = 'http://maasglobal.com/tsp/customer-auth-validate/reques
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  {
+  ({
     encodedData?: Common_.EncodedQueryParam;
     error?: Common_.ErrorKey;
-  } & {
+  } & Record<string, unknown>) & {
     encodedData: Defined;
   },
   RequestBrand
@@ -42,10 +42,15 @@ export type Request = t.Branded<
 export type RequestC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        encodedData: typeof Common_.EncodedQueryParam;
-        error: typeof Common_.ErrorKey;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            encodedData: typeof Common_.EncodedQueryParam;
+            error: typeof Common_.ErrorKey;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         encodedData: typeof Defined;
       }>,
@@ -55,10 +60,13 @@ export type RequestC = t.BrandC<
 >;
 export const Request: RequestC = t.brand(
   t.intersection([
-    t.partial({
-      encodedData: Common_.EncodedQueryParam,
-      error: Common_.ErrorKey,
-    }),
+    t.intersection([
+      t.partial({
+        encodedData: Common_.EncodedQueryParam,
+        error: Common_.ErrorKey,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       encodedData: Defined,
     }),
@@ -66,10 +74,10 @@ export const Request: RequestC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       encodedData?: Common_.EncodedQueryParam;
       error?: Common_.ErrorKey;
-    } & {
+    } & Record<string, unknown>) & {
       encodedData: Defined;
     },
     RequestBrand

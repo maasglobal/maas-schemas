@@ -46,7 +46,7 @@ export type InvoiceLineItem = t.Branded<
     currency?: Units_.Currency;
     referenceInvoiceLineItemId?: InvoiceUnits_.InvoiceLineItemId;
     tokenId?: Fare_.TokenId;
-    token?: {};
+    token?: Record<string, unknown>;
   } & {
     id: Defined;
     gatewayId: Defined;
@@ -84,7 +84,7 @@ export type InvoiceLineItemC = t.BrandC<
         currency: typeof Units_.Currency;
         referenceInvoiceLineItemId: typeof InvoiceUnits_.InvoiceLineItemId;
         tokenId: typeof Fare_.TokenId;
-        token: t.TypeC<{}>;
+        token: t.UnknownRecordC;
       }>,
       t.TypeC<{
         id: typeof Defined;
@@ -120,7 +120,7 @@ export const InvoiceLineItem: InvoiceLineItemC = t.brand(
       currency: Units_.Currency,
       referenceInvoiceLineItemId: InvoiceUnits_.InvoiceLineItemId,
       tokenId: Fare_.TokenId,
-      token: t.type({}),
+      token: t.UnknownRecord,
     }),
     t.type({
       id: Defined,
@@ -146,7 +146,7 @@ export const InvoiceLineItem: InvoiceLineItemC = t.brand(
       currency?: Units_.Currency;
       referenceInvoiceLineItemId?: InvoiceUnits_.InvoiceLineItemId;
       tokenId?: Fare_.TokenId;
-      token?: {};
+      token?: Record<string, unknown>;
     } & {
       id: Defined;
       gatewayId: Defined;
