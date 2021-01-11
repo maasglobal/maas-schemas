@@ -60,7 +60,7 @@
       "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
       "type": "integer",
       "maximum": 9007199254740991,
-      "minimum": 1451606400
+      "minimum": 126230400000
     },
     "duration": {
       "description": "duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time",
