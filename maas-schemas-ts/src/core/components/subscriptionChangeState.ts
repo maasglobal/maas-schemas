@@ -29,14 +29,204 @@ export const Defined: DefinedC = new DefinedType();
 export const schemaId =
   'http://maasglobal.com/core/components/subscriptionChangeState.json';
 
+// State
+// State enum
+export type State = t.Branded<
+  string & ('IN_PROGRESS' | 'COMPLETED' | 'FAILED'),
+  StateBrand
+>;
+export type StateC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<
+        [t.LiteralC<'IN_PROGRESS'>, t.LiteralC<'COMPLETED'>, t.LiteralC<'FAILED'>]
+      >,
+    ]
+  >,
+  StateBrand
+>;
+export const State: StateC = t.brand(
+  t.intersection([
+    t.string,
+    t.union([t.literal('IN_PROGRESS'), t.literal('COMPLETED'), t.literal('FAILED')]),
+  ]),
+  (x): x is t.Branded<string & ('IN_PROGRESS' | 'COMPLETED' | 'FAILED'), StateBrand> =>
+    true,
+  'State',
+);
+export interface StateBrand {
+  readonly State: unique symbol;
+}
+
+// StateIN_PROGRESS
+// The purpose of this remains a mystery
+export type StateIN_PROGRESS = t.Branded<State & 'IN_PROGRESS', StateIN_PROGRESSBrand>;
+export type StateIN_PROGRESSC = t.BrandC<
+  t.IntersectionC<[typeof State, t.LiteralC<'IN_PROGRESS'>]>,
+  StateIN_PROGRESSBrand
+>;
+export const StateIN_PROGRESS: StateIN_PROGRESSC = t.brand(
+  t.intersection([State, t.literal('IN_PROGRESS')]),
+  (x): x is t.Branded<State & 'IN_PROGRESS', StateIN_PROGRESSBrand> => true,
+  'StateIN_PROGRESS',
+);
+export interface StateIN_PROGRESSBrand {
+  readonly StateIN_PROGRESS: unique symbol;
+}
+/** require('io-ts-validator').validator(StateIN_PROGRESS).decodeSync(defaultStateIN_PROGRESS) // => defaultStateIN_PROGRESS */
+export const defaultStateIN_PROGRESS: StateIN_PROGRESS = ('IN_PROGRESS' as unknown) as StateIN_PROGRESS;
+
+// StateCOMPLETED
+// The purpose of this remains a mystery
+export type StateCOMPLETED = t.Branded<State & 'COMPLETED', StateCOMPLETEDBrand>;
+export type StateCOMPLETEDC = t.BrandC<
+  t.IntersectionC<[typeof State, t.LiteralC<'COMPLETED'>]>,
+  StateCOMPLETEDBrand
+>;
+export const StateCOMPLETED: StateCOMPLETEDC = t.brand(
+  t.intersection([State, t.literal('COMPLETED')]),
+  (x): x is t.Branded<State & 'COMPLETED', StateCOMPLETEDBrand> => true,
+  'StateCOMPLETED',
+);
+export interface StateCOMPLETEDBrand {
+  readonly StateCOMPLETED: unique symbol;
+}
+/** require('io-ts-validator').validator(StateCOMPLETED).decodeSync(defaultStateCOMPLETED) // => defaultStateCOMPLETED */
+export const defaultStateCOMPLETED: StateCOMPLETED = ('COMPLETED' as unknown) as StateCOMPLETED;
+
+// StateFAILED
+// The purpose of this remains a mystery
+export type StateFAILED = t.Branded<State & 'FAILED', StateFAILEDBrand>;
+export type StateFAILEDC = t.BrandC<
+  t.IntersectionC<[typeof State, t.LiteralC<'FAILED'>]>,
+  StateFAILEDBrand
+>;
+export const StateFAILED: StateFAILEDC = t.brand(
+  t.intersection([State, t.literal('FAILED')]),
+  (x): x is t.Branded<State & 'FAILED', StateFAILEDBrand> => true,
+  'StateFAILED',
+);
+export interface StateFAILEDBrand {
+  readonly StateFAILED: unique symbol;
+}
+/** require('io-ts-validator').validator(StateFAILED).decodeSync(defaultStateFAILED) // => defaultStateFAILED */
+export const defaultStateFAILED: StateFAILED = ('FAILED' as unknown) as StateFAILED;
+
+// FailureKey
+// Failure key enum, identifying reason for the failure
+export type FailureKey = t.Branded<
+  string & ('UNKNOWN_ERROR' | 'NOT_ELIGIBLE' | 'EXISTING_TICKET'),
+  FailureKeyBrand
+>;
+export type FailureKeyC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<
+        [
+          t.LiteralC<'UNKNOWN_ERROR'>,
+          t.LiteralC<'NOT_ELIGIBLE'>,
+          t.LiteralC<'EXISTING_TICKET'>,
+        ]
+      >,
+    ]
+  >,
+  FailureKeyBrand
+>;
+export const FailureKey: FailureKeyC = t.brand(
+  t.intersection([
+    t.string,
+    t.union([
+      t.literal('UNKNOWN_ERROR'),
+      t.literal('NOT_ELIGIBLE'),
+      t.literal('EXISTING_TICKET'),
+    ]),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    string & ('UNKNOWN_ERROR' | 'NOT_ELIGIBLE' | 'EXISTING_TICKET'),
+    FailureKeyBrand
+  > => true,
+  'FailureKey',
+);
+export interface FailureKeyBrand {
+  readonly FailureKey: unique symbol;
+}
+
+// FailureKeyUNKNOWN_ERROR
+// The purpose of this remains a mystery
+export type FailureKeyUNKNOWN_ERROR = t.Branded<
+  FailureKey & 'UNKNOWN_ERROR',
+  FailureKeyUNKNOWN_ERRORBrand
+>;
+export type FailureKeyUNKNOWN_ERRORC = t.BrandC<
+  t.IntersectionC<[typeof FailureKey, t.LiteralC<'UNKNOWN_ERROR'>]>,
+  FailureKeyUNKNOWN_ERRORBrand
+>;
+export const FailureKeyUNKNOWN_ERROR: FailureKeyUNKNOWN_ERRORC = t.brand(
+  t.intersection([FailureKey, t.literal('UNKNOWN_ERROR')]),
+  (x): x is t.Branded<FailureKey & 'UNKNOWN_ERROR', FailureKeyUNKNOWN_ERRORBrand> => true,
+  'FailureKeyUNKNOWN_ERROR',
+);
+export interface FailureKeyUNKNOWN_ERRORBrand {
+  readonly FailureKeyUNKNOWN_ERROR: unique symbol;
+}
+/** require('io-ts-validator').validator(FailureKeyUNKNOWN_ERROR).decodeSync(defaultFailureKeyUNKNOWN_ERROR) // => defaultFailureKeyUNKNOWN_ERROR */
+export const defaultFailureKeyUNKNOWN_ERROR: FailureKeyUNKNOWN_ERROR = ('UNKNOWN_ERROR' as unknown) as FailureKeyUNKNOWN_ERROR;
+
+// FailureKeyNOT_ELIGIBLE
+// The purpose of this remains a mystery
+export type FailureKeyNOT_ELIGIBLE = t.Branded<
+  FailureKey & 'NOT_ELIGIBLE',
+  FailureKeyNOT_ELIGIBLEBrand
+>;
+export type FailureKeyNOT_ELIGIBLEC = t.BrandC<
+  t.IntersectionC<[typeof FailureKey, t.LiteralC<'NOT_ELIGIBLE'>]>,
+  FailureKeyNOT_ELIGIBLEBrand
+>;
+export const FailureKeyNOT_ELIGIBLE: FailureKeyNOT_ELIGIBLEC = t.brand(
+  t.intersection([FailureKey, t.literal('NOT_ELIGIBLE')]),
+  (x): x is t.Branded<FailureKey & 'NOT_ELIGIBLE', FailureKeyNOT_ELIGIBLEBrand> => true,
+  'FailureKeyNOT_ELIGIBLE',
+);
+export interface FailureKeyNOT_ELIGIBLEBrand {
+  readonly FailureKeyNOT_ELIGIBLE: unique symbol;
+}
+/** require('io-ts-validator').validator(FailureKeyNOT_ELIGIBLE).decodeSync(defaultFailureKeyNOT_ELIGIBLE) // => defaultFailureKeyNOT_ELIGIBLE */
+export const defaultFailureKeyNOT_ELIGIBLE: FailureKeyNOT_ELIGIBLE = ('NOT_ELIGIBLE' as unknown) as FailureKeyNOT_ELIGIBLE;
+
+// FailureKeyEXISTING_TICKET
+// The purpose of this remains a mystery
+export type FailureKeyEXISTING_TICKET = t.Branded<
+  FailureKey & 'EXISTING_TICKET',
+  FailureKeyEXISTING_TICKETBrand
+>;
+export type FailureKeyEXISTING_TICKETC = t.BrandC<
+  t.IntersectionC<[typeof FailureKey, t.LiteralC<'EXISTING_TICKET'>]>,
+  FailureKeyEXISTING_TICKETBrand
+>;
+export const FailureKeyEXISTING_TICKET: FailureKeyEXISTING_TICKETC = t.brand(
+  t.intersection([FailureKey, t.literal('EXISTING_TICKET')]),
+  (x): x is t.Branded<FailureKey & 'EXISTING_TICKET', FailureKeyEXISTING_TICKETBrand> =>
+    true,
+  'FailureKeyEXISTING_TICKET',
+);
+export interface FailureKeyEXISTING_TICKETBrand {
+  readonly FailureKeyEXISTING_TICKET: unique symbol;
+}
+/** require('io-ts-validator').validator(FailureKeyEXISTING_TICKET).decodeSync(defaultFailureKeyEXISTING_TICKET) // => defaultFailureKeyEXISTING_TICKET */
+export const defaultFailureKeyEXISTING_TICKET: FailureKeyEXISTING_TICKET = ('EXISTING_TICKET' as unknown) as FailureKeyEXISTING_TICKET;
+
 // SubscriptionChangeState
 // The default export. More information at the top.
 export type SubscriptionChangeState = t.Branded<
   {
     id?: Units_.Uuid;
-    state?: string & ('IN_PROGRESS' | 'COMPLETED' | 'FAILED');
+    state?: State;
     created?: Units_.Time;
-    failureKey?: string & ('UNKNOWN_ERROR' | 'NOT_ELIGIBLE' | 'EXISTING_TICKET');
+    failureKey?: FailureKey;
   } & {
     id: Defined;
     state: Defined;
@@ -48,27 +238,9 @@ export type SubscriptionChangeStateC = t.BrandC<
     [
       t.PartialC<{
         id: typeof Units_.Uuid;
-        state: t.IntersectionC<
-          [
-            t.StringC,
-            t.UnionC<
-              [t.LiteralC<'IN_PROGRESS'>, t.LiteralC<'COMPLETED'>, t.LiteralC<'FAILED'>]
-            >,
-          ]
-        >;
+        state: typeof State;
         created: typeof Units_.Time;
-        failureKey: t.IntersectionC<
-          [
-            t.StringC,
-            t.UnionC<
-              [
-                t.LiteralC<'UNKNOWN_ERROR'>,
-                t.LiteralC<'NOT_ELIGIBLE'>,
-                t.LiteralC<'EXISTING_TICKET'>,
-              ]
-            >,
-          ]
-        >;
+        failureKey: typeof FailureKey;
       }>,
       t.TypeC<{
         id: typeof Defined;
@@ -82,19 +254,9 @@ export const SubscriptionChangeState: SubscriptionChangeStateC = t.brand(
   t.intersection([
     t.partial({
       id: Units_.Uuid,
-      state: t.intersection([
-        t.string,
-        t.union([t.literal('IN_PROGRESS'), t.literal('COMPLETED'), t.literal('FAILED')]),
-      ]),
+      state: State,
       created: Units_.Time,
-      failureKey: t.intersection([
-        t.string,
-        t.union([
-          t.literal('UNKNOWN_ERROR'),
-          t.literal('NOT_ELIGIBLE'),
-          t.literal('EXISTING_TICKET'),
-        ]),
-      ]),
+      failureKey: FailureKey,
     }),
     t.type({
       id: Defined,
@@ -106,9 +268,9 @@ export const SubscriptionChangeState: SubscriptionChangeStateC = t.brand(
   ): x is t.Branded<
     {
       id?: Units_.Uuid;
-      state?: string & ('IN_PROGRESS' | 'COMPLETED' | 'FAILED');
+      state?: State;
       created?: Units_.Time;
-      failureKey?: string & ('UNKNOWN_ERROR' | 'NOT_ELIGIBLE' | 'EXISTING_TICKET');
+      failureKey?: FailureKey;
     } & {
       id: Defined;
       state: Defined;

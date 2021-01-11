@@ -28,6 +28,24 @@ export interface WaitingModeBrand {
   readonly WaitingMode: unique symbol;
 }
 
+// WaitingModeWAIT
+// The purpose of this remains a mystery
+export type WaitingModeWAIT = t.Branded<WaitingMode & 'WAIT', WaitingModeWAITBrand>;
+export type WaitingModeWAITC = t.BrandC<
+  t.IntersectionC<[typeof WaitingMode, t.LiteralC<'WAIT'>]>,
+  WaitingModeWAITBrand
+>;
+export const WaitingModeWAIT: WaitingModeWAITC = t.brand(
+  t.intersection([WaitingMode, t.literal('WAIT')]),
+  (x): x is t.Branded<WaitingMode & 'WAIT', WaitingModeWAITBrand> => true,
+  'WaitingModeWAIT',
+);
+export interface WaitingModeWAITBrand {
+  readonly WaitingModeWAIT: unique symbol;
+}
+/** require('io-ts-validator').validator(WaitingModeWAIT).decodeSync(defaultWaitingModeWAIT) // => defaultWaitingModeWAIT */
+export const defaultWaitingModeWAIT: WaitingModeWAIT = ('WAIT' as unknown) as WaitingModeWAIT;
+
 // TransferMode
 // A mode that involves changing transports
 export type TransferMode = t.Branded<
@@ -48,6 +66,48 @@ export const TransferMode: TransferModeC = t.brand(
 export interface TransferModeBrand {
   readonly TransferMode: unique symbol;
 }
+
+// TransferModeLEG_SWITCH
+// The purpose of this remains a mystery
+export type TransferModeLEG_SWITCH = t.Branded<
+  TransferMode & 'LEG_SWITCH',
+  TransferModeLEG_SWITCHBrand
+>;
+export type TransferModeLEG_SWITCHC = t.BrandC<
+  t.IntersectionC<[typeof TransferMode, t.LiteralC<'LEG_SWITCH'>]>,
+  TransferModeLEG_SWITCHBrand
+>;
+export const TransferModeLEG_SWITCH: TransferModeLEG_SWITCHC = t.brand(
+  t.intersection([TransferMode, t.literal('LEG_SWITCH')]),
+  (x): x is t.Branded<TransferMode & 'LEG_SWITCH', TransferModeLEG_SWITCHBrand> => true,
+  'TransferModeLEG_SWITCH',
+);
+export interface TransferModeLEG_SWITCHBrand {
+  readonly TransferModeLEG_SWITCH: unique symbol;
+}
+/** require('io-ts-validator').validator(TransferModeLEG_SWITCH).decodeSync(defaultTransferModeLEG_SWITCH) // => defaultTransferModeLEG_SWITCH */
+export const defaultTransferModeLEG_SWITCH: TransferModeLEG_SWITCH = ('LEG_SWITCH' as unknown) as TransferModeLEG_SWITCH;
+
+// TransferModeTRANSFER
+// The purpose of this remains a mystery
+export type TransferModeTRANSFER = t.Branded<
+  TransferMode & 'TRANSFER',
+  TransferModeTRANSFERBrand
+>;
+export type TransferModeTRANSFERC = t.BrandC<
+  t.IntersectionC<[typeof TransferMode, t.LiteralC<'TRANSFER'>]>,
+  TransferModeTRANSFERBrand
+>;
+export const TransferModeTRANSFER: TransferModeTRANSFERC = t.brand(
+  t.intersection([TransferMode, t.literal('TRANSFER')]),
+  (x): x is t.Branded<TransferMode & 'TRANSFER', TransferModeTRANSFERBrand> => true,
+  'TransferModeTRANSFER',
+);
+export interface TransferModeTRANSFERBrand {
+  readonly TransferModeTRANSFER: unique symbol;
+}
+/** require('io-ts-validator').validator(TransferModeTRANSFER).decodeSync(defaultTransferModeTRANSFER) // => defaultTransferModeTRANSFER */
+export const defaultTransferModeTRANSFER: TransferModeTRANSFER = ('TRANSFER' as unknown) as TransferModeTRANSFER;
 
 // PersonalMode
 // A mode that involves using your personal vehicle or legs
@@ -98,6 +158,132 @@ export const PersonalMode: PersonalModeC = t.brand(
 export interface PersonalModeBrand {
   readonly PersonalMode: unique symbol;
 }
+
+// PersonalModeBICYCLE
+// The purpose of this remains a mystery
+export type PersonalModeBICYCLE = t.Branded<
+  PersonalMode & 'BICYCLE',
+  PersonalModeBICYCLEBrand
+>;
+export type PersonalModeBICYCLEC = t.BrandC<
+  t.IntersectionC<[typeof PersonalMode, t.LiteralC<'BICYCLE'>]>,
+  PersonalModeBICYCLEBrand
+>;
+export const PersonalModeBICYCLE: PersonalModeBICYCLEC = t.brand(
+  t.intersection([PersonalMode, t.literal('BICYCLE')]),
+  (x): x is t.Branded<PersonalMode & 'BICYCLE', PersonalModeBICYCLEBrand> => true,
+  'PersonalModeBICYCLE',
+);
+export interface PersonalModeBICYCLEBrand {
+  readonly PersonalModeBICYCLE: unique symbol;
+}
+/** require('io-ts-validator').validator(PersonalModeBICYCLE).decodeSync(defaultPersonalModeBICYCLE) // => defaultPersonalModeBICYCLE */
+export const defaultPersonalModeBICYCLE: PersonalModeBICYCLE = ('BICYCLE' as unknown) as PersonalModeBICYCLE;
+
+// PersonalModeCAR
+// The purpose of this remains a mystery
+export type PersonalModeCAR = t.Branded<PersonalMode & 'CAR', PersonalModeCARBrand>;
+export type PersonalModeCARC = t.BrandC<
+  t.IntersectionC<[typeof PersonalMode, t.LiteralC<'CAR'>]>,
+  PersonalModeCARBrand
+>;
+export const PersonalModeCAR: PersonalModeCARC = t.brand(
+  t.intersection([PersonalMode, t.literal('CAR')]),
+  (x): x is t.Branded<PersonalMode & 'CAR', PersonalModeCARBrand> => true,
+  'PersonalModeCAR',
+);
+export interface PersonalModeCARBrand {
+  readonly PersonalModeCAR: unique symbol;
+}
+/** require('io-ts-validator').validator(PersonalModeCAR).decodeSync(defaultPersonalModeCAR) // => defaultPersonalModeCAR */
+export const defaultPersonalModeCAR: PersonalModeCAR = ('CAR' as unknown) as PersonalModeCAR;
+
+// PersonalModeSCOOTER
+// The purpose of this remains a mystery
+export type PersonalModeSCOOTER = t.Branded<
+  PersonalMode & 'SCOOTER',
+  PersonalModeSCOOTERBrand
+>;
+export type PersonalModeSCOOTERC = t.BrandC<
+  t.IntersectionC<[typeof PersonalMode, t.LiteralC<'SCOOTER'>]>,
+  PersonalModeSCOOTERBrand
+>;
+export const PersonalModeSCOOTER: PersonalModeSCOOTERC = t.brand(
+  t.intersection([PersonalMode, t.literal('SCOOTER')]),
+  (x): x is t.Branded<PersonalMode & 'SCOOTER', PersonalModeSCOOTERBrand> => true,
+  'PersonalModeSCOOTER',
+);
+export interface PersonalModeSCOOTERBrand {
+  readonly PersonalModeSCOOTER: unique symbol;
+}
+/** require('io-ts-validator').validator(PersonalModeSCOOTER).decodeSync(defaultPersonalModeSCOOTER) // => defaultPersonalModeSCOOTER */
+export const defaultPersonalModeSCOOTER: PersonalModeSCOOTER = ('SCOOTER' as unknown) as PersonalModeSCOOTER;
+
+// PersonalModeSHARED_BICYCLE
+// The purpose of this remains a mystery
+export type PersonalModeSHARED_BICYCLE = t.Branded<
+  PersonalMode & 'SHARED_BICYCLE',
+  PersonalModeSHARED_BICYCLEBrand
+>;
+export type PersonalModeSHARED_BICYCLEC = t.BrandC<
+  t.IntersectionC<[typeof PersonalMode, t.LiteralC<'SHARED_BICYCLE'>]>,
+  PersonalModeSHARED_BICYCLEBrand
+>;
+export const PersonalModeSHARED_BICYCLE: PersonalModeSHARED_BICYCLEC = t.brand(
+  t.intersection([PersonalMode, t.literal('SHARED_BICYCLE')]),
+  (x): x is t.Branded<PersonalMode & 'SHARED_BICYCLE', PersonalModeSHARED_BICYCLEBrand> =>
+    true,
+  'PersonalModeSHARED_BICYCLE',
+);
+export interface PersonalModeSHARED_BICYCLEBrand {
+  readonly PersonalModeSHARED_BICYCLE: unique symbol;
+}
+/** require('io-ts-validator').validator(PersonalModeSHARED_BICYCLE).decodeSync(defaultPersonalModeSHARED_BICYCLE) // => defaultPersonalModeSHARED_BICYCLE */
+export const defaultPersonalModeSHARED_BICYCLE: PersonalModeSHARED_BICYCLE = ('SHARED_BICYCLE' as unknown) as PersonalModeSHARED_BICYCLE;
+
+// PersonalModeWALK
+// The purpose of this remains a mystery
+export type PersonalModeWALK = t.Branded<PersonalMode & 'WALK', PersonalModeWALKBrand>;
+export type PersonalModeWALKC = t.BrandC<
+  t.IntersectionC<[typeof PersonalMode, t.LiteralC<'WALK'>]>,
+  PersonalModeWALKBrand
+>;
+export const PersonalModeWALK: PersonalModeWALKC = t.brand(
+  t.intersection([PersonalMode, t.literal('WALK')]),
+  (x): x is t.Branded<PersonalMode & 'WALK', PersonalModeWALKBrand> => true,
+  'PersonalModeWALK',
+);
+export interface PersonalModeWALKBrand {
+  readonly PersonalModeWALK: unique symbol;
+}
+/** require('io-ts-validator').validator(PersonalModeWALK).decodeSync(defaultPersonalModeWALK) // => defaultPersonalModeWALK */
+export const defaultPersonalModeWALK: PersonalModeWALK = ('WALK' as unknown) as PersonalModeWALK;
+
+// PersonalModeSHARED_E_BICYCLE
+// The purpose of this remains a mystery
+export type PersonalModeSHARED_E_BICYCLE = t.Branded<
+  PersonalMode & 'SHARED_E_BICYCLE',
+  PersonalModeSHARED_E_BICYCLEBrand
+>;
+export type PersonalModeSHARED_E_BICYCLEC = t.BrandC<
+  t.IntersectionC<[typeof PersonalMode, t.LiteralC<'SHARED_E_BICYCLE'>]>,
+  PersonalModeSHARED_E_BICYCLEBrand
+>;
+export const PersonalModeSHARED_E_BICYCLE: PersonalModeSHARED_E_BICYCLEC = t.brand(
+  t.intersection([PersonalMode, t.literal('SHARED_E_BICYCLE')]),
+  (
+    x,
+  ): x is t.Branded<
+    PersonalMode & 'SHARED_E_BICYCLE',
+    PersonalModeSHARED_E_BICYCLEBrand
+  > => true,
+  'PersonalModeSHARED_E_BICYCLE',
+);
+export interface PersonalModeSHARED_E_BICYCLEBrand {
+  readonly PersonalModeSHARED_E_BICYCLE: unique symbol;
+}
+/** require('io-ts-validator').validator(PersonalModeSHARED_E_BICYCLE).decodeSync(defaultPersonalModeSHARED_E_BICYCLE) // => defaultPersonalModeSHARED_E_BICYCLE */
+export const defaultPersonalModeSHARED_E_BICYCLE: PersonalModeSHARED_E_BICYCLE = ('SHARED_E_BICYCLE' as unknown) as PersonalModeSHARED_E_BICYCLE;
 
 // PublicTransitMode
 // A mode that involves transit with fixed schedules
@@ -152,6 +338,176 @@ export const PublicTransitMode: PublicTransitModeC = t.brand(
 export interface PublicTransitModeBrand {
   readonly PublicTransitMode: unique symbol;
 }
+
+// PublicTransitModeAEROPLANE
+// The purpose of this remains a mystery
+export type PublicTransitModeAEROPLANE = t.Branded<
+  PublicTransitMode & 'AEROPLANE',
+  PublicTransitModeAEROPLANEBrand
+>;
+export type PublicTransitModeAEROPLANEC = t.BrandC<
+  t.IntersectionC<[typeof PublicTransitMode, t.LiteralC<'AEROPLANE'>]>,
+  PublicTransitModeAEROPLANEBrand
+>;
+export const PublicTransitModeAEROPLANE: PublicTransitModeAEROPLANEC = t.brand(
+  t.intersection([PublicTransitMode, t.literal('AEROPLANE')]),
+  (x): x is t.Branded<PublicTransitMode & 'AEROPLANE', PublicTransitModeAEROPLANEBrand> =>
+    true,
+  'PublicTransitModeAEROPLANE',
+);
+export interface PublicTransitModeAEROPLANEBrand {
+  readonly PublicTransitModeAEROPLANE: unique symbol;
+}
+/** require('io-ts-validator').validator(PublicTransitModeAEROPLANE).decodeSync(defaultPublicTransitModeAEROPLANE) // => defaultPublicTransitModeAEROPLANE */
+export const defaultPublicTransitModeAEROPLANE: PublicTransitModeAEROPLANE = ('AEROPLANE' as unknown) as PublicTransitModeAEROPLANE;
+
+// PublicTransitModeBUS
+// The purpose of this remains a mystery
+export type PublicTransitModeBUS = t.Branded<
+  PublicTransitMode & 'BUS',
+  PublicTransitModeBUSBrand
+>;
+export type PublicTransitModeBUSC = t.BrandC<
+  t.IntersectionC<[typeof PublicTransitMode, t.LiteralC<'BUS'>]>,
+  PublicTransitModeBUSBrand
+>;
+export const PublicTransitModeBUS: PublicTransitModeBUSC = t.brand(
+  t.intersection([PublicTransitMode, t.literal('BUS')]),
+  (x): x is t.Branded<PublicTransitMode & 'BUS', PublicTransitModeBUSBrand> => true,
+  'PublicTransitModeBUS',
+);
+export interface PublicTransitModeBUSBrand {
+  readonly PublicTransitModeBUS: unique symbol;
+}
+/** require('io-ts-validator').validator(PublicTransitModeBUS).decodeSync(defaultPublicTransitModeBUS) // => defaultPublicTransitModeBUS */
+export const defaultPublicTransitModeBUS: PublicTransitModeBUS = ('BUS' as unknown) as PublicTransitModeBUS;
+
+// PublicTransitModeFERRY
+// The purpose of this remains a mystery
+export type PublicTransitModeFERRY = t.Branded<
+  PublicTransitMode & 'FERRY',
+  PublicTransitModeFERRYBrand
+>;
+export type PublicTransitModeFERRYC = t.BrandC<
+  t.IntersectionC<[typeof PublicTransitMode, t.LiteralC<'FERRY'>]>,
+  PublicTransitModeFERRYBrand
+>;
+export const PublicTransitModeFERRY: PublicTransitModeFERRYC = t.brand(
+  t.intersection([PublicTransitMode, t.literal('FERRY')]),
+  (x): x is t.Branded<PublicTransitMode & 'FERRY', PublicTransitModeFERRYBrand> => true,
+  'PublicTransitModeFERRY',
+);
+export interface PublicTransitModeFERRYBrand {
+  readonly PublicTransitModeFERRY: unique symbol;
+}
+/** require('io-ts-validator').validator(PublicTransitModeFERRY).decodeSync(defaultPublicTransitModeFERRY) // => defaultPublicTransitModeFERRY */
+export const defaultPublicTransitModeFERRY: PublicTransitModeFERRY = ('FERRY' as unknown) as PublicTransitModeFERRY;
+
+// PublicTransitModeRAIL
+// The purpose of this remains a mystery
+export type PublicTransitModeRAIL = t.Branded<
+  PublicTransitMode & 'RAIL',
+  PublicTransitModeRAILBrand
+>;
+export type PublicTransitModeRAILC = t.BrandC<
+  t.IntersectionC<[typeof PublicTransitMode, t.LiteralC<'RAIL'>]>,
+  PublicTransitModeRAILBrand
+>;
+export const PublicTransitModeRAIL: PublicTransitModeRAILC = t.brand(
+  t.intersection([PublicTransitMode, t.literal('RAIL')]),
+  (x): x is t.Branded<PublicTransitMode & 'RAIL', PublicTransitModeRAILBrand> => true,
+  'PublicTransitModeRAIL',
+);
+export interface PublicTransitModeRAILBrand {
+  readonly PublicTransitModeRAIL: unique symbol;
+}
+/** require('io-ts-validator').validator(PublicTransitModeRAIL).decodeSync(defaultPublicTransitModeRAIL) // => defaultPublicTransitModeRAIL */
+export const defaultPublicTransitModeRAIL: PublicTransitModeRAIL = ('RAIL' as unknown) as PublicTransitModeRAIL;
+
+// PublicTransitModeSUBWAY
+// The purpose of this remains a mystery
+export type PublicTransitModeSUBWAY = t.Branded<
+  PublicTransitMode & 'SUBWAY',
+  PublicTransitModeSUBWAYBrand
+>;
+export type PublicTransitModeSUBWAYC = t.BrandC<
+  t.IntersectionC<[typeof PublicTransitMode, t.LiteralC<'SUBWAY'>]>,
+  PublicTransitModeSUBWAYBrand
+>;
+export const PublicTransitModeSUBWAY: PublicTransitModeSUBWAYC = t.brand(
+  t.intersection([PublicTransitMode, t.literal('SUBWAY')]),
+  (x): x is t.Branded<PublicTransitMode & 'SUBWAY', PublicTransitModeSUBWAYBrand> => true,
+  'PublicTransitModeSUBWAY',
+);
+export interface PublicTransitModeSUBWAYBrand {
+  readonly PublicTransitModeSUBWAY: unique symbol;
+}
+/** require('io-ts-validator').validator(PublicTransitModeSUBWAY).decodeSync(defaultPublicTransitModeSUBWAY) // => defaultPublicTransitModeSUBWAY */
+export const defaultPublicTransitModeSUBWAY: PublicTransitModeSUBWAY = ('SUBWAY' as unknown) as PublicTransitModeSUBWAY;
+
+// PublicTransitModeTRAIN
+// The purpose of this remains a mystery
+export type PublicTransitModeTRAIN = t.Branded<
+  PublicTransitMode & 'TRAIN',
+  PublicTransitModeTRAINBrand
+>;
+export type PublicTransitModeTRAINC = t.BrandC<
+  t.IntersectionC<[typeof PublicTransitMode, t.LiteralC<'TRAIN'>]>,
+  PublicTransitModeTRAINBrand
+>;
+export const PublicTransitModeTRAIN: PublicTransitModeTRAINC = t.brand(
+  t.intersection([PublicTransitMode, t.literal('TRAIN')]),
+  (x): x is t.Branded<PublicTransitMode & 'TRAIN', PublicTransitModeTRAINBrand> => true,
+  'PublicTransitModeTRAIN',
+);
+export interface PublicTransitModeTRAINBrand {
+  readonly PublicTransitModeTRAIN: unique symbol;
+}
+/** require('io-ts-validator').validator(PublicTransitModeTRAIN).decodeSync(defaultPublicTransitModeTRAIN) // => defaultPublicTransitModeTRAIN */
+export const defaultPublicTransitModeTRAIN: PublicTransitModeTRAIN = ('TRAIN' as unknown) as PublicTransitModeTRAIN;
+
+// PublicTransitModeTRAM
+// The purpose of this remains a mystery
+export type PublicTransitModeTRAM = t.Branded<
+  PublicTransitMode & 'TRAM',
+  PublicTransitModeTRAMBrand
+>;
+export type PublicTransitModeTRAMC = t.BrandC<
+  t.IntersectionC<[typeof PublicTransitMode, t.LiteralC<'TRAM'>]>,
+  PublicTransitModeTRAMBrand
+>;
+export const PublicTransitModeTRAM: PublicTransitModeTRAMC = t.brand(
+  t.intersection([PublicTransitMode, t.literal('TRAM')]),
+  (x): x is t.Branded<PublicTransitMode & 'TRAM', PublicTransitModeTRAMBrand> => true,
+  'PublicTransitModeTRAM',
+);
+export interface PublicTransitModeTRAMBrand {
+  readonly PublicTransitModeTRAM: unique symbol;
+}
+/** require('io-ts-validator').validator(PublicTransitModeTRAM).decodeSync(defaultPublicTransitModeTRAM) // => defaultPublicTransitModeTRAM */
+export const defaultPublicTransitModeTRAM: PublicTransitModeTRAM = ('TRAM' as unknown) as PublicTransitModeTRAM;
+
+// PublicTransitModeTRANSIT
+// The purpose of this remains a mystery
+export type PublicTransitModeTRANSIT = t.Branded<
+  PublicTransitMode & 'TRANSIT',
+  PublicTransitModeTRANSITBrand
+>;
+export type PublicTransitModeTRANSITC = t.BrandC<
+  t.IntersectionC<[typeof PublicTransitMode, t.LiteralC<'TRANSIT'>]>,
+  PublicTransitModeTRANSITBrand
+>;
+export const PublicTransitModeTRANSIT: PublicTransitModeTRANSITC = t.brand(
+  t.intersection([PublicTransitMode, t.literal('TRANSIT')]),
+  (x): x is t.Branded<PublicTransitMode & 'TRANSIT', PublicTransitModeTRANSITBrand> =>
+    true,
+  'PublicTransitModeTRANSIT',
+);
+export interface PublicTransitModeTRANSITBrand {
+  readonly PublicTransitModeTRANSIT: unique symbol;
+}
+/** require('io-ts-validator').validator(PublicTransitModeTRANSIT).decodeSync(defaultPublicTransitModeTRANSIT) // => defaultPublicTransitModeTRANSIT */
+export const defaultPublicTransitModeTRANSIT: PublicTransitModeTRANSIT = ('TRANSIT' as unknown) as PublicTransitModeTRANSIT;
 
 // PrivateTransitMode
 // A mode that is available on-demand for your personal use
@@ -224,6 +580,188 @@ export const PrivateTransitMode: PrivateTransitModeC = t.brand(
 export interface PrivateTransitModeBrand {
   readonly PrivateTransitMode: unique symbol;
 }
+
+// PrivateTransitModeBUSISH
+// The purpose of this remains a mystery
+export type PrivateTransitModeBUSISH = t.Branded<
+  PrivateTransitMode & 'BUSISH',
+  PrivateTransitModeBUSISHBrand
+>;
+export type PrivateTransitModeBUSISHC = t.BrandC<
+  t.IntersectionC<[typeof PrivateTransitMode, t.LiteralC<'BUSISH'>]>,
+  PrivateTransitModeBUSISHBrand
+>;
+export const PrivateTransitModeBUSISH: PrivateTransitModeBUSISHC = t.brand(
+  t.intersection([PrivateTransitMode, t.literal('BUSISH')]),
+  (x): x is t.Branded<PrivateTransitMode & 'BUSISH', PrivateTransitModeBUSISHBrand> =>
+    true,
+  'PrivateTransitModeBUSISH',
+);
+export interface PrivateTransitModeBUSISHBrand {
+  readonly PrivateTransitModeBUSISH: unique symbol;
+}
+/** require('io-ts-validator').validator(PrivateTransitModeBUSISH).decodeSync(defaultPrivateTransitModeBUSISH) // => defaultPrivateTransitModeBUSISH */
+export const defaultPrivateTransitModeBUSISH: PrivateTransitModeBUSISH = ('BUSISH' as unknown) as PrivateTransitModeBUSISH;
+
+// PrivateTransitModeCABLE_CAR
+// The purpose of this remains a mystery
+export type PrivateTransitModeCABLE_CAR = t.Branded<
+  PrivateTransitMode & 'CABLE_CAR',
+  PrivateTransitModeCABLE_CARBrand
+>;
+export type PrivateTransitModeCABLE_CARC = t.BrandC<
+  t.IntersectionC<[typeof PrivateTransitMode, t.LiteralC<'CABLE_CAR'>]>,
+  PrivateTransitModeCABLE_CARBrand
+>;
+export const PrivateTransitModeCABLE_CAR: PrivateTransitModeCABLE_CARC = t.brand(
+  t.intersection([PrivateTransitMode, t.literal('CABLE_CAR')]),
+  (
+    x,
+  ): x is t.Branded<PrivateTransitMode & 'CABLE_CAR', PrivateTransitModeCABLE_CARBrand> =>
+    true,
+  'PrivateTransitModeCABLE_CAR',
+);
+export interface PrivateTransitModeCABLE_CARBrand {
+  readonly PrivateTransitModeCABLE_CAR: unique symbol;
+}
+/** require('io-ts-validator').validator(PrivateTransitModeCABLE_CAR).decodeSync(defaultPrivateTransitModeCABLE_CAR) // => defaultPrivateTransitModeCABLE_CAR */
+export const defaultPrivateTransitModeCABLE_CAR: PrivateTransitModeCABLE_CAR = ('CABLE_CAR' as unknown) as PrivateTransitModeCABLE_CAR;
+
+// PrivateTransitModeCAR
+// The purpose of this remains a mystery
+export type PrivateTransitModeCAR = t.Branded<
+  PrivateTransitMode & 'CAR',
+  PrivateTransitModeCARBrand
+>;
+export type PrivateTransitModeCARC = t.BrandC<
+  t.IntersectionC<[typeof PrivateTransitMode, t.LiteralC<'CAR'>]>,
+  PrivateTransitModeCARBrand
+>;
+export const PrivateTransitModeCAR: PrivateTransitModeCARC = t.brand(
+  t.intersection([PrivateTransitMode, t.literal('CAR')]),
+  (x): x is t.Branded<PrivateTransitMode & 'CAR', PrivateTransitModeCARBrand> => true,
+  'PrivateTransitModeCAR',
+);
+export interface PrivateTransitModeCARBrand {
+  readonly PrivateTransitModeCAR: unique symbol;
+}
+/** require('io-ts-validator').validator(PrivateTransitModeCAR).decodeSync(defaultPrivateTransitModeCAR) // => defaultPrivateTransitModeCAR */
+export const defaultPrivateTransitModeCAR: PrivateTransitModeCAR = ('CAR' as unknown) as PrivateTransitModeCAR;
+
+// PrivateTransitModeFUNICULAR
+// The purpose of this remains a mystery
+export type PrivateTransitModeFUNICULAR = t.Branded<
+  PrivateTransitMode & 'FUNICULAR',
+  PrivateTransitModeFUNICULARBrand
+>;
+export type PrivateTransitModeFUNICULARC = t.BrandC<
+  t.IntersectionC<[typeof PrivateTransitMode, t.LiteralC<'FUNICULAR'>]>,
+  PrivateTransitModeFUNICULARBrand
+>;
+export const PrivateTransitModeFUNICULAR: PrivateTransitModeFUNICULARC = t.brand(
+  t.intersection([PrivateTransitMode, t.literal('FUNICULAR')]),
+  (
+    x,
+  ): x is t.Branded<PrivateTransitMode & 'FUNICULAR', PrivateTransitModeFUNICULARBrand> =>
+    true,
+  'PrivateTransitModeFUNICULAR',
+);
+export interface PrivateTransitModeFUNICULARBrand {
+  readonly PrivateTransitModeFUNICULAR: unique symbol;
+}
+/** require('io-ts-validator').validator(PrivateTransitModeFUNICULAR).decodeSync(defaultPrivateTransitModeFUNICULAR) // => defaultPrivateTransitModeFUNICULAR */
+export const defaultPrivateTransitModeFUNICULAR: PrivateTransitModeFUNICULAR = ('FUNICULAR' as unknown) as PrivateTransitModeFUNICULAR;
+
+// PrivateTransitModeGONDOLA
+// The purpose of this remains a mystery
+export type PrivateTransitModeGONDOLA = t.Branded<
+  PrivateTransitMode & 'GONDOLA',
+  PrivateTransitModeGONDOLABrand
+>;
+export type PrivateTransitModeGONDOLAC = t.BrandC<
+  t.IntersectionC<[typeof PrivateTransitMode, t.LiteralC<'GONDOLA'>]>,
+  PrivateTransitModeGONDOLABrand
+>;
+export const PrivateTransitModeGONDOLA: PrivateTransitModeGONDOLAC = t.brand(
+  t.intersection([PrivateTransitMode, t.literal('GONDOLA')]),
+  (x): x is t.Branded<PrivateTransitMode & 'GONDOLA', PrivateTransitModeGONDOLABrand> =>
+    true,
+  'PrivateTransitModeGONDOLA',
+);
+export interface PrivateTransitModeGONDOLABrand {
+  readonly PrivateTransitModeGONDOLA: unique symbol;
+}
+/** require('io-ts-validator').validator(PrivateTransitModeGONDOLA).decodeSync(defaultPrivateTransitModeGONDOLA) // => defaultPrivateTransitModeGONDOLA */
+export const defaultPrivateTransitModeGONDOLA: PrivateTransitModeGONDOLA = ('GONDOLA' as unknown) as PrivateTransitModeGONDOLA;
+
+// PrivateTransitModeSHARED_CAR
+// The purpose of this remains a mystery
+export type PrivateTransitModeSHARED_CAR = t.Branded<
+  PrivateTransitMode & 'SHARED_CAR',
+  PrivateTransitModeSHARED_CARBrand
+>;
+export type PrivateTransitModeSHARED_CARC = t.BrandC<
+  t.IntersectionC<[typeof PrivateTransitMode, t.LiteralC<'SHARED_CAR'>]>,
+  PrivateTransitModeSHARED_CARBrand
+>;
+export const PrivateTransitModeSHARED_CAR: PrivateTransitModeSHARED_CARC = t.brand(
+  t.intersection([PrivateTransitMode, t.literal('SHARED_CAR')]),
+  (
+    x,
+  ): x is t.Branded<
+    PrivateTransitMode & 'SHARED_CAR',
+    PrivateTransitModeSHARED_CARBrand
+  > => true,
+  'PrivateTransitModeSHARED_CAR',
+);
+export interface PrivateTransitModeSHARED_CARBrand {
+  readonly PrivateTransitModeSHARED_CAR: unique symbol;
+}
+/** require('io-ts-validator').validator(PrivateTransitModeSHARED_CAR).decodeSync(defaultPrivateTransitModeSHARED_CAR) // => defaultPrivateTransitModeSHARED_CAR */
+export const defaultPrivateTransitModeSHARED_CAR: PrivateTransitModeSHARED_CAR = ('SHARED_CAR' as unknown) as PrivateTransitModeSHARED_CAR;
+
+// PrivateTransitModeTAXI
+// The purpose of this remains a mystery
+export type PrivateTransitModeTAXI = t.Branded<
+  PrivateTransitMode & 'TAXI',
+  PrivateTransitModeTAXIBrand
+>;
+export type PrivateTransitModeTAXIC = t.BrandC<
+  t.IntersectionC<[typeof PrivateTransitMode, t.LiteralC<'TAXI'>]>,
+  PrivateTransitModeTAXIBrand
+>;
+export const PrivateTransitModeTAXI: PrivateTransitModeTAXIC = t.brand(
+  t.intersection([PrivateTransitMode, t.literal('TAXI')]),
+  (x): x is t.Branded<PrivateTransitMode & 'TAXI', PrivateTransitModeTAXIBrand> => true,
+  'PrivateTransitModeTAXI',
+);
+export interface PrivateTransitModeTAXIBrand {
+  readonly PrivateTransitModeTAXI: unique symbol;
+}
+/** require('io-ts-validator').validator(PrivateTransitModeTAXI).decodeSync(defaultPrivateTransitModeTAXI) // => defaultPrivateTransitModeTAXI */
+export const defaultPrivateTransitModeTAXI: PrivateTransitModeTAXI = ('TAXI' as unknown) as PrivateTransitModeTAXI;
+
+// PrivateTransitModeTRAINISH
+// The purpose of this remains a mystery
+export type PrivateTransitModeTRAINISH = t.Branded<
+  PrivateTransitMode & 'TRAINISH',
+  PrivateTransitModeTRAINISHBrand
+>;
+export type PrivateTransitModeTRAINISHC = t.BrandC<
+  t.IntersectionC<[typeof PrivateTransitMode, t.LiteralC<'TRAINISH'>]>,
+  PrivateTransitModeTRAINISHBrand
+>;
+export const PrivateTransitModeTRAINISH: PrivateTransitModeTRAINISHC = t.brand(
+  t.intersection([PrivateTransitMode, t.literal('TRAINISH')]),
+  (x): x is t.Branded<PrivateTransitMode & 'TRAINISH', PrivateTransitModeTRAINISHBrand> =>
+    true,
+  'PrivateTransitModeTRAINISH',
+);
+export interface PrivateTransitModeTRAINISHBrand {
+  readonly PrivateTransitModeTRAINISH: unique symbol;
+}
+/** require('io-ts-validator').validator(PrivateTransitModeTRAINISH).decodeSync(defaultPrivateTransitModeTRAINISH) // => defaultPrivateTransitModeTRAINISH */
+export const defaultPrivateTransitModeTRAINISH: PrivateTransitModeTRAINISH = ('TRAINISH' as unknown) as PrivateTransitModeTRAINISH;
 
 // TravelMode
 // The default export. More information at the top.

@@ -106,6 +106,137 @@ export interface DocumentStatusBrand {
   readonly DocumentStatus: unique symbol;
 }
 
+// DocumentStatusPENDING
+// The purpose of this remains a mystery
+export type DocumentStatusPENDING = t.Branded<
+  DocumentStatus & 'PENDING',
+  DocumentStatusPENDINGBrand
+>;
+export type DocumentStatusPENDINGC = t.BrandC<
+  t.IntersectionC<[typeof DocumentStatus, t.LiteralC<'PENDING'>]>,
+  DocumentStatusPENDINGBrand
+>;
+export const DocumentStatusPENDING: DocumentStatusPENDINGC = t.brand(
+  t.intersection([DocumentStatus, t.literal('PENDING')]),
+  (x): x is t.Branded<DocumentStatus & 'PENDING', DocumentStatusPENDINGBrand> => true,
+  'DocumentStatusPENDING',
+);
+export interface DocumentStatusPENDINGBrand {
+  readonly DocumentStatusPENDING: unique symbol;
+}
+/** require('io-ts-validator').validator(DocumentStatusPENDING).decodeSync(defaultDocumentStatusPENDING) // => defaultDocumentStatusPENDING */
+export const defaultDocumentStatusPENDING: DocumentStatusPENDING = ('PENDING' as unknown) as DocumentStatusPENDING;
+
+// DocumentStatusAPPROVED
+// The purpose of this remains a mystery
+export type DocumentStatusAPPROVED = t.Branded<
+  DocumentStatus & 'APPROVED',
+  DocumentStatusAPPROVEDBrand
+>;
+export type DocumentStatusAPPROVEDC = t.BrandC<
+  t.IntersectionC<[typeof DocumentStatus, t.LiteralC<'APPROVED'>]>,
+  DocumentStatusAPPROVEDBrand
+>;
+export const DocumentStatusAPPROVED: DocumentStatusAPPROVEDC = t.brand(
+  t.intersection([DocumentStatus, t.literal('APPROVED')]),
+  (x): x is t.Branded<DocumentStatus & 'APPROVED', DocumentStatusAPPROVEDBrand> => true,
+  'DocumentStatusAPPROVED',
+);
+export interface DocumentStatusAPPROVEDBrand {
+  readonly DocumentStatusAPPROVED: unique symbol;
+}
+/** require('io-ts-validator').validator(DocumentStatusAPPROVED).decodeSync(defaultDocumentStatusAPPROVED) // => defaultDocumentStatusAPPROVED */
+export const defaultDocumentStatusAPPROVED: DocumentStatusAPPROVED = ('APPROVED' as unknown) as DocumentStatusAPPROVED;
+
+// DocumentStatusDECLINED
+// The purpose of this remains a mystery
+export type DocumentStatusDECLINED = t.Branded<
+  DocumentStatus & 'DECLINED',
+  DocumentStatusDECLINEDBrand
+>;
+export type DocumentStatusDECLINEDC = t.BrandC<
+  t.IntersectionC<[typeof DocumentStatus, t.LiteralC<'DECLINED'>]>,
+  DocumentStatusDECLINEDBrand
+>;
+export const DocumentStatusDECLINED: DocumentStatusDECLINEDC = t.brand(
+  t.intersection([DocumentStatus, t.literal('DECLINED')]),
+  (x): x is t.Branded<DocumentStatus & 'DECLINED', DocumentStatusDECLINEDBrand> => true,
+  'DocumentStatusDECLINED',
+);
+export interface DocumentStatusDECLINEDBrand {
+  readonly DocumentStatusDECLINED: unique symbol;
+}
+/** require('io-ts-validator').validator(DocumentStatusDECLINED).decodeSync(defaultDocumentStatusDECLINED) // => defaultDocumentStatusDECLINED */
+export const defaultDocumentStatusDECLINED: DocumentStatusDECLINED = ('DECLINED' as unknown) as DocumentStatusDECLINED;
+
+// DocumentStatusEXPIRED
+// The purpose of this remains a mystery
+export type DocumentStatusEXPIRED = t.Branded<
+  DocumentStatus & 'EXPIRED',
+  DocumentStatusEXPIREDBrand
+>;
+export type DocumentStatusEXPIREDC = t.BrandC<
+  t.IntersectionC<[typeof DocumentStatus, t.LiteralC<'EXPIRED'>]>,
+  DocumentStatusEXPIREDBrand
+>;
+export const DocumentStatusEXPIRED: DocumentStatusEXPIREDC = t.brand(
+  t.intersection([DocumentStatus, t.literal('EXPIRED')]),
+  (x): x is t.Branded<DocumentStatus & 'EXPIRED', DocumentStatusEXPIREDBrand> => true,
+  'DocumentStatusEXPIRED',
+);
+export interface DocumentStatusEXPIREDBrand {
+  readonly DocumentStatusEXPIRED: unique symbol;
+}
+/** require('io-ts-validator').validator(DocumentStatusEXPIRED).decodeSync(defaultDocumentStatusEXPIRED) // => defaultDocumentStatusEXPIRED */
+export const defaultDocumentStatusEXPIRED: DocumentStatusEXPIRED = ('EXPIRED' as unknown) as DocumentStatusEXPIRED;
+
+// DocumentStatusRESUBMISSION_REQUESTED
+// The purpose of this remains a mystery
+export type DocumentStatusRESUBMISSION_REQUESTED = t.Branded<
+  DocumentStatus & 'RESUBMISSION_REQUESTED',
+  DocumentStatusRESUBMISSION_REQUESTEDBrand
+>;
+export type DocumentStatusRESUBMISSION_REQUESTEDC = t.BrandC<
+  t.IntersectionC<[typeof DocumentStatus, t.LiteralC<'RESUBMISSION_REQUESTED'>]>,
+  DocumentStatusRESUBMISSION_REQUESTEDBrand
+>;
+export const DocumentStatusRESUBMISSION_REQUESTED: DocumentStatusRESUBMISSION_REQUESTEDC = t.brand(
+  t.intersection([DocumentStatus, t.literal('RESUBMISSION_REQUESTED')]),
+  (
+    x,
+  ): x is t.Branded<
+    DocumentStatus & 'RESUBMISSION_REQUESTED',
+    DocumentStatusRESUBMISSION_REQUESTEDBrand
+  > => true,
+  'DocumentStatusRESUBMISSION_REQUESTED',
+);
+export interface DocumentStatusRESUBMISSION_REQUESTEDBrand {
+  readonly DocumentStatusRESUBMISSION_REQUESTED: unique symbol;
+}
+/** require('io-ts-validator').validator(DocumentStatusRESUBMISSION_REQUESTED).decodeSync(defaultDocumentStatusRESUBMISSION_REQUESTED) // => defaultDocumentStatusRESUBMISSION_REQUESTED */
+export const defaultDocumentStatusRESUBMISSION_REQUESTED: DocumentStatusRESUBMISSION_REQUESTED = ('RESUBMISSION_REQUESTED' as unknown) as DocumentStatusRESUBMISSION_REQUESTED;
+
+// DocumentStatusABANDONED
+// The purpose of this remains a mystery
+export type DocumentStatusABANDONED = t.Branded<
+  DocumentStatus & 'ABANDONED',
+  DocumentStatusABANDONEDBrand
+>;
+export type DocumentStatusABANDONEDC = t.BrandC<
+  t.IntersectionC<[typeof DocumentStatus, t.LiteralC<'ABANDONED'>]>,
+  DocumentStatusABANDONEDBrand
+>;
+export const DocumentStatusABANDONED: DocumentStatusABANDONEDC = t.brand(
+  t.intersection([DocumentStatus, t.literal('ABANDONED')]),
+  (x): x is t.Branded<DocumentStatus & 'ABANDONED', DocumentStatusABANDONEDBrand> => true,
+  'DocumentStatusABANDONED',
+);
+export interface DocumentStatusABANDONEDBrand {
+  readonly DocumentStatusABANDONED: unique symbol;
+}
+/** require('io-ts-validator').validator(DocumentStatusABANDONED).decodeSync(defaultDocumentStatusABANDONED) // => defaultDocumentStatusABANDONED */
+export const defaultDocumentStatusABANDONED: DocumentStatusABANDONED = ('ABANDONED' as unknown) as DocumentStatusABANDONED;
+
 // PartyId
 // The purpose of this remains a mystery
 export type PartyId = t.Branded<string, PartyIdBrand>;

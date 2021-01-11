@@ -209,6 +209,114 @@ export interface CurrencyBrand {
   readonly Currency: unique symbol;
 }
 
+// CurrencyEUR
+// The purpose of this remains a mystery
+export type CurrencyEUR = t.Branded<Currency & 'EUR', CurrencyEURBrand>;
+export type CurrencyEURC = t.BrandC<
+  t.IntersectionC<[typeof Currency, t.LiteralC<'EUR'>]>,
+  CurrencyEURBrand
+>;
+export const CurrencyEUR: CurrencyEURC = t.brand(
+  t.intersection([Currency, t.literal('EUR')]),
+  (x): x is t.Branded<Currency & 'EUR', CurrencyEURBrand> => true,
+  'CurrencyEUR',
+);
+export interface CurrencyEURBrand {
+  readonly CurrencyEUR: unique symbol;
+}
+/** require('io-ts-validator').validator(CurrencyEUR).decodeSync(defaultCurrencyEUR) // => defaultCurrencyEUR */
+export const defaultCurrencyEUR: CurrencyEUR = ('EUR' as unknown) as CurrencyEUR;
+
+// CurrencyGBP
+// The purpose of this remains a mystery
+export type CurrencyGBP = t.Branded<Currency & 'GBP', CurrencyGBPBrand>;
+export type CurrencyGBPC = t.BrandC<
+  t.IntersectionC<[typeof Currency, t.LiteralC<'GBP'>]>,
+  CurrencyGBPBrand
+>;
+export const CurrencyGBP: CurrencyGBPC = t.brand(
+  t.intersection([Currency, t.literal('GBP')]),
+  (x): x is t.Branded<Currency & 'GBP', CurrencyGBPBrand> => true,
+  'CurrencyGBP',
+);
+export interface CurrencyGBPBrand {
+  readonly CurrencyGBP: unique symbol;
+}
+/** require('io-ts-validator').validator(CurrencyGBP).decodeSync(defaultCurrencyGBP) // => defaultCurrencyGBP */
+export const defaultCurrencyGBP: CurrencyGBP = ('GBP' as unknown) as CurrencyGBP;
+
+// CurrencySGD
+// The purpose of this remains a mystery
+export type CurrencySGD = t.Branded<Currency & 'SGD', CurrencySGDBrand>;
+export type CurrencySGDC = t.BrandC<
+  t.IntersectionC<[typeof Currency, t.LiteralC<'SGD'>]>,
+  CurrencySGDBrand
+>;
+export const CurrencySGD: CurrencySGDC = t.brand(
+  t.intersection([Currency, t.literal('SGD')]),
+  (x): x is t.Branded<Currency & 'SGD', CurrencySGDBrand> => true,
+  'CurrencySGD',
+);
+export interface CurrencySGDBrand {
+  readonly CurrencySGD: unique symbol;
+}
+/** require('io-ts-validator').validator(CurrencySGD).decodeSync(defaultCurrencySGD) // => defaultCurrencySGD */
+export const defaultCurrencySGD: CurrencySGD = ('SGD' as unknown) as CurrencySGD;
+
+// CurrencyUSD
+// The purpose of this remains a mystery
+export type CurrencyUSD = t.Branded<Currency & 'USD', CurrencyUSDBrand>;
+export type CurrencyUSDC = t.BrandC<
+  t.IntersectionC<[typeof Currency, t.LiteralC<'USD'>]>,
+  CurrencyUSDBrand
+>;
+export const CurrencyUSD: CurrencyUSDC = t.brand(
+  t.intersection([Currency, t.literal('USD')]),
+  (x): x is t.Branded<Currency & 'USD', CurrencyUSDBrand> => true,
+  'CurrencyUSD',
+);
+export interface CurrencyUSDBrand {
+  readonly CurrencyUSD: unique symbol;
+}
+/** require('io-ts-validator').validator(CurrencyUSD).decodeSync(defaultCurrencyUSD) // => defaultCurrencyUSD */
+export const defaultCurrencyUSD: CurrencyUSD = ('USD' as unknown) as CurrencyUSD;
+
+// CurrencyJPY
+// The purpose of this remains a mystery
+export type CurrencyJPY = t.Branded<Currency & 'JPY', CurrencyJPYBrand>;
+export type CurrencyJPYC = t.BrandC<
+  t.IntersectionC<[typeof Currency, t.LiteralC<'JPY'>]>,
+  CurrencyJPYBrand
+>;
+export const CurrencyJPY: CurrencyJPYC = t.brand(
+  t.intersection([Currency, t.literal('JPY')]),
+  (x): x is t.Branded<Currency & 'JPY', CurrencyJPYBrand> => true,
+  'CurrencyJPY',
+);
+export interface CurrencyJPYBrand {
+  readonly CurrencyJPY: unique symbol;
+}
+/** require('io-ts-validator').validator(CurrencyJPY).decodeSync(defaultCurrencyJPY) // => defaultCurrencyJPY */
+export const defaultCurrencyJPY: CurrencyJPY = ('JPY' as unknown) as CurrencyJPY;
+
+// CurrencyCHF
+// The purpose of this remains a mystery
+export type CurrencyCHF = t.Branded<Currency & 'CHF', CurrencyCHFBrand>;
+export type CurrencyCHFC = t.BrandC<
+  t.IntersectionC<[typeof Currency, t.LiteralC<'CHF'>]>,
+  CurrencyCHFBrand
+>;
+export const CurrencyCHF: CurrencyCHFC = t.brand(
+  t.intersection([Currency, t.literal('CHF')]),
+  (x): x is t.Branded<Currency & 'CHF', CurrencyCHFBrand> => true,
+  'CurrencyCHF',
+);
+export interface CurrencyCHFBrand {
+  readonly CurrencyCHF: unique symbol;
+}
+/** require('io-ts-validator').validator(CurrencyCHF).decodeSync(defaultCurrencyCHF) // => defaultCurrencyCHF */
+export const defaultCurrencyCHF: CurrencyCHF = ('CHF' as unknown) as CurrencyCHF;
+
 // Time
 // POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time
 export type Time = t.Branded<number, TimeBrand>;

@@ -108,6 +108,299 @@ export interface BookingStateBrand {
   readonly BookingState: unique symbol;
 }
 
+// BookingStateSTART
+// The purpose of this remains a mystery
+export type BookingStateSTART = t.Branded<BookingState & 'START', BookingStateSTARTBrand>;
+export type BookingStateSTARTC = t.BrandC<
+  t.IntersectionC<[typeof BookingState, t.LiteralC<'START'>]>,
+  BookingStateSTARTBrand
+>;
+export const BookingStateSTART: BookingStateSTARTC = t.brand(
+  t.intersection([BookingState, t.literal('START')]),
+  (x): x is t.Branded<BookingState & 'START', BookingStateSTARTBrand> => true,
+  'BookingStateSTART',
+);
+export interface BookingStateSTARTBrand {
+  readonly BookingStateSTART: unique symbol;
+}
+/** require('io-ts-validator').validator(BookingStateSTART).decodeSync(defaultBookingStateSTART) // => defaultBookingStateSTART */
+export const defaultBookingStateSTART: BookingStateSTART = ('START' as unknown) as BookingStateSTART;
+
+// BookingStatePENDING
+// The purpose of this remains a mystery
+export type BookingStatePENDING = t.Branded<
+  BookingState & 'PENDING',
+  BookingStatePENDINGBrand
+>;
+export type BookingStatePENDINGC = t.BrandC<
+  t.IntersectionC<[typeof BookingState, t.LiteralC<'PENDING'>]>,
+  BookingStatePENDINGBrand
+>;
+export const BookingStatePENDING: BookingStatePENDINGC = t.brand(
+  t.intersection([BookingState, t.literal('PENDING')]),
+  (x): x is t.Branded<BookingState & 'PENDING', BookingStatePENDINGBrand> => true,
+  'BookingStatePENDING',
+);
+export interface BookingStatePENDINGBrand {
+  readonly BookingStatePENDING: unique symbol;
+}
+/** require('io-ts-validator').validator(BookingStatePENDING).decodeSync(defaultBookingStatePENDING) // => defaultBookingStatePENDING */
+export const defaultBookingStatePENDING: BookingStatePENDING = ('PENDING' as unknown) as BookingStatePENDING;
+
+// BookingStatePAID
+// The purpose of this remains a mystery
+export type BookingStatePAID = t.Branded<BookingState & 'PAID', BookingStatePAIDBrand>;
+export type BookingStatePAIDC = t.BrandC<
+  t.IntersectionC<[typeof BookingState, t.LiteralC<'PAID'>]>,
+  BookingStatePAIDBrand
+>;
+export const BookingStatePAID: BookingStatePAIDC = t.brand(
+  t.intersection([BookingState, t.literal('PAID')]),
+  (x): x is t.Branded<BookingState & 'PAID', BookingStatePAIDBrand> => true,
+  'BookingStatePAID',
+);
+export interface BookingStatePAIDBrand {
+  readonly BookingStatePAID: unique symbol;
+}
+/** require('io-ts-validator').validator(BookingStatePAID).decodeSync(defaultBookingStatePAID) // => defaultBookingStatePAID */
+export const defaultBookingStatePAID: BookingStatePAID = ('PAID' as unknown) as BookingStatePAID;
+
+// BookingStatePENDING_RESERVATION
+// The purpose of this remains a mystery
+export type BookingStatePENDING_RESERVATION = t.Branded<
+  BookingState & 'PENDING_RESERVATION',
+  BookingStatePENDING_RESERVATIONBrand
+>;
+export type BookingStatePENDING_RESERVATIONC = t.BrandC<
+  t.IntersectionC<[typeof BookingState, t.LiteralC<'PENDING_RESERVATION'>]>,
+  BookingStatePENDING_RESERVATIONBrand
+>;
+export const BookingStatePENDING_RESERVATION: BookingStatePENDING_RESERVATIONC = t.brand(
+  t.intersection([BookingState, t.literal('PENDING_RESERVATION')]),
+  (
+    x,
+  ): x is t.Branded<
+    BookingState & 'PENDING_RESERVATION',
+    BookingStatePENDING_RESERVATIONBrand
+  > => true,
+  'BookingStatePENDING_RESERVATION',
+);
+export interface BookingStatePENDING_RESERVATIONBrand {
+  readonly BookingStatePENDING_RESERVATION: unique symbol;
+}
+/** require('io-ts-validator').validator(BookingStatePENDING_RESERVATION).decodeSync(defaultBookingStatePENDING_RESERVATION) // => defaultBookingStatePENDING_RESERVATION */
+export const defaultBookingStatePENDING_RESERVATION: BookingStatePENDING_RESERVATION = ('PENDING_RESERVATION' as unknown) as BookingStatePENDING_RESERVATION;
+
+// BookingStateRESERVED
+// The purpose of this remains a mystery
+export type BookingStateRESERVED = t.Branded<
+  BookingState & 'RESERVED',
+  BookingStateRESERVEDBrand
+>;
+export type BookingStateRESERVEDC = t.BrandC<
+  t.IntersectionC<[typeof BookingState, t.LiteralC<'RESERVED'>]>,
+  BookingStateRESERVEDBrand
+>;
+export const BookingStateRESERVED: BookingStateRESERVEDC = t.brand(
+  t.intersection([BookingState, t.literal('RESERVED')]),
+  (x): x is t.Branded<BookingState & 'RESERVED', BookingStateRESERVEDBrand> => true,
+  'BookingStateRESERVED',
+);
+export interface BookingStateRESERVEDBrand {
+  readonly BookingStateRESERVED: unique symbol;
+}
+/** require('io-ts-validator').validator(BookingStateRESERVED).decodeSync(defaultBookingStateRESERVED) // => defaultBookingStateRESERVED */
+export const defaultBookingStateRESERVED: BookingStateRESERVED = ('RESERVED' as unknown) as BookingStateRESERVED;
+
+// BookingStateCONFIRMED
+// The purpose of this remains a mystery
+export type BookingStateCONFIRMED = t.Branded<
+  BookingState & 'CONFIRMED',
+  BookingStateCONFIRMEDBrand
+>;
+export type BookingStateCONFIRMEDC = t.BrandC<
+  t.IntersectionC<[typeof BookingState, t.LiteralC<'CONFIRMED'>]>,
+  BookingStateCONFIRMEDBrand
+>;
+export const BookingStateCONFIRMED: BookingStateCONFIRMEDC = t.brand(
+  t.intersection([BookingState, t.literal('CONFIRMED')]),
+  (x): x is t.Branded<BookingState & 'CONFIRMED', BookingStateCONFIRMEDBrand> => true,
+  'BookingStateCONFIRMED',
+);
+export interface BookingStateCONFIRMEDBrand {
+  readonly BookingStateCONFIRMED: unique symbol;
+}
+/** require('io-ts-validator').validator(BookingStateCONFIRMED).decodeSync(defaultBookingStateCONFIRMED) // => defaultBookingStateCONFIRMED */
+export const defaultBookingStateCONFIRMED: BookingStateCONFIRMED = ('CONFIRMED' as unknown) as BookingStateCONFIRMED;
+
+// BookingStateARRIVED
+// The purpose of this remains a mystery
+export type BookingStateARRIVED = t.Branded<
+  BookingState & 'ARRIVED',
+  BookingStateARRIVEDBrand
+>;
+export type BookingStateARRIVEDC = t.BrandC<
+  t.IntersectionC<[typeof BookingState, t.LiteralC<'ARRIVED'>]>,
+  BookingStateARRIVEDBrand
+>;
+export const BookingStateARRIVED: BookingStateARRIVEDC = t.brand(
+  t.intersection([BookingState, t.literal('ARRIVED')]),
+  (x): x is t.Branded<BookingState & 'ARRIVED', BookingStateARRIVEDBrand> => true,
+  'BookingStateARRIVED',
+);
+export interface BookingStateARRIVEDBrand {
+  readonly BookingStateARRIVED: unique symbol;
+}
+/** require('io-ts-validator').validator(BookingStateARRIVED).decodeSync(defaultBookingStateARRIVED) // => defaultBookingStateARRIVED */
+export const defaultBookingStateARRIVED: BookingStateARRIVED = ('ARRIVED' as unknown) as BookingStateARRIVED;
+
+// BookingStateACTIVATED
+// The purpose of this remains a mystery
+export type BookingStateACTIVATED = t.Branded<
+  BookingState & 'ACTIVATED',
+  BookingStateACTIVATEDBrand
+>;
+export type BookingStateACTIVATEDC = t.BrandC<
+  t.IntersectionC<[typeof BookingState, t.LiteralC<'ACTIVATED'>]>,
+  BookingStateACTIVATEDBrand
+>;
+export const BookingStateACTIVATED: BookingStateACTIVATEDC = t.brand(
+  t.intersection([BookingState, t.literal('ACTIVATED')]),
+  (x): x is t.Branded<BookingState & 'ACTIVATED', BookingStateACTIVATEDBrand> => true,
+  'BookingStateACTIVATED',
+);
+export interface BookingStateACTIVATEDBrand {
+  readonly BookingStateACTIVATED: unique symbol;
+}
+/** require('io-ts-validator').validator(BookingStateACTIVATED).decodeSync(defaultBookingStateACTIVATED) // => defaultBookingStateACTIVATED */
+export const defaultBookingStateACTIVATED: BookingStateACTIVATED = ('ACTIVATED' as unknown) as BookingStateACTIVATED;
+
+// BookingStateON_HOLD
+// The purpose of this remains a mystery
+export type BookingStateON_HOLD = t.Branded<
+  BookingState & 'ON_HOLD',
+  BookingStateON_HOLDBrand
+>;
+export type BookingStateON_HOLDC = t.BrandC<
+  t.IntersectionC<[typeof BookingState, t.LiteralC<'ON_HOLD'>]>,
+  BookingStateON_HOLDBrand
+>;
+export const BookingStateON_HOLD: BookingStateON_HOLDC = t.brand(
+  t.intersection([BookingState, t.literal('ON_HOLD')]),
+  (x): x is t.Branded<BookingState & 'ON_HOLD', BookingStateON_HOLDBrand> => true,
+  'BookingStateON_HOLD',
+);
+export interface BookingStateON_HOLDBrand {
+  readonly BookingStateON_HOLD: unique symbol;
+}
+/** require('io-ts-validator').validator(BookingStateON_HOLD).decodeSync(defaultBookingStateON_HOLD) // => defaultBookingStateON_HOLD */
+export const defaultBookingStateON_HOLD: BookingStateON_HOLD = ('ON_HOLD' as unknown) as BookingStateON_HOLD;
+
+// BookingStateCANCELLED
+// The purpose of this remains a mystery
+export type BookingStateCANCELLED = t.Branded<
+  BookingState & 'CANCELLED',
+  BookingStateCANCELLEDBrand
+>;
+export type BookingStateCANCELLEDC = t.BrandC<
+  t.IntersectionC<[typeof BookingState, t.LiteralC<'CANCELLED'>]>,
+  BookingStateCANCELLEDBrand
+>;
+export const BookingStateCANCELLED: BookingStateCANCELLEDC = t.brand(
+  t.intersection([BookingState, t.literal('CANCELLED')]),
+  (x): x is t.Branded<BookingState & 'CANCELLED', BookingStateCANCELLEDBrand> => true,
+  'BookingStateCANCELLED',
+);
+export interface BookingStateCANCELLEDBrand {
+  readonly BookingStateCANCELLED: unique symbol;
+}
+/** require('io-ts-validator').validator(BookingStateCANCELLED).decodeSync(defaultBookingStateCANCELLED) // => defaultBookingStateCANCELLED */
+export const defaultBookingStateCANCELLED: BookingStateCANCELLED = ('CANCELLED' as unknown) as BookingStateCANCELLED;
+
+// BookingStateEXPIRED
+// The purpose of this remains a mystery
+export type BookingStateEXPIRED = t.Branded<
+  BookingState & 'EXPIRED',
+  BookingStateEXPIREDBrand
+>;
+export type BookingStateEXPIREDC = t.BrandC<
+  t.IntersectionC<[typeof BookingState, t.LiteralC<'EXPIRED'>]>,
+  BookingStateEXPIREDBrand
+>;
+export const BookingStateEXPIRED: BookingStateEXPIREDC = t.brand(
+  t.intersection([BookingState, t.literal('EXPIRED')]),
+  (x): x is t.Branded<BookingState & 'EXPIRED', BookingStateEXPIREDBrand> => true,
+  'BookingStateEXPIRED',
+);
+export interface BookingStateEXPIREDBrand {
+  readonly BookingStateEXPIRED: unique symbol;
+}
+/** require('io-ts-validator').validator(BookingStateEXPIRED).decodeSync(defaultBookingStateEXPIRED) // => defaultBookingStateEXPIRED */
+export const defaultBookingStateEXPIRED: BookingStateEXPIRED = ('EXPIRED' as unknown) as BookingStateEXPIRED;
+
+// BookingStateREJECTED
+// The purpose of this remains a mystery
+export type BookingStateREJECTED = t.Branded<
+  BookingState & 'REJECTED',
+  BookingStateREJECTEDBrand
+>;
+export type BookingStateREJECTEDC = t.BrandC<
+  t.IntersectionC<[typeof BookingState, t.LiteralC<'REJECTED'>]>,
+  BookingStateREJECTEDBrand
+>;
+export const BookingStateREJECTED: BookingStateREJECTEDC = t.brand(
+  t.intersection([BookingState, t.literal('REJECTED')]),
+  (x): x is t.Branded<BookingState & 'REJECTED', BookingStateREJECTEDBrand> => true,
+  'BookingStateREJECTED',
+);
+export interface BookingStateREJECTEDBrand {
+  readonly BookingStateREJECTED: unique symbol;
+}
+/** require('io-ts-validator').validator(BookingStateREJECTED).decodeSync(defaultBookingStateREJECTED) // => defaultBookingStateREJECTED */
+export const defaultBookingStateREJECTED: BookingStateREJECTED = ('REJECTED' as unknown) as BookingStateREJECTED;
+
+// BookingStateFINISHED
+// The purpose of this remains a mystery
+export type BookingStateFINISHED = t.Branded<
+  BookingState & 'FINISHED',
+  BookingStateFINISHEDBrand
+>;
+export type BookingStateFINISHEDC = t.BrandC<
+  t.IntersectionC<[typeof BookingState, t.LiteralC<'FINISHED'>]>,
+  BookingStateFINISHEDBrand
+>;
+export const BookingStateFINISHED: BookingStateFINISHEDC = t.brand(
+  t.intersection([BookingState, t.literal('FINISHED')]),
+  (x): x is t.Branded<BookingState & 'FINISHED', BookingStateFINISHEDBrand> => true,
+  'BookingStateFINISHED',
+);
+export interface BookingStateFINISHEDBrand {
+  readonly BookingStateFINISHED: unique symbol;
+}
+/** require('io-ts-validator').validator(BookingStateFINISHED).decodeSync(defaultBookingStateFINISHED) // => defaultBookingStateFINISHED */
+export const defaultBookingStateFINISHED: BookingStateFINISHED = ('FINISHED' as unknown) as BookingStateFINISHED;
+
+// BookingStateUNKNOWN
+// The purpose of this remains a mystery
+export type BookingStateUNKNOWN = t.Branded<
+  BookingState & 'UNKNOWN',
+  BookingStateUNKNOWNBrand
+>;
+export type BookingStateUNKNOWNC = t.BrandC<
+  t.IntersectionC<[typeof BookingState, t.LiteralC<'UNKNOWN'>]>,
+  BookingStateUNKNOWNBrand
+>;
+export const BookingStateUNKNOWN: BookingStateUNKNOWNC = t.brand(
+  t.intersection([BookingState, t.literal('UNKNOWN')]),
+  (x): x is t.Branded<BookingState & 'UNKNOWN', BookingStateUNKNOWNBrand> => true,
+  'BookingStateUNKNOWN',
+);
+export interface BookingStateUNKNOWNBrand {
+  readonly BookingStateUNKNOWN: unique symbol;
+}
+/** require('io-ts-validator').validator(BookingStateUNKNOWN).decodeSync(defaultBookingStateUNKNOWN) // => defaultBookingStateUNKNOWN */
+export const defaultBookingStateUNKNOWN: BookingStateUNKNOWN = ('UNKNOWN' as unknown) as BookingStateUNKNOWN;
+
 // LegState
 // The life-cycle state of a leg
 export type LegState = t.Branded<
@@ -155,6 +448,114 @@ export const LegState: LegStateC = t.brand(
 export interface LegStateBrand {
   readonly LegState: unique symbol;
 }
+
+// LegStateSTART
+// The purpose of this remains a mystery
+export type LegStateSTART = t.Branded<LegState & 'START', LegStateSTARTBrand>;
+export type LegStateSTARTC = t.BrandC<
+  t.IntersectionC<[typeof LegState, t.LiteralC<'START'>]>,
+  LegStateSTARTBrand
+>;
+export const LegStateSTART: LegStateSTARTC = t.brand(
+  t.intersection([LegState, t.literal('START')]),
+  (x): x is t.Branded<LegState & 'START', LegStateSTARTBrand> => true,
+  'LegStateSTART',
+);
+export interface LegStateSTARTBrand {
+  readonly LegStateSTART: unique symbol;
+}
+/** require('io-ts-validator').validator(LegStateSTART).decodeSync(defaultLegStateSTART) // => defaultLegStateSTART */
+export const defaultLegStateSTART: LegStateSTART = ('START' as unknown) as LegStateSTART;
+
+// LegStatePLANNED
+// The purpose of this remains a mystery
+export type LegStatePLANNED = t.Branded<LegState & 'PLANNED', LegStatePLANNEDBrand>;
+export type LegStatePLANNEDC = t.BrandC<
+  t.IntersectionC<[typeof LegState, t.LiteralC<'PLANNED'>]>,
+  LegStatePLANNEDBrand
+>;
+export const LegStatePLANNED: LegStatePLANNEDC = t.brand(
+  t.intersection([LegState, t.literal('PLANNED')]),
+  (x): x is t.Branded<LegState & 'PLANNED', LegStatePLANNEDBrand> => true,
+  'LegStatePLANNED',
+);
+export interface LegStatePLANNEDBrand {
+  readonly LegStatePLANNED: unique symbol;
+}
+/** require('io-ts-validator').validator(LegStatePLANNED).decodeSync(defaultLegStatePLANNED) // => defaultLegStatePLANNED */
+export const defaultLegStatePLANNED: LegStatePLANNED = ('PLANNED' as unknown) as LegStatePLANNED;
+
+// LegStatePAID
+// The purpose of this remains a mystery
+export type LegStatePAID = t.Branded<LegState & 'PAID', LegStatePAIDBrand>;
+export type LegStatePAIDC = t.BrandC<
+  t.IntersectionC<[typeof LegState, t.LiteralC<'PAID'>]>,
+  LegStatePAIDBrand
+>;
+export const LegStatePAID: LegStatePAIDC = t.brand(
+  t.intersection([LegState, t.literal('PAID')]),
+  (x): x is t.Branded<LegState & 'PAID', LegStatePAIDBrand> => true,
+  'LegStatePAID',
+);
+export interface LegStatePAIDBrand {
+  readonly LegStatePAID: unique symbol;
+}
+/** require('io-ts-validator').validator(LegStatePAID).decodeSync(defaultLegStatePAID) // => defaultLegStatePAID */
+export const defaultLegStatePAID: LegStatePAID = ('PAID' as unknown) as LegStatePAID;
+
+// LegStateACTIVATED
+// The purpose of this remains a mystery
+export type LegStateACTIVATED = t.Branded<LegState & 'ACTIVATED', LegStateACTIVATEDBrand>;
+export type LegStateACTIVATEDC = t.BrandC<
+  t.IntersectionC<[typeof LegState, t.LiteralC<'ACTIVATED'>]>,
+  LegStateACTIVATEDBrand
+>;
+export const LegStateACTIVATED: LegStateACTIVATEDC = t.brand(
+  t.intersection([LegState, t.literal('ACTIVATED')]),
+  (x): x is t.Branded<LegState & 'ACTIVATED', LegStateACTIVATEDBrand> => true,
+  'LegStateACTIVATED',
+);
+export interface LegStateACTIVATEDBrand {
+  readonly LegStateACTIVATED: unique symbol;
+}
+/** require('io-ts-validator').validator(LegStateACTIVATED).decodeSync(defaultLegStateACTIVATED) // => defaultLegStateACTIVATED */
+export const defaultLegStateACTIVATED: LegStateACTIVATED = ('ACTIVATED' as unknown) as LegStateACTIVATED;
+
+// LegStateCANCELLED
+// The purpose of this remains a mystery
+export type LegStateCANCELLED = t.Branded<LegState & 'CANCELLED', LegStateCANCELLEDBrand>;
+export type LegStateCANCELLEDC = t.BrandC<
+  t.IntersectionC<[typeof LegState, t.LiteralC<'CANCELLED'>]>,
+  LegStateCANCELLEDBrand
+>;
+export const LegStateCANCELLED: LegStateCANCELLEDC = t.brand(
+  t.intersection([LegState, t.literal('CANCELLED')]),
+  (x): x is t.Branded<LegState & 'CANCELLED', LegStateCANCELLEDBrand> => true,
+  'LegStateCANCELLED',
+);
+export interface LegStateCANCELLEDBrand {
+  readonly LegStateCANCELLED: unique symbol;
+}
+/** require('io-ts-validator').validator(LegStateCANCELLED).decodeSync(defaultLegStateCANCELLED) // => defaultLegStateCANCELLED */
+export const defaultLegStateCANCELLED: LegStateCANCELLED = ('CANCELLED' as unknown) as LegStateCANCELLED;
+
+// LegStateFINISHED
+// The purpose of this remains a mystery
+export type LegStateFINISHED = t.Branded<LegState & 'FINISHED', LegStateFINISHEDBrand>;
+export type LegStateFINISHEDC = t.BrandC<
+  t.IntersectionC<[typeof LegState, t.LiteralC<'FINISHED'>]>,
+  LegStateFINISHEDBrand
+>;
+export const LegStateFINISHED: LegStateFINISHEDC = t.brand(
+  t.intersection([LegState, t.literal('FINISHED')]),
+  (x): x is t.Branded<LegState & 'FINISHED', LegStateFINISHEDBrand> => true,
+  'LegStateFINISHED',
+);
+export interface LegStateFINISHEDBrand {
+  readonly LegStateFINISHED: unique symbol;
+}
+/** require('io-ts-validator').validator(LegStateFINISHED).decodeSync(defaultLegStateFINISHED) // => defaultLegStateFINISHED */
+export const defaultLegStateFINISHED: LegStateFINISHED = ('FINISHED' as unknown) as LegStateFINISHED;
 
 // ItineraryState
 // The life-cycle state of an itinerary
@@ -223,6 +624,158 @@ export const ItineraryState: ItineraryStateC = t.brand(
 export interface ItineraryStateBrand {
   readonly ItineraryState: unique symbol;
 }
+
+// ItineraryStateSTART
+// The purpose of this remains a mystery
+export type ItineraryStateSTART = t.Branded<
+  ItineraryState & 'START',
+  ItineraryStateSTARTBrand
+>;
+export type ItineraryStateSTARTC = t.BrandC<
+  t.IntersectionC<[typeof ItineraryState, t.LiteralC<'START'>]>,
+  ItineraryStateSTARTBrand
+>;
+export const ItineraryStateSTART: ItineraryStateSTARTC = t.brand(
+  t.intersection([ItineraryState, t.literal('START')]),
+  (x): x is t.Branded<ItineraryState & 'START', ItineraryStateSTARTBrand> => true,
+  'ItineraryStateSTART',
+);
+export interface ItineraryStateSTARTBrand {
+  readonly ItineraryStateSTART: unique symbol;
+}
+/** require('io-ts-validator').validator(ItineraryStateSTART).decodeSync(defaultItineraryStateSTART) // => defaultItineraryStateSTART */
+export const defaultItineraryStateSTART: ItineraryStateSTART = ('START' as unknown) as ItineraryStateSTART;
+
+// ItineraryStatePLANNED
+// The purpose of this remains a mystery
+export type ItineraryStatePLANNED = t.Branded<
+  ItineraryState & 'PLANNED',
+  ItineraryStatePLANNEDBrand
+>;
+export type ItineraryStatePLANNEDC = t.BrandC<
+  t.IntersectionC<[typeof ItineraryState, t.LiteralC<'PLANNED'>]>,
+  ItineraryStatePLANNEDBrand
+>;
+export const ItineraryStatePLANNED: ItineraryStatePLANNEDC = t.brand(
+  t.intersection([ItineraryState, t.literal('PLANNED')]),
+  (x): x is t.Branded<ItineraryState & 'PLANNED', ItineraryStatePLANNEDBrand> => true,
+  'ItineraryStatePLANNED',
+);
+export interface ItineraryStatePLANNEDBrand {
+  readonly ItineraryStatePLANNED: unique symbol;
+}
+/** require('io-ts-validator').validator(ItineraryStatePLANNED).decodeSync(defaultItineraryStatePLANNED) // => defaultItineraryStatePLANNED */
+export const defaultItineraryStatePLANNED: ItineraryStatePLANNED = ('PLANNED' as unknown) as ItineraryStatePLANNED;
+
+// ItineraryStatePAID
+// The purpose of this remains a mystery
+export type ItineraryStatePAID = t.Branded<
+  ItineraryState & 'PAID',
+  ItineraryStatePAIDBrand
+>;
+export type ItineraryStatePAIDC = t.BrandC<
+  t.IntersectionC<[typeof ItineraryState, t.LiteralC<'PAID'>]>,
+  ItineraryStatePAIDBrand
+>;
+export const ItineraryStatePAID: ItineraryStatePAIDC = t.brand(
+  t.intersection([ItineraryState, t.literal('PAID')]),
+  (x): x is t.Branded<ItineraryState & 'PAID', ItineraryStatePAIDBrand> => true,
+  'ItineraryStatePAID',
+);
+export interface ItineraryStatePAIDBrand {
+  readonly ItineraryStatePAID: unique symbol;
+}
+/** require('io-ts-validator').validator(ItineraryStatePAID).decodeSync(defaultItineraryStatePAID) // => defaultItineraryStatePAID */
+export const defaultItineraryStatePAID: ItineraryStatePAID = ('PAID' as unknown) as ItineraryStatePAID;
+
+// ItineraryStateACTIVATED
+// The purpose of this remains a mystery
+export type ItineraryStateACTIVATED = t.Branded<
+  ItineraryState & 'ACTIVATED',
+  ItineraryStateACTIVATEDBrand
+>;
+export type ItineraryStateACTIVATEDC = t.BrandC<
+  t.IntersectionC<[typeof ItineraryState, t.LiteralC<'ACTIVATED'>]>,
+  ItineraryStateACTIVATEDBrand
+>;
+export const ItineraryStateACTIVATED: ItineraryStateACTIVATEDC = t.brand(
+  t.intersection([ItineraryState, t.literal('ACTIVATED')]),
+  (x): x is t.Branded<ItineraryState & 'ACTIVATED', ItineraryStateACTIVATEDBrand> => true,
+  'ItineraryStateACTIVATED',
+);
+export interface ItineraryStateACTIVATEDBrand {
+  readonly ItineraryStateACTIVATED: unique symbol;
+}
+/** require('io-ts-validator').validator(ItineraryStateACTIVATED).decodeSync(defaultItineraryStateACTIVATED) // => defaultItineraryStateACTIVATED */
+export const defaultItineraryStateACTIVATED: ItineraryStateACTIVATED = ('ACTIVATED' as unknown) as ItineraryStateACTIVATED;
+
+// ItineraryStateCANCELLED
+// The purpose of this remains a mystery
+export type ItineraryStateCANCELLED = t.Branded<
+  ItineraryState & 'CANCELLED',
+  ItineraryStateCANCELLEDBrand
+>;
+export type ItineraryStateCANCELLEDC = t.BrandC<
+  t.IntersectionC<[typeof ItineraryState, t.LiteralC<'CANCELLED'>]>,
+  ItineraryStateCANCELLEDBrand
+>;
+export const ItineraryStateCANCELLED: ItineraryStateCANCELLEDC = t.brand(
+  t.intersection([ItineraryState, t.literal('CANCELLED')]),
+  (x): x is t.Branded<ItineraryState & 'CANCELLED', ItineraryStateCANCELLEDBrand> => true,
+  'ItineraryStateCANCELLED',
+);
+export interface ItineraryStateCANCELLEDBrand {
+  readonly ItineraryStateCANCELLED: unique symbol;
+}
+/** require('io-ts-validator').validator(ItineraryStateCANCELLED).decodeSync(defaultItineraryStateCANCELLED) // => defaultItineraryStateCANCELLED */
+export const defaultItineraryStateCANCELLED: ItineraryStateCANCELLED = ('CANCELLED' as unknown) as ItineraryStateCANCELLED;
+
+// ItineraryStateCANCELLED_WITH_ERRORS
+// The purpose of this remains a mystery
+export type ItineraryStateCANCELLED_WITH_ERRORS = t.Branded<
+  ItineraryState & 'CANCELLED_WITH_ERRORS',
+  ItineraryStateCANCELLED_WITH_ERRORSBrand
+>;
+export type ItineraryStateCANCELLED_WITH_ERRORSC = t.BrandC<
+  t.IntersectionC<[typeof ItineraryState, t.LiteralC<'CANCELLED_WITH_ERRORS'>]>,
+  ItineraryStateCANCELLED_WITH_ERRORSBrand
+>;
+export const ItineraryStateCANCELLED_WITH_ERRORS: ItineraryStateCANCELLED_WITH_ERRORSC = t.brand(
+  t.intersection([ItineraryState, t.literal('CANCELLED_WITH_ERRORS')]),
+  (
+    x,
+  ): x is t.Branded<
+    ItineraryState & 'CANCELLED_WITH_ERRORS',
+    ItineraryStateCANCELLED_WITH_ERRORSBrand
+  > => true,
+  'ItineraryStateCANCELLED_WITH_ERRORS',
+);
+export interface ItineraryStateCANCELLED_WITH_ERRORSBrand {
+  readonly ItineraryStateCANCELLED_WITH_ERRORS: unique symbol;
+}
+/** require('io-ts-validator').validator(ItineraryStateCANCELLED_WITH_ERRORS).decodeSync(defaultItineraryStateCANCELLED_WITH_ERRORS) // => defaultItineraryStateCANCELLED_WITH_ERRORS */
+export const defaultItineraryStateCANCELLED_WITH_ERRORS: ItineraryStateCANCELLED_WITH_ERRORS = ('CANCELLED_WITH_ERRORS' as unknown) as ItineraryStateCANCELLED_WITH_ERRORS;
+
+// ItineraryStateFINISHED
+// The purpose of this remains a mystery
+export type ItineraryStateFINISHED = t.Branded<
+  ItineraryState & 'FINISHED',
+  ItineraryStateFINISHEDBrand
+>;
+export type ItineraryStateFINISHEDC = t.BrandC<
+  t.IntersectionC<[typeof ItineraryState, t.LiteralC<'FINISHED'>]>,
+  ItineraryStateFINISHEDBrand
+>;
+export const ItineraryStateFINISHED: ItineraryStateFINISHEDC = t.brand(
+  t.intersection([ItineraryState, t.literal('FINISHED')]),
+  (x): x is t.Branded<ItineraryState & 'FINISHED', ItineraryStateFINISHEDBrand> => true,
+  'ItineraryStateFINISHED',
+);
+export interface ItineraryStateFINISHEDBrand {
+  readonly ItineraryStateFINISHED: unique symbol;
+}
+/** require('io-ts-validator').validator(ItineraryStateFINISHED).decodeSync(defaultItineraryStateFINISHED) // => defaultItineraryStateFINISHED */
+export const defaultItineraryStateFINISHED: ItineraryStateFINISHED = ('FINISHED' as unknown) as ItineraryStateFINISHED;
 
 // SubscriptionIntentState
 // The life-cycle state of an subscription intent
@@ -295,6 +848,214 @@ export const SubscriptionIntentState: SubscriptionIntentStateC = t.brand(
 export interface SubscriptionIntentStateBrand {
   readonly SubscriptionIntentState: unique symbol;
 }
+
+// SubscriptionIntentStateSTART
+// The purpose of this remains a mystery
+export type SubscriptionIntentStateSTART = t.Branded<
+  SubscriptionIntentState & 'START',
+  SubscriptionIntentStateSTARTBrand
+>;
+export type SubscriptionIntentStateSTARTC = t.BrandC<
+  t.IntersectionC<[typeof SubscriptionIntentState, t.LiteralC<'START'>]>,
+  SubscriptionIntentStateSTARTBrand
+>;
+export const SubscriptionIntentStateSTART: SubscriptionIntentStateSTARTC = t.brand(
+  t.intersection([SubscriptionIntentState, t.literal('START')]),
+  (
+    x,
+  ): x is t.Branded<
+    SubscriptionIntentState & 'START',
+    SubscriptionIntentStateSTARTBrand
+  > => true,
+  'SubscriptionIntentStateSTART',
+);
+export interface SubscriptionIntentStateSTARTBrand {
+  readonly SubscriptionIntentStateSTART: unique symbol;
+}
+/** require('io-ts-validator').validator(SubscriptionIntentStateSTART).decodeSync(defaultSubscriptionIntentStateSTART) // => defaultSubscriptionIntentStateSTART */
+export const defaultSubscriptionIntentStateSTART: SubscriptionIntentStateSTART = ('START' as unknown) as SubscriptionIntentStateSTART;
+
+// SubscriptionIntentStateDETAILS
+// The purpose of this remains a mystery
+export type SubscriptionIntentStateDETAILS = t.Branded<
+  SubscriptionIntentState & 'DETAILS',
+  SubscriptionIntentStateDETAILSBrand
+>;
+export type SubscriptionIntentStateDETAILSC = t.BrandC<
+  t.IntersectionC<[typeof SubscriptionIntentState, t.LiteralC<'DETAILS'>]>,
+  SubscriptionIntentStateDETAILSBrand
+>;
+export const SubscriptionIntentStateDETAILS: SubscriptionIntentStateDETAILSC = t.brand(
+  t.intersection([SubscriptionIntentState, t.literal('DETAILS')]),
+  (
+    x,
+  ): x is t.Branded<
+    SubscriptionIntentState & 'DETAILS',
+    SubscriptionIntentStateDETAILSBrand
+  > => true,
+  'SubscriptionIntentStateDETAILS',
+);
+export interface SubscriptionIntentStateDETAILSBrand {
+  readonly SubscriptionIntentStateDETAILS: unique symbol;
+}
+/** require('io-ts-validator').validator(SubscriptionIntentStateDETAILS).decodeSync(defaultSubscriptionIntentStateDETAILS) // => defaultSubscriptionIntentStateDETAILS */
+export const defaultSubscriptionIntentStateDETAILS: SubscriptionIntentStateDETAILS = ('DETAILS' as unknown) as SubscriptionIntentStateDETAILS;
+
+// SubscriptionIntentStateCUSTOMISATION
+// The purpose of this remains a mystery
+export type SubscriptionIntentStateCUSTOMISATION = t.Branded<
+  SubscriptionIntentState & 'CUSTOMISATION',
+  SubscriptionIntentStateCUSTOMISATIONBrand
+>;
+export type SubscriptionIntentStateCUSTOMISATIONC = t.BrandC<
+  t.IntersectionC<[typeof SubscriptionIntentState, t.LiteralC<'CUSTOMISATION'>]>,
+  SubscriptionIntentStateCUSTOMISATIONBrand
+>;
+export const SubscriptionIntentStateCUSTOMISATION: SubscriptionIntentStateCUSTOMISATIONC = t.brand(
+  t.intersection([SubscriptionIntentState, t.literal('CUSTOMISATION')]),
+  (
+    x,
+  ): x is t.Branded<
+    SubscriptionIntentState & 'CUSTOMISATION',
+    SubscriptionIntentStateCUSTOMISATIONBrand
+  > => true,
+  'SubscriptionIntentStateCUSTOMISATION',
+);
+export interface SubscriptionIntentStateCUSTOMISATIONBrand {
+  readonly SubscriptionIntentStateCUSTOMISATION: unique symbol;
+}
+/** require('io-ts-validator').validator(SubscriptionIntentStateCUSTOMISATION).decodeSync(defaultSubscriptionIntentStateCUSTOMISATION) // => defaultSubscriptionIntentStateCUSTOMISATION */
+export const defaultSubscriptionIntentStateCUSTOMISATION: SubscriptionIntentStateCUSTOMISATION = ('CUSTOMISATION' as unknown) as SubscriptionIntentStateCUSTOMISATION;
+
+// SubscriptionIntentStatePAYMENT
+// The purpose of this remains a mystery
+export type SubscriptionIntentStatePAYMENT = t.Branded<
+  SubscriptionIntentState & 'PAYMENT',
+  SubscriptionIntentStatePAYMENTBrand
+>;
+export type SubscriptionIntentStatePAYMENTC = t.BrandC<
+  t.IntersectionC<[typeof SubscriptionIntentState, t.LiteralC<'PAYMENT'>]>,
+  SubscriptionIntentStatePAYMENTBrand
+>;
+export const SubscriptionIntentStatePAYMENT: SubscriptionIntentStatePAYMENTC = t.brand(
+  t.intersection([SubscriptionIntentState, t.literal('PAYMENT')]),
+  (
+    x,
+  ): x is t.Branded<
+    SubscriptionIntentState & 'PAYMENT',
+    SubscriptionIntentStatePAYMENTBrand
+  > => true,
+  'SubscriptionIntentStatePAYMENT',
+);
+export interface SubscriptionIntentStatePAYMENTBrand {
+  readonly SubscriptionIntentStatePAYMENT: unique symbol;
+}
+/** require('io-ts-validator').validator(SubscriptionIntentStatePAYMENT).decodeSync(defaultSubscriptionIntentStatePAYMENT) // => defaultSubscriptionIntentStatePAYMENT */
+export const defaultSubscriptionIntentStatePAYMENT: SubscriptionIntentStatePAYMENT = ('PAYMENT' as unknown) as SubscriptionIntentStatePAYMENT;
+
+// SubscriptionIntentStateVERIFICATION
+// The purpose of this remains a mystery
+export type SubscriptionIntentStateVERIFICATION = t.Branded<
+  SubscriptionIntentState & 'VERIFICATION',
+  SubscriptionIntentStateVERIFICATIONBrand
+>;
+export type SubscriptionIntentStateVERIFICATIONC = t.BrandC<
+  t.IntersectionC<[typeof SubscriptionIntentState, t.LiteralC<'VERIFICATION'>]>,
+  SubscriptionIntentStateVERIFICATIONBrand
+>;
+export const SubscriptionIntentStateVERIFICATION: SubscriptionIntentStateVERIFICATIONC = t.brand(
+  t.intersection([SubscriptionIntentState, t.literal('VERIFICATION')]),
+  (
+    x,
+  ): x is t.Branded<
+    SubscriptionIntentState & 'VERIFICATION',
+    SubscriptionIntentStateVERIFICATIONBrand
+  > => true,
+  'SubscriptionIntentStateVERIFICATION',
+);
+export interface SubscriptionIntentStateVERIFICATIONBrand {
+  readonly SubscriptionIntentStateVERIFICATION: unique symbol;
+}
+/** require('io-ts-validator').validator(SubscriptionIntentStateVERIFICATION).decodeSync(defaultSubscriptionIntentStateVERIFICATION) // => defaultSubscriptionIntentStateVERIFICATION */
+export const defaultSubscriptionIntentStateVERIFICATION: SubscriptionIntentStateVERIFICATION = ('VERIFICATION' as unknown) as SubscriptionIntentStateVERIFICATION;
+
+// SubscriptionIntentStateCANCELLED
+// The purpose of this remains a mystery
+export type SubscriptionIntentStateCANCELLED = t.Branded<
+  SubscriptionIntentState & 'CANCELLED',
+  SubscriptionIntentStateCANCELLEDBrand
+>;
+export type SubscriptionIntentStateCANCELLEDC = t.BrandC<
+  t.IntersectionC<[typeof SubscriptionIntentState, t.LiteralC<'CANCELLED'>]>,
+  SubscriptionIntentStateCANCELLEDBrand
+>;
+export const SubscriptionIntentStateCANCELLED: SubscriptionIntentStateCANCELLEDC = t.brand(
+  t.intersection([SubscriptionIntentState, t.literal('CANCELLED')]),
+  (
+    x,
+  ): x is t.Branded<
+    SubscriptionIntentState & 'CANCELLED',
+    SubscriptionIntentStateCANCELLEDBrand
+  > => true,
+  'SubscriptionIntentStateCANCELLED',
+);
+export interface SubscriptionIntentStateCANCELLEDBrand {
+  readonly SubscriptionIntentStateCANCELLED: unique symbol;
+}
+/** require('io-ts-validator').validator(SubscriptionIntentStateCANCELLED).decodeSync(defaultSubscriptionIntentStateCANCELLED) // => defaultSubscriptionIntentStateCANCELLED */
+export const defaultSubscriptionIntentStateCANCELLED: SubscriptionIntentStateCANCELLED = ('CANCELLED' as unknown) as SubscriptionIntentStateCANCELLED;
+
+// SubscriptionIntentStateCANCELLED_WITH_ERRORS
+// The purpose of this remains a mystery
+export type SubscriptionIntentStateCANCELLED_WITH_ERRORS = t.Branded<
+  SubscriptionIntentState & 'CANCELLED_WITH_ERRORS',
+  SubscriptionIntentStateCANCELLED_WITH_ERRORSBrand
+>;
+export type SubscriptionIntentStateCANCELLED_WITH_ERRORSC = t.BrandC<
+  t.IntersectionC<[typeof SubscriptionIntentState, t.LiteralC<'CANCELLED_WITH_ERRORS'>]>,
+  SubscriptionIntentStateCANCELLED_WITH_ERRORSBrand
+>;
+export const SubscriptionIntentStateCANCELLED_WITH_ERRORS: SubscriptionIntentStateCANCELLED_WITH_ERRORSC = t.brand(
+  t.intersection([SubscriptionIntentState, t.literal('CANCELLED_WITH_ERRORS')]),
+  (
+    x,
+  ): x is t.Branded<
+    SubscriptionIntentState & 'CANCELLED_WITH_ERRORS',
+    SubscriptionIntentStateCANCELLED_WITH_ERRORSBrand
+  > => true,
+  'SubscriptionIntentStateCANCELLED_WITH_ERRORS',
+);
+export interface SubscriptionIntentStateCANCELLED_WITH_ERRORSBrand {
+  readonly SubscriptionIntentStateCANCELLED_WITH_ERRORS: unique symbol;
+}
+/** require('io-ts-validator').validator(SubscriptionIntentStateCANCELLED_WITH_ERRORS).decodeSync(defaultSubscriptionIntentStateCANCELLED_WITH_ERRORS) // => defaultSubscriptionIntentStateCANCELLED_WITH_ERRORS */
+export const defaultSubscriptionIntentStateCANCELLED_WITH_ERRORS: SubscriptionIntentStateCANCELLED_WITH_ERRORS = ('CANCELLED_WITH_ERRORS' as unknown) as SubscriptionIntentStateCANCELLED_WITH_ERRORS;
+
+// SubscriptionIntentStateFINISHED
+// The purpose of this remains a mystery
+export type SubscriptionIntentStateFINISHED = t.Branded<
+  SubscriptionIntentState & 'FINISHED',
+  SubscriptionIntentStateFINISHEDBrand
+>;
+export type SubscriptionIntentStateFINISHEDC = t.BrandC<
+  t.IntersectionC<[typeof SubscriptionIntentState, t.LiteralC<'FINISHED'>]>,
+  SubscriptionIntentStateFINISHEDBrand
+>;
+export const SubscriptionIntentStateFINISHED: SubscriptionIntentStateFINISHEDC = t.brand(
+  t.intersection([SubscriptionIntentState, t.literal('FINISHED')]),
+  (
+    x,
+  ): x is t.Branded<
+    SubscriptionIntentState & 'FINISHED',
+    SubscriptionIntentStateFINISHEDBrand
+  > => true,
+  'SubscriptionIntentStateFINISHED',
+);
+export interface SubscriptionIntentStateFINISHEDBrand {
+  readonly SubscriptionIntentStateFINISHED: unique symbol;
+}
+/** require('io-ts-validator').validator(SubscriptionIntentStateFINISHED).decodeSync(defaultSubscriptionIntentStateFINISHED) // => defaultSubscriptionIntentStateFINISHED */
+export const defaultSubscriptionIntentStateFINISHED: SubscriptionIntentStateFINISHED = ('FINISHED' as unknown) as SubscriptionIntentStateFINISHED;
 
 // State
 // The default export. More information at the top.
