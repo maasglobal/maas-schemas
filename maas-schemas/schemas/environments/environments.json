@@ -16,17 +16,6 @@
       "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/hostnameLabel" }],
       "examples": ["production", "testing", "environment13", "fantasy-topping"]
     },
-    "environmentUrl": {
-      "type": "string",
-      "pattern": "^https:",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }],
-      "examples": [
-        "https://production.example.com/api/",
-        "https://testing.example.com/api/",
-        "https://environment13.example.com/api/",
-        "https://fantasy-toppign.example.com/api/"
-      ]
-    },
     "environmentLive": {
       "description": "Live environments are connected to actual payment and TSP services",
       "type": "boolean",
@@ -44,19 +33,25 @@
       "type": "object",
       "properties": {
         "id": { "$ref": "#/definitions/environmentId" },
-        "api": { "$ref": "#/definitions/environmentUrl" },
+        "api": { "$ref": "http://maasglobal.com/environments/apis.json#/definitions/apiUrl" },
+        "apis": { "$ref": "http://maasglobal.com/environments/apis.json#/definitions/apiConfigs" },
         "live": { "$ref": "#/definitions/environmentLive" },
         "contact": { "$ref": "#/definitions/developer" },
+        "account": { "$ref": "http://maasglobal.com/environments/accounts.json#/definitions/accountAlias" },
         "name": { "$ref": "#/definitions/environmentName" },
         "description": { "$ref": "#/definitions/environmentDescription" }
       },
-      "required": ["id", "api", "live", "contact"],
+      "required": ["id", "api", "apis", "live", "contact", "account"],
       "additionalProperties": false,
       "examples": [
         {
           "id": "production",
           "api": "https://production.example.com/api/",
+          "apis": {
+            "main": { "url": "https://production.example.com/api/" }
+          },
           "live": true,
+          "account": "production",
           "contact": { "name": "Alisha Admin", "email": "admin@example.com" },
           "description": "Production environment"
         }
@@ -80,7 +75,11 @@
         {
           "id": "testing",
           "api": "https://testing.example.com/api/",
+          "apis": {
+            "main": { "url": "https://testing.example.com/api/" }
+          },
           "live": false,
+          "account": "testing",
           "contact": { "name": "Alisha Admin" },
           "description": "Testing environment"
         }
@@ -117,14 +116,22 @@
             {
               "id": "production",
               "api": "https://production.example.com/api/",
+              "apis": {
+                "main": { "url": "https://production.example.com/api/" }
+              },
               "live": true,
+              "account": "production",
               "contact": { "name": "Alisha Admin", "email": "admin@example.com" },
               "description": "Production environment"
             },
             {
               "id": "testing",
               "api": "https://testing.example.com/api/",
+              "apis": {
+                "main": { "url": "https://testing.example.com/api/" }
+              },
               "live": false,
+              "account": "testing",
               "contact": { "name": "Alisha Admin" },
               "description": "Testing environment"
             }
@@ -136,7 +143,11 @@
             {
               "id": "fantasy-topping",
               "api": "https://fantasy-topping.example.com/api/",
+              "apis": {
+                "main": { "url": "https://fantasy-topping.example.com/api/" }
+              },
               "live": false,
+              "account": "testing",
               "contact": { "name": "Dennis Developer" },
               "name": "Fantasy Topping",
               "description": "Add support for pizza customization"
@@ -144,20 +155,45 @@
           ]
         }
       ]
+    },
+    "environmentIndex": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/environmentGroup" }
     }
   },
   "type": "object",
   "description": "The base environments object with several environment groups and related meta data",
   "properties": {
+    "accounts": {
+      "$ref": "http://maasglobal.com/environments/accounts.json#/definitions/accountIndex"
+    },
+    "apis": {
+      "$ref": "http://maasglobal.com/environments/apis.json#/definitions/apiIndex"
+    },
     "index": {
-      "type": "array",
-      "items": { "$ref": "#/definitions/environmentGroup" }
+      "$ref": "#/definitions/environmentIndex"
     }
   },
   "required": ["index"],
   "additionalProperties": false,
   "examples": [
     {
+      "accounts": {
+        "production": {
+          "id": "001234567890",
+          "name": "Example Account",
+          "description": "This account is but an example account"
+        },
+        "testing": {
+          "id": "101234567890"
+        }
+      },
+      "apis": {
+        "main": {
+          "name": "The Main Api",
+          "description": "This is the only api available at the moment."
+        }
+      },
       "index": [
         {
           "name": "Core Environments",
@@ -165,14 +201,22 @@
             {
               "id": "production",
               "api": "https://production.example.com/api/",
+              "apis": {
+                "main": { "url": "https://production.example.com/api/" }
+              },
               "live": true,
+              "account": "production",
               "contact": { "name": "Alisha Admin", "email": "admin@example.com" },
               "description": "Production environment"
             },
             {
               "id": "testing",
               "api": "https://testing.example.com/api/",
+              "apis": {
+                "main": { "url": "https://testing.example.com/api/" }
+              },
               "live": false,
+              "account": "testing",
               "contact": { "name": "Alisha Admin" },
               "description": "Testing environment"
             }
@@ -184,7 +228,12 @@
             {
               "id": "fantasy-topping",
               "api": "https://fantasy-topping.example.com/api/",
+              "apis": {
+                "fun": { "url": "https://fantasy-topping.example.com/fun/" },
+                "boring": { "url": "https://fantasy-topping.example.com/boring/" }
+              },
               "live": false,
+              "account": "testing",
               "contact": { "name": "Dennis Developer" },
               "name": "Fantasy Topping",
               "description": "Add support for pizza customization"

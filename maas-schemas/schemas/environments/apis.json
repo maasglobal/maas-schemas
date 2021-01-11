@@ -1,0 +1,94 @@
+{
+  "$id": "http://maasglobal.com/environments/apis.json",
+  "definitions": {
+    "apiId": {
+      "type": "string",
+      "pattern": "^[a-z]{2,20}$",
+      "examples": ["fun", "boring"]
+    },
+    "apiName": {
+      "type": "string",
+      "examples": ["Production", "Testing"]
+    },
+    "apiDescription": {
+      "type": "string",
+      "examples": ["Production api", "Testing api"]
+    },
+    "api": {
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "#/definitions/apiName" },
+        "description": { "$ref": "#/definitions/apiDescription" }
+      },
+      "required": [],
+      "examples": [
+        {
+          "name": "Fun Api",
+          "description": "This api is used for fun stuff"
+        },
+        {
+          "name": "Boring Api",
+          "description": "This api is used for boring stuff"
+        }
+      ]
+    },
+    "apiIndex": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/definitions/apiId" },
+      "patternProperties": {
+        "^": { "$ref": "#/definitions/api" }
+      },
+      "additionalProperties": false,
+      "examples": [
+        {
+          "fun": {
+            "name": "Fun Api",
+            "description": "This api is used for fun stuff"
+          },
+          "boring": {
+            "name": "Boring Api",
+            "description": "This api is used for boring stuff"
+          }
+        }
+      ]
+    },
+    "apiUrl": {
+      "type": "string",
+      "pattern": "^https:",
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }],
+      "examples": [
+        "https://production.example.com/api/",
+        "https://testing.example.com/api/",
+        "https://environment13.example.com/api/",
+        "https://fantasy-toppign.example.com/api/"
+      ]
+    },
+    "apiConfig": {
+      "type": "object",
+      "properties": {
+        "url": { "$ref": "#/definitions/apiUrl" }
+      },
+      "required": ["url"],
+      "additionalProperties": false,
+      "examples": [
+        {
+          "url": "https://fantasy-topping.example.com/fun/"
+        }
+      ]
+    },
+    "apiConfigs": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/definitions/apiName" },
+      "patternProperties": {
+        "^": { "$ref": "#/definitions/apiConfig" }
+      },
+      "additionalProperties": false,
+      "examples": [
+        {
+          "fun": { "url": "https://fantasy-topping.example.com/fun/" },
+          "boring": { "url": "https://fantasy-topping.example.com/boring/" }
+        }
+      ]
+    }
+  }
+}
