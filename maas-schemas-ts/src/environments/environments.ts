@@ -11,6 +11,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Common_ from '../core/components/common';
 import * as Units_ from '../core/components/units';
+import * as Apis_ from './apis';
+import * as Accounts_ from './accounts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
@@ -111,30 +113,6 @@ export const examplesEnvironmentId: NonEmptyArray<EnvironmentId> = ([
   'fantasy-topping',
 ] as unknown) as NonEmptyArray<EnvironmentId>;
 
-// EnvironmentUrl
-// The purpose of this remains a mystery
-export type EnvironmentUrl = t.Branded<string & Units_.Url, EnvironmentUrlBrand>;
-export type EnvironmentUrlC = t.BrandC<
-  t.IntersectionC<[t.StringC, typeof Units_.Url]>,
-  EnvironmentUrlBrand
->;
-export const EnvironmentUrl: EnvironmentUrlC = t.brand(
-  t.intersection([t.string, Units_.Url]),
-  (x): x is t.Branded<string & Units_.Url, EnvironmentUrlBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^https:')) !== null,
-  'EnvironmentUrl',
-);
-export interface EnvironmentUrlBrand {
-  readonly EnvironmentUrl: unique symbol;
-}
-/** require('io-ts-validator').validator(nonEmptyArray(EnvironmentUrl)).decodeSync(examplesEnvironmentUrl) // => examplesEnvironmentUrl */
-export const examplesEnvironmentUrl: NonEmptyArray<EnvironmentUrl> = ([
-  'https://production.example.com/api/',
-  'https://testing.example.com/api/',
-  'https://environment13.example.com/api/',
-  'https://fantasy-toppign.example.com/api/',
-] as unknown) as NonEmptyArray<EnvironmentUrl>;
-
 // EnvironmentLive
 // Live environments are connected to actual payment and TSP services
 export type EnvironmentLive = t.Branded<boolean, EnvironmentLiveBrand>;
@@ -197,16 +175,20 @@ export const examplesEnvironmentDescription: NonEmptyArray<EnvironmentDescriptio
 export type Environment = t.Branded<
   {
     id?: EnvironmentId;
-    api?: EnvironmentUrl;
+    api?: Apis_.ApiUrl;
+    apis?: Apis_.ApiConfigs;
     live?: EnvironmentLive;
     contact?: Developer;
+    account?: Accounts_.AccountAlias;
     name?: EnvironmentName;
     description?: EnvironmentDescription;
   } & {
     id: Defined;
     api: Defined;
+    apis: Defined;
     live: Defined;
     contact: Defined;
+    account: Defined;
   },
   EnvironmentBrand
 >;
@@ -215,17 +197,21 @@ export type EnvironmentC = t.BrandC<
     [
       t.PartialC<{
         id: typeof EnvironmentId;
-        api: typeof EnvironmentUrl;
+        api: typeof Apis_.ApiUrl;
+        apis: typeof Apis_.ApiConfigs;
         live: typeof EnvironmentLive;
         contact: typeof Developer;
+        account: typeof Accounts_.AccountAlias;
         name: typeof EnvironmentName;
         description: typeof EnvironmentDescription;
       }>,
       t.TypeC<{
         id: typeof Defined;
         api: typeof Defined;
+        apis: typeof Defined;
         live: typeof Defined;
         contact: typeof Defined;
+        account: typeof Defined;
       }>,
     ]
   >,
@@ -235,17 +221,21 @@ export const Environment: EnvironmentC = t.brand(
   t.intersection([
     t.partial({
       id: EnvironmentId,
-      api: EnvironmentUrl,
+      api: Apis_.ApiUrl,
+      apis: Apis_.ApiConfigs,
       live: EnvironmentLive,
       contact: Developer,
+      account: Accounts_.AccountAlias,
       name: EnvironmentName,
       description: EnvironmentDescription,
     }),
     t.type({
       id: Defined,
       api: Defined,
+      apis: Defined,
       live: Defined,
       contact: Defined,
+      account: Defined,
     }),
   ]),
   (
@@ -253,16 +243,20 @@ export const Environment: EnvironmentC = t.brand(
   ): x is t.Branded<
     {
       id?: EnvironmentId;
-      api?: EnvironmentUrl;
+      api?: Apis_.ApiUrl;
+      apis?: Apis_.ApiConfigs;
       live?: EnvironmentLive;
       contact?: Developer;
+      account?: Accounts_.AccountAlias;
       name?: EnvironmentName;
       description?: EnvironmentDescription;
     } & {
       id: Defined;
       api: Defined;
+      apis: Defined;
       live: Defined;
       contact: Defined;
+      account: Defined;
     },
     EnvironmentBrand
   > => true,
@@ -276,7 +270,9 @@ export const examplesEnvironment: NonEmptyArray<Environment> = ([
   {
     id: 'production',
     api: 'https://production.example.com/api/',
+    apis: { main: { url: 'https://production.example.com/api/' } },
     live: true,
+    account: 'production',
     contact: { name: 'Alisha Admin', email: 'admin@example.com' },
     description: 'Production environment',
   },
@@ -352,7 +348,9 @@ export const examplesDevEnvironment: NonEmptyArray<DevEnvironment> = ([
   {
     id: 'testing',
     api: 'https://testing.example.com/api/',
+    apis: { main: { url: 'https://testing.example.com/api/' } },
     live: false,
+    account: 'testing',
     contact: { name: 'Alisha Admin' },
     description: 'Testing environment',
   },
@@ -468,14 +466,18 @@ export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = ([
       {
         id: 'production',
         api: 'https://production.example.com/api/',
+        apis: { main: { url: 'https://production.example.com/api/' } },
         live: true,
+        account: 'production',
         contact: { name: 'Alisha Admin', email: 'admin@example.com' },
         description: 'Production environment',
       },
       {
         id: 'testing',
         api: 'https://testing.example.com/api/',
+        apis: { main: { url: 'https://testing.example.com/api/' } },
         live: false,
+        account: 'testing',
         contact: { name: 'Alisha Admin' },
         description: 'Testing environment',
       },
@@ -487,7 +489,9 @@ export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = ([
       {
         id: 'fantasy-topping',
         api: 'https://fantasy-topping.example.com/api/',
+        apis: { main: { url: 'https://fantasy-topping.example.com/api/' } },
         live: false,
+        account: 'testing',
         contact: { name: 'Dennis Developer' },
         name: 'Fantasy Topping',
         description: 'Add support for pizza customization',
@@ -496,11 +500,29 @@ export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = ([
   },
 ] as unknown) as NonEmptyArray<EnvironmentGroup>;
 
+// EnvironmentIndex
+// The purpose of this remains a mystery
+export type EnvironmentIndex = t.Branded<Array<EnvironmentGroup>, EnvironmentIndexBrand>;
+export type EnvironmentIndexC = t.BrandC<
+  t.ArrayC<typeof EnvironmentGroup>,
+  EnvironmentIndexBrand
+>;
+export const EnvironmentIndex: EnvironmentIndexC = t.brand(
+  t.array(EnvironmentGroup),
+  (x): x is t.Branded<Array<EnvironmentGroup>, EnvironmentIndexBrand> => true,
+  'EnvironmentIndex',
+);
+export interface EnvironmentIndexBrand {
+  readonly EnvironmentIndex: unique symbol;
+}
+
 // Environments
 // The default export. More information at the top.
 export type Environments = t.Branded<
   {
-    index?: Array<EnvironmentGroup>;
+    accounts?: Accounts_.AccountIndex;
+    apis?: Apis_.ApiIndex;
+    index?: EnvironmentIndex;
   } & {
     index: Defined;
   },
@@ -510,7 +532,9 @@ export type EnvironmentsC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        index: t.ArrayC<typeof EnvironmentGroup>;
+        accounts: typeof Accounts_.AccountIndex;
+        apis: typeof Apis_.ApiIndex;
+        index: typeof EnvironmentIndex;
       }>,
       t.TypeC<{
         index: typeof Defined;
@@ -522,7 +546,9 @@ export type EnvironmentsC = t.BrandC<
 export const Environments: EnvironmentsC = t.brand(
   t.intersection([
     t.partial({
-      index: t.array(EnvironmentGroup),
+      accounts: Accounts_.AccountIndex,
+      apis: Apis_.ApiIndex,
+      index: EnvironmentIndex,
     }),
     t.type({
       index: Defined,
@@ -532,7 +558,9 @@ export const Environments: EnvironmentsC = t.brand(
     x,
   ): x is t.Branded<
     {
-      index?: Array<EnvironmentGroup>;
+      accounts?: Accounts_.AccountIndex;
+      apis?: Apis_.ApiIndex;
+      index?: EnvironmentIndex;
     } & {
       index: Defined;
     },
@@ -546,6 +574,20 @@ export interface EnvironmentsBrand {
 /** require('io-ts-validator').validator(nonEmptyArray(Environments)).decodeSync(examplesEnvironments) // => examplesEnvironments */
 export const examplesEnvironments: NonEmptyArray<Environments> = ([
   {
+    accounts: {
+      production: {
+        id: '001234567890',
+        name: 'Example Account',
+        description: 'This account is but an example account',
+      },
+      testing: { id: '101234567890' },
+    },
+    apis: {
+      main: {
+        name: 'The Main Api',
+        description: 'This is the only api available at the moment.',
+      },
+    },
     index: [
       {
         name: 'Core Environments',
@@ -553,14 +595,18 @@ export const examplesEnvironments: NonEmptyArray<Environments> = ([
           {
             id: 'production',
             api: 'https://production.example.com/api/',
+            apis: { main: { url: 'https://production.example.com/api/' } },
             live: true,
+            account: 'production',
             contact: { name: 'Alisha Admin', email: 'admin@example.com' },
             description: 'Production environment',
           },
           {
             id: 'testing',
             api: 'https://testing.example.com/api/',
+            apis: { main: { url: 'https://testing.example.com/api/' } },
             live: false,
+            account: 'testing',
             contact: { name: 'Alisha Admin' },
             description: 'Testing environment',
           },
@@ -572,7 +618,12 @@ export const examplesEnvironments: NonEmptyArray<Environments> = ([
           {
             id: 'fantasy-topping',
             api: 'https://fantasy-topping.example.com/api/',
+            apis: {
+              fun: { url: 'https://fantasy-topping.example.com/fun/' },
+              boring: { url: 'https://fantasy-topping.example.com/boring/' },
+            },
             live: false,
+            account: 'testing',
             contact: { name: 'Dennis Developer' },
             name: 'Fantasy Topping',
             description: 'Add support for pizza customization',
