@@ -165,7 +165,7 @@ export type Response = t.Branded<
     additional?: {
       bikeStations?: Array<BikeStation_.BikeStation>;
     };
-    debug?: {};
+    debug?: Record<string, unknown>;
   } & {
     options: Defined;
   },
@@ -179,7 +179,7 @@ export type ResponseC = t.BrandC<
         additional: t.PartialC<{
           bikeStations: t.ArrayC<typeof BikeStation_.BikeStation>;
         }>;
-        debug: t.TypeC<{}>;
+        debug: t.RecordC<t.StringC, t.UnknownC>;
       }>,
       t.TypeC<{
         options: typeof Defined;
@@ -195,7 +195,7 @@ export const Response: ResponseC = t.brand(
       additional: t.partial({
         bikeStations: t.array(BikeStation_.BikeStation),
       }),
-      debug: t.type({}),
+      debug: t.record(t.string, t.unknown),
     }),
     t.type({
       options: Defined,
@@ -209,7 +209,7 @@ export const Response: ResponseC = t.brand(
       additional?: {
         bikeStations?: Array<BikeStation_.BikeStation>;
       };
-      debug?: {};
+      debug?: Record<string, unknown>;
     } & {
       options: Defined;
     },

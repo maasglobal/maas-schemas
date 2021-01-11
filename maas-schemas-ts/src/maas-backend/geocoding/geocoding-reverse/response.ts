@@ -36,14 +36,14 @@ export type Response = t.Branded<
     type?: 'FeatureCollection';
     features?: Array<
       Geolocation_.Feature & {
-        properties?: {} & {
+        properties?: Record<string, unknown> & {
           city: Defined;
           country: Defined;
           countryCode: Defined;
         };
       }
     >;
-    debug?: {};
+    debug?: Record<string, unknown>;
   } & {
     type: Defined;
     features: Defined;
@@ -62,7 +62,7 @@ export type ResponseC = t.BrandC<
               t.PartialC<{
                 properties: t.IntersectionC<
                   [
-                    t.TypeC<{}>,
+                    t.UnknownRecordC,
                     t.TypeC<{
                       city: typeof Defined;
                       country: typeof Defined;
@@ -74,7 +74,7 @@ export type ResponseC = t.BrandC<
             ]
           >
         >;
-        debug: t.TypeC<{}>;
+        debug: t.UnknownRecordC;
       }>,
       t.TypeC<{
         type: typeof Defined;
@@ -93,7 +93,7 @@ export const Response: ResponseC = t.brand(
           Geolocation_.Feature,
           t.partial({
             properties: t.intersection([
-              t.type({}),
+              t.UnknownRecord,
               t.type({
                 city: Defined,
                 country: Defined,
@@ -103,7 +103,7 @@ export const Response: ResponseC = t.brand(
           }),
         ]),
       ),
-      debug: t.type({}),
+      debug: t.UnknownRecord,
     }),
     t.type({
       type: Defined,
@@ -117,14 +117,14 @@ export const Response: ResponseC = t.brand(
       type?: 'FeatureCollection';
       features?: Array<
         Geolocation_.Feature & {
-          properties?: {} & {
+          properties?: Record<string, unknown> & {
             city: Defined;
             country: Defined;
             countryCode: Defined;
           };
         }
       >;
-      debug?: {};
+      debug?: Record<string, unknown>;
     } & {
       type: Defined;
       features: Defined;

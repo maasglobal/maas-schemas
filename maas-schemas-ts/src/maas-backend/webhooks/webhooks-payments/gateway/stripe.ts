@@ -32,7 +32,7 @@ export const schemaId =
 // The purpose of this remains a mystery
 export type Request = t.Branded<
   {
-    payload?: {
+    payload?: ({
       id?: string;
       type?: string;
       data?: {
@@ -51,7 +51,7 @@ export type Request = t.Branded<
           };
         };
       };
-    } & {
+    } & Record<string, unknown>) & {
       type: Defined;
       id: Defined;
       data: Defined;
@@ -73,28 +73,33 @@ export type RequestC = t.BrandC<
       t.PartialC<{
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              id: t.StringC;
-              type: t.StringC;
-              data: t.PartialC<{
-                object: t.PartialC<{
+            t.IntersectionC<
+              [
+                t.PartialC<{
                   id: t.StringC;
-                  amount: t.NumberC;
-                  amount_capturable: t.NumberC;
-                  amount_received: t.NumberC;
-                  charges: t.PartialC<{
-                    data: t.ArrayC<
-                      t.PartialC<{
-                        id: t.StringC;
-                        object: t.StringC;
-                        amount: t.NumberC;
-                        amount_refunded: t.NumberC;
-                      }>
-                    >;
+                  type: t.StringC;
+                  data: t.PartialC<{
+                    object: t.PartialC<{
+                      id: t.StringC;
+                      amount: t.NumberC;
+                      amount_capturable: t.NumberC;
+                      amount_received: t.NumberC;
+                      charges: t.PartialC<{
+                        data: t.ArrayC<
+                          t.PartialC<{
+                            id: t.StringC;
+                            object: t.StringC;
+                            amount: t.NumberC;
+                            amount_refunded: t.NumberC;
+                          }>
+                        >;
+                      }>;
+                    }>;
                   }>;
-                }>;
-              }>;
-            }>,
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               type: typeof Defined;
               id: typeof Defined;
@@ -125,28 +130,31 @@ export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       payload: t.intersection([
-        t.partial({
-          id: t.string,
-          type: t.string,
-          data: t.partial({
-            object: t.partial({
-              id: t.string,
-              amount: t.number,
-              amount_capturable: t.number,
-              amount_received: t.number,
-              charges: t.partial({
-                data: t.array(
-                  t.partial({
-                    id: t.string,
-                    object: t.string,
-                    amount: t.number,
-                    amount_refunded: t.number,
-                  }),
-                ),
+        t.intersection([
+          t.partial({
+            id: t.string,
+            type: t.string,
+            data: t.partial({
+              object: t.partial({
+                id: t.string,
+                amount: t.number,
+                amount_capturable: t.number,
+                amount_received: t.number,
+                charges: t.partial({
+                  data: t.array(
+                    t.partial({
+                      id: t.string,
+                      object: t.string,
+                      amount: t.number,
+                      amount_refunded: t.number,
+                    }),
+                  ),
+                }),
               }),
             }),
           }),
-        }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           type: Defined,
           id: Defined,
@@ -171,7 +179,7 @@ export const Request: RequestC = t.brand(
     x,
   ): x is t.Branded<
     {
-      payload?: {
+      payload?: ({
         id?: string;
         type?: string;
         data?: {
@@ -190,7 +198,7 @@ export const Request: RequestC = t.brand(
             };
           };
         };
-      } & {
+      } & Record<string, unknown>) & {
         type: Defined;
         id: Defined;
         data: Defined;

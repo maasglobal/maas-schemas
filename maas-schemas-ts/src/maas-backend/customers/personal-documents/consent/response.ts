@@ -33,12 +33,12 @@ export const schemaId =
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  {
+  ({
     identityId?: Units_.IdentityId;
     id?: Units_.Uuid;
     partyId?: PersonalDocument_.PartyId;
     partyType?: PersonalDocument_.PartyType;
-  } & {
+  } & Record<string, unknown>) & {
     identityId: Defined;
     id: Defined;
     partyId: Defined;
@@ -49,12 +49,17 @@ export type Response = t.Branded<
 export type ResponseC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        identityId: typeof Units_.IdentityId;
-        id: typeof Units_.Uuid;
-        partyId: typeof PersonalDocument_.PartyId;
-        partyType: typeof PersonalDocument_.PartyType;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            identityId: typeof Units_.IdentityId;
+            id: typeof Units_.Uuid;
+            partyId: typeof PersonalDocument_.PartyId;
+            partyType: typeof PersonalDocument_.PartyType;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         identityId: typeof Defined;
         id: typeof Defined;
@@ -67,12 +72,15 @@ export type ResponseC = t.BrandC<
 >;
 export const Response: ResponseC = t.brand(
   t.intersection([
-    t.partial({
-      identityId: Units_.IdentityId,
-      id: Units_.Uuid,
-      partyId: PersonalDocument_.PartyId,
-      partyType: PersonalDocument_.PartyType,
-    }),
+    t.intersection([
+      t.partial({
+        identityId: Units_.IdentityId,
+        id: Units_.Uuid,
+        partyId: PersonalDocument_.PartyId,
+        partyType: PersonalDocument_.PartyType,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       identityId: Defined,
       id: Defined,
@@ -83,12 +91,12 @@ export const Response: ResponseC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       identityId?: Units_.IdentityId;
       id?: Units_.Uuid;
       partyId?: PersonalDocument_.PartyId;
       partyType?: PersonalDocument_.PartyType;
-    } & {
+    } & Record<string, unknown>) & {
       identityId: Defined;
       id: Defined;
       partyId: Defined;

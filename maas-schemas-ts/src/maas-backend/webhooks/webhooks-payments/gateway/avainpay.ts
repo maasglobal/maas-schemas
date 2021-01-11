@@ -32,7 +32,7 @@ export const schemaId =
 // The purpose of this remains a mystery
 export type Request = t.Branded<
   {
-    payload?: {
+    payload?: ({
       action_str?: string;
       data_type?: string;
       log_list?: Array<unknown>;
@@ -41,8 +41,8 @@ export type Request = t.Branded<
         nonce?: string;
         signature?: string;
       };
-      request_map?: {};
-    } & {
+      request_map?: Record<string, unknown>;
+    } & Record<string, unknown>) & {
       action_str: Defined;
       data_type: Defined;
     };
@@ -66,17 +66,22 @@ export type RequestC = t.BrandC<
       t.PartialC<{
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              action_str: t.StringC;
-              data_type: t.StringC;
-              log_list: t.UnknownArrayC;
-              trans_map: t.PartialC<{
-                system_time: t.NumberC;
-                nonce: t.StringC;
-                signature: t.StringC;
-              }>;
-              request_map: t.TypeC<{}>;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  action_str: t.StringC;
+                  data_type: t.StringC;
+                  log_list: t.UnknownArrayC;
+                  trans_map: t.PartialC<{
+                    system_time: t.NumberC;
+                    nonce: t.StringC;
+                    signature: t.StringC;
+                  }>;
+                  request_map: t.UnknownRecordC;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               action_str: typeof Defined;
               data_type: typeof Defined;
@@ -109,17 +114,20 @@ export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       payload: t.intersection([
-        t.partial({
-          action_str: t.string,
-          data_type: t.string,
-          log_list: t.UnknownArray,
-          trans_map: t.partial({
-            system_time: t.number,
-            nonce: t.string,
-            signature: t.string,
+        t.intersection([
+          t.partial({
+            action_str: t.string,
+            data_type: t.string,
+            log_list: t.UnknownArray,
+            trans_map: t.partial({
+              system_time: t.number,
+              nonce: t.string,
+              signature: t.string,
+            }),
+            request_map: t.UnknownRecord,
           }),
-          request_map: t.type({}),
-        }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           action_str: Defined,
           data_type: Defined,
@@ -146,7 +154,7 @@ export const Request: RequestC = t.brand(
     x,
   ): x is t.Branded<
     {
-      payload?: {
+      payload?: ({
         action_str?: string;
         data_type?: string;
         log_list?: Array<unknown>;
@@ -155,8 +163,8 @@ export const Request: RequestC = t.brand(
           nonce?: string;
           signature?: string;
         };
-        request_map?: {};
-      } & {
+        request_map?: Record<string, unknown>;
+      } & Record<string, unknown>) & {
         action_str: Defined;
         data_type: Defined;
       };

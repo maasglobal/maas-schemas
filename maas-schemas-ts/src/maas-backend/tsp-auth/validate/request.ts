@@ -25,7 +25,7 @@ export type Request = t.Branded<
       state?: Common_.EncodedQueryParam;
       error?: Common_.ErrorKey;
     };
-    headers?: {};
+    headers?: Record<string, unknown>;
   },
   RequestBrand
 >;
@@ -38,7 +38,7 @@ export type RequestC = t.BrandC<
       state: typeof Common_.EncodedQueryParam;
       error: typeof Common_.ErrorKey;
     }>;
-    headers: t.TypeC<{}>;
+    headers: t.RecordC<t.StringC, t.UnknownC>;
   }>,
   RequestBrand
 >;
@@ -51,7 +51,7 @@ export const Request: RequestC = t.brand(
       state: Common_.EncodedQueryParam,
       error: Common_.ErrorKey,
     }),
-    headers: t.type({}),
+    headers: t.record(t.string, t.unknown),
   }),
   (
     x,
@@ -64,7 +64,7 @@ export const Request: RequestC = t.brand(
         state?: Common_.EncodedQueryParam;
         error?: Common_.ErrorKey;
       };
-      headers?: {};
+      headers?: Record<string, unknown>;
     },
     RequestBrand
   > => true,

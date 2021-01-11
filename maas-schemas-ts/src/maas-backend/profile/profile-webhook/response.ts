@@ -19,28 +19,28 @@ export const schemaId =
 export type Response = t.Branded<
   {
     profile?: Profile_.Profile;
-    maas?: {};
+    maas?: Record<string, unknown>;
   },
   ResponseBrand
 >;
 export type ResponseC = t.BrandC<
   t.PartialC<{
     profile: typeof Profile_.Profile;
-    maas: t.TypeC<{}>;
+    maas: t.RecordC<t.StringC, t.UnknownC>;
   }>,
   ResponseBrand
 >;
 export const Response: ResponseC = t.brand(
   t.partial({
     profile: Profile_.Profile,
-    maas: t.type({}),
+    maas: t.record(t.string, t.unknown),
   }),
   (
     x,
   ): x is t.Branded<
     {
       profile?: Profile_.Profile;
-      maas?: {};
+      maas?: Record<string, unknown>;
     },
     ResponseBrand
   > => true,

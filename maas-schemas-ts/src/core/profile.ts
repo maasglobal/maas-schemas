@@ -185,7 +185,7 @@ export type Profile = t.Branded<
       type: Defined;
       valid: Defined;
     };
-    subscription?: {};
+    subscription?: Record<string, unknown>;
     subscriptionInstance?: SubscriptionInstance;
     balances?: Array<Fare_.Fare>;
     created?: Units_.Time;
@@ -239,7 +239,7 @@ export type ProfileC = t.BrandC<
             }>,
           ]
         >;
-        subscription: t.TypeC<{}>;
+        subscription: t.UnknownRecordC;
         subscriptionInstance: typeof SubscriptionInstance;
         balances: t.ArrayC<typeof Fare_.Fare>;
         created: typeof Units_.Time;
@@ -289,7 +289,7 @@ export const Profile: ProfileC = t.brand(
           valid: Defined,
         }),
       ]),
-      subscription: t.type({}),
+      subscription: t.UnknownRecord,
       subscriptionInstance: SubscriptionInstance,
       balances: t.array(Fare_.Fare),
       created: Units_.Time,
@@ -331,7 +331,7 @@ export const Profile: ProfileC = t.brand(
         type: Defined;
         valid: Defined;
       };
-      subscription?: {};
+      subscription?: Record<string, unknown>;
       subscriptionInstance?: SubscriptionInstance;
       balances?: Array<Fare_.Fare>;
       created?: Units_.Time;

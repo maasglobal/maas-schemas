@@ -41,7 +41,7 @@ export type Request = t.Branded<
       certificate?: string;
       nonce?: string;
       nonceSignature?: string;
-    };
+    } & Record<string, unknown>;
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
@@ -59,11 +59,16 @@ export type RequestC = t.BrandC<
         identityId: typeof Units_.IdentityId;
         customerId: typeof Units_.IdentityId;
         virtualCardId: t.NumberC;
-        payload: t.PartialC<{
-          certificate: t.StringC;
-          nonce: t.StringC;
-          nonceSignature: t.StringC;
-        }>;
+        payload: t.IntersectionC<
+          [
+            t.PartialC<{
+              certificate: t.StringC;
+              nonce: t.StringC;
+              nonceSignature: t.StringC;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
         headers: typeof ApiCommon_.Headers;
       }>,
       t.TypeC<{
@@ -83,11 +88,14 @@ export const Request: RequestC = t.brand(
       identityId: Units_.IdentityId,
       customerId: Units_.IdentityId,
       virtualCardId: t.number,
-      payload: t.partial({
-        certificate: t.string,
-        nonce: t.string,
-        nonceSignature: t.string,
-      }),
+      payload: t.intersection([
+        t.partial({
+          certificate: t.string,
+          nonce: t.string,
+          nonceSignature: t.string,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       headers: ApiCommon_.Headers,
     }),
     t.type({
@@ -109,7 +117,7 @@ export const Request: RequestC = t.brand(
         certificate?: string;
         nonce?: string;
         nonceSignature?: string;
-      };
+      } & Record<string, unknown>;
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;

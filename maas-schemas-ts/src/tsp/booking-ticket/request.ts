@@ -31,11 +31,11 @@ export const schemaId = 'http://maasglobal.com/tsp/booking-ticket/request.json';
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  {
+  ({
     tspId?: Booking_.TspId;
     ticket?: string | Array<string>;
     token?: Booking_.Token;
-  } & {
+  } & Record<string, unknown>) & {
     ticket: Defined;
     token: Defined;
     tspId: Defined;
@@ -45,11 +45,16 @@ export type Request = t.Branded<
 export type RequestC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        tspId: typeof Booking_.TspId;
-        ticket: t.UnionC<[t.StringC, t.ArrayC<t.StringC>]>;
-        token: typeof Booking_.Token;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            tspId: typeof Booking_.TspId;
+            ticket: t.UnionC<[t.StringC, t.ArrayC<t.StringC>]>;
+            token: typeof Booking_.Token;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         ticket: typeof Defined;
         token: typeof Defined;
@@ -61,11 +66,14 @@ export type RequestC = t.BrandC<
 >;
 export const Request: RequestC = t.brand(
   t.intersection([
-    t.partial({
-      tspId: Booking_.TspId,
-      ticket: t.union([t.string, t.array(t.string)]),
-      token: Booking_.Token,
-    }),
+    t.intersection([
+      t.partial({
+        tspId: Booking_.TspId,
+        ticket: t.union([t.string, t.array(t.string)]),
+        token: Booking_.Token,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       ticket: Defined,
       token: Defined,
@@ -75,11 +83,11 @@ export const Request: RequestC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       tspId?: Booking_.TspId;
       ticket?: string | Array<string>;
       token?: Booking_.Token;
-    } & {
+    } & Record<string, unknown>) & {
       ticket: Defined;
       token: Defined;
       tspId: Defined;

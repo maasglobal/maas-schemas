@@ -14,11 +14,11 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_TRAINISH.json';
 
 // MODE_TRAINISH
 // The default export. More information at the top.
-export type MODE_TRAINISH = t.Branded<{}, MODE_TRAINISHBrand>;
-export type MODE_TRAINISHC = t.BrandC<t.TypeC<{}>, MODE_TRAINISHBrand>;
+export type MODE_TRAINISH = t.Branded<Record<string, unknown>, MODE_TRAINISHBrand>;
+export type MODE_TRAINISHC = t.BrandC<t.UnknownRecordC, MODE_TRAINISHBrand>;
 export const MODE_TRAINISH: MODE_TRAINISHC = t.brand(
-  t.type({}),
-  (x): x is t.Branded<{}, MODE_TRAINISHBrand> => true,
+  t.UnknownRecord,
+  (x): x is t.Branded<Record<string, unknown>, MODE_TRAINISHBrand> => true,
   'MODE_TRAINISH',
 );
 export interface MODE_TRAINISHBrand {

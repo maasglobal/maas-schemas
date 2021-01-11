@@ -51,28 +51,36 @@ export type Headers = t.Branded<
   {
     Accept?: AcceptHeader;
     'X-Whim-User-Agent'?: UserAgentHeader;
-  },
+  } & Record<string, unknown>,
   HeadersBrand
 >;
 export type HeadersC = t.BrandC<
-  t.PartialC<{
-    Accept: typeof AcceptHeader;
-    'X-Whim-User-Agent': typeof UserAgentHeader;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        Accept: typeof AcceptHeader;
+        'X-Whim-User-Agent': typeof UserAgentHeader;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   HeadersBrand
 >;
 export const Headers: HeadersC = t.brand(
-  t.partial({
-    Accept: AcceptHeader,
-    'X-Whim-User-Agent': UserAgentHeader,
-  }),
+  t.intersection([
+    t.partial({
+      Accept: AcceptHeader,
+      'X-Whim-User-Agent': UserAgentHeader,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       Accept?: AcceptHeader;
       'X-Whim-User-Agent'?: UserAgentHeader;
-    },
+    } & Record<string, unknown>,
     HeadersBrand
   > => true,
   'Headers',

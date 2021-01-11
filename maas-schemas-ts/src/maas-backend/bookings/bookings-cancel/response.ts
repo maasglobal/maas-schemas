@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Booking_ from '../../../core/booking';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -32,24 +33,70 @@ export const schemaId =
 // The default export. More information at the top.
 export type Response = t.Branded<
   {
+    booking?: Booking_.Booking & {
+      state?: string & ('CANCELLED' | 'CANCELLED_WITH_ERRORS');
+    };
+    debug?: Record<string, unknown>;
+  } & {
     booking: Defined;
   },
   ResponseBrand
 >;
 export type ResponseC = t.BrandC<
-  t.TypeC<{
-    booking: typeof Defined;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        booking: t.IntersectionC<
+          [
+            typeof Booking_.Booking,
+            t.PartialC<{
+              state: t.IntersectionC<
+                [
+                  t.StringC,
+                  t.UnionC<
+                    [t.LiteralC<'CANCELLED'>, t.LiteralC<'CANCELLED_WITH_ERRORS'>]
+                  >,
+                ]
+              >;
+            }>,
+          ]
+        >;
+        debug: t.RecordC<t.StringC, t.UnknownC>;
+      }>,
+      t.TypeC<{
+        booking: typeof Defined;
+      }>,
+    ]
+  >,
   ResponseBrand
 >;
 export const Response: ResponseC = t.brand(
-  t.type({
-    booking: Defined,
-  }),
+  t.intersection([
+    t.partial({
+      booking: t.intersection([
+        Booking_.Booking,
+        t.partial({
+          state: t.intersection([
+            t.string,
+            t.union([t.literal('CANCELLED'), t.literal('CANCELLED_WITH_ERRORS')]),
+          ]),
+        }),
+      ]),
+      debug: t.record(t.string, t.unknown),
+    }),
+    t.type({
+      booking: Defined,
+    }),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
+      booking?: Booking_.Booking & {
+        state?: string & ('CANCELLED' | 'CANCELLED_WITH_ERRORS');
+      };
+      debug?: Record<string, unknown>;
+    } & {
       booking: Defined;
     },
     ResponseBrand
