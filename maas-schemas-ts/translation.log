@@ -1956,6 +1956,10 @@ INFO: primitive type "number" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/products/provider.json
 INFO: primitive type "number" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/products/provider.json
+INFO: primitive type "number" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/products/provider.json
+INFO: primitive type "number" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/products/provider.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/products/provider.json
 INFO: primitive type "string" used outside top-level definitions

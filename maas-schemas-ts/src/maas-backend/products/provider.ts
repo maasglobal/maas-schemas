@@ -310,6 +310,62 @@ export interface BookingPeriodBrand {
   readonly BookingPeriod: unique symbol;
 }
 
+// GradualRadiusOption
+// Optional parameter for gradual radius searching
+export type GradualRadiusOption = t.Branded<
+  {
+    gradualRadius?: number;
+    maxRadius?: number;
+  } & {
+    gradualRadius: Defined;
+    maxRadius: Defined;
+  },
+  GradualRadiusOptionBrand
+>;
+export type GradualRadiusOptionC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        gradualRadius: t.NumberC;
+        maxRadius: t.NumberC;
+      }>,
+      t.TypeC<{
+        gradualRadius: typeof Defined;
+        maxRadius: typeof Defined;
+      }>,
+    ]
+  >,
+  GradualRadiusOptionBrand
+>;
+export const GradualRadiusOption: GradualRadiusOptionC = t.brand(
+  t.intersection([
+    t.partial({
+      gradualRadius: t.number,
+      maxRadius: t.number,
+    }),
+    t.type({
+      gradualRadius: Defined,
+      maxRadius: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      gradualRadius?: number;
+      maxRadius?: number;
+    } & {
+      gradualRadius: Defined;
+      maxRadius: Defined;
+    },
+    GradualRadiusOptionBrand
+  > => true,
+  'GradualRadiusOption',
+);
+export interface GradualRadiusOptionBrand {
+  readonly GradualRadiusOption: unique symbol;
+}
+
 // Provider
 // The default export. More information at the top.
 export type Provider = t.Branded<
@@ -361,7 +417,9 @@ export type Provider = t.Branded<
     requiredPersonalDocuments?: Array<
       PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
     >;
-    optionalParameters?: Array<Selection | MessageToDriver | BookingPeriod>;
+    optionalParameters?: Array<
+      Selection | MessageToDriver | BookingPeriod | GradualRadiusOption
+    >;
     disruption?: Record<string, unknown>;
   } & {
     name: Defined;
@@ -451,7 +509,14 @@ export type ProviderC = t.BrandC<
           typeof PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
         >;
         optionalParameters: t.ArrayC<
-          t.UnionC<[typeof Selection, typeof MessageToDriver, typeof BookingPeriod]>
+          t.UnionC<
+            [
+              typeof Selection,
+              typeof MessageToDriver,
+              typeof BookingPeriod,
+              typeof GradualRadiusOption,
+            ]
+          >
         >;
         disruption: t.UnknownRecordC;
       }>,
@@ -529,7 +594,9 @@ export const Provider: ProviderC = t.brand(
       requiredPersonalDocuments: t.array(
         PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem,
       ),
-      optionalParameters: t.array(t.union([Selection, MessageToDriver, BookingPeriod])),
+      optionalParameters: t.array(
+        t.union([Selection, MessageToDriver, BookingPeriod, GradualRadiusOption]),
+      ),
       disruption: t.UnknownRecord,
     }),
     t.type({
@@ -595,7 +662,9 @@ export const Provider: ProviderC = t.brand(
       requiredPersonalDocuments?: Array<
         PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
       >;
-      optionalParameters?: Array<Selection | MessageToDriver | BookingPeriod>;
+      optionalParameters?: Array<
+        Selection | MessageToDriver | BookingPeriod | GradualRadiusOption
+      >;
       disruption?: Record<string, unknown>;
     } & {
       name: Defined;
