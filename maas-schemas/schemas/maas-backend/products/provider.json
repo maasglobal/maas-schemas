@@ -156,6 +156,9 @@
           },
           {
             "$ref": "#/definitions/bookingPeriod"
+          },
+          {
+            "$ref": "#/definitions/gradualRadiusOption"
           }
         ]
       }
@@ -246,6 +249,21 @@
       "properties": {
         "searchDefault": {
           "description": "Number representing minutes for the client to compute booking period. -1 means weekend",
+          "type": "number"
+        }
+      }
+    },
+    "gradualRadiusOption": {
+      "description": "Optional parameter for gradual radius searching",
+      "type": "object",
+      "required": ["gradualRadius", "maxRadius"],
+      "properties": {
+        "gradualRadius": {
+          "description": "Number representing kilometer radius for the client to search gradually with",
+          "type": "number"
+        },
+        "maxRadius": {
+          "description": "Number representing maximum kilometer radius the client can search with",
           "type": "number"
         }
       }

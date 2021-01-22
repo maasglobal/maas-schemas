@@ -38,6 +38,10 @@
     },
     {
       "searchDefault": 120
+    },
+    {
+      "gradualRadius": 120,
+      "maxRadius": 300
     }
   ]
 }
