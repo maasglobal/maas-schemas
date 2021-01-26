@@ -1026,23 +1026,33 @@ INFO: missing description
   in ../maas-schemas/schemas/core/paymentSource.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/personal-document.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: id field not supported
   in ../maas-schemas/schemas/core/personal-document.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json
-WARNING: minLength field not supported outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json
-WARNING: minLength field not supported outside top-level definitions
+INFO: missing description
+  in ../maas-schemas/schemas/core/personal-document.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/personal-document.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/personal-document.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/personal-document.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/personal-document.json
+INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json
 INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json

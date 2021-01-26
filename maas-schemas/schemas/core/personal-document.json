@@ -3,12 +3,31 @@
   "type": "object",
   "description": "Personal document object",
   "definitions": {
+    "documentId": {
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid" }],
+      "examples": ["932116e4-94cf-41cd-a62b-82d5f2730586"]
+    },
     "documentType": {
-      "type": "string"
+      "type": "string",
+      "examples": ["DRIVERS_LICENSE"]
+    },
+    "documentNumber": {
+      "type": "string",
+      "examples": ["123456789012"]
+    },
+    "nameOnDocument": {
+      "type": "string",
+      "examples": ["🍵☃", "Snowman, Tea"]
+    },
+    "issuingCountry": {
+      "type": "string",
+      "minLength": 2,
+      "examples": ["CX"]
     },
     "documentStatus": {
       "type": "string",
-      "enum": ["PENDING", "APPROVED", "DECLINED", "EXPIRED", "RESUBMISSION_REQUESTED", "ABANDONED"]
+      "enum": ["PENDING", "APPROVED", "DECLINED", "EXPIRED", "RESUBMISSION_REQUESTED", "ABANDONED"],
+      "examples": ["APPROVED"]
     },
     "documentStatusPENDING": {
       "default": "PENDING",
@@ -34,6 +53,60 @@
       "default": "ABANDONED",
       "allOf": [{ "$ref": "#/definitions/documentStatus" }, { "const": "ABANDONED" }]
     },
+    "validFrom": {
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate" }],
+      "examples": ["2020-01-01"]
+    },
+    "validTo": {
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate" }],
+      "examples": ["2030-12-31"]
+    },
+    "category": {
+      "type": "string",
+      "examples": ["normal"]
+    },
+    "details": {
+      "type": "object",
+      "properties": {
+        "category": { "$ref": "#/definitions/category" }
+      },
+      "examples": [{ "category": "normal" }]
+    },
+    "mediaItemContent": {
+      "type": "string"
+    },
+    "mediaItemContext": {
+      "type": "string"
+    },
+    "mediaItem": {
+      "type": "object",
+      "properties": {
+        "content": { "$ref": "#/definitions/mediaItemContent" },
+        "context": { "$ref": "#/definitions/mediaItemContext" }
+      },
+      "additionalProperties": false,
+      "required": ["content", "context"]
+    },
+    "media": {
+      "description": "Media documents related to user personal document.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/mediaItem"
+      }
+    },
+    "kycServiceId": {
+      "description": "Id of kyc service used",
+      "type": "string",
+      "minLength": 2
+    },
+    "firstName": {
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName" }],
+      "examples": ["Tea"]
+    },
+    "lastName": {
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName" }],
+      "examples": ["Snowman"]
+    },
     "partyId": {
       "type": "string",
       "minLength": 1,
@@ -46,8 +119,8 @@
     }
   },
   "properties": {
-    "id": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+    "properties": {
+      "id": { "$ref": "#/definitions/documentId" }
     },
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
@@ -56,58 +129,36 @@
       "$ref": "#/definitions/documentType"
     },
     "documentNumber": {
-      "type": "string"
+      "$ref": "#/definitions/documentNumber"
     },
     "nameOnDocument": {
-      "type": "string"
+      "$ref": "#/definitions/nameOnDocument"
     },
     "issuingCountry": {
-      "type": "string",
-      "minLength": 2
+      "$ref": "#/definitions/issuingCountry"
     },
     "status": {
       "$ref": "#/definitions/documentStatus"
     },
     "validFrom": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+      "$ref": "#/definitions/validFrom"
     },
     "validTo": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+      "$ref": "#/definitions/validTo"
     },
     "details": {
-      "type": "object",
-      "properties": {
-        "category": {
-          "type": "string"
-        }
-      }
+      "$ref": "#/definitions/details"
     },
     "media": {
-      "description": "Media documents related to user personal document.",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "content": {
-            "type": "string"
-          },
-          "context": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false,
-        "required": ["content", "context"]
-      }
+      "$ref": "#/definitions/media"
     },
     "kycServiceId": {
-      "description": "Id of kyc service used",
-      "type": "string",
-      "minLength": 2
+      "$ref": "#/definitions/kycServiceId"
     },
     "firstName": {
       "oneOf": [
         {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+          "$ref": "#/definitions/firstName"
         },
         {
           "type": "null"
@@ -117,7 +168,7 @@
     "lastName": {
       "oneOf": [
         {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+          "$ref": "#/definitions/lastName"
         },
         {
           "type": "null"
@@ -126,5 +177,27 @@
     }
   },
   "additionalProperties": false,
-  "required": ["type", "documentNumber", "issuingCountry", "status", "validFrom", "validTo"]
+  "required": ["type", "documentNumber", "issuingCountry", "status", "validFrom", "validTo"],
+  "examples": [
+    {
+      "identityId": "44ae30b6-eebc-4c00-9e46-704554c2a8a0",
+      "type": "DRIVERS_LICENSE",
+      "documentNumber": "123456789012",
+      "nameOnDocument": "🍵☃",
+      "issuingCountry": "CX",
+      "status": "APPROVED",
+      "validFrom": "2020-01-01",
+      "validTo": "2030-12-31",
+      "details": { "category": "normal" },
+      "stateLog": [
+        { "status": "PENDING", "timestamp": 1609845548067 },
+        { "status": "APPROVED", "timestamp": 1609945548067 }
+      ],
+      "created": "2020-01-04T12:34:50.123456+00:00",
+      "modified": "2020-01-05T12:34:50.123456+00:00",
+      "id": "932116e4-94cf-41cd-a62b-82d5f2730586",
+      "firstName": "Tea",
+      "lastName": "Snowman"
+    }
+  ]
 }
