@@ -11,6 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from './units';
 import * as ACRISS_ from './ACRISS';
+import * as Ajv_ from './ajv';
 import * as UnitsGeo_ from './units-geo';
 import * as Common_ from './common';
 
@@ -159,7 +160,7 @@ export type CarRental = t.Branded<
         | 'lpg'
         | 'multifuel'
         | Null;
-      classification?: ACRISS_.ACRISS | Null;
+      classification?: ACRISS_.ACRISS | Ajv_.StringCoarsedNull;
       registrationPlate?: string;
       damage?: string;
       fuelLevel?: number;
@@ -212,7 +213,9 @@ export type CarRentalC = t.BrandC<
                   typeof Null,
                 ]
               >;
-              classification: t.UnionC<[typeof ACRISS_.ACRISS, typeof Null]>;
+              classification: t.UnionC<
+                [typeof ACRISS_.ACRISS, typeof Ajv_.StringCoarsedNull]
+              >;
               registrationPlate: t.StringC;
               damage: t.StringC;
               fuelLevel: t.NumberC;
@@ -265,7 +268,7 @@ export const CarRental: CarRentalC = t.brand(
             t.literal('multifuel'),
             Null,
           ]),
-          classification: t.union([ACRISS_.ACRISS, Null]),
+          classification: t.union([ACRISS_.ACRISS, Ajv_.StringCoarsedNull]),
           registrationPlate: t.string,
           damage: t.string,
           fuelLevel: t.number,
@@ -313,7 +316,7 @@ export const CarRental: CarRentalC = t.brand(
           | 'lpg'
           | 'multifuel'
           | Null;
-        classification?: ACRISS_.ACRISS | Null;
+        classification?: ACRISS_.ACRISS | Ajv_.StringCoarsedNull;
         registrationPlate?: string;
         damage?: string;
         fuelLevel?: number;
