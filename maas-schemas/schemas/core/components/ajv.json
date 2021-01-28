@@ -1,0 +1,16 @@
+{
+  "$id": "http://maasglobal.com/core/components/ajv.json",
+  "definitions": {
+    "stringCoarsedNull": {
+      "description": "Ajv type coarsing replaces null with empty string",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "const": ""
+        }
+      ]
+    }
+  }
+}
