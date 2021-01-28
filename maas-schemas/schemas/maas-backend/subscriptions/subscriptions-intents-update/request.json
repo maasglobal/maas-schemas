@@ -1,0 +1,24 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-intents-update/request.json",
+  "description": "Request schema for subscriptions-intents-update",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "userId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "subscriptionIntentId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+    },
+    "payload": {
+      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription-intent.json#/definitions/subscriptionIntentCreate"
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  },
+  "required": ["identityId", "userId", "subscriptionIntentId", "payload"],
+  "additionalProperties": false
+}
