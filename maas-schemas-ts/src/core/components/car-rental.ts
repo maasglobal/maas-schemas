@@ -29,6 +29,17 @@ export class DefinedType extends t.Type<Defined> {
 export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
+export interface NullBrand {
+  readonly Null: unique symbol;
+}
+export type NullC = t.BrandC<t.UnknownC, NullBrand>;
+export const Null: NullC = t.brand(
+  t.unknown,
+  (n): n is t.Branded<unknown, NullBrand> => n === null,
+  'Null',
+);
+export type Null = t.TypeOf<typeof Null>;
+
 export const schemaId = 'http://maasglobal.com/core/components/car-rental.json';
 
 // Instruction
@@ -137,7 +148,7 @@ export type CarRental = t.Branded<
       passengers?: number;
       doors?: Array<number>;
       luggage?: Array<number>;
-      transmission?: 'manual' | 'automatic' | null;
+      transmission?: 'manual' | 'automatic' | Null;
       fuel?:
         | 'diesel'
         | 'electric'
@@ -147,8 +158,8 @@ export type CarRental = t.Branded<
         | 'hydrogen'
         | 'lpg'
         | 'multifuel'
-        | null;
-      classification?: ACRISS_.ACRISS | null;
+        | Null;
+      classification?: ACRISS_.ACRISS | Null;
       registrationPlate?: string;
       damage?: string;
       fuelLevel?: number;
@@ -186,7 +197,7 @@ export type CarRentalC = t.BrandC<
               doors: t.ArrayC<t.NumberC>;
               luggage: t.ArrayC<t.NumberC>;
               transmission: t.UnionC<
-                [t.LiteralC<'manual'>, t.LiteralC<'automatic'>, t.NullC]
+                [t.LiteralC<'manual'>, t.LiteralC<'automatic'>, typeof Null]
               >;
               fuel: t.UnionC<
                 [
@@ -198,10 +209,10 @@ export type CarRentalC = t.BrandC<
                   t.LiteralC<'hydrogen'>,
                   t.LiteralC<'lpg'>,
                   t.LiteralC<'multifuel'>,
-                  t.NullC,
+                  typeof Null,
                 ]
               >;
-              classification: t.UnionC<[typeof ACRISS_.ACRISS, t.NullC]>;
+              classification: t.UnionC<[typeof ACRISS_.ACRISS, typeof Null]>;
               registrationPlate: t.StringC;
               damage: t.StringC;
               fuelLevel: t.NumberC;
@@ -242,7 +253,7 @@ export const CarRental: CarRentalC = t.brand(
           passengers: t.number,
           doors: t.array(t.number),
           luggage: t.array(t.number),
-          transmission: t.union([t.literal('manual'), t.literal('automatic'), t.null]),
+          transmission: t.union([t.literal('manual'), t.literal('automatic'), Null]),
           fuel: t.union([
             t.literal('diesel'),
             t.literal('electric'),
@@ -252,9 +263,9 @@ export const CarRental: CarRentalC = t.brand(
             t.literal('hydrogen'),
             t.literal('lpg'),
             t.literal('multifuel'),
-            t.null,
+            Null,
           ]),
-          classification: t.union([ACRISS_.ACRISS, t.null]),
+          classification: t.union([ACRISS_.ACRISS, Null]),
           registrationPlate: t.string,
           damage: t.string,
           fuelLevel: t.number,
@@ -291,7 +302,7 @@ export const CarRental: CarRentalC = t.brand(
         passengers?: number;
         doors?: Array<number>;
         luggage?: Array<number>;
-        transmission?: 'manual' | 'automatic' | null;
+        transmission?: 'manual' | 'automatic' | Null;
         fuel?:
           | 'diesel'
           | 'electric'
@@ -301,8 +312,8 @@ export const CarRental: CarRentalC = t.brand(
           | 'hydrogen'
           | 'lpg'
           | 'multifuel'
-          | null;
-        classification?: ACRISS_.ACRISS | null;
+          | Null;
+        classification?: ACRISS_.ACRISS | Null;
         registrationPlate?: string;
         damage?: string;
         fuelLevel?: number;

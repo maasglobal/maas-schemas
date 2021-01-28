@@ -14,6 +14,17 @@ import * as Common_ from '../../../../../core/components/common';
 import * as PersonalDocument_ from '../../../../../core/personal-document';
 import * as Address_ from '../../../../../core/components/address';
 
+export interface NullBrand {
+  readonly Null: unique symbol;
+}
+export type NullC = t.BrandC<t.UnknownC, NullBrand>;
+export const Null: NullC = t.brand(
+  t.unknown,
+  (n): n is t.Branded<unknown, NullBrand> => n === null,
+  'Null',
+);
+export type Null = t.TypeOf<typeof Null>;
+
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
   readonly _tag: 'DefinedType' = 'DefinedType';
@@ -42,18 +53,18 @@ export type Request = t.Branded<
         id?: Units_.Uuid;
         code?: number & (9001 | 9102 | 9103 | 9104 | 9121);
         person?: {
-          firstName?: Common_.PersonalName | null;
-          lastName?: Common_.PersonalName | null;
+          firstName?: Common_.PersonalName | Null;
+          lastName?: Common_.PersonalName | Null;
         } & Record<string, unknown>;
         document?: {
-          number?: string | null;
+          number?: string | Null;
           type?: PersonalDocument_.DocumentType;
           country?: Address_.Country;
-          validFrom?: Units_.IsoDate | null;
-          validUntil?: Units_.IsoDate | null;
+          validFrom?: Units_.IsoDate | Null;
+          validUntil?: Units_.IsoDate | Null;
         };
         reason?: string;
-        reasonCode?: number | null;
+        reasonCode?: number | Null;
         status?: string;
         additionalVerifiedData?: Record<string, unknown>;
         vendorData?: string;
@@ -118,21 +129,21 @@ export type RequestC = t.BrandC<
                     person: t.IntersectionC<
                       [
                         t.PartialC<{
-                          firstName: t.UnionC<[typeof Common_.PersonalName, t.NullC]>;
-                          lastName: t.UnionC<[typeof Common_.PersonalName, t.NullC]>;
+                          firstName: t.UnionC<[typeof Common_.PersonalName, typeof Null]>;
+                          lastName: t.UnionC<[typeof Common_.PersonalName, typeof Null]>;
                         }>,
                         t.RecordC<t.StringC, t.UnknownC>,
                       ]
                     >;
                     document: t.PartialC<{
-                      number: t.UnionC<[t.StringC, t.NullC]>;
+                      number: t.UnionC<[t.StringC, typeof Null]>;
                       type: typeof PersonalDocument_.DocumentType;
                       country: typeof Address_.Country;
-                      validFrom: t.UnionC<[typeof Units_.IsoDate, t.NullC]>;
-                      validUntil: t.UnionC<[typeof Units_.IsoDate, t.NullC]>;
+                      validFrom: t.UnionC<[typeof Units_.IsoDate, typeof Null]>;
+                      validUntil: t.UnionC<[typeof Units_.IsoDate, typeof Null]>;
                     }>;
                     reason: t.StringC;
-                    reasonCode: t.UnionC<[t.NumberC, t.NullC]>;
+                    reasonCode: t.UnionC<[t.NumberC, typeof Null]>;
                     status: t.StringC;
                     additionalVerifiedData: t.UnknownRecordC;
                     vendorData: t.StringC;
@@ -204,20 +215,20 @@ export const Request: RequestC = t.brand(
               ]),
               person: t.intersection([
                 t.partial({
-                  firstName: t.union([Common_.PersonalName, t.null]),
-                  lastName: t.union([Common_.PersonalName, t.null]),
+                  firstName: t.union([Common_.PersonalName, Null]),
+                  lastName: t.union([Common_.PersonalName, Null]),
                 }),
                 t.record(t.string, t.unknown),
               ]),
               document: t.partial({
-                number: t.union([t.string, t.null]),
+                number: t.union([t.string, Null]),
                 type: PersonalDocument_.DocumentType,
                 country: Address_.Country,
-                validFrom: t.union([Units_.IsoDate, t.null]),
-                validUntil: t.union([Units_.IsoDate, t.null]),
+                validFrom: t.union([Units_.IsoDate, Null]),
+                validUntil: t.union([Units_.IsoDate, Null]),
               }),
               reason: t.string,
-              reasonCode: t.union([t.number, t.null]),
+              reasonCode: t.union([t.number, Null]),
               status: t.string,
               additionalVerifiedData: t.UnknownRecord,
               vendorData: t.string,
@@ -268,18 +279,18 @@ export const Request: RequestC = t.brand(
           id?: Units_.Uuid;
           code?: number & (9001 | 9102 | 9103 | 9104 | 9121);
           person?: {
-            firstName?: Common_.PersonalName | null;
-            lastName?: Common_.PersonalName | null;
+            firstName?: Common_.PersonalName | Null;
+            lastName?: Common_.PersonalName | Null;
           } & Record<string, unknown>;
           document?: {
-            number?: string | null;
+            number?: string | Null;
             type?: PersonalDocument_.DocumentType;
             country?: Address_.Country;
-            validFrom?: Units_.IsoDate | null;
-            validUntil?: Units_.IsoDate | null;
+            validFrom?: Units_.IsoDate | Null;
+            validUntil?: Units_.IsoDate | Null;
           };
           reason?: string;
-          reasonCode?: number | null;
+          reasonCode?: number | Null;
           status?: string;
           additionalVerifiedData?: Record<string, unknown>;
           vendorData?: string;
