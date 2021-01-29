@@ -63,6 +63,8 @@ WARNING: naming clash, ignoring default export
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/agencyOptions.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/components/ajv.json
+WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/api-common.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/api-common.json

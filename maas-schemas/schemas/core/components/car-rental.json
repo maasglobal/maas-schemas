@@ -72,7 +72,7 @@
               "$ref": "http://maasglobal.com/core/components/ACRISS.json"
             },
             {
-              "type": "null"
+              "$ref": "http://maasglobal.com/core/components/ajv.json#/definitions/stringCoarsedNull"
             }
           ]
         },
