@@ -1028,8 +1028,6 @@ INFO: missing description
   in ../maas-schemas/schemas/core/paymentSource.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/personal-document.json
-WARNING: id field not supported
-  in ../maas-schemas/schemas/core/personal-document.json
 INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json
 INFO: missing description
