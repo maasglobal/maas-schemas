@@ -119,9 +119,7 @@
     }
   },
   "properties": {
-    "properties": {
-      "id": { "$ref": "#/definitions/documentId" }
-    },
+    "id": { "$ref": "#/definitions/documentId" },
     "identityId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
