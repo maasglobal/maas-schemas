@@ -590,7 +590,7 @@ export interface PartyTypeBrand {
 // The default export. More information at the top.
 export type PersonalDocument = t.Branded<
   {
-    properties?: unknown;
+    id?: DocumentId;
     identityId?: Units_.IdentityId;
     type?: DocumentType;
     documentNumber?: DocumentNumber;
@@ -618,7 +618,7 @@ export type PersonalDocumentC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        properties: t.UnknownC;
+        id: typeof DocumentId;
         identityId: typeof Units_.IdentityId;
         type: typeof DocumentType;
         documentNumber: typeof DocumentNumber;
@@ -648,7 +648,7 @@ export type PersonalDocumentC = t.BrandC<
 export const PersonalDocument: PersonalDocumentC = t.brand(
   t.intersection([
     t.partial({
-      properties: t.unknown,
+      id: DocumentId,
       identityId: Units_.IdentityId,
       type: DocumentType,
       documentNumber: DocumentNumber,
@@ -676,7 +676,7 @@ export const PersonalDocument: PersonalDocumentC = t.brand(
     x,
   ): x is t.Branded<
     {
-      properties?: unknown;
+      id?: DocumentId;
       identityId?: Units_.IdentityId;
       type?: DocumentType;
       documentNumber?: DocumentNumber;
