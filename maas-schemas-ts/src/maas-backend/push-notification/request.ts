@@ -26,17 +26,6 @@ export class DefinedType extends t.Type<Defined> {
 export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
-export interface NullBrand {
-  readonly Null: unique symbol;
-}
-export type NullC = t.BrandC<t.UnknownC, NullBrand>;
-export const Null: NullC = t.brand(
-  t.unknown,
-  (n): n is t.Branded<unknown, NullBrand> => n === null,
-  'Null',
-);
-export type Null = t.TypeOf<typeof Null>;
-
 export const schemaId =
   'http://maasglobal.com/maas-backend/push-notification/request.json';
 
@@ -65,7 +54,7 @@ export type Request = t.Branded<
           objectType: Defined;
           ids: Defined;
         })
-      | Null
+      | null
       | string
       | (({
           objectType?: 'Profile' | 'Subscription';
@@ -132,7 +121,7 @@ export type RequestC = t.BrandC<
                 }>,
               ]
             >,
-            typeof Null,
+            t.NullC,
             t.StringC,
             t.IntersectionC<
               [
@@ -218,7 +207,7 @@ export const Request: RequestC = t.brand(
             ids: Defined,
           }),
         ]),
-        Null,
+        t.null,
         t.string,
         t.intersection([
           t.intersection([
@@ -280,7 +269,7 @@ export const Request: RequestC = t.brand(
             objectType: Defined;
             ids: Defined;
           })
-        | Null
+        | null
         | string
         | (({
             objectType?: 'Profile' | 'Subscription';

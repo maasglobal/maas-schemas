@@ -40,6 +40,8 @@ export type Request = t.Branded<
     payload?: {
       amount?: number;
       currency?: 'EUR';
+      locale?: string;
+      product?: string;
     } & {
       amount: Defined;
     };
@@ -63,6 +65,8 @@ export type RequestC = t.BrandC<
             t.PartialC<{
               amount: t.NumberC;
               currency: t.LiteralC<'EUR'>;
+              locale: t.StringC;
+              product: t.StringC;
             }>,
             t.TypeC<{
               amount: typeof Defined;
@@ -90,6 +94,8 @@ export const Request: RequestC = t.brand(
         t.partial({
           amount: t.number,
           currency: t.literal('EUR'),
+          locale: t.string,
+          product: t.string,
         }),
         t.type({
           amount: Defined,
@@ -113,6 +119,8 @@ export const Request: RequestC = t.brand(
       payload?: {
         amount?: number;
         currency?: 'EUR';
+        locale?: string;
+        product?: string;
       } & {
         amount: Defined;
       };

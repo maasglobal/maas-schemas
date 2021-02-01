@@ -21,6 +21,14 @@
         "currency": {
           "enum": ["EUR"],
           "description": "Currency code. Currently supported is EUR only"
+        },
+        "locale": {
+          "type": "string",
+          "description": "Language code"
+        },
+        "product": {
+          "type": "string",
+          "description": "Product identifier"
         }
       },
       "required": ["amount"],

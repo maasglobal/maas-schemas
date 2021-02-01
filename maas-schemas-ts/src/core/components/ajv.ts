@@ -10,29 +10,18 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-export interface NullBrand {
-  readonly Null: unique symbol;
-}
-export type NullC = t.BrandC<t.UnknownC, NullBrand>;
-export const Null: NullC = t.brand(
-  t.unknown,
-  (n): n is t.Branded<unknown, NullBrand> => n === null,
-  'Null',
-);
-export type Null = t.TypeOf<typeof Null>;
-
 export const schemaId = 'http://maasglobal.com/core/components/ajv.json';
 
 // StringCoarsedNull
 // Ajv type coarsing replaces null with empty string
-export type StringCoarsedNull = t.Branded<Null | '', StringCoarsedNullBrand>;
+export type StringCoarsedNull = t.Branded<null | '', StringCoarsedNullBrand>;
 export type StringCoarsedNullC = t.BrandC<
-  t.UnionC<[typeof Null, t.LiteralC<''>]>,
+  t.UnionC<[t.NullC, t.LiteralC<''>]>,
   StringCoarsedNullBrand
 >;
 export const StringCoarsedNull: StringCoarsedNullC = t.brand(
-  t.union([Null, t.literal('')]),
-  (x): x is t.Branded<Null | '', StringCoarsedNullBrand> => true,
+  t.union([t.null, t.literal('')]),
+  (x): x is t.Branded<null | '', StringCoarsedNullBrand> => true,
   'StringCoarsedNull',
 );
 export interface StringCoarsedNullBrand {

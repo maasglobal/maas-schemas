@@ -13,17 +13,6 @@ import * as Common_ from './common';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-export interface NullBrand {
-  readonly Null: unique symbol;
-}
-export type NullC = t.BrandC<t.UnknownC, NullBrand>;
-export const Null: NullC = t.brand(
-  t.unknown,
-  (n): n is t.Branded<unknown, NullBrand> => n === null,
-  'Null',
-);
-export type Null = t.TypeOf<typeof Null>;
-
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
   readonly _tag: 'DefinedType' = 'DefinedType';
@@ -115,8 +104,8 @@ export type Fare = t.Branded<
     currency?: Common_.MetaCurrency | TokenId;
     tokenId?: TokenId;
     hidden?: boolean;
-    originalAmount?: number | Null;
-    productionAmount?: number | Null;
+    originalAmount?: number | null;
+    productionAmount?: number | null;
     type?: FareType;
   } & {
     amount: Defined;
@@ -132,8 +121,8 @@ export type FareC = t.BrandC<
         currency: t.UnionC<[typeof Common_.MetaCurrency, typeof TokenId]>;
         tokenId: typeof TokenId;
         hidden: t.BooleanC;
-        originalAmount: t.UnionC<[t.NumberC, typeof Null]>;
-        productionAmount: t.UnionC<[t.NumberC, typeof Null]>;
+        originalAmount: t.UnionC<[t.NumberC, t.NullC]>;
+        productionAmount: t.UnionC<[t.NumberC, t.NullC]>;
         type: typeof FareType;
       }>,
       t.TypeC<{
@@ -151,8 +140,8 @@ export const Fare: FareC = t.brand(
       currency: t.union([Common_.MetaCurrency, TokenId]),
       tokenId: TokenId,
       hidden: t.boolean,
-      originalAmount: t.union([t.number, Null]),
-      productionAmount: t.union([t.number, Null]),
+      originalAmount: t.union([t.number, t.null]),
+      productionAmount: t.union([t.number, t.null]),
       type: FareType,
     }),
     t.type({
@@ -168,8 +157,8 @@ export const Fare: FareC = t.brand(
       currency?: Common_.MetaCurrency | TokenId;
       tokenId?: TokenId;
       hidden?: boolean;
-      originalAmount?: number | Null;
-      productionAmount?: number | Null;
+      originalAmount?: number | null;
+      productionAmount?: number | null;
       type?: FareType;
     } & {
       amount: Defined;

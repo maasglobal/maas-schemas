@@ -33,17 +33,6 @@ export class DefinedType extends t.Type<Defined> {
 export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
-export interface NullBrand {
-  readonly Null: unique symbol;
-}
-export type NullC = t.BrandC<t.UnknownC, NullBrand>;
-export const Null: NullC = t.brand(
-  t.unknown,
-  (n): n is t.Branded<unknown, NullBrand> => n === null,
-  'Null',
-);
-export type Null = t.TypeOf<typeof Null>;
-
 export const schemaId = 'http://maasglobal.com/core/customer.json';
 
 // Customer
@@ -92,7 +81,7 @@ export type Customer = t.Branded<
       | (({
           currency?: Common_.MetaCurrencyTOKEN | Fare_.TokenId;
           tokenId?: Fare_.TokenId;
-          amount?: number | Null;
+          amount?: number | null;
         } & Record<string, unknown>) & {
           currency: Defined;
           tokenId: Defined;
@@ -187,7 +176,7 @@ export type CustomerC = t.BrandC<
                               [typeof Common_.MetaCurrencyTOKEN, typeof Fare_.TokenId]
                             >;
                             tokenId: typeof Fare_.TokenId;
-                            amount: t.UnionC<[t.NumberC, typeof Null]>;
+                            amount: t.UnionC<[t.NumberC, t.NullC]>;
                           }>,
                           t.RecordC<t.StringC, t.UnknownC>,
                         ]
@@ -280,7 +269,7 @@ export const Customer: CustomerC = t.brand(
                 t.partial({
                   currency: t.union([Common_.MetaCurrencyTOKEN, Fare_.TokenId]),
                   tokenId: Fare_.TokenId,
-                  amount: t.union([t.number, Null]),
+                  amount: t.union([t.number, t.null]),
                 }),
                 t.record(t.string, t.unknown),
               ]),
@@ -350,7 +339,7 @@ export const Customer: CustomerC = t.brand(
         | (({
             currency?: Common_.MetaCurrencyTOKEN | Fare_.TokenId;
             tokenId?: Fare_.TokenId;
-            amount?: number | Null;
+            amount?: number | null;
           } & Record<string, unknown>) & {
             currency: Defined;
             tokenId: Defined;
