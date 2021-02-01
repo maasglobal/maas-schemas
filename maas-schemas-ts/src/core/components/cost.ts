@@ -11,6 +11,17 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from './units';
 
+export interface NullBrand {
+  readonly Null: unique symbol;
+}
+export type NullC = t.BrandC<t.UnknownC, NullBrand>;
+export const Null: NullC = t.brand(
+  t.unknown,
+  (n): n is t.Branded<unknown, NullBrand> => n === null,
+  'Null',
+);
+export type Null = t.TypeOf<typeof Null>;
+
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
   readonly _tag: 'DefinedType' = 'DefinedType';
@@ -32,12 +43,12 @@ export const schemaId = 'http://maasglobal.com/core/components/cost.json';
 // The default export. More information at the top.
 export type Cost = t.Branded<
   {
-    amount?: number | null;
-    originalAmount?: number | null;
+    amount?: number | Null;
+    originalAmount?: number | Null;
     discount?: number;
     taxes?: number;
     isFixedPrice?: boolean;
-    currency?: Units_.Currency | null;
+    currency?: Units_.Currency | Null;
     type?: string & 'promotional_credits';
   } & {
     amount: Defined;
@@ -49,12 +60,12 @@ export type CostC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        amount: t.UnionC<[t.NumberC, t.NullC]>;
-        originalAmount: t.UnionC<[t.NumberC, t.NullC]>;
+        amount: t.UnionC<[t.NumberC, typeof Null]>;
+        originalAmount: t.UnionC<[t.NumberC, typeof Null]>;
         discount: t.NumberC;
         taxes: t.NumberC;
         isFixedPrice: t.BooleanC;
-        currency: t.UnionC<[typeof Units_.Currency, t.NullC]>;
+        currency: t.UnionC<[typeof Units_.Currency, typeof Null]>;
         type: t.IntersectionC<[t.StringC, t.LiteralC<'promotional_credits'>]>;
       }>,
       t.TypeC<{
@@ -68,12 +79,12 @@ export type CostC = t.BrandC<
 export const Cost: CostC = t.brand(
   t.intersection([
     t.partial({
-      amount: t.union([t.number, t.null]),
-      originalAmount: t.union([t.number, t.null]),
+      amount: t.union([t.number, Null]),
+      originalAmount: t.union([t.number, Null]),
       discount: t.number,
       taxes: t.number,
       isFixedPrice: t.boolean,
-      currency: t.union([Units_.Currency, t.null]),
+      currency: t.union([Units_.Currency, Null]),
       type: t.intersection([t.string, t.literal('promotional_credits')]),
     }),
     t.type({
@@ -85,12 +96,12 @@ export const Cost: CostC = t.brand(
     x,
   ): x is t.Branded<
     {
-      amount?: number | null;
-      originalAmount?: number | null;
+      amount?: number | Null;
+      originalAmount?: number | Null;
       discount?: number;
       taxes?: number;
       isFixedPrice?: boolean;
-      currency?: Units_.Currency | null;
+      currency?: Units_.Currency | Null;
       type?: string & 'promotional_credits';
     } & {
       amount: Defined;
