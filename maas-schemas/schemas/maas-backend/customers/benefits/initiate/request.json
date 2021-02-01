@@ -15,8 +15,8 @@
     "payload": {
       "properties": {
         "amount": {
-          "type": "integer",
-          "description": "Amount of money to transfer in cents"
+          "type": "number",
+          "description": "Amount of money to transfer in euro"
         },
         "currency": {
           "enum": ["EUR"],
