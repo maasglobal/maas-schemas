@@ -2292,6 +2292,8 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
@@ -2364,6 +2366,16 @@ WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-options/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-options/response.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-package/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-package/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-package/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-package/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-package/response.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-retrieve/request.json
 WARNING: default field not supported outside top-level definitions

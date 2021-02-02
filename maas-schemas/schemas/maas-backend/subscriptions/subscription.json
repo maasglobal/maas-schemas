@@ -172,6 +172,12 @@
             }
           },
           "required": ["providerName"]
+        },
+        "productProviderIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": ["id", "quantity"],

@@ -145,6 +145,7 @@ export type Addon = t.Branded<
     } & {
       providerName: Defined;
     };
+    productProviderIds?: Array<string>;
   } & Record<string, unknown>) & {
     id: Defined;
     quantity: Defined;
@@ -173,6 +174,7 @@ export type AddonC = t.BrandC<
                 }>,
               ]
             >;
+            productProviderIds: t.ArrayC<t.StringC>;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
         ]
@@ -203,6 +205,7 @@ export const Addon: AddonC = t.brand(
             providerName: Defined,
           }),
         ]),
+        productProviderIds: t.array(t.string),
       }),
       t.record(t.string, t.unknown),
     ]),
@@ -226,6 +229,7 @@ export const Addon: AddonC = t.brand(
       } & {
         providerName: Defined;
       };
+      productProviderIds?: Array<string>;
     } & Record<string, unknown>) & {
       id: Defined;
       quantity: Defined;
