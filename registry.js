@@ -133,6 +133,9 @@ module.exports = {
   'schemas/maas-backend/customers/stats/response.json': require('./schemas/maas-backend/customers/stats/response.json'),
   'schemas/maas-backend/customers/update/request.json': require('./schemas/maas-backend/customers/update/request.json'),
   'schemas/maas-backend/customers/update/response.json': require('./schemas/maas-backend/customers/update/response.json'),
+  'schemas/maas-backend/customers/benefits/initiate/request.json': require('./schemas/maas-backend/customers/benefits/initiate/request.json'),
+  'schemas/maas-backend/customers/benefits/initiate/response.json': require('./schemas/maas-backend/customers/benefits/initiate/response.json'),
+  'schemas/maas-backend/customers/benefits/callback/request.json': require('./schemas/maas-backend/customers/benefits/callback/request.json'),
   'schemas/maas-backend/geocoding/geocoding-query/request.json': require('./schemas/maas-backend/geocoding/geocoding-query/request.json'),
   'schemas/maas-backend/geocoding/geocoding-query/response.json': require('./schemas/maas-backend/geocoding/geocoding-query/response.json'),
   'schemas/maas-backend/geocoding/geocoding-reverse/request.json': require('./schemas/maas-backend/geocoding/geocoding-reverse/request.json'),
@@ -230,5 +233,5 @@ module.exports = {
   'schemas/maas-backend/customers/payment-sources/update/request.json': require('./schemas/maas-backend/customers/payment-sources/update/request.json'),
   'schemas/maas-backend/customers/payment-sources/update/response.json': require('./schemas/maas-backend/customers/payment-sources/update/response.json'),
   'schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json': require('./schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json'),
-  'schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json': require('./schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json')
+  'schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json': require('./schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json'),
 };
