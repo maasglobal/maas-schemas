@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/benefist/initiate/response.json",
+  "$id": "http://maasglobal.com/maas-backend/customers/benefits/initiate/response.json",
   "description": "MaaS customer benefits initiate",
   "type": "object",
   "properties": {
