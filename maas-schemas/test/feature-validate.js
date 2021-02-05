@@ -88,51 +88,6 @@ describe('Schema validation', () => {
     });
   });
 
-  describe('booking schema', () => {
-    const schema = require('../schemas/core/booking.json');
-
-    describe('main schema', () => {
-      it('should accept valid examples', () => {
-        schema.examples.map(example => expect(utils.validate(schema, example)).to.exist);
-      });
-    });
-  });
-
-  describe('common schema', () => {
-    const schema = require('../schemas/core/components/common.json');
-    const { phone, email } = utils.definitions(schema);
-    describe('phone schema', () => {
-      it('should accept valid examples', () => {
-        phone.examples.map(example => expect(utils.validate(phone, example)).to.exist);
-      });
-    });
-    describe('email schema', () => {
-      it('should accept valid examples', () => {
-        email.examples.map(example => expect(utils.validate(email, example)).to.exist);
-      });
-    });
-  });
-
-  describe('units schema', () => {
-    const schema = require('../schemas/core/components/units.json');
-    const { uuid, obsoleteIdentityId, identityId } = utils.definitions(schema);
-    describe('uuid schema', () => {
-      it('should accept valid examples', () => {
-        uuid.examples.map(example => expect(utils.validate(uuid, example)).to.exist);
-      });
-    });
-    describe('obsoleteIdentityId schema', () => {
-      it('should accept valid examples', () => {
-        obsoleteIdentityId.examples.map(example => expect(utils.validate(obsoleteIdentityId, example)).to.exist);
-      });
-    });
-    describe('identityId schema', () => {
-      it('should accept valid examples', () => {
-        identityId.examples.map(example => expect(utils.validate(identityId, example)).to.exist);
-      });
-    });
-  });
-
   describe('customer schema', () => {
     const schema = require('../schemas/core/customer.json');
 
@@ -140,32 +95,15 @@ describe('Schema validation', () => {
       it('should succeed without error', () => {
         expect(utils.validate(schema, customer)).to.exist;
       });
-
-      it('should accept valid examples', () => {
-        schema.examples.map(example => expect(utils.validate(schema, example)).to.exist);
-      });
     });
   });
 
   describe('environments', () => {
     const schema = require('../schemas/environments/environments.json');
     const { environment, devEnvironment } = utils.definitions(schema);
-    describe('environment schema', () => {
-      it('should accept valid examples', () => {
-        environment.examples.map(example => expect(utils.validate(environment, example)).to.exist);
-      });
-    });
     describe('dev environment schema', () => {
-      it('should accept valid examples', () => {
-        devEnvironment.examples.map(example => expect(utils.validate(devEnvironment, example)).to.exist);
-      });
       it('should NOT accept all environment examples', () => {
         expect(() => environment.examples.forEach(example => utils.validate(devEnvironment, example))).to.throw();
-      });
-    });
-    describe('main schema', () => {
-      it('should accept valid examples', () => {
-        schema.examples.forEach(example => expect(utils.validate(schema, example)).to.exist);
       });
     });
   });
