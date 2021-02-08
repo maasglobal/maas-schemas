@@ -1,0 +1,32 @@
+{
+  "$id": "http://maasglobal.com/tsp/package-create/request.json",
+  "description": "Request schema for creating a package  through a TSP adapter",
+  "type": "object",
+  "properties": {
+    "customer": {
+      "$ref": "http://maasglobal.com/core/customer.json"
+    },
+    "package": {
+      "$ref": "http://maasglobal.com/core/package.json"
+    }
+  },
+  "required": ["customer", "package"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "customer": {
+        "email": "test@example.com",
+        "phone": "+358400001010",
+        "locale": "en",
+        "clientId": "whim",
+        "lastName": "Tester",
+        "opaqueId": "cafecaca",
+        "firstName": "Test",
+        "documents": []
+      },
+      "package": {
+        "id": "super-tsp-package"
+      }
+    }
+  ]
+}
