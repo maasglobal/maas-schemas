@@ -959,6 +959,14 @@ WARNING: missing $schema declaration
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_WALK.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/package.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/package.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/package.json
+WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/partialFavoriteLocation.json
 INFO: primitive type "number" used outside top-level definitions
   in ../maas-schemas/schemas/core/partialFavoriteLocation.json
@@ -2752,6 +2760,10 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/tsp/manage/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/tsp/manage/response.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/tsp/package-create/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/tsp/package-create/response.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/tsp/post-kyc-verification-update/request.json
 WARNING: missing $schema declaration
