@@ -7,7 +7,7 @@
       "$ref": "http://maasglobal.com/core/customer.json"
     },
     "package": {
-      "$ref": "http://maasglobal.com/core/package.json"
+      "$ref": "http://maasglobal.com/core/package-option.json"
     }
   },
   "required": ["customer", "package"],

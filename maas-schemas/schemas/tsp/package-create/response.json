@@ -7,7 +7,7 @@
       "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
     },
     "package": {
-      "$ref": "http://maasglobal.com/core/package.json"
+      "$ref": "http://maasglobal.com/core/package-option.json"
     }
   },
   "required": ["cost", "package"],

@@ -10,7 +10,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 import * as Customer_ from '../../core/customer';
-import * as Package_ from '../../core/package';
+import * as PackageOption_ from '../../core/package-option';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
@@ -36,7 +36,7 @@ export const schemaId = 'http://maasglobal.com/tsp/package-create/request.json';
 export type Request = t.Branded<
   {
     customer?: Customer_.Customer;
-    package?: Package_.Package;
+    package?: PackageOption_.PackageOption;
   } & {
     customer: Defined;
     package: Defined;
@@ -48,7 +48,7 @@ export type RequestC = t.BrandC<
     [
       t.PartialC<{
         customer: typeof Customer_.Customer;
-        package: typeof Package_.Package;
+        package: typeof PackageOption_.PackageOption;
       }>,
       t.TypeC<{
         customer: typeof Defined;
@@ -62,7 +62,7 @@ export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       customer: Customer_.Customer,
-      package: Package_.Package,
+      package: PackageOption_.PackageOption,
     }),
     t.type({
       customer: Defined,
@@ -74,7 +74,7 @@ export const Request: RequestC = t.brand(
   ): x is t.Branded<
     {
       customer?: Customer_.Customer;
-      package?: Package_.Package;
+      package?: PackageOption_.PackageOption;
     } & {
       customer: Defined;
       package: Defined;

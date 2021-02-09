@@ -10,7 +10,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 import * as Booking_ from '../../core/booking';
-import * as Package_ from '../../core/package';
+import * as PackageOption_ from '../../core/package-option';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
@@ -36,7 +36,7 @@ export const schemaId = 'http://maasglobal.com/tsp/package-create/response.json'
 export type Response = t.Branded<
   {
     cost?: Booking_.Cost;
-    package?: Package_.Package;
+    package?: PackageOption_.PackageOption;
   } & {
     cost: Defined;
     package: Defined;
@@ -48,7 +48,7 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         cost: typeof Booking_.Cost;
-        package: typeof Package_.Package;
+        package: typeof PackageOption_.PackageOption;
       }>,
       t.TypeC<{
         cost: typeof Defined;
@@ -62,7 +62,7 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       cost: Booking_.Cost,
-      package: Package_.Package,
+      package: PackageOption_.PackageOption,
     }),
     t.type({
       cost: Defined,
@@ -74,7 +74,7 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       cost?: Booking_.Cost;
-      package?: Package_.Package;
+      package?: PackageOption_.PackageOption;
     } & {
       cost: Defined;
       package: Defined;

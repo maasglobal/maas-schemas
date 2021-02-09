@@ -959,13 +959,13 @@ WARNING: missing $schema declaration
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_WALK.json
 WARNING: missing $schema declaration
-  in ../maas-schemas/schemas/core/package.json
+  in ../maas-schemas/schemas/core/package-option.json
 INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/package.json
+  in ../maas-schemas/schemas/core/package-option.json
 WARNING: minLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/package.json
+  in ../maas-schemas/schemas/core/package-option.json
 WARNING: maxLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/package.json
+  in ../maas-schemas/schemas/core/package-option.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/partialFavoriteLocation.json
 INFO: primitive type "number" used outside top-level definitions
