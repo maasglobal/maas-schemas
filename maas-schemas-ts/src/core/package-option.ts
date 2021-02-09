@@ -17,37 +17,37 @@ export const schemaId = 'http://maasglobal.com/core/package-option.json';
 // PackageOption
 // The default export. More information at the top.
 export type PackageOption = t.Branded<
+  {
+    id?: string;
+  },
+  PackageOptionBrand
+>;
+export type PackageOptionC = t.BrandC<
+  t.PartialC<{
+    id: t.StringC;
+  }>,
+  PackageOptionBrand
+>;
+export const PackageOption: PackageOptionC = t.brand(
+  t.partial({
+    id: t.string,
+  }),
+  (
+    x,
+  ): x is t.Branded<
     {
-        id?: string;
+      id?: string;
     },
     PackageOptionBrand
-    >;
-export type PackageOptionC = t.BrandC<
-    t.PartialC<{
-        id: t.StringC;
-    }>,
-    PackageOptionBrand
-    >;
-export const PackageOption: PackageOptionC = t.brand(
-    t.partial({
-        id: t.string,
-    }),
-    (
-        x,
-    ): x is t.Branded<
-        {
-            id?: string;
-        },
-        PackageOptionBrand
-        > => true,
-    'PackageOption',
+  > => true,
+  'PackageOption',
 );
 export interface PackageOptionBrand {
-    readonly PackageOption: unique symbol;
+  readonly PackageOption: unique symbol;
 }
 /** require('io-ts-validator').validator(nonEmptyArray(PackageOption)).decodeSync(examplesPackageOption) // => examplesPackageOption */
 export const examplesPackageOption: NonEmptyArray<PackageOption> = ([
-    { id: 'package-id' },
+  { id: 'package-id' },
 ] as unknown) as NonEmptyArray<PackageOption>;
 
 export default PackageOption;
