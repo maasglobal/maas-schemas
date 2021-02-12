@@ -1,29 +1,69 @@
 {
   "$id": "http://maasglobal.com/core/region.json",
   "description": "MaaS region schema",
-  "type": "object",
-  "properties": {
-    "id": {
+  "definitions": {
+    "regionId": {
       "type": "string",
       "minLength": 2,
-      "maxLength": 255
+      "maxLength": 255,
+      "examples": ["fi-helsinki"]
     },
-    "name": {
+    "regionName": {
       "type": "string",
       "minLength": 1,
-      "maxLength": 255
+      "maxLength": 255,
+      "examples": ["Helsinki & Turku"]
     },
     "countryCode": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country" }],
+      "examples": ["FI"]
     },
     "zipCode": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode" }],
+      "examples": ["00100"]
     },
     "availability": {
       "type": "object",
       "additionalProperties": true
     }
   },
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "#/definitions/regionId"
+    },
+    "name": {
+      "$ref": "#/definitions/regionName"
+    },
+    "countryCode": {
+      "$ref": "#/definitions/countryCode"
+    },
+    "zipCode": {
+      "$ref": "#/definitions/zipCode"
+    },
+    "availability": {
+      "$ref": "#/definitions/availability"
+    }
+  },
   "required": ["id", "countryCode", "zipCode"],
-  "additionalProperties": true
+  "additionalProperties": true,
+  "examples": [
+    {
+      "id": "fi-helsinki",
+      "name": "Helsinki & Turku",
+      "countryCode": "FI",
+      "countryDefault": true,
+      "zipCode": "00100",
+      "location": {
+        "lat": 60.1699,
+        "lon": 24.9384
+      },
+      "active": true,
+      "hidden": false,
+      "geometryId": 6,
+      "created": 1506703557735,
+      "modified": 0,
+      "currency": "EUR"
+    }
+  ]
 }
