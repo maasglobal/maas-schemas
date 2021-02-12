@@ -10,6 +10,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 import * as Address_ from './components/address';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -28,15 +30,100 @@ export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/region.json';
 
+// RegionId
+// The purpose of this remains a mystery
+export type RegionId = t.Branded<string, RegionIdBrand>;
+export type RegionIdC = t.BrandC<t.StringC, RegionIdBrand>;
+export const RegionId: RegionIdC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, RegionIdBrand> =>
+    (typeof x !== 'string' || x.length >= 2) &&
+    (typeof x !== 'string' || x.length <= 255),
+  'RegionId',
+);
+export interface RegionIdBrand {
+  readonly RegionId: unique symbol;
+}
+/** require('io-ts-validator').validator(nonEmptyArray(RegionId)).decodeSync(examplesRegionId) // => examplesRegionId */
+export const examplesRegionId: NonEmptyArray<RegionId> = ([
+  'fi-helsinki',
+] as unknown) as NonEmptyArray<RegionId>;
+
+// RegionName
+// The purpose of this remains a mystery
+export type RegionName = t.Branded<string, RegionNameBrand>;
+export type RegionNameC = t.BrandC<t.StringC, RegionNameBrand>;
+export const RegionName: RegionNameC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, RegionNameBrand> =>
+    (typeof x !== 'string' || x.length >= 1) &&
+    (typeof x !== 'string' || x.length <= 255),
+  'RegionName',
+);
+export interface RegionNameBrand {
+  readonly RegionName: unique symbol;
+}
+/** require('io-ts-validator').validator(nonEmptyArray(RegionName)).decodeSync(examplesRegionName) // => examplesRegionName */
+export const examplesRegionName: NonEmptyArray<RegionName> = ([
+  'Helsinki & Turku',
+] as unknown) as NonEmptyArray<RegionName>;
+
+// CountryCode
+// The purpose of this remains a mystery
+export type CountryCode = t.Branded<Address_.Country, CountryCodeBrand>;
+export type CountryCodeC = t.BrandC<typeof Address_.Country, CountryCodeBrand>;
+export const CountryCode: CountryCodeC = t.brand(
+  Address_.Country,
+  (x): x is t.Branded<Address_.Country, CountryCodeBrand> => true,
+  'CountryCode',
+);
+export interface CountryCodeBrand {
+  readonly CountryCode: unique symbol;
+}
+/** require('io-ts-validator').validator(nonEmptyArray(CountryCode)).decodeSync(examplesCountryCode) // => examplesCountryCode */
+export const examplesCountryCode: NonEmptyArray<CountryCode> = ([
+  'FI',
+] as unknown) as NonEmptyArray<CountryCode>;
+
+// ZipCode
+// The purpose of this remains a mystery
+export type ZipCode = t.Branded<Address_.ZipCode, ZipCodeBrand>;
+export type ZipCodeC = t.BrandC<typeof Address_.ZipCode, ZipCodeBrand>;
+export const ZipCode: ZipCodeC = t.brand(
+  Address_.ZipCode,
+  (x): x is t.Branded<Address_.ZipCode, ZipCodeBrand> => true,
+  'ZipCode',
+);
+export interface ZipCodeBrand {
+  readonly ZipCode: unique symbol;
+}
+/** require('io-ts-validator').validator(nonEmptyArray(ZipCode)).decodeSync(examplesZipCode) // => examplesZipCode */
+export const examplesZipCode: NonEmptyArray<ZipCode> = ([
+  '00100',
+] as unknown) as NonEmptyArray<ZipCode>;
+
+// Availability
+// The purpose of this remains a mystery
+export type Availability = t.Branded<Record<string, unknown>, AvailabilityBrand>;
+export type AvailabilityC = t.BrandC<t.RecordC<t.StringC, t.UnknownC>, AvailabilityBrand>;
+export const Availability: AvailabilityC = t.brand(
+  t.record(t.string, t.unknown),
+  (x): x is t.Branded<Record<string, unknown>, AvailabilityBrand> => true,
+  'Availability',
+);
+export interface AvailabilityBrand {
+  readonly Availability: unique symbol;
+}
+
 // Region
 // The default export. More information at the top.
 export type Region = t.Branded<
   ({
-    id?: string;
-    name?: string;
-    countryCode?: Address_.Country;
-    zipCode?: Address_.ZipCode;
-    availability?: Record<string, unknown>;
+    id?: RegionId;
+    name?: RegionName;
+    countryCode?: CountryCode;
+    zipCode?: ZipCode;
+    availability?: Availability;
   } & Record<string, unknown>) & {
     id: Defined;
     countryCode: Defined;
@@ -50,11 +137,11 @@ export type RegionC = t.BrandC<
       t.IntersectionC<
         [
           t.PartialC<{
-            id: t.StringC;
-            name: t.StringC;
-            countryCode: typeof Address_.Country;
-            zipCode: typeof Address_.ZipCode;
-            availability: t.RecordC<t.StringC, t.UnknownC>;
+            id: typeof RegionId;
+            name: typeof RegionName;
+            countryCode: typeof CountryCode;
+            zipCode: typeof ZipCode;
+            availability: typeof Availability;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
         ]
@@ -72,11 +159,11 @@ export const Region: RegionC = t.brand(
   t.intersection([
     t.intersection([
       t.partial({
-        id: t.string,
-        name: t.string,
-        countryCode: Address_.Country,
-        zipCode: Address_.ZipCode,
-        availability: t.record(t.string, t.unknown),
+        id: RegionId,
+        name: RegionName,
+        countryCode: CountryCode,
+        zipCode: ZipCode,
+        availability: Availability,
       }),
       t.record(t.string, t.unknown),
     ]),
@@ -90,11 +177,11 @@ export const Region: RegionC = t.brand(
     x,
   ): x is t.Branded<
     ({
-      id?: string;
-      name?: string;
-      countryCode?: Address_.Country;
-      zipCode?: Address_.ZipCode;
-      availability?: Record<string, unknown>;
+      id?: RegionId;
+      name?: RegionName;
+      countryCode?: CountryCode;
+      zipCode?: ZipCode;
+      availability?: Availability;
     } & Record<string, unknown>) & {
       id: Defined;
       countryCode: Defined;
@@ -107,6 +194,23 @@ export const Region: RegionC = t.brand(
 export interface RegionBrand {
   readonly Region: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(Region)).decodeSync(examplesRegion) // => examplesRegion */
+export const examplesRegion: NonEmptyArray<Region> = ([
+  {
+    id: 'fi-helsinki',
+    name: 'Helsinki & Turku',
+    countryCode: 'FI',
+    countryDefault: true,
+    zipCode: '00100',
+    location: { lat: 60.1699, lon: 24.9384 },
+    active: true,
+    hidden: false,
+    geometryId: 6,
+    created: 1506703557735,
+    modified: 0,
+    currency: 'EUR',
+  },
+] as unknown) as NonEmptyArray<Region>;
 
 export default Region;
 
