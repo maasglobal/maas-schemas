@@ -33,12 +33,48 @@ export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/environments/environments.json';
 
+// DeveloperName
+// The purpose of this remains a mystery
+export type DeveloperName = t.Branded<string, DeveloperNameBrand>;
+export type DeveloperNameC = t.BrandC<t.StringC, DeveloperNameBrand>;
+export const DeveloperName: DeveloperNameC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, DeveloperNameBrand> =>
+    (typeof x !== 'string' || x.length >= 1) &&
+    (typeof x !== 'string' || x.length <= 255),
+  'DeveloperName',
+);
+export interface DeveloperNameBrand {
+  readonly DeveloperName: unique symbol;
+}
+/** require('io-ts-validator').validator(nonEmptyArray(DeveloperName)).decodeSync(examplesDeveloperName) // => examplesDeveloperName */
+export const examplesDeveloperName: NonEmptyArray<DeveloperName> = ([
+  'Alisha Admin',
+] as unknown) as NonEmptyArray<DeveloperName>;
+
+// DeveloperEmail
+// The purpose of this remains a mystery
+export type DeveloperEmail = t.Branded<Common_.Email, DeveloperEmailBrand>;
+export type DeveloperEmailC = t.BrandC<typeof Common_.Email, DeveloperEmailBrand>;
+export const DeveloperEmail: DeveloperEmailC = t.brand(
+  Common_.Email,
+  (x): x is t.Branded<Common_.Email, DeveloperEmailBrand> => true,
+  'DeveloperEmail',
+);
+export interface DeveloperEmailBrand {
+  readonly DeveloperEmail: unique symbol;
+}
+/** require('io-ts-validator').validator(nonEmptyArray(DeveloperEmail)).decodeSync(examplesDeveloperEmail) // => examplesDeveloperEmail */
+export const examplesDeveloperEmail: NonEmptyArray<DeveloperEmail> = ([
+  'admin@example.com',
+] as unknown) as NonEmptyArray<DeveloperEmail>;
+
 // Developer
 // The purpose of this remains a mystery
 export type Developer = t.Branded<
   {
-    name?: Common_.PersonalName;
-    email?: Common_.Email;
+    name?: DeveloperName;
+    email?: DeveloperEmail;
   } & {
     name: Defined;
   },
@@ -48,8 +84,8 @@ export type DeveloperC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        name: typeof Common_.PersonalName;
-        email: typeof Common_.Email;
+        name: typeof DeveloperName;
+        email: typeof DeveloperEmail;
       }>,
       t.TypeC<{
         name: typeof Defined;
@@ -61,8 +97,8 @@ export type DeveloperC = t.BrandC<
 export const Developer: DeveloperC = t.brand(
   t.intersection([
     t.partial({
-      name: Common_.PersonalName,
-      email: Common_.Email,
+      name: DeveloperName,
+      email: DeveloperEmail,
     }),
     t.type({
       name: Defined,
@@ -72,8 +108,8 @@ export const Developer: DeveloperC = t.brand(
     x,
   ): x is t.Branded<
     {
-      name?: Common_.PersonalName;
-      email?: Common_.Email;
+      name?: DeveloperName;
+      email?: DeveloperEmail;
     } & {
       name: Defined;
     },
