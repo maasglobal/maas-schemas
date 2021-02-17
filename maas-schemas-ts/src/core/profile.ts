@@ -9,8 +9,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as PointCost_ from './components/point-cost';
 import * as Units_ from './components/units';
+import * as PointCost_ from './components/point-cost';
 import * as Common_ from './components/common';
 import * as Address_ from './components/address';
 import * as Region_ from './region';
@@ -34,11 +34,24 @@ export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'http://maasglobal.com/core/profile.json';
 
+// BookingOptionsReference
+// The purpose of this remains a mystery
+export type BookingOptionsReference = t.Branded<number, BookingOptionsReferenceBrand>;
+export type BookingOptionsReferenceC = t.BrandC<t.NumberC, BookingOptionsReferenceBrand>;
+export const BookingOptionsReference: BookingOptionsReferenceC = t.brand(
+  t.number,
+  (x): x is t.Branded<number, BookingOptionsReferenceBrand> => Number.isInteger(x),
+  'BookingOptionsReference',
+);
+export interface BookingOptionsReferenceBrand {
+  readonly BookingOptionsReference: unique symbol;
+}
+
 // SubscriptionInstance
 // The purpose of this remains a mystery
 export type SubscriptionInstance = t.Branded<
   {
-    id?: number;
+    id?: BookingOptionsReference | Units_.IdentityId;
     name?: string;
     plan?: {
       id?: string;
@@ -65,7 +78,7 @@ export type SubscriptionInstanceC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        id: t.NumberC;
+        id: t.UnionC<[typeof BookingOptionsReference, typeof Units_.IdentityId]>;
         name: t.StringC;
         plan: t.IntersectionC<
           [
@@ -99,7 +112,7 @@ export type SubscriptionInstanceC = t.BrandC<
 export const SubscriptionInstance: SubscriptionInstanceC = t.brand(
   t.intersection([
     t.partial({
-      id: t.number,
+      id: t.union([BookingOptionsReference, Units_.IdentityId]),
       name: t.string,
       plan: t.intersection([
         t.partial({
@@ -129,7 +142,7 @@ export const SubscriptionInstance: SubscriptionInstanceC = t.brand(
     x,
   ): x is t.Branded<
     {
-      id?: number;
+      id?: BookingOptionsReference | Units_.IdentityId;
       name?: string;
       plan?: {
         id?: string;
