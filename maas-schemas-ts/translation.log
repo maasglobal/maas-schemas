@@ -1140,10 +1140,6 @@ INFO: missing description
   in ../maas-schemas/schemas/core/product.json
 INFO: missing description
   in ../maas-schemas/schemas/core/product.json
-INFO: primitive type "integer" used outside top-level definitions
-  in ../maas-schemas/schemas/core/profile.json
-WARNING: minimum field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/profile.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/profile.json
 WARNING: minLength field not supported outside top-level definitions
@@ -1213,6 +1209,8 @@ INFO: primitive type "string" used outside top-level definitions
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/profile.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/profile.json
+INFO: missing description
   in ../maas-schemas/schemas/core/profile.json
 INFO: missing description
   in ../maas-schemas/schemas/core/profile.json
