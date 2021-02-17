@@ -103,12 +103,19 @@
   "additionalProperties": false,
   "required": ["identityId", "phone", "favoriteLocations", "paymentMethod", "subscriptionInstance", "balances"],
   "definitions": {
+    "bookingOptionsReference": {
+      "type": "integer",
+      "minimum": 0
+    },
     "subscriptionInstance": {
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
-          "minimum": 0
+          "description": "Refers several seemingly unrelated things. Use is discouraged.",
+          "oneOf": [
+            { "$ref": "#/definitions/bookingOptionsReference" },
+            { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId" }
+          ]
         },
         "name": {
           "type": "string",
