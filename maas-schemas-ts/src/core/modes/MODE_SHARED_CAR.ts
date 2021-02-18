@@ -15,14 +15,38 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_SHARED_CAR.json';
 
 // MODE_SHARED_CAR
 // The default export. More information at the top.
-export type MODE_SHARED_CAR = t.Branded<CarRental_.CarRental, MODE_SHARED_CARBrand>;
+export type MODE_SHARED_CAR = t.Branded<
+  {
+    vehicleId?: unknown;
+  } & CarRental_.CarRental,
+  MODE_SHARED_CARBrand
+>;
 export type MODE_SHARED_CARC = t.BrandC<
-  typeof CarRental_.CarRental,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        vehicleId: t.UnknownC;
+      }>,
+      typeof CarRental_.CarRental,
+    ]
+  >,
   MODE_SHARED_CARBrand
 >;
 export const MODE_SHARED_CAR: MODE_SHARED_CARC = t.brand(
-  CarRental_.CarRental,
-  (x): x is t.Branded<CarRental_.CarRental, MODE_SHARED_CARBrand> => true,
+  t.intersection([
+    t.partial({
+      vehicleId: t.unknown,
+    }),
+    CarRental_.CarRental,
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      vehicleId?: unknown;
+    } & CarRental_.CarRental,
+    MODE_SHARED_CARBrand
+  > => true,
   'MODE_SHARED_CAR',
 );
 export interface MODE_SHARED_CARBrand {

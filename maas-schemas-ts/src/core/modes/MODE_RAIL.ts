@@ -33,6 +33,7 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_RAIL.json';
 // The default export. More information at the top.
 export type MODE_RAIL = t.Branded<
   {
+    vehicleId?: unknown;
     outward?: {
       id?: string;
       from?: Place_.Place;
@@ -59,6 +60,7 @@ export type MODE_RAIL = t.Branded<
 >;
 export type MODE_RAILC = t.BrandC<
   t.PartialC<{
+    vehicleId: t.UnknownC;
     outward: t.IntersectionC<
       [
         t.PartialC<{
@@ -95,6 +97,7 @@ export type MODE_RAILC = t.BrandC<
 >;
 export const MODE_RAIL: MODE_RAILC = t.brand(
   t.partial({
+    vehicleId: t.unknown,
     outward: t.intersection([
       t.partial({
         id: t.string,
@@ -127,6 +130,7 @@ export const MODE_RAIL: MODE_RAILC = t.brand(
     x,
   ): x is t.Branded<
     {
+      vehicleId?: unknown;
       outward?: {
         id?: string;
         from?: Place_.Place;

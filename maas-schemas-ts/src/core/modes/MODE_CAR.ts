@@ -15,11 +15,38 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_CAR.json';
 
 // MODE_CAR
 // The default export. More information at the top.
-export type MODE_CAR = t.Branded<CarRental_.CarRental, MODE_CARBrand>;
-export type MODE_CARC = t.BrandC<typeof CarRental_.CarRental, MODE_CARBrand>;
+export type MODE_CAR = t.Branded<
+  {
+    vehicleId?: unknown;
+  } & CarRental_.CarRental,
+  MODE_CARBrand
+>;
+export type MODE_CARC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        vehicleId: t.UnknownC;
+      }>,
+      typeof CarRental_.CarRental,
+    ]
+  >,
+  MODE_CARBrand
+>;
 export const MODE_CAR: MODE_CARC = t.brand(
-  CarRental_.CarRental,
-  (x): x is t.Branded<CarRental_.CarRental, MODE_CARBrand> => true,
+  t.intersection([
+    t.partial({
+      vehicleId: t.unknown,
+    }),
+    CarRental_.CarRental,
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      vehicleId?: unknown;
+    } & CarRental_.CarRental,
+    MODE_CARBrand
+  > => true,
   'MODE_CAR',
 );
 export interface MODE_CARBrand {

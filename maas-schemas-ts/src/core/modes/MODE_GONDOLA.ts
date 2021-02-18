@@ -14,11 +14,30 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_GONDOLA.json';
 
 // MODE_GONDOLA
 // The default export. More information at the top.
-export type MODE_GONDOLA = t.Branded<Record<string, unknown>, MODE_GONDOLABrand>;
-export type MODE_GONDOLAC = t.BrandC<t.UnknownRecordC, MODE_GONDOLABrand>;
+export type MODE_GONDOLA = t.Branded<
+  {
+    vehicleId?: unknown;
+  },
+  MODE_GONDOLABrand
+>;
+export type MODE_GONDOLAC = t.BrandC<
+  t.PartialC<{
+    vehicleId: t.UnknownC;
+  }>,
+  MODE_GONDOLABrand
+>;
 export const MODE_GONDOLA: MODE_GONDOLAC = t.brand(
-  t.UnknownRecord,
-  (x): x is t.Branded<Record<string, unknown>, MODE_GONDOLABrand> => true,
+  t.partial({
+    vehicleId: t.unknown,
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      vehicleId?: unknown;
+    },
+    MODE_GONDOLABrand
+  > => true,
   'MODE_GONDOLA',
 );
 export interface MODE_GONDOLABrand {

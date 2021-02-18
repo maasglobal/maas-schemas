@@ -1,5 +1,7 @@
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/booking-meta.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/booking-mode.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/booking-option.json
 WARNING: minLength field not supported outside top-level definitions
@@ -854,19 +856,35 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_BICYCLE.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_BUS.json
+WARNING: allof field not supported
+  in ../maas-schemas/schemas/core/modes/MODE_BUS.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/modes/MODE_BUSISH.json
+WARNING: allof field not supported
   in ../maas-schemas/schemas/core/modes/MODE_BUSISH.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_CABLE_CAR.json
+WARNING: allof field not supported
+  in ../maas-schemas/schemas/core/modes/MODE_CABLE_CAR.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/modes/MODE_CAR.json
+WARNING: allof field not supported
   in ../maas-schemas/schemas/core/modes/MODE_CAR.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_FERRY.json
+WARNING: allof field not supported
+  in ../maas-schemas/schemas/core/modes/MODE_FERRY.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/modes/MODE_FUNICULAR.json
+WARNING: allof field not supported
   in ../maas-schemas/schemas/core/modes/MODE_FUNICULAR.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_GONDOLA.json
+WARNING: allof field not supported
+  in ../maas-schemas/schemas/core/modes/MODE_GONDOLA.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/modes/MODE_RAIL.json
+WARNING: allof field not supported
   in ../maas-schemas/schemas/core/modes/MODE_RAIL.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_RAIL.json
@@ -878,9 +896,13 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_RAIL.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_SCOOTER.json
+WARNING: allof field not supported
+  in ../maas-schemas/schemas/core/modes/MODE_SCOOTER.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_SCOOTER.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/modes/MODE_SHARED_BICYCLE.json
+WARNING: allof field not supported
   in ../maas-schemas/schemas/core/modes/MODE_SHARED_BICYCLE.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_SHARED_BICYCLE.json
@@ -888,13 +910,19 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_SHARED_BICYCLE.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_SHARED_CAR.json
+WARNING: allof field not supported
+  in ../maas-schemas/schemas/core/modes/MODE_SHARED_CAR.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/modes/MODE_SHARED_E_BICYCLE.json
+WARNING: allof field not supported
   in ../maas-schemas/schemas/core/modes/MODE_SHARED_E_BICYCLE.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_SHARED_E_BICYCLE.json
 INFO: primitive type "number" used outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_SHARED_E_BICYCLE.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/modes/MODE_SUBWAY.json
+WARNING: allof field not supported
   in ../maas-schemas/schemas/core/modes/MODE_SUBWAY.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
@@ -903,6 +931,8 @@ INFO: primitive type "string" used outside top-level definitions
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: allof field not supported
   in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
@@ -950,13 +980,23 @@ WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_TRAIN.json
+WARNING: allof field not supported
+  in ../maas-schemas/schemas/core/modes/MODE_TRAIN.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/modes/MODE_TRAINISH.json
+WARNING: allof field not supported
   in ../maas-schemas/schemas/core/modes/MODE_TRAINISH.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_TRAM.json
+WARNING: allof field not supported
+  in ../maas-schemas/schemas/core/modes/MODE_TRAM.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_TRANSIT.json
+WARNING: allof field not supported
+  in ../maas-schemas/schemas/core/modes/MODE_TRANSIT.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/modes/MODE_WALK.json
+WARNING: allof field not supported
   in ../maas-schemas/schemas/core/modes/MODE_WALK.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/package-option.json

@@ -14,11 +14,30 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_FUNICULAR.json';
 
 // MODE_FUNICULAR
 // The default export. More information at the top.
-export type MODE_FUNICULAR = t.Branded<Record<string, unknown>, MODE_FUNICULARBrand>;
-export type MODE_FUNICULARC = t.BrandC<t.UnknownRecordC, MODE_FUNICULARBrand>;
+export type MODE_FUNICULAR = t.Branded<
+  {
+    vehicleId?: unknown;
+  },
+  MODE_FUNICULARBrand
+>;
+export type MODE_FUNICULARC = t.BrandC<
+  t.PartialC<{
+    vehicleId: t.UnknownC;
+  }>,
+  MODE_FUNICULARBrand
+>;
 export const MODE_FUNICULAR: MODE_FUNICULARC = t.brand(
-  t.UnknownRecord,
-  (x): x is t.Branded<Record<string, unknown>, MODE_FUNICULARBrand> => true,
+  t.partial({
+    vehicleId: t.unknown,
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      vehicleId?: unknown;
+    },
+    MODE_FUNICULARBrand
+  > => true,
   'MODE_FUNICULAR',
 );
 export interface MODE_FUNICULARBrand {

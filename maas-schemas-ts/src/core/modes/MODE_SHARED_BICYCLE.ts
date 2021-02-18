@@ -31,6 +31,7 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_SHARED_BICYCLE.js
 // The default export. More information at the top.
 export type MODE_SHARED_BICYCLE = t.Branded<
   {
+    vehicleId?: unknown;
     bike?: {
       id?: string;
       type?: string;
@@ -42,6 +43,7 @@ export type MODE_SHARED_BICYCLE = t.Branded<
 >;
 export type MODE_SHARED_BICYCLEC = t.BrandC<
   t.PartialC<{
+    vehicleId: t.UnknownC;
     bike: t.IntersectionC<
       [
         t.PartialC<{
@@ -58,6 +60,7 @@ export type MODE_SHARED_BICYCLEC = t.BrandC<
 >;
 export const MODE_SHARED_BICYCLE: MODE_SHARED_BICYCLEC = t.brand(
   t.partial({
+    vehicleId: t.unknown,
     bike: t.intersection([
       t.partial({
         id: t.string,
@@ -72,6 +75,7 @@ export const MODE_SHARED_BICYCLE: MODE_SHARED_BICYCLEC = t.brand(
     x,
   ): x is t.Branded<
     {
+      vehicleId?: unknown;
       bike?: {
         id?: string;
         type?: string;

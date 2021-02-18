@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as BookingMode_ from '../booking-mode';
 import * as BikeStation_ from '../components/bike-station';
 
 export type Defined = {} | null;
@@ -32,6 +33,7 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_BICYCLE.json';
 // The default export. More information at the top.
 export type MODE_BICYCLE = t.Branded<
   {
+    vehicleId?: BookingMode_.VehicleId;
     pickupStation?: BikeStation_.BikeStation;
     returnStation?: BikeStation_.BikeStation;
     pickupStationId?: string;
@@ -47,6 +49,7 @@ export type MODE_BICYCLE = t.Branded<
 >;
 export type MODE_BICYCLEC = t.BrandC<
   t.PartialC<{
+    vehicleId: typeof BookingMode_.VehicleId;
     pickupStation: typeof BikeStation_.BikeStation;
     returnStation: typeof BikeStation_.BikeStation;
     pickupStationId: t.StringC;
@@ -67,6 +70,7 @@ export type MODE_BICYCLEC = t.BrandC<
 >;
 export const MODE_BICYCLE: MODE_BICYCLEC = t.brand(
   t.partial({
+    vehicleId: BookingMode_.VehicleId,
     pickupStation: BikeStation_.BikeStation,
     returnStation: BikeStation_.BikeStation,
     pickupStationId: t.string,
@@ -85,6 +89,7 @@ export const MODE_BICYCLE: MODE_BICYCLEC = t.brand(
     x,
   ): x is t.Branded<
     {
+      vehicleId?: BookingMode_.VehicleId;
       pickupStation?: BikeStation_.BikeStation;
       returnStation?: BikeStation_.BikeStation;
       pickupStationId?: string;

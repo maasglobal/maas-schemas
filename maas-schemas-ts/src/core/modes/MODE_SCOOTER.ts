@@ -31,6 +31,7 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_SCOOTER.json';
 // The default export. More information at the top.
 export type MODE_SCOOTER = t.Branded<
   {
+    vehicleId?: unknown;
     scooter?: {
       id?: string;
     } & {
@@ -41,6 +42,7 @@ export type MODE_SCOOTER = t.Branded<
 >;
 export type MODE_SCOOTERC = t.BrandC<
   t.PartialC<{
+    vehicleId: t.UnknownC;
     scooter: t.IntersectionC<
       [
         t.PartialC<{
@@ -56,6 +58,7 @@ export type MODE_SCOOTERC = t.BrandC<
 >;
 export const MODE_SCOOTER: MODE_SCOOTERC = t.brand(
   t.partial({
+    vehicleId: t.unknown,
     scooter: t.intersection([
       t.partial({
         id: t.string,
@@ -69,6 +72,7 @@ export const MODE_SCOOTER: MODE_SCOOTERC = t.brand(
     x,
   ): x is t.Branded<
     {
+      vehicleId?: unknown;
       scooter?: {
         id?: string;
       } & {

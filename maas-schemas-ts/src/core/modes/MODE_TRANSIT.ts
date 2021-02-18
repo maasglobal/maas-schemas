@@ -14,11 +14,30 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_TRANSIT.json';
 
 // MODE_TRANSIT
 // The default export. More information at the top.
-export type MODE_TRANSIT = t.Branded<Record<string, unknown>, MODE_TRANSITBrand>;
-export type MODE_TRANSITC = t.BrandC<t.UnknownRecordC, MODE_TRANSITBrand>;
+export type MODE_TRANSIT = t.Branded<
+  {
+    vehicleId?: unknown;
+  },
+  MODE_TRANSITBrand
+>;
+export type MODE_TRANSITC = t.BrandC<
+  t.PartialC<{
+    vehicleId: t.UnknownC;
+  }>,
+  MODE_TRANSITBrand
+>;
 export const MODE_TRANSIT: MODE_TRANSITC = t.brand(
-  t.UnknownRecord,
-  (x): x is t.Branded<Record<string, unknown>, MODE_TRANSITBrand> => true,
+  t.partial({
+    vehicleId: t.unknown,
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      vehicleId?: unknown;
+    },
+    MODE_TRANSITBrand
+  > => true,
   'MODE_TRANSIT',
 );
 export interface MODE_TRANSITBrand {

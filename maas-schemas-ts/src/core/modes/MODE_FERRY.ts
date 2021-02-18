@@ -14,11 +14,30 @@ export const schemaId = 'http://maasglobal.com/core/modes/MODE_FERRY.json';
 
 // MODE_FERRY
 // The default export. More information at the top.
-export type MODE_FERRY = t.Branded<Record<string, unknown>, MODE_FERRYBrand>;
-export type MODE_FERRYC = t.BrandC<t.UnknownRecordC, MODE_FERRYBrand>;
+export type MODE_FERRY = t.Branded<
+  {
+    vehicleId?: unknown;
+  },
+  MODE_FERRYBrand
+>;
+export type MODE_FERRYC = t.BrandC<
+  t.PartialC<{
+    vehicleId: t.UnknownC;
+  }>,
+  MODE_FERRYBrand
+>;
 export const MODE_FERRY: MODE_FERRYC = t.brand(
-  t.UnknownRecord,
-  (x): x is t.Branded<Record<string, unknown>, MODE_FERRYBrand> => true,
+  t.partial({
+    vehicleId: t.unknown,
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      vehicleId?: unknown;
+    },
+    MODE_FERRYBrand
+  > => true,
   'MODE_FERRY',
 );
 export interface MODE_FERRYBrand {
