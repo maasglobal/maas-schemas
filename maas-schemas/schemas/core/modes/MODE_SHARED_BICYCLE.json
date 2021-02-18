@@ -2,6 +2,10 @@
   "$id": "http://maasglobal.com/core/modes/MODE_SHARED_BICYCLE.json",
   "type": "object",
   "properties": {
+    "vehicleId": {
+      "$comment": "An identifier used by the TSP to identify a singlen bicycle",
+      "allof": [{ "$ref": "http://maasglobal.com/core/booking-mode.json#/definitions/vehicleId" }]
+    },
     "bike": {
       "type": "object",
       "properties": {

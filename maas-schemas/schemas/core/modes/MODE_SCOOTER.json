@@ -2,6 +2,10 @@
   "$id": "http://maasglobal.com/core/modes/MODE_SCOOTER.json",
   "type": "object",
   "properties": {
+    "vehicleId": {
+      "$comment": "An identifier used by the TSP to identify a single scooter",
+      "allof": [{ "$ref": "http://maasglobal.com/core/booking-mode.json#/definitions/vehicleId" }]
+    },
     "scooter": {
       "type": "object",
       "properties": {

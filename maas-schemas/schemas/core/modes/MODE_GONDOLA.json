@@ -1,5 +1,11 @@
 {
   "$id": "http://maasglobal.com/core/modes/MODE_GONDOLA.json",
   "description": "Schema for MODE_GONDOLA meta field",
-  "type": "object"
+  "type": "object",
+  "properties": {
+    "vehicleId": {
+      "$comment": "An identifier used by the TSP to identify a single gondola",
+      "allof": [{ "$ref": "http://maasglobal.com/core/booking-mode.json#/definitions/vehicleId" }]
+    }
+  }
 }

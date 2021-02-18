@@ -1,5 +1,12 @@
 {
   "$id": "http://maasglobal.com/core/modes/MODE_SHARED_CAR.json",
   "description": "Schemas for MODE_SHARED_CAR meta field",
-  "allOf": [{ "$ref": "http://maasglobal.com/core/components/car-rental.json" }]
+  "allOf": [{ "$ref": "http://maasglobal.com/core/components/car-rental.json" }],
+  "type": "object",
+  "properties": {
+    "vehicleId": {
+      "$comment": "An identifier used by the TSP to identify a single shared car",
+      "allof": [{ "$ref": "http://maasglobal.com/core/booking-mode.json#/definitions/vehicleId" }]
+    }
+  }
 }

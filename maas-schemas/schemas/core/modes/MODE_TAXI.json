@@ -2,12 +2,14 @@
   "$id": "http://maasglobal.com/core/modes/MODE_TAXI.json",
   "description": "Schema for MODE_TAXI meta field",
   "type": "object",
+  "type": "object",
   "properties": {
     "vehicleId": {
       "description": "The taxi id (in the taxi number plate on top of the vehicle)",
       "type": "string",
       "minLength": 1,
-      "maxLength": 256
+      "maxLength": 256,
+      "allof": [{ "$ref": "http://maasglobal.com/core/booking-mode.json#/definitions/vehicleId" }]
     },
     "noShowReportedByDriver": {
       "type": "boolean"

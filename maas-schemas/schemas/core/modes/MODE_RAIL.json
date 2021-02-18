@@ -3,6 +3,10 @@
   "description": "Schema for MODE_RAIL meta field",
   "type": "object",
   "properties": {
+    "vehicleId": {
+      "$comment": "An identifier used by the TSP to identify a single railroad car",
+      "allof": [{ "$ref": "http://maasglobal.com/core/booking-mode.json#/definitions/vehicleId" }]
+    },
     "outward": {
       "type": "object",
       "properties": {

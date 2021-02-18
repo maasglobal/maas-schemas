@@ -1,0 +1,17 @@
+{
+  "$id": "http://maasglobal.com/core/booking-mode.json",
+  "description": "Standardized set of properties for all MODE_ objects",
+  "definitions": {
+    "vehicleId": {
+      "description": "An identifier used by the TSP to identify a single vehicle ( e.g. taxi, gondola, train or camel )",
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "properties": {
+    "vehicleId": {
+      "$ref": "#/definitions/vehicleId"
+    }
+  },
+  "additionalProperties": true
+}
