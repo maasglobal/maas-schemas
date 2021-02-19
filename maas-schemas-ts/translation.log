@@ -2342,6 +2342,12 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: examples field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 WARNING: default field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 WARNING: naming clash, ignoring default export

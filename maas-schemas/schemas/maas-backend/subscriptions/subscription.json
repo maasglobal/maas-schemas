@@ -62,6 +62,12 @@
             "$ref": "#/definitions/coupon"
           }
         },
+        "benefits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/benefit"
+          }
+        },
         "terms": {
           "$ref": "#/definitions/terms"
         },
@@ -203,6 +209,18 @@
         }
       },
       "required": ["id"]
+    },
+    "benefit": {
+      "description": "Additional information about benefit used to purchase subscription",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "examples": ["smartum"]
+        }
+      },
+      "required": ["name"]
     },
     "subscriptionItemId": {
       "description": "Identifier for matching the plans (Chargebee compat.)",
