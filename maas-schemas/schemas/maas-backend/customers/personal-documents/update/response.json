@@ -1,0 +1,11 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/personal-documents/update/response.json",
+  "description": "Update a pending verification personal document object",
+  "type": "object",
+  "properties": {
+    "personalDocument": {
+      "ref": "http://maasglobal.com/core/personal-document.json"
+    }
+  },
+  "required": ["personalDocument"]
+}

@@ -1561,6 +1561,12 @@ WARNING: missing $schema declaration
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/personal-documents/revoke-consent/response.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/personal-documents/update/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/personal-documents/update/response.json
+WARNING: ref field not supported
+  in ../maas-schemas/schemas/maas-backend/customers/personal-documents/update/response.json
+WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
