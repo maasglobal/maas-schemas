@@ -53,7 +53,8 @@
         "locale": "en",
         "clientId": "whim",
         "lastName": "Tester",
-        "opaqueId": "cafecaca",
+        "opaqueId": "cafecacacafecacacafecacacafecacacafecacacafecacacafecacacafecaca",
+        "opaqueIdShort": "cafecacacafecacacafecacacafecaca",
         "firstName": "Test",
         "documents": []
       },

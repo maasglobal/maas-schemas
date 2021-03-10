@@ -62,6 +62,10 @@
       "description": "Typically the hash of the identityId",
       "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/opaqueId" }]
     },
+    "opaqueIdShort": {
+      "description": "Typically the MD5 hash of the identityId",
+      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/opaqueIdShort" }]
+    },
     "clientId": {
       "description": "An id indicating the source of the client",
       "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/clientId" }]
