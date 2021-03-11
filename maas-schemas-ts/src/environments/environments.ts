@@ -34,7 +34,7 @@ export const Defined: DefinedC = new DefinedType();
 export const schemaId = 'http://maasglobal.com/environments/environments.json';
 
 // DeveloperName
-// The purpose of this remains a mystery
+// Full name or tag of a developer
 export type DeveloperName = t.Branded<string, DeveloperNameBrand>;
 export type DeveloperNameC = t.BrandC<t.StringC, DeveloperNameBrand>;
 export const DeveloperName: DeveloperNameC = t.brand(
@@ -53,7 +53,7 @@ export const examplesDeveloperName: NonEmptyArray<DeveloperName> = ([
 ] as unknown) as NonEmptyArray<DeveloperName>;
 
 // DeveloperEmail
-// The purpose of this remains a mystery
+// Email address of a developer
 export type DeveloperEmail = t.Branded<Common_.Email, DeveloperEmailBrand>;
 export type DeveloperEmailC = t.BrandC<typeof Common_.Email, DeveloperEmailBrand>;
 export const DeveloperEmail: DeveloperEmailC = t.brand(
@@ -70,7 +70,7 @@ export const examplesDeveloperEmail: NonEmptyArray<DeveloperEmail> = ([
 ] as unknown) as NonEmptyArray<DeveloperEmail>;
 
 // Developer
-// The purpose of this remains a mystery
+// Developer contact information
 export type Developer = t.Branded<
   {
     name?: DeveloperName;
