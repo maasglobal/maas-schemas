@@ -67,6 +67,7 @@ export type Customer = t.Branded<
     locale?: I18n_.Locale;
     appInstanceId?: Common_.AppInstanceId;
     opaqueId?: Common_.OpaqueId;
+    opaqueIdShort?: Common_.OpaqueIdShort;
     clientId?: Common_.ClientId;
     dob?: boolean | Units_.IsoDate;
     ssid?: boolean | Common_.Ssid;
@@ -128,6 +129,7 @@ export type CustomerC = t.BrandC<
     locale: typeof I18n_.Locale;
     appInstanceId: typeof Common_.AppInstanceId;
     opaqueId: typeof Common_.OpaqueId;
+    opaqueIdShort: typeof Common_.OpaqueIdShort;
     clientId: typeof Common_.ClientId;
     dob: t.UnionC<[t.BooleanC, typeof Units_.IsoDate]>;
     ssid: t.UnionC<[t.BooleanC, typeof Common_.Ssid]>;
@@ -233,6 +235,7 @@ export const Customer: CustomerC = t.brand(
     locale: I18n_.Locale,
     appInstanceId: Common_.AppInstanceId,
     opaqueId: Common_.OpaqueId,
+    opaqueIdShort: Common_.OpaqueIdShort,
     clientId: Common_.ClientId,
     dob: t.union([t.boolean, Units_.IsoDate]),
     ssid: t.union([t.boolean, Common_.Ssid]),
@@ -320,6 +323,7 @@ export const Customer: CustomerC = t.brand(
       locale?: I18n_.Locale;
       appInstanceId?: Common_.AppInstanceId;
       opaqueId?: Common_.OpaqueId;
+      opaqueIdShort?: Common_.OpaqueIdShort;
       clientId?: Common_.ClientId;
       dob?: boolean | Units_.IsoDate;
       ssid?: boolean | Common_.Ssid;

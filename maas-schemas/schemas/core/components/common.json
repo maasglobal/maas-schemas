@@ -78,6 +78,11 @@
       "type": "string",
       "pattern": "^[0-9abcdefABCDEF]+$"
     },
+    "opaqueIdShort": {
+      "description": "Typically the MD5  hash of the identityId",
+      "type": "string",
+      "pattern": "^[0-9abcdefABCDEF]{32}$"
+    },
     "clientId": {
       "description": "An id indicating the source of the client",
       "type": "string",

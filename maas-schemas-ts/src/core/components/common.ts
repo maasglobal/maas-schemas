@@ -246,6 +246,20 @@ export interface OpaqueIdBrand {
   readonly OpaqueId: unique symbol;
 }
 
+// OpaqueIdShort
+// Typically the MD5  hash of the identityId
+export type OpaqueIdShort = t.Branded<string, OpaqueIdShortBrand>;
+export type OpaqueIdShortC = t.BrandC<t.StringC, OpaqueIdShortBrand>;
+export const OpaqueIdShort: OpaqueIdShortC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, OpaqueIdShortBrand> =>
+    typeof x !== 'string' || x.match(RegExp('^[0-9abcdefABCDEF]{32}$')) !== null,
+  'OpaqueIdShort',
+);
+export interface OpaqueIdShortBrand {
+  readonly OpaqueIdShort: unique symbol;
+}
+
 // ClientId
 // An id indicating the source of the client
 export type ClientId = t.Branded<string & ('whim' | 'wechat'), ClientIdBrand>;

@@ -2,19 +2,19 @@
   "$id": "http://maasglobal.com/environments/environments.json",
   "definitions": {
     "developerName": {
-      "decsription": "Full name or tag of a developer",
+      "description": "Full name or tag of a developer",
       "type": "string",
       "minLength": 1,
       "maxLength": 255,
       "examples": ["Alisha Admin"]
     },
     "developerEmail": {
-      "decsription": "Email address of a developer",
+      "description": "Email address of a developer",
       "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email" }],
       "examples": ["admin@example.com"]
     },
     "developer": {
-      "decsription": "Developer contact information",
+      "description": "Developer contact information",
       "type": "object",
       "properties": {
         "name": { "$ref": "#/definitions/developerName" },

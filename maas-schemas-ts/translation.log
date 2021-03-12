@@ -1266,19 +1266,7 @@ INFO: missing description
   in ../maas-schemas/schemas/environments/apis.json
 INFO: missing description
   in ../maas-schemas/schemas/environments/apis.json
-WARNING: decsription field not supported
-  in ../maas-schemas/schemas/environments/environments.json
-WARNING: decsription field not supported
-  in ../maas-schemas/schemas/environments/environments.json
-WARNING: decsription field not supported
-  in ../maas-schemas/schemas/environments/environments.json
 WARNING: missing $schema declaration
-  in ../maas-schemas/schemas/environments/environments.json
-INFO: missing description
-  in ../maas-schemas/schemas/environments/environments.json
-INFO: missing description
-  in ../maas-schemas/schemas/environments/environments.json
-INFO: missing description
   in ../maas-schemas/schemas/environments/environments.json
 INFO: missing description
   in ../maas-schemas/schemas/environments/environments.json
