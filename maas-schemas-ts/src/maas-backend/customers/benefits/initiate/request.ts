@@ -44,6 +44,7 @@ export type Request = t.Branded<
       product?: string;
     } & {
       amount: Defined;
+      currency: Defined;
     };
   } & {
     identityId: Defined;
@@ -70,6 +71,7 @@ export type RequestC = t.BrandC<
             }>,
             t.TypeC<{
               amount: typeof Defined;
+              currency: typeof Defined;
             }>,
           ]
         >;
@@ -99,6 +101,7 @@ export const Request: RequestC = t.brand(
         }),
         t.type({
           amount: Defined,
+          currency: Defined,
         }),
       ]),
     }),
@@ -123,6 +126,7 @@ export const Request: RequestC = t.brand(
         product?: string;
       } & {
         amount: Defined;
+        currency: Defined;
       };
     } & {
       identityId: Defined;

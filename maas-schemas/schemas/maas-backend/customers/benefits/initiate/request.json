@@ -31,7 +31,7 @@
           "description": "Product identifier"
         }
       },
-      "required": ["amount"],
+      "required": ["amount", "currency"],
       "type": "object"
     }
   },
