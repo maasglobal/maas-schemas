@@ -218,6 +218,12 @@
           "type": "string",
           "minLength": 1,
           "examples": ["smartum"]
+        },
+        "cycles": {
+          "type": "number"
+        },
+        "startTime": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
         }
       },
       "required": ["name"]

@@ -303,6 +303,8 @@ export interface CouponBrand {
 export type Benefit = t.Branded<
   {
     name?: string;
+    cycles?: number;
+    startTime?: Units_.Time;
   } & {
     name: Defined;
   },
@@ -313,6 +315,8 @@ export type BenefitC = t.BrandC<
     [
       t.PartialC<{
         name: t.StringC;
+        cycles: t.NumberC;
+        startTime: typeof Units_.Time;
       }>,
       t.TypeC<{
         name: typeof Defined;
@@ -325,6 +329,8 @@ export const Benefit: BenefitC = t.brand(
   t.intersection([
     t.partial({
       name: t.string,
+      cycles: t.number,
+      startTime: Units_.Time,
     }),
     t.type({
       name: Defined,
@@ -335,6 +341,8 @@ export const Benefit: BenefitC = t.brand(
   ): x is t.Branded<
     {
       name?: string;
+      cycles?: number;
+      startTime?: Units_.Time;
     } & {
       name: Defined;
     },
