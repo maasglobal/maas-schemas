@@ -1,6 +1,6 @@
 {
   "name": "maas-schemas-ts",
-  "version": "14.19.0",
+  "version": "14.19.1",
   "description": "TypeScript types and io-ts validators for maas-schemas",
   "main": "index.js",
   "files": [
