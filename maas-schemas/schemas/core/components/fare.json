@@ -26,7 +26,10 @@
       "minimum": 0
     },
     "currency": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/metaCurrency"
+      "oneOf": [
+        { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/metaCurrency" },
+        { "$ref": "#/definitions/tokenId" }
+      ]
     },
     "tokenId": {
       "$ref": "#/definitions/tokenId"
@@ -46,5 +49,43 @@
     "type": { "$ref": "#/definitions/fareType" }
   },
   "required": ["amount", "currency"],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "examples": [
+    {
+      "type": "charge",
+      "amount": 1200,
+      "currency": "WMP",
+      "productionAmount": 1234
+    },
+    {
+      "type": "refund",
+      "amount": 1200,
+      "currency": "WMP",
+      "productionAmount": 1234
+    },
+    {
+      "type": "charge",
+      "amount": 12,
+      "currency": "TOKEN",
+      "tokenId": "fi-package-benefit"
+    },
+    {
+      "type": "refund",
+      "amount": 12,
+      "currency": "TOKEN",
+      "tokenId": "fi-package-benefit"
+    },
+    {
+      "type": "charge",
+      "amount": 12,
+      "currency": "fi-package-benefit",
+      "tokenId": "fi-package-benefit"
+    },
+    {
+      "type": "refund",
+      "amount": 12,
+      "currency": "fi-package-benefit",
+      "tokenId": "fi-package-benefit"
+    }
+  ]
 }

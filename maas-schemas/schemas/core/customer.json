@@ -118,7 +118,14 @@
           "description": "key would typically match tokenId",
           "properties": {
             "currency": {
-              "$ref": "http://maasglobal.com/core/components/common.json#/definitions/metaCurrencyTOKEN"
+              "oneOf": [
+                {
+                  "$ref": "http://maasglobal.com/core/components/common.json#/definitions/metaCurrencyTOKEN"
+                },
+                {
+                  "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/tokenId"
+                }
+              ]
             },
             "tokenId": {
               "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/tokenId"
@@ -214,6 +221,12 @@
         "cx-test-token_v2": {
           "currency": "TOKEN",
           "tokenId": "cx-test-token_v2",
+          "amount": 1,
+          "type": "charge"
+        },
+        "cx-test-token_v3": {
+          "currency": "cx-test-token_v3",
+          "tokenId": "cx-test-token_v3",
           "amount": 1,
           "type": "charge"
         }
