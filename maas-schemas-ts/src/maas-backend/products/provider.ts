@@ -11,6 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Common_ from '../../core/components/common';
 import * as Units_ from '../../core/components/units';
+import * as Fare_ from '../../core/components/fare';
 import * as PersonalDataAllowItem_ from '../../core/components/personalDataAllowItem';
 import * as PersonalDataValidation_ from '../../core/components/personalDataValidation';
 import * as PersonalDocumentRequiredItem_ from '../../core/components/personalDocumentRequiredItem';
@@ -393,7 +394,7 @@ export type Provider = t.Branded<
     extra?: {
       radius?: {
         fixedFareAmount?: number;
-        fixedFareCurrency?: Units_.Currency | Common_.MetaCurrency;
+        fixedFareCurrency?: Units_.Currency | Common_.MetaCurrency | Fare_.TokenId;
         maxRadiusMetres?: number;
         description?: string;
       } & {
@@ -469,7 +470,11 @@ export type ProviderC = t.BrandC<
               t.PartialC<{
                 fixedFareAmount: t.NumberC;
                 fixedFareCurrency: t.UnionC<
-                  [typeof Units_.Currency, typeof Common_.MetaCurrency]
+                  [
+                    typeof Units_.Currency,
+                    typeof Common_.MetaCurrency,
+                    typeof Fare_.TokenId,
+                  ]
                 >;
                 maxRadiusMetres: t.NumberC;
                 description: t.StringC;
@@ -565,7 +570,11 @@ export const Provider: ProviderC = t.brand(
         radius: t.intersection([
           t.partial({
             fixedFareAmount: t.number,
-            fixedFareCurrency: t.union([Units_.Currency, Common_.MetaCurrency]),
+            fixedFareCurrency: t.union([
+              Units_.Currency,
+              Common_.MetaCurrency,
+              Fare_.TokenId,
+            ]),
             maxRadiusMetres: t.number,
             description: t.string,
           }),
@@ -638,7 +647,7 @@ export const Provider: ProviderC = t.brand(
       extra?: {
         radius?: {
           fixedFareAmount?: number;
-          fixedFareCurrency?: Units_.Currency | Common_.MetaCurrency;
+          fixedFareCurrency?: Units_.Currency | Common_.MetaCurrency | Fare_.TokenId;
           maxRadiusMetres?: number;
           description?: string;
         } & {

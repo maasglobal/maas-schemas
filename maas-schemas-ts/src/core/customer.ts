@@ -90,7 +90,7 @@ export type Customer = t.Branded<
           amount: Defined;
         })
       | (({
-          currency?: Common_.MetaCurrencyTOKEN;
+          currency?: Common_.MetaCurrencyTOKEN | Fare_.TokenId;
           tokenId?: Fare_.TokenId;
           amount?: number | Null;
         } & Record<string, unknown>) & {
@@ -183,7 +183,9 @@ export type CustomerC = t.BrandC<
                       t.IntersectionC<
                         [
                           t.PartialC<{
-                            currency: typeof Common_.MetaCurrencyTOKEN;
+                            currency: t.UnionC<
+                              [typeof Common_.MetaCurrencyTOKEN, typeof Fare_.TokenId]
+                            >;
                             tokenId: typeof Fare_.TokenId;
                             amount: t.UnionC<[t.NumberC, typeof Null]>;
                           }>,
@@ -276,7 +278,7 @@ export const Customer: CustomerC = t.brand(
             t.intersection([
               t.intersection([
                 t.partial({
-                  currency: Common_.MetaCurrencyTOKEN,
+                  currency: t.union([Common_.MetaCurrencyTOKEN, Fare_.TokenId]),
                   tokenId: Fare_.TokenId,
                   amount: t.union([t.number, Null]),
                 }),
@@ -346,7 +348,7 @@ export const Customer: CustomerC = t.brand(
             amount: Defined;
           })
         | (({
-            currency?: Common_.MetaCurrencyTOKEN;
+            currency?: Common_.MetaCurrencyTOKEN | Fare_.TokenId;
             tokenId?: Fare_.TokenId;
             amount?: number | Null;
           } & Record<string, unknown>) & {
@@ -415,6 +417,12 @@ export const examplesCustomer: NonEmptyArray<Customer> = ([
       'cx-test-token_v2': {
         currency: 'TOKEN',
         tokenId: 'cx-test-token_v2',
+        amount: 1,
+        type: 'charge',
+      },
+      'cx-test-token_v3': {
+        currency: 'cx-test-token_v3',
+        tokenId: 'cx-test-token_v3',
         amount: 1,
         type: 'charge',
       },
