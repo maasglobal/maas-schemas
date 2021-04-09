@@ -8,6 +8,11 @@
       "minLength": 2,
       "maxLength": 255
     },
+    "network": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 255
+    },
     "expiryMonth": {
       "type": "number",
       "minimum": 1,
