@@ -51,6 +51,7 @@ export type Request = t.Branded<
         isDefault: Defined;
         type: Defined;
       };
+      bin?: string;
     } & {
       setupIntent: Defined;
     };
@@ -89,6 +90,7 @@ export type RequestC = t.BrandC<
                   }>,
                 ]
               >;
+              bin: t.StringC;
             }>,
             t.TypeC<{
               setupIntent: typeof Defined;
@@ -129,6 +131,7 @@ export const Request: RequestC = t.brand(
               type: Defined,
             }),
           ]),
+          bin: t.string,
         }),
         t.type({
           setupIntent: Defined,
@@ -162,6 +165,7 @@ export const Request: RequestC = t.brand(
           isDefault: Defined;
           type: Defined;
         };
+        bin?: string;
       } & {
         setupIntent: Defined;
       };
