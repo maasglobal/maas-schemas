@@ -38,6 +38,12 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/card.json
 WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/card.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/card.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/card.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/card.json
 INFO: primitive type "number" used outside top-level definitions
   in ../maas-schemas/schemas/core/card.json
 WARNING: minimum field not supported outside top-level definitions
@@ -1210,6 +1216,12 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/profile.json
 WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/profile.json
 INFO: missing description
   in ../maas-schemas/schemas/core/profile.json
 INFO: missing description
@@ -1521,6 +1533,12 @@ INFO: missing description
 INFO: missing description
   in ../maas-schemas/schemas/maas-backend/customers/payment-sources/paymentSource.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/payment-sources/setup-intent/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/payment-sources/setup-intent/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/payment-sources/setup-intent/request.json
+WARNING: examples field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/payment-sources/setup-intent/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/payment-sources/setup-intent/response.json

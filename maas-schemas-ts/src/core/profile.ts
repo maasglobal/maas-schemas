@@ -192,6 +192,7 @@ export type Profile = t.Branded<
       type?: string & ('unknown' | 'card' | 'stripe');
       valid?: boolean;
       maskedNumber?: string;
+      network?: string;
       issuer?: string;
       expiry?: Units_.Time;
     } & {
@@ -243,6 +244,7 @@ export type ProfileC = t.BrandC<
               >;
               valid: t.BooleanC;
               maskedNumber: t.StringC;
+              network: t.StringC;
               issuer: t.StringC;
               expiry: typeof Units_.Time;
             }>,
@@ -294,6 +296,7 @@ export const Profile: ProfileC = t.brand(
           ]),
           valid: t.boolean,
           maskedNumber: t.string,
+          network: t.string,
           issuer: t.string,
           expiry: Units_.Time,
         }),
@@ -338,6 +341,7 @@ export const Profile: ProfileC = t.brand(
         type?: string & ('unknown' | 'card' | 'stripe');
         valid?: boolean;
         maskedNumber?: string;
+        network?: string;
         issuer?: string;
         expiry?: Units_.Time;
       } & {

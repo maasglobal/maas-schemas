@@ -33,6 +33,12 @@
           },
           "required": ["paymentSourceId", "gatewayName", "isDefault", "type"],
           "additionalProperties": false
+        },
+        "bin": {
+          "description": "Payment card BIN, typically the first 6 digits",
+          "type": "string",
+          "pattern": "^\\d{6}$",
+          "examples": ["534287"]
         }
       },
       "required": ["setupIntent"],

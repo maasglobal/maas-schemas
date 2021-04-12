@@ -67,8 +67,14 @@
           "minLength": 1,
           "maxLength": 64
         },
+        "network": {
+          "description": "The card payment network, e.g. 'Visa'",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
         "issuer": {
-          "description": "The card issuer, e.g. 'Visa'",
+          "description": "The card issuer, e.g. 'smartum'",
           "type": "string",
           "minLength": 1,
           "maxLength": 64

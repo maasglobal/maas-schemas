@@ -33,6 +33,7 @@ export const schemaId = 'http://maasglobal.com/core/card.json';
 export type Card = t.Branded<
   {
     issuer?: string;
+    network?: string;
     expiryMonth?: number;
     expiryYear?: number;
     maskedNumber?: string;
@@ -54,6 +55,7 @@ export type CardC = t.BrandC<
     [
       t.PartialC<{
         issuer: t.StringC;
+        network: t.StringC;
         expiryMonth: t.NumberC;
         expiryYear: t.NumberC;
         maskedNumber: t.StringC;
@@ -89,6 +91,7 @@ export const Card: CardC = t.brand(
   t.intersection([
     t.partial({
       issuer: t.string,
+      network: t.string,
       expiryMonth: t.number,
       expiryYear: t.number,
       maskedNumber: t.string,
@@ -118,6 +121,7 @@ export const Card: CardC = t.brand(
   ): x is t.Branded<
     {
       issuer?: string;
+      network?: string;
       expiryMonth?: number;
       expiryYear?: number;
       maskedNumber?: string;
