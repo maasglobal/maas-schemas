@@ -23,9 +23,26 @@
       "description": "Going as a pair with open return, providing options for clients to choose return journey for it's open return tickets",
       "allOf": [{ "$ref": "#/definitions/config" }]
     },
-    "ticketCollectionPoint": { "$ref": "#/definitions/text" }
+    "ticketCollectionPoint": { "$ref": "#/definitions/text" },
+    "estimatable": {
+      "type": "boolean",
+      "description": "Indicates that the configurator needs estimation to get a final price for the user selection",
+    }
   },
-  "additionalProperties": false,
+  "dependencies": {
+    "estimatable": {
+      "properties": {
+        "fares": {
+          "type": "array",
+          "description": "The fares for the selected choices in this configurator. This gets computed, and attached to the configurator for TSPs where the costs for each choices can't be computed in advance",
+          "items": {
+            "$ref": "http://maasglobal.com/core/components/fare.json"
+          }
+        }
+      },
+      "required": ["fares"]
+    }
+  },
   "definitions": {
     "config": {
       "type": "object",
