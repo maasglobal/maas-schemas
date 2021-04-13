@@ -104,6 +104,13 @@
           "type": "integer",
           "minimum": 0
         },
+        "creditGrant": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "creditCurrency": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+        },
         "active": {
           "type": "boolean"
         },
