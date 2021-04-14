@@ -11,6 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from '../../../../core/components/units';
 import * as ApiCommon_ from '../../../../core/components/api-common';
+import * as Common_ from '../../../../core/components/common';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -39,7 +40,7 @@ export type Request = t.Branded<
     identityId?: Units_.IdentityId;
     payload?: {
       amount?: number;
-      currency?: 'EUR';
+      currency?: Common_.MetaCurrencyWMP;
       locale?: string;
       product?: string;
     } & {
@@ -65,7 +66,7 @@ export type RequestC = t.BrandC<
           [
             t.PartialC<{
               amount: t.NumberC;
-              currency: t.LiteralC<'EUR'>;
+              currency: typeof Common_.MetaCurrencyWMP;
               locale: t.StringC;
               product: t.StringC;
             }>,
@@ -95,7 +96,7 @@ export const Request: RequestC = t.brand(
       payload: t.intersection([
         t.partial({
           amount: t.number,
-          currency: t.literal('EUR'),
+          currency: Common_.MetaCurrencyWMP,
           locale: t.string,
           product: t.string,
         }),
@@ -121,7 +122,7 @@ export const Request: RequestC = t.brand(
       identityId?: Units_.IdentityId;
       payload?: {
         amount?: number;
-        currency?: 'EUR';
+        currency?: Common_.MetaCurrencyWMP;
         locale?: string;
         product?: string;
       } & {

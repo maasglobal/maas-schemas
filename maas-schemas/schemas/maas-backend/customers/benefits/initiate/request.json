@@ -13,26 +13,26 @@
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
     },
     "payload": {
+      "type": "object",
       "properties": {
         "amount": {
-          "type": "number",
-          "description": "Amount of money to transfer in euro"
+          "description": "Amount of money to charge",
+          "type": "integer",
+          "minimum": 0
         },
         "currency": {
-          "enum": ["EUR"],
-          "description": "Currency code. Currently supported is EUR only"
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/metaCurrencyWMP"
         },
         "locale": {
-          "type": "string",
-          "description": "Language code"
+          "description": "Language code",
+          "type": "string"
         },
         "product": {
-          "type": "string",
-          "description": "Product identifier"
+          "description": "Product identifier",
+          "type": "string"
         }
       },
-      "required": ["amount", "currency"],
-      "type": "object"
+      "required": ["amount", "currency"]
     }
   },
   "required": ["identityId", "customerId", "payload", "headers"],
