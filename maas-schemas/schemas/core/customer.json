@@ -96,12 +96,15 @@
     },
     "balances": {
       "type": "object",
-      "properties": {
-        "WMP": {
+      "patternProperties": {
+        "^[A-Z]{3}$": {
           "type": "object",
           "properties": {
             "currency": {
-              "$ref": "http://maasglobal.com/core/components/common.json#/definitions/metaCurrencyWMP"
+              "oneOf": [
+                { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency" },
+                { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/metaCurrencyWMP" }
+              ]
             },
             "amount": {
               "type": "integer",
@@ -110,9 +113,7 @@
           },
           "required": ["currency", "amount"],
           "additionalProperties": true
-        }
-      },
-      "patternProperties": {
+        },
         "^[a-z]+(-[a-z]+)*-[a-z0-9_]+$": {
           "type": "object",
           "description": "key would typically match tokenId",
@@ -139,7 +140,6 @@
           "additionalProperties": true
         }
       },
-      "required": ["WMP"],
       "additionalProperties": false
     },
     "referral": {
@@ -216,6 +216,11 @@
         "WMP": {
           "currency": "WMP",
           "amount": 1234,
+          "type": "charge"
+        },
+        "EUR": {
+          "currency": "EUR",
+          "amount": 100,
           "type": "charge"
         },
         "cx-test-token_v2": {
