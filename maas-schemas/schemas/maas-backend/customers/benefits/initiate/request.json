@@ -2,6 +2,7 @@
   "$id": "http://maasglobal.com/maas-backend/customers/benefits/initiate/request.json",
   "additionalProperties": false,
   "description": "MaaS customer benefits initiate",
+  "type": "object",
   "properties": {
     "customerId": {
       "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
@@ -17,24 +18,28 @@
       "properties": {
         "amount": {
           "description": "Amount of money to charge",
-          "type": "integer",
+          "type": "number",
           "minimum": 0
         },
         "currency": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/metaCurrencyWMP"
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
         },
-        "locale": {
-          "description": "Language code",
-          "type": "string"
+        "productType": {
+          "description": "Product identifier",
+          "type": "string",
+          "enum": ["product", "subscription"]
         },
-        "product": {
+        "productId": {
           "description": "Product identifier",
           "type": "string"
         }
       },
-      "required": ["amount", "currency"]
+      "additionalProperties": true,
+      "oneOf": [
+        { "required": ["amount", "currency"] },
+        { "required": ["amount", "currency", "productType", "productId"] }
+      ]
     }
   },
-  "required": ["identityId", "customerId", "payload", "headers"],
-  "type": "object"
+  "required": ["identityId", "customerId", "payload", "headers"]
 }

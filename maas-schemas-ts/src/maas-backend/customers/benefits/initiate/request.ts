@@ -11,7 +11,6 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from '../../../../core/components/units';
 import * as ApiCommon_ from '../../../../core/components/api-common';
-import * as Common_ from '../../../../core/components/common';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -38,15 +37,24 @@ export type Request = t.Branded<
     customerId?: Units_.IdentityId;
     headers?: ApiCommon_.Headers;
     identityId?: Units_.IdentityId;
-    payload?: {
+    payload?: ({
       amount?: number;
-      currency?: Common_.MetaCurrencyWMP;
-      locale?: string;
-      product?: string;
-    } & {
-      amount: Defined;
-      currency: Defined;
-    };
+      currency?: Units_.Currency;
+      productType?: string & ('product' | 'subscription');
+      productId?: string;
+    } & Record<string, unknown>) &
+      (
+        | {
+            amount: Defined;
+            currency: Defined;
+          }
+        | {
+            amount: Defined;
+            currency: Defined;
+            productType: Defined;
+            productId: Defined;
+          }
+      );
   } & {
     identityId: Defined;
     customerId: Defined;
@@ -64,16 +72,36 @@ export type RequestC = t.BrandC<
         identityId: typeof Units_.IdentityId;
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              amount: t.NumberC;
-              currency: typeof Common_.MetaCurrencyWMP;
-              locale: t.StringC;
-              product: t.StringC;
-            }>,
-            t.TypeC<{
-              amount: typeof Defined;
-              currency: typeof Defined;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  amount: t.NumberC;
+                  currency: typeof Units_.Currency;
+                  productType: t.IntersectionC<
+                    [
+                      t.StringC,
+                      t.UnionC<[t.LiteralC<'product'>, t.LiteralC<'subscription'>]>,
+                    ]
+                  >;
+                  productId: t.StringC;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
+            t.UnionC<
+              [
+                t.TypeC<{
+                  amount: typeof Defined;
+                  currency: typeof Defined;
+                }>,
+                t.TypeC<{
+                  amount: typeof Defined;
+                  currency: typeof Defined;
+                  productType: typeof Defined;
+                  productId: typeof Defined;
+                }>,
+              ]
+            >,
           ]
         >;
       }>,
@@ -94,16 +122,30 @@ export const Request: RequestC = t.brand(
       headers: ApiCommon_.Headers,
       identityId: Units_.IdentityId,
       payload: t.intersection([
-        t.partial({
-          amount: t.number,
-          currency: Common_.MetaCurrencyWMP,
-          locale: t.string,
-          product: t.string,
-        }),
-        t.type({
-          amount: Defined,
-          currency: Defined,
-        }),
+        t.intersection([
+          t.partial({
+            amount: t.number,
+            currency: Units_.Currency,
+            productType: t.intersection([
+              t.string,
+              t.union([t.literal('product'), t.literal('subscription')]),
+            ]),
+            productId: t.string,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
+        t.union([
+          t.type({
+            amount: Defined,
+            currency: Defined,
+          }),
+          t.type({
+            amount: Defined,
+            currency: Defined,
+            productType: Defined,
+            productId: Defined,
+          }),
+        ]),
       ]),
     }),
     t.type({
@@ -120,15 +162,24 @@ export const Request: RequestC = t.brand(
       customerId?: Units_.IdentityId;
       headers?: ApiCommon_.Headers;
       identityId?: Units_.IdentityId;
-      payload?: {
+      payload?: ({
         amount?: number;
-        currency?: Common_.MetaCurrencyWMP;
-        locale?: string;
-        product?: string;
-      } & {
-        amount: Defined;
-        currency: Defined;
-      };
+        currency?: Units_.Currency;
+        productType?: string & ('product' | 'subscription');
+        productId?: string;
+      } & Record<string, unknown>) &
+        (
+          | {
+              amount: Defined;
+              currency: Defined;
+            }
+          | {
+              amount: Defined;
+              currency: Defined;
+              productType: Defined;
+              productId: Defined;
+            }
+        );
     } & {
       identityId: Defined;
       customerId: Defined;
