@@ -245,6 +245,8 @@ WARNING: minimum field not supported outside top-level definitions
 WARNING: multipleOf field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/cost.json
 INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/cost.json
+INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/customerSelection.json
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/customerSelection.json
@@ -1457,6 +1459,18 @@ WARNING: missing $schema declaration
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/coupons/v2/coupons-redeem/response.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/benefits/initiate/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/benefits/initiate/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/benefits/initiate/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/benefits/initiate/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/benefits/initiate/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/benefits/initiate/response.json
+WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/customer.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/customer.json
@@ -2294,6 +2308,8 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 WARNING: minLength field not supported outside top-level definitions
@@ -2323,6 +2339,14 @@ INFO: primitive type "string" used outside top-level definitions
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: examples field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "number" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 WARNING: default field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
@@ -2382,6 +2406,10 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-intents-update-state/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-intents-update-state/response.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-intents-update/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-intents-update/response.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscriptions-options/request.json
 INFO: primitive type "string" used outside top-level definitions

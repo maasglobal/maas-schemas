@@ -298,6 +298,62 @@ export interface CouponBrand {
   readonly Coupon: unique symbol;
 }
 
+// Benefit
+// Additional information about benefit used to purchase subscription
+export type Benefit = t.Branded<
+  {
+    name?: string;
+    cycles?: number;
+    startTime?: Units_.Time;
+  } & {
+    name: Defined;
+  },
+  BenefitBrand
+>;
+export type BenefitC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        name: t.StringC;
+        cycles: t.NumberC;
+        startTime: typeof Units_.Time;
+      }>,
+      t.TypeC<{
+        name: typeof Defined;
+      }>,
+    ]
+  >,
+  BenefitBrand
+>;
+export const Benefit: BenefitC = t.brand(
+  t.intersection([
+    t.partial({
+      name: t.string,
+      cycles: t.number,
+      startTime: Units_.Time,
+    }),
+    t.type({
+      name: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      name?: string;
+      cycles?: number;
+      startTime?: Units_.Time;
+    } & {
+      name: Defined;
+    },
+    BenefitBrand
+  > => true,
+  'Benefit',
+);
+export interface BenefitBrand {
+  readonly Benefit: unique symbol;
+}
+
 // Terms
 // Terms related to this subscription
 export type Terms = t.Branded<
@@ -399,6 +455,7 @@ export type SubscriptionBase = t.Branded<
     plan?: Plan;
     addons?: Array<Addon>;
     coupons?: Array<Coupon>;
+    benefits?: Array<Benefit>;
     terms?: Terms;
     pointCost?: PointCost_.PointCost;
     region?: Region_.Region;
@@ -414,6 +471,7 @@ export type SubscriptionBase = t.Branded<
     selectable?: boolean;
     topUpId?: string;
     changeState?: SubscriptionChangeState_.SubscriptionChangeState;
+    cycles?: number;
   } & Record<string, unknown>,
   SubscriptionBaseBrand
 >;
@@ -426,6 +484,7 @@ export type SubscriptionBaseC = t.BrandC<
         plan: typeof Plan;
         addons: t.ArrayC<typeof Addon>;
         coupons: t.ArrayC<typeof Coupon>;
+        benefits: t.ArrayC<typeof Benefit>;
         terms: typeof Terms;
         pointCost: typeof PointCost_.PointCost;
         region: typeof Region_.Region;
@@ -441,6 +500,7 @@ export type SubscriptionBaseC = t.BrandC<
         selectable: t.BooleanC;
         topUpId: t.StringC;
         changeState: typeof SubscriptionChangeState_.SubscriptionChangeState;
+        cycles: t.NumberC;
       }>,
       t.RecordC<t.StringC, t.UnknownC>,
     ]
@@ -455,6 +515,7 @@ export const SubscriptionBase: SubscriptionBaseC = t.brand(
       plan: Plan,
       addons: t.array(Addon),
       coupons: t.array(Coupon),
+      benefits: t.array(Benefit),
       terms: Terms,
       pointCost: PointCost_.PointCost,
       region: Region_.Region,
@@ -470,6 +531,7 @@ export const SubscriptionBase: SubscriptionBaseC = t.brand(
       selectable: t.boolean,
       topUpId: t.string,
       changeState: SubscriptionChangeState_.SubscriptionChangeState,
+      cycles: t.number,
     }),
     t.record(t.string, t.unknown),
   ]),
@@ -482,6 +544,7 @@ export const SubscriptionBase: SubscriptionBaseC = t.brand(
       plan?: Plan;
       addons?: Array<Addon>;
       coupons?: Array<Coupon>;
+      benefits?: Array<Benefit>;
       terms?: Terms;
       pointCost?: PointCost_.PointCost;
       region?: Region_.Region;
@@ -497,6 +560,7 @@ export const SubscriptionBase: SubscriptionBaseC = t.brand(
       selectable?: boolean;
       topUpId?: string;
       changeState?: SubscriptionChangeState_.SubscriptionChangeState;
+      cycles?: number;
     } & Record<string, unknown>,
     SubscriptionBaseBrand
   > => true,

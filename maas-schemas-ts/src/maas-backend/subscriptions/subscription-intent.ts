@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Subscription_ from './subscription';
 import * as State_ from '../../core/components/state';
 import * as Units_ from '../../core/components/units';
 import * as StateLog_ from '../../core/components/state-log';
@@ -46,21 +47,6 @@ export interface PlanIdBrand {
   readonly PlanId: unique symbol;
 }
 
-// AddonId
-// The purpose of this remains a mystery
-export type AddonId = t.Branded<string, AddonIdBrand>;
-export type AddonIdC = t.BrandC<t.StringC, AddonIdBrand>;
-export const AddonId: AddonIdC = t.brand(
-  t.string,
-  (x): x is t.Branded<string, AddonIdBrand> =>
-    (typeof x !== 'string' || x.length >= 2) &&
-    (typeof x !== 'string' || x.length <= 255),
-  'AddonId',
-);
-export interface AddonIdBrand {
-  readonly AddonId: unique symbol;
-}
-
 // CouponId
 // The purpose of this remains a mystery
 export type CouponId = t.Branded<string, CouponIdBrand>;
@@ -81,7 +67,7 @@ export interface CouponIdBrand {
 export type SubscriptionIntentCreate = t.Branded<
   {
     planId?: PlanId;
-    planAddons?: Array<AddonId>;
+    planAddons?: Array<Subscription_.Addon>;
     planCoupons?: Array<CouponId>;
     state?: State_.SubscriptionIntentState;
   } & {
@@ -95,7 +81,7 @@ export type SubscriptionIntentCreateC = t.BrandC<
     [
       t.PartialC<{
         planId: typeof PlanId;
-        planAddons: t.ArrayC<typeof AddonId>;
+        planAddons: t.ArrayC<typeof Subscription_.Addon>;
         planCoupons: t.ArrayC<typeof CouponId>;
         state: typeof State_.SubscriptionIntentState;
       }>,
@@ -111,7 +97,7 @@ export const SubscriptionIntentCreate: SubscriptionIntentCreateC = t.brand(
   t.intersection([
     t.partial({
       planId: PlanId,
-      planAddons: t.array(AddonId),
+      planAddons: t.array(Subscription_.Addon),
       planCoupons: t.array(CouponId),
       state: State_.SubscriptionIntentState,
     }),
@@ -125,7 +111,7 @@ export const SubscriptionIntentCreate: SubscriptionIntentCreateC = t.brand(
   ): x is t.Branded<
     {
       planId?: PlanId;
-      planAddons?: Array<AddonId>;
+      planAddons?: Array<Subscription_.Addon>;
       planCoupons?: Array<CouponId>;
       state?: State_.SubscriptionIntentState;
     } & {
@@ -148,10 +134,10 @@ export type SubscriptionIntentBase = t.Branded<
     identityId?: Units_.IdentityId;
     subscriptionId?: Units_.IdentityId;
     nextPlanId?: PlanId;
-    nextPlanAddons?: Array<AddonId>;
+    nextPlanAddons?: Array<Subscription_.Addon>;
     nextPlanCoupons?: Array<CouponId>;
     prevPlanId?: PlanId;
-    prevPlanAddons?: Array<AddonId>;
+    prevPlanAddons?: Array<Subscription_.Addon>;
     state?: State_.SubscriptionIntentState;
     stateLog?: StateLog_.StateLog;
     created?: Units_.Time;
@@ -172,10 +158,10 @@ export type SubscriptionIntentBaseC = t.BrandC<
         identityId: typeof Units_.IdentityId;
         subscriptionId: typeof Units_.IdentityId;
         nextPlanId: typeof PlanId;
-        nextPlanAddons: t.ArrayC<typeof AddonId>;
+        nextPlanAddons: t.ArrayC<typeof Subscription_.Addon>;
         nextPlanCoupons: t.ArrayC<typeof CouponId>;
         prevPlanId: typeof PlanId;
-        prevPlanAddons: t.ArrayC<typeof AddonId>;
+        prevPlanAddons: t.ArrayC<typeof Subscription_.Addon>;
         state: typeof State_.SubscriptionIntentState;
         stateLog: typeof StateLog_.StateLog;
         created: typeof Units_.Time;
@@ -198,10 +184,10 @@ export const SubscriptionIntentBase: SubscriptionIntentBaseC = t.brand(
       identityId: Units_.IdentityId,
       subscriptionId: Units_.IdentityId,
       nextPlanId: PlanId,
-      nextPlanAddons: t.array(AddonId),
+      nextPlanAddons: t.array(Subscription_.Addon),
       nextPlanCoupons: t.array(CouponId),
       prevPlanId: PlanId,
-      prevPlanAddons: t.array(AddonId),
+      prevPlanAddons: t.array(Subscription_.Addon),
       state: State_.SubscriptionIntentState,
       stateLog: StateLog_.StateLog,
       created: Units_.Time,
@@ -222,10 +208,10 @@ export const SubscriptionIntentBase: SubscriptionIntentBaseC = t.brand(
       identityId?: Units_.IdentityId;
       subscriptionId?: Units_.IdentityId;
       nextPlanId?: PlanId;
-      nextPlanAddons?: Array<AddonId>;
+      nextPlanAddons?: Array<Subscription_.Addon>;
       nextPlanCoupons?: Array<CouponId>;
       prevPlanId?: PlanId;
-      prevPlanAddons?: Array<AddonId>;
+      prevPlanAddons?: Array<Subscription_.Addon>;
       state?: State_.SubscriptionIntentState;
       stateLog?: StateLog_.StateLog;
       created?: Units_.Time;
@@ -242,6 +228,21 @@ export const SubscriptionIntentBase: SubscriptionIntentBaseC = t.brand(
 );
 export interface SubscriptionIntentBaseBrand {
   readonly SubscriptionIntentBase: unique symbol;
+}
+
+// AddonId
+// The purpose of this remains a mystery
+export type AddonId = t.Branded<string, AddonIdBrand>;
+export type AddonIdC = t.BrandC<t.StringC, AddonIdBrand>;
+export const AddonId: AddonIdC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, AddonIdBrand> =>
+    (typeof x !== 'string' || x.length >= 2) &&
+    (typeof x !== 'string' || x.length <= 255),
+  'AddonId',
+);
+export interface AddonIdBrand {
+  readonly AddonId: unique symbol;
 }
 
 // SubscriptionIntent
