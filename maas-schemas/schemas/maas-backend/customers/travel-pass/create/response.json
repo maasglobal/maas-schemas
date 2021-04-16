@@ -1,0 +1,31 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/travel-pass/create/response.json",
+  "description": "Insert travel pass response",
+  "type": "object",
+  "properties": {
+    "travelPass": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+        },
+        "identityId": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+        },
+        "type": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "created": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        "modified": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        }
+      }
+    }
+  },
+  "required": ["id", "identityId", "type", "number"]
+}

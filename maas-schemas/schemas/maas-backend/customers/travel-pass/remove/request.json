@@ -1,0 +1,21 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/travel-pass/remove/request.json",
+  "description": "Remove a travel pass",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identityId", "customerId", "passId", "headers"],
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "customerId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "passId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  }
+}
