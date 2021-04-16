@@ -164,7 +164,7 @@ export const examplesApiIndex: NonEmptyArray<ApiIndex> = ([
 ] as unknown) as NonEmptyArray<ApiIndex>;
 
 // ApiUrl
-// The purpose of this remains a mystery
+// has to be url, has to start https://, has to end with slash
 export type ApiUrl = t.Branded<string & Units_.Url, ApiUrlBrand>;
 export type ApiUrlC = t.BrandC<
   t.IntersectionC<[t.StringC, typeof Units_.Url]>,
@@ -173,7 +173,7 @@ export type ApiUrlC = t.BrandC<
 export const ApiUrl: ApiUrlC = t.brand(
   t.intersection([t.string, Units_.Url]),
   (x): x is t.Branded<string & Units_.Url, ApiUrlBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^https:')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^https://[^\\s]+/$')) !== null,
   'ApiUrl',
 );
 export interface ApiUrlBrand {
