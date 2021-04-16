@@ -22,9 +22,6 @@
           },
           "created": {
             "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
-          },
-          "modified": {
-            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
           }
         },
         "required": ["id", "passId"]

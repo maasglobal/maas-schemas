@@ -40,7 +40,6 @@ export type Response = t.Branded<
         detail?: Record<string, unknown>;
         number?: string;
         created?: Units_.Time;
-        modified?: Units_.Time;
       } & {
         id: Defined;
         passId: Defined;
@@ -60,7 +59,6 @@ export type ResponseC = t.BrandC<
             detail: t.UnknownRecordC;
             number: t.StringC;
             created: typeof Units_.Time;
-            modified: typeof Units_.Time;
           }>,
           t.TypeC<{
             id: typeof Defined;
@@ -82,7 +80,6 @@ export const Response: ResponseC = t.brand(
           detail: t.UnknownRecord,
           number: t.string,
           created: Units_.Time,
-          modified: Units_.Time,
         }),
         t.type({
           id: Defined,
@@ -102,7 +99,6 @@ export const Response: ResponseC = t.brand(
           detail?: Record<string, unknown>;
           number?: string;
           created?: Units_.Time;
-          modified?: Units_.Time;
         } & {
           id: Defined;
           passId: Defined;
