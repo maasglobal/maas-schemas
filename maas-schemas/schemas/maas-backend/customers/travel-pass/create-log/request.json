@@ -1,0 +1,27 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/travel-pass/create-log/request.json",
+  "description": "Insert travel pass logs",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identityId", "customerId", "passId", "payload", "headers"],
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "customerId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "passId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+    },
+    "payload": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  }
+}

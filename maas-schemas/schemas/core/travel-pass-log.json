@@ -1,0 +1,20 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/core/travel-pass-log.json",
+  "description": "Travel pass log component",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+    },
+    "passId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+    },
+    "detail": {
+      "type": "object"
+    },
+    "created": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+    }
+  },
+  "required": ["id", "passId"]
+}
