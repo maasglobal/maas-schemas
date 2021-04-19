@@ -12,7 +12,7 @@ import * as t from 'io-ts';
 import * as TravelPassLog_ from '../../../core/travel-pass-log';
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/customers/travel-pass/create-log/response.json';
+  'http://maasglobal.com/maas-backend/customers/travel-pass/insert-logs/response.json';
 
 // Response
 // The default export. More information at the top.

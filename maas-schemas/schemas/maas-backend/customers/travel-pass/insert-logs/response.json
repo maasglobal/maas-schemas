@@ -1,6 +1,6 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/travel-pass/retrieve-log/response.json",
-  "description": "Retrieve logs response",
+  "$id": "http://maasglobal.com/maas-backend/customers/travel-pass/insert-logs/response.json",
+  "description": "Insert travel pass logs response",
   "type": "object",
   "properties": {
     "travelPassLogs": {

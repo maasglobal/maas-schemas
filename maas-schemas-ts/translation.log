@@ -1637,10 +1637,6 @@ INFO: primitive type "integer" used outside top-level definitions
 WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/stats/response.json
 WARNING: missing $schema declaration
-  in ../maas-schemas/schemas/maas-backend/customers/travel-pass/create-log/request.json
-WARNING: missing $schema declaration
-  in ../maas-schemas/schemas/maas-backend/customers/travel-pass/create-log/response.json
-WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/travel-pass/create/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/travel-pass/create/request.json
@@ -1649,11 +1645,15 @@ INFO: primitive type "string" used outside top-level definitions
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/travel-pass/create/response.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/travel-pass/insert-logs/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/travel-pass/insert-logs/response.json
+WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/travel-pass/remove/request.json
 WARNING: missing $schema declaration
-  in ../maas-schemas/schemas/maas-backend/customers/travel-pass/retrieve-log/request.json
+  in ../maas-schemas/schemas/maas-backend/customers/travel-pass/retrieve-logs/request.json
 WARNING: missing $schema declaration
-  in ../maas-schemas/schemas/maas-backend/customers/travel-pass/retrieve-log/response.json
+  in ../maas-schemas/schemas/maas-backend/customers/travel-pass/retrieve-logs/response.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/update/request.json
 WARNING: missing $schema declaration

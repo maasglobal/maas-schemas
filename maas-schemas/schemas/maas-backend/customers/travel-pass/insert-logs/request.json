@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/travel-pass/create-log/request.json",
+  "$id": "http://maasglobal.com/maas-backend/customers/travel-pass/insert-logs/request.json",
   "description": "Insert travel pass logs",
   "type": "object",
   "additionalProperties": false,

@@ -28,7 +28,7 @@ export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/customers/travel-pass/retrieve-log/request.json';
+  'http://maasglobal.com/maas-backend/customers/travel-pass/retrieve-logs/request.json';
 
 // Request
 // The default export. More information at the top.
