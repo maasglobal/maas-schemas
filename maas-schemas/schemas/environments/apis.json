@@ -53,8 +53,9 @@
       ]
     },
     "apiUrl": {
+      "description": "has to be url, has to start https://, has to end with slash",
       "type": "string",
-      "pattern": "^https:",
+      "pattern": "^https://[^\\s]+/$",
       "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }],
       "examples": [
         "https://production.example.com/api/",
