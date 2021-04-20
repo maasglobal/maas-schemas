@@ -13,6 +13,7 @@ import * as Units_ from '../../../core/components/units';
 import * as StateLog_ from '../../../core/components/state-log';
 import * as Common_ from '../../../core/components/common';
 import * as I18n_ from '../../../core/components/i18n';
+import * as KycService_ from '../../../core/kyc-service';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -54,10 +55,12 @@ export type Verification = t.Branded<
           planId?: string;
           locale?: I18n_.Locale;
         };
+    kycService?: KycService_.KycService;
   } & {
     id: Defined;
     identityId: Defined;
     kycServiceId: Defined;
+    kycService: Defined;
     status: Defined;
     stateLog: Defined;
   },
@@ -88,11 +91,13 @@ export type VerificationC = t.BrandC<
             }>,
           ]
         >;
+        kycService: typeof KycService_.KycService;
       }>,
       t.TypeC<{
         id: typeof Defined;
         identityId: typeof Defined;
         kycServiceId: typeof Defined;
+        kycService: typeof Defined;
         status: typeof Defined;
         stateLog: typeof Defined;
       }>,
@@ -122,11 +127,13 @@ export const Verification: VerificationC = t.brand(
           locale: I18n_.Locale,
         }),
       ]),
+      kycService: KycService_.KycService,
     }),
     t.type({
       id: Defined,
       identityId: Defined,
       kycServiceId: Defined,
+      kycService: Defined,
       status: Defined,
       stateLog: Defined,
     }),
@@ -153,10 +160,12 @@ export const Verification: VerificationC = t.brand(
             planId?: string;
             locale?: I18n_.Locale;
           };
+      kycService?: KycService_.KycService;
     } & {
       id: Defined;
       identityId: Defined;
       kycServiceId: Defined;
+      kycService: Defined;
       status: Defined;
       stateLog: Defined;
     },

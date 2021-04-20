@@ -52,7 +52,7 @@ export type Request = t.Branded<
     payload?: {
       type?: PersonalDocument_.DocumentType;
       documentNumber?: PersonalDocument_.DocumentNumber;
-      nameOnDocument?: PersonalDocument_.NameOnDocument;
+      category?: PersonalDocument_.Category;
       issuingCountry?: PersonalDocument_.IssuingCountry;
       validFrom?: PersonalDocument_.ValidFrom;
       validTo?: PersonalDocument_.ValidTo;
@@ -82,7 +82,7 @@ export type RequestC = t.BrandC<
         payload: t.PartialC<{
           type: typeof PersonalDocument_.DocumentType;
           documentNumber: typeof PersonalDocument_.DocumentNumber;
-          nameOnDocument: typeof PersonalDocument_.NameOnDocument;
+          category: typeof PersonalDocument_.Category;
           issuingCountry: typeof PersonalDocument_.IssuingCountry;
           validFrom: typeof PersonalDocument_.ValidFrom;
           validTo: typeof PersonalDocument_.ValidTo;
@@ -114,7 +114,7 @@ export const Request: RequestC = t.brand(
       payload: t.partial({
         type: PersonalDocument_.DocumentType,
         documentNumber: PersonalDocument_.DocumentNumber,
-        nameOnDocument: PersonalDocument_.NameOnDocument,
+        category: PersonalDocument_.Category,
         issuingCountry: PersonalDocument_.IssuingCountry,
         validFrom: PersonalDocument_.ValidFrom,
         validTo: PersonalDocument_.ValidTo,
@@ -144,7 +144,7 @@ export const Request: RequestC = t.brand(
       payload?: {
         type?: PersonalDocument_.DocumentType;
         documentNumber?: PersonalDocument_.DocumentNumber;
-        nameOnDocument?: PersonalDocument_.NameOnDocument;
+        category?: PersonalDocument_.Category;
         issuingCountry?: PersonalDocument_.IssuingCountry;
         validFrom?: PersonalDocument_.ValidFrom;
         validTo?: PersonalDocument_.ValidTo;

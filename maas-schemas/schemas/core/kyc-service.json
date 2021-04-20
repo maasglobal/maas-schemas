@@ -12,6 +12,10 @@
       "items": {
         "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType"
       }
+    },
+    "supportedDocumentCategories": {
+      "description": "List of document categories that this KYC service supports",
+      "type": "object"
     }
   }
 }
