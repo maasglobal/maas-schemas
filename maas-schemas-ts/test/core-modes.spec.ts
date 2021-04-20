@@ -1,4 +1,5 @@
 import { validator } from 'io-ts-validator';
+
 import { MODE_TAXI } from '../src/core/modes/MODE_TAXI';
 
 describe('Check modes', () => {
