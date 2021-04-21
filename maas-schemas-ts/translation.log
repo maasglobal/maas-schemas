@@ -762,10 +762,6 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/customer.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/customer.json
-INFO: primitive type "integer" used outside top-level definitions
-  in ../maas-schemas/schemas/core/customer.json
-WARNING: minimum field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/customer.json
 WARNING: patternProperty support has limitations
   in ../maas-schemas/schemas/core/customer.json
 INFO: primitive type "integer" used outside top-level definitions

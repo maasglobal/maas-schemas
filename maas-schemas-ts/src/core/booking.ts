@@ -538,7 +538,10 @@ export const examplesBooking: NonEmptyArray<Booking> = ([
       },
     ],
     productId: 'valopilkku-any',
-    fares: [{ type: 'charge', amount: 1000, currency: 'WMP', productionAmount: 1234 }],
+    fares: [
+      { type: 'charge', amount: 1000, currency: 'WMP', productionAmount: 1234 },
+      { type: 'charge', amount: 1000, currency: 'EUR', productionAmount: 1200 },
+    ],
     cancelling: false,
     customer: { identityId: 'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958' },
   },
