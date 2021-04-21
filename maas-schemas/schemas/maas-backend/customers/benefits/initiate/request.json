@@ -35,7 +35,7 @@
         }
       },
       "additionalProperties": true,
-      "oneOf": [
+      "anyOf": [
         { "required": ["amount", "currency"] },
         { "required": ["amount", "currency", "productType", "productId"] }
       ]
