@@ -168,6 +168,11 @@ export type CarRental = t.Branded<
     } & {
       classification: Defined;
     };
+    freeUntil?: Units_.Time;
+    nextBooking?: {
+      startTime?: Units_.Time;
+      endTime?: Units_.Time;
+    };
     pickupInfo?: Common_.HtmlBlock;
     returnInfo?: Common_.HtmlBlock;
     startEndGeoRegionUrl?: Units_.Url;
@@ -226,6 +231,11 @@ export type CarRentalC = t.BrandC<
             }>,
           ]
         >;
+        freeUntil: typeof Units_.Time;
+        nextBooking: t.PartialC<{
+          startTime: typeof Units_.Time;
+          endTime: typeof Units_.Time;
+        }>;
         pickupInfo: typeof Common_.HtmlBlock;
         returnInfo: typeof Common_.HtmlBlock;
         startEndGeoRegionUrl: typeof Units_.Url;
@@ -278,6 +288,11 @@ export const CarRental: CarRentalC = t.brand(
           classification: Defined,
         }),
       ]),
+      freeUntil: Units_.Time,
+      nextBooking: t.partial({
+        startTime: Units_.Time,
+        endTime: Units_.Time,
+      }),
       pickupInfo: Common_.HtmlBlock,
       returnInfo: Common_.HtmlBlock,
       startEndGeoRegionUrl: Units_.Url,
@@ -323,6 +338,11 @@ export const CarRental: CarRentalC = t.brand(
         location?: UnitsGeo_.Location;
       } & {
         classification: Defined;
+      };
+      freeUntil?: Units_.Time;
+      nextBooking?: {
+        startTime?: Units_.Time;
+        endTime?: Units_.Time;
       };
       pickupInfo?: Common_.HtmlBlock;
       returnInfo?: Common_.HtmlBlock;
