@@ -808,6 +808,8 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/kyc-service.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/kyc-service.json
+WARNING: examples field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/kyc-service.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/leg.json
 INFO: missing description

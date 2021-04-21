@@ -14,8 +14,13 @@
       }
     },
     "supportedDocumentCategories": {
-      "description": "List of document categories that this KYC service supports",
-      "type": "object"
+      "description": "List of document categories that this KYC service supports, per document type",
+      "type": "object",
+      "examples": [
+        {
+          "DRIVERS_LICENSE": ["NORMAL", "HEAVY"]
+        }
+      ]
     }
   }
 }
