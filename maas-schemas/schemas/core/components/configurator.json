@@ -26,12 +26,15 @@
     "ticketCollectionPoint": { "$ref": "#/definitions/text" },
     "estimatable": {
       "type": "boolean",
-      "description": "Indicates that the configurator needs estimation to get a final price for the user selection",
+      "description": "Indicates that the configurator needs estimation to get a final price for the user selection"
     }
   },
   "dependencies": {
     "estimatable": {
       "properties": {
+        "cost": {
+          "$ref": "http://maasglobal.com/core/components/cost.json"
+        },
         "fares": {
           "type": "array",
           "description": "The fares for the selected choices in this configurator. This gets computed, and attached to the configurator for TSPs where the costs for each choices can't be computed in advance",
