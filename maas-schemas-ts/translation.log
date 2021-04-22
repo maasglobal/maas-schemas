@@ -224,6 +224,8 @@ WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/configurator.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/configurator.json
+WARNING: dependencies field not supported
+  in ../maas-schemas/schemas/core/components/configurator.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/cost.json
 WARNING: minimum field not supported outside top-level definitions
@@ -2027,6 +2029,10 @@ WARNING: missing $schema declaration
 INFO: missing description
   in ../maas-schemas/schemas/maas-backend/itineraries/itinerary-create/response.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/itineraries/itinerary-estimate/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/itineraries/itinerary-estimate/response.json
+WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/itineraries/itinerary-list/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/itineraries/itinerary-list/request.json
@@ -2860,6 +2866,10 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/tsp/customer-registration/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/tsp/customer-registration/response.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/tsp/estimate/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/tsp/estimate/response.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/tsp/journey-planner/request.json
 INFO: primitive type "string" used outside top-level definitions
