@@ -1,0 +1,12 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-update/response.json",
+  "description": "Maas Itinerary estimate response",
+  "type": "object",
+  "properties": {
+    "itinerary": {
+      "$ref": "http://maasglobal.com/core/itinerary.json"
+    }
+  },
+  "required": ["itinerary"],
+  "additionalProperties": false
+}
