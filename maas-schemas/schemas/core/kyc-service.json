@@ -14,11 +14,14 @@
       }
     },
     "supportedDocumentCategories": {
-      "description": "List of document categories that this KYC service supports, per document type",
+      "description": "List of document categories that this KYC service supports, per document type, with translations",
       "type": "object",
       "examples": [
         {
-          "DRIVERS_LICENSE": ["NORMAL", "HEAVY"]
+          "DRIVERS_LICENSE": [
+            { "value": "ORDINARY", "localization": "Ordinary" },
+            { "value": "HEAVY", "localization": "Heavy" }
+          ]
         }
       ]
     }
