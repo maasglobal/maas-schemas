@@ -274,6 +274,7 @@ export type Configurator = t.Branded<
     freeReturn?: Config;
     ticketCollectionPoint?: Text;
     estimatable?: boolean;
+    nonPorchasable?: boolean;
   },
   ConfiguratorBrand
 >;
@@ -289,6 +290,7 @@ export type ConfiguratorC = t.BrandC<
     freeReturn: typeof Config;
     ticketCollectionPoint: typeof Text;
     estimatable: t.BooleanC;
+    nonPorchasable: t.BooleanC;
   }>,
   ConfiguratorBrand
 >;
@@ -304,6 +306,7 @@ export const Configurator: ConfiguratorC = t.brand(
     freeReturn: Config,
     ticketCollectionPoint: Text,
     estimatable: t.boolean,
+    nonPorchasable: t.boolean,
   }),
   (
     x,
@@ -319,6 +322,7 @@ export const Configurator: ConfiguratorC = t.brand(
       freeReturn?: Config;
       ticketCollectionPoint?: Text;
       estimatable?: boolean;
+      nonPorchasable?: boolean;
     },
     ConfiguratorBrand
   > => true,
