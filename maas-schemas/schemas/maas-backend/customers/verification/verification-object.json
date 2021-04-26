@@ -68,9 +68,12 @@
               }
             }
           ]
+        },
+        "kycService": {
+          "$ref": "http://maasglobal.com/core/kyc-service.json"
         }
       },
-      "required": ["id", "identityId", "kycServiceId", "status", "stateLog"]
+      "required": ["id", "identityId", "kycServiceId", "kycService", "status", "stateLog"]
     }
   }
 }

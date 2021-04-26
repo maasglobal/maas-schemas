@@ -808,6 +808,8 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/kyc-service.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/kyc-service.json
+WARNING: examples field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/kyc-service.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/leg.json
 INFO: missing description
@@ -1041,8 +1043,6 @@ INFO: missing description
 INFO: missing description
   in ../maas-schemas/schemas/core/paymentSource.json
 WARNING: missing $schema declaration
-  in ../maas-schemas/schemas/core/personal-document.json
-INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json
 INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json

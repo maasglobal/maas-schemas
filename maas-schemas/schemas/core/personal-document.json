@@ -15,10 +15,6 @@
       "type": "string",
       "examples": ["123456789012"]
     },
-    "nameOnDocument": {
-      "type": "string",
-      "examples": ["🍵☃", "Snowman, Tea"]
-    },
     "issuingCountry": {
       "type": "string",
       "minLength": 2,
@@ -66,11 +62,7 @@
       "examples": ["normal"]
     },
     "details": {
-      "type": "object",
-      "properties": {
-        "category": { "$ref": "#/definitions/category" }
-      },
-      "examples": [{ "category": "normal" }]
+      "type": "object"
     },
     "mediaItemContent": {
       "type": "string"
@@ -129,8 +121,8 @@
     "documentNumber": {
       "$ref": "#/definitions/documentNumber"
     },
-    "nameOnDocument": {
-      "$ref": "#/definitions/nameOnDocument"
+    "category": {
+      "$ref": "#/definitions/category"
     },
     "issuingCountry": {
       "$ref": "#/definitions/issuingCountry"
@@ -181,12 +173,11 @@
       "identityId": "44ae30b6-eebc-4c00-9e46-704554c2a8a0",
       "type": "DRIVERS_LICENSE",
       "documentNumber": "123456789012",
-      "nameOnDocument": "🍵☃",
+      "category": "ordinary",
       "issuingCountry": "CX",
       "status": "APPROVED",
       "validFrom": "2020-01-01",
       "validTo": "2030-12-31",
-      "details": { "category": "normal" },
       "stateLog": [
         { "status": "PENDING", "timestamp": 1609845548067 },
         { "status": "APPROVED", "timestamp": 1609945548067 }
