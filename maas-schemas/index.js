@@ -47,7 +47,6 @@ function init() {
     verbose: true,
     $data: true,
   });
-  require('ajv-merge-patch')(ajv);
   require('ajv-keywords')(ajv);
 
   Object.keys(registry).forEach(key => {
