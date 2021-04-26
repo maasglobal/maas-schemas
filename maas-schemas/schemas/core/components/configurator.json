@@ -28,6 +28,10 @@
     "estimatable": {
       "type": "boolean",
       "description": "Indicates that the configurator needs estimation to get a final price for the user selection"
+    },
+    "nonPorchasable": {
+      "type": "boolean",
+      "description": "Indicates that the configurator in it's current form can not be purchased"
     }
   },
   "dependencies": {
@@ -44,7 +48,7 @@
           }
         }
       },
-      "required": ["fares"]
+      "required": []
     }
   },
   "definitions": {
