@@ -186,46 +186,64 @@ INFO: missing description
   in ../maas-schemas/schemas/core/components/common.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/common.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/configurator.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 WARNING: minLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 WARNING: maxLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 WARNING: uniqueItems field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 WARNING: minLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 WARNING: minLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 WARNING: maxLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 WARNING: minLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 WARNING: maxLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 WARNING: minLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 WARNING: maxLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
 WARNING: missing $schema declaration
-  in ../maas-schemas/schemas/core/components/configurator.json
-WARNING: dependencies field not supported
-  in ../maas-schemas/schemas/core/components/configurator.json
+  in ../maas-schemas/schemas/core/components/configuratorCommon.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/components/configuratorV1.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/components/configuratorV2.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/configuratorV2.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/configuratorV2.json
+WARNING: 0 field not supported
+  in ../maas-schemas/schemas/core/components/configuratorV2.json
+WARNING: 1 field not supported
+  in ../maas-schemas/schemas/core/components/configuratorV2.json
+WARNING: 2 field not supported
+  in ../maas-schemas/schemas/core/components/configuratorV2.json
+WARNING: 3 field not supported
+  in ../maas-schemas/schemas/core/components/configuratorV2.json
+WARNING: 4 field not supported
+  in ../maas-schemas/schemas/core/components/configuratorV2.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/cost.json
 WARNING: minimum field not supported outside top-level definitions
@@ -250,14 +268,22 @@ WARNING: multipleOf field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/cost.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/cost.json
-INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/customerSelection.json
-WARNING: minLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/customerSelection.json
-WARNING: maxLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/customerSelection.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/customerSelection.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/customerSelectionCommon.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/customerSelectionCommon.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/customerSelectionCommon.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/components/customerSelectionCommon.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/components/customerSelectionV1.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/components/customerSelectionV2.json
+WARNING: patternProperty support has limitations
+  in ../maas-schemas/schemas/core/components/customerSelectionV2.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/errors.json
 INFO: primitive type "string" used outside top-level definitions

@@ -1,0 +1,47 @@
+{
+  "version": "2",
+  "validUntil": 1621967334551,
+  "estimatable": true,
+  "purchasable": true,
+  "configurations": {
+    "travelCard": {
+      "name": "SWISS_PT_TRAVEL_CARD",
+      "type": "oneOf",
+      "choices": [
+        {
+          "id": "none",
+          "name": "SWISS_PT_NO_TRAVEL_CARD",
+          "default": false
+        }
+      ]
+    },
+    "ticketClass": {
+      "name": "SWISS_PT_TICKET_CLASS",
+      "type": "oneOf",
+      "choices": [
+        {
+          "id": "second",
+          "name": "SWISS_PT_SECOND_CLASS",
+          "default": false
+        }
+      ]
+    },
+    "ticketOptions": {
+      "name": "TICKET_OPTIONS_NAME",
+      "type": "oneOf",
+      "choices": [
+        {
+          "id": "offer_0",
+          "name": "SWISS_PT_SINGLE_TICKET",
+          "terms": {},
+          "default": false
+        }
+      ]
+    }
+  },
+  "configuratorSelection": {
+    "travelCard": ["none"],
+    "ticketClass": ["second"],
+    "ticketOptions": ["offer_0"]
+  }
+}

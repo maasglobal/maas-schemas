@@ -1,0 +1,35 @@
+{
+  "$id": "http://maasglobal.com/core/components/customerSelectionV1.json",
+  "description": "Customer Selection for Configurator v1",
+  "type": "object",
+  "properties": {
+    "seatDirection": {
+      "$ref": "http://maasglobal.com/core/components/customerSelectionCommon.json#/definitions/configChoiceSelection"
+    },
+    "seatPosition": {
+      "$ref": "http://maasglobal.com/core/components/customerSelectionCommon.json#/definitions/configChoiceSelection"
+    },
+    "seatType": {
+      "$ref": "http://maasglobal.com/core/components/customerSelectionCommon.json#/definitions/configChoiceSelection"
+    },
+    "seatFeatures": {
+      "$ref": "http://maasglobal.com/core/components/customerSelectionCommon.json#/definitions/configChoiceSelection"
+    },
+    "outboundSingle": {
+      "$ref": "http://maasglobal.com/core/components/customerSelectionCommon.json#/definitions/configChoiceSelection"
+    },
+    "inboundSingle": {
+      "$ref": "http://maasglobal.com/core/components/customerSelectionCommon.json#/definitions/configChoiceSelection"
+    },
+    "openReturn": {
+      "$ref": "http://maasglobal.com/core/components/customerSelectionCommon.json#/definitions/configChoiceSelection"
+    },
+    "freeReturn": {
+      "$ref": "http://maasglobal.com/core/components/customerSelectionCommon.json#/definitions/configChoiceSelection"
+    },
+    "ticketCollectionPoint": {
+      "$ref": "http://maasglobal.com/core/components/customerSelectionCommon.json#/definitions/textInputSelection"
+    }
+  },
+  "additionalProperties": false
+}
