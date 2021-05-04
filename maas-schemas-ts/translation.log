@@ -1976,6 +1976,96 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/itineraries/itinerary-update/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/itineraries/itinerary-update/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageGroup.json
+INFO: primitive type "number" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageOption.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageOption.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageOption.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageOption.json
+INFO: primitive type "number" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageOption.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/packages/packageOption.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageOption.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageOption.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageOption.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageOption.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageOption.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packageOption.json
+INFO: missing description
+  in ../maas-schemas/schemas/maas-backend/packages/packageOption.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/packages/packages-options/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packages-options/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packages-options/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/packages/packages-options/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/packages/packages-options/response.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/products/products-providers-options/request.json
 INFO: missing description
