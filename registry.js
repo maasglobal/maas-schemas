@@ -230,5 +230,9 @@ module.exports = {
   'schemas/maas-backend/customers/payment-sources/update/request.json': require('./schemas/maas-backend/customers/payment-sources/update/request.json'),
   'schemas/maas-backend/customers/payment-sources/update/response.json': require('./schemas/maas-backend/customers/payment-sources/update/response.json'),
   'schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json': require('./schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json'),
-  'schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json': require('./schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json')
+  'schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json': require('./schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json'),
+  'schemas/maas-backend/packages/packages-options/response.json': require('./schemas/maas-backend/packages/packages-options/response.json'),
+  'schemas/maas-backend/packages/packages-options/request.json': require('./schemas/maas-backend/packages/packages-options/request.json'),
+  'schemas/maas-backend/packages/package-group.json': require('./schemas/maas-backend/packages/packageGroup.json'),
+  'schemas/maas-backend/packages/package-option.json': require('./schemas/maas-backend/packages/packageOption.json')
 };
