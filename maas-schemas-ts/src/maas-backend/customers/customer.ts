@@ -13,6 +13,7 @@ import * as Units_ from '../../core/components/units';
 import * as PersonalData_ from './personalData';
 import * as PaymentSource_ from './payment-sources/paymentSource';
 import * as Fare_ from '../../core/components/fare';
+import * as Cost_ from '../../core/components/cost';
 import * as Region_ from '../../core/region';
 import * as Authorization_ from '../../core/components/authorization';
 import * as PersonalDocument_ from '../../core/personal-document';
@@ -46,7 +47,7 @@ export type Customer = t.Branded<
     personalData?: PersonalData_.PersonalData;
     personalDataVerifiedItems?: Array<string>;
     paymentSources?: Array<PaymentSource_.PaymentSource>;
-    balances?: Array<Fare_.Fare>;
+    balances?: Array<Fare_.Fare | Cost_.Cost>;
     region?: Region_.Region;
     authorizations?: Array<Authorization_.Authorization>;
     favoriteLocations?: Array<Record<string, unknown>>;
@@ -80,7 +81,7 @@ export type CustomerC = t.BrandC<
         personalData: typeof PersonalData_.PersonalData;
         personalDataVerifiedItems: t.ArrayC<t.StringC>;
         paymentSources: t.ArrayC<typeof PaymentSource_.PaymentSource>;
-        balances: t.ArrayC<typeof Fare_.Fare>;
+        balances: t.ArrayC<t.UnionC<[typeof Fare_.Fare, typeof Cost_.Cost]>>;
         region: typeof Region_.Region;
         authorizations: t.ArrayC<typeof Authorization_.Authorization>;
         favoriteLocations: t.ArrayC<t.UnknownRecordC>;
@@ -121,7 +122,7 @@ export const Customer: CustomerC = t.brand(
       personalData: PersonalData_.PersonalData,
       personalDataVerifiedItems: t.array(t.string),
       paymentSources: t.array(PaymentSource_.PaymentSource),
-      balances: t.array(Fare_.Fare),
+      balances: t.array(t.union([Fare_.Fare, Cost_.Cost])),
       region: Region_.Region,
       authorizations: t.array(Authorization_.Authorization),
       favoriteLocations: t.array(t.UnknownRecord),
@@ -158,7 +159,7 @@ export const Customer: CustomerC = t.brand(
       personalData?: PersonalData_.PersonalData;
       personalDataVerifiedItems?: Array<string>;
       paymentSources?: Array<PaymentSource_.PaymentSource>;
-      balances?: Array<Fare_.Fare>;
+      balances?: Array<Fare_.Fare | Cost_.Cost>;
       region?: Region_.Region;
       authorizations?: Array<Authorization_.Authorization>;
       favoriteLocations?: Array<Record<string, unknown>>;

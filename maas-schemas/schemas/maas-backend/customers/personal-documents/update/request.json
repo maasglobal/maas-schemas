@@ -23,8 +23,8 @@
         "documentNumber": {
           "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentNumber"
         },
-        "nameOnDocument": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/nameOnDocument"
+        "category": {
+          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/category"
         },
         "issuingCountry": {
           "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/issuingCountry"

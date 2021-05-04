@@ -30,7 +30,10 @@
     "balances": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/components/fare.json"
+        "anyOf": [
+          { "$ref": "http://maasglobal.com/core/components/fare.json" },
+          { "$ref": "http://maasglobal.com/core/components/cost.json" }
+        ]
       }
     },
     "region": {

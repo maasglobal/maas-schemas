@@ -8,5 +8,5 @@
     }
   },
   "additionalProperties": false,
-  "required": ["customer"]
+  "required": ["verification"]
 }

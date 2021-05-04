@@ -30,8 +30,10 @@
               }
             ],
             "type": "DRIVERS_LICENSE",
+            "category": "ORDINARY",
+            "firstName": "John",
+            "lastName": "Maas",
             "documentNumber": "491102155590",
-            "nameOnDocument": "NGUYEN DUY HIEU",
             "issuingCountry": "JP",
             "status": "APPROVED",
             "validFrom": "2018-10-12",

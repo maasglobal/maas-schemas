@@ -9,7 +9,10 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Units_ from './units';
 import * as Common_ from './common';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export interface NullBrand {
   readonly Null: unique symbol;
@@ -110,7 +113,7 @@ export const defaultFareTypeREFUND: FareTypeREFUND = ('refund' as unknown) as Fa
 export type Fare = t.Branded<
   {
     amount?: number | Null;
-    currency?: Common_.MetaCurrency;
+    currency?: Units_.Currency | Common_.MetaCurrency | TokenId;
     tokenId?: TokenId;
     hidden?: boolean;
     originalAmount?: number | Null;
@@ -127,7 +130,9 @@ export type FareC = t.BrandC<
     [
       t.PartialC<{
         amount: t.UnionC<[t.NumberC, typeof Null]>;
-        currency: typeof Common_.MetaCurrency;
+        currency: t.UnionC<
+          [typeof Units_.Currency, typeof Common_.MetaCurrency, typeof TokenId]
+        >;
         tokenId: typeof TokenId;
         hidden: t.BooleanC;
         originalAmount: t.UnionC<[t.NumberC, typeof Null]>;
@@ -146,7 +151,7 @@ export const Fare: FareC = t.brand(
   t.intersection([
     t.partial({
       amount: t.union([t.number, Null]),
-      currency: Common_.MetaCurrency,
+      currency: t.union([Units_.Currency, Common_.MetaCurrency, TokenId]),
       tokenId: TokenId,
       hidden: t.boolean,
       originalAmount: t.union([t.number, Null]),
@@ -163,7 +168,7 @@ export const Fare: FareC = t.brand(
   ): x is t.Branded<
     {
       amount?: number | Null;
-      currency?: Common_.MetaCurrency;
+      currency?: Units_.Currency | Common_.MetaCurrency | TokenId;
       tokenId?: TokenId;
       hidden?: boolean;
       originalAmount?: number | Null;
@@ -180,6 +185,27 @@ export const Fare: FareC = t.brand(
 export interface FareBrand {
   readonly Fare: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(Fare)).decodeSync(examplesFare) // => examplesFare */
+export const examplesFare: NonEmptyArray<Fare> = ([
+  { type: 'charge', amount: 1200, currency: 'EUR', productionAmount: 1234 },
+  { type: 'refund', amount: 1200, currency: 'EUR', productionAmount: 1234 },
+  { type: 'charge', amount: 1200, currency: 'WMP', productionAmount: 1234 },
+  { type: 'refund', amount: 1200, currency: 'WMP', productionAmount: 1234 },
+  { type: 'charge', amount: 12, currency: 'TOKEN', tokenId: 'fi-package-benefit' },
+  { type: 'refund', amount: 12, currency: 'TOKEN', tokenId: 'fi-package-benefit' },
+  {
+    type: 'charge',
+    amount: 12,
+    currency: 'fi-package-benefit',
+    tokenId: 'fi-package-benefit',
+  },
+  {
+    type: 'refund',
+    amount: 12,
+    currency: 'fi-package-benefit',
+    tokenId: 'fi-package-benefit',
+  },
+] as unknown) as NonEmptyArray<Fare>;
 
 export default Fare;
 

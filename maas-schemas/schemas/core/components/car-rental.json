@@ -100,6 +100,18 @@
       },
       "required": ["classification"]
     },
+    "freeUntil": {
+      "description": "Indicate the timestamp this booking option is valid",
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+    },
+    "nextBooking": {
+      "description": "Indicate the next booking of this car, if available",
+      "type": "object",
+      "properties": {
+        "startTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" },
+        "endTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }
+      }
+    },
     "pickupInfo": {
       "description": "Pickup instructions in HTML format",
       "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/htmlBlock" }]

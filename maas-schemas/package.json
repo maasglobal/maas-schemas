@@ -1,6 +1,6 @@
 {
   "name": "maas-schemas",
-  "version": "14.17.0",
+  "version": "14.21.0",
   "description": "Schemas for MaaS infrastructure",
   "main": "index.js",
   "engine": {
@@ -30,7 +30,6 @@
     "@cloudflare/json-schema-walker": "^0.1.1",
     "ajv": "^6.8.1",
     "ajv-keywords": "^3.4.1",
-    "ajv-merge-patch": "^4.1.0",
     "fast-glob": "^2.2.6",
     "gh-pages": "^2.1.1"
   },

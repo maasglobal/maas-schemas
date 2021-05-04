@@ -32,6 +32,11 @@
         { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency" },
         { "type": "null" }
       ]
+    },
+    "type": {
+      "description": "Optional type. Used for customer subscription balance",
+      "type": "string",
+      "enum": ["promotional_credits"]
     }
   },
   "required": ["amount", "currency"],

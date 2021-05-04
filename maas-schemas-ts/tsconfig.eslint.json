@@ -4,6 +4,7 @@
     "*.json",
     "*.js",
     "src/**/*.ts",
+    "test/**/*.ts",
     "./**/tsconfig.json"
   ],
   "exclude": [
