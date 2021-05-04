@@ -2,16 +2,7 @@
   "$id": "http://maasglobal.com/maas-backend/packages/package-option.json",
   "description": "MaaS package option schema",
   "type": "object",
-  "required": [
-    "id",
-    "active",
-    "hidden",
-    "unitPrice",
-    "name",
-    "description",
-    "image",
-    "balances"
-  ],
+  "required": ["id", "active", "hidden", "unitPrice", "name", "description", "image", "balances"],
   "additionalProperties": false,
   "properties": {
     "id": {
@@ -50,13 +41,7 @@
       "type": "object",
       "description": "Package balance",
       "additionalProperties": false,
-      "required": [
-        "amount",
-        "tokenUnit",
-        "tokenId",
-        "currency",
-        "hidden"
-      ],
+      "required": ["amount", "tokenUnit", "tokenId", "currency", "hidden"],
       "properties": {
         "amount": {
           "type": "number"
