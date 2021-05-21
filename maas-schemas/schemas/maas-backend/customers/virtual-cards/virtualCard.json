@@ -48,11 +48,6 @@
   "required": [
     "id",
     "providerName",
-    "providerCardId",
-    "maskedCardNumber",
-    "expiryMonth",
-    "expiryYear",
-    "status",
-    "tokenReferences"
+    "providerCardId"
   ]
 }

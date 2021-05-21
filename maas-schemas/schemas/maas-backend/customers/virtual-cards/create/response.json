@@ -1,0 +1,12 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/virtual-cards/create/response.json",
+  "description": "MaaS customer virtual cards create response",
+  "type": "object",
+  "properties": {
+    "virtualCard": {
+      "$ref": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCard.json"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["virtualCard"]
+}
