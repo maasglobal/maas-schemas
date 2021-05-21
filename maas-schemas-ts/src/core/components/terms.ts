@@ -78,6 +78,13 @@ export type Cancellation = t.Branded<
     cost?: Cost_.Cost;
     fare?: Fare_.Fare;
     refunded?: boolean;
+    validity?: {
+      startTime?: Units_.Time;
+      endTime?: Units_.Time;
+    } & {
+      startTime: Defined;
+      endTime: Defined;
+    };
   } & {
     cancellable: Defined;
     refunded: Defined;
@@ -92,6 +99,18 @@ export type CancellationC = t.BrandC<
         cost: typeof Cost_.Cost;
         fare: typeof Fare_.Fare;
         refunded: t.BooleanC;
+        validity: t.IntersectionC<
+          [
+            t.PartialC<{
+              startTime: typeof Units_.Time;
+              endTime: typeof Units_.Time;
+            }>,
+            t.TypeC<{
+              startTime: typeof Defined;
+              endTime: typeof Defined;
+            }>,
+          ]
+        >;
       }>,
       t.TypeC<{
         cancellable: typeof Defined;
@@ -108,6 +127,16 @@ export const Cancellation: CancellationC = t.brand(
       cost: Cost_.Cost,
       fare: Fare_.Fare,
       refunded: t.boolean,
+      validity: t.intersection([
+        t.partial({
+          startTime: Units_.Time,
+          endTime: Units_.Time,
+        }),
+        t.type({
+          startTime: Defined,
+          endTime: Defined,
+        }),
+      ]),
     }),
     t.type({
       cancellable: Defined,
@@ -122,6 +151,13 @@ export const Cancellation: CancellationC = t.brand(
       cost?: Cost_.Cost;
       fare?: Fare_.Fare;
       refunded?: boolean;
+      validity?: {
+        startTime?: Units_.Time;
+        endTime?: Units_.Time;
+      } & {
+        startTime: Defined;
+        endTime: Defined;
+      };
     } & {
       cancellable: Defined;
       refunded: Defined;
