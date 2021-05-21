@@ -9,7 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from '../../../../core/components/units';
+import * as VirtualCardAccountPosting_ from '../virtualCardAccountPosting';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -33,17 +33,7 @@ export const schemaId =
 // The default export. More information at the top.
 export type Response = t.Branded<
   {
-    transactions?: Array<
-      {
-        id?: string;
-        date?: Units_.Time;
-        amount?: number;
-      } & {
-        id: Defined;
-        date: Defined;
-        amount: Defined;
-      }
-    >;
+    transactions?: Array<VirtualCardAccountPosting_.VirtualCardAccountPosting>;
   } & {
     transactions: Defined;
   },
@@ -54,20 +44,7 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         transactions: t.ArrayC<
-          t.IntersectionC<
-            [
-              t.PartialC<{
-                id: t.StringC;
-                date: typeof Units_.Time;
-                amount: t.NumberC;
-              }>,
-              t.TypeC<{
-                id: typeof Defined;
-                date: typeof Defined;
-                amount: typeof Defined;
-              }>,
-            ]
-          >
+          typeof VirtualCardAccountPosting_.VirtualCardAccountPosting
         >;
       }>,
       t.TypeC<{
@@ -80,20 +57,7 @@ export type ResponseC = t.BrandC<
 export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
-      transactions: t.array(
-        t.intersection([
-          t.partial({
-            id: t.string,
-            date: Units_.Time,
-            amount: t.number,
-          }),
-          t.type({
-            id: Defined,
-            date: Defined,
-            amount: Defined,
-          }),
-        ]),
-      ),
+      transactions: t.array(VirtualCardAccountPosting_.VirtualCardAccountPosting),
     }),
     t.type({
       transactions: Defined,
@@ -103,17 +67,7 @@ export const Response: ResponseC = t.brand(
     x,
   ): x is t.Branded<
     {
-      transactions?: Array<
-        {
-          id?: string;
-          date?: Units_.Time;
-          amount?: number;
-        } & {
-          id: Defined;
-          date: Defined;
-          amount: Defined;
-        }
-      >;
+      transactions?: Array<VirtualCardAccountPosting_.VirtualCardAccountPosting>;
     } & {
       transactions: Defined;
     },

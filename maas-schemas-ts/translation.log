@@ -1816,14 +1816,6 @@ WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/response.json
-INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/response.json
-WARNING: minLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/response.json
-INFO: primitive type "integer" used outside top-level definitions
-  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/response.json
-WARNING: minimum field not supported outside top-level definitions
-  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/response.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/provision/request.json
 INFO: primitive type "integer" used outside top-level definitions
@@ -1890,6 +1882,18 @@ WARNING: multipleOf field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCard.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
 INFO: primitive type "number" used outside top-level definitions

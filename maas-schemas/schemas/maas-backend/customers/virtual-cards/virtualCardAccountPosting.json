@@ -1,0 +1,42 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json",
+  "description": "MaaS virtual card posting schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+    },
+    "virtualCardAccountId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+    },
+    "date": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+    },
+    "direction": {
+      "type": "string",
+      "enum": ["CREDIT", "DEBIT"]
+    },
+    "amount": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "currency": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "location": {
+      "type": "object"
+    },
+    "providerPostingId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["id", "virtualCardAccountId", "date", "amount", "currency"]
+}

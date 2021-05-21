@@ -5,21 +5,7 @@
     "transactions": {
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "minLength": 1
-          },
-          "date": {
-            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
-          },
-          "amount": {
-            "type": "integer",
-            "minimum": 1
-          }
-        },
-        "required": ["id", "date", "amount"]
+        "$ref": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json"
       }
     }
   },
