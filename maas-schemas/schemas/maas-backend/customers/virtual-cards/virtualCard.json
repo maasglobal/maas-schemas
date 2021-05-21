@@ -45,9 +45,5 @@
     }
   },
   "additionalProperties": false,
-  "required": [
-    "id",
-    "providerName",
-    "providerCardId"
-  ]
+  "required": ["id", "providerName", "providerCardId"]
 }
