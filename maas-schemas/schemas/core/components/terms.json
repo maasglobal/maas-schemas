@@ -187,7 +187,7 @@
             "startTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" },
             "endTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }
           },
-          "required": ["startTime", "endTime"]
+          "required": ["endTime"]
         }
       },
       "required": ["cancellable", "refunded"]

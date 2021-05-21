@@ -82,7 +82,6 @@ export type Cancellation = t.Branded<
       startTime?: Units_.Time;
       endTime?: Units_.Time;
     } & {
-      startTime: Defined;
       endTime: Defined;
     };
   } & {
@@ -106,7 +105,6 @@ export type CancellationC = t.BrandC<
               endTime: typeof Units_.Time;
             }>,
             t.TypeC<{
-              startTime: typeof Defined;
               endTime: typeof Defined;
             }>,
           ]
@@ -133,7 +131,6 @@ export const Cancellation: CancellationC = t.brand(
           endTime: Units_.Time,
         }),
         t.type({
-          startTime: Defined,
           endTime: Defined,
         }),
       ]),
@@ -155,7 +152,6 @@ export const Cancellation: CancellationC = t.brand(
         startTime?: Units_.Time;
         endTime?: Units_.Time;
       } & {
-        startTime: Defined;
         endTime: Defined;
       };
     } & {
