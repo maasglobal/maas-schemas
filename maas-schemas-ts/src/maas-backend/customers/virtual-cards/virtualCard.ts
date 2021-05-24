@@ -45,11 +45,6 @@ export type VirtualCard = t.Branded<
     id: Defined;
     providerName: Defined;
     providerCardId: Defined;
-    maskedCardNumber: Defined;
-    expiryMonth: Defined;
-    expiryYear: Defined;
-    status: Defined;
-    tokenReferences: Defined;
   },
   VirtualCardBrand
 >;
@@ -74,11 +69,6 @@ export type VirtualCardC = t.BrandC<
         id: typeof Defined;
         providerName: typeof Defined;
         providerCardId: typeof Defined;
-        maskedCardNumber: typeof Defined;
-        expiryMonth: typeof Defined;
-        expiryYear: typeof Defined;
-        status: typeof Defined;
-        tokenReferences: typeof Defined;
       }>,
     ]
   >,
@@ -103,11 +93,6 @@ export const VirtualCard: VirtualCardC = t.brand(
       id: Defined,
       providerName: Defined,
       providerCardId: Defined,
-      maskedCardNumber: Defined,
-      expiryMonth: Defined,
-      expiryYear: Defined,
-      status: Defined,
-      tokenReferences: Defined,
     }),
   ]),
   (
@@ -126,11 +111,6 @@ export const VirtualCard: VirtualCardC = t.brand(
       id: Defined;
       providerName: Defined;
       providerCardId: Defined;
-      maskedCardNumber: Defined;
-      expiryMonth: Defined;
-      expiryYear: Defined;
-      status: Defined;
-      tokenReferences: Defined;
     },
     VirtualCardBrand
   > => true,
