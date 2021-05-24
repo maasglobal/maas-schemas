@@ -2,7 +2,7 @@
 
 const path = require('path');
 const ajv = require('../index').init();
-const registry = require('../registry.js');
+const registry = require('../registry');
 
 const { schemaWalk, subschemaWalk } = require('@cloudflare/json-schema-walker');
 
