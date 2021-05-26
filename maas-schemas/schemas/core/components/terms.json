@@ -121,7 +121,13 @@
             "multipleOf": 0.01
           },
           "currency": {
-            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+            "anyOf": [
+              { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency" },
+              {
+                "type": "string",
+                "enum": ["TOKEN"]
+              }
+            ]
           },
           "timeInterval": {
             "description": "Amount of seconds that fare rate is applied to",
