@@ -58,8 +58,12 @@
     },
     "currencyOrToken": {
       "anyOf": [
-        { "$ref": "#/definitions/currency" },
-        { "const": "TOKEN" }
+        {
+          "$ref": "#/definitions/currency"
+        },
+        {
+          "const": "TOKEN"
+        }
       ]
     },
     "currencyEUR": {
