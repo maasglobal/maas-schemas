@@ -1,0 +1,29 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/travel-pass/create/request.json",
+  "description": "Insert a new travel pass",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identityId", "customerId", "payload", "headers"],
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "customerId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        }
+      }
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  }
+}

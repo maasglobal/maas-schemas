@@ -1,0 +1,10 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/travel-pass/create/response.json",
+  "description": "Insert travel pass response",
+  "type": "object",
+  "properties": {
+    "travelPass": {
+      "$ref": "http://maasglobal.com/maas-backend/core/travel-pass.json"
+    }
+  }
+}
