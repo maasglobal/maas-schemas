@@ -1,0 +1,70 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/packages/package-option.json",
+  "description": "MaaS package option schema",
+  "type": "object",
+  "required": ["id", "active", "hidden", "unitPrice", "name", "description", "image", "balances"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "hidden": {
+      "type": "boolean"
+    },
+    "unitPrice": {
+      "$ref": "#/definitions/price"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "image": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+    },
+    "balances": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/balance"
+      }
+    }
+  },
+  "definitions": {
+    "balance": {
+      "type": "object",
+      "description": "Package balance",
+      "additionalProperties": false,
+      "required": ["amount", "tokenUnit", "tokenId", "currency", "hidden"],
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "tokenId": {
+          "type": "string"
+        },
+        "tokenUnit": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "ttl": {
+          "type": "number"
+        },
+        "hidden": {
+          "type": "boolean"
+        }
+      }
+    },
+    "price": {
+      "$ref": "http://maasglobal.com/core/components/cost.json"
+    }
+  }
+}

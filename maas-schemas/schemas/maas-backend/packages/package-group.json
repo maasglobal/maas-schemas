@@ -1,0 +1,132 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/packages/package-group.json",
+  "description": "MaaS package group schema",
+  "required": [
+    "id",
+    "name",
+    "description",
+    "icon",
+    "image",
+    "active",
+    "packageDescription",
+    "packageTitle",
+    "packageShortDescription",
+    "packageType",
+    "agencyId",
+    "productId",
+    "leftColor",
+    "rightColor",
+    "options"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "icon": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+    },
+    "image": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "packageDescription": {
+      "type": "string",
+      "minLength": 1
+    },
+    "packageTitle": {
+      "type": "string",
+      "minLength": 1
+    },
+    "packageShortDescription": {
+      "type": "string",
+      "minLength": 1
+    },
+    "packageType": {
+      "enum": ["oneOf", "someOf", "allOf", "oneOrNoneOf", "someOrNoneOf"]
+    },
+    "agencyId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "productId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "leftColor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rightColor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/maas-backend/packages/package-option.json"
+      }
+    },
+    "linkedProducts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/linkedProducts"
+      }
+    },
+    "infoSections": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/infoSection"
+      }
+    }
+  },
+  "definitions": {
+    "infoSection": {
+      "type": "object",
+      "description": "Package info section",
+      "properties": {
+        "hidden": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "shortDescription": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "linkedProducts": {
+      "type": "object",
+      "description": "Package linked products",
+      "properties": {
+        "hidden": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "shortDescription": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
