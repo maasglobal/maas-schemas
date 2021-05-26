@@ -281,7 +281,7 @@ export type Terms = t.Branded<
     fareRates?: Array<
       {
         amount?: number;
-        currency?: Units_.Currency;
+        currency?: Units_.CurrencyOrToken;
         timeInterval?: number;
         startAt?: number;
         type?:
@@ -344,7 +344,7 @@ export type TermsC = t.BrandC<
             [
               t.PartialC<{
                 amount: t.NumberC;
-                currency: typeof Units_.Currency;
+                currency: typeof Units_.CurrencyOrToken;
                 timeInterval: t.NumberC;
                 startAt: t.NumberC;
                 type: t.UnionC<
@@ -412,7 +412,7 @@ export const Terms: TermsC = t.brand(
         t.intersection([
           t.partial({
             amount: t.number,
-            currency: Units_.Currency,
+            currency: Units_.CurrencyOrToken,
             timeInterval: t.number,
             startAt: t.number,
             type: t.union([
@@ -471,7 +471,7 @@ export const Terms: TermsC = t.brand(
       fareRates?: Array<
         {
           amount?: number;
-          currency?: Units_.Currency;
+          currency?: Units_.CurrencyOrToken;
           timeInterval?: number;
           startAt?: number;
           type?:
