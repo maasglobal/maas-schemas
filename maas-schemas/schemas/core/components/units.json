@@ -56,6 +56,12 @@
       "type": "string",
       "enum": ["EUR", "GBP", "SGD", "USD", "JPY", "CHF"]
     },
+    "currencyOrToken": {
+      "anyOf": [
+        { "$ref": "#/definitions/currency" },
+        { "const": "TOKEN" }
+      ]
+    },
     "currencyEUR": {
       "default": "EUR",
       "allOf": [{ "$ref": "#/definitions/currency" }, { "const": "EUR" }]
