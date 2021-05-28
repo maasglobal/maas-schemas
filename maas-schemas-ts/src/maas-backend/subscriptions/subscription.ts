@@ -13,8 +13,8 @@ import * as Contact_ from './contact';
 import * as PointCost_ from '../../core/components/point-cost';
 import * as Region_ from '../../core/region';
 import * as SubscriptionAddress_ from './subscriptionAddress';
-import * as SubscriptionChangeState_ from '../../core/components/subscriptionChangeState';
 import * as Units_ from '../../core/components/units';
+import * as SubscriptionChangeState_ from '../../core/components/subscriptionChangeState';
 import * as Cost_ from '../../core/components/cost';
 
 export type Defined = {} | null;
@@ -466,6 +466,8 @@ export type SubscriptionBase = t.Branded<
     meta?: Record<string, unknown>;
     level?: number;
     wmpGrant?: number;
+    creditGrant?: number;
+    creditCurrency?: Units_.Currency;
     active?: boolean;
     hidden?: boolean;
     selectable?: boolean;
@@ -495,6 +497,8 @@ export type SubscriptionBaseC = t.BrandC<
         meta: t.RecordC<t.StringC, t.UnknownC>;
         level: t.NumberC;
         wmpGrant: t.NumberC;
+        creditGrant: t.NumberC;
+        creditCurrency: typeof Units_.Currency;
         active: t.BooleanC;
         hidden: t.BooleanC;
         selectable: t.BooleanC;
@@ -526,6 +530,8 @@ export const SubscriptionBase: SubscriptionBaseC = t.brand(
       meta: t.record(t.string, t.unknown),
       level: t.number,
       wmpGrant: t.number,
+      creditGrant: t.number,
+      creditCurrency: Units_.Currency,
       active: t.boolean,
       hidden: t.boolean,
       selectable: t.boolean,
@@ -555,6 +561,8 @@ export const SubscriptionBase: SubscriptionBaseC = t.brand(
       meta?: Record<string, unknown>;
       level?: number;
       wmpGrant?: number;
+      creditGrant?: number;
+      creditCurrency?: Units_.Currency;
       active?: boolean;
       hidden?: boolean;
       selectable?: boolean;

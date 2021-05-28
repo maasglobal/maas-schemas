@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as PersonalDocument_ from '../../../../core/personal-document';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -32,7 +33,7 @@ export const schemaId =
 // The default export. More information at the top.
 export type Response = t.Branded<
   {
-    personalDocument?: unknown;
+    personalDocument?: PersonalDocument_.PersonalDocument;
   } & {
     personalDocument: Defined;
   },
@@ -42,7 +43,7 @@ export type ResponseC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        personalDocument: t.UnknownC;
+        personalDocument: typeof PersonalDocument_.PersonalDocument;
       }>,
       t.TypeC<{
         personalDocument: typeof Defined;
@@ -54,7 +55,7 @@ export type ResponseC = t.BrandC<
 export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
-      personalDocument: t.unknown,
+      personalDocument: PersonalDocument_.PersonalDocument,
     }),
     t.type({
       personalDocument: Defined,
@@ -64,7 +65,7 @@ export const Response: ResponseC = t.brand(
     x,
   ): x is t.Branded<
     {
-      personalDocument?: unknown;
+      personalDocument?: PersonalDocument_.PersonalDocument;
     } & {
       personalDocument: Defined;
     },
