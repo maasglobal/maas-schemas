@@ -61,6 +61,8 @@ export type SubscriptionInstance = t.Branded<
     addons?: Array<string>;
     coupons?: Array<string>;
     wmpGrant?: number;
+    creditGrant?: number;
+    creditCurrency?: Units_.Currency;
     level?: number;
     active?: boolean;
     pointCost?: PointCost_.PointCost;
@@ -93,6 +95,8 @@ export type SubscriptionInstanceC = t.BrandC<
         addons: t.ArrayC<t.StringC>;
         coupons: t.ArrayC<t.StringC>;
         wmpGrant: t.NumberC;
+        creditGrant: t.NumberC;
+        creditCurrency: typeof Units_.Currency;
         level: t.NumberC;
         active: t.BooleanC;
         pointCost: typeof PointCost_.PointCost;
@@ -125,6 +129,8 @@ export const SubscriptionInstance: SubscriptionInstanceC = t.brand(
       addons: t.array(t.string),
       coupons: t.array(t.string),
       wmpGrant: t.number,
+      creditGrant: t.number,
+      creditCurrency: Units_.Currency,
       level: t.number,
       active: t.boolean,
       pointCost: PointCost_.PointCost,
@@ -152,6 +158,8 @@ export const SubscriptionInstance: SubscriptionInstanceC = t.brand(
       addons?: Array<string>;
       coupons?: Array<string>;
       wmpGrant?: number;
+      creditGrant?: number;
+      creditCurrency?: Units_.Currency;
       level?: number;
       active?: boolean;
       pointCost?: PointCost_.PointCost;
