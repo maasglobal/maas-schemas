@@ -1,9 +1,9 @@
 {
-  "$id": "http://maasglobal.com/tsp/estimate/request.json",
+  "$id": "http://maasglobal.com/tsp/estimate/response.json",
   "description": "Response schema for estimating a configured product option",
   "type": "object",
   "properties": {
-    "option": {
+    "productOption": {
       "$ref": "http://maasglobal.com/core/product-option.json"
     }
   }
