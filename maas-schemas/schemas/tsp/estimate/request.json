@@ -3,11 +3,15 @@
   "description": "Request schema for estimating a configured product option",
   "type": "object",
   "properties": {
-    "option": {
+    "productOption": {
       "$ref": "http://maasglobal.com/core/product-option.json"
+    },
+    "customer": {
+      "$ref": "http://maasglobal.com/core/customer.json"
     },
     "customerSelection": {
       "$ref": "http://maasglobal.com/core/components/customerSelection.json"
     }
-  }
+  },
+  "required": ["productOption"]
 }
