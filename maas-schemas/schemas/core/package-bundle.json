@@ -1,0 +1,156 @@
+{
+  "$id": "http://maasglobal.com/core/package-bundle.json",
+  "description": "MaaS package bundle schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "agencyId": {
+      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "image": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+    },
+    "leftColor": {
+      "description": "Primary brand color, used in backgrounds etc.",
+      "type": "string"
+    },
+    "rightColor": {
+      "description": "Primary brand color, used in backgrounds etc.",
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "grouping": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/packagesGroup"
+          },
+          {
+            "$ref": "#/definitions/infoGroup"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "packagesGroup": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "packages"
+        },
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "icon": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+        },
+        "packages": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/package"
+          }
+        }
+      },
+      "required": ["type", "title", "subtitle", "packages"]
+    },
+    "package": {
+      "type": "object",
+      "properties": {
+        "packageId": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "appVersion": {
+          "type": "object",
+          "properties": {
+            "ios": {
+              "type": "string"
+            },
+            "android": {
+              "type": "string"
+            }
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "shortDescription": {
+          "type": "string"
+        },
+        "paymentInstruction": {
+          "type": "string"
+        },
+        "icon": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+        },
+        "cost": {
+          "$ref": "http://maasglobal.com/core/components/cost.json"
+        },
+        "balances": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "packageId",
+        "active",
+        "hidden",
+        "name",
+        "description",
+        "shortDescription",
+        "paymentInstruction",
+        "cost",
+        "balances"
+      ]
+    },
+    "infoGroup": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "info"
+        },
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "icon": {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+        },
+        "contentHtml": {
+          "type": "string"
+        }
+      },
+      "required": ["type", "title", "subtitle", "contentHtml"]
+    }
+  },
+  "required": ["id", "agencyId", "name", "description", "shortDescription", "active", "grouping"],
+  "additionalProperties": false
+}
