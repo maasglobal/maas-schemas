@@ -209,6 +209,22 @@ export interface CurrencyBrand {
   readonly Currency: unique symbol;
 }
 
+// CurrencyOrToken
+// The purpose of this remains a mystery
+export type CurrencyOrToken = t.Branded<Currency | 'TOKEN', CurrencyOrTokenBrand>;
+export type CurrencyOrTokenC = t.BrandC<
+  t.UnionC<[typeof Currency, t.LiteralC<'TOKEN'>]>,
+  CurrencyOrTokenBrand
+>;
+export const CurrencyOrToken: CurrencyOrTokenC = t.brand(
+  t.union([Currency, t.literal('TOKEN')]),
+  (x): x is t.Branded<Currency | 'TOKEN', CurrencyOrTokenBrand> => true,
+  'CurrencyOrToken',
+);
+export interface CurrencyOrTokenBrand {
+  readonly CurrencyOrToken: unique symbol;
+}
+
 // CurrencyEUR
 // The purpose of this remains a mystery
 export type CurrencyEUR = t.Branded<Currency & 'EUR', CurrencyEURBrand>;

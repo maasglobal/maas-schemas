@@ -78,6 +78,12 @@ export type Cancellation = t.Branded<
     cost?: Cost_.Cost;
     fare?: Fare_.Fare;
     refunded?: boolean;
+    validity?: {
+      startTime?: Units_.Time;
+      endTime?: Units_.Time;
+    } & {
+      endTime: Defined;
+    };
   } & {
     cancellable: Defined;
     refunded: Defined;
@@ -92,6 +98,17 @@ export type CancellationC = t.BrandC<
         cost: typeof Cost_.Cost;
         fare: typeof Fare_.Fare;
         refunded: t.BooleanC;
+        validity: t.IntersectionC<
+          [
+            t.PartialC<{
+              startTime: typeof Units_.Time;
+              endTime: typeof Units_.Time;
+            }>,
+            t.TypeC<{
+              endTime: typeof Defined;
+            }>,
+          ]
+        >;
       }>,
       t.TypeC<{
         cancellable: typeof Defined;
@@ -108,6 +125,15 @@ export const Cancellation: CancellationC = t.brand(
       cost: Cost_.Cost,
       fare: Fare_.Fare,
       refunded: t.boolean,
+      validity: t.intersection([
+        t.partial({
+          startTime: Units_.Time,
+          endTime: Units_.Time,
+        }),
+        t.type({
+          endTime: Defined,
+        }),
+      ]),
     }),
     t.type({
       cancellable: Defined,
@@ -122,6 +148,12 @@ export const Cancellation: CancellationC = t.brand(
       cost?: Cost_.Cost;
       fare?: Fare_.Fare;
       refunded?: boolean;
+      validity?: {
+        startTime?: Units_.Time;
+        endTime?: Units_.Time;
+      } & {
+        endTime: Defined;
+      };
     } & {
       cancellable: Defined;
       refunded: Defined;
@@ -281,7 +313,7 @@ export type Terms = t.Branded<
     fareRates?: Array<
       {
         amount?: number;
-        currency?: Units_.Currency;
+        currency?: Units_.CurrencyOrToken;
         timeInterval?: number;
         startAt?: number;
         type?:
@@ -344,7 +376,7 @@ export type TermsC = t.BrandC<
             [
               t.PartialC<{
                 amount: t.NumberC;
-                currency: typeof Units_.Currency;
+                currency: typeof Units_.CurrencyOrToken;
                 timeInterval: t.NumberC;
                 startAt: t.NumberC;
                 type: t.UnionC<
@@ -412,7 +444,7 @@ export const Terms: TermsC = t.brand(
         t.intersection([
           t.partial({
             amount: t.number,
-            currency: Units_.Currency,
+            currency: Units_.CurrencyOrToken,
             timeInterval: t.number,
             startAt: t.number,
             type: t.union([
@@ -471,7 +503,7 @@ export const Terms: TermsC = t.brand(
       fareRates?: Array<
         {
           amount?: number;
-          currency?: Units_.Currency;
+          currency?: Units_.CurrencyOrToken;
           timeInterval?: number;
           startAt?: number;
           type?:

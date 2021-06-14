@@ -45,14 +45,5 @@
     }
   },
   "additionalProperties": false,
-  "required": [
-    "id",
-    "providerName",
-    "providerCardId",
-    "maskedCardNumber",
-    "expiryMonth",
-    "expiryYear",
-    "status",
-    "tokenReferences"
-  ]
+  "required": ["id", "providerName", "providerCardId"]
 }

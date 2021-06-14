@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Units_ from './units';
 import * as Common_ from './common';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
@@ -112,7 +113,7 @@ export const defaultFareTypeREFUND: FareTypeREFUND = ('refund' as unknown) as Fa
 export type Fare = t.Branded<
   {
     amount?: number | Null;
-    currency?: Common_.MetaCurrency | TokenId;
+    currency?: Units_.Currency | Common_.MetaCurrency | TokenId;
     tokenId?: TokenId;
     hidden?: boolean;
     originalAmount?: number | Null;
@@ -129,7 +130,9 @@ export type FareC = t.BrandC<
     [
       t.PartialC<{
         amount: t.UnionC<[t.NumberC, typeof Null]>;
-        currency: t.UnionC<[typeof Common_.MetaCurrency, typeof TokenId]>;
+        currency: t.UnionC<
+          [typeof Units_.Currency, typeof Common_.MetaCurrency, typeof TokenId]
+        >;
         tokenId: typeof TokenId;
         hidden: t.BooleanC;
         originalAmount: t.UnionC<[t.NumberC, typeof Null]>;
@@ -148,7 +151,7 @@ export const Fare: FareC = t.brand(
   t.intersection([
     t.partial({
       amount: t.union([t.number, Null]),
-      currency: t.union([Common_.MetaCurrency, TokenId]),
+      currency: t.union([Units_.Currency, Common_.MetaCurrency, TokenId]),
       tokenId: TokenId,
       hidden: t.boolean,
       originalAmount: t.union([t.number, Null]),
@@ -165,7 +168,7 @@ export const Fare: FareC = t.brand(
   ): x is t.Branded<
     {
       amount?: number | Null;
-      currency?: Common_.MetaCurrency | TokenId;
+      currency?: Units_.Currency | Common_.MetaCurrency | TokenId;
       tokenId?: TokenId;
       hidden?: boolean;
       originalAmount?: number | Null;
@@ -184,6 +187,8 @@ export interface FareBrand {
 }
 /** require('io-ts-validator').validator(nonEmptyArray(Fare)).decodeSync(examplesFare) // => examplesFare */
 export const examplesFare: NonEmptyArray<Fare> = ([
+  { type: 'charge', amount: 1200, currency: 'EUR', productionAmount: 1234 },
+  { type: 'refund', amount: 1200, currency: 'EUR', productionAmount: 1234 },
   { type: 'charge', amount: 1200, currency: 'WMP', productionAmount: 1234 },
   { type: 'refund', amount: 1200, currency: 'WMP', productionAmount: 1234 },
   { type: 'charge', amount: 12, currency: 'TOKEN', tokenId: 'fi-package-benefit' },

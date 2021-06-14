@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "personalDocument": {
-      "ref": "http://maasglobal.com/core/personal-document.json"
+      "$ref": "http://maasglobal.com/core/personal-document.json"
     }
   },
   "required": ["personalDocument"]

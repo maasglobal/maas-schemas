@@ -43,7 +43,6 @@ export type SubscriptionAdditions = t.Branded<
     personalDataValidations?: Array<PersonalDataValidation_.PersonalDataValidation>;
   } & Record<string, unknown>) & {
     plan: Defined;
-    wmpGrant: Defined;
     pointCost: Defined;
     addons: Defined;
     coupons: Defined;
@@ -73,7 +72,6 @@ export type SubscriptionAdditionsC = t.BrandC<
       >,
       t.TypeC<{
         plan: typeof Defined;
-        wmpGrant: typeof Defined;
         pointCost: typeof Defined;
         addons: typeof Defined;
         coupons: typeof Defined;
@@ -98,7 +96,6 @@ export const SubscriptionAdditions: SubscriptionAdditionsC = t.brand(
     ]),
     t.type({
       plan: Defined,
-      wmpGrant: Defined,
       pointCost: Defined,
       addons: Defined,
       coupons: Defined,
@@ -117,7 +114,6 @@ export const SubscriptionAdditions: SubscriptionAdditionsC = t.brand(
       personalDataValidations?: Array<PersonalDataValidation_.PersonalDataValidation>;
     } & Record<string, unknown>) & {
       plan: Defined;
-      wmpGrant: Defined;
       pointCost: Defined;
       addons: Defined;
       coupons: Defined;

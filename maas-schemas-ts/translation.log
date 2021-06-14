@@ -164,6 +164,8 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/car-rental.json
 WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/car-rental.json
+WARNING: unexpected key in a $ref object
+  in ../maas-schemas/schemas/core/components/car-rental.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/car-rental.json
 WARNING: missing $schema declaration
@@ -754,15 +756,13 @@ INFO: missing description
   in ../maas-schemas/schemas/core/components/units.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/units.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/units.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/customer.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/customer.json
 INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/customer.json
-INFO: primitive type "integer" used outside top-level definitions
-  in ../maas-schemas/schemas/core/customer.json
-WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/customer.json
 WARNING: patternProperty support has limitations
   in ../maas-schemas/schemas/core/customer.json
@@ -809,6 +809,8 @@ INFO: missing description
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/kyc-service.json
 INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/kyc-service.json
+WARNING: examples field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/kyc-service.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/leg.json
@@ -1088,8 +1090,6 @@ INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json
 INFO: missing description
   in ../maas-schemas/schemas/core/personal-document.json
-INFO: missing description
-  in ../maas-schemas/schemas/core/personal-document.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/plan.json
 INFO: missing description
@@ -1171,6 +1171,10 @@ INFO: primitive type "string" used outside top-level definitions
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/profile.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/profile.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/core/profile.json
+WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/profile.json
 INFO: primitive type "integer" used outside top-level definitions
   in ../maas-schemas/schemas/core/profile.json
@@ -1594,8 +1598,6 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/personal-documents/update/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/personal-documents/update/response.json
-WARNING: ref field not supported
-  in ../maas-schemas/schemas/maas-backend/customers/personal-documents/update/response.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
 INFO: primitive type "string" used outside top-level definitions
@@ -1779,6 +1781,18 @@ WARNING: minLength field not supported outside top-level definitions
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/add-token-reference/response.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/create/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/create/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/create/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/create/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/create/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/create/response.json
+WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/get-token-reference/request.json
 INFO: primitive type "integer" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/get-token-reference/request.json
@@ -1790,6 +1804,22 @@ WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/get-token-reference/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/get-token-reference/response.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/response.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/provision/request.json
 INFO: primitive type "integer" used outside top-level definitions
@@ -1810,6 +1840,12 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/provision/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/provision/response.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/remove/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/remove/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/remove/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCard.json
 INFO: primitive type "number" used outside top-level definitions
@@ -1850,6 +1886,18 @@ WARNING: multipleOf field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCard.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
 INFO: primitive type "number" used outside top-level definitions
@@ -2293,6 +2341,10 @@ INFO: primitive type "string" used outside top-level definitions
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 INFO: primitive type "integer" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json

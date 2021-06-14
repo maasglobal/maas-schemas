@@ -93,24 +93,6 @@ export const examplesDocumentNumber: NonEmptyArray<DocumentNumber> = ([
   '123456789012',
 ] as unknown) as NonEmptyArray<DocumentNumber>;
 
-// NameOnDocument
-// The purpose of this remains a mystery
-export type NameOnDocument = t.Branded<string, NameOnDocumentBrand>;
-export type NameOnDocumentC = t.BrandC<t.StringC, NameOnDocumentBrand>;
-export const NameOnDocument: NameOnDocumentC = t.brand(
-  t.string,
-  (x): x is t.Branded<string, NameOnDocumentBrand> => true,
-  'NameOnDocument',
-);
-export interface NameOnDocumentBrand {
-  readonly NameOnDocument: unique symbol;
-}
-/** require('io-ts-validator').validator(nonEmptyArray(NameOnDocument)).decodeSync(examplesNameOnDocument) // => examplesNameOnDocument */
-export const examplesNameOnDocument: NonEmptyArray<NameOnDocument> = ([
-  '🍵☃',
-  'Snowman, Tea',
-] as unknown) as NonEmptyArray<NameOnDocument>;
-
 // IssuingCountry
 // The purpose of this remains a mystery
 export type IssuingCountry = t.Branded<string, IssuingCountryBrand>;
@@ -381,39 +363,16 @@ export const examplesCategory: NonEmptyArray<Category> = ([
 
 // Details
 // The purpose of this remains a mystery
-export type Details = t.Branded<
-  {
-    category?: Category;
-  },
-  DetailsBrand
->;
-export type DetailsC = t.BrandC<
-  t.PartialC<{
-    category: typeof Category;
-  }>,
-  DetailsBrand
->;
+export type Details = t.Branded<Record<string, unknown>, DetailsBrand>;
+export type DetailsC = t.BrandC<t.UnknownRecordC, DetailsBrand>;
 export const Details: DetailsC = t.brand(
-  t.partial({
-    category: Category,
-  }),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      category?: Category;
-    },
-    DetailsBrand
-  > => true,
+  t.UnknownRecord,
+  (x): x is t.Branded<Record<string, unknown>, DetailsBrand> => true,
   'Details',
 );
 export interface DetailsBrand {
   readonly Details: unique symbol;
 }
-/** require('io-ts-validator').validator(nonEmptyArray(Details)).decodeSync(examplesDetails) // => examplesDetails */
-export const examplesDetails: NonEmptyArray<Details> = ([
-  { category: 'normal' },
-] as unknown) as NonEmptyArray<Details>;
 
 // MediaItemContent
 // The purpose of this remains a mystery
@@ -594,7 +553,7 @@ export type PersonalDocument = t.Branded<
     identityId?: Units_.IdentityId;
     type?: DocumentType;
     documentNumber?: DocumentNumber;
-    nameOnDocument?: NameOnDocument;
+    category?: Category;
     issuingCountry?: IssuingCountry;
     status?: DocumentStatus;
     validFrom?: ValidFrom;
@@ -622,7 +581,7 @@ export type PersonalDocumentC = t.BrandC<
         identityId: typeof Units_.IdentityId;
         type: typeof DocumentType;
         documentNumber: typeof DocumentNumber;
-        nameOnDocument: typeof NameOnDocument;
+        category: typeof Category;
         issuingCountry: typeof IssuingCountry;
         status: typeof DocumentStatus;
         validFrom: typeof ValidFrom;
@@ -652,7 +611,7 @@ export const PersonalDocument: PersonalDocumentC = t.brand(
       identityId: Units_.IdentityId,
       type: DocumentType,
       documentNumber: DocumentNumber,
-      nameOnDocument: NameOnDocument,
+      category: Category,
       issuingCountry: IssuingCountry,
       status: DocumentStatus,
       validFrom: ValidFrom,
@@ -680,7 +639,7 @@ export const PersonalDocument: PersonalDocumentC = t.brand(
       identityId?: Units_.IdentityId;
       type?: DocumentType;
       documentNumber?: DocumentNumber;
-      nameOnDocument?: NameOnDocument;
+      category?: Category;
       issuingCountry?: IssuingCountry;
       status?: DocumentStatus;
       validFrom?: ValidFrom;
@@ -711,12 +670,11 @@ export const examplesPersonalDocument: NonEmptyArray<PersonalDocument> = ([
     identityId: '44ae30b6-eebc-4c00-9e46-704554c2a8a0',
     type: 'DRIVERS_LICENSE',
     documentNumber: '123456789012',
-    nameOnDocument: '🍵☃',
+    category: 'ordinary',
     issuingCountry: 'CX',
     status: 'APPROVED',
     validFrom: '2020-01-01',
     validTo: '2030-12-31',
-    details: { category: 'normal' },
     stateLog: [
       { status: 'PENDING', timestamp: 1609845548067 },
       { status: 'APPROVED', timestamp: 1609945548067 },

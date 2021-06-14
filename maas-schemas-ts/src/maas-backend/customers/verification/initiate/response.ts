@@ -35,7 +35,7 @@ export type Response = t.Branded<
   {
     verification?: VerificationObject_.Verification;
   } & {
-    customer: Defined;
+    verification: Defined;
   },
   ResponseBrand
 >;
@@ -46,7 +46,7 @@ export type ResponseC = t.BrandC<
         verification: typeof VerificationObject_.Verification;
       }>,
       t.TypeC<{
-        customer: typeof Defined;
+        verification: typeof Defined;
       }>,
     ]
   >,
@@ -58,7 +58,7 @@ export const Response: ResponseC = t.brand(
       verification: VerificationObject_.Verification,
     }),
     t.type({
-      customer: Defined,
+      verification: Defined,
     }),
   ]),
   (
@@ -67,7 +67,7 @@ export const Response: ResponseC = t.brand(
     {
       verification?: VerificationObject_.Verification;
     } & {
-      customer: Defined;
+      verification: Defined;
     },
     ResponseBrand
   > => true,

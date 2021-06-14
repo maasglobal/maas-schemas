@@ -27,6 +27,7 @@
     },
     "currency": {
       "oneOf": [
+        { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency" },
         { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/metaCurrency" },
         { "$ref": "#/definitions/tokenId" }
       ]
@@ -51,6 +52,18 @@
   "required": ["amount", "currency"],
   "additionalProperties": false,
   "examples": [
+    {
+      "type": "charge",
+      "amount": 1200,
+      "currency": "EUR",
+      "productionAmount": 1234
+    },
+    {
+      "type": "refund",
+      "amount": 1200,
+      "currency": "EUR",
+      "productionAmount": 1234
+    },
     {
       "type": "charge",
       "amount": 1200,

@@ -292,6 +292,12 @@
           "amount": 1000,
           "currency": "WMP",
           "productionAmount": 1234
+        },
+        {
+          "type": "charge",
+          "amount": 1000,
+          "currency": "EUR",
+          "productionAmount": 1200
         }
       ],
       "cancelling": false,

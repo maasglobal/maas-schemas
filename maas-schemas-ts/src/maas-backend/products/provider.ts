@@ -415,9 +415,7 @@ export type Provider = t.Branded<
     personalDataOptionsAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
     personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
     personalDataValidations?: Array<PersonalDataValidation_.PersonalDataValidation>;
-    requiredPersonalDocuments?: Array<
-      PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
-    >;
+    requiredPersonalDocuments?: Array<PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem>;
     optionalParameters?: Array<
       Selection | MessageToDriver | BookingPeriod | GradualRadiusOption
     >;
@@ -668,9 +666,7 @@ export const Provider: ProviderC = t.brand(
       personalDataOptionsAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
       personalDataCreateAllow?: Array<PersonalDataAllowItem_.PersonalDataAllowItem>;
       personalDataValidations?: Array<PersonalDataValidation_.PersonalDataValidation>;
-      requiredPersonalDocuments?: Array<
-        PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem
-      >;
+      requiredPersonalDocuments?: Array<PersonalDocumentRequiredItem_.PersonalDocumentRequiredItem>;
       optionalParameters?: Array<
         Selection | MessageToDriver | BookingPeriod | GradualRadiusOption
       >;

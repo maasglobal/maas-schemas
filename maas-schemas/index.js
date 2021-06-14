@@ -2,7 +2,7 @@
 
 const AJV = require('ajv');
 const validator = require('./lib/validator');
-const registry = require('./registry.js');
+const registry = require('./registry');
 
 if (typeof Object.fromEntries === 'undefined') {
   // polyfill fromEntries
@@ -47,7 +47,6 @@ function init() {
     verbose: true,
     $data: true,
   });
-  require('ajv-merge-patch')(ajv);
   require('ajv-keywords')(ajv);
 
   Object.keys(registry).forEach(key => {

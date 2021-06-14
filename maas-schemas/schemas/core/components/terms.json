@@ -121,7 +121,7 @@
             "multipleOf": 0.01
           },
           "currency": {
-            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currencyOrToken"
           },
           "timeInterval": {
             "description": "Amount of seconds that fare rate is applied to",
@@ -179,6 +179,15 @@
         "refunded": {
           "type": "boolean",
           "description": "Whether this part of the booking has been refunded"
+        },
+        "validity": {
+          "description": "Cancellation validity conditions",
+          "type": "object",
+          "properties": {
+            "startTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" },
+            "endTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }
+          },
+          "required": ["endTime"]
         }
       },
       "required": ["cancellable", "refunded"]
