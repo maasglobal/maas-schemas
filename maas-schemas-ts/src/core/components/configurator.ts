@@ -268,6 +268,7 @@ export type Configurator = t.Branded<
     seatPosition?: Config;
     seatType?: Config;
     seatFeatures?: Config;
+    stations?: Config;
     outboundSingle?: Config;
     inboundSingle?: Config;
     openReturn?: Config;
@@ -282,6 +283,7 @@ export type ConfiguratorC = t.BrandC<
     seatPosition: typeof Config;
     seatType: typeof Config;
     seatFeatures: typeof Config;
+    stations: typeof Config;
     outboundSingle: typeof Config;
     inboundSingle: typeof Config;
     openReturn: typeof Config;
@@ -296,6 +298,7 @@ export const Configurator: ConfiguratorC = t.brand(
     seatPosition: Config,
     seatType: Config,
     seatFeatures: Config,
+    stations: Config,
     outboundSingle: Config,
     inboundSingle: Config,
     openReturn: Config,
@@ -310,6 +313,7 @@ export const Configurator: ConfiguratorC = t.brand(
       seatPosition?: Config;
       seatType?: Config;
       seatFeatures?: Config;
+      stations?: Config;
       outboundSingle?: Config;
       inboundSingle?: Config;
       openReturn?: Config;
