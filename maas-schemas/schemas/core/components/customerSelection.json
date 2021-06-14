@@ -6,6 +6,9 @@
     "seatDirection": {
       "$ref": "#/definitions/configChoiceSelection"
     },
+    "stations": {
+      "$ref": "#/definitions/configChoiceSelection"
+    },
     "seatPosition": {
       "$ref": "#/definitions/configChoiceSelection"
     },

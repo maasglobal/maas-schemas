@@ -47,6 +47,7 @@ export interface TextInputSelectionBrand {
 export type CustomerSelection = t.Branded<
   {
     seatDirection?: ConfigChoiceSelection;
+    stations?: ConfigChoiceSelection;
     seatPosition?: ConfigChoiceSelection;
     seatType?: ConfigChoiceSelection;
     seatFeatures?: ConfigChoiceSelection;
@@ -61,6 +62,7 @@ export type CustomerSelection = t.Branded<
 export type CustomerSelectionC = t.BrandC<
   t.PartialC<{
     seatDirection: typeof ConfigChoiceSelection;
+    stations: typeof ConfigChoiceSelection;
     seatPosition: typeof ConfigChoiceSelection;
     seatType: typeof ConfigChoiceSelection;
     seatFeatures: typeof ConfigChoiceSelection;
@@ -75,6 +77,7 @@ export type CustomerSelectionC = t.BrandC<
 export const CustomerSelection: CustomerSelectionC = t.brand(
   t.partial({
     seatDirection: ConfigChoiceSelection,
+    stations: ConfigChoiceSelection,
     seatPosition: ConfigChoiceSelection,
     seatType: ConfigChoiceSelection,
     seatFeatures: ConfigChoiceSelection,
@@ -89,6 +92,7 @@ export const CustomerSelection: CustomerSelectionC = t.brand(
   ): x is t.Branded<
     {
       seatDirection?: ConfigChoiceSelection;
+      stations?: ConfigChoiceSelection;
       seatPosition?: ConfigChoiceSelection;
       seatType?: ConfigChoiceSelection;
       seatFeatures?: ConfigChoiceSelection;
