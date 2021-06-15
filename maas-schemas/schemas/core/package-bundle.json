@@ -110,7 +110,7 @@
         "icon": {
           "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
         },
-        "cost": {
+        "price": {
           "$ref": "http://maasglobal.com/core/components/cost.json"
         },
         "balances": {
@@ -125,7 +125,7 @@
         "description",
         "shortDescription",
         "paymentInstruction",
-        "cost",
+        "price",
         "balances"
       ]
     },

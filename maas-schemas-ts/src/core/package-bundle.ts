@@ -46,7 +46,7 @@ export type Package = t.Branded<
     shortDescription?: string;
     paymentInstruction?: string;
     icon?: Units_.Url;
-    cost?: Cost_.Cost;
+    price?: Cost_.Cost;
     balances?: Record<string, unknown>;
   } & {
     packageId: Defined;
@@ -56,7 +56,7 @@ export type Package = t.Branded<
     description: Defined;
     shortDescription: Defined;
     paymentInstruction: Defined;
-    cost: Defined;
+    price: Defined;
     balances: Defined;
   },
   PackageBrand
@@ -77,7 +77,7 @@ export type PackageC = t.BrandC<
         shortDescription: t.StringC;
         paymentInstruction: t.StringC;
         icon: typeof Units_.Url;
-        cost: typeof Cost_.Cost;
+        price: typeof Cost_.Cost;
         balances: t.UnknownRecordC;
       }>,
       t.TypeC<{
@@ -88,7 +88,7 @@ export type PackageC = t.BrandC<
         description: typeof Defined;
         shortDescription: typeof Defined;
         paymentInstruction: typeof Defined;
-        cost: typeof Defined;
+        price: typeof Defined;
         balances: typeof Defined;
       }>,
     ]
@@ -110,7 +110,7 @@ export const Package: PackageC = t.brand(
       shortDescription: t.string,
       paymentInstruction: t.string,
       icon: Units_.Url,
-      cost: Cost_.Cost,
+      price: Cost_.Cost,
       balances: t.UnknownRecord,
     }),
     t.type({
@@ -121,7 +121,7 @@ export const Package: PackageC = t.brand(
       description: Defined,
       shortDescription: Defined,
       paymentInstruction: Defined,
-      cost: Defined,
+      price: Defined,
       balances: Defined,
     }),
   ]),
@@ -141,7 +141,7 @@ export const Package: PackageC = t.brand(
       shortDescription?: string;
       paymentInstruction?: string;
       icon?: Units_.Url;
-      cost?: Cost_.Cost;
+      price?: Cost_.Cost;
       balances?: Record<string, unknown>;
     } & {
       packageId: Defined;
@@ -151,7 +151,7 @@ export const Package: PackageC = t.brand(
       description: Defined;
       shortDescription: Defined;
       paymentInstruction: Defined;
-      cost: Defined;
+      price: Defined;
       balances: Defined;
     },
     PackageBrand
