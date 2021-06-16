@@ -38,6 +38,7 @@ export type ConfiguratorV1 = t.Branded<
     seatPosition?: ConfiguratorCommon_.Config;
     seatType?: ConfiguratorCommon_.Config;
     seatFeatures?: ConfiguratorCommon_.Config;
+    stations?: ConfiguratorCommon_.Config;
     outboundSingle?: ConfiguratorCommon_.Config;
     inboundSingle?: ConfiguratorCommon_.Config;
     openReturn?: ConfiguratorCommon_.Config;
@@ -55,6 +56,9 @@ export type ConfiguratorV1 = t.Branded<
       }
     | {
         seatFeatures: Defined;
+      }
+    | {
+        stations: Defined;
       }
     | {
         outboundSingle: Defined;
@@ -82,6 +86,7 @@ export type ConfiguratorV1C = t.BrandC<
         seatPosition: typeof ConfiguratorCommon_.Config;
         seatType: typeof ConfiguratorCommon_.Config;
         seatFeatures: typeof ConfiguratorCommon_.Config;
+        stations: typeof ConfiguratorCommon_.Config;
         outboundSingle: typeof ConfiguratorCommon_.Config;
         inboundSingle: typeof ConfiguratorCommon_.Config;
         openReturn: typeof ConfiguratorCommon_.Config;
@@ -101,6 +106,9 @@ export type ConfiguratorV1C = t.BrandC<
           }>,
           t.TypeC<{
             seatFeatures: typeof Defined;
+          }>,
+          t.TypeC<{
+            stations: typeof Defined;
           }>,
           t.TypeC<{
             outboundSingle: typeof Defined;
@@ -130,6 +138,7 @@ export const ConfiguratorV1: ConfiguratorV1C = t.brand(
       seatPosition: ConfiguratorCommon_.Config,
       seatType: ConfiguratorCommon_.Config,
       seatFeatures: ConfiguratorCommon_.Config,
+      stations: ConfiguratorCommon_.Config,
       outboundSingle: ConfiguratorCommon_.Config,
       inboundSingle: ConfiguratorCommon_.Config,
       openReturn: ConfiguratorCommon_.Config,
@@ -148,6 +157,9 @@ export const ConfiguratorV1: ConfiguratorV1C = t.brand(
       }),
       t.type({
         seatFeatures: Defined,
+      }),
+      t.type({
+        stations: Defined,
       }),
       t.type({
         outboundSingle: Defined,
@@ -174,6 +186,7 @@ export const ConfiguratorV1: ConfiguratorV1C = t.brand(
       seatPosition?: ConfiguratorCommon_.Config;
       seatType?: ConfiguratorCommon_.Config;
       seatFeatures?: ConfiguratorCommon_.Config;
+      stations?: ConfiguratorCommon_.Config;
       outboundSingle?: ConfiguratorCommon_.Config;
       inboundSingle?: ConfiguratorCommon_.Config;
       openReturn?: ConfiguratorCommon_.Config;
@@ -191,6 +204,9 @@ export const ConfiguratorV1: ConfiguratorV1C = t.brand(
         }
       | {
           seatFeatures: Defined;
+        }
+      | {
+          stations: Defined;
         }
       | {
           outboundSingle: Defined;

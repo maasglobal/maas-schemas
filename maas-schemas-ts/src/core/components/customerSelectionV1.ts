@@ -18,6 +18,7 @@ export const schemaId = 'http://maasglobal.com/core/components/customerSelection
 export type CustomerSelectionV1 = t.Branded<
   {
     seatDirection?: CustomerSelectionCommon_.ConfigChoiceSelection;
+    stations?: CustomerSelectionCommon_.ConfigChoiceSelection;
     seatPosition?: CustomerSelectionCommon_.ConfigChoiceSelection;
     seatType?: CustomerSelectionCommon_.ConfigChoiceSelection;
     seatFeatures?: CustomerSelectionCommon_.ConfigChoiceSelection;
@@ -32,6 +33,7 @@ export type CustomerSelectionV1 = t.Branded<
 export type CustomerSelectionV1C = t.BrandC<
   t.PartialC<{
     seatDirection: typeof CustomerSelectionCommon_.ConfigChoiceSelection;
+    stations: typeof CustomerSelectionCommon_.ConfigChoiceSelection;
     seatPosition: typeof CustomerSelectionCommon_.ConfigChoiceSelection;
     seatType: typeof CustomerSelectionCommon_.ConfigChoiceSelection;
     seatFeatures: typeof CustomerSelectionCommon_.ConfigChoiceSelection;
@@ -46,6 +48,7 @@ export type CustomerSelectionV1C = t.BrandC<
 export const CustomerSelectionV1: CustomerSelectionV1C = t.brand(
   t.partial({
     seatDirection: CustomerSelectionCommon_.ConfigChoiceSelection,
+    stations: CustomerSelectionCommon_.ConfigChoiceSelection,
     seatPosition: CustomerSelectionCommon_.ConfigChoiceSelection,
     seatType: CustomerSelectionCommon_.ConfigChoiceSelection,
     seatFeatures: CustomerSelectionCommon_.ConfigChoiceSelection,
@@ -60,6 +63,7 @@ export const CustomerSelectionV1: CustomerSelectionV1C = t.brand(
   ): x is t.Branded<
     {
       seatDirection?: CustomerSelectionCommon_.ConfigChoiceSelection;
+      stations?: CustomerSelectionCommon_.ConfigChoiceSelection;
       seatPosition?: CustomerSelectionCommon_.ConfigChoiceSelection;
       seatType?: CustomerSelectionCommon_.ConfigChoiceSelection;
       seatFeatures?: CustomerSelectionCommon_.ConfigChoiceSelection;

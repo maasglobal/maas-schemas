@@ -7,6 +7,7 @@
     "seatPosition": { "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config" },
     "seatType": { "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config" },
     "seatFeatures": { "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config" },
+    "stations": { "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config" },
     "outboundSingle": {
       "description": "Single ticket for outwardJourney",
       "allOf": [{ "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config" }]
@@ -32,6 +33,7 @@
     { "required": ["seatPosition"] },
     { "required": ["seatType"] },
     { "required": ["seatFeatures"] },
+    { "required": ["stations"] },
     { "required": ["outboundSingle"] },
     { "required": ["inboundSingle"] },
     { "required": ["openReturn"] },
