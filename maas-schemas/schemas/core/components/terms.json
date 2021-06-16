@@ -62,6 +62,10 @@
         "freeTicket": {
           "type": "object",
           "description": "A JSON schema object which defines restriction rules for free ticket"
+        },
+        "forbidMultipleBookingsActive": {
+          "type": "boolean",
+          "description": "A flag indicating whether this multiple bookings with same product id should be forbidden"
         }
       }
     },
