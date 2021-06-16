@@ -72,6 +72,11 @@
       "required": ["ticket", "stationsList", "stationsRetrieve"],
       "additionalProperties": false
     },
+    "autocompleteProvider": {
+      "type": "string",
+      "description": "Symbolic name of alternative autocomplete provider to use for this provider, if applicable",
+      "example": "routerank"
+    },
     "extra": {
       "type": "object",
       "properties": {
