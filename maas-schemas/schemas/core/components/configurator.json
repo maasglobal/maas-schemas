@@ -4,6 +4,7 @@
   "type": "object",
   "anyOf": [
     { "$ref": "http://maasglobal.com/core/components/configuratorV2.json" },
-    { "$ref": "http://maasglobal.com/core/components/configuratorV1.json" }
+    { "$ref": "http://maasglobal.com/core/components/configuratorV1.json" },
+    { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/emptyObject" }
   ]
 }

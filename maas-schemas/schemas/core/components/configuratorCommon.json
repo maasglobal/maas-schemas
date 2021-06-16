@@ -64,7 +64,8 @@
           "type": "object"
         }
       },
-      "required": ["id", "name", "default"]
+      "required": ["id", "name", "default"],
+      "additionalProperties": true
     },
     "text": {
       "type": "object",
