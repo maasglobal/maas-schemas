@@ -3,6 +3,7 @@
   "description": "Customer Selection for Configurator",
   "anyOf": [
     { "$ref": "http://maasglobal.com/core/components/customerSelectionV2.json" },
-    { "$ref": "http://maasglobal.com/core/components/customerSelectionV1.json" }
+    { "$ref": "http://maasglobal.com/core/components/customerSelectionV1.json" },
+    { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/emptyObject" }
   ]
 }

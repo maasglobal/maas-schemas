@@ -11,6 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as ConfiguratorV2_ from './configuratorV2';
 import * as ConfiguratorV1_ from './configuratorV1';
+import * as Common_ from './common';
 
 export const schemaId = 'http://maasglobal.com/core/components/configurator.json';
 
@@ -18,7 +19,11 @@ export const schemaId = 'http://maasglobal.com/core/components/configurator.json
 // The default export. More information at the top.
 export type Configurator = t.Branded<
   Record<string, unknown> &
-    (ConfiguratorV2_.ConfiguratorV2 | ConfiguratorV1_.ConfiguratorV1),
+    (
+      | ConfiguratorV2_.ConfiguratorV2
+      | ConfiguratorV1_.ConfiguratorV1
+      | Common_.EmptyObject
+    ),
   ConfiguratorBrand
 >;
 export type ConfiguratorC = t.BrandC<
@@ -26,7 +31,11 @@ export type ConfiguratorC = t.BrandC<
     [
       t.UnknownRecordC,
       t.UnionC<
-        [typeof ConfiguratorV2_.ConfiguratorV2, typeof ConfiguratorV1_.ConfiguratorV1]
+        [
+          typeof ConfiguratorV2_.ConfiguratorV2,
+          typeof ConfiguratorV1_.ConfiguratorV1,
+          typeof Common_.EmptyObject,
+        ]
       >,
     ]
   >,
@@ -35,13 +44,21 @@ export type ConfiguratorC = t.BrandC<
 export const Configurator: ConfiguratorC = t.brand(
   t.intersection([
     t.UnknownRecord,
-    t.union([ConfiguratorV2_.ConfiguratorV2, ConfiguratorV1_.ConfiguratorV1]),
+    t.union([
+      ConfiguratorV2_.ConfiguratorV2,
+      ConfiguratorV1_.ConfiguratorV1,
+      Common_.EmptyObject,
+    ]),
   ]),
   (
     x,
   ): x is t.Branded<
     Record<string, unknown> &
-      (ConfiguratorV2_.ConfiguratorV2 | ConfiguratorV1_.ConfiguratorV1),
+      (
+        | ConfiguratorV2_.ConfiguratorV2
+        | ConfiguratorV1_.ConfiguratorV1
+        | Common_.EmptyObject
+      ),
     ConfiguratorBrand
   > => true,
   'Configurator',

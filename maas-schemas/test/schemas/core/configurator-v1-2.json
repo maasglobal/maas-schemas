@@ -1,0 +1,41 @@
+{
+  "outboundSingle": {
+    "name": "HSL Zones ABC",
+    "type": "oneOf",
+    "choices": [
+      {
+        "id": "extension-subscriber-C",
+        "icon": "https://assets.development.maas.global/product-icons/hsl-zone-c.png",
+        "name": "C zone extension",
+        "fares": [
+          {
+            "type": "charge",
+            "amount": 250,
+            "currency": "WMP",
+            "originalAmount": 250,
+            "productionAmount": 250
+          }
+        ],
+        "terms": {
+          "validity": {
+            "endTime": 1623078877927,
+            "startTime": 1623083477927
+          },
+          "freeTicketOverlapInSeconds": 600
+        },
+        "default": true,
+        "ticketType": {
+          "id": "extension",
+          "name": "Single Ticket"
+        },
+        "customerType": {
+          "id": "subscriber",
+          "name": "Zone extension"
+        },
+        "tspIdToExtend": "Rl1l0FLWtGAXuvXPlhe5s9NXCzjmU0tjqqxDiIdO8IU2lUi5wR6hljEvFYzASEdU+1623073307996-whim-season-b5982d50-d3a3-480f-8ba7-e8e6f5090934",
+        "customerTypeId": "subscriber",
+        "purchasingAppInstanceId": "fb4d6e85-9c4b-3f1e-8bd5-9f4600c3cdd1"
+      }
+    ]
+  }
+}

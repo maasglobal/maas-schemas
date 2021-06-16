@@ -33,7 +33,7 @@ export const schemaId = 'http://maasglobal.com/core/components/configuratorCommo
 // Choice
 // A choice for one customization
 export type Choice = t.Branded<
-  {
+  ({
     id?: string;
     name?: string;
     description?: string;
@@ -42,7 +42,7 @@ export type Choice = t.Branded<
     fares?: Array<Fare_.Fare>;
     terms?: Terms_.Terms;
     meta?: Record<string, unknown>;
-  } & {
+  } & Record<string, unknown>) & {
     id: Defined;
     name: Defined;
     default: Defined;
@@ -52,16 +52,21 @@ export type Choice = t.Branded<
 export type ChoiceC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        id: t.StringC;
-        name: t.StringC;
-        description: t.StringC;
-        default: t.BooleanC;
-        cost: typeof Cost_.Cost;
-        fares: t.ArrayC<typeof Fare_.Fare>;
-        terms: typeof Terms_.Terms;
-        meta: t.UnknownRecordC;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            id: t.StringC;
+            name: t.StringC;
+            description: t.StringC;
+            default: t.BooleanC;
+            cost: typeof Cost_.Cost;
+            fares: t.ArrayC<typeof Fare_.Fare>;
+            terms: typeof Terms_.Terms;
+            meta: t.UnknownRecordC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         id: typeof Defined;
         name: typeof Defined;
@@ -73,16 +78,19 @@ export type ChoiceC = t.BrandC<
 >;
 export const Choice: ChoiceC = t.brand(
   t.intersection([
-    t.partial({
-      id: t.string,
-      name: t.string,
-      description: t.string,
-      default: t.boolean,
-      cost: Cost_.Cost,
-      fares: t.array(Fare_.Fare),
-      terms: Terms_.Terms,
-      meta: t.UnknownRecord,
-    }),
+    t.intersection([
+      t.partial({
+        id: t.string,
+        name: t.string,
+        description: t.string,
+        default: t.boolean,
+        cost: Cost_.Cost,
+        fares: t.array(Fare_.Fare),
+        terms: Terms_.Terms,
+        meta: t.UnknownRecord,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       id: Defined,
       name: Defined,
@@ -92,7 +100,7 @@ export const Choice: ChoiceC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       id?: string;
       name?: string;
       description?: string;
@@ -101,7 +109,7 @@ export const Choice: ChoiceC = t.brand(
       fares?: Array<Fare_.Fare>;
       terms?: Terms_.Terms;
       meta?: Record<string, unknown>;
-    } & {
+    } & Record<string, unknown>) & {
       id: Defined;
       name: Defined;
       default: Defined;
