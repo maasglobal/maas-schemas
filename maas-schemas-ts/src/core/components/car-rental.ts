@@ -159,7 +159,7 @@ export type CarRental = t.Branded<
         | 'hydrogen'
         | 'lpg'
         | 'multifuel'
-        | Null;
+        | 'unspecified';
       classification?: ACRISS_.ACRISS | Ajv_.StringCoarsedNull;
       registrationPlate?: string;
       damage?: string;
@@ -215,7 +215,7 @@ export type CarRentalC = t.BrandC<
                   t.LiteralC<'hydrogen'>,
                   t.LiteralC<'lpg'>,
                   t.LiteralC<'multifuel'>,
-                  typeof Null,
+                  t.LiteralC<'unspecified'>,
                 ]
               >;
               classification: t.UnionC<
@@ -276,7 +276,7 @@ export const CarRental: CarRentalC = t.brand(
             t.literal('hydrogen'),
             t.literal('lpg'),
             t.literal('multifuel'),
-            Null,
+            t.literal('unspecified'),
           ]),
           classification: t.union([ACRISS_.ACRISS, Ajv_.StringCoarsedNull]),
           registrationPlate: t.string,
@@ -330,7 +330,7 @@ export const CarRental: CarRentalC = t.brand(
           | 'hydrogen'
           | 'lpg'
           | 'multifuel'
-          | Null;
+          | 'unspecified';
         classification?: ACRISS_.ACRISS | Ajv_.StringCoarsedNull;
         registrationPlate?: string;
         damage?: string;

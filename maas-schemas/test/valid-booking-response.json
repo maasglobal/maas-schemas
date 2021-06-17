@@ -19,7 +19,7 @@
         "doors": [2, 3],
         "luggage": [2, 2],
         "transmission": "manual",
-        "fuel": null,
+        "fuel": "unspecified",
         "classification": "MBMN"
       }
     },
