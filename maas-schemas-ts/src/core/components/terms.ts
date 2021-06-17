@@ -295,6 +295,7 @@ export type Terms = t.Branded<
       singleDevice?: boolean;
       skipRestrictionCheck?: boolean;
       freeTicket?: Record<string, unknown>;
+      forbidMultipleBookingsActive?: boolean;
     };
     surcharges?: {
       midnight?: Surcharge;
@@ -356,6 +357,7 @@ export type TermsC = t.BrandC<
           singleDevice: t.BooleanC;
           skipRestrictionCheck: t.BooleanC;
           freeTicket: t.UnknownRecordC;
+          forbidMultipleBookingsActive: t.BooleanC;
         }>;
         surcharges: t.PartialC<{
           midnight: typeof Surcharge;
@@ -425,6 +427,7 @@ export const Terms: TermsC = t.brand(
         singleDevice: t.boolean,
         skipRestrictionCheck: t.boolean,
         freeTicket: t.UnknownRecord,
+        forbidMultipleBookingsActive: t.boolean,
       }),
       surcharges: t.partial({
         midnight: Surcharge,
@@ -485,6 +488,7 @@ export const Terms: TermsC = t.brand(
         singleDevice?: boolean;
         skipRestrictionCheck?: boolean;
         freeTicket?: Record<string, unknown>;
+        forbidMultipleBookingsActive?: boolean;
       };
       surcharges?: {
         midnight?: Surcharge;
