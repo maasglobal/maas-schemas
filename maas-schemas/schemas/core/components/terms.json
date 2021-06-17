@@ -65,7 +65,7 @@
         },
         "forbidMultipleBookingsActive": {
           "type": "boolean",
-          "description": "A flag indicating whether this multiple bookings with same product id should be forbidden"
+          "description": "A flag indicating whether multiple active bookings with same product id should be forbidden"
         }
       }
     },
