@@ -968,6 +968,52 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_TRANSIT.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_WALK.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+WARNING: minItems field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/package-bundle.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/package-bundle.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/package-option.json
 INFO: primitive type "string" used outside top-level definitions
