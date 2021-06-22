@@ -47,7 +47,6 @@ describe('configurators', () => {
 
     it('should succeed for v2 with empty object', () => {
       const schema = require('../../../schemas/core/components/configurator.json');
-      const data = require('./configurator-v2.json');
 
       expect(utils.validate(schema, {})).toStrictEqual({});
     });
