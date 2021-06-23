@@ -394,7 +394,6 @@ export type Provider = t.Branded<
       stationsList: Defined;
       stationsRetrieve: Defined;
     };
-    autocompleteProvider?: string;
     extra?: {
       radius?: {
         fixedFareAmount?: number;
@@ -469,7 +468,6 @@ export type ProviderC = t.BrandC<
             }>,
           ]
         >;
-        autocompleteProvider: t.StringC;
         extra: t.PartialC<{
           radius: t.IntersectionC<
             [
@@ -575,7 +573,6 @@ export const Provider: ProviderC = t.brand(
           stationsRetrieve: Defined,
         }),
       ]),
-      autocompleteProvider: t.string,
       extra: t.partial({
         radius: t.intersection([
           t.partial({
@@ -657,7 +654,6 @@ export const Provider: ProviderC = t.brand(
         stationsList: Defined;
         stationsRetrieve: Defined;
       };
-      autocompleteProvider?: string;
       extra?: {
         radius?: {
           fixedFareAmount?: number;
