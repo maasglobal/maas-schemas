@@ -18,6 +18,10 @@
         "lon": {
           "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude"
         },
+        "regionCode": {
+          "type": "string",
+          "description": "Optional code to hint which autocomplete provider to use"
+        },
         "count": {
           "type": "integer",
           "minimum": 1,
@@ -35,7 +39,7 @@
           ]
         }
       },
-      "required": ["name"],
+      "required": ["name", "lat", "lon"],
       "additionalProperties": false
     },
     "headers": {

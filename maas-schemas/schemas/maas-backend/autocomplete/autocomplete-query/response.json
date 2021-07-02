@@ -13,6 +13,29 @@
       "type": "object"
     }
   },
+  "required": ["suggestions"],
   "additionalProperties": false,
-  "required": ["suggestions"]
+  "definitions": {
+    "suggestion": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "pe--Nyon--whosonfirst:locality:101914095"
+        },
+        "label": {
+          "type": "string",
+          "example": "Nyon, Switzerland"
+        },
+        "lat": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude" },
+        "lon": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude" },
+        "addressId": {
+          "type": "string",
+          "example": "rrPlaceId%3Ape--Nyon--whosonfirst%3Alocality%3A101914095"
+        }
+      },
+      "required": ["label", "lat", "lon"],
+      "additionalProperties": false
+    }
+  }
 }
