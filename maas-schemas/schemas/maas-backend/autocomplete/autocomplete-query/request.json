@@ -18,7 +18,7 @@
         "lon": {
           "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude"
         },
-        "regionCode": {
+        "providerHint": {
           "type": "string",
           "description": "Optional code to hint which autocomplete provider to use"
         },
@@ -26,7 +26,7 @@
           "type": "integer",
           "minimum": 1,
           "maximum": 100,
-          "default": 5
+          "default": 10
         },
         "radius": {
           "allOf": [

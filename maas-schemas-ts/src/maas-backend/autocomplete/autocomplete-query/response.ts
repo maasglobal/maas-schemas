@@ -9,7 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as UnitsGeo_ from '../../../core/components/units-geo';
+import * as Suggestion_ from './suggestion';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -29,85 +29,34 @@ export const Defined: DefinedC = new DefinedType();
 export const schemaId =
   'http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/response.json';
 
-// Suggestion
+// SuggestionsList
 // The purpose of this remains a mystery
-export type Suggestion = t.Branded<
-  {
-    id?: string;
-    label?: string;
-    lat?: UnitsGeo_.RelaxedLatitude;
-    lon?: UnitsGeo_.RelaxedLongitude;
-    addressId?: string;
-  } & {
-    label: Defined;
-    lat: Defined;
-    lon: Defined;
-  },
-  SuggestionBrand
+export type SuggestionsList = t.Branded<
+  Array<Suggestion_.Suggestion>,
+  SuggestionsListBrand
 >;
-export type SuggestionC = t.BrandC<
-  t.IntersectionC<
-    [
-      t.PartialC<{
-        id: t.StringC;
-        label: t.StringC;
-        lat: typeof UnitsGeo_.RelaxedLatitude;
-        lon: typeof UnitsGeo_.RelaxedLongitude;
-        addressId: t.StringC;
-      }>,
-      t.TypeC<{
-        label: typeof Defined;
-        lat: typeof Defined;
-        lon: typeof Defined;
-      }>,
-    ]
-  >,
-  SuggestionBrand
+export type SuggestionsListC = t.BrandC<
+  t.ArrayC<typeof Suggestion_.Suggestion>,
+  SuggestionsListBrand
 >;
-export const Suggestion: SuggestionC = t.brand(
-  t.intersection([
-    t.partial({
-      id: t.string,
-      label: t.string,
-      lat: UnitsGeo_.RelaxedLatitude,
-      lon: UnitsGeo_.RelaxedLongitude,
-      addressId: t.string,
-    }),
-    t.type({
-      label: Defined,
-      lat: Defined,
-      lon: Defined,
-    }),
-  ]),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      id?: string;
-      label?: string;
-      lat?: UnitsGeo_.RelaxedLatitude;
-      lon?: UnitsGeo_.RelaxedLongitude;
-      addressId?: string;
-    } & {
-      label: Defined;
-      lat: Defined;
-      lon: Defined;
-    },
-    SuggestionBrand
-  > => true,
-  'Suggestion',
+export const SuggestionsList: SuggestionsListC = t.brand(
+  t.array(Suggestion_.Suggestion),
+  (x): x is t.Branded<Array<Suggestion_.Suggestion>, SuggestionsListBrand> => true,
+  'SuggestionsList',
 );
-export interface SuggestionBrand {
-  readonly Suggestion: unique symbol;
+export interface SuggestionsListBrand {
+  readonly SuggestionsList: unique symbol;
 }
 
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
   {
-    suggestions?: Array<string>;
+    provider?: string;
+    suggestions?: SuggestionsList;
     debug?: Record<string, unknown>;
   } & {
+    provider: Defined;
     suggestions: Defined;
   },
   ResponseBrand
@@ -116,10 +65,12 @@ export type ResponseC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        suggestions: t.ArrayC<t.StringC>;
+        provider: t.StringC;
+        suggestions: typeof SuggestionsList;
         debug: t.UnknownRecordC;
       }>,
       t.TypeC<{
+        provider: typeof Defined;
         suggestions: typeof Defined;
       }>,
     ]
@@ -129,10 +80,12 @@ export type ResponseC = t.BrandC<
 export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
-      suggestions: t.array(t.string),
+      provider: t.string,
+      suggestions: SuggestionsList,
       debug: t.UnknownRecord,
     }),
     t.type({
+      provider: Defined,
       suggestions: Defined,
     }),
   ]),
@@ -140,9 +93,11 @@ export const Response: ResponseC = t.brand(
     x,
   ): x is t.Branded<
     {
-      suggestions?: Array<string>;
+      provider?: string;
+      suggestions?: SuggestionsList;
       debug?: Record<string, unknown>;
     } & {
+      provider: Defined;
       suggestions: Defined;
     },
     ResponseBrand

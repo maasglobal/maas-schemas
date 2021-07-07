@@ -41,7 +41,7 @@ export type Request = t.Branded<
       name?: Address_.PlaceName;
       lat?: UnitsGeo_.RelaxedLatitude;
       lon?: UnitsGeo_.RelaxedLongitude;
-      regionCode?: string;
+      providerHint?: string;
       count?: number;
       radius?: UnitsGeo_.Distance & unknown;
     } & {
@@ -62,7 +62,7 @@ export type RequestC = t.BrandC<
           name: typeof Address_.PlaceName;
           lat: typeof UnitsGeo_.RelaxedLatitude;
           lon: typeof UnitsGeo_.RelaxedLongitude;
-          regionCode: t.StringC;
+          providerHint: t.StringC;
           count: t.NumberC;
           radius: t.IntersectionC<[typeof UnitsGeo_.Distance, t.UnknownC]>;
         }>,
@@ -85,7 +85,7 @@ export const Request: RequestC = t.brand(
         name: Address_.PlaceName,
         lat: UnitsGeo_.RelaxedLatitude,
         lon: UnitsGeo_.RelaxedLongitude,
-        regionCode: t.string,
+        providerHint: t.string,
         count: t.number,
         radius: t.intersection([UnitsGeo_.Distance, t.unknown]),
       }),
@@ -106,7 +106,7 @@ export const Request: RequestC = t.brand(
         name?: Address_.PlaceName;
         lat?: UnitsGeo_.RelaxedLatitude;
         lon?: UnitsGeo_.RelaxedLongitude;
-        regionCode?: string;
+        providerHint?: string;
         count?: number;
         radius?: UnitsGeo_.Distance & unknown;
       } & {
