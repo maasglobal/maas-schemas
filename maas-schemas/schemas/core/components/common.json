@@ -101,6 +101,11 @@
       "type": "string",
       "minLength": 4
     },
+    "ssidFI": {
+      "description": "Finnish Social Security ID",
+      "type": "string",
+      "pattern": "^[0-9]{6}[-+A][0-9]{3}[0-9ABCDEFHJKLMNPRSTUVWXY]$"
+    },
     "encodedQueryParam": {
       "description": "Encoded Query Params",
       "type": "string",

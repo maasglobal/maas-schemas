@@ -71,6 +71,7 @@ export type Customer = t.Branded<
     clientId?: Common_.ClientId;
     dob?: boolean | Units_.IsoDate;
     ssid?: boolean | Common_.Ssid;
+    'ssid-fi'?: boolean | Common_.SsidFI;
     documents?: Array<PersonalDocument_.PersonalDocument>;
     balances?: Record<
       string,
@@ -123,6 +124,7 @@ export type CustomerC = t.BrandC<
     clientId: typeof Common_.ClientId;
     dob: t.UnionC<[t.BooleanC, typeof Units_.IsoDate]>;
     ssid: t.UnionC<[t.BooleanC, typeof Common_.Ssid]>;
+    'ssid-fi': t.UnionC<[t.BooleanC, typeof Common_.SsidFI]>;
     documents: t.ArrayC<typeof PersonalDocument_.PersonalDocument>;
     balances: t.RecordC<
       t.StringC,
@@ -203,6 +205,7 @@ export const Customer: CustomerC = t.brand(
     clientId: Common_.ClientId,
     dob: t.union([t.boolean, Units_.IsoDate]),
     ssid: t.union([t.boolean, Common_.Ssid]),
+    'ssid-fi': t.union([t.boolean, Common_.SsidFI]),
     documents: t.array(PersonalDocument_.PersonalDocument),
     balances: t.record(
       t.string,
@@ -269,6 +272,7 @@ export const Customer: CustomerC = t.brand(
       clientId?: Common_.ClientId;
       dob?: boolean | Units_.IsoDate;
       ssid?: boolean | Common_.Ssid;
+      'ssid-fi'?: boolean | Common_.SsidFI;
       documents?: Array<PersonalDocument_.PersonalDocument>;
       balances?: Record<
         string,
