@@ -73,6 +73,17 @@
         }
       ]
     },
+    "ssid-fi": {
+      "description": "Finnish Social Security ID",
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/ssidFI"
+        }
+      ]
+    },
     "subscriberType": {
       "description": "Subscriber Type",
       "type": "string"
