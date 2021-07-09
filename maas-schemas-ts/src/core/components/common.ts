@@ -325,6 +325,21 @@ export interface SsidBrand {
   readonly Ssid: unique symbol;
 }
 
+// SsidFI
+// Finnish Social Security ID
+export type SsidFI = t.Branded<string, SsidFIBrand>;
+export type SsidFIC = t.BrandC<t.StringC, SsidFIBrand>;
+export const SsidFI: SsidFIC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, SsidFIBrand> =>
+    typeof x !== 'string' ||
+    x.match(RegExp('^[0-9]{6}[-+A][0-9]{3}[0-9ABCDEFHJKLMNPRSTUVWXY]$')) !== null,
+  'SsidFI',
+);
+export interface SsidFIBrand {
+  readonly SsidFI: unique symbol;
+}
+
 // EncodedQueryParam
 // Encoded Query Params
 export type EncodedQueryParam = t.Branded<string, EncodedQueryParamBrand>;

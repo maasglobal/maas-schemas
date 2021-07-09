@@ -35,6 +35,7 @@ export type PersonalData = t.Branded<
     zipCode?: Address_.ZipCode;
     dob?: boolean | Units_.IsoDate;
     ssid?: boolean | Common_.Ssid;
+    'ssid-fi'?: boolean | Common_.SsidFI;
     subscriberType?: string;
     profileImageUrl?: string;
     nationality?: string;
@@ -61,6 +62,7 @@ export type PersonalDataC = t.BrandC<
         zipCode: typeof Address_.ZipCode;
         dob: t.UnionC<[t.BooleanC, typeof Units_.IsoDate]>;
         ssid: t.UnionC<[t.BooleanC, typeof Common_.Ssid]>;
+        'ssid-fi': t.UnionC<[t.BooleanC, typeof Common_.SsidFI]>;
         subscriberType: t.StringC;
         profileImageUrl: t.StringC;
         nationality: t.StringC;
@@ -89,6 +91,7 @@ export const PersonalData: PersonalDataC = t.brand(
       zipCode: Address_.ZipCode,
       dob: t.union([t.boolean, Units_.IsoDate]),
       ssid: t.union([t.boolean, Common_.Ssid]),
+      'ssid-fi': t.union([t.boolean, Common_.SsidFI]),
       subscriberType: t.string,
       profileImageUrl: t.string,
       nationality: t.string,
@@ -115,6 +118,7 @@ export const PersonalData: PersonalDataC = t.brand(
       zipCode?: Address_.ZipCode;
       dob?: boolean | Units_.IsoDate;
       ssid?: boolean | Common_.Ssid;
+      'ssid-fi'?: boolean | Common_.SsidFI;
       subscriberType?: string;
       profileImageUrl?: string;
       nationality?: string;
