@@ -41,10 +41,13 @@ export type Request = t.Branded<
       name?: Address_.PlaceName;
       lat?: UnitsGeo_.RelaxedLatitude;
       lon?: UnitsGeo_.RelaxedLongitude;
+      providerHint?: string;
       count?: number;
       radius?: UnitsGeo_.Distance & unknown;
     } & {
       name: Defined;
+      lat: Defined;
+      lon: Defined;
     };
     headers?: ApiCommon_.Headers;
   },
@@ -59,11 +62,14 @@ export type RequestC = t.BrandC<
           name: typeof Address_.PlaceName;
           lat: typeof UnitsGeo_.RelaxedLatitude;
           lon: typeof UnitsGeo_.RelaxedLongitude;
+          providerHint: t.StringC;
           count: t.NumberC;
           radius: t.IntersectionC<[typeof UnitsGeo_.Distance, t.UnknownC]>;
         }>,
         t.TypeC<{
           name: typeof Defined;
+          lat: typeof Defined;
+          lon: typeof Defined;
         }>,
       ]
     >;
@@ -79,11 +85,14 @@ export const Request: RequestC = t.brand(
         name: Address_.PlaceName,
         lat: UnitsGeo_.RelaxedLatitude,
         lon: UnitsGeo_.RelaxedLongitude,
+        providerHint: t.string,
         count: t.number,
         radius: t.intersection([UnitsGeo_.Distance, t.unknown]),
       }),
       t.type({
         name: Defined,
+        lat: Defined,
+        lon: Defined,
       }),
     ]),
     headers: ApiCommon_.Headers,
@@ -97,10 +106,13 @@ export const Request: RequestC = t.brand(
         name?: Address_.PlaceName;
         lat?: UnitsGeo_.RelaxedLatitude;
         lon?: UnitsGeo_.RelaxedLongitude;
+        providerHint?: string;
         count?: number;
         radius?: UnitsGeo_.Distance & unknown;
       } & {
         name: Defined;
+        lat: Defined;
+        lon: Defined;
       };
       headers?: ApiCommon_.Headers;
     },

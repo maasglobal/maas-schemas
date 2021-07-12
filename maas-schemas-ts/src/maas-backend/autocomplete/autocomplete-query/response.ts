@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Suggestion_ from './suggestion';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -28,13 +29,34 @@ export const Defined: DefinedC = new DefinedType();
 export const schemaId =
   'http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/response.json';
 
+// SuggestionsList
+// The purpose of this remains a mystery
+export type SuggestionsList = t.Branded<
+  Array<Suggestion_.Suggestion>,
+  SuggestionsListBrand
+>;
+export type SuggestionsListC = t.BrandC<
+  t.ArrayC<typeof Suggestion_.Suggestion>,
+  SuggestionsListBrand
+>;
+export const SuggestionsList: SuggestionsListC = t.brand(
+  t.array(Suggestion_.Suggestion),
+  (x): x is t.Branded<Array<Suggestion_.Suggestion>, SuggestionsListBrand> => true,
+  'SuggestionsList',
+);
+export interface SuggestionsListBrand {
+  readonly SuggestionsList: unique symbol;
+}
+
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
   {
-    suggestions?: Array<string>;
+    provider?: string;
+    suggestions?: SuggestionsList;
     debug?: Record<string, unknown>;
   } & {
+    provider: Defined;
     suggestions: Defined;
   },
   ResponseBrand
@@ -43,10 +65,12 @@ export type ResponseC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        suggestions: t.ArrayC<t.StringC>;
+        provider: t.StringC;
+        suggestions: typeof SuggestionsList;
         debug: t.UnknownRecordC;
       }>,
       t.TypeC<{
+        provider: typeof Defined;
         suggestions: typeof Defined;
       }>,
     ]
@@ -56,10 +80,12 @@ export type ResponseC = t.BrandC<
 export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
-      suggestions: t.array(t.string),
+      provider: t.string,
+      suggestions: SuggestionsList,
       debug: t.UnknownRecord,
     }),
     t.type({
+      provider: Defined,
       suggestions: Defined,
     }),
   ]),
@@ -67,9 +93,11 @@ export const Response: ResponseC = t.brand(
     x,
   ): x is t.Branded<
     {
-      suggestions?: Array<string>;
+      provider?: string;
+      suggestions?: SuggestionsList;
       debug?: Record<string, unknown>;
     } & {
+      provider: Defined;
       suggestions: Defined;
     },
     ResponseBrand

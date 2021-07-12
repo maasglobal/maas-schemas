@@ -3,16 +3,24 @@
   "description": "Response schema for autocomplete",
   "type": "object",
   "properties": {
-    "suggestions": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+    "provider": {
+      "type": "string",
+      "description": "The autocomplete provider used to return the results",
+      "example": "google"
     },
+    "suggestions": { "$ref": "#/definitions/suggestionsList" },
     "debug": {
       "type": "object"
     }
   },
+  "required": ["provider", "suggestions"],
   "additionalProperties": false,
-  "required": ["suggestions"]
+  "definitions": {
+    "suggestionsList": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/suggestion.json"
+      }
+    }
+  }
 }
