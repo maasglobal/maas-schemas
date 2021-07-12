@@ -386,6 +386,9 @@ export type Provider = t.Branded<
       ticket?: boolean;
       stationsList?: boolean;
       stationsRetrieve?: boolean;
+      packagesList?: boolean;
+      options?: boolean;
+      journeyPlanner?: boolean;
     } & {
       ticket: Defined;
       stationsList: Defined;
@@ -454,6 +457,9 @@ export type ProviderC = t.BrandC<
               ticket: t.BooleanC;
               stationsList: t.BooleanC;
               stationsRetrieve: t.BooleanC;
+              packagesList: t.BooleanC;
+              options: t.BooleanC;
+              journeyPlanner: t.BooleanC;
             }>,
             t.TypeC<{
               ticket: typeof Defined;
@@ -557,6 +563,9 @@ export const Provider: ProviderC = t.brand(
           ticket: t.boolean,
           stationsList: t.boolean,
           stationsRetrieve: t.boolean,
+          packagesList: t.boolean,
+          options: t.boolean,
+          journeyPlanner: t.boolean,
         }),
         t.type({
           ticket: Defined,
@@ -637,6 +646,9 @@ export const Provider: ProviderC = t.brand(
         ticket?: boolean;
         stationsList?: boolean;
         stationsRetrieve?: boolean;
+        packagesList?: boolean;
+        options?: boolean;
+        journeyPlanner?: boolean;
       } & {
         ticket: Defined;
         stationsList: Defined;

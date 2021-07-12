@@ -79,7 +79,29 @@
         }
       ],
       "cancelling": false,
-      "configurator": {},
+      "configurator": {
+        "outboundSingle": {
+          "type": "oneOf",
+          "name": "Outbound Single",
+          "description": "Are you posh or not?",
+          "choices": [
+            {
+              "id": "first-class",
+              "name": "1st Class",
+              "description": "Yes, posh",
+              "fares": [{ "amount": 100.0, "currency": "EUR" }],
+              "default": false
+            },
+            {
+              "id": "second-class",
+              "name": "2nd Class",
+              "description": "Not posh",
+              "fares": [{ "amount": 30.0, "currency": "EUR" }],
+              "default": true
+            }
+          ]
+        }
+      },
       "customerSelection": {}
     },
     "paymentParameters": {
@@ -163,7 +185,29 @@
         }
       ],
       "cancelling": false,
-      "configurator": {},
+      "configurator": {
+        "outboundSingle": {
+          "type": "oneOf",
+          "name": "Outbound Single",
+          "description": "Are you posh or not?",
+          "choices": [
+            {
+              "id": "first-class",
+              "name": "1st Class",
+              "description": "Yes, posh",
+              "fares": [{ "amount": 100.0, "currency": "EUR" }],
+              "default": false
+            },
+            {
+              "id": "second-class",
+              "name": "2nd Class",
+              "description": "Not posh",
+              "fares": [{ "amount": 30.0, "currency": "EUR" }],
+              "default": true
+            }
+          ]
+        }
+      },
       "customerSelection": {}
     },
     "paymentParameters": {

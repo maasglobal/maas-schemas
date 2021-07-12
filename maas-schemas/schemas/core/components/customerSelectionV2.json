@@ -1,0 +1,11 @@
+{
+  "$id": "http://maasglobal.com/core/components/customerSelectionV2.json",
+  "description": "Customer Selection for Configurator v2",
+  "type": "object",
+  "patternProperties": {
+    "^": {
+      "$ref": "http://maasglobal.com/core/components/customerSelectionCommon.json#/definitions/configChoiceSelection"
+    }
+  },
+  "additionalProperties": false
+}
