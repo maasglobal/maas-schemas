@@ -1342,35 +1342,15 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/response.json
-WARNING: example field not supported
-  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/response.json
-INFO: missing description
-  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
-WARNING: example field not supported
-  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
 INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
-WARNING: example field not supported
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
-WARNING: example field not supported
-  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
 INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
-WARNING: example field not supported
-  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
-WARNING: google field not supported
-  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
-WARNING: routerank field not supported
-  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
-INFO: missing description
-  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
-INFO: missing description
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/booking-option-create/request.json

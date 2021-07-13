@@ -4,17 +4,21 @@
   "type": "object",
   "properties": {
     "label": {
-      "type": "string",
-      "example": "Nyon, Switzerland"
+      "type": "string"
     },
     "addressId": {
-      "type": "string",
-      "example": "rrPlaceId%3Ape--Nyon--whosonfirst%3Alocality%3A101914095"
+      "type": "string"
     },
     "meta": {
       "type": "object",
-      "google": { "$ref": "#/definitions/googleMeta" },
-      "routerank": { "$ref": "#/definitions/routerankMeta" }
+      "properties": {
+        "google": {
+          "$ref": "#/definitions/googleMeta"
+        },
+        "routerank": {
+          "$ref": "#/definitions/routerankMeta"
+        }
+      }
     }
   },
   "required": ["label", "meta"],
@@ -22,19 +26,20 @@
   "definitions": {
     "googleMeta": {
       "type": "object",
+      "description": "Google autocomplete API specific metadata",
       "properties": {
         "placeId": {
-          "type": "string",
-          "example": "ChIJzU8-ZyCojkcRo3MctwyaeMM"
+          "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "routerankMeta": {
       "type": "object",
+      "description": "Routerank places API specific metadata",
       "properties": {
         "id": {
-          "type": "string",
-          "example": "pe--Nyon--whosonfirst:locality:101914095"
+          "type": "string"
         },
         "lat": {
           "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude"
@@ -42,7 +47,23 @@
         "lon": {
           "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude"
         }
+      },
+      "additionalProperties": false
+    }
+  },
+  "examples": [
+    {
+      "label": "Nyons, France",
+      "google": { "placeId": "ChIJo_XBpV-ByhIREL6_5CqrCAQ" }
+    },
+    {
+      "label": "Nyon, Switzerland",
+      "addressId": "rrPlaceId%3Ape--Nyon--whosonfirst%3Alocality%3A101914095",
+      "routerank": {
+        "id": "pe--Nyon--whosonfirst:locality:101914095",
+        "lat": 46.38641,
+        "lon": 6.23562
       }
     }
-  }
+  ]
 }

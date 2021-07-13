@@ -10,6 +10,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 import * as Suggestion_ from './suggestion';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -30,7 +32,7 @@ export const schemaId =
   'http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/response.json';
 
 // SuggestionsList
-// The purpose of this remains a mystery
+// The list of autocomplete suggestions
 export type SuggestionsList = t.Branded<
   Array<Suggestion_.Suggestion>,
   SuggestionsListBrand
@@ -107,6 +109,39 @@ export const Response: ResponseC = t.brand(
 export interface ResponseBrand {
   readonly Response: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(Response)).decodeSync(examplesResponse) // => examplesResponse */
+export const examplesResponse: NonEmptyArray<Response> = ([
+  {
+    provider: 'google',
+    suggestions: [
+      { label: 'Nyon, Switzerland', google: { placeId: 'ChIJZwgvdy9DjEcRR69BEhrUt28' } },
+      { label: 'Nyons, France', google: { placeId: 'ChIJo_XBpV-ByhIREL6_5CqrCAQ' } },
+    ],
+  },
+  {
+    provider: 'routerank',
+    suggestions: [
+      {
+        label: 'Nyon, Switzerland',
+        addressId: 'rrPlaceId%3Ape--Nyon--whosonfirst%3Alocality%3A101914095',
+        routerank: {
+          id: 'pe--Nyon--whosonfirst:locality:101914095',
+          lat: 46.38641,
+          lon: 6.23562,
+        },
+      },
+      {
+        label: 'Arnex-sur-Nyon, Switzerland',
+        addressId: 'rrPlaceId%3Ape--Arnex-sur-Nyon--whosonfirst%3Alocality%3A1125767805',
+        routerank: {
+          id: 'pe--Arnex-sur-Nyon--whosonfirst:locality:1125767805',
+          lat: 46.3729,
+          lon: 6.18989,
+        },
+      },
+    ],
+  },
+] as unknown) as NonEmptyArray<Response>;
 
 export default Response;
 

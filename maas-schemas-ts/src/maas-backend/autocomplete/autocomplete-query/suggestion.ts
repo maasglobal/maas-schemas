@@ -10,6 +10,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 import * as UnitsGeo_ from '../../../core/components/units-geo';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -30,7 +32,7 @@ export const schemaId =
   'http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/suggestion.json';
 
 // GoogleMeta
-// The purpose of this remains a mystery
+// Google autocomplete API specific metadata
 export type GoogleMeta = t.Branded<
   {
     placeId?: string;
@@ -62,7 +64,7 @@ export interface GoogleMetaBrand {
 }
 
 // RouterankMeta
-// The purpose of this remains a mystery
+// Routerank places API specific metadata
 export type RouterankMeta = t.Branded<
   {
     id?: string;
@@ -107,7 +109,10 @@ export type Suggestion = t.Branded<
   {
     label?: string;
     addressId?: string;
-    meta?: Record<string, unknown>;
+    meta?: {
+      google?: GoogleMeta;
+      routerank?: RouterankMeta;
+    };
   } & {
     label: Defined;
     meta: Defined;
@@ -120,7 +125,10 @@ export type SuggestionC = t.BrandC<
       t.PartialC<{
         label: t.StringC;
         addressId: t.StringC;
-        meta: t.UnknownRecordC;
+        meta: t.PartialC<{
+          google: typeof GoogleMeta;
+          routerank: typeof RouterankMeta;
+        }>;
       }>,
       t.TypeC<{
         label: typeof Defined;
@@ -135,7 +143,10 @@ export const Suggestion: SuggestionC = t.brand(
     t.partial({
       label: t.string,
       addressId: t.string,
-      meta: t.UnknownRecord,
+      meta: t.partial({
+        google: GoogleMeta,
+        routerank: RouterankMeta,
+      }),
     }),
     t.type({
       label: Defined,
@@ -148,7 +159,10 @@ export const Suggestion: SuggestionC = t.brand(
     {
       label?: string;
       addressId?: string;
-      meta?: Record<string, unknown>;
+      meta?: {
+        google?: GoogleMeta;
+        routerank?: RouterankMeta;
+      };
     } & {
       label: Defined;
       meta: Defined;
@@ -160,6 +174,19 @@ export const Suggestion: SuggestionC = t.brand(
 export interface SuggestionBrand {
   readonly Suggestion: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(Suggestion)).decodeSync(examplesSuggestion) // => examplesSuggestion */
+export const examplesSuggestion: NonEmptyArray<Suggestion> = ([
+  { label: 'Nyons, France', google: { placeId: 'ChIJo_XBpV-ByhIREL6_5CqrCAQ' } },
+  {
+    label: 'Nyon, Switzerland',
+    addressId: 'rrPlaceId%3Ape--Nyon--whosonfirst%3Alocality%3A101914095',
+    routerank: {
+      id: 'pe--Nyon--whosonfirst:locality:101914095',
+      lat: 46.38641,
+      lon: 6.23562,
+    },
+  },
+] as unknown) as NonEmptyArray<Suggestion>;
 
 export default Suggestion;
 
