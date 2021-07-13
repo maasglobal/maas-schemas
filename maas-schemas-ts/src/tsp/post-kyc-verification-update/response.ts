@@ -36,6 +36,8 @@ export type Response = t.Branded<
   {
     status?: number;
     message?: string;
+    state?: string;
+    errorCode?: string;
   } & {
     message: Defined;
     status: Defined;
@@ -48,6 +50,8 @@ export type ResponseC = t.BrandC<
       t.PartialC<{
         status: t.NumberC;
         message: t.StringC;
+        state: t.StringC;
+        errorCode: t.StringC;
       }>,
       t.TypeC<{
         message: typeof Defined;
@@ -62,6 +66,8 @@ export const Response: ResponseC = t.brand(
     t.partial({
       status: t.number,
       message: t.string,
+      state: t.string,
+      errorCode: t.string,
     }),
     t.type({
       message: Defined,
@@ -74,6 +80,8 @@ export const Response: ResponseC = t.brand(
     {
       status?: number;
       message?: string;
+      state?: string;
+      errorCode?: string;
     } & {
       message: Defined;
       status: Defined;
@@ -88,6 +96,12 @@ export interface ResponseBrand {
 /** require('io-ts-validator').validator(nonEmptyArray(Response)).decodeSync(examplesResponse) // => examplesResponse */
 export const examplesResponse: NonEmptyArray<Response> = ([
   { status: 200, message: 'Documents were processed.' },
+  {
+    status: 403,
+    message: 'Verification state returned from TSP',
+    state: 'DECLINED',
+    errorCode: 'ERROR_TSP_CATEGORY_B_REQUIRED',
+  },
 ] as unknown) as NonEmptyArray<Response>;
 
 export default Response;
