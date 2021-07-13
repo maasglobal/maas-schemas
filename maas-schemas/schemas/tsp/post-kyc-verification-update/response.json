@@ -4,10 +4,20 @@
   "type": "object",
   "properties": {
     "status": {
-      "type": "number"
+      "type": "number",
+      "description": "Status code"
     },
     "message": {
-      "type": "string"
+      "type": "string",
+      "description": "Debug message"
+    },
+    "state": {
+      "type": "string",
+      "description": "Verification state"
+    },
+    "errorCode": {
+      "type": "string",
+      "description": "Error code"
     }
   },
   "required": ["message", "status"],
@@ -16,6 +26,12 @@
     {
       "status": 200,
       "message": "Documents were processed."
+    },
+    {
+      "status": 403,
+      "message": "Verification state returned from TSP",
+      "state": "DECLINED",
+      "errorCode": "ERROR_TSP_CATEGORY_B_REQUIRED"
     }
   ]
 }
