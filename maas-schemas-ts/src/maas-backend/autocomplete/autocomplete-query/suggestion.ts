@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as UnitsGeo_ from '../../../core/components/units-geo';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -30,11 +31,30 @@ export const schemaId =
 
 // GoogleMeta
 // The purpose of this remains a mystery
-export type GoogleMeta = t.Branded<unknown, GoogleMetaBrand>;
-export type GoogleMetaC = t.BrandC<t.UnknownC, GoogleMetaBrand>;
+export type GoogleMeta = t.Branded<
+  {
+    placeId?: string;
+  },
+  GoogleMetaBrand
+>;
+export type GoogleMetaC = t.BrandC<
+  t.PartialC<{
+    placeId: t.StringC;
+  }>,
+  GoogleMetaBrand
+>;
 export const GoogleMeta: GoogleMetaC = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, GoogleMetaBrand> => true,
+  t.partial({
+    placeId: t.string,
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      placeId?: string;
+    },
+    GoogleMetaBrand
+  > => true,
   'GoogleMeta',
 );
 export interface GoogleMetaBrand {
@@ -43,11 +63,38 @@ export interface GoogleMetaBrand {
 
 // RouterankMeta
 // The purpose of this remains a mystery
-export type RouterankMeta = t.Branded<unknown, RouterankMetaBrand>;
-export type RouterankMetaC = t.BrandC<t.UnknownC, RouterankMetaBrand>;
+export type RouterankMeta = t.Branded<
+  {
+    id?: string;
+    lat?: UnitsGeo_.RelaxedLatitude;
+    lon?: UnitsGeo_.RelaxedLongitude;
+  },
+  RouterankMetaBrand
+>;
+export type RouterankMetaC = t.BrandC<
+  t.PartialC<{
+    id: t.StringC;
+    lat: typeof UnitsGeo_.RelaxedLatitude;
+    lon: typeof UnitsGeo_.RelaxedLongitude;
+  }>,
+  RouterankMetaBrand
+>;
 export const RouterankMeta: RouterankMetaC = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, RouterankMetaBrand> => true,
+  t.partial({
+    id: t.string,
+    lat: UnitsGeo_.RelaxedLatitude,
+    lon: UnitsGeo_.RelaxedLongitude,
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      id?: string;
+      lat?: UnitsGeo_.RelaxedLatitude;
+      lon?: UnitsGeo_.RelaxedLongitude;
+    },
+    RouterankMetaBrand
+  > => true,
   'RouterankMeta',
 );
 export interface RouterankMetaBrand {

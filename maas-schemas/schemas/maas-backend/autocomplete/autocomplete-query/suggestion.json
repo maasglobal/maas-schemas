@@ -21,18 +21,28 @@
   "additionalProperties": false,
   "definitions": {
     "googleMeta": {
-      "plaveId": {
-        "type": "string",
-        "example": "ChIJzU8-ZyCojkcRo3MctwyaeMM"
+      "type": "object",
+      "properties": {
+        "placeId": {
+          "type": "string",
+          "example": "ChIJzU8-ZyCojkcRo3MctwyaeMM"
+        }
       }
     },
     "routerankMeta": {
-      "id": {
-        "type": "string",
-        "example": "pe--Nyon--whosonfirst:locality:101914095"
-      },
-      "lat": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude" },
-      "lon": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude" }
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "pe--Nyon--whosonfirst:locality:101914095"
+        },
+        "lat": {
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude"
+        },
+        "lon": {
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude"
+        }
+      }
     }
   }
 }
