@@ -9,7 +9,6 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as UnitsGeo_ from '../../../core/components/units-geo';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -29,17 +28,42 @@ export const Defined: DefinedC = new DefinedType();
 export const schemaId =
   'http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/suggestion.json';
 
+// GoogleMeta
+// The purpose of this remains a mystery
+export type GoogleMeta = t.Branded<unknown, GoogleMetaBrand>;
+export type GoogleMetaC = t.BrandC<t.UnknownC, GoogleMetaBrand>;
+export const GoogleMeta: GoogleMetaC = t.brand(
+  t.unknown,
+  (x): x is t.Branded<unknown, GoogleMetaBrand> => true,
+  'GoogleMeta',
+);
+export interface GoogleMetaBrand {
+  readonly GoogleMeta: unique symbol;
+}
+
+// RouterankMeta
+// The purpose of this remains a mystery
+export type RouterankMeta = t.Branded<unknown, RouterankMetaBrand>;
+export type RouterankMetaC = t.BrandC<t.UnknownC, RouterankMetaBrand>;
+export const RouterankMeta: RouterankMetaC = t.brand(
+  t.unknown,
+  (x): x is t.Branded<unknown, RouterankMetaBrand> => true,
+  'RouterankMeta',
+);
+export interface RouterankMetaBrand {
+  readonly RouterankMeta: unique symbol;
+}
+
 // Suggestion
 // The default export. More information at the top.
 export type Suggestion = t.Branded<
   {
-    id?: string;
     label?: string;
-    lat?: UnitsGeo_.RelaxedLatitude;
-    lon?: UnitsGeo_.RelaxedLongitude;
     addressId?: string;
+    meta?: Record<string, unknown>;
   } & {
     label: Defined;
+    meta: Defined;
   },
   SuggestionBrand
 >;
@@ -47,14 +71,13 @@ export type SuggestionC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        id: t.StringC;
         label: t.StringC;
-        lat: typeof UnitsGeo_.RelaxedLatitude;
-        lon: typeof UnitsGeo_.RelaxedLongitude;
         addressId: t.StringC;
+        meta: t.UnknownRecordC;
       }>,
       t.TypeC<{
         label: typeof Defined;
+        meta: typeof Defined;
       }>,
     ]
   >,
@@ -63,27 +86,25 @@ export type SuggestionC = t.BrandC<
 export const Suggestion: SuggestionC = t.brand(
   t.intersection([
     t.partial({
-      id: t.string,
       label: t.string,
-      lat: UnitsGeo_.RelaxedLatitude,
-      lon: UnitsGeo_.RelaxedLongitude,
       addressId: t.string,
+      meta: t.UnknownRecord,
     }),
     t.type({
       label: Defined,
+      meta: Defined,
     }),
   ]),
   (
     x,
   ): x is t.Branded<
     {
-      id?: string;
       label?: string;
-      lat?: UnitsGeo_.RelaxedLatitude;
-      lon?: UnitsGeo_.RelaxedLongitude;
       addressId?: string;
+      meta?: Record<string, unknown>;
     } & {
       label: Defined;
+      meta: Defined;
     },
     SuggestionBrand
   > => true,

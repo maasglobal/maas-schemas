@@ -1346,6 +1346,14 @@ WARNING: example field not supported
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/response.json
 INFO: missing description
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/response.json
+WARNING: plaveId field not supported
+  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
+WARNING: id field not supported
+  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
+WARNING: lat field not supported
+  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
+WARNING: lon field not supported
+  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
 INFO: primitive type "string" used outside top-level definitions
@@ -1356,9 +1364,13 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
 WARNING: example field not supported
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
-INFO: primitive type "string" used outside top-level definitions
+WARNING: google field not supported
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
-WARNING: example field not supported
+WARNING: routerank field not supported
+  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
+INFO: missing description
+  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
+INFO: missing description
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/booking-option-create/request.json
