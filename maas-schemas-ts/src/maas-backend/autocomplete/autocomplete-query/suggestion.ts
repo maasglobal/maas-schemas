@@ -176,14 +176,19 @@ export interface SuggestionBrand {
 }
 /** require('io-ts-validator').validator(nonEmptyArray(Suggestion)).decodeSync(examplesSuggestion) // => examplesSuggestion */
 export const examplesSuggestion: NonEmptyArray<Suggestion> = ([
-  { label: 'Nyons, France', google: { placeId: 'ChIJo_XBpV-ByhIREL6_5CqrCAQ' } },
+  {
+    label: 'Nyons, France',
+    meta: { google: { placeId: 'ChIJo_XBpV-ByhIREL6_5CqrCAQ' } },
+  },
   {
     label: 'Nyon, Switzerland',
     addressId: 'rrPlaceId%3Ape--Nyon--whosonfirst%3Alocality%3A101914095',
-    routerank: {
-      id: 'pe--Nyon--whosonfirst:locality:101914095',
-      lat: 46.38641,
-      lon: 6.23562,
+    meta: {
+      routerank: {
+        id: 'pe--Nyon--whosonfirst:locality:101914095',
+        lat: 46.38641,
+        lon: 6.23562,
+      },
     },
   },
 ] as unknown) as NonEmptyArray<Suggestion>;

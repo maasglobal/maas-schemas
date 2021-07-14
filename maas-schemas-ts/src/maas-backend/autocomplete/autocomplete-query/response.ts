@@ -114,8 +114,14 @@ export const examplesResponse: NonEmptyArray<Response> = ([
   {
     provider: 'google',
     suggestions: [
-      { label: 'Nyon, Switzerland', google: { placeId: 'ChIJZwgvdy9DjEcRR69BEhrUt28' } },
-      { label: 'Nyons, France', google: { placeId: 'ChIJo_XBpV-ByhIREL6_5CqrCAQ' } },
+      {
+        label: 'Nyon, Switzerland',
+        meta: { google: { placeId: 'ChIJZwgvdy9DjEcRR69BEhrUt28' } },
+      },
+      {
+        label: 'Nyons, France',
+        meta: { google: { placeId: 'ChIJo_XBpV-ByhIREL6_5CqrCAQ' } },
+      },
     ],
   },
   {
@@ -124,19 +130,23 @@ export const examplesResponse: NonEmptyArray<Response> = ([
       {
         label: 'Nyon, Switzerland',
         addressId: 'rrPlaceId%3Ape--Nyon--whosonfirst%3Alocality%3A101914095',
-        routerank: {
-          id: 'pe--Nyon--whosonfirst:locality:101914095',
-          lat: 46.38641,
-          lon: 6.23562,
+        meta: {
+          routerank: {
+            id: 'pe--Nyon--whosonfirst:locality:101914095',
+            lat: 46.38641,
+            lon: 6.23562,
+          },
         },
       },
       {
         label: 'Arnex-sur-Nyon, Switzerland',
         addressId: 'rrPlaceId%3Ape--Arnex-sur-Nyon--whosonfirst%3Alocality%3A1125767805',
-        routerank: {
-          id: 'pe--Arnex-sur-Nyon--whosonfirst:locality:1125767805',
-          lat: 46.3729,
-          lon: 6.18989,
+        meta: {
+          routerank: {
+            id: 'pe--Arnex-sur-Nyon--whosonfirst:locality:1125767805',
+            lat: 46.3729,
+            lon: 6.18989,
+          },
         },
       },
     ],
