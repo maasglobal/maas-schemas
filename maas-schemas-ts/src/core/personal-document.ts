@@ -14,6 +14,17 @@ import * as Common_ from './components/common';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
+export interface NullBrand {
+  readonly Null: unique symbol;
+}
+export type NullC = t.BrandC<t.UnknownC, NullBrand>;
+export const Null: NullC = t.brand(
+  t.unknown,
+  (n): n is t.Branded<unknown, NullBrand> => n === null,
+  'Null',
+);
+export type Null = t.TypeOf<typeof Null>;
+
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
   readonly _tag: 'DefinedType' = 'DefinedType';
@@ -28,17 +39,6 @@ export class DefinedType extends t.Type<Defined> {
 }
 export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
-
-export interface NullBrand {
-  readonly Null: unique symbol;
-}
-export type NullC = t.BrandC<t.UnknownC, NullBrand>;
-export const Null: NullC = t.brand(
-  t.unknown,
-  (n): n is t.Branded<unknown, NullBrand> => n === null,
-  'Null',
-);
-export type Null = t.TypeOf<typeof Null>;
 
 export const schemaId = 'http://maasglobal.com/core/personal-document.json';
 
@@ -346,20 +346,16 @@ export const examplesValidTo: NonEmptyArray<ValidTo> = ([
 
 // Category
 // The purpose of this remains a mystery
-export type Category = t.Branded<string, CategoryBrand>;
-export type CategoryC = t.BrandC<t.StringC, CategoryBrand>;
+export type Category = t.Branded<string | Null, CategoryBrand>;
+export type CategoryC = t.BrandC<t.UnionC<[t.StringC, typeof Null]>, CategoryBrand>;
 export const Category: CategoryC = t.brand(
-  t.string,
-  (x): x is t.Branded<string, CategoryBrand> => true,
+  t.union([t.string, Null]),
+  (x): x is t.Branded<string | Null, CategoryBrand> => true,
   'Category',
 );
 export interface CategoryBrand {
   readonly Category: unique symbol;
 }
-/** require('io-ts-validator').validator(nonEmptyArray(Category)).decodeSync(examplesCategory) // => examplesCategory */
-export const examplesCategory: NonEmptyArray<Category> = ([
-  'normal',
-] as unknown) as NonEmptyArray<Category>;
 
 // Details
 // The purpose of this remains a mystery
