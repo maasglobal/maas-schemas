@@ -58,8 +58,15 @@
       "examples": ["2030-12-31"]
     },
     "category": {
-      "type": "string",
-      "examples": ["normal"]
+      "oneOf": [
+        {
+          "type": "string",
+          "examples": ["normal"]
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "details": {
       "type": "object"
