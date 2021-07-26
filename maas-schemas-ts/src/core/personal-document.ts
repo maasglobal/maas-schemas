@@ -329,11 +329,14 @@ export const examplesValidFrom: NonEmptyArray<ValidFrom> = ([
 
 // ValidTo
 // The purpose of this remains a mystery
-export type ValidTo = t.Branded<Units_.IsoDate, ValidToBrand>;
-export type ValidToC = t.BrandC<typeof Units_.IsoDate, ValidToBrand>;
+export type ValidTo = t.Branded<Units_.IsoDate | Null, ValidToBrand>;
+export type ValidToC = t.BrandC<
+  t.UnionC<[typeof Units_.IsoDate, typeof Null]>,
+  ValidToBrand
+>;
 export const ValidTo: ValidToC = t.brand(
-  Units_.IsoDate,
-  (x): x is t.Branded<Units_.IsoDate, ValidToBrand> => true,
+  t.union([Units_.IsoDate, Null]),
+  (x): x is t.Branded<Units_.IsoDate | Null, ValidToBrand> => true,
   'ValidTo',
 );
 export interface ValidToBrand {
