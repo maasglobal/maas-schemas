@@ -2866,6 +2866,8 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/tsp/package-create/response.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/tsp/post-kyc-verification-update/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/tsp/post-kyc-verification-update/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/tsp/post-kyc-verification-update/response.json
 INFO: primitive type "number" used outside top-level definitions

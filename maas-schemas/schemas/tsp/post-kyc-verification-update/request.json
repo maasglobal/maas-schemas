@@ -5,6 +5,11 @@
   "properties": {
     "customer": {
       "$ref": "http://maasglobal.com/core/customer.json"
+    },
+    "verified": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of verified personal data itmes"
     }
   },
   "required": ["customer"],
@@ -40,7 +45,8 @@
             "validTo": "2022-02-21"
           }
         ]
-      }
+      },
+      "verified": ["dob", "ssid"]
     }
   ]
 }
