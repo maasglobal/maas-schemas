@@ -54,7 +54,14 @@
       "examples": ["2020-01-01"]
     },
     "validTo": {
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate" }],
+      "oneOf": [
+        {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+        },
+        {
+          "type": "null"
+        }
+      ],
       "examples": ["2030-12-31"]
     },
     "category": {
