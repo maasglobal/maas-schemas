@@ -346,11 +346,11 @@ export const examplesValidTo: NonEmptyArray<ValidTo> = ([
 
 // Category
 // The purpose of this remains a mystery
-export type Category = t.Branded<string | Null, CategoryBrand>;
-export type CategoryC = t.BrandC<t.UnionC<[t.StringC, typeof Null]>, CategoryBrand>;
+export type Category = t.Branded<Null | string, CategoryBrand>;
+export type CategoryC = t.BrandC<t.UnionC<[typeof Null, t.StringC]>, CategoryBrand>;
 export const Category: CategoryC = t.brand(
-  t.union([t.string, Null]),
-  (x): x is t.Branded<string | Null, CategoryBrand> => true,
+  t.union([Null, t.string]),
+  (x): x is t.Branded<Null | string, CategoryBrand> => true,
   'Category',
 );
 export interface CategoryBrand {
