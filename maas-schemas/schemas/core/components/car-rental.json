@@ -97,8 +97,7 @@
           "description": "Current geo location",
           "allOf": [{ "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location" }]
         }
-      },
-      "required": ["classification"]
+      }
     },
     "freeUntil": {
       "description": "Indicate the timestamp this booking option is valid",
