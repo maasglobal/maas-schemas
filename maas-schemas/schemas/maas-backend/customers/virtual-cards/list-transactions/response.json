@@ -1,0 +1,14 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/customers/virtual-cards/list-transactions/response.json",
+  "description": "MaaS customer virtual cards list transactions response",
+  "properties": {
+    "transactions": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json"
+      }
+    }
+  },
+  "required": ["transactions"],
+  "type": "object"
+}
