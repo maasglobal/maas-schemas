@@ -1821,6 +1821,14 @@ WARNING: minimum field not supported outside top-level definitions
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/response.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/list-transactions/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/list-transactions/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/list-transactions/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/list-transactions/response.json
+WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/provision/request.json
 INFO: primitive type "integer" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/provision/request.json
