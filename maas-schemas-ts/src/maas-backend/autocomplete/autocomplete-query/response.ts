@@ -9,6 +9,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Suggestion_ from './suggestion';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -28,13 +31,34 @@ export const Defined: DefinedC = new DefinedType();
 export const schemaId =
   'http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/response.json';
 
+// SuggestionsList
+// The list of autocomplete suggestions
+export type SuggestionsList = t.Branded<
+  Array<Suggestion_.Suggestion>,
+  SuggestionsListBrand
+>;
+export type SuggestionsListC = t.BrandC<
+  t.ArrayC<typeof Suggestion_.Suggestion>,
+  SuggestionsListBrand
+>;
+export const SuggestionsList: SuggestionsListC = t.brand(
+  t.array(Suggestion_.Suggestion),
+  (x): x is t.Branded<Array<Suggestion_.Suggestion>, SuggestionsListBrand> => true,
+  'SuggestionsList',
+);
+export interface SuggestionsListBrand {
+  readonly SuggestionsList: unique symbol;
+}
+
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
   {
-    suggestions?: Array<string>;
+    provider?: string;
+    suggestions?: SuggestionsList;
     debug?: Record<string, unknown>;
   } & {
+    provider: Defined;
     suggestions: Defined;
   },
   ResponseBrand
@@ -43,10 +67,12 @@ export type ResponseC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        suggestions: t.ArrayC<t.StringC>;
+        provider: t.StringC;
+        suggestions: typeof SuggestionsList;
         debug: t.UnknownRecordC;
       }>,
       t.TypeC<{
+        provider: typeof Defined;
         suggestions: typeof Defined;
       }>,
     ]
@@ -56,10 +82,12 @@ export type ResponseC = t.BrandC<
 export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
-      suggestions: t.array(t.string),
+      provider: t.string,
+      suggestions: SuggestionsList,
       debug: t.UnknownRecord,
     }),
     t.type({
+      provider: Defined,
       suggestions: Defined,
     }),
   ]),
@@ -67,9 +95,11 @@ export const Response: ResponseC = t.brand(
     x,
   ): x is t.Branded<
     {
-      suggestions?: Array<string>;
+      provider?: string;
+      suggestions?: SuggestionsList;
       debug?: Record<string, unknown>;
     } & {
+      provider: Defined;
       suggestions: Defined;
     },
     ResponseBrand
@@ -79,6 +109,49 @@ export const Response: ResponseC = t.brand(
 export interface ResponseBrand {
   readonly Response: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(Response)).decodeSync(examplesResponse) // => examplesResponse */
+export const examplesResponse: NonEmptyArray<Response> = ([
+  {
+    provider: 'google',
+    suggestions: [
+      {
+        label: 'Nyon, Switzerland',
+        meta: { google: { placeId: 'ChIJZwgvdy9DjEcRR69BEhrUt28' } },
+      },
+      {
+        label: 'Nyons, France',
+        meta: { google: { placeId: 'ChIJo_XBpV-ByhIREL6_5CqrCAQ' } },
+      },
+    ],
+  },
+  {
+    provider: 'routerank',
+    suggestions: [
+      {
+        label: 'Nyon, Switzerland',
+        addressId: 'rrPlaceId%3Ape--Nyon--whosonfirst%3Alocality%3A101914095',
+        meta: {
+          routerank: {
+            id: 'pe--Nyon--whosonfirst:locality:101914095',
+            lat: 46.38641,
+            lon: 6.23562,
+          },
+        },
+      },
+      {
+        label: 'Arnex-sur-Nyon, Switzerland',
+        addressId: 'rrPlaceId%3Ape--Arnex-sur-Nyon--whosonfirst%3Alocality%3A1125767805',
+        meta: {
+          routerank: {
+            id: 'pe--Arnex-sur-Nyon--whosonfirst:locality:1125767805',
+            lat: 46.3729,
+            lon: 6.18989,
+          },
+        },
+      },
+    ],
+  },
+] as unknown) as NonEmptyArray<Response>;
 
 export default Response;
 

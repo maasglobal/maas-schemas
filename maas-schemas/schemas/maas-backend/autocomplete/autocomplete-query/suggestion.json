@@ -1,0 +1,73 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/suggestion.json",
+  "description": "Response schema for autocomplete suggestion",
+  "type": "object",
+  "properties": {
+    "label": {
+      "type": "string"
+    },
+    "addressId": {
+      "type": "string"
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "google": {
+          "$ref": "#/definitions/googleMeta"
+        },
+        "routerank": {
+          "$ref": "#/definitions/routerankMeta"
+        }
+      }
+    }
+  },
+  "required": ["label", "meta"],
+  "additionalProperties": false,
+  "definitions": {
+    "googleMeta": {
+      "type": "object",
+      "description": "Google autocomplete API specific metadata",
+      "properties": {
+        "placeId": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "routerankMeta": {
+      "type": "object",
+      "description": "Routerank places API specific metadata",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "lat": {
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude"
+        },
+        "lon": {
+          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "examples": [
+    {
+      "label": "Nyons, France",
+      "meta": {
+        "google": { "placeId": "ChIJo_XBpV-ByhIREL6_5CqrCAQ" }
+      }
+    },
+    {
+      "label": "Nyon, Switzerland",
+      "addressId": "rrPlaceId%3Ape--Nyon--whosonfirst%3Alocality%3A101914095",
+      "meta": {
+        "routerank": {
+          "id": "pe--Nyon--whosonfirst:locality:101914095",
+          "lat": 46.38641,
+          "lon": 6.23562
+        }
+      }
+    }
+  ]
+}
