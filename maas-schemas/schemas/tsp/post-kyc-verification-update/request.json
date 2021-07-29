@@ -6,7 +6,7 @@
     "customer": {
       "$ref": "http://maasglobal.com/core/customer.json"
     },
-    "verified": {
+    "verifiedPersonalDataItems": {
       "type": "array",
       "items": { "type": "string" },
       "description": "List of verified personal data itmes"
@@ -46,7 +46,7 @@
           }
         ]
       },
-      "verified": ["dob", "ssid"]
+      "verifiedPersonalDataItems": ["dob", "ssid"]
     }
   ]
 }

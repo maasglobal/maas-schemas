@@ -1346,6 +1346,8 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/auth/auth-sms-request-code/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/request.json
 INFO: primitive type "integer" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/request.json
 WARNING: minimum field not supported outside top-level definitions
@@ -1360,6 +1362,16 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/booking-option-create/request.json
 INFO: missing description
@@ -1844,6 +1856,14 @@ WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/import-transactions/response.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/list-transactions/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/list-transactions/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/list-transactions/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/list-transactions/response.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/virtual-cards/provision/request.json
 INFO: primitive type "integer" used outside top-level definitions

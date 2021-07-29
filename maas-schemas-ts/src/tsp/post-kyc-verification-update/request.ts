@@ -36,7 +36,7 @@ export const schemaId =
 export type Request = t.Branded<
   {
     customer?: Customer_.Customer;
-    verified?: Array<string>;
+    verifiedPersonalDataItems?: Array<string>;
   } & {
     customer: Defined;
   },
@@ -47,7 +47,7 @@ export type RequestC = t.BrandC<
     [
       t.PartialC<{
         customer: typeof Customer_.Customer;
-        verified: t.ArrayC<t.StringC>;
+        verifiedPersonalDataItems: t.ArrayC<t.StringC>;
       }>,
       t.TypeC<{
         customer: typeof Defined;
@@ -60,7 +60,7 @@ export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       customer: Customer_.Customer,
-      verified: t.array(t.string),
+      verifiedPersonalDataItems: t.array(t.string),
     }),
     t.type({
       customer: Defined,
@@ -71,7 +71,7 @@ export const Request: RequestC = t.brand(
   ): x is t.Branded<
     {
       customer?: Customer_.Customer;
-      verified?: Array<string>;
+      verifiedPersonalDataItems?: Array<string>;
     } & {
       customer: Defined;
     },
@@ -109,7 +109,7 @@ export const examplesRequest: NonEmptyArray<Request> = ([
         },
       ],
     },
-    verified: ['dob', 'ssid'],
+    verifiedPersonalDataItems: ['dob', 'ssid'],
   },
 ] as unknown) as NonEmptyArray<Request>;
 
