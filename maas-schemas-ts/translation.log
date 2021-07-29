@@ -501,6 +501,24 @@ WARNING: maxLength field not supported outside top-level definitions
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/point-cost.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/state-log.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/state-log.json
@@ -958,6 +976,8 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
 WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: unexpected key in a $ref object
+  in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/modes/MODE_TRAIN.json
 WARNING: missing $schema declaration
@@ -1364,7 +1384,11 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/booking-virtual-create/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/booking-virtual-create/response.json
+WARNING: unexpected key in a $ref object
+  in ../maas-schemas/schemas/maas-backend/bookings/bookings-agency-options/request.json
 WARNING: patternProperty support has limitations
+  in ../maas-schemas/schemas/maas-backend/bookings/bookings-agency-options/request.json
+WARNING: unexpected key in a $ref object
   in ../maas-schemas/schemas/maas-backend/bookings/bookings-agency-options/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/bookings/bookings-agency-options/request.json
@@ -2220,11 +2244,15 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/routes/routes-query/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/routes/routes-query/request.json
+WARNING: unexpected key in a $ref object
+  in ../maas-schemas/schemas/maas-backend/routes/routes-query/request.json
 WARNING: patternProperty support has limitations
   in ../maas-schemas/schemas/maas-backend/routes/routes-query/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/routes/routes-query/request.json
 INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/routes/routes-query/request.json
+WARNING: unexpected key in a $ref object
   in ../maas-schemas/schemas/maas-backend/routes/routes-query/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/routes/routes-query/request.json

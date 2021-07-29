@@ -13,6 +13,7 @@ import * as UnitsGeo_ from '../../../core/components/units-geo';
 import * as Address_ from '../../../core/components/address';
 import * as Station_ from '../../../core/components/station';
 import * as Units_ from '../../../core/components/units';
+import * as SpaceDemand_ from '../../../core/components/spaceDemand';
 import * as ApiCommon_ from '../../../core/components/api-common';
 
 export type Defined = {} | null;
@@ -54,6 +55,7 @@ export type Payload = t.Branded<
     transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
     options?: Record<string, unknown>;
     bookingIdToExtend?: Units_.Uuid;
+    spaceDemand?: SpaceDemand_.SpaceDemand;
   } & Record<
     string,
     | UnitsGeo_.ShortLocationString
@@ -72,6 +74,7 @@ export type Payload = t.Branded<
     | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
     | Record<string, unknown>
     | Units_.Uuid
+    | SpaceDemand_.SpaceDemand
     | (string | number | boolean)
   >) & {
     from: Defined;
@@ -128,6 +131,7 @@ export type PayloadC = t.BrandC<
             >;
             options: t.UnknownRecordC;
             bookingIdToExtend: typeof Units_.Uuid;
+            spaceDemand: typeof SpaceDemand_.SpaceDemand;
           }>,
           t.RecordC<
             t.StringC,
@@ -176,6 +180,7 @@ export type PayloadC = t.BrandC<
                 >,
                 t.UnknownRecordC,
                 typeof Units_.Uuid,
+                typeof SpaceDemand_.SpaceDemand,
                 t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>,
               ]
             >
@@ -229,6 +234,7 @@ export const Payload: PayloadC = t.brand(
         ]),
         options: t.UnknownRecord,
         bookingIdToExtend: Units_.Uuid,
+        spaceDemand: SpaceDemand_.SpaceDemand,
       }),
       t.record(
         t.string,
@@ -268,6 +274,7 @@ export const Payload: PayloadC = t.brand(
           ]),
           t.UnknownRecord,
           Units_.Uuid,
+          SpaceDemand_.SpaceDemand,
           t.union([t.string, t.number, t.boolean]),
         ]),
       ),
@@ -298,6 +305,7 @@ export const Payload: PayloadC = t.brand(
       transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
       options?: Record<string, unknown>;
       bookingIdToExtend?: Units_.Uuid;
+      spaceDemand?: SpaceDemand_.SpaceDemand;
     } & Record<
       string,
       | UnitsGeo_.ShortLocationString
@@ -317,6 +325,7 @@ export const Payload: PayloadC = t.brand(
       | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
       | Record<string, unknown>
       | Units_.Uuid
+      | SpaceDemand_.SpaceDemand
       | (string | number | boolean)
     >) & {
       from: Defined;
