@@ -51,7 +51,7 @@ export type Payload = t.Branded<
     toAddress?: Address_.ComponentAddress;
     toRadius?: UnitsGeo_.Distance;
     bookingIdToExtend?: Units_.Uuid;
-    spaceDemand?: SpaceDemand_.SpaceDemand;
+    spaceDemand?: SpaceDemand_.SpaceDemandString;
   } & Record<
     string,
     | TravelMode_.TravelMode
@@ -66,7 +66,7 @@ export type Payload = t.Branded<
     | Address_.ComponentAddress
     | UnitsGeo_.Distance
     | Units_.Uuid
-    | SpaceDemand_.SpaceDemand
+    | SpaceDemand_.SpaceDemandString
     | (string | number | boolean)
   >,
   PayloadBrand
@@ -87,7 +87,7 @@ export type PayloadC = t.BrandC<
         toAddress: typeof Address_.ComponentAddress;
         toRadius: typeof UnitsGeo_.Distance;
         bookingIdToExtend: typeof Units_.Uuid;
-        spaceDemand: typeof SpaceDemand_.SpaceDemand;
+        spaceDemand: typeof SpaceDemand_.SpaceDemandString;
       }>,
       t.RecordC<
         t.StringC,
@@ -105,7 +105,7 @@ export type PayloadC = t.BrandC<
             typeof Address_.ComponentAddress,
             typeof UnitsGeo_.Distance,
             typeof Units_.Uuid,
-            typeof SpaceDemand_.SpaceDemand,
+            typeof SpaceDemand_.SpaceDemandString,
             t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>,
           ]
         >
@@ -129,7 +129,7 @@ export const Payload: PayloadC = t.brand(
       toAddress: Address_.ComponentAddress,
       toRadius: UnitsGeo_.Distance,
       bookingIdToExtend: Units_.Uuid,
-      spaceDemand: SpaceDemand_.SpaceDemand,
+      spaceDemand: SpaceDemand_.SpaceDemandString,
     }),
     t.record(
       t.string,
@@ -146,7 +146,7 @@ export const Payload: PayloadC = t.brand(
         Address_.ComponentAddress,
         UnitsGeo_.Distance,
         Units_.Uuid,
-        SpaceDemand_.SpaceDemand,
+        SpaceDemand_.SpaceDemandString,
         t.union([t.string, t.number, t.boolean]),
       ]),
     ),
@@ -167,7 +167,7 @@ export const Payload: PayloadC = t.brand(
       toAddress?: Address_.ComponentAddress;
       toRadius?: UnitsGeo_.Distance;
       bookingIdToExtend?: Units_.Uuid;
-      spaceDemand?: SpaceDemand_.SpaceDemand;
+      spaceDemand?: SpaceDemand_.SpaceDemandString;
     } & Record<
       string,
       | TravelMode_.TravelMode
@@ -182,7 +182,7 @@ export const Payload: PayloadC = t.brand(
       | Address_.ComponentAddress
       | UnitsGeo_.Distance
       | Units_.Uuid
-      | SpaceDemand_.SpaceDemand
+      | SpaceDemand_.SpaceDemandString
       | (string | number | boolean)
     >,
     PayloadBrand

@@ -500,23 +500,27 @@ WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/place.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/point-cost.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+INFO: primitive type "integer" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/spaceDemand.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/spaceDemand.json
-INFO: primitive type "integer" used outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/core/components/spaceDemand.json
-WARNING: minimum field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/spaceDemand.json
-INFO: primitive type "integer" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/spaceDemand.json
-WARNING: minimum field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/spaceDemand.json
-INFO: primitive type "integer" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/spaceDemand.json
-WARNING: minimum field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/spaceDemand.json
-INFO: primitive type "integer" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/spaceDemand.json
-WARNING: minimum field not supported outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/core/components/spaceDemand.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/state-log.json

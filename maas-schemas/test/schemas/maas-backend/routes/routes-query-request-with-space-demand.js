@@ -35,15 +35,13 @@ describe('routes-query-request', () => {
       Object.assign({}, requestWithoutSpaceDemand, {
         payload: {
           ...requestWithoutSpaceDemand.payload,
-          spaceDemand: {
-            adults: 1,
-          },
+          spaceDemand: 'adults:1|bags:2',
         },
       })
     );
 
     expect(result).to.exist;
     expect(result.payload.spaceDemand).to.exist;
-    expect(result.payload.spaceDemand.adults).to.equal(1);
+    expect(result.payload.spaceDemand).to.equal('adults:1|bags:2');
   });
 });

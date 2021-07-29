@@ -9,21 +9,23 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export const schemaId = 'http://maasglobal.com/core/components/spaceDemand.json';
 
-// SpaceDemand
-// The default export. More information at the top.
-export type SpaceDemand = t.Branded<
+// SpaceDemandObject
+// The purpose of this remains a mystery
+export type SpaceDemandObject = t.Branded<
   {
     adults?: number;
     children?: number;
     infants?: number;
     bags?: number;
   } & Record<string, unknown>,
-  SpaceDemandBrand
+  SpaceDemandObjectBrand
 >;
-export type SpaceDemandC = t.BrandC<
+export type SpaceDemandObjectC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
@@ -35,9 +37,9 @@ export type SpaceDemandC = t.BrandC<
       t.RecordC<t.StringC, t.UnknownC>,
     ]
   >,
-  SpaceDemandBrand
+  SpaceDemandObjectBrand
 >;
-export const SpaceDemand: SpaceDemandC = t.brand(
+export const SpaceDemandObject: SpaceDemandObjectC = t.brand(
   t.intersection([
     t.partial({
       adults: t.number,
@@ -56,8 +58,45 @@ export const SpaceDemand: SpaceDemandC = t.brand(
       infants?: number;
       bags?: number;
     } & Record<string, unknown>,
-    SpaceDemandBrand
+    SpaceDemandObjectBrand
   > => true,
+  'SpaceDemandObject',
+);
+export interface SpaceDemandObjectBrand {
+  readonly SpaceDemandObject: unique symbol;
+}
+
+// SpaceDemandString
+// The purpose of this remains a mystery
+export type SpaceDemandString = t.Branded<string, SpaceDemandStringBrand>;
+export type SpaceDemandStringC = t.BrandC<t.StringC, SpaceDemandStringBrand>;
+export const SpaceDemandString: SpaceDemandStringC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, SpaceDemandStringBrand> =>
+    typeof x !== 'string' ||
+    x.match(
+      RegExp(
+        '(adults:[1-9][0-9]*)|(children:[1-9][0-9]*)|(infants:[1-9][0-9]*)|(bags:[1-9][0-9]*)',
+        'gui',
+      ),
+    ) !== null,
+  'SpaceDemandString',
+);
+export interface SpaceDemandStringBrand {
+  readonly SpaceDemandString: unique symbol;
+}
+/** require('io-ts-validator').validator(nonEmptyArray(SpaceDemandString)).decodeSync(examplesSpaceDemandString) // => examplesSpaceDemandString */
+export const examplesSpaceDemandString: NonEmptyArray<SpaceDemandString> = ([
+  'adults:1|bags:2',
+] as unknown) as NonEmptyArray<SpaceDemandString>;
+
+// SpaceDemand
+// The default export. More information at the top.
+export type SpaceDemand = t.Branded<unknown, SpaceDemandBrand>;
+export type SpaceDemandC = t.BrandC<t.UnknownC, SpaceDemandBrand>;
+export const SpaceDemand: SpaceDemandC = t.brand(
+  t.unknown,
+  (x): x is t.Branded<unknown, SpaceDemandBrand> => true,
   'SpaceDemand',
 );
 export interface SpaceDemandBrand {

@@ -66,7 +66,7 @@
         },
         "spaceDemand": {
           "description": "Optional space demand. Example: 3 adults and 2 luggages.",
-          "$ref": "http://maasglobal.com/core/components/spaceDemand.json"
+          "$ref": "http://maasglobal.com/core/components/spaceDemand.json#/definitions/spaceDemandString"
         }
       },
       "patternProperties": {
