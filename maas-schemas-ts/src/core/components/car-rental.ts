@@ -151,22 +151,23 @@ export type CarRental = t.Branded<
       luggage?: Array<number>;
       transmission?: 'manual' | 'automatic' | Null;
       fuel?:
-        | 'diesel'
-        | 'electric'
-        | 'ethanol'
-        | 'gasoline'
-        | 'hybrid'
-        | 'hydrogen'
-        | 'lpg'
-        | 'multifuel'
-        | 'unspecified';
+        | (
+            | 'diesel'
+            | 'electric'
+            | 'ethanol'
+            | 'gasoline'
+            | 'hybrid'
+            | 'hydrogen'
+            | 'lpg'
+            | 'multifuel'
+            | 'unspecified'
+          )
+        | Null;
       classification?: ACRISS_.ACRISS | Ajv_.StringCoarsedNull;
       registrationPlate?: string;
       damage?: string;
       fuelLevel?: number;
       location?: UnitsGeo_.Location;
-    } & {
-      classification: Defined;
     };
     freeUntil?: Units_.Time;
     nextBooking?: {
@@ -196,16 +197,16 @@ export type CarRentalC = t.BrandC<
           voucher: t.UnknownC;
         }>;
         terms: t.UnknownC;
-        car: t.IntersectionC<
-          [
-            t.PartialC<{
-              passengers: t.NumberC;
-              doors: t.ArrayC<t.NumberC>;
-              luggage: t.ArrayC<t.NumberC>;
-              transmission: t.UnionC<
-                [t.LiteralC<'manual'>, t.LiteralC<'automatic'>, typeof Null]
-              >;
-              fuel: t.UnionC<
+        car: t.PartialC<{
+          passengers: t.NumberC;
+          doors: t.ArrayC<t.NumberC>;
+          luggage: t.ArrayC<t.NumberC>;
+          transmission: t.UnionC<
+            [t.LiteralC<'manual'>, t.LiteralC<'automatic'>, typeof Null]
+          >;
+          fuel: t.UnionC<
+            [
+              t.UnionC<
                 [
                   t.LiteralC<'diesel'>,
                   t.LiteralC<'electric'>,
@@ -217,20 +218,18 @@ export type CarRentalC = t.BrandC<
                   t.LiteralC<'multifuel'>,
                   t.LiteralC<'unspecified'>,
                 ]
-              >;
-              classification: t.UnionC<
-                [typeof ACRISS_.ACRISS, typeof Ajv_.StringCoarsedNull]
-              >;
-              registrationPlate: t.StringC;
-              damage: t.StringC;
-              fuelLevel: t.NumberC;
-              location: typeof UnitsGeo_.Location;
-            }>,
-            t.TypeC<{
-              classification: typeof Defined;
-            }>,
-          ]
-        >;
+              >,
+              typeof Null,
+            ]
+          >;
+          classification: t.UnionC<
+            [typeof ACRISS_.ACRISS, typeof Ajv_.StringCoarsedNull]
+          >;
+          registrationPlate: t.StringC;
+          damage: t.StringC;
+          fuelLevel: t.NumberC;
+          location: typeof UnitsGeo_.Location;
+        }>;
         freeUntil: typeof Units_.Time;
         nextBooking: t.PartialC<{
           startTime: typeof Units_.Time;
@@ -261,13 +260,13 @@ export const CarRental: CarRentalC = t.brand(
         voucher: t.unknown,
       }),
       terms: t.unknown,
-      car: t.intersection([
-        t.partial({
-          passengers: t.number,
-          doors: t.array(t.number),
-          luggage: t.array(t.number),
-          transmission: t.union([t.literal('manual'), t.literal('automatic'), Null]),
-          fuel: t.union([
+      car: t.partial({
+        passengers: t.number,
+        doors: t.array(t.number),
+        luggage: t.array(t.number),
+        transmission: t.union([t.literal('manual'), t.literal('automatic'), Null]),
+        fuel: t.union([
+          t.union([
             t.literal('diesel'),
             t.literal('electric'),
             t.literal('ethanol'),
@@ -278,16 +277,14 @@ export const CarRental: CarRentalC = t.brand(
             t.literal('multifuel'),
             t.literal('unspecified'),
           ]),
-          classification: t.union([ACRISS_.ACRISS, Ajv_.StringCoarsedNull]),
-          registrationPlate: t.string,
-          damage: t.string,
-          fuelLevel: t.number,
-          location: UnitsGeo_.Location,
-        }),
-        t.type({
-          classification: Defined,
-        }),
-      ]),
+          Null,
+        ]),
+        classification: t.union([ACRISS_.ACRISS, Ajv_.StringCoarsedNull]),
+        registrationPlate: t.string,
+        damage: t.string,
+        fuelLevel: t.number,
+        location: UnitsGeo_.Location,
+      }),
       freeUntil: Units_.Time,
       nextBooking: t.partial({
         startTime: Units_.Time,
@@ -322,22 +319,23 @@ export const CarRental: CarRentalC = t.brand(
         luggage?: Array<number>;
         transmission?: 'manual' | 'automatic' | Null;
         fuel?:
-          | 'diesel'
-          | 'electric'
-          | 'ethanol'
-          | 'gasoline'
-          | 'hybrid'
-          | 'hydrogen'
-          | 'lpg'
-          | 'multifuel'
-          | 'unspecified';
+          | (
+              | 'diesel'
+              | 'electric'
+              | 'ethanol'
+              | 'gasoline'
+              | 'hybrid'
+              | 'hydrogen'
+              | 'lpg'
+              | 'multifuel'
+              | 'unspecified'
+            )
+          | Null;
         classification?: ACRISS_.ACRISS | Ajv_.StringCoarsedNull;
         registrationPlate?: string;
         damage?: string;
         fuelLevel?: number;
         location?: UnitsGeo_.Location;
-      } & {
-        classification: Defined;
       };
       freeUntil?: Units_.Time;
       nextBooking?: {
