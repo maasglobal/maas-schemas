@@ -151,15 +151,18 @@ export type CarRental = t.Branded<
       luggage?: Array<number>;
       transmission?: 'manual' | 'automatic' | Null;
       fuel?:
-        | 'diesel'
-        | 'electric'
-        | 'ethanol'
-        | 'gasoline'
-        | 'hybrid'
-        | 'hydrogen'
-        | 'lpg'
-        | 'multifuel'
-        | 'unspecified';
+        | (
+            | 'diesel'
+            | 'electric'
+            | 'ethanol'
+            | 'gasoline'
+            | 'hybrid'
+            | 'hydrogen'
+            | 'lpg'
+            | 'multifuel'
+            | 'unspecified'
+          )
+        | Null;
       classification?: ACRISS_.ACRISS | Ajv_.StringCoarsedNull;
       registrationPlate?: string;
       damage?: string;
@@ -203,15 +206,20 @@ export type CarRentalC = t.BrandC<
           >;
           fuel: t.UnionC<
             [
-              t.LiteralC<'diesel'>,
-              t.LiteralC<'electric'>,
-              t.LiteralC<'ethanol'>,
-              t.LiteralC<'gasoline'>,
-              t.LiteralC<'hybrid'>,
-              t.LiteralC<'hydrogen'>,
-              t.LiteralC<'lpg'>,
-              t.LiteralC<'multifuel'>,
-              t.LiteralC<'unspecified'>,
+              t.UnionC<
+                [
+                  t.LiteralC<'diesel'>,
+                  t.LiteralC<'electric'>,
+                  t.LiteralC<'ethanol'>,
+                  t.LiteralC<'gasoline'>,
+                  t.LiteralC<'hybrid'>,
+                  t.LiteralC<'hydrogen'>,
+                  t.LiteralC<'lpg'>,
+                  t.LiteralC<'multifuel'>,
+                  t.LiteralC<'unspecified'>,
+                ]
+              >,
+              typeof Null,
             ]
           >;
           classification: t.UnionC<
@@ -258,15 +266,18 @@ export const CarRental: CarRentalC = t.brand(
         luggage: t.array(t.number),
         transmission: t.union([t.literal('manual'), t.literal('automatic'), Null]),
         fuel: t.union([
-          t.literal('diesel'),
-          t.literal('electric'),
-          t.literal('ethanol'),
-          t.literal('gasoline'),
-          t.literal('hybrid'),
-          t.literal('hydrogen'),
-          t.literal('lpg'),
-          t.literal('multifuel'),
-          t.literal('unspecified'),
+          t.union([
+            t.literal('diesel'),
+            t.literal('electric'),
+            t.literal('ethanol'),
+            t.literal('gasoline'),
+            t.literal('hybrid'),
+            t.literal('hydrogen'),
+            t.literal('lpg'),
+            t.literal('multifuel'),
+            t.literal('unspecified'),
+          ]),
+          Null,
         ]),
         classification: t.union([ACRISS_.ACRISS, Ajv_.StringCoarsedNull]),
         registrationPlate: t.string,
@@ -308,15 +319,18 @@ export const CarRental: CarRentalC = t.brand(
         luggage?: Array<number>;
         transmission?: 'manual' | 'automatic' | Null;
         fuel?:
-          | 'diesel'
-          | 'electric'
-          | 'ethanol'
-          | 'gasoline'
-          | 'hybrid'
-          | 'hydrogen'
-          | 'lpg'
-          | 'multifuel'
-          | 'unspecified';
+          | (
+              | 'diesel'
+              | 'electric'
+              | 'ethanol'
+              | 'gasoline'
+              | 'hybrid'
+              | 'hydrogen'
+              | 'lpg'
+              | 'multifuel'
+              | 'unspecified'
+            )
+          | Null;
         classification?: ACRISS_.ACRISS | Ajv_.StringCoarsedNull;
         registrationPlate?: string;
         damage?: string;
