@@ -578,6 +578,8 @@ INFO: missing description
   in ../maas-schemas/schemas/core/components/state.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/station.json
 INFO: primitive type "string" used outside top-level definitions

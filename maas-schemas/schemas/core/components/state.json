@@ -150,6 +150,7 @@
         "CUSTOMISATION",
         "PAYMENT",
         "VERIFICATION",
+        "AUTH",
         "CANCELLED",
         "CANCELLED_WITH_ERRORS",
         "FINISHED"
@@ -174,6 +175,10 @@
     "subscriptionIntentStateVERIFICATION": {
       "default": "VERIFICATION",
       "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "VERIFICATION" }]
+    },
+    "subscriptionIntentStateAUTH": {
+      "default": "AUTH",
+      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "AUTH" }]
     },
     "subscriptionIntentStateCANCELLED": {
       "default": "CANCELLED",

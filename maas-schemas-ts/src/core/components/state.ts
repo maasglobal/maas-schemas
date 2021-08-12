@@ -787,6 +787,7 @@ export type SubscriptionIntentState = t.Branded<
       | 'CUSTOMISATION'
       | 'PAYMENT'
       | 'VERIFICATION'
+      | 'AUTH'
       | 'CANCELLED'
       | 'CANCELLED_WITH_ERRORS'
       | 'FINISHED'
@@ -804,6 +805,7 @@ export type SubscriptionIntentStateC = t.BrandC<
           t.LiteralC<'CUSTOMISATION'>,
           t.LiteralC<'PAYMENT'>,
           t.LiteralC<'VERIFICATION'>,
+          t.LiteralC<'AUTH'>,
           t.LiteralC<'CANCELLED'>,
           t.LiteralC<'CANCELLED_WITH_ERRORS'>,
           t.LiteralC<'FINISHED'>,
@@ -822,6 +824,7 @@ export const SubscriptionIntentState: SubscriptionIntentStateC = t.brand(
       t.literal('CUSTOMISATION'),
       t.literal('PAYMENT'),
       t.literal('VERIFICATION'),
+      t.literal('AUTH'),
       t.literal('CANCELLED'),
       t.literal('CANCELLED_WITH_ERRORS'),
       t.literal('FINISHED'),
@@ -837,6 +840,7 @@ export const SubscriptionIntentState: SubscriptionIntentStateC = t.brand(
         | 'CUSTOMISATION'
         | 'PAYMENT'
         | 'VERIFICATION'
+        | 'AUTH'
         | 'CANCELLED'
         | 'CANCELLED_WITH_ERRORS'
         | 'FINISHED'
@@ -978,6 +982,30 @@ export interface SubscriptionIntentStateVERIFICATIONBrand {
 }
 /** require('io-ts-validator').validator(SubscriptionIntentStateVERIFICATION).decodeSync(defaultSubscriptionIntentStateVERIFICATION) // => defaultSubscriptionIntentStateVERIFICATION */
 export const defaultSubscriptionIntentStateVERIFICATION: SubscriptionIntentStateVERIFICATION = ('VERIFICATION' as unknown) as SubscriptionIntentStateVERIFICATION;
+
+// SubscriptionIntentStateAUTH
+// The purpose of this remains a mystery
+export type SubscriptionIntentStateAUTH = t.Branded<
+  SubscriptionIntentState & 'AUTH',
+  SubscriptionIntentStateAUTHBrand
+>;
+export type SubscriptionIntentStateAUTHC = t.BrandC<
+  t.IntersectionC<[typeof SubscriptionIntentState, t.LiteralC<'AUTH'>]>,
+  SubscriptionIntentStateAUTHBrand
+>;
+export const SubscriptionIntentStateAUTH: SubscriptionIntentStateAUTHC = t.brand(
+  t.intersection([SubscriptionIntentState, t.literal('AUTH')]),
+  (
+    x,
+  ): x is t.Branded<SubscriptionIntentState & 'AUTH', SubscriptionIntentStateAUTHBrand> =>
+    true,
+  'SubscriptionIntentStateAUTH',
+);
+export interface SubscriptionIntentStateAUTHBrand {
+  readonly SubscriptionIntentStateAUTH: unique symbol;
+}
+/** require('io-ts-validator').validator(SubscriptionIntentStateAUTH).decodeSync(defaultSubscriptionIntentStateAUTH) // => defaultSubscriptionIntentStateAUTH */
+export const defaultSubscriptionIntentStateAUTH: SubscriptionIntentStateAUTH = ('AUTH' as unknown) as SubscriptionIntentStateAUTH;
 
 // SubscriptionIntentStateCANCELLED
 // The purpose of this remains a mystery
