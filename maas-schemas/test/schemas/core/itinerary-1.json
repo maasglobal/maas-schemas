@@ -11,7 +11,7 @@
       "startTime": 1619775540000
     },
     {
-      "agencyId": "Nova",
+      "agencyId": "Kova",
       "routeLongName": "9 1727",
       "legGeometry": {
         "points": "mlc`Hi|as@IJc@ZIJGLGPo@~Dq@|DSnAO|AI`@QjAGj@CPAZ?XDdAB`@ThB??@HLlANfABNDR|AxEJXJRNRVT??^VVTLPJRN^lAbFRv@Nl@Np@Hj@TnA"
@@ -55,7 +55,7 @@
     },
     {
       "from": { "lat": 47.371479034, "lon": 8.5234851837, "name": "Zürich Wiedikon" },
-      "agencyId": "Nova",
+      "agencyId": "Kova",
       "distance": 0,
       "endTime": 1619776140000,
       "mode": "WAIT",
@@ -66,7 +66,7 @@
       "startTime": 1619776020000
     },
     {
-      "agencyId": "Nova",
+      "agencyId": "Kova",
       "routeLongName": "S8 18842",
       "legGeometry": {
         "points": "ghc`Hgt_s@iC`EuGhKw@bAc@d@g@`@m@d@]Ty@\\MFm@Re@Lw@J_@DW@m@@]Ai@Ci@I[Ge@Om@WSK[Q_@Y_Ay@eG_GuAwAe@m@Wa@Sc@Q_@Qg@Y}@UeAOkAKkAEcAEkASoIAq@@yAB{@Dy@LoAFa@RqAJo@b@cC\\eB|@cEt@_E^oBJq@bGu\\b@aC`AwEz@{D"
@@ -83,7 +83,7 @@
     },
     {
       "from": { "lat": 47.378177643, "lon": 8.5402116776, "name": "Zürich HB" },
-      "agencyId": "Nova",
+      "agencyId": "Kova",
       "distance": 0,
       "endTime": 1619776920000,
       "mode": "WAIT",
@@ -94,7 +94,7 @@
       "startTime": 1619776380000
     },
     {
-      "agencyId": "Nova",
+      "agencyId": "Kova",
       "routeLongName": "IC8 816",
       "legGeometry": {
         "points": "qld`Hg}bs@u@dDi@fCaAjFeD`R_BpIIh@}@~EWpAETw@rD]fBa@|BCJIf@Mv@MfAI`AErAAn@@t@DdBRhGBlA?fACfAGdAGr@Ih@Kr@Or@Mf@]fA]z@[l@c@t@sC~D]h@S^]n@g@dASf@]~@]hASr@UbAOt@QfA{@vEeClN{@fF}BdMg@|Bg@rBaCxIm@rBo@jBs@hBg@fAu@|Au@vAwBjEs@dBy@fCk@rBa@tB]lBU|AO~AWzCSpFQ~GK`DKhBUzCMnAOnAK|@O`AqC`P_AtFuAfJi@jDsDjUuAbIuFv[qQtcAcFdW[jBYrBMdAS`CE|@GfACfAAbA?fA?t@@t@DzBj@~QNhFDtBDtEH~GFhDLtEh@hPdAjULdC~@fVTnGPxFNtDNpDb@pIFlBBxB?rACtBGtBOdCQ`CeAzK}AzQ]bEe@bHSjCsCh\\YbDSzAMz@Oz@e@nBYfAy@|B[p@i@fA]h@a@l@a@h@e@j@eAbAcAr@aAh@_CbAcLdFiAh@aAf@iAl@yGvD}A`AcAt@}AnAIFoAjA_A`AaCvCiA`B}m@|_A}GvJs@bAa@p@e@x@y@zAuA|Cs@bBa@tAaA|Cg@pBwB`Jm@~Bm@zBeBdGqA`F}c@dfBqAdFsDbNkAtEiDpN}@pD_D~LoBxHKb@qFrSuC`LU`Ak@bCc@tBIh@y@pGi@vGOhEGnE@zDD~BHxBPnCPdCj@bGB`@nJvdAzj@diGn@dHb@fETrBRfBrDx[`@bEFx@LfBLvCFtCBjDAxCA|Ae@z^I|I@vCFxCJvCPvCPtBRlBVhBVbBTnA`@nB|AbG|@nCbAbC`ApBlAzBbA~Ab@l@|AlBtAzAhC~BvG`F|ArAj@h@l@n@rBxBr@x@n@z@NTt@`AzA`CjAlBhAxB|@jB|@pBx@tBt@pBr@vBzAfFfAvEj@lClAbG^lBZzAPx@bAdF~@|EnOzx@bAdFj@nCx@rCXv@tAfDf@fAtAhChAnBVd@`CnExCxFxC`GnBxDdAjBn@bAr@~@t@z@jAjAx@p@`Ap@l@^bB|@nB~@dDzArBz@fDrAtAf@`FdB|An@h@Vj@ZhBnAbBxAbAhAt@bAz@nA`@r@|@hBv@hBp@tBn@~Bd@tBZjBLx@j@rFpArOxLjxAl@hHz@nKJpBFxB@bCCfBExAOhCOdBYnBUtAWnAe@zBwBdJ{AdH}AtHwDxRo@`Dm@jCABgDrOkP|u@s@|Cq@rCm@vBs@rBgAtCoAlCeAhBeAfB_EtF_CnDeAjBa@x@cAbCw@jBq@tBq@~Bi@|Ba@jBYbBc@pCSpBUxBKhBKfBEdAG`CAlA?vCDvCBxAFrAT`FP~BF~@RfCr@~G^hDFb@jC|RrAvLb@nEn@fH`AvLnZz{DnBxVh@zGl@bIv@|K|@rOZhEtBfXfBfUhBvUd@|FR`Cj@dFj@hEn@pEBLtBlMd@jCh@lCf@hCdA`G`A~Ff@vCj@rCh@fCbAtE`AxEj@~Cf@`Dj@hEdBtOt@zFT~AZnCd@hDrAlIhIvg@`ArFbAxEhAhFlBlH~@~CjAvDrAtDf@nAbAzBdBdDt@zAjAnBzAzBpAfB`BpBpDtDjAdAnDlClBpArBhArAn@tBz@fBp@`MnDtAf@fBt@pAj@pAr@tAx@|AdA|AhAlB|AvBtBvA|ArA`BfAtAxAvBdBtCvAhCfAxBjAnCrAdDbA|ChAtDhApEbA|EdAlGj@dEdBxO`@tCV~AhArGv@jD|@tDfKd`@|G~VhC~IxA`Fb@rAj@zBdA`EfKb`@fGhUxC`LNb@ZlAfBlG^~Ad@bCXnBTrBN~BJ|BBjCAhCG~BM|BMvAOtA]xBa@tBo@bCW|@Yv@u@jBaD`ImAzCm@dBk@pB_@rA]`BYbBYlBY|CYdE_ArO{E~x@[dEo@zFe@fDk@`Du@pDc@hBKZg@~Ak@|Aa@bAm@~Ao@xAm@rAuAnCuB`EoB`EkA~C[hAa@fBMv@O|@OpAEd@MbBE|ACpA@~AFbBNnBNvA\\pBd@pBr@zB`@dAzCnHJZrB`F~BxFz@tBXn@`@x@h@z@f@r@j@n@Z\\d@`@VPd@Xj@Vf@Rr@RD@tA\\nD|@h@Jd@Ht@JnE`@tIx@nD\\n@HzD`@lAJj@DtA@lAI`AOdCs@nEuAlAUnAMxAGpBFbBT`B\\`Bf@xAl@lBbAxBtA~AlAtApAtApAz@hAjAvAzAlB|@fAvA|AxBnBhb@b]tDrC|EtC`ClAhCjAdJ~CrK|C~Cl@`D^vDRzD@jIAz@BdBFlBNfALbANv@Lr@NrBd@lBl@fBl@p@X~BfAfAl@rA|@bAx@rAlAb@`@bAhAh@n@d@r@bCzDjBvDfAjCz@`CdA~D\\xA^fBjA`HjA|Gr@dEfApG|@pEjAlFhAvEdG|ShHvVh@jBfDjLbEdN|BlG`CjFnC`FrDrF`DxDtDnDlB|AnBvAtCdBtCtAbC~@zDlAfIrAlGX~ICrJG~JPzLv@dMvAvKjBlM`DdJ~CdI|DrLlH`JdH|GrGbH`IrIlLtEvHpItP|H|RhDrKxC~K`AhEfAbF`AfF|@hFbF~\\nA|HxA~HzB|J`BpGlBtGrBlGrBtF`C`GjD`InD|GzDxGlFdIpDzEpKrLvDpDpa@h`@nHfHtFrFvD`EfD~DpFjHrHdLxEpIbKdT`I`QfNf[jMrVdOtVhClEdCnE|ErJfGxNvAvDxB~F|EzOtDnNtClMvCzO|Gre@pPjkAl@nE|Fpa@|V~fBbAvH~@tHfBzQzCz[lG`p@|AjMpB~MjCvNpCnM|BzI|BpIdG~QnHrQnDtH|DxHfHxLncAf`BnGtKp\\|n@dVvd@fF~J|ElKpE`LtCfIbCvHnCpJ~@nDvIf_@hCxJ~BdIxCdJbDzIxCjHrBnEvBtEzHrNnEhHbFjHfH|IpEfFzExEpAlApAjAhDtCzIvGhDzBjDrBdIfEbHzC`HfCtPtFr[lKdWnHjBp@tCx@vCt@vCr@~QfErIjB`FbArI`BpIzAhKdBvGbAhs@nKlZnE`D^nAP~C^nAJ~O`AtZxA`P`AhIpArKfClEtAbC~@zAn@tAn@rCtAhGdDpS`MxGlEbGhE|AjAlCxBdA~@jDbDzAzA|BfCbAhA`AjAvEhGpDlFhAfBj@`Ap@lApAzBn@jAl@jAvBnE`CnFp@~AhBzEzBfGfMf^bElLzAbEl@~AvCzGfBvDlA`ChAtBl@hAbBrCv@nAlBxCx@hAv@hAnA`BbBvBfBtBv@z@hAjAhAjAjAfA~BvBdBxA|CbCt@j@jBlAt@f@jBhAt@b@jBbAnBbAx@^vB~@nBv@xCdA`Ct@fD|@zBf@|@RpB\\zCd@hBRlMnAtANjDd@|Ch@fATnCn@pCt@lCz@nC|@lC~@xHlChC`AfBt@dBx@vCxAry@bf@|f@fZzSvTnTd_@vK~YpJna@rDzX~CzYbFlZvIt[`LnX~BzE`CxD|BhD`ChCxBjBhBtAnAt@pAn@nBt@x@VnAZrAVf@HnANh@DpAFlA@tAAvAIrAMtASt@OfAYh@Oh@Q`A]fAg@lD}AxOoHjBy@fAi@lCqAtB_ArG{CXKf@Qx@Sv@KXCVAp@Ap@?t@HbAPl@Nf@Pj@Vr@`@p@f@j@h@l@n@j@v@^n@^p@\\x@Tl@Tr@XhATdANv@Lx@h@nDHr@z@zFVpAThAZrAb@bBh@~Bn@xCf@`Cd@pC~D|WR`B~@dJRfB~CzSh@`DZ`BVdAJ\\\\z@^|@b@z@d@t@RZf@p@l@p@`B|AzEtE`BxAj@`@j@Zl@Xl@Vn@Nn@Lp@Fp@Dn@@|FFt@@p@Dn@Hn@Ll@Pl@Tl@VfJhEx@b@lAn@bAj@j@ZhAh@|B`Av@Z|@Pl@R^Pb@Xb@`@d@j@`@x@`@~@"
@@ -136,23 +136,23 @@
         }
       },
       "product": {
-        "agencyId": "Nova",
-        "id": "nova",
-        "tspProductId": "Nova",
+        "agencyId": "Kova",
+        "id": "kova",
+        "tspProductId": "Kova",
         "allowFinishTrip": false,
-        "description": "NOVA_DESC",
+        "description": "KOVA_DESC",
         "priority": 1,
-        "name": "NOVA_NAME",
-        "icon": "https://assets.development.maas.global/product-icons/NS.png"
+        "name": "KOVA_NAME",
+        "icon": "https://example.com/product-icons/NS.png"
       },
       "meta": {
-        "nova": {
+        "kova": {
           "providerOfferRequest": {
             "travelerInfo": {
               "contact": {
-                "email": "support@routerank.com",
-                "passportLastname": "Rank",
-                "passportFirstname": "Route",
+                "email": "support@example.com",
+                "passportLastname": "ExampleLname",
+                "passportFirstname": "exampleFname",
                 "birthdate": "1991-04-30"
               },
               "preferences": {
@@ -167,7 +167,7 @@
               "transportMode": {
                 "mode": "publictransport"
               },
-              "providerId": "nova",
+              "providerId": "kova",
               "departureTime": {
                 "value": "2021-04-30T09:39:00.000Z"
               },
@@ -297,7 +297,7 @@
                 }
               ]
             },
-            "userId": "maas-global-backend-nova-price-provider"
+            "userId": "maas-global-backend-kova-price-provider"
           }
         }
       },

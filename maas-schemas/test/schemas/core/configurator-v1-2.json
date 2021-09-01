@@ -5,7 +5,7 @@
     "choices": [
       {
         "id": "extension-subscriber-C",
-        "icon": "https://assets.development.maas.global/product-icons/hsl-zone-c.png",
+        "icon": "https://example.com/product-icons/hsl-zone-c.png",
         "name": "C zone extension",
         "fares": [
           {

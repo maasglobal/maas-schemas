@@ -34,7 +34,7 @@
       "startTime": 1622032680000
     },
     {
-      "agencyId": "Nova",
+      "agencyId": "Kova",
       "routeLongName": "815 81540",
       "legGeometry": {
         "points": "m_gzGywud@KN{@wAMR}@pAa@p@KNT\\n@fAzAlCTf@R\\VZRR??\\V|A|@r@f@h@h@rAfBXb@PTPNPHHDJ@L@r@Ex@IZC\\A\\@t@Fd@Jd@Lh@TjJrEVLHBF?FCJh@J\\Th@P^X`@|@hAhAtA??tA`BHFFBFEbCcGR_@EEaAcBc@u@??w@uA}@cBM][o@KKSMAW?K^sAVCzj@o_B??wWyvAk@[TFLBHAFAPGPQxAuBbCuDNWL]Ja@rKdFjAn@`@Xj@d@`@`@Zb@\\f@Xd@P`@d@jAfAbDHTLTJNPN`B|@x@h@JFXPPN??PVPZRb@Nb@Lf@Nn@Nt@Fj@Dh@DjA?x@CxCExDAz@??A\\Bj@CDCDAFAF?F@HBDBDFBD?DADCBGBG@IAIAGACTe@LYVk@Vq@Tq@bFiQ~GgV`@kA??\\y@Te@\\m@`@i@v@w@|AmAtD{C~AoA??XYTETAF?DABCBG@G@GAGAGCEEEEA[s@q@qCkA_F{EoSc@iBYiA??e@qBC]e@uBIw@?K?GCECGEEGACGg@i@IOg@w@W]UWaIgIBG@IAKCIEEECG?GDEJu@o@mCoCe@c@[m@ISAICGLy@X{Ad@qBt@oCf@cBRg@X_AV_AH[HUNg@@E??FYd@yA@EbByFLg@F]F?BCBE@E?GAGCELYNe@Vw@b@uAVy@Tk@h@mAh@aAPY\\i@b@m@z@cAv@@bBsg@"
@@ -179,7 +179,7 @@
         "lon": 6.2359700202999999,
         "name": "Nyon"
       },
-      "agencyId": "Nova",
+      "agencyId": "Kova",
       "distance": 0,
       "endTime": 1622034780000,
       "mode": "WAIT",
@@ -194,7 +194,7 @@
       "startTime": 1622034540000
     },
     {
-      "agencyId": "Nova",
+      "agencyId": "Kova",
       "routeLongName": "IR15 2527",
       "legGeometry": {
         "points": "smbzGu|`e@kG_IqB_Cm@m@aB_By@s@eA{@oBuAuBoAKEeDwA_AYy@UyG_BcBk@eBs@wAu@iAo@kA}@kAaAwAwAqBaCmE}FoUe[iEsF}CiD{BwB}BmB{q@km@{CkCoG}FmEcEsMaN}EcF}FeGsDyDwKaLqDuDkkAqmA}DgEyAeBaAoAeA{AaA{Ay@qAw@wA_B{Cc@}@s@}AaA{B_AcCgAeD]eAi@oBw@uC_Nwj@mByHkBqHaB_GoAqDqDwJ_Uwk@kOe`@Se@sCiGoDaHsA_C}IuNwW{a@Ye@}GsKg@y@iBiDeAaCm@}AaAiCaAyCc@cB[aAw@eDs@qDY{AoAeIgA{Gg@gCoAmFMc@q@eCs@}Bw@}B}@}Bu@kB_EoJ{@yBmBeGo@cCo@kCg@cCc@gCa@oCa@wCeDyXo@qG_@mFQ}CMuDI{CCgH@qCJ{FLqDZsGv@yMHaCFaCB_C?cCC_CEcCI{BM}BO_CUaC]uC{G{e@uOugAaAmHg@oESeCWkDSgDKeBo@_PIuCEiFBcFNyFbIe}AXmFXaGLmCFcC@gCA_CAgCGmCKaCOeCSeCWcCY_C]_CoAsG_Qy{@Mk@aA_FaAiEg@oBk@gBm@gBk@sAm@sAkBmDmBsCw@aAw@y@IMqBmB_CyBUU{EoEaDaDsFoG}B{CmC_EyBkDed@ev@sI{Nw@aBo@{Aq@cBm@eBk@mBiA{EoBaJg@oBk@kBm@gBq@cBu@cBw@}AeBsCuAkBaAkAeAeAiAcAiA}@_BcAqRmK}AcAkCsBu@m@qAoAyA}A{@_Aw@aAw@gAmEqGy@sA_A_B}BeE??qAcCoDiHoCiGe@gA}@wBaAeCu@yBiAsDmAeEo@yBq@qB{Mk`@kWyu@uAgEsBaHW{@{@{C_AiDiAiEkAuEcCkKcDyO}BoMyBiNyC}T{@eG]kCe@_DUkAa@kBi@_Cu@uCo@qB}@gC_@gAiAmCgA_CwN_[iHmOkC{F_B_Dm@cAu@gAy@cA{@_AaA_AeAy@mAy@o@[u@]s@Y}DwAy@]uAw@mAaA[Yw@{@g@m@k@y@k@}@c@{@c@aA[u@m@uBa@_BUgAWcBY_CGeAIcBC}@Aw@Ay@BmCFgBHwALsARyA\\oB^oBnAeFh@yBd@cB`@wAp@kBbBgEzHyQd@}A~@aDjAsCpCqHh@uAtAwCfHoP~BuFbBcE`GoO`C_GRg@dAgCvEyKpAaDpAmD|@mCbAaDj@qBjHyYpBkH`CoJPu@XgAlCqLzIu^j@uB`@mA`@kAx@yB|@mB`AmB|@yAbG_JbFuHf@y@b@y@j@qAZ{@Pm@Li@Nm@Jk@Ju@J}@ZmDRyAvAeKrAiJjAoI\\gCRuAF_AVeD"
@@ -228,7 +228,7 @@
       }
     },
     {
-      "agencyId": "Nova",
+      "agencyId": "Kova",
       "routeLongName": "RE 18427",
       "legGeometry": {
         "points": "qh|zGmwmg@`@kFH}@Fe@Fc@Jg@Pk@Pm@Zo@Zk@t@iAh@}@b@o@r@eAz@eAf@u@b@s@Zi@Tg@r@oBj@kB^wANm@Je@Jk@PgAFi@NsAFq@Di@FgAHkCf@iVF{AH{ATiDd@yDj@oDbAoFb@eC\\mCNoBPcCFaBBmEUiT?cEHoDLsCLiBPqBJ}@Dg@j@{DxBiNj@cEL}AJsBH_DJoEFuBPeCZaCXaB`@cBz@iDr@uCr@qCt@gC~B_Hp@mBf@eB`@iBnAyG\\{BXcCPiCBeCBqCBmPBmDBaAPcDRsB^iCp@aDfBuFjAoD`AoC~@oDdB}Hp@_D`BsHf@qBd@}A~@gCt@iBbAcCx@qBxBcF`AcBb@o@jAuAlCsCn@y@v@oAr@oAr@yAlBmEz@uB|EkM~@cCpAmCdCcEdIsMpAyBfA}Bt@oBhEkMh@wAj@sAjA{BjDwGd@cAd@eA\\cA^oATaAToAPmANqAHsABw@@q@@_AAcAA_AIgBGq@OwAWiBKo@UmA_@}Aa@_BiHyWaAaEScAOkAKy@Gu@IwAEy@CgBBsBJ_CJsAPwAlB{LVkCJmC@yCC{G@qADoAVqDVkB^kBJ_@XaA^iA^}@\\y@|AeDt@sBp@}BvCsK|@eCt@_Bx@qAl@w@lEcFl@{@h@_A`@w@`@cA|BwGXw@b@}@d@{@f@w@nA{AnC{Cb@m@f@u@Zo@l@oAb@eAxAyDd@uA~C_KRq@T{@jAuFd@wBf@kB|BmHXcAVuATqA\\}BTmAP_Ah@_C|BuJz@kDvBiI\\wARaARoAP_BrBgRDc@LoBHsC@gBAiAIgCMsBUmC_AmLIuAE}@AcA?yAByAFwAJkAJaAnBwOPsAVqAXmA`BgGPo@RaAVuALaAVwBFi@XeD|AcRHuADs@X_JD}@HeAH}@LcApAsIPqALuAFiABg@F_CvAiz@D_CD_AFeAFq@NuAL_ANs@Ns@R{@XcAz@wCZiA^}APcAJq@PuAFy@Di@DeABgA@sBAs@EkAIcBo@{JCa@EoAAm@A{A@}ADyADw@Dw@PqBJs@XiBLs@\\wA^wAfAyDZeA`@qAb@kAt@aBv@}AJUf@cAf@mAb@gA\\s@pDaH~A_D~A}CXw@Ti@xCqG"
@@ -279,24 +279,24 @@
         "validity": { "endTime": 1622029522168, "startTime": 1622029522168 }
       },
       "product": {
-        "agencyId": "Nova",
-        "id": "nova",
-        "tspProductId": "Nova",
+        "agencyId": "Kova",
+        "id": "kova",
+        "tspProductId": "Kova",
         "allowFinishTrip": false,
-        "description": "NOVA_DESC",
+        "description": "KOVA_DESC",
         "priority": 1,
-        "name": "NOVA_NAME",
-        "icon": "https://assets.development.maas.global/product-icons/nova.png"
+        "name": "KOVA_NAME",
+        "icon": "https://example.com/product-icons/kova.png"
       },
       "meta": {
-        "nova": {
+        "kova": {
           "jp": {
             "providerOfferRequest": {
               "travelerInfo": {
                 "contact": {
-                  "email": "support@routerank.com",
-                  "passportLastname": "Rank",
-                  "passportFirstname": "Route",
+                  "email": "support@example.com",
+                  "passportLastname": "ExampleLname",
+                  "passportFirstname": "ExampleFname",
                   "birthdate": "1991-05-26"
                 },
                 "preferences": {
@@ -306,7 +306,7 @@
               },
               "segment": {
                 "transportMode": { "mode": "publictransport" },
-                "providerId": "nova",
+                "providerId": "kova",
                 "departureTime": { "value": "2021-05-26T12:38:00.000Z" },
                 "arrivalTime": { "value": "2021-05-26T13:57:00.000Z" },
                 "originSegIdx": 0,
@@ -401,7 +401,7 @@
                 ],
                 "returnTrip": true
               },
-              "userId": "maas-global-backend-nova-price-provider"
+              "userId": "maas-global-backend-kova-price-provider"
             }
           },
           "display": {
@@ -410,13 +410,13 @@
           },
           "offer": {
             "id": "ca267a27-986f-44bf-992d-c8112e972a01",
-            "providerId": "nova",
+            "providerId": "kova",
             "providerOfferRequest": {
               "travelerInfo": {
                 "contact": {
-                  "email": "konker+feat1-ch@maas.global",
-                  "passportLastname": "FeatOneCh",
-                  "passportFirstname": "Konker",
+                  "email": "user@example.com",
+                  "passportLastname": "ExampleLname",
+                  "passportFirstname": "ExampleFname",
                   "birthdate": "2005-01-01"
                 },
                 "preferences": {
@@ -424,18 +424,18 @@
                   "trainTravelCard": [{ "code": "NONE" }]
                 }
               },
-              "userId": "maas-global-backend-nova-price-provider",
+              "userId": "maas-global-backend-kova-price-provider",
               "providerOfferInput": {
                 "returnTrip": true,
                 "nonBindingOffer": {
                   "id": "5fdfb238-8ddd-4fb1-b2d7-f91db0a10a24",
-                  "providerId": "nova",
+                  "providerId": "kova",
                   "providerOfferRequest": {
                     "travelerInfo": {
                       "contact": {
-                        "email": "konker+feat1-ch@maas.global",
-                        "passportLastname": "FeatOneCh",
-                        "passportFirstname": "Konker",
+                        "email": "user@example.com",
+                        "passportLastname": "ExampleLname",
+                        "passportFirstname": "ExampleFname",
                         "birthdate": "2005-01-01"
                       },
                       "preferences": {
@@ -443,7 +443,7 @@
                         "trainTravelCard": [{ "code": "NONE" }]
                       }
                     },
-                    "userId": "maas-global-backend-nova-price-provider",
+                    "userId": "maas-global-backend-kova-price-provider",
                     "providerOfferInput": {
                       "segment": {
                         "legs": [
@@ -570,7 +570,7 @@
                             {
                               "allZones": "true",
                               "compulsoryZonesBundle": "false",
-                              "novaZoneTariffCode": "449_EB",
+                              "kovaZoneTariffCode": "449_EB",
                               "driveType": "RAUMZEIT",
                               "description": {
                                 "en": " ",
@@ -862,7 +862,7 @@
                     "customers": [
                       {
                         "id": "R1",
-                        "externalTravelerReferenceId": "Konker FeatOneCh",
+                        "externalTravelerReferenceId": "Example Ref",
                         "travelingRelationship": ["KEINE_REISENDENBEZIEHUNG"]
                       }
                     ]
@@ -895,7 +895,7 @@
                       {
                         "allZones": "true",
                         "compulsoryZonesBundle": "false",
-                        "novaZoneTariffCode": "449_EB",
+                        "kovaZoneTariffCode": "449_EB",
                         "driveType": "RAUMZEIT",
                         "description": { "en": " ", "de": " ", "fr": " ", "it": " " },
                         "zones": [],
@@ -1180,7 +1180,7 @@
               "customers": [
                 {
                   "id": "R1",
-                  "externalTravelerReferenceId": "Konker FeatOneCh",
+                  "externalTravelerReferenceId": "Example Ref",
                   "travelingRelationship": ["KEINE_REISENDENBEZIEHUNG"]
                 }
               ],
@@ -1206,7 +1206,7 @@
                       {
                         "allZones": "true",
                         "compulsoryZonesBundle": "false",
-                        "novaZoneTariffCode": "449_EB",
+                        "kovaZoneTariffCode": "449_EB",
                         "driveType": "RAUMZEIT",
                         "description": { "en": " ", "de": " ", "fr": " ", "it": " " },
                         "zones": [],
