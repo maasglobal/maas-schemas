@@ -1,0 +1,83 @@
+{
+  "$id": "http://maasglobal.com/core/components/configuratorV2.json",
+  "description": "Configurator schema v2 to customize a booking option",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "estimatable": {
+      "type": "boolean",
+      "description": "Indicates that the configurator needs estimation to get a final price for the user selection"
+    },
+    "purchasable": {
+      "type": "boolean",
+      "description": "Indicates that the configurator in it's current form can not be purchased"
+    },
+    "validUntil": {
+      "description": "Time when the estimation should be refreshed; 0 indicates infinite validity",
+      "anyOf": [
+        {
+          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        },
+        { "const": 0 }
+      ]
+    },
+    "configuratorSelection": {
+      "$ref": "http://maasglobal.com/core/components/customerSelectionV2.json"
+    },
+    "configurations": {
+      "type": "object",
+      "patternProperties": {
+        "^": {
+          "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config"
+        }
+      }
+    },
+    "cost": {
+      "$ref": "http://maasglobal.com/core/components/cost.json"
+    },
+    "fares": {
+      "type": "array",
+      "items": {
+        "$ref": "http://maasglobal.com/core/components/fare.json"
+      }
+    }
+  },
+  "required": ["version", "estimatable", "purchasable", "validUntil", "configuratorSelection", "configurations"],
+  "examples": [
+    {
+      "version": "2",
+      "estimatable": true,
+      "purchasable": false,
+      "validUntil": 1621967334551,
+      "configuratorSelection": {
+        "ticketClass": ["second-class"]
+      },
+      "configurations": {
+        "ticketClass": {
+          "type": "oneOf",
+          "name": "Ticket class",
+          "description": "Are you posh or not?",
+          "choices": [
+            {
+              "id": "first-class",
+              "name": "1st Class",
+              "description": "Yes, posh",
+              "fares": [{ "amount": 100.0, "currency": "EUR" }],
+              "default": false
+            },
+            {
+              "id": "second-class",
+              "name": "2nd Class",
+              "description": "Not posh",
+              "fares": [{ "amount": 30.0, "currency": "EUR" }],
+              "default": true
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -122,6 +122,11 @@
       "description": "Whim only deep link to localhost and freely defined view - not a complete URI validation",
       "type": "string",
       "pattern": "^(whim):\\/\\/\\/[^\\s/$.?#].[^\\s]*$"
+    },
+    "emptyObject": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
     }
   }
 }

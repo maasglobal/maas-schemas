@@ -385,6 +385,19 @@ export interface WhimDeepLinkBrand {
   readonly WhimDeepLink: unique symbol;
 }
 
+// EmptyObject
+// The purpose of this remains a mystery
+export type EmptyObject = t.Branded<{}, EmptyObjectBrand>;
+export type EmptyObjectC = t.BrandC<t.PartialC<{}>, EmptyObjectBrand>;
+export const EmptyObject: EmptyObjectC = t.brand(
+  t.partial({}),
+  (x): x is t.Branded<{}, EmptyObjectBrand> => true,
+  'EmptyObject',
+);
+export interface EmptyObjectBrand {
+  readonly EmptyObject: unique symbol;
+}
+
 // Common
 // The default export. More information at the top.
 export type Common = t.Branded<unknown, CommonBrand>;

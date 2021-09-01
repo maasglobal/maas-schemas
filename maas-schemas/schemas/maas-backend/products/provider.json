@@ -58,6 +58,15 @@
         },
         "stationsRetrieve": {
           "type": "boolean"
+        },
+        "packagesList": {
+          "type": "boolean"
+        },
+        "options": {
+          "type": "boolean"
+        },
+        "journeyPlanner": {
+          "type": "boolean"
         }
       },
       "required": ["ticket", "stationsList", "stationsRetrieve"],
