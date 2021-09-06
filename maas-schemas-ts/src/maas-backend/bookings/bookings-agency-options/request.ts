@@ -13,6 +13,7 @@ import * as TravelMode_ from '../../../core/components/travel-mode';
 import * as Units_ from '../../../core/components/units';
 import * as UnitsGeo_ from '../../../core/components/units-geo';
 import * as Address_ from '../../../core/components/address';
+import * as SpaceDemand_ from '../../../core/components/spaceDemand';
 import * as Common_ from '../../../core/components/common';
 import * as ApiCommon_ from '../../../core/components/api-common';
 
@@ -50,6 +51,7 @@ export type Payload = t.Branded<
     toAddress?: Address_.ComponentAddress;
     toRadius?: UnitsGeo_.Distance;
     bookingIdToExtend?: Units_.Uuid;
+    spaceDemand?: SpaceDemand_.SpaceDemandString;
   } & Record<
     string,
     | TravelMode_.TravelMode
@@ -64,6 +66,7 @@ export type Payload = t.Branded<
     | Address_.ComponentAddress
     | UnitsGeo_.Distance
     | Units_.Uuid
+    | SpaceDemand_.SpaceDemandString
     | (string | number | boolean)
   >,
   PayloadBrand
@@ -84,6 +87,7 @@ export type PayloadC = t.BrandC<
         toAddress: typeof Address_.ComponentAddress;
         toRadius: typeof UnitsGeo_.Distance;
         bookingIdToExtend: typeof Units_.Uuid;
+        spaceDemand: typeof SpaceDemand_.SpaceDemandString;
       }>,
       t.RecordC<
         t.StringC,
@@ -101,6 +105,7 @@ export type PayloadC = t.BrandC<
             typeof Address_.ComponentAddress,
             typeof UnitsGeo_.Distance,
             typeof Units_.Uuid,
+            typeof SpaceDemand_.SpaceDemandString,
             t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>,
           ]
         >
@@ -124,6 +129,7 @@ export const Payload: PayloadC = t.brand(
       toAddress: Address_.ComponentAddress,
       toRadius: UnitsGeo_.Distance,
       bookingIdToExtend: Units_.Uuid,
+      spaceDemand: SpaceDemand_.SpaceDemandString,
     }),
     t.record(
       t.string,
@@ -140,6 +146,7 @@ export const Payload: PayloadC = t.brand(
         Address_.ComponentAddress,
         UnitsGeo_.Distance,
         Units_.Uuid,
+        SpaceDemand_.SpaceDemandString,
         t.union([t.string, t.number, t.boolean]),
       ]),
     ),
@@ -160,6 +167,7 @@ export const Payload: PayloadC = t.brand(
       toAddress?: Address_.ComponentAddress;
       toRadius?: UnitsGeo_.Distance;
       bookingIdToExtend?: Units_.Uuid;
+      spaceDemand?: SpaceDemand_.SpaceDemandString;
     } & Record<
       string,
       | TravelMode_.TravelMode
@@ -174,6 +182,7 @@ export const Payload: PayloadC = t.brand(
       | Address_.ComponentAddress
       | UnitsGeo_.Distance
       | Units_.Uuid
+      | SpaceDemand_.SpaceDemandString
       | (string | number | boolean)
     >,
     PayloadBrand

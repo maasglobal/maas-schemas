@@ -37,6 +37,7 @@ module.exports = {
   'schemas/core/components/personalDataAllowItem.json': require('./schemas/core/components/personalDataAllowItem.json'),
   'schemas/core/components/place.json': require('./schemas/core/components/place.json'),
   'schemas/core/components/point-cost.json': require('./schemas/core/components/point-cost.json'),
+  'schemas/core/components/spaceDemand.json': require('./schemas/core/components/spaceDemand.json'),
   'schemas/core/components/state-log.json': require('./schemas/core/components/state-log.json'),
   'schemas/core/components/state.json': require('./schemas/core/components/state.json'),
   'schemas/core/components/station.json': require('./schemas/core/components/station.json'),

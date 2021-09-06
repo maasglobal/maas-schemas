@@ -12,6 +12,7 @@ import * as t from 'io-ts';
 import * as UnitsGeo_ from '../components/units-geo';
 import * as Units_ from '../components/units';
 import * as Common_ from '../components/common';
+import * as SpaceDemand_ from '../components/spaceDemand';
 
 export const schemaId = 'http://maasglobal.com/core/modes/MODE_TAXI.json';
 
@@ -39,6 +40,7 @@ export type MODE_TAXI = t.Branded<
       phone?: Common_.Phone;
     };
     messageToDriver?: string;
+    spaceDemand?: SpaceDemand_.SpaceDemandObject;
   },
   MODE_TAXIBrand
 >;
@@ -64,6 +66,7 @@ export type MODE_TAXIC = t.BrandC<
       phone: typeof Common_.Phone;
     }>;
     messageToDriver: t.StringC;
+    spaceDemand: typeof SpaceDemand_.SpaceDemandObject;
   }>,
   MODE_TAXIBrand
 >;
@@ -89,6 +92,7 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
       phone: Common_.Phone,
     }),
     messageToDriver: t.string,
+    spaceDemand: SpaceDemand_.SpaceDemandObject,
   }),
   (
     x,
@@ -114,6 +118,7 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
         phone?: Common_.Phone;
       };
       messageToDriver?: string;
+      spaceDemand?: SpaceDemand_.SpaceDemandObject;
     },
     MODE_TAXIBrand
   > => true,
