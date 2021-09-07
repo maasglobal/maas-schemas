@@ -32,6 +32,9 @@
     },
     "ticketCollectionPoint": {
       "$ref": "http://maasglobal.com/core/components/customerSelectionCommon.json#/definitions/textInputSelection"
+    },
+    "scooterCode": {
+      "$ref": "http://maasglobal.com/core/components/customerSelectionCommon.json#/definitions/textInputSelection"
     }
   },
   "additionalProperties": false
