@@ -27,6 +27,7 @@ export type CustomerSelectionV1 = t.Branded<
     openReturn?: CustomerSelectionCommon_.ConfigChoiceSelection;
     freeReturn?: CustomerSelectionCommon_.ConfigChoiceSelection;
     ticketCollectionPoint?: CustomerSelectionCommon_.TextInputSelection;
+    scooterCode?: CustomerSelectionCommon_.TextInputSelection;
   },
   CustomerSelectionV1Brand
 >;
@@ -42,6 +43,7 @@ export type CustomerSelectionV1C = t.BrandC<
     openReturn: typeof CustomerSelectionCommon_.ConfigChoiceSelection;
     freeReturn: typeof CustomerSelectionCommon_.ConfigChoiceSelection;
     ticketCollectionPoint: typeof CustomerSelectionCommon_.TextInputSelection;
+    scooterCode: typeof CustomerSelectionCommon_.TextInputSelection;
   }>,
   CustomerSelectionV1Brand
 >;
@@ -57,6 +59,7 @@ export const CustomerSelectionV1: CustomerSelectionV1C = t.brand(
     openReturn: CustomerSelectionCommon_.ConfigChoiceSelection,
     freeReturn: CustomerSelectionCommon_.ConfigChoiceSelection,
     ticketCollectionPoint: CustomerSelectionCommon_.TextInputSelection,
+    scooterCode: CustomerSelectionCommon_.TextInputSelection,
   }),
   (
     x,
@@ -72,6 +75,7 @@ export const CustomerSelectionV1: CustomerSelectionV1C = t.brand(
       openReturn?: CustomerSelectionCommon_.ConfigChoiceSelection;
       freeReturn?: CustomerSelectionCommon_.ConfigChoiceSelection;
       ticketCollectionPoint?: CustomerSelectionCommon_.TextInputSelection;
+      scooterCode?: CustomerSelectionCommon_.TextInputSelection;
     },
     CustomerSelectionV1Brand
   > => true,
