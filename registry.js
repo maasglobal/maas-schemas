@@ -22,6 +22,7 @@ module.exports = {
   'schemas/core/components/agencyOptions.json': require('./schemas/core/components/agencyOptions.json'),
   'schemas/core/components/api-common.json': require('./schemas/core/components/api-common.json'),
   'schemas/core/components/authorization.json': require('./schemas/core/components/authorization.json'),
+  'schemas/core/components/benefit-provider.json': require('./schemas/core/components/benefit-provider.json'),
   'schemas/core/components/bike-station.json': require('./schemas/core/components/bike-station.json'),
   'schemas/core/components/car-rental.json': require('./schemas/core/components/car-rental.json'),
   'schemas/core/components/common.json': require('./schemas/core/components/common.json'),

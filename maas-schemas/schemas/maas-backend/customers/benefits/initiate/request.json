@@ -41,10 +41,8 @@
       ]
     },
     "benefitsProviderId": {
-      "type": "string",
-      "description": "Benefit Provider ID",
-      "examples": ["smartum", "epassi"]
+      "$ref": "http://maasglobal.com/core/components/benefit-provider.json#/definitions/benefitsProviderId"
     }
   },
-  "required": ["identityId", "customerId", "payload", "headers"]
+  "required": ["identityId", "customerId", "payload", "benefitsProviderId", "headers"]
 }

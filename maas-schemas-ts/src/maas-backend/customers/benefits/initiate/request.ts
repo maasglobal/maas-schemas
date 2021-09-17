@@ -11,6 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from '../../../../core/components/units';
 import * as ApiCommon_ from '../../../../core/components/api-common';
+import * as BenefitProvider_ from '../../../../core/components/benefit-provider';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -55,11 +56,12 @@ export type Request = t.Branded<
             productId: Defined;
           }
       );
-    benefitsProviderId?: string;
+    benefitsProviderId?: BenefitProvider_.BenefitsProviderId;
   } & {
     identityId: Defined;
     customerId: Defined;
     payload: Defined;
+    benefitsProviderId: Defined;
     headers: Defined;
   },
   RequestBrand
@@ -105,12 +107,13 @@ export type RequestC = t.BrandC<
             >,
           ]
         >;
-        benefitsProviderId: t.StringC;
+        benefitsProviderId: typeof BenefitProvider_.BenefitsProviderId;
       }>,
       t.TypeC<{
         identityId: typeof Defined;
         customerId: typeof Defined;
         payload: typeof Defined;
+        benefitsProviderId: typeof Defined;
         headers: typeof Defined;
       }>,
     ]
@@ -149,12 +152,13 @@ export const Request: RequestC = t.brand(
           }),
         ]),
       ]),
-      benefitsProviderId: t.string,
+      benefitsProviderId: BenefitProvider_.BenefitsProviderId,
     }),
     t.type({
       identityId: Defined,
       customerId: Defined,
       payload: Defined,
+      benefitsProviderId: Defined,
       headers: Defined,
     }),
   ]),
@@ -183,11 +187,12 @@ export const Request: RequestC = t.brand(
               productId: Defined;
             }
         );
-      benefitsProviderId?: string;
+      benefitsProviderId?: BenefitProvider_.BenefitsProviderId;
     } & {
       identityId: Defined;
       customerId: Defined;
       payload: Defined;
+      benefitsProviderId: Defined;
       headers: Defined;
     },
     RequestBrand
