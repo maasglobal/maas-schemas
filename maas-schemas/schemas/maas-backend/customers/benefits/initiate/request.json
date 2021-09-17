@@ -39,6 +39,11 @@
         { "required": ["amount", "currency"] },
         { "required": ["amount", "currency", "productType", "productId"] }
       ]
+    },
+    "benefitsProviderId": {
+      "type": "string",
+      "description": "Benefit Provider ID",
+      "examples": ["smartum", "epassi"]
     }
   },
   "required": ["identityId", "customerId", "payload", "headers"]

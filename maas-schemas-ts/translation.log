@@ -1534,6 +1534,10 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/benefits/initiate/request.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/benefits/initiate/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/benefits/initiate/request.json
+WARNING: examples field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/benefits/initiate/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/benefits/initiate/response.json
 WARNING: missing $schema declaration

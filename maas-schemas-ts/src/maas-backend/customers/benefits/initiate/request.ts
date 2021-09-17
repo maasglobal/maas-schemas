@@ -55,6 +55,7 @@ export type Request = t.Branded<
             productId: Defined;
           }
       );
+    benefitsProviderId?: string;
   } & {
     identityId: Defined;
     customerId: Defined;
@@ -104,6 +105,7 @@ export type RequestC = t.BrandC<
             >,
           ]
         >;
+        benefitsProviderId: t.StringC;
       }>,
       t.TypeC<{
         identityId: typeof Defined;
@@ -147,6 +149,7 @@ export const Request: RequestC = t.brand(
           }),
         ]),
       ]),
+      benefitsProviderId: t.string,
     }),
     t.type({
       identityId: Defined,
@@ -180,6 +183,7 @@ export const Request: RequestC = t.brand(
               productId: Defined;
             }
         );
+      benefitsProviderId?: string;
     } & {
       identityId: Defined;
       customerId: Defined;
