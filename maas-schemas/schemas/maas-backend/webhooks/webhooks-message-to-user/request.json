@@ -1,0 +1,26 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-message-to-user/request.json",
+  "description": "A message (push notification) that can be send from TSP to the user",
+  "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "tspId": {
+          "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        }
+      },
+      "required": ["tspId", "message"]
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  },
+  "required": ["payload"],
+  "additionalProperties": false
+}
