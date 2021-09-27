@@ -10,16 +10,126 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
+
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/benefits/initiate/response.json';
 
+// Smartum
+// The purpose of this remains a mystery
+export type Smartum = t.Branded<
+  {
+    checkoutUrl?: string;
+  } & {
+    checkoutUrl: Defined;
+  },
+  SmartumBrand
+>;
+export type SmartumC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        checkoutUrl: t.StringC;
+      }>,
+      t.TypeC<{
+        checkoutUrl: typeof Defined;
+      }>,
+    ]
+  >,
+  SmartumBrand
+>;
+export const Smartum: SmartumC = t.brand(
+  t.intersection([
+    t.partial({
+      checkoutUrl: t.string,
+    }),
+    t.type({
+      checkoutUrl: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      checkoutUrl?: string;
+    } & {
+      checkoutUrl: Defined;
+    },
+    SmartumBrand
+  > => true,
+  'Smartum',
+);
+export interface SmartumBrand {
+  readonly Smartum: unique symbol;
+}
+
+// Epassi
+// The purpose of this remains a mystery
+export type Epassi = t.Branded<
+  Record<string, unknown> & {
+    url: Defined;
+    form: Defined;
+  },
+  EpassiBrand
+>;
+export type EpassiC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.UnknownRecordC,
+      t.TypeC<{
+        url: typeof Defined;
+        form: typeof Defined;
+      }>,
+    ]
+  >,
+  EpassiBrand
+>;
+export const Epassi: EpassiC = t.brand(
+  t.intersection([
+    t.UnknownRecord,
+    t.type({
+      url: Defined,
+      form: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    Record<string, unknown> & {
+      url: Defined;
+      form: Defined;
+    },
+    EpassiBrand
+  > => true,
+  'Epassi',
+);
+export interface EpassiBrand {
+  readonly Epassi: unique symbol;
+}
+
 // Response
 // The default export. More information at the top.
-export type Response = t.Branded<Record<string, unknown>, ResponseBrand>;
-export type ResponseC = t.BrandC<t.UnknownRecordC, ResponseBrand>;
+export type Response = t.Branded<Smartum | Epassi, ResponseBrand>;
+export type ResponseC = t.BrandC<
+  t.UnionC<[typeof Smartum, typeof Epassi]>,
+  ResponseBrand
+>;
 export const Response: ResponseC = t.brand(
-  t.UnknownRecord,
-  (x): x is t.Branded<Record<string, unknown>, ResponseBrand> => true,
+  t.union([Smartum, Epassi]),
+  (x): x is t.Branded<Smartum | Epassi, ResponseBrand> => true,
   'Response',
 );
 export interface ResponseBrand {

@@ -1,5 +1,69 @@
 {
   "$id": "http://maasglobal.com/maas-backend/customers/benefits/initiate/response.json",
   "description": "MaaS customer benefits initiate",
-  "type": "object"
+  "oneOf": [
+    {
+      "$ref": "#/definitions/smartum"
+    },
+    {
+      "$ref": "#/definitions/epassi"
+    }
+  ],
+  "definitions": {
+    "smartum": {
+      "type": "object",
+      "properties": {
+        "checkoutUrl": {
+          "type": "string",
+          "description": "Smartum Checkout URL"
+        }
+      },
+      "required": ["checkoutUrl"]
+    },
+    "epassi": {
+      "type": "object",
+      "properites": {
+        "url": {
+          "type": "string",
+          "description": "ePassi Payment Button Form URL"
+        },
+        "form": {
+          "type": "object",
+          "description": "ePassi Payment Form",
+          "properties": {
+            "STAMP": {
+              "type": "string",
+              "description": "Payment ID"
+            },
+            "SITE": {
+              "type": "string",
+              "description": "ePassi site ID"
+            },
+            "AMOUNT": {
+              "type": "number",
+              "description": "Amount of money in EUR"
+            },
+            "REJECT": {
+              "type": "string",
+              "description": "Reject callback URL"
+            },
+            "CANCEL": {
+              "type": "string",
+              "description": "Cancel callback URL"
+            },
+            "RETURN": {
+              "type": "string",
+              "description": "Success callback URL"
+            },
+            "MAC": {
+              "type": "string",
+              "description": "Hash"
+            }
+          },
+          "required": ["STAMP", "SITE", "AMOUNT", "REJECT", "CANCEL", "RETURN", "MAC"]
+        }
+      },
+      "required": ["url", "form"]
+    }
+  }
 }
