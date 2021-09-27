@@ -1,0 +1,13 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-message-to-user/response.json",
+  "description": "A response from BE message-to-user webhook",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["OK", "FAILED"]
+    }
+  },
+  "required": ["status"],
+  "additionalProperties": false
+}
