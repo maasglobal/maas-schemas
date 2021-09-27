@@ -9,68 +9,17 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from '../../../../core/components/units';
-
-export type Defined = {} | null;
-export class DefinedType extends t.Type<Defined> {
-  readonly _tag: 'DefinedType' = 'DefinedType';
-  constructor() {
-    super(
-      'defined',
-      (u): u is Defined => typeof u !== 'undefined',
-      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
-      t.identity,
-    );
-  }
-}
-export interface DefinedC extends DefinedType {}
-export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'http://maasglobal.com/maas-backend/customers/benefits/initiate/response.json';
 
 // Response
 // The default export. More information at the top.
-export type Response = t.Branded<
-  {
-    checkoutUrl?: Units_.Url;
-  } & {
-    checkoutUrl: Defined;
-  },
-  ResponseBrand
->;
-export type ResponseC = t.BrandC<
-  t.IntersectionC<
-    [
-      t.PartialC<{
-        checkoutUrl: typeof Units_.Url;
-      }>,
-      t.TypeC<{
-        checkoutUrl: typeof Defined;
-      }>,
-    ]
-  >,
-  ResponseBrand
->;
+export type Response = t.Branded<Record<string, unknown>, ResponseBrand>;
+export type ResponseC = t.BrandC<t.UnknownRecordC, ResponseBrand>;
 export const Response: ResponseC = t.brand(
-  t.intersection([
-    t.partial({
-      checkoutUrl: Units_.Url,
-    }),
-    t.type({
-      checkoutUrl: Defined,
-    }),
-  ]),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      checkoutUrl?: Units_.Url;
-    } & {
-      checkoutUrl: Defined;
-    },
-    ResponseBrand
-  > => true,
+  t.UnknownRecord,
+  (x): x is t.Branded<Record<string, unknown>, ResponseBrand> => true,
   'Response',
 );
 export interface ResponseBrand {
