@@ -404,7 +404,16 @@ export const defaultBookingStateUNKNOWN: BookingStateUNKNOWN = ('UNKNOWN' as unk
 // LegState
 // The life-cycle state of a leg
 export type LegState = t.Branded<
-  string & ('START' | 'PLANNED' | 'PAID' | 'ACTIVATED' | 'CANCELLED' | 'FINISHED'),
+  string &
+    (
+      | 'START'
+      | 'PLANNED'
+      | 'PAID'
+      | 'ACTIVATED'
+      | 'CANCELLED'
+      | 'CANCELLED_WITH_ERRORS'
+      | 'FINISHED'
+    ),
   LegStateBrand
 >;
 export type LegStateC = t.BrandC<
@@ -418,6 +427,7 @@ export type LegStateC = t.BrandC<
           t.LiteralC<'PAID'>,
           t.LiteralC<'ACTIVATED'>,
           t.LiteralC<'CANCELLED'>,
+          t.LiteralC<'CANCELLED_WITH_ERRORS'>,
           t.LiteralC<'FINISHED'>,
         ]
       >,
@@ -434,13 +444,23 @@ export const LegState: LegStateC = t.brand(
       t.literal('PAID'),
       t.literal('ACTIVATED'),
       t.literal('CANCELLED'),
+      t.literal('CANCELLED_WITH_ERRORS'),
       t.literal('FINISHED'),
     ]),
   ]),
   (
     x,
   ): x is t.Branded<
-    string & ('START' | 'PLANNED' | 'PAID' | 'ACTIVATED' | 'CANCELLED' | 'FINISHED'),
+    string &
+      (
+        | 'START'
+        | 'PLANNED'
+        | 'PAID'
+        | 'ACTIVATED'
+        | 'CANCELLED'
+        | 'CANCELLED_WITH_ERRORS'
+        | 'FINISHED'
+      ),
     LegStateBrand
   > => true,
   'LegState',
@@ -538,6 +558,32 @@ export interface LegStateCANCELLEDBrand {
 }
 /** require('io-ts-validator').validator(LegStateCANCELLED).decodeSync(defaultLegStateCANCELLED) // => defaultLegStateCANCELLED */
 export const defaultLegStateCANCELLED: LegStateCANCELLED = ('CANCELLED' as unknown) as LegStateCANCELLED;
+
+// LegStateCANCELLED_WITH_ERRORS
+// The purpose of this remains a mystery
+export type LegStateCANCELLED_WITH_ERRORS = t.Branded<
+  LegState & 'CANCELLED_WITH_ERRORS',
+  LegStateCANCELLED_WITH_ERRORSBrand
+>;
+export type LegStateCANCELLED_WITH_ERRORSC = t.BrandC<
+  t.IntersectionC<[typeof LegState, t.LiteralC<'CANCELLED_WITH_ERRORS'>]>,
+  LegStateCANCELLED_WITH_ERRORSBrand
+>;
+export const LegStateCANCELLED_WITH_ERRORS: LegStateCANCELLED_WITH_ERRORSC = t.brand(
+  t.intersection([LegState, t.literal('CANCELLED_WITH_ERRORS')]),
+  (
+    x,
+  ): x is t.Branded<
+    LegState & 'CANCELLED_WITH_ERRORS',
+    LegStateCANCELLED_WITH_ERRORSBrand
+  > => true,
+  'LegStateCANCELLED_WITH_ERRORS',
+);
+export interface LegStateCANCELLED_WITH_ERRORSBrand {
+  readonly LegStateCANCELLED_WITH_ERRORS: unique symbol;
+}
+/** require('io-ts-validator').validator(LegStateCANCELLED_WITH_ERRORS).decodeSync(defaultLegStateCANCELLED_WITH_ERRORS) // => defaultLegStateCANCELLED_WITH_ERRORS */
+export const defaultLegStateCANCELLED_WITH_ERRORS: LegStateCANCELLED_WITH_ERRORS = ('CANCELLED_WITH_ERRORS' as unknown) as LegStateCANCELLED_WITH_ERRORS;
 
 // LegStateFINISHED
 // The purpose of this remains a mystery
@@ -1084,6 +1130,283 @@ export interface SubscriptionIntentStateFINISHEDBrand {
 }
 /** require('io-ts-validator').validator(SubscriptionIntentStateFINISHED).decodeSync(defaultSubscriptionIntentStateFINISHED) // => defaultSubscriptionIntentStateFINISHED */
 export const defaultSubscriptionIntentStateFINISHED: SubscriptionIntentStateFINISHED = ('FINISHED' as unknown) as SubscriptionIntentStateFINISHED;
+
+// VerificationState
+// The life-cycle state of a verification
+export type VerificationState = t.Branded<
+  string &
+    (
+      | 'START'
+      | 'PENDING'
+      | 'STARTED'
+      | 'SUBMITTED'
+      | 'APPROVED'
+      | 'DECLINED'
+      | 'EXPIRED'
+      | 'RESUBMISSION_REQUESTED'
+      | 'ABANDONED'
+    ),
+  VerificationStateBrand
+>;
+export type VerificationStateC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<
+        [
+          t.LiteralC<'START'>,
+          t.LiteralC<'PENDING'>,
+          t.LiteralC<'STARTED'>,
+          t.LiteralC<'SUBMITTED'>,
+          t.LiteralC<'APPROVED'>,
+          t.LiteralC<'DECLINED'>,
+          t.LiteralC<'EXPIRED'>,
+          t.LiteralC<'RESUBMISSION_REQUESTED'>,
+          t.LiteralC<'ABANDONED'>,
+        ]
+      >,
+    ]
+  >,
+  VerificationStateBrand
+>;
+export const VerificationState: VerificationStateC = t.brand(
+  t.intersection([
+    t.string,
+    t.union([
+      t.literal('START'),
+      t.literal('PENDING'),
+      t.literal('STARTED'),
+      t.literal('SUBMITTED'),
+      t.literal('APPROVED'),
+      t.literal('DECLINED'),
+      t.literal('EXPIRED'),
+      t.literal('RESUBMISSION_REQUESTED'),
+      t.literal('ABANDONED'),
+    ]),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    string &
+      (
+        | 'START'
+        | 'PENDING'
+        | 'STARTED'
+        | 'SUBMITTED'
+        | 'APPROVED'
+        | 'DECLINED'
+        | 'EXPIRED'
+        | 'RESUBMISSION_REQUESTED'
+        | 'ABANDONED'
+      ),
+    VerificationStateBrand
+  > => true,
+  'VerificationState',
+);
+export interface VerificationStateBrand {
+  readonly VerificationState: unique symbol;
+}
+
+// VerificationStateSTART
+// The purpose of this remains a mystery
+export type VerificationStateSTART = t.Branded<
+  VerificationState & 'START',
+  VerificationStateSTARTBrand
+>;
+export type VerificationStateSTARTC = t.BrandC<
+  t.IntersectionC<[typeof VerificationState, t.LiteralC<'START'>]>,
+  VerificationStateSTARTBrand
+>;
+export const VerificationStateSTART: VerificationStateSTARTC = t.brand(
+  t.intersection([VerificationState, t.literal('START')]),
+  (x): x is t.Branded<VerificationState & 'START', VerificationStateSTARTBrand> => true,
+  'VerificationStateSTART',
+);
+export interface VerificationStateSTARTBrand {
+  readonly VerificationStateSTART: unique symbol;
+}
+/** require('io-ts-validator').validator(VerificationStateSTART).decodeSync(defaultVerificationStateSTART) // => defaultVerificationStateSTART */
+export const defaultVerificationStateSTART: VerificationStateSTART = ('START' as unknown) as VerificationStateSTART;
+
+// VerificationStatePENDING
+// The purpose of this remains a mystery
+export type VerificationStatePENDING = t.Branded<
+  VerificationState & 'PENDING',
+  VerificationStatePENDINGBrand
+>;
+export type VerificationStatePENDINGC = t.BrandC<
+  t.IntersectionC<[typeof VerificationState, t.LiteralC<'PENDING'>]>,
+  VerificationStatePENDINGBrand
+>;
+export const VerificationStatePENDING: VerificationStatePENDINGC = t.brand(
+  t.intersection([VerificationState, t.literal('PENDING')]),
+  (x): x is t.Branded<VerificationState & 'PENDING', VerificationStatePENDINGBrand> =>
+    true,
+  'VerificationStatePENDING',
+);
+export interface VerificationStatePENDINGBrand {
+  readonly VerificationStatePENDING: unique symbol;
+}
+/** require('io-ts-validator').validator(VerificationStatePENDING).decodeSync(defaultVerificationStatePENDING) // => defaultVerificationStatePENDING */
+export const defaultVerificationStatePENDING: VerificationStatePENDING = ('PENDING' as unknown) as VerificationStatePENDING;
+
+// VerificationStateSTARTED
+// The purpose of this remains a mystery
+export type VerificationStateSTARTED = t.Branded<
+  VerificationState & 'STARTED',
+  VerificationStateSTARTEDBrand
+>;
+export type VerificationStateSTARTEDC = t.BrandC<
+  t.IntersectionC<[typeof VerificationState, t.LiteralC<'STARTED'>]>,
+  VerificationStateSTARTEDBrand
+>;
+export const VerificationStateSTARTED: VerificationStateSTARTEDC = t.brand(
+  t.intersection([VerificationState, t.literal('STARTED')]),
+  (x): x is t.Branded<VerificationState & 'STARTED', VerificationStateSTARTEDBrand> =>
+    true,
+  'VerificationStateSTARTED',
+);
+export interface VerificationStateSTARTEDBrand {
+  readonly VerificationStateSTARTED: unique symbol;
+}
+/** require('io-ts-validator').validator(VerificationStateSTARTED).decodeSync(defaultVerificationStateSTARTED) // => defaultVerificationStateSTARTED */
+export const defaultVerificationStateSTARTED: VerificationStateSTARTED = ('STARTED' as unknown) as VerificationStateSTARTED;
+
+// VerificationStateSUBMITTED
+// The purpose of this remains a mystery
+export type VerificationStateSUBMITTED = t.Branded<
+  VerificationState & 'SUBMITTED',
+  VerificationStateSUBMITTEDBrand
+>;
+export type VerificationStateSUBMITTEDC = t.BrandC<
+  t.IntersectionC<[typeof VerificationState, t.LiteralC<'SUBMITTED'>]>,
+  VerificationStateSUBMITTEDBrand
+>;
+export const VerificationStateSUBMITTED: VerificationStateSUBMITTEDC = t.brand(
+  t.intersection([VerificationState, t.literal('SUBMITTED')]),
+  (x): x is t.Branded<VerificationState & 'SUBMITTED', VerificationStateSUBMITTEDBrand> =>
+    true,
+  'VerificationStateSUBMITTED',
+);
+export interface VerificationStateSUBMITTEDBrand {
+  readonly VerificationStateSUBMITTED: unique symbol;
+}
+/** require('io-ts-validator').validator(VerificationStateSUBMITTED).decodeSync(defaultVerificationStateSUBMITTED) // => defaultVerificationStateSUBMITTED */
+export const defaultVerificationStateSUBMITTED: VerificationStateSUBMITTED = ('SUBMITTED' as unknown) as VerificationStateSUBMITTED;
+
+// VerificationStateAPPROVED
+// The purpose of this remains a mystery
+export type VerificationStateAPPROVED = t.Branded<
+  VerificationState & 'APPROVED',
+  VerificationStateAPPROVEDBrand
+>;
+export type VerificationStateAPPROVEDC = t.BrandC<
+  t.IntersectionC<[typeof VerificationState, t.LiteralC<'APPROVED'>]>,
+  VerificationStateAPPROVEDBrand
+>;
+export const VerificationStateAPPROVED: VerificationStateAPPROVEDC = t.brand(
+  t.intersection([VerificationState, t.literal('APPROVED')]),
+  (x): x is t.Branded<VerificationState & 'APPROVED', VerificationStateAPPROVEDBrand> =>
+    true,
+  'VerificationStateAPPROVED',
+);
+export interface VerificationStateAPPROVEDBrand {
+  readonly VerificationStateAPPROVED: unique symbol;
+}
+/** require('io-ts-validator').validator(VerificationStateAPPROVED).decodeSync(defaultVerificationStateAPPROVED) // => defaultVerificationStateAPPROVED */
+export const defaultVerificationStateAPPROVED: VerificationStateAPPROVED = ('APPROVED' as unknown) as VerificationStateAPPROVED;
+
+// VerificationStateDECLINED
+// The purpose of this remains a mystery
+export type VerificationStateDECLINED = t.Branded<
+  VerificationState & 'DECLINED',
+  VerificationStateDECLINEDBrand
+>;
+export type VerificationStateDECLINEDC = t.BrandC<
+  t.IntersectionC<[typeof VerificationState, t.LiteralC<'DECLINED'>]>,
+  VerificationStateDECLINEDBrand
+>;
+export const VerificationStateDECLINED: VerificationStateDECLINEDC = t.brand(
+  t.intersection([VerificationState, t.literal('DECLINED')]),
+  (x): x is t.Branded<VerificationState & 'DECLINED', VerificationStateDECLINEDBrand> =>
+    true,
+  'VerificationStateDECLINED',
+);
+export interface VerificationStateDECLINEDBrand {
+  readonly VerificationStateDECLINED: unique symbol;
+}
+/** require('io-ts-validator').validator(VerificationStateDECLINED).decodeSync(defaultVerificationStateDECLINED) // => defaultVerificationStateDECLINED */
+export const defaultVerificationStateDECLINED: VerificationStateDECLINED = ('DECLINED' as unknown) as VerificationStateDECLINED;
+
+// VerificationStateEXPIRED
+// The purpose of this remains a mystery
+export type VerificationStateEXPIRED = t.Branded<
+  VerificationState & 'EXPIRED',
+  VerificationStateEXPIREDBrand
+>;
+export type VerificationStateEXPIREDC = t.BrandC<
+  t.IntersectionC<[typeof VerificationState, t.LiteralC<'EXPIRED'>]>,
+  VerificationStateEXPIREDBrand
+>;
+export const VerificationStateEXPIRED: VerificationStateEXPIREDC = t.brand(
+  t.intersection([VerificationState, t.literal('EXPIRED')]),
+  (x): x is t.Branded<VerificationState & 'EXPIRED', VerificationStateEXPIREDBrand> =>
+    true,
+  'VerificationStateEXPIRED',
+);
+export interface VerificationStateEXPIREDBrand {
+  readonly VerificationStateEXPIRED: unique symbol;
+}
+/** require('io-ts-validator').validator(VerificationStateEXPIRED).decodeSync(defaultVerificationStateEXPIRED) // => defaultVerificationStateEXPIRED */
+export const defaultVerificationStateEXPIRED: VerificationStateEXPIRED = ('EXPIRED' as unknown) as VerificationStateEXPIRED;
+
+// VerificationStateRESUBMISSION_REQUESTED
+// The purpose of this remains a mystery
+export type VerificationStateRESUBMISSION_REQUESTED = t.Branded<
+  VerificationState & 'RESUBMISSION_REQUESTED',
+  VerificationStateRESUBMISSION_REQUESTEDBrand
+>;
+export type VerificationStateRESUBMISSION_REQUESTEDC = t.BrandC<
+  t.IntersectionC<[typeof VerificationState, t.LiteralC<'RESUBMISSION_REQUESTED'>]>,
+  VerificationStateRESUBMISSION_REQUESTEDBrand
+>;
+export const VerificationStateRESUBMISSION_REQUESTED: VerificationStateRESUBMISSION_REQUESTEDC = t.brand(
+  t.intersection([VerificationState, t.literal('RESUBMISSION_REQUESTED')]),
+  (
+    x,
+  ): x is t.Branded<
+    VerificationState & 'RESUBMISSION_REQUESTED',
+    VerificationStateRESUBMISSION_REQUESTEDBrand
+  > => true,
+  'VerificationStateRESUBMISSION_REQUESTED',
+);
+export interface VerificationStateRESUBMISSION_REQUESTEDBrand {
+  readonly VerificationStateRESUBMISSION_REQUESTED: unique symbol;
+}
+/** require('io-ts-validator').validator(VerificationStateRESUBMISSION_REQUESTED).decodeSync(defaultVerificationStateRESUBMISSION_REQUESTED) // => defaultVerificationStateRESUBMISSION_REQUESTED */
+export const defaultVerificationStateRESUBMISSION_REQUESTED: VerificationStateRESUBMISSION_REQUESTED = ('RESUBMISSION_REQUESTED' as unknown) as VerificationStateRESUBMISSION_REQUESTED;
+
+// VerificationStateABANDONED
+// The purpose of this remains a mystery
+export type VerificationStateABANDONED = t.Branded<
+  VerificationState & 'ABANDONED',
+  VerificationStateABANDONEDBrand
+>;
+export type VerificationStateABANDONEDC = t.BrandC<
+  t.IntersectionC<[typeof VerificationState, t.LiteralC<'ABANDONED'>]>,
+  VerificationStateABANDONEDBrand
+>;
+export const VerificationStateABANDONED: VerificationStateABANDONEDC = t.brand(
+  t.intersection([VerificationState, t.literal('ABANDONED')]),
+  (x): x is t.Branded<VerificationState & 'ABANDONED', VerificationStateABANDONEDBrand> =>
+    true,
+  'VerificationStateABANDONED',
+);
+export interface VerificationStateABANDONEDBrand {
+  readonly VerificationStateABANDONED: unique symbol;
+}
+/** require('io-ts-validator').validator(VerificationStateABANDONED).decodeSync(defaultVerificationStateABANDONED) // => defaultVerificationStateABANDONED */
+export const defaultVerificationStateABANDONED: VerificationStateABANDONED = ('ABANDONED' as unknown) as VerificationStateABANDONED;
 
 // State
 // The default export. More information at the top.
