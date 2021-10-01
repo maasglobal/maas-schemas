@@ -82,7 +82,7 @@
     "legState": {
       "description": "The life-cycle state of a leg",
       "type": "string",
-      "enum": ["START", "PLANNED", "PAID", "ACTIVATED", "CANCELLED", "FINISHED"]
+      "enum": ["START", "PLANNED", "PAID", "ACTIVATED", "CANCELLED", "CANCELLED_WITH_ERRORS", "FINISHED"]
     },
     "legStateSTART": {
       "default": "START",
@@ -103,6 +103,10 @@
     "legStateCANCELLED": {
       "default": "CANCELLED",
       "allOf": [{ "$ref": "#/definitions/legState" }, { "const": "CANCELLED" }]
+    },
+    "legStateCANCELLED_WITH_ERRORS": {
+      "default": "CANCELLED_WITH_ERRORS",
+      "allOf": [{ "$ref": "#/definitions/legState" }, { "const": "CANCELLED_WITH_ERRORS" }]
     },
     "legStateFINISHED": {
       "default": "FINISHED",
@@ -191,6 +195,57 @@
     "subscriptionIntentStateFINISHED": {
       "default": "FINISHED",
       "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "FINISHED" }]
+    },
+    "verificationState": {
+      "description": "The life-cycle state of a verification",
+      "type": "string",
+      "enum": [
+        "START",
+        "PENDING",
+        "STARTED",
+        "SUBMITTED",
+        "APPROVED",
+        "DECLINED",
+        "EXPIRED",
+        "RESUBMISSION_REQUESTED",
+        "ABANDONED"
+      ]
+    },
+    "verificationStateSTART": {
+      "default": "START",
+      "allOf": [{ "$ref": "#/definitions/verificationState" }, { "const": "START" }]
+    },
+    "verificationStatePENDING": {
+      "default": "PENDING",
+      "allOf": [{ "$ref": "#/definitions/verificationState" }, { "const": "PENDING" }]
+    },
+    "verificationStateSTARTED": {
+      "default": "STARTED",
+      "allOf": [{ "$ref": "#/definitions/verificationState" }, { "const": "STARTED" }]
+    },
+    "verificationStateSUBMITTED": {
+      "default": "SUBMITTED",
+      "allOf": [{ "$ref": "#/definitions/verificationState" }, { "const": "SUBMITTED" }]
+    },
+    "verificationStateAPPROVED": {
+      "default": "APPROVED",
+      "allOf": [{ "$ref": "#/definitions/verificationState" }, { "const": "APPROVED" }]
+    },
+    "verificationStateDECLINED": {
+      "default": "DECLINED",
+      "allOf": [{ "$ref": "#/definitions/verificationState" }, { "const": "DECLINED" }]
+    },
+    "verificationStateEXPIRED": {
+      "default": "EXPIRED",
+      "allOf": [{ "$ref": "#/definitions/verificationState" }, { "const": "EXPIRED" }]
+    },
+    "verificationStateRESUBMISSION_REQUESTED": {
+      "default": "RESUBMISSION_REQUESTED",
+      "allOf": [{ "$ref": "#/definitions/verificationState" }, { "const": "RESUBMISSION_REQUESTED" }]
+    },
+    "verificationStateABANDONED": {
+      "default": "ABANDONED",
+      "allOf": [{ "$ref": "#/definitions/verificationState" }, { "const": "ABANDONED" }]
     }
   }
 }
