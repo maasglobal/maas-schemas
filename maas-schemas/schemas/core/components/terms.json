@@ -127,6 +127,9 @@
           "currency": {
             "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currencyOrToken"
           },
+          "tokenId": {
+            "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/tokenId"
+          },
           "timeInterval": {
             "description": "Amount of seconds that fare rate is applied to",
             "type": "number",
