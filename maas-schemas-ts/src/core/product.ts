@@ -12,6 +12,17 @@ import * as t from 'io-ts';
 import * as Fare_ from './components/fare';
 import * as Common_ from './components/common';
 
+export interface NullBrand {
+  readonly Null: unique symbol;
+}
+export type NullC = t.BrandC<t.UnknownC, NullBrand>;
+export const Null: NullC = t.brand(
+  t.unknown,
+  (n): n is t.Branded<unknown, NullBrand> => n === null,
+  'Null',
+);
+export type Null = t.TypeOf<typeof Null>;
+
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
   readonly _tag: 'DefinedType' = 'DefinedType';
@@ -47,31 +58,41 @@ export interface IdBrand {
 // PreAuthBuffer
 // The purpose of this remains a mystery
 export type PreAuthBuffer = t.Branded<
-  {
-    percentageExtra?: number;
-    minimumExtra?: Fare_.Fare;
-  },
+  | {
+      percentageExtra?: number;
+      minimumExtra?: Fare_.Fare;
+    }
+  | Null,
   PreAuthBufferBrand
 >;
 export type PreAuthBufferC = t.BrandC<
-  t.PartialC<{
-    percentageExtra: t.NumberC;
-    minimumExtra: typeof Fare_.Fare;
-  }>,
+  t.UnionC<
+    [
+      t.PartialC<{
+        percentageExtra: t.NumberC;
+        minimumExtra: typeof Fare_.Fare;
+      }>,
+      typeof Null,
+    ]
+  >,
   PreAuthBufferBrand
 >;
 export const PreAuthBuffer: PreAuthBufferC = t.brand(
-  t.partial({
-    percentageExtra: t.number,
-    minimumExtra: Fare_.Fare,
-  }),
+  t.union([
+    t.partial({
+      percentageExtra: t.number,
+      minimumExtra: Fare_.Fare,
+    }),
+    Null,
+  ]),
   (
     x,
   ): x is t.Branded<
-    {
-      percentageExtra?: number;
-      minimumExtra?: Fare_.Fare;
-    },
+    | {
+        percentageExtra?: number;
+        minimumExtra?: Fare_.Fare;
+      }
+    | Null,
     PreAuthBufferBrand
   > => true,
   'PreAuthBuffer',
