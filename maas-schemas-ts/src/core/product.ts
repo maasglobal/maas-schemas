@@ -11,6 +11,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Fare_ from './components/fare';
 import * as Common_ from './components/common';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export interface NullBrand {
   readonly Null: unique symbol;
@@ -188,6 +190,389 @@ export const Product: ProductC = t.brand(
 export interface ProductBrand {
   readonly Product: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(Product)).decodeSync(examplesProduct) // => examplesProduct */
+export const examplesProduct: NonEmptyArray<Product> = ([
+  {
+    id: 'sixt',
+    name: 'SIXT_NAME',
+    description: 'SIXT_DESC',
+    meta: {},
+    active: true,
+    priority: 1,
+    modes: ['CAR'],
+    agencyId: 'Sixt',
+    availability: {
+      id: 6,
+      regions: ['Finland'],
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [28.93798828125, 69.7257219141874],
+            [28.212890625, 69.937839021328],
+            [27.97119140625, 70.1999940753466],
+            [27.59765625, 70.1104847810593],
+            [27.00439453125, 70.005566545745],
+            [26.56494140625, 69.9754925361616],
+            [26.1474609375, 69.8396219406746],
+            [25.751953125, 69.6876184318562],
+            [25.68603515625, 69.4112423569726],
+            [25.5322265625, 69.1312712296365],
+            [25.48828125, 68.9978015232897],
+            [25.20263671875, 68.8951868894354],
+            [24.8291015625, 68.7284134357551],
+            [24.43359375, 68.7920938805366],
+            [23.994140625, 68.8951868894354],
+            [23.5107421875, 68.7761908375983],
+            [23.0712890625, 68.7443506221147],
+            [22.67578125, 68.8238658713315],
+            [21.68701171875, 69.3415881705379],
+            [21.20361328125, 69.3570863282203],
+            [20.76416015625, 69.193799764619],
+            [20.89599609375, 69.1234425501486],
+            [20.58837890625, 69.1547404426926],
+            [20.4345703125, 69.0920997669429],
+            [20.4345703125, 69.0292793085448],
+            [20.56640625, 69.0135460513232],
+            [20.72021484375, 68.9741635834067],
+            [20.80810546875, 68.8635170027268],
+            [21.02783203125, 68.8079855561465],
+            [21.29150390625, 68.696504871254],
+            [21.64306640625, 68.5523507975906],
+            [22.39013671875, 68.3424865640174],
+            [22.763671875, 68.2937794427782],
+            [23.0712890625, 68.0733047407902],
+            [23.31298828125, 67.941650035336],
+            [23.40087890625, 67.5757174170806],
+            [23.3349609375, 67.4496565954186],
+            [23.5546875, 67.3567853880607],
+            [23.37890625, 67.1358293853195],
+            [23.642578125, 66.843807381885],
+            [23.5546875, 66.4079554797885],
+            [23.5986328125, 66.1249623648797],
+            [23.9501953125, 66.0001503565266],
+            [24.169921875, 65.7486828949375],
+            [20.7421875, 63.2336274123257],
+            [19.9951171875, 60.3269477429984],
+            [21.6650390625, 59.5565918856817],
+            [27.685546875, 60.2616170828446],
+            [27.960205078125, 60.5545786765552],
+            [28.553466796875, 60.9197545323997],
+            [28.707275390625, 60.9357696962293],
+            [28.89404296875, 61.0954790195121],
+            [29.4873046875, 61.3124515748382],
+            [30.5859375, 62.0112181983376],
+            [31.81640625, 62.9352348706047],
+            [30.9375, 63.4995727856686],
+            [30.16845703125, 63.7339088557292],
+            [30.78369140625, 64.1393694420315],
+            [30.12451171875, 64.4917250443547],
+            [30.25634765625, 64.727262287778],
+            [30.1025390625, 64.830253743883],
+            [29.81689453125, 64.8769382322887],
+            [29.7509765625, 64.997939200614],
+            [30.05859375, 65.1183946883338],
+            [30.0146484375, 65.2291018831922],
+            [29.794921875, 65.2750935499542],
+            [29.970703125, 65.6492162924837],
+            [30.30029296875, 65.5948004262401],
+            [30.05859375, 66.2668563143084],
+            [29.24560546875, 66.9128340142486],
+            [30.12451171875, 67.6384969400044],
+            [29.937744140625, 67.8258363798566],
+            [29.718017578125, 67.8548438166336],
+            [29.42138671875, 68.0897089643431],
+            [28.71826171875, 68.2205232557334],
+            [28.509521484375, 68.5443150407769],
+            [28.89404296875, 68.8714387233513],
+            [28.795166015625, 68.8951868894354],
+            [28.487548828125, 68.9110048456202],
+            [28.9599609375, 69.0489300409776],
+            [29.014892578125, 69.0881787599288],
+            [28.916015625, 69.1430089901233],
+            [29.058837890625, 69.2950269104607],
+            [29.300537109375, 69.3957830884775],
+            [29.42138671875, 69.4960701797534],
+            [29.3115234375, 69.6265101680296],
+            [29.15771484375, 69.7066787389554],
+            [28.93798828125, 69.7257219141874],
+          ],
+        ],
+      },
+    },
+    validity: null,
+    reusable: false,
+    tags: ['rental-car', 'whim-wheel-rental-car'],
+    tspProductId: 'Sixt',
+    icon: 'https://assets.development.maas.global/product-icons/sixt.png',
+    fareFactors: { margin: 1.06382979 },
+    vatId: 1,
+    preAuthBuffer: null,
+    allowFinishTrip: false,
+    allowMultipleBookings: true,
+    hidden: false,
+    requireValidPaymentSource: false,
+    vat: { id: 1, name: 'FI general', percentage: 24, symbol: 'VAT', vatFactor: 1.24 },
+    whimCar: [
+      {
+        id: 3,
+        name: 'EVERYDAY_ESTATE_CAR_NAME',
+        description: 'EVERYDAY_ESTATE_CAR_DESC',
+        tokenId: 'fi-whim-car-cwmr',
+        dayPrice: {
+          amount: 44,
+          currency: 'EUR',
+          dayRules: [
+            {
+              days: '*',
+              currency: 'EUR',
+              multiplier: 1.06382979,
+              supportedAgency: ['Sixt-Whim-car'],
+            },
+            { days: '*', currency: 'EUR', multiplier: 1, supportedAgency: ['Sixt'] },
+          ],
+        },
+        dayUpgradePrice: { 'fi-whim-car-ccmr': { amount: 10, currency: 'EUR' } },
+        meta: {
+          image:
+            'https://assets.development.maas.global/product-images/fi-whim-car-cwmr.png',
+          luggage: 5,
+          passengers: '4 + 1',
+          transmission: 'manual',
+        },
+        tags: ['whim-car'],
+        class: ['cwmr', 'cwah'],
+      },
+      {
+        id: 11,
+        name: 'COMPACT_CAR_NAME',
+        description: 'COMPACT_CAR_DESC',
+        tokenId: 'fi-whim-weekend-car-ccmr',
+        dayPrice: {
+          amount: 49,
+          currency: 'EUR',
+          dayRules: [
+            {
+              days: 1,
+              amount: 49,
+              currency: 'EUR',
+              multiplier: 1,
+              supportedAgency: ['Sixt-Whim-car', 'Sixt'],
+            },
+            {
+              days: '*',
+              currency: 'EUR',
+              multiplier: 1.06382979,
+              supportedAgency: ['Sixt-Whim-car'],
+            },
+            { days: '*', currency: 'EUR', multiplier: 1, supportedAgency: ['Sixt'] },
+          ],
+        },
+        dayUpgradePrice: {},
+        meta: {
+          image:
+            'https://assets.development.maas.global/product-images/fi-weekend-car-ccmr.png',
+          luggage: 3,
+          passengers: '4',
+          transmission: 'manual',
+        },
+        tags: ['fi-whim-weekend-car'],
+        class: ['ccmr', 'edmv', 'ecav'],
+      },
+      {
+        id: 12,
+        name: 'EVERYDAY_ESTATE_CAR_NAME',
+        description: 'EVERYDAY_ESTATE_CAR_DESC',
+        tokenId: 'fi-whim-weekend-car-cwmr',
+        dayPrice: {
+          amount: 69,
+          currency: 'EUR',
+          dayRules: [
+            {
+              days: '*',
+              currency: 'EUR',
+              multiplier: 1.06382979,
+              supportedAgency: ['Sixt-Whim-car'],
+            },
+            { days: '*', currency: 'EUR', multiplier: 1, supportedAgency: ['Sixt'] },
+          ],
+        },
+        dayUpgradePrice: {
+          'fi-whim-weekend-car-ccmr': { amount: 9.99, currency: 'EUR' },
+        },
+        meta: {
+          image:
+            'https://assets.development.maas.global/product-images/fi-whim-car-cwmr.png',
+          luggage: 5,
+          passengers: '4 + 1',
+          transmission: 'manual',
+        },
+        tags: ['fi-whim-weekend-car'],
+        class: ['cwmr', 'cwmv'],
+      },
+      {
+        id: 13,
+        name: 'LIFESTYLE_CAR_NAME',
+        description: 'LIFESTYLE_CAR_DESC',
+        tokenId: 'fi-whim-weekend-car-idar',
+        dayPrice: {
+          amount: 84,
+          currency: 'EUR',
+          dayRules: [
+            {
+              days: '*',
+              currency: 'EUR',
+              multiplier: 1.06382979,
+              supportedAgency: ['Sixt-Whim-car'],
+            },
+            { days: '*', currency: 'EUR', multiplier: 1, supportedAgency: ['Sixt'] },
+          ],
+        },
+        dayUpgradePrice: {
+          'fi-whim-weekend-car-ccmr': { amount: 19.99, currency: 'EUR' },
+          'fi-whim-weekend-car-ecmr': { amount: 19.99, currency: 'EUR' },
+        },
+        meta: {
+          image:
+            'https://assets.development.maas.global/product-images/fi-whim-car-idmr.png',
+          luggage: 3,
+          passengers: '4 + 1',
+          transmission: 'automatic',
+        },
+        tags: ['fi-whim-weekend-car'],
+        class: ['idar'],
+      },
+      {
+        id: 101,
+        name: 'COMPACT_CAR_NAME',
+        description: 'COMPACT_CAR_DESC',
+        tokenId: 'fi-whim-car-ccmr',
+        dayPrice: {
+          dayRules: [
+            {
+              days: 1,
+              amount: 55,
+              currency: 'EUR',
+              multiplier: 1,
+              supportedAgency: ['Sixt-Whim-car', 'Sixt'],
+            },
+            {
+              days: '*',
+              currency: 'EUR',
+              multiplier: 1.06382979,
+              supportedAgency: ['Sixt-Whim-car'],
+            },
+            { days: '*', currency: 'EUR', multiplier: 1, supportedAgency: ['Sixt'] },
+          ],
+        },
+        dayUpgradePrice: {},
+        meta: {
+          image:
+            'https://assets.development.maas.global/product-images/fi-whim-car-ccmr.png',
+          luggage: 3,
+          passengers: 4,
+          transmission: 'manual',
+        },
+        tags: ['whim-car'],
+        class: ['ccmr'],
+      },
+      {
+        id: 102,
+        name: 'PREMIUM_ESTATE_CAR_NAME',
+        description: 'PREMIUM_ESTATE_CAR_DESC',
+        tokenId: 'fi-whim-car-fdah',
+        dayPrice: {
+          dayRules: [
+            {
+              days: '*',
+              currency: 'EUR',
+              multiplier: 1.06382979,
+              supportedAgency: ['Sixt-Whim-car'],
+            },
+            { days: '*', currency: 'EUR', multiplier: 1, supportedAgency: ['Sixt'] },
+          ],
+        },
+        dayUpgradePrice: {
+          'fi-whim-car-ccmr': { amount: 25, currency: 'EUR' },
+          'fi-whim-car-cwmr': { amount: 20, currency: 'EUR' },
+          'fi-whim-car-idar': { amount: 10, currency: 'EUR' },
+          'fi-whim-car-iwmr': { amount: 10, currency: 'EUR' },
+        },
+        meta: {
+          image:
+            'https://assets.development.maas.global/product-images/fi-whim-car-fdah.png',
+          luggage: 5,
+          passengers: 5,
+          transmission: 'manual',
+        },
+        tags: ['whim-car'],
+        class: ['fdah'],
+      },
+      {
+        id: 103,
+        name: 'LIFESTYLE_CAR_NAME',
+        description: 'LIFESTYLE_CAR_DESC',
+        tokenId: 'fi-whim-car-idar',
+        dayPrice: {
+          dayRules: [
+            {
+              days: '*',
+              currency: 'EUR',
+              multiplier: 1.06382979,
+              supportedAgency: ['Sixt-Whim-car'],
+            },
+            { days: '*', currency: 'EUR', multiplier: 1, supportedAgency: ['Sixt'] },
+            { days: '*', currency: 'EUR', multiplier: 1, supportedAgency: ['Hertz'] },
+          ],
+        },
+        dayUpgradePrice: {
+          'fi-whim-car-ccmr': { amount: 20, currency: 'EUR' },
+          'fi-whim-car-cwmr': { amount: 10, currency: 'EUR' },
+          'fi-whim-car-iwmr': { amount: 10, currency: 'EUR' },
+        },
+        meta: {
+          image:
+            'https://assets.development.maas.global/product-images/fi-whim-car-idar.png',
+          luggage: 3,
+          passengers: '4 + 1',
+          transmission: 'automatic',
+        },
+        tags: ['whim-car'],
+        class: ['idar'],
+      },
+      {
+        id: 104,
+        name: 'SMALL_CAR_NAME',
+        description: 'SMALL_CAR_DESC',
+        tokenId: 'fi-whim-car-iwmr',
+        dayPrice: {
+          dayRules: [
+            {
+              days: '*',
+              currency: 'EUR',
+              multiplier: 1.06382979,
+              supportedAgency: ['Sixt-Whim-car'],
+            },
+            { days: '*', currency: 'EUR', multiplier: 1, supportedAgency: ['Sixt'] },
+          ],
+        },
+        dayUpgradePrice: {
+          'fi-whim-car-ccmr': { amount: 20, currency: 'EUR' },
+          'fi-whim-car-cwmr': { amount: 10, currency: 'EUR' },
+        },
+        meta: {
+          image:
+            'https://assets.development.maas.global/product-images/fi-whim-car-iwmr.png',
+          luggage: 3,
+          passengers: 4,
+          transmission: 'manual',
+        },
+        tags: ['whim-car'],
+        class: ['iwmr'],
+      },
+    ],
+  },
+] as unknown) as NonEmptyArray<Product>;
 
 export default Product;
 
