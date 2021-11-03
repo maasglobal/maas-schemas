@@ -178,6 +178,9 @@
     "disruption": {
       "description": "Disruption detail in JSON. For usage such as off-season products",
       "type": "object"
+    },
+    "created": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
     }
   },
   "required": [
