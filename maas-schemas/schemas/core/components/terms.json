@@ -86,6 +86,17 @@
     "cancellation": {
       "type": "object",
       "properties": {
+        "counter": {
+          "type": "object",
+          "properties": {
+            "time": {
+              "type": "number"
+            },
+            "fromState": {
+              "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState"
+            }
+          }
+        },
         "cancellationFormActionUrl": {
           "description": "User will fill in this form to cancel their ticket should programmed cancellation does not function. Edge case support",
           "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
