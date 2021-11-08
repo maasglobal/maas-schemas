@@ -728,6 +728,8 @@ WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/terms.json
 INFO: primitive type "number" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/terms.json
+INFO: primitive type "number" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/terms.json
 WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/terms.json
 WARNING: multipleOf field not supported outside top-level definitions

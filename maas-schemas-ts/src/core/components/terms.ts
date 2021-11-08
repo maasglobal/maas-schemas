@@ -12,6 +12,7 @@ import * as t from 'io-ts';
 import * as Cost_ from './cost';
 import * as Fare_ from './fare';
 import * as Units_ from './units';
+import * as State_ from './state';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -302,6 +303,10 @@ export type Terms = t.Branded<
       pickup?: Surcharge;
     };
     cancellation?: {
+      counter?: {
+        time?: number;
+        fromState?: State_.BookingState;
+      };
       cancellationFormActionUrl?: Units_.Url;
       outward?: Cancellation;
       return?: Cancellation;
@@ -364,6 +369,10 @@ export type TermsC = t.BrandC<
           pickup: typeof Surcharge;
         }>;
         cancellation: t.PartialC<{
+          counter: t.PartialC<{
+            time: t.NumberC;
+            fromState: typeof State_.BookingState;
+          }>;
           cancellationFormActionUrl: typeof Units_.Url;
           outward: typeof Cancellation;
           return: typeof Cancellation;
@@ -434,6 +443,10 @@ export const Terms: TermsC = t.brand(
         pickup: Surcharge,
       }),
       cancellation: t.partial({
+        counter: t.partial({
+          time: t.number,
+          fromState: State_.BookingState,
+        }),
         cancellationFormActionUrl: Units_.Url,
         outward: Cancellation,
         return: Cancellation,
@@ -495,6 +508,10 @@ export const Terms: TermsC = t.brand(
         pickup?: Surcharge;
       };
       cancellation?: {
+        counter?: {
+          time?: number;
+          fromState?: State_.BookingState;
+        };
         cancellationFormActionUrl?: Units_.Url;
         outward?: Cancellation;
         return?: Cancellation;
