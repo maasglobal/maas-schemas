@@ -25,6 +25,17 @@ import * as CustomerSelection_ from './components/customerSelection';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
+export interface NullBrand {
+  readonly Null: unique symbol;
+}
+export type NullC = t.BrandC<t.UnknownC, NullBrand>;
+export const Null: NullC = t.brand(
+  t.unknown,
+  (n): n is t.Branded<unknown, NullBrand> => n === null,
+  'Null',
+);
+export type Null = t.TypeOf<typeof Null>;
+
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
   readonly _tag: 'DefinedType' = 'DefinedType';
@@ -282,11 +293,11 @@ export interface TokenBrand {
 export type Booking = t.Branded<
   {
     id?: Id;
-    tspId?: TspId;
+    tspId?: TspId | Null;
     state?: State_.BookingState;
     stateLog?: StateLog_.StateLog;
     fares?: Fares;
-    cost?: Cost;
+    cost?: Cost | Null;
     leg?: Leg;
     token?: Token;
     meta?: BookingMeta_.BookingMeta;
@@ -314,11 +325,11 @@ export type BookingC = t.BrandC<
     [
       t.PartialC<{
         id: typeof Id;
-        tspId: typeof TspId;
+        tspId: t.UnionC<[typeof TspId, typeof Null]>;
         state: typeof State_.BookingState;
         stateLog: typeof StateLog_.StateLog;
         fares: typeof Fares;
-        cost: typeof Cost;
+        cost: t.UnionC<[typeof Cost, typeof Null]>;
         leg: typeof Leg;
         token: typeof Token;
         meta: typeof BookingMeta_.BookingMeta;
@@ -353,11 +364,11 @@ export const Booking: BookingC = t.brand(
   t.intersection([
     t.partial({
       id: Id,
-      tspId: TspId,
+      tspId: t.union([TspId, Null]),
       state: State_.BookingState,
       stateLog: StateLog_.StateLog,
       fares: Fares,
-      cost: Cost,
+      cost: t.union([Cost, Null]),
       leg: Leg,
       token: Token,
       meta: BookingMeta_.BookingMeta,
@@ -388,11 +399,11 @@ export const Booking: BookingC = t.brand(
   ): x is t.Branded<
     {
       id?: Id;
-      tspId?: TspId;
+      tspId?: TspId | Null;
       state?: State_.BookingState;
       stateLog?: StateLog_.StateLog;
       fares?: Fares;
-      cost?: Cost;
+      cost?: Cost | Null;
       leg?: Leg;
       token?: Token;
       meta?: BookingMeta_.BookingMeta;
@@ -1055,6 +1066,131 @@ export const examplesBooking: NonEmptyArray<Booking> = ([
       _modified: 1635504703207,
     },
     purchasingAppInstanceId: 'c930c2a1-a1a4-3df3-b317-bde0ef1d78a3',
+  },
+  {
+    id: '3cdc43e1-68bd-4ec7-8c1f-0a26b510814c',
+    tspId: null,
+    state: 'CANCELLED',
+    leg: {
+      to: { lat: 50.845655, lon: 4.356803999999999, name: 'Brussel-Centraal' },
+      from: { lat: 51.199228, lon: 4.432219, name: 'Antwerpen-Berchem' },
+      mode: 'TRAIN',
+      endTime: 1636374960000,
+      agencyId: 'NMBS',
+      distance: 43538,
+      startTime: 1636372740000,
+    },
+    customer: {
+      email: 'mamatha.muralidhara@maas.global',
+      phone: '+35866610000204',
+      locale: 'en',
+      clientId: 'whim',
+      lastName: 'ios',
+      opaqueId: '42f7ba1997a749dc4dcf7f65d9a3f8251fdd3215d3ee95b7a12cac408a30bf57',
+      firstName: 'mamta',
+      identityId: '170c691e-2411-4d56-a60f-64e6ddc3da45',
+    },
+    token: {},
+    terms: {
+      reusable: false,
+      validity: { endTime: 1636426799000, startTime: 1636372740000 },
+    },
+    meta: {},
+    created: 1636370303239,
+    modified: 1636370618830,
+    cost: null,
+    stateLog: [
+      {
+        reason: { awsRequestId: 'aea341d6-4209-47de-96ab-5329a62cc6de' },
+        invalid: false,
+        newState: 'PENDING',
+        oldState: 'START',
+        timestamp: 1636370304443,
+      },
+      {
+        reason: { awsRequestId: null },
+        invalid: false,
+        newState: 'CANCELLED',
+        oldState: 'PENDING',
+        timestamp: 1636370618106,
+      },
+    ],
+    productId: 'nmbs',
+    fares: [
+      {
+        type: 'charge',
+        amount: 750,
+        currency: 'EUR',
+        originalAmount: 750,
+        productionAmount: 750,
+      },
+      { type: 'refund', amount: 750, currency: 'EUR' },
+    ],
+    cancelling: false,
+    configurator: {
+      fares: [
+        {
+          type: 'charge',
+          amount: 750,
+          currency: 'EUR',
+          originalAmount: 750,
+          productionAmount: 750,
+        },
+      ],
+      version: '2',
+      validUntil: 3155752800000,
+      estimatable: false,
+      purchasable: true,
+      configurations: {
+        outboundSingle: {
+          name: 'Outbound Trip',
+          type: 'oneOf',
+          choices: [
+            {
+              id: '0',
+              meta: {
+                NMBS: {
+                  diabolo: {},
+                  isOver65: false,
+                  isUnder26: false,
+                  productId: '40000090',
+                  journeyType: 'SingleTrip',
+                  travelClass: 'SecondClass',
+                  travelerType: 'Adult',
+                  departureStationId: '108821121',
+                  parentTicketNumber: '',
+                  destinationStationId: '108813003',
+                  isDiaboloFeeIncluded: false,
+                },
+                totalCost: { amount: '7.5', currency: 'EUR' },
+                isFirstClass: false,
+                isOpenReturn: false,
+              },
+              name: '2nd Class Single Ticket',
+              fares: [
+                {
+                  type: 'charge',
+                  amount: 750,
+                  currency: 'EUR',
+                  originalAmount: 750,
+                  productionAmount: 750,
+                },
+              ],
+              terms: { validity: { endTime: 1636426799000, startTime: 1636372740000 } },
+              default: true,
+              description: '2nd Class Single Ticket',
+            },
+          ],
+          description: '',
+        },
+      },
+      configuratorSelection: { outboundSingle: ['0'] },
+    },
+    customerSelection: { outboundSingle: ['0'] },
+    appInstanceId: '9BFF78EB-FEE8-4554-947A-9E8B30FA90BE',
+    executionName: null,
+    autoPurchaseId: null,
+    deviceId: 27988,
   },
 ] as unknown) as NonEmptyArray<Booking>;
 
