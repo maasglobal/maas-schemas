@@ -82,9 +82,16 @@
       "$ref": "http://maasglobal.com/core/components/configurator.json"
     },
     "tspId": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 256
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "leg": {
       "type": "object",

@@ -110,13 +110,11 @@ export interface ConfiguratorBrand {
 
 // TspId
 // The purpose of this remains a mystery
-export type TspId = t.Branded<string, TspIdBrand>;
-export type TspIdC = t.BrandC<t.StringC, TspIdBrand>;
+export type TspId = t.Branded<string | Null, TspIdBrand>;
+export type TspIdC = t.BrandC<t.UnionC<[t.StringC, typeof Null]>, TspIdBrand>;
 export const TspId: TspIdC = t.brand(
-  t.string,
-  (x): x is t.Branded<string, TspIdBrand> =>
-    (typeof x !== 'string' || x.length >= 1) &&
-    (typeof x !== 'string' || x.length <= 256),
+  t.union([t.string, Null]),
+  (x): x is t.Branded<string | Null, TspIdBrand> => true,
   'TspId',
 );
 export interface TspIdBrand {
