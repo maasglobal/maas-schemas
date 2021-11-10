@@ -83,6 +83,20 @@
       "items": {
         "$ref": "https://schemas.maas.global/maas-backend/customers/verification/verification-object.json"
       }
+    },
+    "lastBooking": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "https://schemas.maas.global/core/booking.json#/definitions/id"
+        },
+        "state": {
+          "$ref": "https://schemas.maas.global/core/components/state.json#/definitions/bookingState"
+        },
+        "created": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+        }
+      }
     }
   },
   "required": ["personalData", "paymentSources", "balances", "region", "authorizations"],
