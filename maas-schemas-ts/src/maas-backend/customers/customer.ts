@@ -20,6 +20,8 @@ import * as PersonalDocument_ from '../../core/personal-document';
 import * as Common_ from '../../core/components/common';
 import * as VirtualCard_ from './virtual-cards/virtualCard';
 import * as VerificationObject_ from './verification/verification-object';
+import * as Booking_ from '../../core/booking';
+import * as State_ from '../../core/components/state';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -63,6 +65,11 @@ export type Customer = t.Branded<
     personalDocumentConsents?: Array<Common_.AgencyId>;
     virtualCards?: Array<VirtualCard_.VirtualCard>;
     verifications?: Array<VerificationObject_.VerificationObject>;
+    lastBooking?: {
+      id?: Booking_.Id;
+      state?: State_.BookingState;
+      created?: Units_.Time;
+    };
   } & {
     personalData: Defined;
     paymentSources: Defined;
@@ -102,6 +109,11 @@ export type CustomerC = t.BrandC<
         personalDocumentConsents: t.ArrayC<typeof Common_.AgencyId>;
         virtualCards: t.ArrayC<typeof VirtualCard_.VirtualCard>;
         verifications: t.ArrayC<typeof VerificationObject_.VerificationObject>;
+        lastBooking: t.PartialC<{
+          id: typeof Booking_.Id;
+          state: typeof State_.BookingState;
+          created: typeof Units_.Time;
+        }>;
       }>,
       t.TypeC<{
         personalData: typeof Defined;
@@ -141,6 +153,11 @@ export const Customer: CustomerC = t.brand(
       personalDocumentConsents: t.array(Common_.AgencyId),
       virtualCards: t.array(VirtualCard_.VirtualCard),
       verifications: t.array(VerificationObject_.VerificationObject),
+      lastBooking: t.partial({
+        id: Booking_.Id,
+        state: State_.BookingState,
+        created: Units_.Time,
+      }),
     }),
     t.type({
       personalData: Defined,
@@ -175,6 +192,11 @@ export const Customer: CustomerC = t.brand(
       personalDocumentConsents?: Array<Common_.AgencyId>;
       virtualCards?: Array<VirtualCard_.VirtualCard>;
       verifications?: Array<VerificationObject_.VerificationObject>;
+      lastBooking?: {
+        id?: Booking_.Id;
+        state?: State_.BookingState;
+        created?: Units_.Time;
+      };
     } & {
       personalData: Defined;
       paymentSources: Defined;
