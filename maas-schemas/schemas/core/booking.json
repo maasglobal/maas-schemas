@@ -7,7 +7,14 @@
       "$ref": "#/definitions/id"
     },
     "tspId": {
-      "$ref": "#/definitions/tspId"
+      "oneOf": [
+        {
+          "$ref": "#/definitions/tspId"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "state": {
       "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState"
@@ -19,7 +26,14 @@
       "$ref": "#/definitions/fares"
     },
     "cost": {
-      "$ref": "#/definitions/cost"
+      "oneOf": [
+        {
+          "$ref": "#/definitions/cost"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "leg": {
       "$ref": "#/definitions/leg"
@@ -69,29 +83,15 @@
       }
     },
     "cost": {
-      "oneOf": [
-        {
-          "$ref": "http://maasglobal.com/core/components/cost.json"
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "$ref": "http://maasglobal.com/core/components/cost.json"
     },
     "configurator": {
       "$ref": "http://maasglobal.com/core/components/configurator.json"
     },
     "tspId": {
-      "oneOf": [
-        {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 256
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
     },
     "leg": {
       "type": "object",

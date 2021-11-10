@@ -81,11 +81,11 @@ export interface FaresBrand {
 
 // Cost
 // The purpose of this remains a mystery
-export type Cost = t.Branded<Cost_.Cost | Null, CostBrand>;
-export type CostC = t.BrandC<t.UnionC<[typeof Cost_.Cost, typeof Null]>, CostBrand>;
+export type Cost = t.Branded<Cost_.Cost, CostBrand>;
+export type CostC = t.BrandC<typeof Cost_.Cost, CostBrand>;
 export const Cost: CostC = t.brand(
-  t.union([Cost_.Cost, Null]),
-  (x): x is t.Branded<Cost_.Cost | Null, CostBrand> => true,
+  Cost_.Cost,
+  (x): x is t.Branded<Cost_.Cost, CostBrand> => true,
   'Cost',
 );
 export interface CostBrand {
@@ -110,11 +110,13 @@ export interface ConfiguratorBrand {
 
 // TspId
 // The purpose of this remains a mystery
-export type TspId = t.Branded<string | Null, TspIdBrand>;
-export type TspIdC = t.BrandC<t.UnionC<[t.StringC, typeof Null]>, TspIdBrand>;
+export type TspId = t.Branded<string, TspIdBrand>;
+export type TspIdC = t.BrandC<t.StringC, TspIdBrand>;
 export const TspId: TspIdC = t.brand(
-  t.union([t.string, Null]),
-  (x): x is t.Branded<string | Null, TspIdBrand> => true,
+  t.string,
+  (x): x is t.Branded<string, TspIdBrand> =>
+    (typeof x !== 'string' || x.length >= 1) &&
+    (typeof x !== 'string' || x.length <= 256),
   'TspId',
 );
 export interface TspIdBrand {
@@ -291,11 +293,11 @@ export interface TokenBrand {
 export type Booking = t.Branded<
   {
     id?: Id;
-    tspId?: TspId;
+    tspId?: TspId | Null;
     state?: State_.BookingState;
     stateLog?: StateLog_.StateLog;
     fares?: Fares;
-    cost?: Cost;
+    cost?: Cost | Null;
     leg?: Leg;
     token?: Token;
     meta?: BookingMeta_.BookingMeta;
@@ -323,11 +325,11 @@ export type BookingC = t.BrandC<
     [
       t.PartialC<{
         id: typeof Id;
-        tspId: typeof TspId;
+        tspId: t.UnionC<[typeof TspId, typeof Null]>;
         state: typeof State_.BookingState;
         stateLog: typeof StateLog_.StateLog;
         fares: typeof Fares;
-        cost: typeof Cost;
+        cost: t.UnionC<[typeof Cost, typeof Null]>;
         leg: typeof Leg;
         token: typeof Token;
         meta: typeof BookingMeta_.BookingMeta;
@@ -362,11 +364,11 @@ export const Booking: BookingC = t.brand(
   t.intersection([
     t.partial({
       id: Id,
-      tspId: TspId,
+      tspId: t.union([TspId, Null]),
       state: State_.BookingState,
       stateLog: StateLog_.StateLog,
       fares: Fares,
-      cost: Cost,
+      cost: t.union([Cost, Null]),
       leg: Leg,
       token: Token,
       meta: BookingMeta_.BookingMeta,
@@ -397,11 +399,11 @@ export const Booking: BookingC = t.brand(
   ): x is t.Branded<
     {
       id?: Id;
-      tspId?: TspId;
+      tspId?: TspId | Null;
       state?: State_.BookingState;
       stateLog?: StateLog_.StateLog;
       fares?: Fares;
-      cost?: Cost;
+      cost?: Cost | Null;
       leg?: Leg;
       token?: Token;
       meta?: BookingMeta_.BookingMeta;
