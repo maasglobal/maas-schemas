@@ -25,6 +25,17 @@ import * as CustomerSelection_ from './components/customerSelection';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
+export interface NullBrand {
+  readonly Null: unique symbol;
+}
+export type NullC = t.BrandC<t.UnknownC, NullBrand>;
+export const Null: NullC = t.brand(
+  t.unknown,
+  (n): n is t.Branded<unknown, NullBrand> => n === null,
+  'Null',
+);
+export type Null = t.TypeOf<typeof Null>;
+
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
   readonly _tag: 'DefinedType' = 'DefinedType';
@@ -70,11 +81,11 @@ export interface FaresBrand {
 
 // Cost
 // The purpose of this remains a mystery
-export type Cost = t.Branded<Cost_.Cost, CostBrand>;
-export type CostC = t.BrandC<typeof Cost_.Cost, CostBrand>;
+export type Cost = t.Branded<Cost_.Cost | Null, CostBrand>;
+export type CostC = t.BrandC<t.UnionC<[typeof Cost_.Cost, typeof Null]>, CostBrand>;
 export const Cost: CostC = t.brand(
-  Cost_.Cost,
-  (x): x is t.Branded<Cost_.Cost, CostBrand> => true,
+  t.union([Cost_.Cost, Null]),
+  (x): x is t.Branded<Cost_.Cost | Null, CostBrand> => true,
   'Cost',
 );
 export interface CostBrand {

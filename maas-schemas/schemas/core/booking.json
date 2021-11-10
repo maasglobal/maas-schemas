@@ -69,7 +69,14 @@
       }
     },
     "cost": {
-      "$ref": "http://maasglobal.com/core/components/cost.json"
+      "oneOf": [
+        {
+          "$ref": "http://maasglobal.com/core/components/cost.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "configurator": {
       "$ref": "http://maasglobal.com/core/components/configurator.json"
