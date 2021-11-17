@@ -1,0 +1,25 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/products/products-providers-list/request.json",
+  "description": "Request schema for products-providers-list",
+  "type": "object",
+  "properties": {
+    "payload": {
+      "$ref": "#/definitions/payload"
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  },
+  "required": ["payload"],
+  "additionalProperties": false,
+  "definitions": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "lat": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude" },
+        "lon": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude" }
+      },
+      "required": ["lat", "lon"]
+    }
+  }
+}
