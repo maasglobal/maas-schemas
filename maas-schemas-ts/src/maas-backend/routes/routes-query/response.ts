@@ -10,7 +10,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 import * as Plan_ from '../../../core/plan';
-import * as Errors_ from '../../../core/components/errors';
+import * as Error_ from '../../../core/error';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -35,7 +35,7 @@ export const schemaId =
 export type Response = t.Branded<
   {
     plan?: Plan_.Plan;
-    reasons?: Array<Errors_.Reason>;
+    reasons?: Array<Error_.Reason>;
     debug?: Record<string, unknown>;
   } & {
     plan: Defined;
@@ -47,7 +47,7 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         plan: typeof Plan_.Plan;
-        reasons: t.ArrayC<typeof Errors_.Reason>;
+        reasons: t.ArrayC<typeof Error_.Reason>;
         debug: t.UnknownRecordC;
       }>,
       t.TypeC<{
@@ -61,7 +61,7 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       plan: Plan_.Plan,
-      reasons: t.array(Errors_.Reason),
+      reasons: t.array(Error_.Reason),
       debug: t.UnknownRecord,
     }),
     t.type({
@@ -73,7 +73,7 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       plan?: Plan_.Plan;
-      reasons?: Array<Errors_.Reason>;
+      reasons?: Array<Error_.Reason>;
       debug?: Record<string, unknown>;
     } & {
       plan: Defined;
