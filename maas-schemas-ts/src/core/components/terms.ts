@@ -320,6 +320,7 @@ export type Terms = t.Branded<
       {
         amount?: number;
         currency?: Units_.CurrencyOrToken;
+        tokenId?: Fare_.TokenId;
         timeInterval?: number;
         startAt?: number;
         type?:
@@ -388,6 +389,7 @@ export type TermsC = t.BrandC<
               t.PartialC<{
                 amount: t.NumberC;
                 currency: typeof Units_.CurrencyOrToken;
+                tokenId: typeof Fare_.TokenId;
                 timeInterval: t.NumberC;
                 startAt: t.NumberC;
                 type: t.UnionC<
@@ -461,6 +463,7 @@ export const Terms: TermsC = t.brand(
           t.partial({
             amount: t.number,
             currency: Units_.CurrencyOrToken,
+            tokenId: Fare_.TokenId,
             timeInterval: t.number,
             startAt: t.number,
             type: t.union([
@@ -525,6 +528,7 @@ export const Terms: TermsC = t.brand(
         {
           amount?: number;
           currency?: Units_.CurrencyOrToken;
+          tokenId?: Fare_.TokenId;
           timeInterval?: number;
           startAt?: number;
           type?:
