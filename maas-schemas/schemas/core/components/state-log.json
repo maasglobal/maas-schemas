@@ -33,11 +33,33 @@
           "type": "boolean"
         },
         "reason": {
-          "$ref": "http://maasglobal.com/core/components/errors.json#/definitions/reason"
+          "$ref": "http://maasglobal.com/core/error.json#/definitions/reason"
         }
       },
       "required": ["newState", "oldState", "timestamp"],
-      "additionalProperties": true
+      "additionalProperties": true,
+      "examples": [
+        {
+          "reason": { "text": "INVALID_AUTHORIZATION", "errorCode": 500 },
+          "invalid": false,
+          "newState": "REJECTED",
+          "oldState": "PAID",
+          "timestamp": 1630005341433
+        }
+      ]
     }
-  }
+  },
+  "examples": [
+    [
+      { "reason": {}, "invalid": false, "newState": "PENDING", "oldState": "START", "timestamp": 1630003779687 },
+      { "reason": {}, "invalid": false, "newState": "PAID", "oldState": "PENDING", "timestamp": 1630003780198 },
+      {
+        "reason": { "text": "INVALID_AUTHORIZATION", "errorCode": 500 },
+        "invalid": false,
+        "newState": "REJECTED",
+        "oldState": "PAID",
+        "timestamp": 1630005341433
+      }
+    ]
+  ]
 }

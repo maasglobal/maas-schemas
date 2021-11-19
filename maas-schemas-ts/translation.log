@@ -278,12 +278,6 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/customerSelectionV2.json
 WARNING: patternProperty support has limitations
   in ../maas-schemas/schemas/core/components/customerSelectionV2.json
-INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/errors.json
-INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/errors.json
-WARNING: missing $schema declaration
-  in ../maas-schemas/schemas/core/components/errors.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/fare.json
 WARNING: minimum field not supported outside top-level definitions
@@ -848,17 +842,11 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/customer.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/error.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/core/error.json
-WARNING: minLength field not supported outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/core/error.json
-WARNING: maxLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/error.json
-INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/error.json
-WARNING: minLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/error.json
-WARNING: maxLength field not supported outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/core/error.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/iot-thing-shadow.json
