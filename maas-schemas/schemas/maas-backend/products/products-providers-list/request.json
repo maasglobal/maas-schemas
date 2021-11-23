@@ -17,9 +17,10 @@
       "type": "object",
       "properties": {
         "lat": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude" },
-        "lon": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude" }
+        "lon": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude" },
+        "region": { "type": "string", "enum": ["AT", "BE", "CH", "DE", "FI", "GB", "JP", "LU", "NL", "SG"] }
       },
-      "required": ["lat", "lon"]
+      "additionalProperties": false
     }
   }
 }
