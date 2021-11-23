@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/booking-virtual-create/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/booking-virtual-create/request.json",
   "description": "Request schema for booking-virtual-create",
   "type": "array",
   "items": {
@@ -7,25 +7,25 @@
     "additionalProperties": true,
     "properties": {
       "paymentSourceId": {
-        "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
+        "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/paymentSourceId"
       },
       "productId": {
-        "$ref": "http://maasglobal.com/core/product.json#/definitions/id"
+        "$ref": "https://schemas.maas.global/core/product.json#/definitions/id"
       },
       "identityId": {
-        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+        "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
       },
       "fare": {
-        "$ref": "http://maasglobal.com/core/components/fare.json"
+        "$ref": "https://schemas.maas.global/core/components/fare.json"
       },
       "description": {
         "type": "string"
       },
       "startTime": {
-        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
       },
       "endTime": {
-        "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+        "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
       }
     },
     "required": ["productId", "fare", "identityId"]

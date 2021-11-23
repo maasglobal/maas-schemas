@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-intents-update/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/subscriptions/subscriptions-intents-update/response.json",
   "description": "Response schema for subscriptions-intents-update",
   "type": "object",
   "properties": {
     "subscriptionIntent": {
-      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription-intent.json#/definitions/subscriptionIntentBase"
+      "$ref": "https://schemas.maas.global/maas-backend/subscriptions/subscription-intent.json#/definitions/subscriptionIntentBase"
     },
     "debug": {
       "type": "object",

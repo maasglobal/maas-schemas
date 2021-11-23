@@ -1,20 +1,20 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-estimate/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/itineraries/itinerary-estimate/request.json",
   "description": "Maas Itinerary estimate request",
   "type": "object",
   "additionalProperties": false,
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     },
     "payload": {
       "type": "object",
       "properties": {
         "itinerary": {
-          "$ref": "http://maasglobal.com/core/itinerary.json"
+          "$ref": "https://schemas.maas.global/core/itinerary.json"
         },
         "customerSelections": {
           "type": "array",
@@ -22,10 +22,10 @@
             "type": "object",
             "properties": {
               "ref": {
-                "$ref": "http://maasglobal.com/core/product-option.json#/definitions/ref"
+                "$ref": "https://schemas.maas.global/core/product-option.json#/definitions/ref"
               },
               "customerSelection": {
-                "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+                "$ref": "https://schemas.maas.global/core/components/customerSelection.json"
               }
             }
           }

@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/tsp/manage/response.json",
+  "$id": "https://schemas.maas.global/tsp/manage/response.json",
   "description": "Response schema for managing TSP",
   "type": "object",
   "properties": {
@@ -13,19 +13,19 @@
       "type": "object",
       "properties": {
         "meta": {
-          "$ref": "http://maasglobal.com/core/booking-meta.json"
+          "$ref": "https://schemas.maas.global/core/booking-meta.json"
         },
         "terms": {
-          "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+          "$ref": "https://schemas.maas.global/core/booking.json#/definitions/terms"
         },
         "token": {
-          "$ref": "http://maasglobal.com/core/booking.json#/definitions/token"
+          "$ref": "https://schemas.maas.global/core/booking.json#/definitions/token"
         },
         "tspProducts": {
           "type": "array",
           "description": "Defines which specific tspProducts should be updated, otherwise applies for all",
           "items": {
-            "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/tspProduct"
+            "$ref": "https://schemas.maas.global/core/booking-option.json#/definitions/tspProduct"
           }
         }
       }

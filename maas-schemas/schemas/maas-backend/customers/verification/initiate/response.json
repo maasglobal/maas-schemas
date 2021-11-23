@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/verification/initiate/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/verification/initiate/response.json",
   "description": "MaaS customer verification initiate",
   "type": "object",
   "properties": {
     "verification": {
-      "$ref": "http://maasglobal.com/maas-backend/customers/verification/verification-object.json#/definitions/verification"
+      "$ref": "https://schemas.maas.global/maas-backend/customers/verification/verification-object.json#/definitions/verification"
     }
   },
   "additionalProperties": false,

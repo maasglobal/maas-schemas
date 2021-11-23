@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/suggestion.json",
+  "$id": "https://schemas.maas.global/maas-backend/autocomplete/autocomplete-query/suggestion.json",
   "description": "Response schema for autocomplete suggestion",
   "type": "object",
   "properties": {
@@ -42,10 +42,10 @@
           "type": "string"
         },
         "lat": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude"
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLatitude"
         },
         "lon": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude"
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLongitude"
         }
       },
       "additionalProperties": false

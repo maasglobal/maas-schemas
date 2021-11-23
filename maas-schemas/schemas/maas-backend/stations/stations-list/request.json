@@ -1,13 +1,13 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/stations/stations-list/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/stations/stations-list/request.json",
   "description": "Request schema for stations list",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "agencyId": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
     },
     "payload": {
       "oneOf": [
@@ -16,10 +16,10 @@
           "description": "Query by radius",
           "properties": {
             "lat": {
-              "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude"
+              "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLatitude"
             },
             "lon": {
-              "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude"
+              "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLatitude"
             },
             "radius": {
               "type": "integer",
@@ -36,7 +36,7 @@
           "description": "Query by name",
           "properties": {
             "agencyId": {
-              "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+              "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
             },
             "name": {
               "type": "string",
@@ -55,7 +55,7 @@
       ]
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId", "agencyId", "payload"],

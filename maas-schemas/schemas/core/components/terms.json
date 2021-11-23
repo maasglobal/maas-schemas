@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/terms.json",
+  "$id": "https://schemas.maas.global/core/components/terms.json",
   "description": "MaaS booking terms and condition for its business engine",
   "type": "object",
   "properties": {
@@ -21,19 +21,19 @@
       "type": "object",
       "properties": {
         "startTime": {
-          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }],
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }],
           "description": "Epoch when the outbound ticket will be valid"
         },
         "endTime": {
-          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }],
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }],
           "description": "Epoch when the outbound ticket will be invalid"
         },
         "startTimeReturn": {
-          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }],
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }],
           "description": "Epoch when the return ticket will be valid"
         },
         "endTimeReturn": {
-          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }],
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }],
           "description": "Epoch when the return ticket will be invalid"
         }
       },
@@ -93,13 +93,13 @@
               "type": "number"
             },
             "fromState": {
-              "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState"
+              "$ref": "https://schemas.maas.global/core/components/state.json#/definitions/bookingState"
             }
           }
         },
         "cancellationFormActionUrl": {
           "description": "User will fill in this form to cancel their ticket should programmed cancellation does not function. Edge case support",
-          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }]
         },
         "outward": {
           "$ref": "#/definitions/cancellation"
@@ -122,7 +122,7 @@
     },
     "prePurchaseGuidanceUrl": {
       "description": "If flow requires additional instructions or resources presented to the customer before purchase, they can be embedded in the HTML page and booking option can link to that",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }]
     },
     "fareRates": {
       "type": "array",
@@ -136,7 +136,7 @@
             "multipleOf": 0.01
           },
           "currency": {
-            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currencyOrToken"
+            "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currencyOrToken"
           },
           "timeInterval": {
             "description": "Amount of seconds that fare rate is applied to",
@@ -186,10 +186,10 @@
           "description": "A flag indicating whether this booking can be cancelled in 'RESERVED' state"
         },
         "cost": {
-          "$ref": "http://maasglobal.com/core/components/cost.json"
+          "$ref": "https://schemas.maas.global/core/components/cost.json"
         },
         "fare": {
-          "$ref": "http://maasglobal.com/core/components/fare.json"
+          "$ref": "https://schemas.maas.global/core/components/fare.json"
         },
         "refunded": {
           "type": "boolean",
@@ -199,8 +199,8 @@
           "description": "Cancellation validity conditions",
           "type": "object",
           "properties": {
-            "startTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" },
-            "endTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }
+            "startTime": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" },
+            "endTime": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }
           },
           "required": ["endTime"]
         }
@@ -215,10 +215,10 @@
           "description": "A flag indicating whether this booking can be amended"
         },
         "cost": {
-          "$ref": "http://maasglobal.com/core/components/cost.json"
+          "$ref": "https://schemas.maas.global/core/components/cost.json"
         },
         "fare": {
-          "$ref": "http://maasglobal.com/core/components/fare.json"
+          "$ref": "https://schemas.maas.global/core/components/fare.json"
         }
       },
       "required": ["amendable"]
@@ -238,7 +238,7 @@
           "multipleOf": 0.01
         },
         "currency": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
         },
         "percentage": {
           "description": "Surcharge percentage over the original fee",

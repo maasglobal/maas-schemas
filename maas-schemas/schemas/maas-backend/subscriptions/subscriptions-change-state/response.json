@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-change-state/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/subscriptions/subscriptions-change-state/response.json",
   "description": "Response schema for subscriptions-change-state",
   "type": "object",
   "properties": {
     "changeState": {
-      "$ref": "http://maasglobal.com/core/components/subscriptionChangeState.json"
+      "$ref": "https://schemas.maas.global/core/components/subscriptionChangeState.json"
     }
   },
   "required": ["changeState"],

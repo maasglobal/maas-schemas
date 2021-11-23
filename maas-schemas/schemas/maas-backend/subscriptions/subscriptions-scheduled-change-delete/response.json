@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-scheduled-change-delete/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/subscriptions/subscriptions-scheduled-change-delete/response.json",
   "description": "Response schema for subscriptions-scheduled-change-delete",
   "type": "object",
   "properties": {
     "subscription": {
-      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscription"
+      "$ref": "https://schemas.maas.global/maas-backend/subscriptions/subscription.json#/definitions/subscription"
     },
     "debug": {
       "type": "object",

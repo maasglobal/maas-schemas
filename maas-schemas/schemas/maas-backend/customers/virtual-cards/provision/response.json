@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/virtual-cards/provision/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/virtual-cards/provision/response.json",
   "description": "MaaS customer virtual cards provision response",
   "type": "object",
   "properties": {
     "virtualCard": {
-      "$ref": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCard.json"
+      "$ref": "https://schemas.maas.global/maas-backend/customers/virtual-cards/virtualCard.json"
     },
     "provisionData": {
       "type": "object"

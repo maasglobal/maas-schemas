@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/environments/apis.json",
+  "$id": "https://schemas.maas.global/environments/apis.json",
   "definitions": {
     "apiId": {
       "type": "string",
@@ -56,7 +56,7 @@
       "description": "has to be url, has to start https://, has to end with slash",
       "type": "string",
       "pattern": "^https://[^\\s]+/$",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }],
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }],
       "examples": [
         "https://production.example.com/api/",
         "https://testing.example.com/api/",

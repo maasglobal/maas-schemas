@@ -1,24 +1,24 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/invoices/invoice.json",
+  "$id": "https://schemas.maas.global/maas-backend/invoices/invoice.json",
   "description": "MaaS Invoice schema",
   "definitions": {
     "Invoice": {
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceId"
+          "$ref": "https://schemas.maas.global/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceId"
         },
         "customerId": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
         },
         "bookingId": {
           "description": "bookingId of the requested booking",
-          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid" }]
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid" }]
         },
         "lineItems": {
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem"
+            "$ref": "https://schemas.maas.global/maas-backend/invoices/invoiceLineItem.json#/definitions/InvoiceLineItem"
           },
           "minLength": 1
         }

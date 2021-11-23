@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/geometry.json",
+  "$id": "https://schemas.maas.global/core/components/geometry.json",
   "title": "GeoJSON Geometry",
   "description": "GeoJSON geometry, forked from https://github.com/fge/sample-json-schemas/ under BSD license",
   "type": "object",

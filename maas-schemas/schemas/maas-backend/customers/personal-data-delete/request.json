@@ -1,22 +1,22 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/personal-data-delete/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/personal-data-delete/request.json",
   "description": "MaaS customer personal data delete item",
   "type": "object",
   "additionalProperties": false,
   "required": ["identityId", "customerId", "itemName", "headers"],
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "itemName": {
       "type": "string",
       "minLength": 2
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   }
 }

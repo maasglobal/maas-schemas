@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/modes/MODE_TAXI.json",
+  "$id": "https://schemas.maas.global/core/modes/MODE_TAXI.json",
   "description": "Schema for MODE_TAXI meta field",
   "type": "object",
   "properties": {
@@ -12,7 +12,7 @@
     "noShowReportedByDriver": {
       "type": "boolean"
     },
-    "vehicleLocation": { "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location" },
+    "vehicleLocation": { "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/location" },
     "vehicleType": {
       "type": "string",
       "minLength": 1,
@@ -38,7 +38,7 @@
           "maxLength": 128
         },
         "image": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
         },
         "rating": {
           "type": "number"
@@ -57,19 +57,19 @@
       "minLength": 1,
       "maxLength": 128
     },
-    "eta": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" },
+    "eta": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" },
     "taxiCenter": {
       "type": "object",
       "properties": {
         "image": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
         },
         "name": {
           "type": "string",
           "minLength": 1,
           "maxLength": 64
         },
-        "phone": { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone" }
+        "phone": { "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/phone" }
       }
     },
     "messageToDriver": {
@@ -79,7 +79,7 @@
     },
     "spaceDemand": {
       "description": "Optional space demand. Example: 3 adults and 2 luggages.",
-      "$ref": "http://maasglobal.com/core/components/spaceDemand.json#/definitions/spaceDemandObject"
+      "$ref": "https://schemas.maas.global/core/components/spaceDemand.json#/definitions/spaceDemandObject"
     }
   },
   "additionalProperties": false

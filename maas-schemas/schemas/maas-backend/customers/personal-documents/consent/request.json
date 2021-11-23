@@ -1,33 +1,33 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/personal-documents/consent/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/personal-documents/consent/request.json",
   "description": "Save user consent to send all TSP required personal documents to TSP",
   "type": "object",
   "additionalProperties": false,
   "required": ["identityId", "payload", "headers"],
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
       "properties": {
         "partyId": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/partyId"
+          "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/partyId"
         },
         "partyType": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/partyType"
+          "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/partyType"
         },
         "agencyId": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
         }
       },
       "oneOf": [{ "required": ["partyId", "partyType"] }, { "required": ["agencyId"] }]
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   }
 }

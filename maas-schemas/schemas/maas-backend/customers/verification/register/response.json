@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/verification/register/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/verification/register/response.json",
   "description": "Response schema for customers verification register",
   "type": "object",
   "properties": {
     "customer": {
-      "$ref": "http://maasglobal.com/maas-backend/customers/customer.json"
+      "$ref": "https://schemas.maas.global/maas-backend/customers/customer.json"
     }
   },
   "additionalProperties": false,

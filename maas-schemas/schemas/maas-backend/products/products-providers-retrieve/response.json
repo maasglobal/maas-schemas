@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/products/products-providers-retrieve/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/products/products-providers-retrieve/response.json",
   "description": "Response schema for products-providers-retrieve",
   "type": "object",
   "properties": {
     "provider": {
-      "$ref": "http://maasglobal.com/maas-backend/products/provider.json"
+      "$ref": "https://schemas.maas.global/maas-backend/products/provider.json"
     }
   },
   "required": ["provider"],

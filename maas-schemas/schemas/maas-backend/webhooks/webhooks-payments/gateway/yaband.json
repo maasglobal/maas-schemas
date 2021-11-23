@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-payments/gateway/yaband.json",
+  "$id": "https://schemas.maas.global/maas-backend/webhooks/webhooks-payments/gateway/yaband.json",
   "description": "YaBand payment webhook schema",
   "definitions": {
     "request": {

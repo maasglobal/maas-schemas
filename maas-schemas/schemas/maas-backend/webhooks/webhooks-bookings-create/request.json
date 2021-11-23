@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-bookings-create/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/webhooks/webhooks-bookings-create/request.json",
   "description": "Request schema for webhooks-bookings-create",
   "type": "object",
   "properties": {
@@ -7,10 +7,10 @@
       "type": "object",
       "properties": {
         "identityId": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
         },
         "locale": {
-          "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale"
+          "$ref": "https://schemas.maas.global/core/components/i18n.json#/definitions/locale"
         },
         "option": {
           "allOf": [
@@ -18,16 +18,16 @@
               "type": "object",
               "properties": {
                 "cost": {
-                  "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
+                  "$ref": "https://schemas.maas.global/core/booking.json#/definitions/cost"
                 },
                 "leg": {
-                  "$ref": "http://maasglobal.com/core/booking.json#/definitions/leg"
+                  "$ref": "https://schemas.maas.global/core/booking.json#/definitions/leg"
                 },
                 "meta": {
-                  "$ref": "http://maasglobal.com/core/booking-meta.json"
+                  "$ref": "https://schemas.maas.global/core/booking-meta.json"
                 },
                 "terms": {
-                  "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+                  "$ref": "https://schemas.maas.global/core/booking.json#/definitions/terms"
                 },
                 "tspProduct": {
                   "type": "object",
@@ -38,7 +38,7 @@
                   }
                 },
                 "configurator": {
-                  "$ref": "http://maasglobal.com/core/booking.json#/definitions/configurator"
+                  "$ref": "https://schemas.maas.global/core/booking.json#/definitions/configurator"
                 }
               }
             },
@@ -55,13 +55,13 @@
           ]
         },
         "customerSelection": {
-          "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+          "$ref": "https://schemas.maas.global/core/components/customerSelection.json"
         }
       },
       "required": ["option", "identityId", "locale"]
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["payload"],

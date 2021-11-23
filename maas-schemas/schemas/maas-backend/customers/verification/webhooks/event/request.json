@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/verification/webhooks/event/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/verification/webhooks/event/request.json",
   "description": "Request schema for webhook verification event (started and submitted)",
   "type": "object",
   "properties": {
@@ -7,10 +7,10 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
         },
         "attemptId": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
         },
         "feature": {
           "type": "string"
@@ -35,7 +35,7 @@
           "minLength": 2
         },
         "x-auth-client": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
         }
       },
       "required": ["x-signature", "x-auth-client"]

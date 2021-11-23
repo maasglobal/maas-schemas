@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/api-common.json",
+  "$id": "https://schemas.maas.global/core/components/api-common.json",
   "description": "Common definitions for API schemas",
   "definitions": {
     "headers": {

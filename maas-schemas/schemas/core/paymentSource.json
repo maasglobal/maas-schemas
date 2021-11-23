@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/paymentSource.json",
+  "$id": "https://schemas.maas.global/core/paymentSource.json",
   "description": "MaaS region schema",
   "type": "object",
   "definitions": {
@@ -56,7 +56,7 @@
       "maxLength": 255
     },
     "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "type": { "$ref": "#/definitions/paymentSourceType" },
     "gateway": {
@@ -83,7 +83,7 @@
       "type": "boolean"
     },
     "card": {
-      "$ref": "http://maasglobal.com/core/card.json"
+      "$ref": "https://schemas.maas.global/core/card.json"
     }
   },
   "required": ["customerId", "type"],

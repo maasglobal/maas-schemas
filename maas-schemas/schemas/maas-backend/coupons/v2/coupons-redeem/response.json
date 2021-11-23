@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/coupons/v2/coupons-redeem/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/coupons/v2/coupons-redeem/response.json",
   "description": "MaaS coupon redeem",
   "type": "object",
   "properties": {
     "code": {
-      "$ref": "http://maasglobal.com/maas-backend/coupons/code.json#/definitions/code"
+      "$ref": "https://schemas.maas.global/maas-backend/coupons/code.json#/definitions/code"
     },
     "success": {
       "type": "boolean"
@@ -13,7 +13,7 @@
       "type": "object",
       "properties": {
         "subscription": {
-          "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscription"
+          "$ref": "https://schemas.maas.global/maas-backend/subscriptions/subscription.json#/definitions/subscription"
         }
       }
     }

@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/tsp-auth/validate/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/tsp-auth/validate/response.json",
   "description": "Response schema for tsp-auth validate",
   "type": "object",
   "properties": {
     "location": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/whimDeepLink"
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/whimDeepLink"
     }
   },
   "required": ["location"],

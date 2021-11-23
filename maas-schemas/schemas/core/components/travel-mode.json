@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/travel-mode.json",
+  "$id": "https://schemas.maas.global/core/components/travel-mode.json",
   "description": "Transfer modes used for MaaS internal services",
   "anyOf": [
     { "$ref": "#/definitions/waitingMode" },

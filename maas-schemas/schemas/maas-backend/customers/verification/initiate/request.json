@@ -1,28 +1,28 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/verification/initiate/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/verification/initiate/request.json",
   "additionalProperties": false,
   "description": "MaaS customer verification initiate",
   "properties": {
     "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     },
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
       "properties": {
         "location": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/shortLocationString"
         },
         "metadata": {
           "type": "object",
           "properties": {
             "agencyId": {
-              "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+              "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
             },
             "planId": {
               "type": "string",

@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/verification/verification-object.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/verification/verification-object.json",
   "description": "MaaS verification schema",
   "definitions": {
     "verification": {
@@ -12,7 +12,7 @@
           "description": "Unique ID"
         },
         "identityId": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
         },
         "kycServiceId": {
           "type": "string",
@@ -20,7 +20,7 @@
           "maxLength": 255
         },
         "url": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
         },
         "token": {
           "type": "string",
@@ -33,13 +33,13 @@
           "maxLength": 255
         },
         "stateLog": {
-          "$ref": "http://maasglobal.com/core/components/state-log.json"
+          "$ref": "https://schemas.maas.global/core/components/state-log.json"
         },
         "created": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         },
         "modified": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         },
         "metadata": {
           "anyOf": [
@@ -47,10 +47,10 @@
               "type": "object",
               "properties": {
                 "agencyId": {
-                  "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+                  "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
                 },
                 "locale": {
-                  "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale"
+                  "$ref": "https://schemas.maas.global/core/components/i18n.json#/definitions/locale"
                 }
               }
             },
@@ -63,14 +63,14 @@
                   "maxLength": 255
                 },
                 "locale": {
-                  "$ref": "http://maasglobal.com/core/components/i18n.json#/definitions/locale"
+                  "$ref": "https://schemas.maas.global/core/components/i18n.json#/definitions/locale"
                 }
               }
             }
           ]
         },
         "kycService": {
-          "$ref": "http://maasglobal.com/core/kyc-service.json"
+          "$ref": "https://schemas.maas.global/core/kyc-service.json"
         }
       },
       "required": ["id", "identityId", "kycServiceId", "kycService", "status", "stateLog"]

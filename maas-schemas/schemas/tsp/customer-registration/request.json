@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/tsp/customer-registration/request.json",
+  "$id": "https://schemas.maas.global/tsp/customer-registration/request.json",
   "description": "Request schema for customer registration",
   "type": "object",
   "properties": {
     "customer": {
-      "$ref": "http://maasglobal.com/core/customer.json"
+      "$ref": "https://schemas.maas.global/core/customer.json"
     }
   },
   "required": ["customer"],

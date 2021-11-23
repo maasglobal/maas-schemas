@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/profile.json",
+  "$id": "https://schemas.maas.global/core/profile.json",
   "description": "MaaS user profiles as returned by our API",
   "type": "object",
   "properties": {
@@ -8,28 +8,28 @@
       "minimum": 0
     },
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "phone": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone"
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/phone"
     },
     "email": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/email"
     },
     "firstName": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName"
     },
     "lastName": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName"
     },
     "city": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/city"
     },
     "country": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/country"
     },
     "zipCode": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/zipCode"
     },
     "regionId": {
       "type": "string",
@@ -37,7 +37,7 @@
       "maxLength": 256
     },
     "region": {
-      "$ref": "http://maasglobal.com/core/region.json"
+      "$ref": "https://schemas.maas.global/core/region.json"
     },
     "profileImageUrl": {
       "type": "string",
@@ -47,7 +47,7 @@
     "favoriteLocations": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/components/place.json"
+        "$ref": "https://schemas.maas.global/core/components/place.json"
       }
     },
     "paymentMethod": {
@@ -81,7 +81,7 @@
         },
         "expiry": {
           "description": "When this payment method expires",
-          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }]
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }]
         }
       },
       "required": ["type", "valid"]
@@ -96,14 +96,14 @@
     "balances": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/components/fare.json"
+        "$ref": "https://schemas.maas.global/core/components/fare.json"
       }
     },
     "created": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
     },
     "modified": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
     }
   },
   "additionalProperties": false,
@@ -120,7 +120,7 @@
           "description": "Refers several seemingly unrelated things. Use is discouraged.",
           "oneOf": [
             { "$ref": "#/definitions/bookingOptionsReference" },
-            { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId" }
+            { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId" }
           ]
         },
         "name": {
@@ -165,7 +165,7 @@
           "minimum": 0
         },
         "creditCurrency": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
         },
         "level": {
           "type": "integer",
@@ -175,7 +175,7 @@
           "type": "boolean"
         },
         "pointCost": {
-          "$ref": "http://maasglobal.com/core/components/point-cost.json"
+          "$ref": "https://schemas.maas.global/core/components/point-cost.json"
         },
         "description": {
           "type": "string"

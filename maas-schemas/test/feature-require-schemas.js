@@ -96,7 +96,7 @@ function checkDeclarations(uri, schema) {
 describe('Source schemas must be valid JSON Schemas', () => {
   glob.sync('schemas/**/*.json').forEach(schemaPath => {
     const filePath = path.resolve(__dirname, '..', schemaPath);
-    const baseURI = 'http://maasglobal.com/';
+    const baseURI = 'https://schemas.maas.global/';
     const schemaDir = 'schemas';
     const uri = (tmp => {
       tmp.pathname = path.relative(schemaDir, schemaPath);

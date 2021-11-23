@@ -1,4 +1,4 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/stations/stations-retrieve/response.json",
-  "allOf": [{ "$ref": "http://maasglobal.com/tsp/stations-retrieve/response.json" }]
+  "$id": "https://schemas.maas.global/maas-backend/stations/stations-retrieve/response.json",
+  "allOf": [{ "$ref": "https://schemas.maas.global/tsp/stations-retrieve/response.json" }]
 }

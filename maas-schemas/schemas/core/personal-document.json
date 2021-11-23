@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/core/personal-document.json",
+  "$id": "https://schemas.maas.global/core/personal-document.json",
   "type": "object",
   "description": "Personal document object",
   "definitions": {
     "documentId": {
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid" }],
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid" }],
       "examples": ["932116e4-94cf-41cd-a62b-82d5f2730586"]
     },
     "documentType": {
@@ -50,13 +50,13 @@
       "allOf": [{ "$ref": "#/definitions/documentStatus" }, { "const": "ABANDONED" }]
     },
     "validFrom": {
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate" }],
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/isoDate" }],
       "examples": ["2020-01-01"]
     },
     "validTo": {
       "oneOf": [
         {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/isoDate"
         },
         {
           "type": "null"
@@ -98,11 +98,11 @@
       "minLength": 2
     },
     "firstName": {
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName" }],
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName" }],
       "examples": ["Tea"]
     },
     "lastName": {
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName" }],
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName" }],
       "examples": ["Snowman"]
     },
     "partyId": {
@@ -119,7 +119,7 @@
   "properties": {
     "id": { "$ref": "#/definitions/documentId" },
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "type": {
       "$ref": "#/definitions/documentType"

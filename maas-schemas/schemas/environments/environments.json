@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/environments/environments.json",
+  "$id": "https://schemas.maas.global/environments/environments.json",
   "definitions": {
     "developerName": {
       "description": "Full name or tag of a developer",
@@ -10,7 +10,7 @@
     },
     "developerEmail": {
       "description": "Email address of a developer",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email" }],
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/email" }],
       "examples": ["admin@example.com"]
     },
     "developer": {
@@ -26,7 +26,7 @@
     },
     "environmentId": {
       "type": "string",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/hostnameLabel" }],
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/hostnameLabel" }],
       "examples": ["production", "testing", "environment13", "fantasy-topping"]
     },
     "environmentLive": {
@@ -46,11 +46,11 @@
       "type": "object",
       "properties": {
         "id": { "$ref": "#/definitions/environmentId" },
-        "api": { "$ref": "http://maasglobal.com/environments/apis.json#/definitions/apiUrl" },
-        "apis": { "$ref": "http://maasglobal.com/environments/apis.json#/definitions/apiConfigs" },
+        "api": { "$ref": "https://schemas.maas.global/environments/apis.json#/definitions/apiUrl" },
+        "apis": { "$ref": "https://schemas.maas.global/environments/apis.json#/definitions/apiConfigs" },
         "live": { "$ref": "#/definitions/environmentLive" },
         "contact": { "$ref": "#/definitions/developer" },
-        "account": { "$ref": "http://maasglobal.com/environments/accounts.json#/definitions/accountAlias" },
+        "account": { "$ref": "https://schemas.maas.global/environments/accounts.json#/definitions/accountAlias" },
         "name": { "$ref": "#/definitions/environmentName" },
         "description": { "$ref": "#/definitions/environmentDescription" }
       },
@@ -178,10 +178,10 @@
   "description": "The base environments object with several environment groups and related meta data",
   "properties": {
     "accounts": {
-      "$ref": "http://maasglobal.com/environments/accounts.json#/definitions/accountIndex"
+      "$ref": "https://schemas.maas.global/environments/accounts.json#/definitions/accountIndex"
     },
     "apis": {
-      "$ref": "http://maasglobal.com/environments/apis.json#/definitions/apiIndex"
+      "$ref": "https://schemas.maas.global/environments/apis.json#/definitions/apiIndex"
     },
     "index": {
       "$ref": "#/definitions/environmentIndex"
