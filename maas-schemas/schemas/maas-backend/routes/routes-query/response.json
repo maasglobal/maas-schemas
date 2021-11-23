@@ -9,7 +9,7 @@
     "reasons": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/components/errors.json#/definitions/reason"
+        "$ref": "http://maasglobal.com/core/error.json#/definitions/reason"
       }
     },
     "debug": { "type": "object" }

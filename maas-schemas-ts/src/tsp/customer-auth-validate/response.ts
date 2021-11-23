@@ -37,7 +37,7 @@ export type Response = t.Branded<
     authToken?: Common_.EncodedQueryParam;
     validTo?: Units_.Time;
     nonce?: Common_.EncodedQueryParam;
-    error?: Error_.Error;
+    error?: Error_.Response;
   } & (
     | {
         authToken: Defined;
@@ -58,7 +58,7 @@ export type ResponseC = t.BrandC<
         authToken: typeof Common_.EncodedQueryParam;
         validTo: typeof Units_.Time;
         nonce: typeof Common_.EncodedQueryParam;
-        error: typeof Error_.Error;
+        error: typeof Error_.Response;
       }>,
       t.UnionC<
         [
@@ -83,7 +83,7 @@ export const Response: ResponseC = t.brand(
       authToken: Common_.EncodedQueryParam,
       validTo: Units_.Time,
       nonce: Common_.EncodedQueryParam,
-      error: Error_.Error,
+      error: Error_.Response,
     }),
     t.union([
       t.type({
@@ -104,7 +104,7 @@ export const Response: ResponseC = t.brand(
       authToken?: Common_.EncodedQueryParam;
       validTo?: Units_.Time;
       nonce?: Common_.EncodedQueryParam;
-      error?: Error_.Error;
+      error?: Error_.Response;
     } & (
       | {
           authToken: Defined;

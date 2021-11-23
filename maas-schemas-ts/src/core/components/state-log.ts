@@ -11,7 +11,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from './units';
 import * as State_ from './state';
-import * as Errors_ from './errors';
+import * as Error_ from '../error';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -52,7 +54,7 @@ export type BookingStateTransition = t.Branded<
     oldState?: State_.BookingState;
     newState?: State_.BookingState;
     invalid?: boolean;
-    reason?: Errors_.Reason;
+    reason?: Error_.Reason;
   } & Record<string, unknown>) & {
     newState: Defined;
     oldState: Defined;
@@ -70,7 +72,7 @@ export type BookingStateTransitionC = t.BrandC<
             oldState: typeof State_.BookingState;
             newState: typeof State_.BookingState;
             invalid: t.BooleanC;
-            reason: typeof Errors_.Reason;
+            reason: typeof Error_.Reason;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
         ]
@@ -92,7 +94,7 @@ export const BookingStateTransition: BookingStateTransitionC = t.brand(
         oldState: State_.BookingState,
         newState: State_.BookingState,
         invalid: t.boolean,
-        reason: Errors_.Reason,
+        reason: Error_.Reason,
       }),
       t.record(t.string, t.unknown),
     ]),
@@ -110,7 +112,7 @@ export const BookingStateTransition: BookingStateTransitionC = t.brand(
       oldState?: State_.BookingState;
       newState?: State_.BookingState;
       invalid?: boolean;
-      reason?: Errors_.Reason;
+      reason?: Error_.Reason;
     } & Record<string, unknown>) & {
       newState: Defined;
       oldState: Defined;
@@ -123,6 +125,16 @@ export const BookingStateTransition: BookingStateTransitionC = t.brand(
 export interface BookingStateTransitionBrand {
   readonly BookingStateTransition: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(BookingStateTransition)).decodeSync(examplesBookingStateTransition) // => examplesBookingStateTransition */
+export const examplesBookingStateTransition: NonEmptyArray<BookingStateTransition> = ([
+  {
+    reason: { text: 'INVALID_AUTHORIZATION', errorCode: 500 },
+    invalid: false,
+    newState: 'REJECTED',
+    oldState: 'PAID',
+    timestamp: 1630005341433,
+  },
+] as unknown) as NonEmptyArray<BookingStateTransition>;
 
 // StateLog
 // The default export. More information at the top.
@@ -136,6 +148,32 @@ export const StateLog: StateLogC = t.brand(
 export interface StateLogBrand {
   readonly StateLog: unique symbol;
 }
+/** require('io-ts-validator').validator(nonEmptyArray(StateLog)).decodeSync(examplesStateLog) // => examplesStateLog */
+export const examplesStateLog: NonEmptyArray<StateLog> = ([
+  [
+    {
+      reason: {},
+      invalid: false,
+      newState: 'PENDING',
+      oldState: 'START',
+      timestamp: 1630003779687,
+    },
+    {
+      reason: {},
+      invalid: false,
+      newState: 'PAID',
+      oldState: 'PENDING',
+      timestamp: 1630003780198,
+    },
+    {
+      reason: { text: 'INVALID_AUTHORIZATION', errorCode: 500 },
+      invalid: false,
+      newState: 'REJECTED',
+      oldState: 'PAID',
+      timestamp: 1630005341433,
+    },
+  ],
+] as unknown) as NonEmptyArray<StateLog>;
 
 export default StateLog;
 

@@ -12,7 +12,7 @@ import * as t from 'io-ts';
 import * as Booking_ from '../../core/booking';
 import * as BookingOption_ from '../../core/booking-option';
 import * as BookingMeta_ from '../../core/booking-meta';
-import * as Errors_ from '../../core/components/errors';
+import * as Error_ from '../../core/error';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -50,7 +50,7 @@ export type RemoteRequest = t.Branded<
     meta?: BookingMeta_.BookingMeta;
     terms?: Booking_.Terms;
     token?: Booking_.Token;
-    reason?: Errors_.Reason;
+    reason?: Error_.Reason;
   } & {
     tspId: Defined;
     state: Defined;
@@ -78,7 +78,7 @@ export type RemoteRequestC = t.BrandC<
         meta: typeof BookingMeta_.BookingMeta;
         terms: typeof Booking_.Terms;
         token: typeof Booking_.Token;
-        reason: typeof Errors_.Reason;
+        reason: typeof Error_.Reason;
       }>,
       t.TypeC<{
         tspId: typeof Defined;
@@ -106,7 +106,7 @@ export const RemoteRequest: RemoteRequestC = t.brand(
       meta: BookingMeta_.BookingMeta,
       terms: Booking_.Terms,
       token: Booking_.Token,
-      reason: Errors_.Reason,
+      reason: Error_.Reason,
     }),
     t.type({
       tspId: Defined,
@@ -131,7 +131,7 @@ export const RemoteRequest: RemoteRequestC = t.brand(
       meta?: BookingMeta_.BookingMeta;
       terms?: Booking_.Terms;
       token?: Booking_.Token;
-      reason?: Errors_.Reason;
+      reason?: Error_.Reason;
     } & {
       tspId: Defined;
       state: Defined;
