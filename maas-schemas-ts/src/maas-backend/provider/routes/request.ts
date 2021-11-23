@@ -30,7 +30,8 @@ export class DefinedType extends t.Type<Defined> {
 export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
-export const schemaId = 'http://maasglobal.com/maas-backend/provider/routes/request.json';
+export const schemaId =
+  'https://schemas.maas.global/maas-backend/provider/routes/request.json';
 
 // Request
 // The default export. More information at the top.

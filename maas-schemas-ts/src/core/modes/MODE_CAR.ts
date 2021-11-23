@@ -11,7 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as CarRental_ from '../components/car-rental';
 
-export const schemaId = 'http://maasglobal.com/core/modes/MODE_CAR.json';
+export const schemaId = 'https://schemas.maas.global/core/modes/MODE_CAR.json';
 
 // MODE_CAR
 // The default export. More information at the top.

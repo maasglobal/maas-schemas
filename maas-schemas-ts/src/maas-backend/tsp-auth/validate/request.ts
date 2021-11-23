@@ -12,7 +12,7 @@ import * as t from 'io-ts';
 import * as Common_ from '../../../core/components/common';
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/tsp-auth/validate/request.json';
+  'https://schemas.maas.global/maas-backend/tsp-auth/validate/request.json';
 
 // Request
 // The default export. More information at the top.

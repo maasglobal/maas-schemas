@@ -15,7 +15,7 @@ import * as Units_ from './units';
 import * as UnitsGeo_ from './units-geo';
 import * as Address_ from './address';
 
-export const schemaId = 'http://maasglobal.com/core/components/agencyOptions.json';
+export const schemaId = 'https://schemas.maas.global/core/components/agencyOptions.json';
 
 // AgencyOptions
 // The default export. More information at the top.

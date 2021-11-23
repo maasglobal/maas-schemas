@@ -14,7 +14,7 @@ import * as Place_ from '../../../core/components/place';
 import * as ApiCommon_ from '../../../core/components/api-common';
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/profile/profile-favoriteLocations-add/request.json';
+  'https://schemas.maas.global/maas-backend/profile/profile-favoriteLocations-add/request.json';
 
 // Request
 // The default export. More information at the top.

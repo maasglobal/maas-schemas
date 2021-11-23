@@ -13,7 +13,7 @@ import * as Booking_ from '../../../core/booking';
 import * as CustomerSelection_ from '../../../core/components/customerSelection';
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/tsp-auth/verify/definitions.json';
+  'https://schemas.maas.global/maas-backend/tsp-auth/verify/definitions.json';
 
 // VerificationFailureKey
 // Failure key enum, identifying reason for the verification failure

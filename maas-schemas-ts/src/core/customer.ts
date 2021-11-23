@@ -44,7 +44,7 @@ export const Null: NullC = t.brand(
 );
 export type Null = t.TypeOf<typeof Null>;
 
-export const schemaId = 'http://maasglobal.com/core/customer.json';
+export const schemaId = 'https://schemas.maas.global/core/customer.json';
 
 // Customer
 // The default export. More information at the top.

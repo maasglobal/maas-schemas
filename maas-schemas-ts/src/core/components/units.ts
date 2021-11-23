@@ -12,7 +12,7 @@ import * as t from 'io-ts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-export const schemaId = 'http://maasglobal.com/core/components/units.json';
+export const schemaId = 'https://schemas.maas.global/core/components/units.json';
 
 // Uuid
 // Universally unique identifier, see https://en.wikipedia.org/wiki/Universally_unique_identifier

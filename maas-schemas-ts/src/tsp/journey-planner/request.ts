@@ -14,7 +14,7 @@ import * as Address_ from '../../core/components/address';
 import * as Station_ from '../../core/components/station';
 import * as Units_ from '../../core/components/units';
 
-export const schemaId = 'http://maasglobal.com/tsp/journey-planner/request.json';
+export const schemaId = 'https://schemas.maas.global/tsp/journey-planner/request.json';
 
 // Request
 // The default export. More information at the top.

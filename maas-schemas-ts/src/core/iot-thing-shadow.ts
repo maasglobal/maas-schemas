@@ -13,7 +13,7 @@ import * as UnitsGeo_ from './components/units-geo';
 import * as Units_ from './components/units';
 import * as State_ from './components/state';
 
-export const schemaId = 'http://maasglobal.com/core/iot-thing-shadow.json';
+export const schemaId = 'https://schemas.maas.global/core/iot-thing-shadow.json';
 
 // IotThingShadow
 // The default export. More information at the top.

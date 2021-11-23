@@ -11,7 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Response_ from '../../maas-backend/provider/routes/response';
 
-export const schemaId = 'http://maasglobal.com/tsp/journey-planner/response.json';
+export const schemaId = 'https://schemas.maas.global/tsp/journey-planner/response.json';
 
 // Response
 // The default export. More information at the top.

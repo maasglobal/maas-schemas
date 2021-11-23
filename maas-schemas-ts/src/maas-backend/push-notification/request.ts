@@ -38,7 +38,7 @@ export const Null: NullC = t.brand(
 export type Null = t.TypeOf<typeof Null>;
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/push-notification/request.json';
+  'https://schemas.maas.global/maas-backend/push-notification/request.json';
 
 // Request
 // The default export. More information at the top.

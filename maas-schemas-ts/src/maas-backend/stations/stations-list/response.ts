@@ -12,7 +12,7 @@ import * as t from 'io-ts';
 import * as Response_ from '../../../tsp/stations-list/response';
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/stations/stations-list/response.json';
+  'https://schemas.maas.global/maas-backend/stations/stations-list/response.json';
 
 // Response
 // The default export. More information at the top.

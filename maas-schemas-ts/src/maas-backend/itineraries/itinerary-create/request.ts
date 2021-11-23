@@ -18,7 +18,7 @@ import * as Common_ from '../../../core/components/common';
 import * as Message_ from '../../../core/components/message';
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/itineraries/itinerary-create/request.json';
+  'https://schemas.maas.global/maas-backend/itineraries/itinerary-create/request.json';
 
 // OutwardReturnWrapper
 // The purpose of this remains a mystery

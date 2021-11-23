@@ -12,7 +12,7 @@ import * as t from 'io-ts';
 import * as Invoice_ from '../invoices/invoice';
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/booking-virtual-create/response.json';
+  'https://schemas.maas.global/maas-backend/booking-virtual-create/response.json';
 
 // Response
 // The default export. More information at the top.

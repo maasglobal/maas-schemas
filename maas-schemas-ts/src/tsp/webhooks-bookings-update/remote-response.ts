@@ -30,7 +30,7 @@ export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
-  'http://maasglobal.com/tsp/webhooks-bookings-update/remote-response.json';
+  'https://schemas.maas.global/tsp/webhooks-bookings-update/remote-response.json';
 
 // BookingDelta
 // The purpose of this remains a mystery

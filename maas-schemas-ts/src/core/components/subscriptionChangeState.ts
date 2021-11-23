@@ -27,7 +27,7 @@ export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
-  'http://maasglobal.com/core/components/subscriptionChangeState.json';
+  'https://schemas.maas.global/core/components/subscriptionChangeState.json';
 
 // State
 // State enum

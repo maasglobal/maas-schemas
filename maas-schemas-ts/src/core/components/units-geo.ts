@@ -25,7 +25,7 @@ export class DefinedType extends t.Type<Defined> {
 export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
-export const schemaId = 'http://maasglobal.com/core/components/units-geo.json';
+export const schemaId = 'https://schemas.maas.global/core/components/units-geo.json';
 
 // Latitude
 // Geographic latitude (north-south axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System

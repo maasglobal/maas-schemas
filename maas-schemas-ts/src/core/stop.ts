@@ -12,7 +12,7 @@ import * as t from 'io-ts';
 import * as Place_ from './components/place';
 import * as Units_ from './components/units';
 
-export const schemaId = 'http://maasglobal.com/core/stop.json';
+export const schemaId = 'https://schemas.maas.global/core/stop.json';
 
 // Stop
 // The default export. More information at the top.

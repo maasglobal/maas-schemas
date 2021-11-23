@@ -13,7 +13,8 @@ import * as CustomerSelectionV2_ from './customerSelectionV2';
 import * as CustomerSelectionV1_ from './customerSelectionV1';
 import * as Common_ from './common';
 
-export const schemaId = 'http://maasglobal.com/core/components/customerSelection.json';
+export const schemaId =
+  'https://schemas.maas.global/core/components/customerSelection.json';
 
 // CustomerSelection
 // The default export. More information at the top.

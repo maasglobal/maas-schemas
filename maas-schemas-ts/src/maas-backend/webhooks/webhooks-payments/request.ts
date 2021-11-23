@@ -14,7 +14,7 @@ import * as Stripe_ from './gateway/stripe';
 import * as Yaband_ from './gateway/yaband';
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/webhooks/webhooks-payments/request.json';
+  'https://schemas.maas.global/maas-backend/webhooks/webhooks-payments/request.json';
 
 // Request
 // The default export. More information at the top.

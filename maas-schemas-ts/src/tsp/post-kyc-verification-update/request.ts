@@ -29,7 +29,7 @@ export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
-  'http://maasglobal.com/tsp/post-kyc-verification-update/request.json';
+  'https://schemas.maas.global/tsp/post-kyc-verification-update/request.json';
 
 // Request
 // The default export. More information at the top.

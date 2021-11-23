@@ -25,7 +25,7 @@ export class DefinedType extends t.Type<Defined> {
 export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
-export const schemaId = 'http://maasglobal.com/geojson/geometry.json';
+export const schemaId = 'https://schemas.maas.global/geojson/geometry.json';
 
 // Position
 // A single position

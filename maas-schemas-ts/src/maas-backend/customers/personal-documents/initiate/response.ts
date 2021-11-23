@@ -12,7 +12,7 @@ import * as t from 'io-ts';
 import * as KycService_ from '../../../../core/kyc-service';
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/customers/personal-documents/initiate/response.json';
+  'https://schemas.maas.global/maas-backend/customers/personal-documents/initiate/response.json';
 
 // Response
 // The default export. More information at the top.
