@@ -1,4 +1,4 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/tracking/tracking-update-user-location/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/tracking/tracking-update-user-location/response.json",
   "description": "Response schema for updating user location"
 }

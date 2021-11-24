@@ -12,7 +12,7 @@ import * as t from 'io-ts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-export const schemaId = 'http://maasglobal.com/core/components/common.json';
+export const schemaId = 'https://schemas.maas.global/core/components/common.json';
 
 // AgencyId
 // The purpose of this remains a mystery

@@ -27,7 +27,7 @@ export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/profile/profile-devices-put/response.json';
+  'https://schemas.maas.global/maas-backend/profile/profile-devices-put/response.json';
 
 // Device
 // The purpose of this remains a mystery

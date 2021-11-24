@@ -11,7 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as PersonalDocument_ from './personal-document';
 
-export const schemaId = 'http://maasglobal.com/core/kyc-service.json';
+export const schemaId = 'https://schemas.maas.global/core/kyc-service.json';
 
 // KycService
 // The default export. More information at the top.

@@ -15,7 +15,7 @@ import * as Common_ from './common';
 import * as TravelMode_ from './travel-mode';
 import * as Units_ from './units';
 
-export const schemaId = 'http://maasglobal.com/core/components/station.json';
+export const schemaId = 'https://schemas.maas.global/core/components/station.json';
 
 // Id
 // The purpose of this remains a mystery

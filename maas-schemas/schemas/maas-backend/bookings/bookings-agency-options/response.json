@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/bookings/bookings-agency-options/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/bookings/bookings-agency-options/response.json",
   "description": "Response schema for bookings-agency-options",
   "type": "object",
   "properties": {
@@ -15,7 +15,7 @@
         "bikeStations": {
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/core/components/bike-station.json"
+            "$ref": "https://schemas.maas.global/core/components/bike-station.json"
           }
         }
       }
@@ -34,19 +34,19 @@
           "type": "object",
           "properties": {
             "fares": {
-              "$ref": "http://maasglobal.com/core/booking.json#/definitions/fares"
+              "$ref": "https://schemas.maas.global/core/booking.json#/definitions/fares"
             },
             "cost": {
-              "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
+              "$ref": "https://schemas.maas.global/core/booking.json#/definitions/cost"
             },
             "leg": {
-              "$ref": "http://maasglobal.com/core/booking.json#/definitions/leg"
+              "$ref": "https://schemas.maas.global/core/booking.json#/definitions/leg"
             },
             "meta": {
-              "$ref": "http://maasglobal.com/core/booking-meta.json"
+              "$ref": "https://schemas.maas.global/core/booking-meta.json"
             },
             "terms": {
-              "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+              "$ref": "https://schemas.maas.global/core/booking.json#/definitions/terms"
             },
             "tspProduct": {
               "type": "object",
@@ -57,7 +57,7 @@
               }
             },
             "configurator": {
-              "$ref": "http://maasglobal.com/core/booking.json#/definitions/configurator"
+              "$ref": "https://schemas.maas.global/core/booking.json#/definitions/configurator"
             }
           }
         },

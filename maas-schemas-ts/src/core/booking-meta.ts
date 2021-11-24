@@ -30,7 +30,7 @@ import * as MODE_BUSISH_ from './modes/MODE_BUSISH';
 import * as MODE_TAXI_ from './modes/MODE_TAXI';
 import * as MODE_SCOOTER_ from './modes/MODE_SCOOTER';
 
-export const schemaId = 'http://maasglobal.com/core/booking-meta.json';
+export const schemaId = 'https://schemas.maas.global/core/booking-meta.json';
 
 // BookingMeta
 // The default export. More information at the top.

@@ -33,7 +33,7 @@ export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/subscriptions/subscription.json';
+  'https://schemas.maas.global/maas-backend/subscriptions/subscription.json';
 
 // SubscriptionItemId
 // Identifier for matching the plans (Chargebee compat.)

@@ -40,7 +40,7 @@ export class DefinedType extends t.Type<Defined> {
 export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
-export const schemaId = 'http://maasglobal.com/core/product.json';
+export const schemaId = 'https://schemas.maas.global/core/product.json';
 
 // Id
 // The purpose of this remains a mystery

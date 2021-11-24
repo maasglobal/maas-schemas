@@ -25,7 +25,7 @@ export class DefinedType extends t.Type<Defined> {
 export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
-export const schemaId = 'http://maasglobal.com/core/modes/MODE_SHARED_BICYCLE.json';
+export const schemaId = 'https://schemas.maas.global/core/modes/MODE_SHARED_BICYCLE.json';
 
 // MODE_SHARED_BICYCLE
 // The default export. More information at the top.

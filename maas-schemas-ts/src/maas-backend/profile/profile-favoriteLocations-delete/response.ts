@@ -12,7 +12,7 @@ import * as t from 'io-ts';
 import * as Profile_ from '../../../core/profile';
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/profile/profile-favoriteLocations-delete/response.json';
+  'https://schemas.maas.global/maas-backend/profile/profile-favoriteLocations-delete/response.json';
 
 // Response
 // The default export. More information at the top.

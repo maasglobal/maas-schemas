@@ -13,7 +13,7 @@ import * as Units_ from '../../../core/components/units';
 import * as ApiCommon_ from '../../../core/components/api-common';
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/bookings/bookings-cancel/request.json';
+  'https://schemas.maas.global/maas-backend/bookings/bookings-cancel/request.json';
 
 // Request
 // The default export. More information at the top.

@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/tsp/booking-ticket/request.json",
+  "$id": "https://schemas.maas.global/tsp/booking-ticket/request.json",
   "description": "Request schema for retrieving a ticket from booking through a TSP adapter",
   "type": "object",
   "properties": {
     "tspId": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+      "$ref": "https://schemas.maas.global/core/booking.json#/definitions/tspId"
     },
     "ticket": {
       "description": "Ticket path.",
@@ -24,7 +24,7 @@
       ]
     },
     "token": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/token"
+      "$ref": "https://schemas.maas.global/core/booking.json#/definitions/token"
     }
   },
   "required": ["ticket", "token", "tspId"],

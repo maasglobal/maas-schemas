@@ -13,7 +13,8 @@ import * as Common_ from '../../core/components/common';
 import * as Address_ from '../../core/components/address';
 import * as Units_ from '../../core/components/units';
 
-export const schemaId = 'http://maasglobal.com/maas-backend/customers/personalData.json';
+export const schemaId =
+  'https://schemas.maas.global/maas-backend/customers/personalData.json';
 
 // PersonalData
 // The default export. More information at the top.

@@ -29,7 +29,7 @@ export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json';
+  'https://schemas.maas.global/maas-backend/invoices/invoiceLineItem.json';
 
 // InvoiceLineItem
 // Invoice line item

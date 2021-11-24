@@ -32,7 +32,7 @@ export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/routes/routes-query/request.json';
+  'https://schemas.maas.global/maas-backend/routes/routes-query/request.json';
 
 // Payload
 // The purpose of this remains a mystery

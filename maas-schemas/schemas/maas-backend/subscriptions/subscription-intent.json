@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscription-intent.json",
+  "$id": "https://schemas.maas.global/maas-backend/subscriptions/subscription-intent.json",
   "description": "MaaS subscription intent schema",
   "definitions": {
     "subscriptionIntentCreate": {
@@ -11,7 +11,7 @@
         "planAddons": {
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/addon"
+            "$ref": "https://schemas.maas.global/maas-backend/subscriptions/subscription.json#/definitions/addon"
           }
         },
         "planCoupons": {
@@ -21,7 +21,7 @@
           }
         },
         "state": {
-          "$ref": "http://maasglobal.com/core/components/state.json#/definitions/subscriptionIntentState"
+          "$ref": "https://schemas.maas.global/core/components/state.json#/definitions/subscriptionIntentState"
         }
       },
       "required": ["planId", "planAddons"]
@@ -30,13 +30,13 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
         },
         "identityId": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
         },
         "subscriptionId": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
         },
         "nextPlanId": {
           "$ref": "#/definitions/planId"
@@ -44,7 +44,7 @@
         "nextPlanAddons": {
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/addon"
+            "$ref": "https://schemas.maas.global/maas-backend/subscriptions/subscription.json#/definitions/addon"
           }
         },
         "nextPlanCoupons": {
@@ -59,20 +59,20 @@
         "prevPlanAddons": {
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/addon"
+            "$ref": "https://schemas.maas.global/maas-backend/subscriptions/subscription.json#/definitions/addon"
           }
         },
         "state": {
-          "$ref": "http://maasglobal.com/core/components/state.json#/definitions/subscriptionIntentState"
+          "$ref": "https://schemas.maas.global/core/components/state.json#/definitions/subscriptionIntentState"
         },
         "stateLog": {
-          "$ref": "http://maasglobal.com/core/components/state-log.json"
+          "$ref": "https://schemas.maas.global/core/components/state-log.json"
         },
         "created": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         },
         "modified": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         }
       },
       "required": ["identityId", "subscriptionId", "nextPlanId", "nextPlanAddons"],

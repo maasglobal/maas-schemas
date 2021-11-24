@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/product.json",
+  "$id": "https://schemas.maas.global/core/product.json",
   "description": "Product in core which encapsulates at least an id, name and a tspProductId",
   "type": "object",
   "properties": {
@@ -26,7 +26,7 @@
       "minimum": 0
     },
     "agencyId": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
     },
     "tspProductId": {
       "type": "string",
@@ -59,7 +59,7 @@
             },
             "minimumExtra": {
               "description": "Minimum amount, expressed as a fare, that will be added as a safety margin to the estimated fare",
-              "allOf": [{ "$ref": "http://maasglobal.com/core/components/fare.json" }]
+              "allOf": [{ "$ref": "https://schemas.maas.global/core/components/fare.json" }]
             }
           },
           "additionalProperties": false

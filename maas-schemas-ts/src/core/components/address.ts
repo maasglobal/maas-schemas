@@ -13,7 +13,7 @@ import * as Common_ from './common';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-export const schemaId = 'http://maasglobal.com/core/components/address.json';
+export const schemaId = 'https://schemas.maas.global/core/components/address.json';
 
 // ComponentAddress
 // Encoded address components. Check the regexr examples. Check https://regexr.com/4ofcq. In streetNumber, there are 2 dashes - they have 2 different unicodes, do not remove

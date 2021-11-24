@@ -11,7 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 
 export const schemaId =
-  'http://maasglobal.com/core/components/personalDocumentRequiredItem.json';
+  'https://schemas.maas.global/core/components/personalDocumentRequiredItem.json';
 
 // PersonalDocumentRequiredItem
 // The default export. More information at the top.

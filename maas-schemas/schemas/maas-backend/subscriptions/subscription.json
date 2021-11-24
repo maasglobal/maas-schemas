@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscription.json",
+  "$id": "https://schemas.maas.global/maas-backend/subscriptions/subscription.json",
   "description": "MaaS subscription schema",
   "definitions": {
     "subscription": {
@@ -42,10 +42,10 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "http://maasglobal.com/maas-backend/subscriptions/contact.json#/definitions/identityId"
+          "$ref": "https://schemas.maas.global/maas-backend/subscriptions/contact.json#/definitions/identityId"
         },
         "customerId": {
-          "$ref": "http://maasglobal.com/maas-backend/subscriptions/contact.json#/definitions/identityId"
+          "$ref": "https://schemas.maas.global/maas-backend/subscriptions/contact.json#/definitions/identityId"
         },
         "plan": {
           "$ref": "#/definitions/plan"
@@ -72,13 +72,13 @@
           "$ref": "#/definitions/terms"
         },
         "pointCost": {
-          "$ref": "http://maasglobal.com/core/components/point-cost.json"
+          "$ref": "https://schemas.maas.global/core/components/point-cost.json"
         },
         "region": {
-          "$ref": "http://maasglobal.com/core/region.json"
+          "$ref": "https://schemas.maas.global/core/region.json"
         },
         "shippingAddress": {
-          "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscriptionAddress.json"
+          "$ref": "https://schemas.maas.global/maas-backend/subscriptions/subscriptionAddress.json"
         },
         "availability": {
           "type": "object",
@@ -109,7 +109,7 @@
           "minimum": 0
         },
         "creditCurrency": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
         },
         "active": {
           "type": "boolean"
@@ -125,7 +125,7 @@
           "minLength": 2
         },
         "changeState": {
-          "$ref": "http://maasglobal.com/core/components/subscriptionChangeState.json"
+          "$ref": "https://schemas.maas.global/core/components/subscriptionChangeState.json"
         },
         "cycles": {
           "description": "Number of subscription cycles (e.g. months) that the subscription is paid in advance",
@@ -179,7 +179,7 @@
           "$ref": "#/definitions/price"
         },
         "image": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
         },
         "virtualCardIssue": {
           "type": "object",
@@ -230,7 +230,7 @@
           "type": "number"
         },
         "startTime": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         }
       },
       "required": ["name"]
@@ -241,27 +241,27 @@
       "pattern": "^[^\\s\\/]{1,50}$"
     },
     "price": {
-      "$ref": "http://maasglobal.com/core/components/cost.json"
+      "$ref": "https://schemas.maas.global/core/components/cost.json"
     },
     "terms": {
       "description": "Terms related to this subscription",
       "type": "object",
       "properties": {
         "activated": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         },
         "modified": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         },
         "validity": {
           "description": "Subscription validity conditions",
           "type": "object",
           "properties": {
             "startTime": {
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
             },
             "endTime": {
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
             }
           },
           "required": ["startTime", "endTime"]

@@ -10,7 +10,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-export const schemaId = 'http://maasglobal.com/core/components/travel-mode.json';
+export const schemaId = 'https://schemas.maas.global/core/components/travel-mode.json';
 
 // WaitingMode
 // A mode that only involves waiting in the current location

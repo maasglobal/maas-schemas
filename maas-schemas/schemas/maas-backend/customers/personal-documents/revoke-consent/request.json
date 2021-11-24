@@ -1,21 +1,21 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/personal-documents/revoke-consent/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/personal-documents/revoke-consent/request.json",
   "description": "Revoke user consent to send all TSP required personal documents to TSP",
   "type": "object",
   "additionalProperties": false,
   "required": ["identityId", "customerId", "consentId", "headers"],
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "consentId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   }
 }

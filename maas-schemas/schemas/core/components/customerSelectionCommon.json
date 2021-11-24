@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/customerSelectionCommon.json",
+  "$id": "https://schemas.maas.global/core/components/customerSelectionCommon.json",
   "description": "Customer Selection for Configurator common definitions",
   "definitions": {
     "configChoiceSelection": {

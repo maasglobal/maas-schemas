@@ -14,7 +14,7 @@ import * as Units_ from '../components/units';
 import * as Common_ from '../components/common';
 import * as SpaceDemand_ from '../components/spaceDemand';
 
-export const schemaId = 'http://maasglobal.com/core/modes/MODE_TAXI.json';
+export const schemaId = 'https://schemas.maas.global/core/modes/MODE_TAXI.json';
 
 // MODE_TAXI
 // The default export. More information at the top.

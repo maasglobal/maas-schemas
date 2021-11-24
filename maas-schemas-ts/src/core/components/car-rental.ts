@@ -41,7 +41,7 @@ export const Null: NullC = t.brand(
 );
 export type Null = t.TypeOf<typeof Null>;
 
-export const schemaId = 'http://maasglobal.com/core/components/car-rental.json';
+export const schemaId = 'https://schemas.maas.global/core/components/car-rental.json';
 
 // Instruction
 // The purpose of this remains a mystery

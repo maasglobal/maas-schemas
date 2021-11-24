@@ -1,25 +1,25 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/tsp-auth/validate/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/tsp-auth/validate/request.json",
   "description": "Request schema for tsp-auth validate. Leaving as much flexibility as possible to be resilient for different TSPs",
   "type": "object",
   "properties": {
     "agencyId": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
     },
     "payload": {
       "type": "object",
       "properties": {
         "token": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/encodedQueryParam"
         },
         "encodedData": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/encodedQueryParam"
         },
         "state": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/encodedQueryParam"
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/encodedQueryParam"
         },
         "error": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/errorKey"
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/errorKey"
         }
       }
     },

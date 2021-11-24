@@ -13,7 +13,7 @@ import * as ConfiguratorV2_ from './configuratorV2';
 import * as ConfiguratorV1_ from './configuratorV1';
 import * as Common_ from './common';
 
-export const schemaId = 'http://maasglobal.com/core/components/configurator.json';
+export const schemaId = 'https://schemas.maas.global/core/components/configurator.json';
 
 // Configurator
 // The default export. More information at the top.

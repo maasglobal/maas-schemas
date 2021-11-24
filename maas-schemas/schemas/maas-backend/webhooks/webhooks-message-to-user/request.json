@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-message-to-user/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/webhooks/webhooks-message-to-user/request.json",
   "description": "A message (push notification) that can be send from TSP to the user",
   "type": "object",
   "properties": {
@@ -7,7 +7,7 @@
       "type": "object",
       "properties": {
         "tspId": {
-          "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+          "$ref": "https://schemas.maas.global/core/booking.json#/definitions/tspId"
         },
         "message": {
           "type": "string",
@@ -18,7 +18,7 @@
       "required": ["tspId", "message"]
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["payload"],

@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/virtual-card-issue/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/virtual-card-issue/response.json",
   "description": "MaaS customer virtual card issue async lambda response",
   "type": "object",
   "properties": {
@@ -7,7 +7,7 @@
       "type": "string"
     },
     "virtualCard": {
-      "$ref": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCard.json"
+      "$ref": "https://schemas.maas.global/maas-backend/customers/virtual-cards/virtualCard.json"
     }
   },
   "additionalProperties": false,

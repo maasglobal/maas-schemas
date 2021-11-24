@@ -26,7 +26,7 @@ export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/webhooks/webhooks-payments/response.json';
+  'https://schemas.maas.global/maas-backend/webhooks/webhooks-payments/response.json';
 
 // AvainpayResponse
 // The purpose of this remains a mystery

@@ -11,7 +11,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Units_ from './units';
 
-export const schemaId = 'http://maasglobal.com/core/components/payment-parameters.json';
+export const schemaId =
+  'https://schemas.maas.global/core/components/payment-parameters.json';
 
 // StripePaymentParameters
 // The purpose of this remains a mystery

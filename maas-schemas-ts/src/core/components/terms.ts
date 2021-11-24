@@ -29,7 +29,7 @@ export class DefinedType extends t.Type<Defined> {
 export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
-export const schemaId = 'http://maasglobal.com/core/components/terms.json';
+export const schemaId = 'https://schemas.maas.global/core/components/terms.json';
 
 // Seat
 // Ticket's seat information for long distance trains, coaches or flights

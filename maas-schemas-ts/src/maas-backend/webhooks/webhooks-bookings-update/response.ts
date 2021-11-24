@@ -12,7 +12,7 @@ import * as t from 'io-ts';
 import * as RemoteResponse_ from '../../../tsp/webhooks-bookings-update/remote-response';
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/webhooks/webhooks-bookings-update/response.json';
+  'https://schemas.maas.global/maas-backend/webhooks/webhooks-bookings-update/response.json';
 
 // Response
 // The default export. More information at the top.

@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/partialFavoriteLocation.json",
+  "$id": "https://schemas.maas.global/core/partialFavoriteLocation.json",
   "description": "Customer's favorite location",
   "type": "object",
   "definitions": {
@@ -21,7 +21,7 @@
       "type": "number"
     },
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "type": {
       "$ref": "#/definitions/favoriteLocationTypes"
@@ -31,28 +31,28 @@
       "minLength": 1
     },
     "location": {
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location"
+      "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/location"
     },
     "streetName": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName"
     },
     "streetNumber": {
       "type": "string"
     },
     "city": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/city"
     },
     "country": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/countryName"
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/countryName"
     },
     "zipCode": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/zipCode"
     },
     "agencyId": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
     },
     "stopId": {
-      "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+      "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/id"
     },
     "lineId": {
       "type": "string"

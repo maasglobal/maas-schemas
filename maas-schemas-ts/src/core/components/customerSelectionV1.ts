@@ -11,7 +11,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as CustomerSelectionCommon_ from './customerSelectionCommon';
 
-export const schemaId = 'http://maasglobal.com/core/components/customerSelectionV1.json';
+export const schemaId =
+  'https://schemas.maas.global/core/components/customerSelectionV1.json';
 
 // CustomerSelectionV1
 // The default export. More information at the top.

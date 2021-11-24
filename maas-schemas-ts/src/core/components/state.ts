@@ -10,7 +10,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-export const schemaId = 'http://maasglobal.com/core/components/state.json';
+export const schemaId = 'https://schemas.maas.global/core/components/state.json';
 
 // BookingState
 // The life-cycle state of a booking

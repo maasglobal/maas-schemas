@@ -1,12 +1,12 @@
 {
-  "$id": "http://maasglobal.com/core/components/payment-parameters.json",
+  "$id": "https://schemas.maas.global/core/components/payment-parameters.json",
   "description": "MaaS payment parameters for completing booking payment",
   "definitions": {
     "stripePaymentParameters": {
       "type": "object",
       "properties": {
         "bookingId": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
         },
         "clientSecret": {
           "type": "string",

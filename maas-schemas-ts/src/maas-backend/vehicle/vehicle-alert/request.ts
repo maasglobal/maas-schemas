@@ -12,7 +12,7 @@ import * as t from 'io-ts';
 import * as Product_ from '../../../core/product';
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/vehicle/vehicle-alert/request.json';
+  'https://schemas.maas.global/maas-backend/vehicle/vehicle-alert/request.json';
 
 // Request
 // The default export. More information at the top.

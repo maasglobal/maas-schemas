@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/subscriptionChangeState.json",
+  "$id": "https://schemas.maas.global/core/components/subscriptionChangeState.json",
   "description": "MaaS state schemas",
   "type": "object",
   "definitions": {
@@ -41,11 +41,11 @@
   "properties": {
     "id": {
       "description": "Subscription change state id",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid" }]
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid" }]
     },
     "state": { "$ref": "#/definitions/state" },
     "created": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
     },
     "failureKey": { "$ref": "#/definitions/failureKey" }
   },

@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-estimate/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/itineraries/itinerary-estimate/response.json",
   "description": "Maas Itinerary estimate response",
   "type": "object",
   "properties": {
     "itinerary": {
-      "$ref": "http://maasglobal.com/core/itinerary.json"
+      "$ref": "https://schemas.maas.global/core/itinerary.json"
     }
   },
   "required": ["itinerary"],

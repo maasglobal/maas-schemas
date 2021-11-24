@@ -30,7 +30,7 @@ export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/subscriptions/subscriptionOption.json';
+  'https://schemas.maas.global/maas-backend/subscriptions/subscriptionOption.json';
 
 // SubscriptionAdditions
 // The purpose of this remains a mystery

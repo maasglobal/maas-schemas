@@ -28,7 +28,7 @@ export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/provider/routes/response.json';
+  'https://schemas.maas.global/maas-backend/provider/routes/response.json';
 
 // Itineraries
 // The purpose of this remains a mystery

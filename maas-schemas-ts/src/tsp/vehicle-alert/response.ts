@@ -10,7 +10,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-export const schemaId = 'http://maasglobal.com/tsp/vehicle-alert/response.json';
+export const schemaId = 'https://schemas.maas.global/tsp/vehicle-alert/response.json';
 
 // Response
 // The default export. More information at the top.

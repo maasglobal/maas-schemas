@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/profile/profile-favoriteLocations-delete/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/profile/profile-favoriteLocations-delete/request.json",
   "description": "Request schema for profile-favoriteLocations-delete",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
@@ -21,10 +21,10 @@
       "type": "object",
       "properties": {
         "Accept": {
-          "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/acceptHeader"
+          "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/acceptHeader"
         },
         "X-Whim-User-Agent": {
-          "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/userAgentHeader"
+          "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/userAgentHeader"
         }
       }
     }

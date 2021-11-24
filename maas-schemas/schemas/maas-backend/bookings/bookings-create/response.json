@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/bookings/bookings-create/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/bookings/bookings-create/response.json",
   "description": "Response schema for bookings-create",
   "type": "object",
   "properties": {
     "booking": {
-      "$ref": "http://maasglobal.com/core/booking.json"
+      "$ref": "https://schemas.maas.global/core/booking.json"
     },
     "debug": {
       "type": "object",

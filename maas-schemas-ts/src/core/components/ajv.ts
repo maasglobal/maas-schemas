@@ -21,7 +21,7 @@ export const Null: NullC = t.brand(
 );
 export type Null = t.TypeOf<typeof Null>;
 
-export const schemaId = 'http://maasglobal.com/core/components/ajv.json';
+export const schemaId = 'https://schemas.maas.global/core/components/ajv.json';
 
 // StringCoarsedNull
 // Ajv type coarsing replaces null with empty string

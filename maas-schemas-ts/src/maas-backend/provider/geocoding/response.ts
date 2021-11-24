@@ -11,7 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/provider/geocoding/response.json';
+  'https://schemas.maas.global/maas-backend/provider/geocoding/response.json';
 
 // Response
 // The default export. More information at the top.

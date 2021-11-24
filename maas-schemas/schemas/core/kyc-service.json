@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/kyc-service.json",
+  "$id": "https://schemas.maas.global/core/kyc-service.json",
   "type": "object",
   "description": "KycService object",
   "properties": {
@@ -10,7 +10,7 @@
       "description": "List of document types that this KYC service supports",
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType"
+        "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/documentType"
       }
     },
     "supportedDocumentCategories": {

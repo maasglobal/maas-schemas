@@ -1,53 +1,53 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/personal-documents/update/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/personal-documents/update/request.json",
   "description": "Update a pending verification personal document object",
   "type": "object",
   "additionalProperties": false,
   "required": ["identityId", "customerId", "documentId", "payload", "headers"],
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "documentId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
     },
     "payload": {
       "type": "object",
       "properties": {
         "type": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType"
+          "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/documentType"
         },
         "documentNumber": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentNumber"
+          "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/documentNumber"
         },
         "category": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/category"
+          "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/category"
         },
         "issuingCountry": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/issuingCountry"
+          "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/issuingCountry"
         },
         "validFrom": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/validFrom"
+          "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/validFrom"
         },
         "validTo": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/validTo"
+          "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/validTo"
         },
         "details": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/details"
+          "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/details"
         },
         "media": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/media"
+          "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/media"
         },
         "kycServiceId": {
-          "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/kycServiceId"
+          "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/kycServiceId"
         },
         "firstName": {
           "oneOf": [
             {
-              "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/firstName"
+              "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/firstName"
             },
             {
               "type": "null"
@@ -57,7 +57,7 @@
         "lastName": {
           "oneOf": [
             {
-              "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/lastName"
+              "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/lastName"
             },
             {
               "type": "null"
@@ -68,7 +68,7 @@
       "additionalProperties": false
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   }
 }

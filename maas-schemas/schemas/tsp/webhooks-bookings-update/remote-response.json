@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/tsp/webhooks-bookings-update/remote-response.json",
+  "$id": "https://schemas.maas.global/tsp/webhooks-bookings-update/remote-response.json",
   "description": "Remote response schema, e.g. how MaaS-backend responds back to TSP",
   "type": "object",
   "properties": {
@@ -17,31 +17,31 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
         },
         "tspId": {
-          "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+          "$ref": "https://schemas.maas.global/core/booking.json#/definitions/tspId"
         },
         "cost": {
-          "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
+          "$ref": "https://schemas.maas.global/core/booking.json#/definitions/cost"
         },
         "state": {
           "enum": ["RESERVED", "CONFIRMED", "ACTIVATED", "EXPIRED", "CANCELLED", "REJECTED"]
         },
         "leg": {
-          "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/leg"
+          "$ref": "https://schemas.maas.global/core/booking-option.json#/definitions/leg"
         },
         "meta": {
-          "$ref": "http://maasglobal.com/core/booking-meta.json"
+          "$ref": "https://schemas.maas.global/core/booking-meta.json"
         },
         "terms": {
-          "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+          "$ref": "https://schemas.maas.global/core/booking.json#/definitions/terms"
         },
         "token": {
-          "$ref": "http://maasglobal.com/core/booking.json#/definitions/token"
+          "$ref": "https://schemas.maas.global/core/booking.json#/definitions/token"
         },
         "customer": {
-          "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/customer"
+          "$ref": "https://schemas.maas.global/core/booking-option.json#/definitions/customer"
         }
       },
       "required": ["tspId", "state"],

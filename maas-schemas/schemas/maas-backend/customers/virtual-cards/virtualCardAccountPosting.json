@@ -1,16 +1,16 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json",
   "description": "MaaS virtual card posting schema",
   "type": "object",
   "properties": {
     "id": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
     },
     "virtualCardAccountId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
     },
     "date": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
     },
     "direction": {
       "type": "string",
@@ -21,7 +21,7 @@
       "minimum": 1
     },
     "currency": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
     },
     "metadata": {
       "type": "object"
@@ -34,7 +34,7 @@
       "minLength": 1
     },
     "created": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
     }
   },
   "additionalProperties": false,

@@ -11,7 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 
 export const schemaId =
-  'http://maasglobal.com/core/components/customerSelectionCommon.json';
+  'https://schemas.maas.global/core/components/customerSelectionCommon.json';
 
 // ConfigChoiceSelection
 // customerSelection format for configurator config type - choice

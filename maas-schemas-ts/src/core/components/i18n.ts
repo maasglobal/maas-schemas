@@ -10,7 +10,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-export const schemaId = 'http://maasglobal.com/core/components/i18n.json';
+export const schemaId = 'https://schemas.maas.global/core/components/i18n.json';
 
 // Locale
 // The purpose of this remains a mystery

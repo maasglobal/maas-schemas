@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/region.json",
+  "$id": "https://schemas.maas.global/core/region.json",
   "description": "MaaS region schema",
   "definitions": {
     "regionId": {
@@ -15,11 +15,11 @@
       "examples": ["Helsinki & Turku"]
     },
     "countryCode": {
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country" }],
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/country" }],
       "examples": ["FI"]
     },
     "zipCode": {
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode" }],
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/zipCode" }],
       "examples": ["00100"]
     },
     "availability": {

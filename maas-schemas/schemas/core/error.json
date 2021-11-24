@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/error.json",
+  "$id": "https://schemas.maas.global/core/error.json",
   "definitions": {
     "errorNumber": {
       "type": "integer",

@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCardTokenReference.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/virtual-cards/virtualCardTokenReference.json",
   "description": "MaaS virtual card schema",
   "type": "object",
   "properties": {
@@ -18,14 +18,14 @@
       "multipleOf": 1
     },
     "appInstanceId": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/appInstanceId"
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/appInstanceId"
     },
     "walletPlatform": {
       "type": "string",
       "enum": ["APPLE", "GOOGLE"]
     },
     "added": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
     },
     "deviceType": {
       "type": "string",

@@ -10,7 +10,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-export const schemaId = 'http://maasglobal.com/core/modes/MODE_TRAM.json';
+export const schemaId = 'https://schemas.maas.global/core/modes/MODE_TRAM.json';
 
 // MODE_TRAM
 // The default export. More information at the top.

@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/booking-option-create/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/booking-option-create/response.json",
   "description": "Response schema for booking-option-create",
   "anyOf": [
     {
@@ -8,7 +8,7 @@
         "bookings": {
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/core/booking.json"
+            "$ref": "https://schemas.maas.global/core/booking.json"
           }
         }
       },

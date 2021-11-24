@@ -29,7 +29,7 @@ export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
-  'http://maasglobal.com/maas-backend/coupons/v2/coupons-redeem/request.json';
+  'https://schemas.maas.global/maas-backend/coupons/v2/coupons-redeem/request.json';
 
 // Request
 // The default export. More information at the top.

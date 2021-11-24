@@ -26,7 +26,7 @@ export class DefinedType extends t.Type<Defined> {
 export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
-export const schemaId = 'http://maasglobal.com/tsp/booking-receipt/response.json';
+export const schemaId = 'https://schemas.maas.global/tsp/booking-receipt/response.json';
 
 // Response
 // The default export. More information at the top.

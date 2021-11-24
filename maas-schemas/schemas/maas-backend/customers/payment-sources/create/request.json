@@ -1,15 +1,15 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/payment-sources/create/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/payment-sources/create/request.json",
   "description": "MaaS customer payment sources create",
   "type": "object",
   "additionalProperties": false,
   "required": ["identityId", "customerId", "payload", "headers"],
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
@@ -18,10 +18,10 @@
           "type": "object",
           "properties": {
             "gatewayName": {
-              "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/gatewayName"
+              "$ref": "https://schemas.maas.global/maas-backend/customers/payment-sources/paymentSource.json#/definitions/gatewayName"
             },
             "type": {
-              "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/type"
+              "$ref": "https://schemas.maas.global/maas-backend/customers/payment-sources/paymentSource.json#/definitions/type"
             },
             "temporaryToken": {
               "type": "string",
@@ -32,7 +32,7 @@
               "type": "boolean"
             },
             "alias": {
-              "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias"
+              "$ref": "https://schemas.maas.global/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias"
             }
           },
           "required": ["type", "gatewayName", "temporaryToken", "isDefault"],
@@ -42,7 +42,7 @@
       "required": ["paymentSource"]
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   }
 }

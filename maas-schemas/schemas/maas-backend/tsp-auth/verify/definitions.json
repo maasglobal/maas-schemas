@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/tsp-auth/verify/definitions.json",
+  "$id": "https://schemas.maas.global/maas-backend/tsp-auth/verify/definitions.json",
   "description": "Response schema for tsp-auth verify -> verification failure keys",
   "definitions": {
     "verificationFailureKey": {
@@ -21,7 +21,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+            "$ref": "https://schemas.maas.global/core/booking.json#/definitions/tspId"
           },
           "verified": {
             "type": "boolean"
@@ -36,10 +36,10 @@
         "type": "object",
         "properties": {
           "id": {
-            "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+            "$ref": "https://schemas.maas.global/core/booking.json#/definitions/tspId"
           },
           "customerSelection": {
-            "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+            "$ref": "https://schemas.maas.global/core/components/customerSelection.json"
           }
         }
       }

@@ -15,7 +15,7 @@ import * as Address_ from './components/address';
 import * as Common_ from './components/common';
 import * as Station_ from './components/station';
 
-export const schemaId = 'http://maasglobal.com/core/partialFavoriteLocation.json';
+export const schemaId = 'https://schemas.maas.global/core/partialFavoriteLocation.json';
 
 // FavoriteLocationTypes
 // The purpose of this remains a mystery
