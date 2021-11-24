@@ -122,6 +122,7 @@ export type DocumentStatus = t.Branded<
       | 'EXPIRED'
       | 'RESUBMISSION_REQUESTED'
       | 'ABANDONED'
+      | 'FAILED_WITH_ERRORS'
     ),
   DocumentStatusBrand
 >;
@@ -137,6 +138,7 @@ export type DocumentStatusC = t.BrandC<
           t.LiteralC<'EXPIRED'>,
           t.LiteralC<'RESUBMISSION_REQUESTED'>,
           t.LiteralC<'ABANDONED'>,
+          t.LiteralC<'FAILED_WITH_ERRORS'>,
         ]
       >,
     ]
@@ -153,6 +155,7 @@ export const DocumentStatus: DocumentStatusC = t.brand(
       t.literal('EXPIRED'),
       t.literal('RESUBMISSION_REQUESTED'),
       t.literal('ABANDONED'),
+      t.literal('FAILED_WITH_ERRORS'),
     ]),
   ]),
   (
@@ -166,6 +169,7 @@ export const DocumentStatus: DocumentStatusC = t.brand(
         | 'EXPIRED'
         | 'RESUBMISSION_REQUESTED'
         | 'ABANDONED'
+        | 'FAILED_WITH_ERRORS'
       ),
     DocumentStatusBrand
   > => true,

@@ -22,7 +22,7 @@
     },
     "documentStatus": {
       "type": "string",
-      "enum": ["PENDING", "APPROVED", "DECLINED", "EXPIRED", "RESUBMISSION_REQUESTED", "ABANDONED"],
+      "enum": ["PENDING", "APPROVED", "DECLINED", "EXPIRED", "RESUBMISSION_REQUESTED", "ABANDONED", "FAILED_WITH_ERRORS"],
       "examples": ["APPROVED"]
     },
     "documentStatusPENDING": {
