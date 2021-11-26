@@ -17,7 +17,7 @@ const ajv = ajvFactory({ allErrors: true });
 const JP_ROOT = '#';
 
 /**
- * Declaration checker
+ * Examples checker
  *
  * @param uri string
  * @param schema JSONSchema7Definition
@@ -59,6 +59,27 @@ function checkExamples(uri, schema) {
   if (typeof constant !== 'undefined') {
     it(`must accept ${pointer}/const ${JSON.stringify(constant)}`, () => {
       validate(uri, constant);
+    });
+  }
+
+  const { invalid } = schema;
+  if (typeof invalid !== 'undefined') {
+    Object.keys(invalid).forEach(b64 => {
+      const text = Buffer.from(b64, 'base64').toString('ascii');
+      const cut = text.slice(0, 40);
+      const display = text === cut ? cut : cut.concat('...');
+
+      const counterExample = JSON.parse(text);
+      const description = invalid[b64];
+      it(`must reject ${pointer}/invalid/${b64} ${description} ${display}`, () => {
+        try {
+          validate(uri, counterExample);
+        } catch (_validationError) {
+          // counterexamples should fail validation
+          return;
+        }
+        throw new Error('Counterexample passed validation!');
+      });
     });
   }
 }
