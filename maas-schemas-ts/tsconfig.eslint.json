@@ -4,6 +4,7 @@
     "*.json",
     "*.js",
     "src/**/*.ts",
+    "scripts/**/*.ts",
     "test/**/*.ts",
     "./**/tsconfig.json"
   ],
