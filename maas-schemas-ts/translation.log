@@ -1,3 +1,7 @@
+WARNING: invalid field not supported
+  in ../maas-schemas/schemas/core/balances.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/balances.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/booking-meta.json
 INFO: primitive type "string" used outside top-level definitions
