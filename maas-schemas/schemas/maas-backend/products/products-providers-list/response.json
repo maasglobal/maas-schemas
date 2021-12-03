@@ -1,12 +1,12 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/products/products-providers-list/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/products/products-providers-list/response.json",
   "description": "Response schema for products-providers-list",
   "type": "object",
   "properties": {
     "providers": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/maas-backend/products/provider.json"
+        "$ref": "https://schemas.maas.global/maas-backend/products/provider.json"
       }
     }
   },
