@@ -1,16 +1,16 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-retrieve/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/itineraries/itinerary-retrieve/request.json",
   "description": "Request schema for itinerary-retrieve",
   "type": "object",
   "properties": {
     "itineraryId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
     },
     "originalFare": {
       "type": "string"
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["itineraryId"],

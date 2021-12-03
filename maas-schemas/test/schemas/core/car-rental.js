@@ -17,8 +17,8 @@ describe('car-rental.registrationPlate', () => {
 describe('car-rental.instruction', () => {
   generateTestCases(schema.definitions.instruction, true, [
     { title: 'TITLE', text: 'DESCRIPTION' },
-    { title: 'TITLE', image: 'http://maasglobal.com/image.jpg' },
-    { title: 'TITLE', image: 'http://maasglobal.com/image.jpg', icon: 'http://maasglobal.com/image.jpg' },
+    { title: 'TITLE', image: 'https://example.com/image.jpg' },
+    { title: 'TITLE', image: 'https://example.com/image.jpg', icon: 'https://example.com/image.jpg' },
   ]);
 
   generateTestCases(schema.definitions.instruction, false, [{ title: 'TITLE' }]);

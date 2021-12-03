@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/push-notification/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/push-notification/response.json",
   "description": "MaaS push notification response schema.",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "results": {
       "type": "object",

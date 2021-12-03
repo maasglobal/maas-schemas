@@ -1,12 +1,12 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-create/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/itineraries/itinerary-create/response.json",
   "description": "Response schema for itineraries-create",
   "oneOf": [
     {
       "type": "object",
       "properties": {
         "itinerary": {
-          "$ref": "http://maasglobal.com/core/itinerary.json"
+          "$ref": "https://schemas.maas.global/core/itinerary.json"
         },
         "paymentParameters": {
           "description": "Payment parameters for asynchronous payment methods",
@@ -19,10 +19,10 @@
       "type": "object",
       "properties": {
         "outward": {
-          "$ref": "http://maasglobal.com/core/itinerary.json"
+          "$ref": "https://schemas.maas.global/core/itinerary.json"
         },
         "return": {
-          "$ref": "http://maasglobal.com/core/itinerary.json"
+          "$ref": "https://schemas.maas.global/core/itinerary.json"
         },
         "paymentParameters": {
           "description": "Payment parameters for asynchronous payment methods",
@@ -37,10 +37,10 @@
       "type": "object",
       "properties": {
         "avainpay": {
-          "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/avainpayPaymentParameters"
+          "$ref": "https://schemas.maas.global/core/components/payment-parameters.json#/definitions/avainpayPaymentParameters"
         },
         "stripe": {
-          "$ref": "http://maasglobal.com/core/components/payment-parameters.json#/definitions/stripePaymentParameters"
+          "$ref": "https://schemas.maas.global/core/components/payment-parameters.json#/definitions/stripePaymentParameters"
         }
       }
     },

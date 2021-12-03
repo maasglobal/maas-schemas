@@ -1,32 +1,32 @@
 {
-  "$id": "http://maasglobal.com/tsp/booking-cancel/response.json",
+  "$id": "https://schemas.maas.global/tsp/booking-cancel/response.json",
   "description": "Response schema for canceling a booking through a TSP adapter",
   "type": "object",
   "properties": {
     "tspId": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/tspId"
+      "$ref": "https://schemas.maas.global/core/booking.json#/definitions/tspId"
     },
     "state": {
       "description": "For normal full cancellation, end state would be CANCELLED. For booking that has multi tickets, if not all of them are cancelled, response state will be RESERVED",
       "enum": ["CANCELLED", "RESERVED"]
     },
     "cost": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
+      "$ref": "https://schemas.maas.global/core/booking.json#/definitions/cost"
     },
     "leg": {
-      "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/leg"
+      "$ref": "https://schemas.maas.global/core/booking-option.json#/definitions/leg"
     },
     "meta": {
-      "$ref": "http://maasglobal.com/core/booking-meta.json"
+      "$ref": "https://schemas.maas.global/core/booking-meta.json"
     },
     "terms": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+      "$ref": "https://schemas.maas.global/core/booking.json#/definitions/terms"
     },
     "token": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/token"
+      "$ref": "https://schemas.maas.global/core/booking.json#/definitions/token"
     },
     "tspProduct": {
-      "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/tspProduct"
+      "$ref": "https://schemas.maas.global/core/booking-option.json#/definitions/tspProduct"
     }
   },
   "required": ["tspId", "state"],

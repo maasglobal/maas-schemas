@@ -1,12 +1,12 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/booking-virtual-create/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/booking-virtual-create/response.json",
   "description": "Response schema for booking-virtual-create",
   "type": "object",
   "properties": {
     "invoices": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/maas-backend/invoices/invoice.json"
+        "$ref": "https://schemas.maas.global/maas-backend/invoices/invoice.json"
       }
     }
   }

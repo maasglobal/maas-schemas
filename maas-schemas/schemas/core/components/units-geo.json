@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/units-geo.json",
+  "$id": "https://schemas.maas.global/core/components/units-geo.json",
   "description": "MaaS common geolocaion units that are used consistently within our own objects",
   "definitions": {
     "latitude": {

@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/booking.json",
+  "$id": "https://schemas.maas.global/core/booking.json",
   "type": "object",
   "description": "The base booking object with all fields, to be inherited",
   "properties": {
@@ -7,19 +7,33 @@
       "$ref": "#/definitions/id"
     },
     "tspId": {
-      "$ref": "#/definitions/tspId"
+      "oneOf": [
+        {
+          "$ref": "#/definitions/tspId"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "state": {
-      "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState"
+      "$ref": "https://schemas.maas.global/core/components/state.json#/definitions/bookingState"
     },
     "stateLog": {
-      "$ref": "http://maasglobal.com/core/components/state-log.json"
+      "$ref": "https://schemas.maas.global/core/components/state-log.json"
     },
     "fares": {
       "$ref": "#/definitions/fares"
     },
     "cost": {
-      "$ref": "#/definitions/cost"
+      "oneOf": [
+        {
+          "$ref": "#/definitions/cost"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "leg": {
       "$ref": "#/definitions/leg"
@@ -28,7 +42,7 @@
       "$ref": "#/definitions/token"
     },
     "meta": {
-      "$ref": "http://maasglobal.com/core/booking-meta.json"
+      "$ref": "https://schemas.maas.global/core/booking-meta.json"
     },
     "terms": {
       "$ref": "#/definitions/terms"
@@ -37,7 +51,7 @@
       "description": "MaaS booking customer",
       "allOf": [
         {
-          "$ref": "http://maasglobal.com/core/customer.json"
+          "$ref": "https://schemas.maas.global/core/customer.json"
         },
         {
           "required": ["identityId"]
@@ -45,34 +59,34 @@
       ]
     },
     "product": {
-      "$ref": "http://maasglobal.com/core/product.json"
+      "$ref": "https://schemas.maas.global/core/product.json"
     },
     "signature": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/signature"
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/signature"
     },
     "configurator": {
       "$ref": "#/definitions/configurator"
     },
     "customerSelection": {
-      "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+      "$ref": "https://schemas.maas.global/core/components/customerSelection.json"
     }
   },
   "required": ["id", "state", "leg", "meta", "terms", "token", "customer"],
   "definitions": {
     "id": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
     },
     "fares": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/components/fare.json"
+        "$ref": "https://schemas.maas.global/core/components/fare.json"
       }
     },
     "cost": {
-      "$ref": "http://maasglobal.com/core/components/cost.json"
+      "$ref": "https://schemas.maas.global/core/components/cost.json"
     },
     "configurator": {
-      "$ref": "http://maasglobal.com/core/components/configurator.json"
+      "$ref": "https://schemas.maas.global/core/components/configurator.json"
     },
     "tspId": {
       "type": "string",
@@ -83,29 +97,29 @@
       "type": "object",
       "description": "MaaS response may return any subset of legCore",
       "properties": {
-        "signature": { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/signature" },
-        "state": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/state" },
-        "from": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/from" },
-        "to": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/to" },
-        "startTime": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/startTime" },
-        "endTime": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/endTime" },
-        "mode": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/mode" },
-        "stops": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/stops" },
-        "departureDelay": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/departureDelay" },
-        "arrivalDelay": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/arrivalDelay" },
-        "distance": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/distance" },
-        "route": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/route" },
-        "routeShortName": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/routeShortName" },
-        "routeLongName": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/routeLongName" },
-        "agencyId": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/agencyId" },
-        "legGeometry": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/legGeometry" },
-        "tspProduct": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/tspProduct" },
-        "productOption": { "$ref": "http://maasglobal.com/core/leg.json#/definitions/productOption" }
+        "signature": { "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/signature" },
+        "state": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/state" },
+        "from": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/from" },
+        "to": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/to" },
+        "startTime": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/startTime" },
+        "endTime": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/endTime" },
+        "mode": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/mode" },
+        "stops": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/stops" },
+        "departureDelay": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/departureDelay" },
+        "arrivalDelay": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/arrivalDelay" },
+        "distance": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/distance" },
+        "route": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/route" },
+        "routeShortName": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/routeShortName" },
+        "routeLongName": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/routeLongName" },
+        "agencyId": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/agencyId" },
+        "legGeometry": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/legGeometry" },
+        "tspProduct": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/tspProduct" },
+        "productOption": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/productOption" }
       },
       "additionalProperties": false
     },
     "terms": {
-      "$ref": "http://maasglobal.com/core/components/terms.json"
+      "$ref": "https://schemas.maas.global/core/components/terms.json"
     },
     "token": {
       "description": "The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.",
@@ -117,11 +131,11 @@
           "properties": {
             "startTime": {
               "description": "The starting time from which the ticket is valid",
-              "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }]
+              "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }]
             },
             "endTime": {
               "description": "The finishing time the ticket is valid for",
-              "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }]
+              "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }]
             }
           }
         },
@@ -927,6 +941,162 @@
         "_modified": 1635504703207
       },
       "purchasingAppInstanceId": "c930c2a1-a1a4-3df3-b317-bde0ef1d78a3"
+    },
+    {
+      "id": "3cdc43e1-68bd-4ec7-8c1f-0a26b510814c",
+      "tspId": null,
+      "state": "CANCELLED",
+      "leg": {
+        "to": {
+          "lat": 50.845655,
+          "lon": 4.356803999999999,
+          "name": "Brussel-Centraal"
+        },
+        "from": {
+          "lat": 51.199228,
+          "lon": 4.432219,
+          "name": "Antwerpen-Berchem"
+        },
+        "mode": "TRAIN",
+        "endTime": 1636374960000,
+        "agencyId": "NMBS",
+        "distance": 43538,
+        "startTime": 1636372740000
+      },
+      "customer": {
+        "email": "mamatha.muralidhara@maas.global",
+        "phone": "+35866610000204",
+        "locale": "en",
+        "clientId": "whim",
+        "lastName": "ios",
+        "opaqueId": "42f7ba1997a749dc4dcf7f65d9a3f8251fdd3215d3ee95b7a12cac408a30bf57",
+        "firstName": "mamta",
+        "identityId": "170c691e-2411-4d56-a60f-64e6ddc3da45"
+      },
+      "token": {},
+      "terms": {
+        "reusable": false,
+        "validity": {
+          "endTime": 1636426799000,
+          "startTime": 1636372740000
+        }
+      },
+      "meta": {},
+      "created": 1636370303239,
+      "modified": 1636370618830,
+      "cost": null,
+      "stateLog": [
+        {
+          "reason": {
+            "awsRequestId": "aea341d6-4209-47de-96ab-5329a62cc6de"
+          },
+          "invalid": false,
+          "newState": "PENDING",
+          "oldState": "START",
+          "timestamp": 1636370304443
+        },
+        {
+          "reason": {
+            "awsRequestId": null
+          },
+          "invalid": false,
+          "newState": "CANCELLED",
+          "oldState": "PENDING",
+          "timestamp": 1636370618106
+        }
+      ],
+      "productId": "nmbs",
+      "fares": [
+        {
+          "type": "charge",
+          "amount": 750,
+          "currency": "EUR",
+          "originalAmount": 750,
+          "productionAmount": 750
+        },
+        {
+          "type": "refund",
+          "amount": 750,
+          "currency": "EUR"
+        }
+      ],
+      "cancelling": false,
+      "configurator": {
+        "fares": [
+          {
+            "type": "charge",
+            "amount": 750,
+            "currency": "EUR",
+            "originalAmount": 750,
+            "productionAmount": 750
+          }
+        ],
+        "version": "2",
+        "validUntil": 3155752800000,
+        "estimatable": false,
+        "purchasable": true,
+        "configurations": {
+          "outboundSingle": {
+            "name": "Outbound Trip",
+            "type": "oneOf",
+            "choices": [
+              {
+                "id": "0",
+                "meta": {
+                  "NMBS": {
+                    "diabolo": {},
+                    "isOver65": false,
+                    "isUnder26": false,
+                    "productId": "40000090",
+                    "journeyType": "SingleTrip",
+                    "travelClass": "SecondClass",
+                    "travelerType": "Adult",
+                    "departureStationId": "108821121",
+                    "parentTicketNumber": "",
+                    "destinationStationId": "108813003",
+                    "isDiaboloFeeIncluded": false
+                  },
+                  "totalCost": {
+                    "amount": "7.5",
+                    "currency": "EUR"
+                  },
+                  "isFirstClass": false,
+                  "isOpenReturn": false
+                },
+                "name": "2nd Class Single Ticket",
+                "fares": [
+                  {
+                    "type": "charge",
+                    "amount": 750,
+                    "currency": "EUR",
+                    "originalAmount": 750,
+                    "productionAmount": 750
+                  }
+                ],
+                "terms": {
+                  "validity": {
+                    "endTime": 1636426799000,
+                    "startTime": 1636372740000
+                  }
+                },
+                "default": true,
+                "description": "2nd Class Single Ticket"
+              }
+            ],
+            "description": ""
+          }
+        },
+        "configuratorSelection": {
+          "outboundSingle": ["0"]
+        }
+      },
+      "customerSelection": {
+        "outboundSingle": ["0"]
+      },
+      "appInstanceId": "9BFF78EB-FEE8-4554-947A-9E8B30FA90BE",
+      "executionName": null,
+      "autoPurchaseId": null,
+      "deviceId": 27988
     }
   ]
 }

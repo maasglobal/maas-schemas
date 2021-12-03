@@ -1,16 +1,16 @@
 {
-  "$id": "http://maasglobal.com/tsp/estimate/request.json",
+  "$id": "https://schemas.maas.global/tsp/estimate/request.json",
   "description": "Request schema for estimating a configured product option",
   "type": "object",
   "properties": {
     "productOption": {
-      "$ref": "http://maasglobal.com/core/product-option.json"
+      "$ref": "https://schemas.maas.global/core/product-option.json"
     },
     "customer": {
-      "$ref": "http://maasglobal.com/core/customer.json"
+      "$ref": "https://schemas.maas.global/core/customer.json"
     },
     "customerSelection": {
-      "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+      "$ref": "https://schemas.maas.global/core/components/customerSelection.json"
     }
   },
   "required": ["productOption"]

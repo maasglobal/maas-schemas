@@ -1,11 +1,11 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/virtual-cards/import-transactions/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/virtual-cards/import-transactions/response.json",
   "description": "MaaS customer virtual cards import transactions response",
   "properties": {
     "transactions": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json"
+        "$ref": "https://schemas.maas.global/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json"
       }
     }
   },

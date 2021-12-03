@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/state-log.json",
+  "$id": "https://schemas.maas.global/core/components/state-log.json",
   "description": "Set of booking state transitions",
   "type": "array",
   "items": {
@@ -16,7 +16,7 @@
         "timestamp": {
           "anyOf": [
             {
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
             },
             {
               "$ref": "#/definitions/obsoleteTime"
@@ -24,20 +24,42 @@
           ]
         },
         "oldState": {
-          "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState"
+          "$ref": "https://schemas.maas.global/core/components/state.json#/definitions/bookingState"
         },
         "newState": {
-          "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState"
+          "$ref": "https://schemas.maas.global/core/components/state.json#/definitions/bookingState"
         },
         "invalid": {
           "type": "boolean"
         },
         "reason": {
-          "$ref": "http://maasglobal.com/core/components/errors.json#/definitions/reason"
+          "$ref": "https://schemas.maas.global/core/error.json#/definitions/reason"
         }
       },
       "required": ["newState", "oldState", "timestamp"],
-      "additionalProperties": true
+      "additionalProperties": true,
+      "examples": [
+        {
+          "reason": { "text": "INVALID_AUTHORIZATION", "errorCode": 500 },
+          "invalid": false,
+          "newState": "REJECTED",
+          "oldState": "PAID",
+          "timestamp": 1630005341433
+        }
+      ]
     }
-  }
+  },
+  "examples": [
+    [
+      { "reason": {}, "invalid": false, "newState": "PENDING", "oldState": "START", "timestamp": 1630003779687 },
+      { "reason": {}, "invalid": false, "newState": "PAID", "oldState": "PENDING", "timestamp": 1630003780198 },
+      {
+        "reason": { "text": "INVALID_AUTHORIZATION", "errorCode": 500 },
+        "invalid": false,
+        "newState": "REJECTED",
+        "oldState": "PAID",
+        "timestamp": 1630005341433
+      }
+    ]
+  ]
 }

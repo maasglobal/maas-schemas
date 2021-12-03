@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/i18n.json",
+  "$id": "https://schemas.maas.global/core/components/i18n.json",
   "description": "MaaS internationalization schemas",
   "definitions": {
     "locale": {

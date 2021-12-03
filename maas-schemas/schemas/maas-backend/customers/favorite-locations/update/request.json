@@ -1,24 +1,24 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/favorite-locations/update/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/favorite-locations/update/request.json",
   "description": "MaaS customer favorite locations updating",
   "type": "object",
   "additionalProperties": false,
   "required": ["identityId", "customerId", "favoriteLocationId", "payload", "headers"],
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "favoriteLocationId": {
       "type": "number"
     },
     "payload": {
-      "$ref": "http://maasglobal.com/core/partialFavoriteLocation.json"
+      "$ref": "https://schemas.maas.global/core/partialFavoriteLocation.json"
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   }
 }

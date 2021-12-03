@@ -1,22 +1,22 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/autocomplete/autocomplete-query/request.json",
   "description": "Request schema for autocomplete",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
       "properties": {
         "name": {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+          "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName"
         },
         "lat": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLatitude"
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLatitude"
         },
         "lon": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/relaxedLongitude"
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLongitude"
         },
         "providerHint": {
           "type": "string",
@@ -31,7 +31,7 @@
         "radius": {
           "allOf": [
             {
-              "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/distance"
+              "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance"
             },
             {
               "default": 5000
@@ -43,7 +43,7 @@
       "additionalProperties": false
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   }
 }

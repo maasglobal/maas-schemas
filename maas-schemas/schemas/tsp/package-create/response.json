@@ -1,13 +1,13 @@
 {
-  "$id": "http://maasglobal.com/tsp/package-create/response.json",
+  "$id": "https://schemas.maas.global/tsp/package-create/response.json",
   "description": "Response schema for creating a package through a TSP adapter",
   "type": "object",
   "properties": {
     "cost": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/cost"
+      "$ref": "https://schemas.maas.global/core/booking.json#/definitions/cost"
     },
     "package": {
-      "$ref": "http://maasglobal.com/core/package-option.json"
+      "$ref": "https://schemas.maas.global/core/package-option.json"
     }
   },
   "required": ["cost", "package"],

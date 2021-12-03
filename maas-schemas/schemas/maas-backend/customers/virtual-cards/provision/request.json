@@ -1,13 +1,13 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/virtual-cards/provision/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/virtual-cards/provision/request.json",
   "description": "MaaS customer virtual cards provision request",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "virtualCardId": {
       "type": "integer",
@@ -32,7 +32,7 @@
       "additionalProperties": true
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   },
   "additionalProperties": false,

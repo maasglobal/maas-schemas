@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/address.json",
+  "$id": "https://schemas.maas.global/core/components/address.json",
   "description": "MaaS schema for address related information",
   "definitions": {
     "componentAddress": {
@@ -35,19 +35,19 @@
     },
     "firstName": {
       "description": "First name of the customer (e.g. John)",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName" }]
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName" }]
     },
     "lastName": {
       "description": "Last name of the customer (e.g. Doe)",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName" }]
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName" }]
     },
     "phone": {
       "description": "ITU-T E.164 phone number",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone" }]
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/phone" }]
     },
     "email": {
       "description": "Rough validation of a valid e-mail address",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email" }]
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/email" }]
     },
     "address": {
       "description": "Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html",

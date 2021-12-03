@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/subscriptions/contact.json",
+  "$id": "https://schemas.maas.global/maas-backend/subscriptions/contact.json",
   "description": "MaaS contact (customer and user) schema",
   "definitions": {
     "newContact": {
@@ -45,33 +45,33 @@
           "$ref": "#/definitions/identityId"
         },
         "firstName": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName"
         },
         "lastName": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName"
         },
         "address": {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/address"
+          "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/address"
         },
         "city": {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
+          "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/city"
         },
         "zipCode": {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+          "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/zipCode"
         },
         "country": {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
+          "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/country"
         },
         "phone": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/phone"
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/phone"
         },
         "email": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/email"
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/email"
         }
       }
     },
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "paymentMethodResponse": {
       "description": "The payment (gateway) method info; no credit cards here",

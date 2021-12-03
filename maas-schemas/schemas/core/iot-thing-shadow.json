@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/iot-thing-shadow.json",
+  "$id": "https://schemas.maas.global/core/iot-thing-shadow.json",
   "description": "Schema for MaaS thing shadow",
   "type": "object",
   "properties": {
@@ -14,16 +14,16 @@
           "type": "object",
           "properties": {
             "lat": {
-              "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/latitude"
+              "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/latitude"
             },
             "lon": {
-              "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/longitude"
+              "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/longitude"
             },
             "timestamp": {
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
             },
             "legId": {
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
             }
           }
         },
@@ -31,13 +31,13 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
             },
             "timestamp": {
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
             },
             "state": {
-              "$ref": "http://maasglobal.com/core/components/state.json#/definitions/legState"
+              "$ref": "https://schemas.maas.global/core/components/state.json#/definitions/legState"
             }
           }
         }

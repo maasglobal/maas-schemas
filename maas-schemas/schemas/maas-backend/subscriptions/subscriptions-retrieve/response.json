@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-retrieve/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/subscriptions/subscriptions-retrieve/response.json",
   "description": "Response schema for subscriptions-retrieve",
   "type": "object",
   "properties": {
     "subscription": {
-      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscription"
+      "$ref": "https://schemas.maas.global/maas-backend/subscriptions/subscription.json#/definitions/subscription"
     },
     "debug": {
       "type": "object",

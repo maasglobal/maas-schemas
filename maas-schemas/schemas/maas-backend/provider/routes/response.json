@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/provider/routes/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/provider/routes/response.json",
   "description": "Response schema for routes providers, subset of routes-query response schema",
   "type": "object",
   "properties": {
@@ -12,7 +12,7 @@
       "type": "object",
       "properties": {
         "from": {
-          "$ref": "http://maasglobal.com/core/components/place.json"
+          "$ref": "https://schemas.maas.global/core/components/place.json"
         },
         "outwards": {
           "$ref": "#/definitions/itineraries"
@@ -27,7 +27,7 @@
       "type": "object",
       "properties": {
         "from": {
-          "$ref": "http://maasglobal.com/core/components/place.json"
+          "$ref": "https://schemas.maas.global/core/components/place.json"
         },
         "itineraries": {
           "$ref": "#/definitions/itineraries"
@@ -38,7 +38,7 @@
     "itineraries": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/itinerary.json"
+        "$ref": "https://schemas.maas.global/core/itinerary.json"
       }
     }
   }

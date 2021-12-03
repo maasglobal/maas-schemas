@@ -1,28 +1,28 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/bookings/v2/bookings-create/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/bookings/v2/bookings-create/request.json",
   "description": "Request schema for bookings-create v2",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
       "properties": {
         "paymentSourceId": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/paymentSourceId"
         },
         "booking": {
-          "$ref": "http://maasglobal.com/maas-backend/bookings/bookings-agency-options/response.json#/definitions/option"
+          "$ref": "https://schemas.maas.global/maas-backend/bookings/bookings-agency-options/response.json#/definitions/option"
         },
         "customerSelection": {
-          "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+          "$ref": "https://schemas.maas.global/core/components/customerSelection.json"
         }
       },
       "required": ["paymentSourceId"]
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId", "payload"],

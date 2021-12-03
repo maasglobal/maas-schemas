@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/tsp/customer-auth/response.json",
+  "$id": "https://schemas.maas.global/tsp/customer-auth/response.json",
   "description": "Response schema for initiating customer authorization for TSP",
   "type": "object",
   "properties": {
     "authUrl": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
     }
   },
   "required": ["authUrl"],

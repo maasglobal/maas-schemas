@@ -1,28 +1,28 @@
 {
-  "$id": "http://maasglobal.com/tsp/booking-create/request.json",
+  "$id": "https://schemas.maas.global/tsp/booking-create/request.json",
   "description": "Request schema for creating a booking through a TSP adapter",
   "type": "object",
   "properties": {
     "leg": {
-      "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/leg"
+      "$ref": "https://schemas.maas.global/core/booking-option.json#/definitions/leg"
     },
     "meta": {
-      "$ref": "http://maasglobal.com/core/booking-meta.json"
+      "$ref": "https://schemas.maas.global/core/booking-meta.json"
     },
     "terms": {
-      "$ref": "http://maasglobal.com/core/booking.json#/definitions/terms"
+      "$ref": "https://schemas.maas.global/core/booking.json#/definitions/terms"
     },
     "customer": {
-      "$ref": "http://maasglobal.com/core/customer.json"
+      "$ref": "https://schemas.maas.global/core/customer.json"
     },
     "tspProduct": {
-      "$ref": "http://maasglobal.com/core/booking-option.json#/definitions/tspProduct"
+      "$ref": "https://schemas.maas.global/core/booking-option.json#/definitions/tspProduct"
     },
     "configurator": {
-      "$ref": "http://maasglobal.com/core/components/configurator.json"
+      "$ref": "https://schemas.maas.global/core/components/configurator.json"
     },
     "customerSelection": {
-      "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+      "$ref": "https://schemas.maas.global/core/components/customerSelection.json"
     }
   },
   "required": ["leg", "meta", "terms", "customer", "tspProduct"],

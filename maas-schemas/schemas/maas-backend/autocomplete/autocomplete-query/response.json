@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/autocomplete/autocomplete-query/response.json",
   "description": "Response schema for autocomplete",
   "type": "object",
   "properties": {
@@ -20,7 +20,7 @@
       "description": "The list of autocomplete suggestions",
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/maas-backend/autocomplete/autocomplete-query/suggestion.json"
+        "$ref": "https://schemas.maas.global/maas-backend/autocomplete/autocomplete-query/suggestion.json"
       }
     }
   },

@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/tsp/post-kyc-verification-update/request.json",
+  "$id": "https://schemas.maas.global/tsp/post-kyc-verification-update/request.json",
   "description": "Request post KYC verification update",
   "type": "object",
   "properties": {
     "customer": {
-      "$ref": "http://maasglobal.com/core/customer.json"
+      "$ref": "https://schemas.maas.global/core/customer.json"
     },
     "verifiedPersonalDataItems": {
       "type": "array",

@@ -1,17 +1,17 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/benefits/initiate/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/benefits/initiate/request.json",
   "additionalProperties": false,
   "description": "MaaS customer benefits initiate",
   "type": "object",
   "properties": {
     "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     },
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
@@ -22,7 +22,7 @@
           "minimum": 0
         },
         "currency": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
         },
         "productType": {
           "description": "Product identifier",

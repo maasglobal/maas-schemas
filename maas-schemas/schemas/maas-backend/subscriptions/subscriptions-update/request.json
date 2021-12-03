@@ -1,13 +1,13 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-update/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/subscriptions/subscriptions-update/request.json",
   "description": "Request schema for subscriptions-update",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "userId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "replace": {
       "type": "boolean"
@@ -16,10 +16,10 @@
       "type": "boolean"
     },
     "payload": {
-      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscriptionUpdatePayload"
+      "$ref": "https://schemas.maas.global/maas-backend/subscriptions/subscription.json#/definitions/subscriptionUpdatePayload"
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId", "userId", "payload"],

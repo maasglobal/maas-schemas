@@ -1,23 +1,23 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/itineraries/itinerary-create/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/itineraries/itinerary-create/request.json",
   "description": "Request schema for itineraries-create",
   "type": "object",
   "additionalProperties": false,
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     },
     "payload": {
       "type": "object",
       "properties": {
         "itinerary": {
-          "$ref": "http://maasglobal.com/core/itinerary.json"
+          "$ref": "https://schemas.maas.global/core/itinerary.json"
         },
         "paymentSourceId": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/paymentSourceId"
         },
         "outward": {
           "$ref": "#/definitions/outwardReturnWrapper"
@@ -26,7 +26,7 @@
           "$ref": "#/definitions/outwardReturnWrapper"
         },
         "message": {
-          "$ref": "http://maasglobal.com/core/components/message.json"
+          "$ref": "https://schemas.maas.global/core/components/message.json"
         }
       },
       "additionalProperties": false
@@ -37,7 +37,7 @@
       "type": "object",
       "properties": {
         "itinerary": {
-          "$ref": "http://maasglobal.com/core/itinerary.json"
+          "$ref": "https://schemas.maas.global/core/itinerary.json"
         },
         "customerSelections": {
           "type": "array",
@@ -45,10 +45,10 @@
             "type": "object",
             "properties": {
               "ref": {
-                "$ref": "http://maasglobal.com/core/product-option.json#/definitions/ref"
+                "$ref": "https://schemas.maas.global/core/product-option.json#/definitions/ref"
               },
               "customerSelection": {
-                "$ref": "http://maasglobal.com/core/components/customerSelection.json"
+                "$ref": "https://schemas.maas.global/core/components/customerSelection.json"
               }
             }
           }

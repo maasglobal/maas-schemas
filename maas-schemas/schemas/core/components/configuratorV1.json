@@ -1,31 +1,37 @@
 {
-  "$id": "http://maasglobal.com/core/components/configuratorV1.json",
+  "$id": "https://schemas.maas.global/core/components/configuratorV1.json",
   "description": "Configurator schema to customize a booking option",
   "type": "object",
   "properties": {
-    "seatDirection": { "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config" },
-    "seatPosition": { "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config" },
-    "seatType": { "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config" },
-    "seatFeatures": { "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config" },
-    "stations": { "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config" },
+    "seatDirection": {
+      "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config"
+    },
+    "seatPosition": {
+      "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config"
+    },
+    "seatType": { "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config" },
+    "seatFeatures": {
+      "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config"
+    },
+    "stations": { "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config" },
     "outboundSingle": {
       "description": "Single ticket for outwardJourney",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config" }]
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config" }]
     },
     "inboundSingle": {
       "description": "Single ticket for return journey, go as a pair with outboundSingle",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config" }]
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config" }]
     },
     "openReturn": {
       "description": "Open return ticket can be used for both outward and return journeys",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config" }]
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config" }]
     },
     "freeReturn": {
       "description": "Going as a pair with open return, providing options for clients to choose return journey for it's open return tickets",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/config" }]
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config" }]
     },
     "ticketCollectionPoint": {
-      "$ref": "http://maasglobal.com/core/components/configuratorCommon.json#/definitions/text"
+      "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/text"
     }
   },
   "anyOf": [

@@ -1,20 +1,20 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/stations/stations-retrieve/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/stations/stations-retrieve/request.json",
   "description": "Request schema for regions-options",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "agencyId": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
     },
     "stationId": {
       "type": "string",
       "minLength": 1
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId", "agencyId", "stationId"],
