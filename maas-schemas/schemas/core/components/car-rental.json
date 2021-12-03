@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/car-rental.json",
+  "$id": "https://schemas.maas.global/core/components/car-rental.json",
   "description": "Base schema for MODE_CAR* metas",
   "type": "object",
   "properties": {
@@ -19,7 +19,7 @@
       "maxLength": 256
     },
     "image": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
     },
     "vendor": {
       "type": "object",
@@ -86,10 +86,10 @@
         "classification": {
           "oneOf": [
             {
-              "$ref": "http://maasglobal.com/core/components/ACRISS.json"
+              "$ref": "https://schemas.maas.global/core/components/ACRISS.json"
             },
             {
-              "$ref": "http://maasglobal.com/core/components/ajv.json#/definitions/stringCoarsedNull"
+              "$ref": "https://schemas.maas.global/core/components/ajv.json#/definitions/stringCoarsedNull"
             }
           ]
         },
@@ -112,33 +112,33 @@
         },
         "location": {
           "description": "Current geo location",
-          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/location" }]
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/location" }]
         }
       }
     },
     "freeUntil": {
       "description": "Indicate the timestamp this booking option is valid",
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
     },
     "nextBooking": {
       "description": "Indicate the next booking of this car, if available",
       "type": "object",
       "properties": {
-        "startTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" },
-        "endTime": { "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time" }
+        "startTime": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" },
+        "endTime": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }
       }
     },
     "pickupInfo": {
       "description": "Pickup instructions in HTML format",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/htmlBlock" }]
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/htmlBlock" }]
     },
     "returnInfo": {
       "description": "Return Instructions in HTML format",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/common.json#/definitions/htmlBlock" }]
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/htmlBlock" }]
     },
     "startEndGeoRegionUrl": {
       "description": "Region in which car can be rented and returned. Url to GeoJSON file",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }]
     },
     "instructions": {
       "description": "Additional instruction sections displayed for booking",
@@ -158,13 +158,13 @@
           "type": "string"
         },
         "icon": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
         },
         "text": {
           "type": "string"
         },
         "image": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
         }
       },
       "additionalProperties": false,

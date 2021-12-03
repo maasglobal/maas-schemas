@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/webhooks/webhooks-bookings-update/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/webhooks/webhooks-bookings-update/request.json",
   "description": "MaaS webhook to update bookings for tsp adapter callback request schema.",
   "type": "object",
   "properties": {
@@ -9,7 +9,7 @@
       "maxLength": 256
     },
     "payload": {
-      "$ref": "http://maasglobal.com/tsp/webhooks-bookings-update/remote-request.json"
+      "$ref": "https://schemas.maas.global/tsp/webhooks-bookings-update/remote-request.json"
     }
   },
   "required": ["agencyId", "payload"]

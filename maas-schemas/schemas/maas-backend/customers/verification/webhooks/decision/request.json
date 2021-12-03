@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/verification/webhooks/decision/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/verification/webhooks/decision/request.json",
   "description": "Request schema for webhook verification decision",
   "type": "object",
   "properties": {
@@ -14,7 +14,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
             },
             "code": {
               "type": "integer",
@@ -26,7 +26,7 @@
                 "firstName": {
                   "oneOf": [
                     {
-                      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+                      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName"
                     },
                     {
                       "type": "null"
@@ -36,7 +36,7 @@
                 "lastName": {
                   "oneOf": [
                     {
-                      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/personalName"
+                      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName"
                     },
                     {
                       "type": "null"
@@ -60,12 +60,12 @@
                     }
                   ]
                 },
-                "type": { "$ref": "http://maasglobal.com/core/personal-document.json#/definitions/documentType" },
-                "country": { "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country" },
+                "type": { "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/documentType" },
+                "country": { "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/country" },
                 "validFrom": {
                   "oneOf": [
                     {
-                      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+                      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/isoDate"
                     },
                     {
                       "type": "null"
@@ -75,7 +75,7 @@
                 "validUntil": {
                   "oneOf": [
                     {
-                      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/isoDate"
+                      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/isoDate"
                     },
                     {
                       "type": "null"
@@ -128,7 +128,7 @@
           "minLength": 2
         },
         "x-auth-client": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
         }
       },
       "required": ["x-signature", "x-auth-client"]

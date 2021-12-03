@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/modes/MODE_SHARED_BICYCLE.json",
+  "$id": "https://schemas.maas.global/core/modes/MODE_SHARED_BICYCLE.json",
   "type": "object",
   "properties": {
     "bike": {

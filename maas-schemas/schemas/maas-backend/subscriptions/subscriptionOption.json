@@ -1,8 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptionOption.json",
+  "$id": "https://schemas.maas.global/maas-backend/subscriptions/subscriptionOption.json",
   "description": "MaaS subscription option schema",
   "allOf": [
-    { "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscriptionBase" },
+    {
+      "$ref": "https://schemas.maas.global/maas-backend/subscriptions/subscription.json#/definitions/subscriptionBase"
+    },
     { "$ref": "#/definitions/subscriptionAdditions" }
   ],
   "definitions": {
@@ -16,7 +18,7 @@
           "description": "Authorizations needed for the user before this subscription can be fulfilled",
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+            "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
           },
           "minItems": 0
         },
@@ -27,13 +29,13 @@
         "personalDataCreateAllow": {
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/core/components/personalDataAllowItem.json"
+            "$ref": "https://schemas.maas.global/core/components/personalDataAllowItem.json"
           }
         },
         "personalDataValidations": {
           "type": "array",
           "items": {
-            "$ref": "http://maasglobal.com/core/components/personalDataValidation.json"
+            "$ref": "https://schemas.maas.global/core/components/personalDataValidation.json"
           }
         }
       },

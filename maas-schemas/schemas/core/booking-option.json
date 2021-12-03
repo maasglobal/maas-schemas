@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/booking-option.json",
+  "$id": "https://schemas.maas.global/core/booking-option.json",
   "description": "MaaS single TSP adapter option",
   "oneOf": [
     {
@@ -18,16 +18,16 @@
           "$ref": "#/definitions/leg"
         },
         "terms": {
-          "$ref": "http://maasglobal.com/core/components/terms.json"
+          "$ref": "https://schemas.maas.global/core/components/terms.json"
         },
         "meta": {
-          "$ref": "http://maasglobal.com/core/booking-meta.json"
+          "$ref": "https://schemas.maas.global/core/booking-meta.json"
         },
         "tspProduct": {
           "$ref": "#/definitions/tspProduct"
         },
         "cost": {
-          "$ref": "http://maasglobal.com/core/components/cost.json"
+          "$ref": "https://schemas.maas.global/core/components/cost.json"
         },
         "customer": {
           "$ref": "#/definitions/customer"
@@ -42,16 +42,16 @@
           "$ref": "#/definitions/leg"
         },
         "terms": {
-          "$ref": "http://maasglobal.com/core/components/terms.json"
+          "$ref": "https://schemas.maas.global/core/components/terms.json"
         },
         "meta": {
-          "$ref": "http://maasglobal.com/core/booking-meta.json"
+          "$ref": "https://schemas.maas.global/core/booking-meta.json"
         },
         "tspProduct": {
           "$ref": "#/definitions/tspProduct"
         },
         "configurator": {
-          "$ref": "http://maasglobal.com/core/components/configurator.json"
+          "$ref": "https://schemas.maas.global/core/components/configurator.json"
         },
         "customer": {
           "$ref": "#/definitions/customer"
@@ -60,33 +60,33 @@
     },
     "customer": {
       "description": "MaaS booking customer",
-      "allOf": [{ "$ref": "http://maasglobal.com/core/customer.json" }]
+      "allOf": [{ "$ref": "https://schemas.maas.global/core/customer.json" }]
     },
     "leg": {
       "type": "object",
       "description": "A subset of the standard leg (../core/leg.json)",
       "properties": {
         "mode": {
-          "$ref": "http://maasglobal.com/core/components/travel-mode.json"
+          "$ref": "https://schemas.maas.global/core/components/travel-mode.json"
         },
         "startTime": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         },
         "from": {
           "description": "Starting location's lat and lon pair of this request",
-          "allOf": [{ "$ref": "http://maasglobal.com/core/components/place.json" }]
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/place.json" }]
         },
         "to": {
-          "$ref": "http://maasglobal.com/core/components/place.json"
+          "$ref": "https://schemas.maas.global/core/components/place.json"
         },
         "departureDelay": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/duration"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/duration"
         },
         "agencyId": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
         }
       },
       "additionalProperties": false,
@@ -97,22 +97,22 @@
       "description": "A leg delta, containing any subset of the valid properties",
       "properties": {
         "mode": {
-          "$ref": "http://maasglobal.com/core/components/travel-mode.json"
+          "$ref": "https://schemas.maas.global/core/components/travel-mode.json"
         },
         "startTime": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         },
         "endTime": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         },
         "departureDelay": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/duration"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/duration"
         },
         "from": {
-          "$ref": "http://maasglobal.com/core/components/place.json"
+          "$ref": "https://schemas.maas.global/core/components/place.json"
         },
         "to": {
-          "$ref": "http://maasglobal.com/core/components/place.json"
+          "$ref": "https://schemas.maas.global/core/components/place.json"
         }
       },
       "additionalProperties": false

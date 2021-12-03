@@ -1,13 +1,13 @@
 {
-  "$id": "http://maasglobal.com/tsp/stations-retrieve/request.json",
+  "$id": "https://schemas.maas.global/tsp/stations-retrieve/request.json",
   "description": "MaaS stations retrieve request schema",
   "type": "object",
   "properties": {
     "id": {
-      "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+      "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/id"
     },
     "agencyId": {
-      "$ref": "http://maasglobal.com/core/components/station.json#/definitions/agencyId"
+      "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/agencyId"
     }
   },
   "additionalProperties": false

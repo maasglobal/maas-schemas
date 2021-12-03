@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/core/components/configurator.json",
+  "$id": "https://schemas.maas.global/core/components/configurator.json",
   "description": "Configurator schema to customize a booking option",
   "type": "object",
   "anyOf": [
-    { "$ref": "http://maasglobal.com/core/components/configuratorV2.json" },
-    { "$ref": "http://maasglobal.com/core/components/configuratorV1.json" },
-    { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/emptyObject" }
+    { "$ref": "https://schemas.maas.global/core/components/configuratorV2.json" },
+    { "$ref": "https://schemas.maas.global/core/components/configuratorV1.json" },
+    { "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/emptyObject" }
   ]
 }

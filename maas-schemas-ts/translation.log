@@ -1,3 +1,7 @@
+WARNING: invalid field not supported
+  in ../maas-schemas/schemas/core/balances.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/balances.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/booking-meta.json
 INFO: primitive type "string" used outside top-level definitions
@@ -168,6 +172,8 @@ WARNING: unexpected key in a $ref object
   in ../maas-schemas/schemas/core/components/car-rental.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/car-rental.json
+WARNING: invalid field not supported
+  in ../maas-schemas/schemas/core/components/common.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/common.json
 INFO: missing description

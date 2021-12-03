@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/spaceDemand.json",
+  "$id": "https://schemas.maas.global/core/components/spaceDemand.json",
   "description": "A spaceDemand describes nr of passengers (adults, infatnts, etc) and bags (luggages).",
   "definitions": {
     "spaceDemandObject": {

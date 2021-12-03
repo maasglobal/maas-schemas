@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/personal-documents/initiate/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/personal-documents/initiate/response.json",
   "description": "Initiate customer KYC process",
-  "allOf": [{ "$ref": "http://maasglobal.com/core/kyc-service.json" }]
+  "allOf": [{ "$ref": "https://schemas.maas.global/core/kyc-service.json" }]
 }

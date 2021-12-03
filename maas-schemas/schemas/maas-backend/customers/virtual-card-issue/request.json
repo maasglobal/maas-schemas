@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/virtual-card-issue/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/virtual-card-issue/request.json",
   "description": "MaaS customer virtual card issue async lambda request",
   "type": "object",
   "properties": {
     "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "payload": {
       "type": "object",
@@ -21,7 +21,7 @@
               "minimum": 0
             },
             "currency": {
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
             }
           },
           "additionalProperties": false,
@@ -35,7 +35,7 @@
       "required": ["providerName", "rollbackOnFailure"]
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   },
   "additionalProperties": false,

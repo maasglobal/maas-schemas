@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/push-notification/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/push-notification/request.json",
   "description": "MaaS push notification request schema.",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "title": { "type": "string", "minLength": 1, "maxLength": 50 },
     "message": { "type": "string", "minLength": 2, "maxLength": 256 },
@@ -27,7 +27,7 @@
               "minItems": 1,
               "maxItems": 99,
               "items": {
-                "$ref": "http://maasglobal.com/core/components/units.json#/definitions/uuid"
+                "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
               }
             }
           },
@@ -49,7 +49,7 @@
               "minItems": 1,
               "maxItems": 1,
               "items": {
-                "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+                "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
               }
             }
           },
@@ -61,7 +61,7 @@
           "properties": {
             "objectType": { "enum": ["Reminder"] },
             "authUrl": {
-              "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url"
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
             }
           },
           "required": ["objectType", "authUrl"],

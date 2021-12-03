@@ -1,14 +1,14 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/products/products-providers-retrieve/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/products/products-providers-retrieve/request.json",
   "description": "Request schema for products-providers-retrieve",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
-    "agencyId": { "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId" },
+    "agencyId": { "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId" },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId", "agencyId"],

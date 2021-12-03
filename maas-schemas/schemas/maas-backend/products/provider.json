@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/products/provider.json",
+  "$id": "https://schemas.maas.global/maas-backend/products/provider.json",
   "description": "MaaS product provider schema",
   "type": "object",
   "properties": {
@@ -9,7 +9,7 @@
       "maxLength": 255
     },
     "agencyId": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
     },
     "groupId": {
       "type": "string",
@@ -34,15 +34,15 @@
         },
         "icon": {
           "description": "Icon shown in whim wheel, url to 240x240 png",
-          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }]
         },
         "logoSolidColor": {
           "description": "Icon that can be shown against dark or light background, url to ???x105 png",
-          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }]
         },
         "logoFullColor": {
           "description": "Icon that retains the providers brand identity, url to ???x105 png",
-          "allOf": [{ "$ref": "http://maasglobal.com/core/components/units.json#/definitions/url" }]
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }]
         }
       }
     },
@@ -88,13 +88,13 @@
               "description": "The currency of the maximum fixed fare",
               "oneOf": [
                 {
-                  "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+                  "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
                 },
                 {
-                  "$ref": "http://maasglobal.com/core/components/common.json#/definitions/metaCurrency"
+                  "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/metaCurrency"
                 },
                 {
-                  "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/tokenId"
+                  "$ref": "https://schemas.maas.global/core/components/fare.json#/definitions/tokenId"
                 }
               ]
             },
@@ -135,25 +135,25 @@
     "personalDataOptionsAllow": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/components/personalDataAllowItem.json"
+        "$ref": "https://schemas.maas.global/core/components/personalDataAllowItem.json"
       }
     },
     "personalDataCreateAllow": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/components/personalDataAllowItem.json"
+        "$ref": "https://schemas.maas.global/core/components/personalDataAllowItem.json"
       }
     },
     "personalDataValidations": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/components/personalDataValidation.json"
+        "$ref": "https://schemas.maas.global/core/components/personalDataValidation.json"
       }
     },
     "requiredPersonalDocuments": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/components/personalDocumentRequiredItem.json"
+        "$ref": "https://schemas.maas.global/core/components/personalDocumentRequiredItem.json"
       }
     },
     "optionalParameters": {
@@ -180,7 +180,7 @@
       "type": "object"
     },
     "created": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
     }
   },
   "required": [

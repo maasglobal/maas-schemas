@@ -1,19 +1,19 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-intents-create/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/subscriptions/subscriptions-intents-create/request.json",
   "description": "Request schema for subscriptions-intents-create",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "userId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "payload": {
-      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription-intent.json#/definitions/subscriptionIntentCreate"
+      "$ref": "https://schemas.maas.global/maas-backend/subscriptions/subscription-intent.json#/definitions/subscriptionIntentCreate"
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   },
   "required": ["identityId", "userId", "payload"],

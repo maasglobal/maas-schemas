@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/tsp/stations-list/response.json",
+  "$id": "https://schemas.maas.global/tsp/stations-list/response.json",
   "description": "MaaS stations query response schema",
   "type": "object",
   "properties": {
@@ -10,37 +10,37 @@
         "description": "Simplified station schema, coming as part of stations-list response",
         "properties": {
           "id": {
-            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+            "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/id"
           },
           "code": {
-            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/code"
+            "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/code"
           },
           "name": {
-            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/name"
+            "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/name"
           },
           "location": {
-            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/location"
+            "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/location"
           },
           "agencyId": {
-            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/agencyId"
+            "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/agencyId"
           },
           "services": {
-            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/services"
+            "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/services"
           },
           "address": {
-            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/address"
+            "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/address"
           },
           "city": {
-            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/city"
+            "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/city"
           },
           "country": {
-            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/country"
+            "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/country"
           },
           "zone": {
-            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/zone"
+            "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/zone"
           },
           "platformCode": {
-            "$ref": "http://maasglobal.com/core/components/station.json#/definitions/platformCode"
+            "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/platformCode"
           }
         },
         "required": ["id", "location", "agencyId", "services"],

@@ -1,43 +1,43 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/provider/routes/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/provider/routes/request.json",
   "description": "Request schema for routes providers",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "from": {
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocation"
+      "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/shortLocation"
     },
     "fromName": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName"
     },
     "fromAddress": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress"
     },
     "fromStationId": {
-      "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+      "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/id"
     },
     "to": {
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocation"
+      "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/shortLocation"
     },
     "toName": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/placeName"
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName"
     },
     "toAddress": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/componentAddress"
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress"
     },
     "toStationId": {
-      "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+      "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/id"
     },
     "leaveAt": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
     },
     "arriveBy": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
     },
     "modes": {
-      "$ref": "http://maasglobal.com/core/components/travel-mode.json"
+      "$ref": "https://schemas.maas.global/core/components/travel-mode.json"
     }
   },
   "patternProperties": {

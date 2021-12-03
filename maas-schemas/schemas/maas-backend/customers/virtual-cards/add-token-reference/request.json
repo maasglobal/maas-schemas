@@ -1,13 +1,13 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/virtual-cards/add-token-reference/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/virtual-cards/add-token-reference/request.json",
   "description": "MaaS customer virtual cards get token reference request",
   "type": "object",
   "properties": {
     "identityId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "customerId": {
-      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
     "virtualCardId": {
       "type": "integer",
@@ -21,7 +21,7 @@
           "minLength": 2
         },
         "added": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         },
         "deviceType": {
           "type": "string",
@@ -43,7 +43,7 @@
       "additionalProperties": false
     },
     "headers": {
-      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }
   },
   "additionalProperties": false,

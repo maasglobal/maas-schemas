@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/virtual-cards/add-token-reference/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/virtual-cards/add-token-reference/response.json",
   "description": "MaaS customer virtual cards add token reference response",
   "type": "object",
   "properties": {
     "virtualCard": {
-      "$ref": "http://maasglobal.com/maas-backend/customers/virtual-cards/virtualCard.json"
+      "$ref": "https://schemas.maas.global/maas-backend/customers/virtual-cards/virtualCard.json"
     }
   },
   "additionalProperties": false,

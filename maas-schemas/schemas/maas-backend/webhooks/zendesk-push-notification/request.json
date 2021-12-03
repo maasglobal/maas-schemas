@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/webhooks/zendesk-push-notification/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/webhooks/zendesk-push-notification/request.json",
   "description": "MaaS Zendesk push notification forwarder request schema.",
   "type": "object",
   "properties": {
@@ -11,7 +11,7 @@
         "type": "object",
         "properties": {
           "identifier": {
-            "$ref": "http://maasglobal.com/core/components/common.json#/definitions/deviceToken"
+            "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/deviceToken"
           },
           "type": {
             "enum": ["ios", "android"]

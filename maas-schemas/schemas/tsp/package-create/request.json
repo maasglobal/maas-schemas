@@ -1,13 +1,13 @@
 {
-  "$id": "http://maasglobal.com/tsp/package-create/request.json",
+  "$id": "https://schemas.maas.global/tsp/package-create/request.json",
   "description": "Request schema for creating a package through a TSP adapter",
   "type": "object",
   "properties": {
     "customer": {
-      "$ref": "http://maasglobal.com/core/customer.json"
+      "$ref": "https://schemas.maas.global/core/customer.json"
     },
     "package": {
-      "$ref": "http://maasglobal.com/core/package-option.json"
+      "$ref": "https://schemas.maas.global/core/package-option.json"
     }
   },
   "required": ["customer", "package"],

@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/webhooks/zendesk-push-notification/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/webhooks/zendesk-push-notification/response.json",
   "description": "MaaS Zendesk push notification forwarder response schema.",
   "type": "object",
   "properties": {

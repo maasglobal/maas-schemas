@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/geolocation.json",
+  "$id": "https://schemas.maas.global/core/components/geolocation.json",
   "description": "Partial (Points only) GeoJSON Schema",
   "definitions": {
     "featureCollection": {
@@ -34,7 +34,7 @@
       "properties": {
         "type": { "enum": ["Point"] },
         "coordinates": {
-          "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocation"
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/shortLocation"
         }
       },
       "additionalProperties": false,
@@ -79,7 +79,7 @@
           "maxLength": 16
         },
         "zipcode": {
-          "$ref": "http://maasglobal.com/core/components/address.json#/definitions/zipCode"
+          "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/zipCode"
         }
       },
       "required": ["name"]

@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/station.json",
+  "$id": "https://schemas.maas.global/core/components/station.json",
   "description": "MaaS station schemas",
   "type": "object",
   "definitions": {
@@ -15,19 +15,19 @@
       "type": "string"
     },
     "location": {
-      "$ref": "http://maasglobal.com/core/components/units-geo.json#/definitions/shortLocationString"
+      "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/shortLocationString"
     },
     "address": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/address"
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/address"
     },
     "city": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/city"
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/city"
     },
     "country": {
-      "$ref": "http://maasglobal.com/core/components/address.json#/definitions/country"
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/country"
     },
     "agencyId": {
-      "$ref": "http://maasglobal.com/core/components/common.json#/definitions/agencyId"
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
     },
     "openingHours": {
       "description": "Opening hour of the station, object format is left for TSP to decide",
@@ -44,7 +44,7 @@
       "description": "What agency and mode of transport will occupy this station",
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/components/travel-mode.json"
+        "$ref": "https://schemas.maas.global/core/components/travel-mode.json"
       }
     },
     "timetables": {
@@ -57,7 +57,7 @@
             "type": "string"
           },
           "mode": {
-            "$ref": "http://maasglobal.com/core/components/travel-mode.json"
+            "$ref": "https://schemas.maas.global/core/components/travel-mode.json"
           },
           "name": {
             "type": "string"
@@ -66,10 +66,10 @@
             "type": "string"
           },
           "schedule": {
-            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+            "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
           },
           "realtime": {
-            "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+            "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
           },
           "isRealtime": {
             "type": "boolean",

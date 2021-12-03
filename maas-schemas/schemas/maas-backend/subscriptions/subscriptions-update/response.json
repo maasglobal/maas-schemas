@@ -1,10 +1,10 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/subscriptions/subscriptions-update/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/subscriptions/subscriptions-update/response.json",
   "description": "Response schema for subscriptions-update",
   "type": "object",
   "properties": {
     "subscription": {
-      "$ref": "http://maasglobal.com/maas-backend/subscriptions/subscription.json#/definitions/subscription"
+      "$ref": "https://schemas.maas.global/maas-backend/subscriptions/subscription.json#/definitions/subscription"
     },
     "immediateUpdate": {
       "description": "If a given subscription change will be immediate or not",

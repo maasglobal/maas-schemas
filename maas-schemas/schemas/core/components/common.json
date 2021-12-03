@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/components/common.json",
+  "$id": "https://schemas.maas.global/core/components/common.json",
   "description": "MaaS common components that are used consistently within our own objects",
   "definitions": {
     "agencyId": {
@@ -49,7 +49,10 @@
       "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
       "type": "string",
       "pattern": "^\\+(?:\\d){6,14}\\d$",
-      "examples": ["+358401234567"]
+      "examples": ["+358401234567"],
+      "invalid": {
+        "IjM1ODQwMTIzNDU2NyI=": "phone number without plus"
+      }
     },
     "rawPhone": {
       "description": "Slightly looser definition of phone number",

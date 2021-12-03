@@ -17,7 +17,7 @@ const ajv = ajvFactory({ allErrors: true });
 const JP_ROOT = '#';
 
 /**
- * Declaration checker
+ * Examples checker
  *
  * @param uri string
  * @param schema JSONSchema7Definition
@@ -61,6 +61,27 @@ function checkExamples(uri, schema) {
       validate(uri, constant);
     });
   }
+
+  const { invalid } = schema;
+  if (typeof invalid !== 'undefined') {
+    Object.keys(invalid).forEach(b64 => {
+      const text = Buffer.from(b64, 'base64').toString('ascii');
+      const cut = text.slice(0, 40);
+      const display = text === cut ? cut : cut.concat('...');
+
+      const counterExample = JSON.parse(text);
+      const description = invalid[b64];
+      it(`must reject ${pointer}/invalid/${b64} ${description} ${display}`, () => {
+        try {
+          validate(uri, counterExample);
+        } catch (_validationError) {
+          // counterexamples should fail validation
+          return;
+        }
+        throw new Error('Counterexample passed validation!');
+      });
+    });
+  }
 }
 
 /**
@@ -96,7 +117,7 @@ function checkDeclarations(uri, schema) {
 describe('Source schemas must be valid JSON Schemas', () => {
   glob.sync('schemas/**/*.json').forEach(schemaPath => {
     const filePath = path.resolve(__dirname, '..', schemaPath);
-    const baseURI = 'http://maasglobal.com/';
+    const baseURI = 'https://schemas.maas.global/';
     const schemaDir = 'schemas';
     const uri = (tmp => {
       tmp.pathname = path.relative(schemaDir, schemaPath);

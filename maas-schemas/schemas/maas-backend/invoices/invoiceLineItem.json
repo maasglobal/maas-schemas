@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/invoices/invoiceLineItem.json",
+  "$id": "https://schemas.maas.global/maas-backend/invoices/invoiceLineItem.json",
   "description": "MaaS InvoiceLineItem schema",
   "definitions": {
     "InvoiceLineItem": {
@@ -7,14 +7,14 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceLineItemId"
+          "$ref": "https://schemas.maas.global/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceLineItemId"
         },
         "gatewayId": {
           "type": "string",
           "minLength": 4
         },
         "invoiceId": {
-          "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceId"
+          "$ref": "https://schemas.maas.global/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceId"
         },
         "type": {
           "type": "string",
@@ -25,7 +25,7 @@
           "minLength": 4
         },
         "date": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         },
         "description": {
           "type": "string",
@@ -37,13 +37,13 @@
           "multipleOf": 0.01
         },
         "currency": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/currency"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
         },
         "referenceInvoiceLineItemId": {
-          "$ref": "http://maasglobal.com/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceLineItemId"
+          "$ref": "https://schemas.maas.global/maas-backend/invoices/invoiceUnits.json#/definitions/InvoiceLineItemId"
         },
         "tokenId": {
-          "$ref": "http://maasglobal.com/core/components/fare.json#/definitions/tokenId"
+          "$ref": "https://schemas.maas.global/core/components/fare.json#/definitions/tokenId"
         },
         "token": {
           "description": "Arbitrary token data, e.g. payment parameters for async payment gateways",

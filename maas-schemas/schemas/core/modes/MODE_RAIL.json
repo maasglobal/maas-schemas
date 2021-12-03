@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/core/modes/MODE_RAIL.json",
+  "$id": "https://schemas.maas.global/core/modes/MODE_RAIL.json",
   "description": "Schema for MODE_RAIL meta field",
   "type": "object",
   "properties": {
@@ -11,10 +11,10 @@
           "type": "string"
         },
         "from": {
-          "$ref": "http://maasglobal.com/core/components/place.json"
+          "$ref": "https://schemas.maas.global/core/components/place.json"
         },
         "to": {
-          "$ref": "http://maasglobal.com/core/components/place.json"
+          "$ref": "https://schemas.maas.global/core/components/place.json"
         }
       },
       "required": ["from", "to"]
@@ -27,10 +27,10 @@
           "type": "string"
         },
         "from": {
-          "$ref": "http://maasglobal.com/core/components/place.json"
+          "$ref": "https://schemas.maas.global/core/components/place.json"
         },
         "to": {
-          "$ref": "http://maasglobal.com/core/components/place.json"
+          "$ref": "https://schemas.maas.global/core/components/place.json"
         }
       },
       "required": ["from", "to"]
@@ -42,7 +42,7 @@
           "type": "string"
         },
         "stationId": {
-          "$ref": "http://maasglobal.com/core/components/station.json#/definitions/id"
+          "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/id"
         },
         "alternativeCollections": {
           "type": "string"

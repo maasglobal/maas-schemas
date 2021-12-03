@@ -1,0 +1,24 @@
+{
+  "$id": "https://schemas.maas.global/core/balances.json",
+  "description": "Customer in-app balances",
+  "definitions": {
+    "balanceName": {
+      "description": "Uniqued name for a currency",
+      "oneOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
+        },
+        {
+          "$ref": "https://schemas.maas.global/core/components/fare.json#/definitions/tokenId"
+        },
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/metaCurrencyWMP"
+        }
+      ],
+      "examples": ["EUR", "fi-hsl-single-ab", "WMP"],
+      "invalid": {
+        "IlRPS0VOIg==": "non-unique token meta currency"
+      }
+    }
+  }
+}

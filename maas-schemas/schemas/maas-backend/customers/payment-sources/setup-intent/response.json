@@ -1,5 +1,5 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/customers/payment-sources/setup-intent/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/customers/payment-sources/setup-intent/response.json",
   "description": "MaaS customer payment sources setup intent create response",
   "type": "object",
   "properties": {
@@ -7,13 +7,13 @@
       "type": "object",
       "properties": {
         "setupIntentId": {
-          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/paymentSourceId"
         },
         "type": {
-          "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/type"
+          "$ref": "https://schemas.maas.global/maas-backend/customers/payment-sources/paymentSource.json#/definitions/type"
         },
         "gatewayName": {
-          "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/gatewayName"
+          "$ref": "https://schemas.maas.global/maas-backend/customers/payment-sources/paymentSource.json#/definitions/gatewayName"
         },
         "clientSecret": {
           "type": "string",
@@ -24,10 +24,10 @@
           "type": "boolean"
         },
         "alias": {
-          "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias"
+          "$ref": "https://schemas.maas.global/maas-backend/customers/payment-sources/paymentSource.json#/definitions/alias"
         },
         "status": {
-          "$ref": "http://maasglobal.com/maas-backend/customers/payment-sources/paymentSource.json#/definitions/status"
+          "$ref": "https://schemas.maas.global/maas-backend/customers/payment-sources/paymentSource.json#/definitions/status"
         }
       },
       "required": ["setupIntentId", "type", "gatewayName", "isDefault", "status"],

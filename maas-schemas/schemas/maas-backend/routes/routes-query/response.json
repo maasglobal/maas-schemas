@@ -1,15 +1,15 @@
 {
-  "$id": "http://maasglobal.com/maas-backend/routes/routes-query/response.json",
+  "$id": "https://schemas.maas.global/maas-backend/routes/routes-query/response.json",
   "description": "MaaS.fi routes-query response schema",
   "type": "object",
   "properties": {
     "plan": {
-      "$ref": "http://maasglobal.com/core/plan.json"
+      "$ref": "https://schemas.maas.global/core/plan.json"
     },
     "reasons": {
       "type": "array",
       "items": {
-        "$ref": "http://maasglobal.com/core/error.json#/definitions/reason"
+        "$ref": "https://schemas.maas.global/core/error.json#/definitions/reason"
       }
     },
     "debug": { "type": "object" }
