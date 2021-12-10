@@ -59,7 +59,7 @@
     },
     "eta": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" },
     "pickupAt": {
-      "description": "The time that the customer requires the taxi to pick them up.",
+      "description": "The time that the customer requires the taxi to pick them up. It’s the same what booking.leg.startime if operator doesn't change anything, otherwise it can be different.",
       "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
     },
     "taxiCenter": {
