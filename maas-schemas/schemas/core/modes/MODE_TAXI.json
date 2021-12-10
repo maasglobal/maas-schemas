@@ -73,7 +73,11 @@
           "minLength": 1,
           "maxLength": 64
         },
-        "phone": { "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/phone" }
+        "phone": { "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/phone" },
+        "supportUrl": {
+          "description": "The taxi center support link. It can be for example: chat URL, FAQ url, etc...",
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
+        }
       }
     },
     "messageToDriver": {
