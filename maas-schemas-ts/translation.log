@@ -1010,6 +1010,8 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
 WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: unexpected key in a $ref object
+  in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
 WARNING: minLength field not supported outside top-level definitions

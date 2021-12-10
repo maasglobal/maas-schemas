@@ -58,6 +58,10 @@
       "maxLength": 128
     },
     "eta": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" },
+    "pickupAt": {
+      "description": "The time that the customer requires the taxi to pick them up.",
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+    },
     "taxiCenter": {
       "type": "object",
       "properties": {
