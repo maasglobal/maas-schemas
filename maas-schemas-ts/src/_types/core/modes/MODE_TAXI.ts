@@ -39,6 +39,7 @@ export type MODE_TAXI = t.Branded<
       image?: Units_.Url;
       name?: string;
       phone?: Common_.Phone;
+      supportUrl?: Units_.Url;
     };
     messageToDriver?: string;
     spaceDemand?: SpaceDemand_.SpaceDemandObject;
@@ -66,6 +67,7 @@ export type MODE_TAXIC = t.BrandC<
       image: typeof Units_.Url;
       name: t.StringC;
       phone: typeof Common_.Phone;
+      supportUrl: typeof Units_.Url;
     }>;
     messageToDriver: t.StringC;
     spaceDemand: typeof SpaceDemand_.SpaceDemandObject;
@@ -93,6 +95,7 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
       image: Units_.Url,
       name: t.string,
       phone: Common_.Phone,
+      supportUrl: Units_.Url,
     }),
     messageToDriver: t.string,
     spaceDemand: SpaceDemand_.SpaceDemandObject,
@@ -120,6 +123,7 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
         image?: Units_.Url;
         name?: string;
         phone?: Common_.Phone;
+        supportUrl?: Units_.Url;
       };
       messageToDriver?: string;
       spaceDemand?: SpaceDemand_.SpaceDemandObject;
