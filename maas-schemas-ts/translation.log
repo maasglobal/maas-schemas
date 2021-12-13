@@ -2122,6 +2122,14 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/itineraries/itinerary-update/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/itineraries/itinerary-update/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/products/products-providers-list/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/products/products-providers-list/request.json
+INFO: missing description
+  in ../maas-schemas/schemas/maas-backend/products/products-providers-list/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/products/products-providers-list/response.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/products/products-providers-options/request.json
 INFO: missing description
