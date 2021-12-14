@@ -2,7 +2,7 @@
   "$id": "https://schemas.maas.global/maas-backend/customers/personalData.json",
   "description": "MaaS customer personal data schema",
   "type": "object",
-  "properties": {
+  "definitions": {
     "honorifics": {
       "type": "string"
     },
@@ -73,7 +73,7 @@
         }
       ]
     },
-    "ssid-fi": {
+    "ssidFi": {
       "description": "Finnish Social Security ID",
       "anyOf": [
         {
@@ -95,6 +95,68 @@
     },
     "nationality": {
       "type": "string"
+    }
+  },
+  "properties": {
+    "honorifics": {
+      "$ref": "#/definitions/honorifics"
+    },
+    "firstName": {
+      "$ref": "#/definitions/firstName"
+    },
+    "lastName": {
+      "$ref": "#/definitions/lastName"
+    },
+    "firstNameLocalized": {
+      "$ref": "#/definitions/firstNameLocalized"
+    },
+    "lastNameLocalized": {
+      "$ref": "#/definitions/lastNameLocalized"
+    },
+    "sex": {
+      "$ref": "#/definitions/sex"
+    },
+    "phone": {
+      "$ref": "#/definitions/phone"
+    },
+    "email": {
+      "$ref": "#/definitions/email"
+    },
+    "address": {
+      "$ref": "#/definitions/address"
+    },
+    "cugHome": {
+      "$ref": "#/definitions/cugHome"
+    },
+    "city": {
+      "$ref": "#/definitions/city"
+    },
+    "state": {
+      "$ref": "#/definitions/state"
+    },
+    "country": {
+      "$ref": "#/definitions/country"
+    },
+    "zipCode": {
+      "$ref": "#/definitions/zipCode"
+    },
+    "dob": {
+      "$ref": "#/definitions/dob"
+    },
+    "ssid": {
+      "$ref": "#/definitions/ssid"
+    },
+    "ssid-fi": {
+      "$ref": "#/definitions/ssidFi"
+    },
+    "subscriberType": {
+      "$ref": "#/definitions/subscriberType"
+    },
+    "profileImageUrl": {
+      "$ref": "#/definitions/profileImageUrl"
+    },
+    "nationality": {
+      "$ref": "#/definitions/nationality"
     }
   },
   "required": [],
