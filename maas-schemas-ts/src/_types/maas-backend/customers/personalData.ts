@@ -16,30 +16,301 @@ import * as Units_ from '../../core/components/units';
 export const schemaId =
   'https://schemas.maas.global/maas-backend/customers/personalData.json';
 
+// Honorifics
+// The purpose of this remains a mystery
+export type Honorifics = t.Branded<string, HonorificsBrand>;
+export type HonorificsC = t.BrandC<t.StringC, HonorificsBrand>;
+export const Honorifics: HonorificsC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, HonorificsBrand> => true,
+  'Honorifics',
+);
+export interface HonorificsBrand {
+  readonly Honorifics: unique symbol;
+}
+
+// FirstName
+// First name of the customer (e.g. John)
+export type FirstName = t.Branded<Common_.PersonalName, FirstNameBrand>;
+export type FirstNameC = t.BrandC<typeof Common_.PersonalName, FirstNameBrand>;
+export const FirstName: FirstNameC = t.brand(
+  Common_.PersonalName,
+  (x): x is t.Branded<Common_.PersonalName, FirstNameBrand> => true,
+  'FirstName',
+);
+export interface FirstNameBrand {
+  readonly FirstName: unique symbol;
+}
+
+// LastName
+// Last name of the customer (e.g. Doe)
+export type LastName = t.Branded<Common_.PersonalName, LastNameBrand>;
+export type LastNameC = t.BrandC<typeof Common_.PersonalName, LastNameBrand>;
+export const LastName: LastNameC = t.brand(
+  Common_.PersonalName,
+  (x): x is t.Branded<Common_.PersonalName, LastNameBrand> => true,
+  'LastName',
+);
+export interface LastNameBrand {
+  readonly LastName: unique symbol;
+}
+
+// FirstNameLocalized
+// Localized first name of the customer (e.g. John)
+export type FirstNameLocalized = t.Branded<Common_.PersonalName, FirstNameLocalizedBrand>;
+export type FirstNameLocalizedC = t.BrandC<
+  typeof Common_.PersonalName,
+  FirstNameLocalizedBrand
+>;
+export const FirstNameLocalized: FirstNameLocalizedC = t.brand(
+  Common_.PersonalName,
+  (x): x is t.Branded<Common_.PersonalName, FirstNameLocalizedBrand> => true,
+  'FirstNameLocalized',
+);
+export interface FirstNameLocalizedBrand {
+  readonly FirstNameLocalized: unique symbol;
+}
+
+// LastNameLocalized
+// Localized last name of the customer (e.g. Doe)
+export type LastNameLocalized = t.Branded<Common_.PersonalName, LastNameLocalizedBrand>;
+export type LastNameLocalizedC = t.BrandC<
+  typeof Common_.PersonalName,
+  LastNameLocalizedBrand
+>;
+export const LastNameLocalized: LastNameLocalizedC = t.brand(
+  Common_.PersonalName,
+  (x): x is t.Branded<Common_.PersonalName, LastNameLocalizedBrand> => true,
+  'LastNameLocalized',
+);
+export interface LastNameLocalizedBrand {
+  readonly LastNameLocalized: unique symbol;
+}
+
+// Sex
+// The purpose of this remains a mystery
+export type Sex = t.Branded<string, SexBrand>;
+export type SexC = t.BrandC<t.StringC, SexBrand>;
+export const Sex: SexC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, SexBrand> => true,
+  'Sex',
+);
+export interface SexBrand {
+  readonly Sex: unique symbol;
+}
+
+// Phone
+// ITU-T E.164 phone number
+export type Phone = t.Branded<Common_.Phone, PhoneBrand>;
+export type PhoneC = t.BrandC<typeof Common_.Phone, PhoneBrand>;
+export const Phone: PhoneC = t.brand(
+  Common_.Phone,
+  (x): x is t.Branded<Common_.Phone, PhoneBrand> => true,
+  'Phone',
+);
+export interface PhoneBrand {
+  readonly Phone: unique symbol;
+}
+
+// Email
+// Rough validation of a valid e-mail address
+export type Email = t.Branded<Common_.Email, EmailBrand>;
+export type EmailC = t.BrandC<typeof Common_.Email, EmailBrand>;
+export const Email: EmailC = t.brand(
+  Common_.Email,
+  (x): x is t.Branded<Common_.Email, EmailBrand> => true,
+  'Email',
+);
+export interface EmailBrand {
+  readonly Email: unique symbol;
+}
+
+// Address
+// The purpose of this remains a mystery
+export type Address = t.Branded<Address_.Address, AddressBrand>;
+export type AddressC = t.BrandC<typeof Address_.Address, AddressBrand>;
+export const Address: AddressC = t.brand(
+  Address_.Address,
+  (x): x is t.Branded<Address_.Address, AddressBrand> => true,
+  'Address',
+);
+export interface AddressBrand {
+  readonly Address: unique symbol;
+}
+
+// CugHome
+// The purpose of this remains a mystery
+export type CugHome = t.Branded<string, CugHomeBrand>;
+export type CugHomeC = t.BrandC<t.StringC, CugHomeBrand>;
+export const CugHome: CugHomeC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, CugHomeBrand> => true,
+  'CugHome',
+);
+export interface CugHomeBrand {
+  readonly CugHome: unique symbol;
+}
+
+// City
+// The purpose of this remains a mystery
+export type City = t.Branded<Address_.City, CityBrand>;
+export type CityC = t.BrandC<typeof Address_.City, CityBrand>;
+export const City: CityC = t.brand(
+  Address_.City,
+  (x): x is t.Branded<Address_.City, CityBrand> => true,
+  'City',
+);
+export interface CityBrand {
+  readonly City: unique symbol;
+}
+
+// State
+// The purpose of this remains a mystery
+export type State = t.Branded<Address_.State, StateBrand>;
+export type StateC = t.BrandC<typeof Address_.State, StateBrand>;
+export const State: StateC = t.brand(
+  Address_.State,
+  (x): x is t.Branded<Address_.State, StateBrand> => true,
+  'State',
+);
+export interface StateBrand {
+  readonly State: unique symbol;
+}
+
+// Country
+// The purpose of this remains a mystery
+export type Country = t.Branded<Address_.Country, CountryBrand>;
+export type CountryC = t.BrandC<typeof Address_.Country, CountryBrand>;
+export const Country: CountryC = t.brand(
+  Address_.Country,
+  (x): x is t.Branded<Address_.Country, CountryBrand> => true,
+  'Country',
+);
+export interface CountryBrand {
+  readonly Country: unique symbol;
+}
+
+// ZipCode
+// The purpose of this remains a mystery
+export type ZipCode = t.Branded<Address_.ZipCode, ZipCodeBrand>;
+export type ZipCodeC = t.BrandC<typeof Address_.ZipCode, ZipCodeBrand>;
+export const ZipCode: ZipCodeC = t.brand(
+  Address_.ZipCode,
+  (x): x is t.Branded<Address_.ZipCode, ZipCodeBrand> => true,
+  'ZipCode',
+);
+export interface ZipCodeBrand {
+  readonly ZipCode: unique symbol;
+}
+
+// Dob
+// The customer's date of birth or boolean indicating if the value is already in DB
+export type Dob = t.Branded<boolean | Units_.IsoDate, DobBrand>;
+export type DobC = t.BrandC<t.UnionC<[t.BooleanC, typeof Units_.IsoDate]>, DobBrand>;
+export const Dob: DobC = t.brand(
+  t.union([t.boolean, Units_.IsoDate]),
+  (x): x is t.Branded<boolean | Units_.IsoDate, DobBrand> => true,
+  'Dob',
+);
+export interface DobBrand {
+  readonly Dob: unique symbol;
+}
+
+// Ssid
+// Social Security ID
+export type Ssid = t.Branded<boolean | Common_.Ssid, SsidBrand>;
+export type SsidC = t.BrandC<t.UnionC<[t.BooleanC, typeof Common_.Ssid]>, SsidBrand>;
+export const Ssid: SsidC = t.brand(
+  t.union([t.boolean, Common_.Ssid]),
+  (x): x is t.Branded<boolean | Common_.Ssid, SsidBrand> => true,
+  'Ssid',
+);
+export interface SsidBrand {
+  readonly Ssid: unique symbol;
+}
+
+// SsidFi
+// Finnish Social Security ID
+export type SsidFi = t.Branded<boolean | Common_.SsidFI, SsidFiBrand>;
+export type SsidFiC = t.BrandC<
+  t.UnionC<[t.BooleanC, typeof Common_.SsidFI]>,
+  SsidFiBrand
+>;
+export const SsidFi: SsidFiC = t.brand(
+  t.union([t.boolean, Common_.SsidFI]),
+  (x): x is t.Branded<boolean | Common_.SsidFI, SsidFiBrand> => true,
+  'SsidFi',
+);
+export interface SsidFiBrand {
+  readonly SsidFi: unique symbol;
+}
+
+// SubscriberType
+// Subscriber Type
+export type SubscriberType = t.Branded<string, SubscriberTypeBrand>;
+export type SubscriberTypeC = t.BrandC<t.StringC, SubscriberTypeBrand>;
+export const SubscriberType: SubscriberTypeC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, SubscriberTypeBrand> => true,
+  'SubscriberType',
+);
+export interface SubscriberTypeBrand {
+  readonly SubscriberType: unique symbol;
+}
+
+// ProfileImageUrl
+// The purpose of this remains a mystery
+export type ProfileImageUrl = t.Branded<string, ProfileImageUrlBrand>;
+export type ProfileImageUrlC = t.BrandC<t.StringC, ProfileImageUrlBrand>;
+export const ProfileImageUrl: ProfileImageUrlC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, ProfileImageUrlBrand> =>
+    (typeof x !== 'string' || x.length >= 10) &&
+    (typeof x !== 'string' || x.length <= 1024),
+  'ProfileImageUrl',
+);
+export interface ProfileImageUrlBrand {
+  readonly ProfileImageUrl: unique symbol;
+}
+
+// Nationality
+// The purpose of this remains a mystery
+export type Nationality = t.Branded<string, NationalityBrand>;
+export type NationalityC = t.BrandC<t.StringC, NationalityBrand>;
+export const Nationality: NationalityC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, NationalityBrand> => true,
+  'Nationality',
+);
+export interface NationalityBrand {
+  readonly Nationality: unique symbol;
+}
+
 // PersonalData
 // The default export. More information at the top.
 export type PersonalData = t.Branded<
   {
-    honorifics?: string;
-    firstName?: Common_.PersonalName;
-    lastName?: Common_.PersonalName;
-    firstNameLocalized?: Common_.PersonalName;
-    lastNameLocalized?: Common_.PersonalName;
-    sex?: string;
-    phone?: Common_.Phone;
-    email?: Common_.Email;
-    address?: Address_.Address;
-    cugHome?: string;
-    city?: Address_.City;
-    state?: Address_.State;
-    country?: Address_.Country;
-    zipCode?: Address_.ZipCode;
-    dob?: boolean | Units_.IsoDate;
-    ssid?: boolean | Common_.Ssid;
-    'ssid-fi'?: boolean | Common_.SsidFI;
-    subscriberType?: string;
-    profileImageUrl?: string;
-    nationality?: string;
+    honorifics?: Honorifics;
+    firstName?: FirstName;
+    lastName?: LastName;
+    firstNameLocalized?: FirstNameLocalized;
+    lastNameLocalized?: LastNameLocalized;
+    sex?: Sex;
+    phone?: Phone;
+    email?: Email;
+    address?: Address;
+    cugHome?: CugHome;
+    city?: City;
+    state?: State;
+    country?: Country;
+    zipCode?: ZipCode;
+    dob?: Dob;
+    ssid?: Ssid;
+    'ssid-fi'?: SsidFi;
+    subscriberType?: SubscriberType;
+    profileImageUrl?: ProfileImageUrl;
+    nationality?: Nationality;
   } & {},
   PersonalDataBrand
 >;
@@ -47,26 +318,26 @@ export type PersonalDataC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        honorifics: t.StringC;
-        firstName: typeof Common_.PersonalName;
-        lastName: typeof Common_.PersonalName;
-        firstNameLocalized: typeof Common_.PersonalName;
-        lastNameLocalized: typeof Common_.PersonalName;
-        sex: t.StringC;
-        phone: typeof Common_.Phone;
-        email: typeof Common_.Email;
-        address: typeof Address_.Address;
-        cugHome: t.StringC;
-        city: typeof Address_.City;
-        state: typeof Address_.State;
-        country: typeof Address_.Country;
-        zipCode: typeof Address_.ZipCode;
-        dob: t.UnionC<[t.BooleanC, typeof Units_.IsoDate]>;
-        ssid: t.UnionC<[t.BooleanC, typeof Common_.Ssid]>;
-        'ssid-fi': t.UnionC<[t.BooleanC, typeof Common_.SsidFI]>;
-        subscriberType: t.StringC;
-        profileImageUrl: t.StringC;
-        nationality: t.StringC;
+        honorifics: typeof Honorifics;
+        firstName: typeof FirstName;
+        lastName: typeof LastName;
+        firstNameLocalized: typeof FirstNameLocalized;
+        lastNameLocalized: typeof LastNameLocalized;
+        sex: typeof Sex;
+        phone: typeof Phone;
+        email: typeof Email;
+        address: typeof Address;
+        cugHome: typeof CugHome;
+        city: typeof City;
+        state: typeof State;
+        country: typeof Country;
+        zipCode: typeof ZipCode;
+        dob: typeof Dob;
+        ssid: typeof Ssid;
+        'ssid-fi': typeof SsidFi;
+        subscriberType: typeof SubscriberType;
+        profileImageUrl: typeof ProfileImageUrl;
+        nationality: typeof Nationality;
       }>,
       t.TypeC<{}>,
     ]
@@ -76,26 +347,26 @@ export type PersonalDataC = t.BrandC<
 export const PersonalData: PersonalDataC = t.brand(
   t.intersection([
     t.partial({
-      honorifics: t.string,
-      firstName: Common_.PersonalName,
-      lastName: Common_.PersonalName,
-      firstNameLocalized: Common_.PersonalName,
-      lastNameLocalized: Common_.PersonalName,
-      sex: t.string,
-      phone: Common_.Phone,
-      email: Common_.Email,
-      address: Address_.Address,
-      cugHome: t.string,
-      city: Address_.City,
-      state: Address_.State,
-      country: Address_.Country,
-      zipCode: Address_.ZipCode,
-      dob: t.union([t.boolean, Units_.IsoDate]),
-      ssid: t.union([t.boolean, Common_.Ssid]),
-      'ssid-fi': t.union([t.boolean, Common_.SsidFI]),
-      subscriberType: t.string,
-      profileImageUrl: t.string,
-      nationality: t.string,
+      honorifics: Honorifics,
+      firstName: FirstName,
+      lastName: LastName,
+      firstNameLocalized: FirstNameLocalized,
+      lastNameLocalized: LastNameLocalized,
+      sex: Sex,
+      phone: Phone,
+      email: Email,
+      address: Address,
+      cugHome: CugHome,
+      city: City,
+      state: State,
+      country: Country,
+      zipCode: ZipCode,
+      dob: Dob,
+      ssid: Ssid,
+      'ssid-fi': SsidFi,
+      subscriberType: SubscriberType,
+      profileImageUrl: ProfileImageUrl,
+      nationality: Nationality,
     }),
     t.type({}),
   ]),
@@ -103,26 +374,26 @@ export const PersonalData: PersonalDataC = t.brand(
     x,
   ): x is t.Branded<
     {
-      honorifics?: string;
-      firstName?: Common_.PersonalName;
-      lastName?: Common_.PersonalName;
-      firstNameLocalized?: Common_.PersonalName;
-      lastNameLocalized?: Common_.PersonalName;
-      sex?: string;
-      phone?: Common_.Phone;
-      email?: Common_.Email;
-      address?: Address_.Address;
-      cugHome?: string;
-      city?: Address_.City;
-      state?: Address_.State;
-      country?: Address_.Country;
-      zipCode?: Address_.ZipCode;
-      dob?: boolean | Units_.IsoDate;
-      ssid?: boolean | Common_.Ssid;
-      'ssid-fi'?: boolean | Common_.SsidFI;
-      subscriberType?: string;
-      profileImageUrl?: string;
-      nationality?: string;
+      honorifics?: Honorifics;
+      firstName?: FirstName;
+      lastName?: LastName;
+      firstNameLocalized?: FirstNameLocalized;
+      lastNameLocalized?: LastNameLocalized;
+      sex?: Sex;
+      phone?: Phone;
+      email?: Email;
+      address?: Address;
+      cugHome?: CugHome;
+      city?: City;
+      state?: State;
+      country?: Country;
+      zipCode?: ZipCode;
+      dob?: Dob;
+      ssid?: Ssid;
+      'ssid-fi'?: SsidFi;
+      subscriberType?: SubscriberType;
+      profileImageUrl?: ProfileImageUrl;
+      nationality?: Nationality;
     } & {},
     PersonalDataBrand
   > => true,

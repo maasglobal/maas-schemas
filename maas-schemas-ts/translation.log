@@ -1684,21 +1684,25 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/personal-documents/update/response.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
-WARNING: minLength field not supported outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
-WARNING: maxLength field not supported outside top-level definitions
+INFO: missing description
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
-INFO: primitive type "string" used outside top-level definitions
+INFO: missing description
+  in ../maas-schemas/schemas/maas-backend/customers/personalData.json
+INFO: missing description
+  in ../maas-schemas/schemas/maas-backend/customers/personalData.json
+INFO: missing description
   in ../maas-schemas/schemas/maas-backend/customers/personalData.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/retrieve/request.json
