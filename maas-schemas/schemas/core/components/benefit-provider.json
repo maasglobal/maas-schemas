@@ -1,0 +1,11 @@
+{
+  "$id": "https://schemas.maas.global/core/components/benefit-provider.json",
+  "description": "MaaS Benefit Provider",
+  "definitions": {
+    "benefitsProviderId": {
+      "type": "string",
+      "description": "Benefit Provider ID (name)",
+      "examples": ["smartum", "epassi"]
+    }
+  }
+}
