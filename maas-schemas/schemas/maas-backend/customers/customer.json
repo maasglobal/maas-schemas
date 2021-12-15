@@ -88,13 +88,13 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "http://maasglobal.com/core/booking.json#/definitions/id"
+          "$ref": "https://schemas.maas.global/core/booking.json#/definitions/id"
         },
         "state": {
-          "$ref": "http://maasglobal.com/core/components/state.json#/definitions/bookingState"
+          "$ref": "https://schemas.maas.global/core/components/state.json#/definitions/bookingState"
         },
         "created": {
-          "$ref": "http://maasglobal.com/core/components/units.json#/definitions/time"
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         }
       }
     }
