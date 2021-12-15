@@ -39,7 +39,10 @@
         { "required": ["amount", "currency"] },
         { "required": ["amount", "currency", "productType", "productId"] }
       ]
+    },
+    "benefitsProviderId": {
+      "$ref": "https://schemas.maas.global/core/components/benefit-provider.json#/definitions/benefitsProviderId"
     }
   },
-  "required": ["identityId", "customerId", "payload", "headers"]
+  "required": ["identityId", "customerId", "payload", "benefitsProviderId", "headers"]
 }

@@ -85,6 +85,8 @@ WARNING: missing $schema declaration
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/authorization.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/components/benefit-provider.json
+WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/bike-station.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/bike-station.json
