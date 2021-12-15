@@ -1,6 +1,6 @@
 {
   "name": "maas-schemas-ts",
-  "version": "15.4.0",
+  "version": "15.7.0",
   "description": "TypeScript types and io-ts validators for maas-schemas",
   "main": "index.js",
   "files": [
@@ -40,7 +40,8 @@
     "get-unexpected": "cat translation.log|grep -v -e ERROR -e WARNING -e INFO -e '^  in '||true",
     "get-problems": "yarn get-info && yarn get-warnings && yarn get-errors && yarn get-unexpected",
     "get-all": "yarn get-culprits && yarn get-problems",
-    "deploy-npm": "yarn ci && yarn publish"
+    "deploy-npm": "yarn ci && yarn publish --non-interactive",
+    "deploy-alpha": "yarn deploy-npm --tag alpha"
   },
   "repository": {
     "type": "git",
