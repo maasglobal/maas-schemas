@@ -1,0 +1,12 @@
+{
+  "$id": "https://schemas.maas.global/maas-backend/customers/delete/response.json",
+  "description": "MaaS customer delete",
+  "type": "object",
+  "properties": {
+    "status": {
+      "description": "Customer delete process status",
+      "type": "string",
+      "enum": ["IN_PROGRESS", "DELETED"]
+    }
+  }
+}
