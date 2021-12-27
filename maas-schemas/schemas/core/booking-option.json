@@ -31,6 +31,14 @@
         },
         "customer": {
           "$ref": "#/definitions/customer"
+        },
+        "legGeometry": {
+          "type": "object",
+          "properties": {
+            "points": {
+              "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/polyline"
+            }
+          }
         }
       }
     },

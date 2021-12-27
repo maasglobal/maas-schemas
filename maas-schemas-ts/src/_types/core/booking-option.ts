@@ -12,6 +12,7 @@ import * as t from 'io-ts';
 import * as Terms_ from './components/terms';
 import * as BookingMeta_ from './booking-meta';
 import * as Cost_ from './components/cost';
+import * as UnitsGeo_ from './components/units-geo';
 import * as Configurator_ from './components/configurator';
 import * as Customer_ from './customer';
 import * as TravelMode_ from './components/travel-mode';
@@ -199,6 +200,9 @@ export type ContentWithCost = t.Branded<
     tspProduct?: TspProduct;
     cost?: Cost_.Cost;
     customer?: Customer;
+    legGeometry?: {
+      points?: UnitsGeo_.Polyline;
+    };
   } & {
     leg: Defined;
     meta: Defined;
@@ -218,6 +222,9 @@ export type ContentWithCostC = t.BrandC<
         tspProduct: typeof TspProduct;
         cost: typeof Cost_.Cost;
         customer: typeof Customer;
+        legGeometry: t.PartialC<{
+          points: typeof UnitsGeo_.Polyline;
+        }>;
       }>,
       t.TypeC<{
         leg: typeof Defined;
@@ -239,6 +246,9 @@ export const ContentWithCost: ContentWithCostC = t.brand(
       tspProduct: TspProduct,
       cost: Cost_.Cost,
       customer: Customer,
+      legGeometry: t.partial({
+        points: UnitsGeo_.Polyline,
+      }),
     }),
     t.type({
       leg: Defined,
@@ -258,6 +268,9 @@ export const ContentWithCost: ContentWithCostC = t.brand(
       tspProduct?: TspProduct;
       cost?: Cost_.Cost;
       customer?: Customer;
+      legGeometry?: {
+        points?: UnitsGeo_.Polyline;
+      };
     } & {
       leg: Defined;
       meta: Defined;
