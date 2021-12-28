@@ -18,6 +18,7 @@ import * as TravelMode_ from './components/travel-mode';
 import * as Units_ from './components/units';
 import * as Place_ from './components/place';
 import * as Common_ from './components/common';
+import * as UnitsGeo_ from './components/units-geo';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -367,6 +368,9 @@ export type LegDelta = t.Branded<
     departureDelay?: Units_.Duration;
     from?: Place_.Place;
     to?: Place_.Place;
+    legGeometry?: {
+      points?: UnitsGeo_.Polyline;
+    };
   },
   LegDeltaBrand
 >;
@@ -378,6 +382,9 @@ export type LegDeltaC = t.BrandC<
     departureDelay: typeof Units_.Duration;
     from: typeof Place_.Place;
     to: typeof Place_.Place;
+    legGeometry: t.PartialC<{
+      points: typeof UnitsGeo_.Polyline;
+    }>;
   }>,
   LegDeltaBrand
 >;
@@ -389,6 +396,9 @@ export const LegDelta: LegDeltaC = t.brand(
     departureDelay: Units_.Duration,
     from: Place_.Place,
     to: Place_.Place,
+    legGeometry: t.partial({
+      points: UnitsGeo_.Polyline,
+    }),
   }),
   (
     x,
@@ -400,6 +410,9 @@ export const LegDelta: LegDeltaC = t.brand(
       departureDelay?: Units_.Duration;
       from?: Place_.Place;
       to?: Place_.Place;
+      legGeometry?: {
+        points?: UnitsGeo_.Polyline;
+      };
     },
     LegDeltaBrand
   > => true,
