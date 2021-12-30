@@ -9,23 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from '../../../core/components/units';
 import * as ApiCommon_ from '../../../core/components/api-common';
-
-export type Defined = {} | null;
-export class DefinedType extends t.Type<Defined> {
-  readonly _tag: 'DefinedType' = 'DefinedType';
-  constructor() {
-    super(
-      'defined',
-      (u): u is Defined => typeof u !== 'undefined',
-      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
-      t.identity,
-    );
-  }
-}
-export interface DefinedC extends DefinedType {}
-export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'https://schemas.maas.global/maas-backend/regions/regions-options/request.json';
@@ -34,45 +18,25 @@ export const schemaId =
 // The default export. More information at the top.
 export type Request = t.Branded<
   {
-    identityId?: Units_.IdentityId;
     headers?: ApiCommon_.Headers;
-  } & {
-    identityId: Defined;
   },
   RequestBrand
 >;
 export type RequestC = t.BrandC<
-  t.IntersectionC<
-    [
-      t.PartialC<{
-        identityId: typeof Units_.IdentityId;
-        headers: typeof ApiCommon_.Headers;
-      }>,
-      t.TypeC<{
-        identityId: typeof Defined;
-      }>,
-    ]
-  >,
+  t.PartialC<{
+    headers: typeof ApiCommon_.Headers;
+  }>,
   RequestBrand
 >;
 export const Request: RequestC = t.brand(
-  t.intersection([
-    t.partial({
-      identityId: Units_.IdentityId,
-      headers: ApiCommon_.Headers,
-    }),
-    t.type({
-      identityId: Defined,
-    }),
-  ]),
+  t.partial({
+    headers: ApiCommon_.Headers,
+  }),
   (
     x,
   ): x is t.Branded<
     {
-      identityId?: Units_.IdentityId;
       headers?: ApiCommon_.Headers;
-    } & {
-      identityId: Defined;
     },
     RequestBrand
   > => true,
