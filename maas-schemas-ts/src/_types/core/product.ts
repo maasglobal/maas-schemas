@@ -116,6 +116,7 @@ export type Product = t.Branded<
     tspProductId?: string;
     allowFinishTrip?: boolean;
     preAuthBuffer?: PreAuthBuffer;
+    paymentInstruction?: string;
   } & {
     id: Defined;
     tspProductId: Defined;
@@ -136,6 +137,7 @@ export type ProductC = t.BrandC<
         tspProductId: t.StringC;
         allowFinishTrip: t.BooleanC;
         preAuthBuffer: typeof PreAuthBuffer;
+        paymentInstruction: t.StringC;
       }>,
       t.TypeC<{
         id: typeof Defined;
@@ -158,6 +160,7 @@ export const Product: ProductC = t.brand(
       tspProductId: t.string,
       allowFinishTrip: t.boolean,
       preAuthBuffer: PreAuthBuffer,
+      paymentInstruction: t.string,
     }),
     t.type({
       id: Defined,
@@ -178,6 +181,7 @@ export const Product: ProductC = t.brand(
       tspProductId?: string;
       allowFinishTrip?: boolean;
       preAuthBuffer?: PreAuthBuffer;
+      paymentInstruction?: string;
     } & {
       id: Defined;
       tspProductId: Defined;
