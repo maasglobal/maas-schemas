@@ -38,6 +38,12 @@
     },
     "preAuthBuffer": {
       "$ref": "#/definitions/preAuthBuffer"
+    },
+    "paymentInstruction": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255,
+      "description": "A product may define a text to be shown in Detailed Pricing segment, due to regulatory or partner mandated requirement. This is informed by product.paymentInstruction object, containing localized text string"
     }
   },
   "definitions": {
