@@ -10,6 +10,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 import * as Units_ from '../../../core/components/units';
+import * as Common_ from '../../../core/components/common';
 import * as ApiCommon_ from '../../../core/components/api-common';
 
 export type Defined = {} | null;
@@ -38,6 +39,8 @@ export type Request = t.Branded<
     customerId?: Units_.IdentityId;
     payload?: {
       reason?: string;
+      email?: Common_.Email;
+      isContactingAllowed?: boolean;
     };
     headers?: ApiCommon_.Headers;
   } & {
@@ -56,6 +59,8 @@ export type RequestC = t.BrandC<
         customerId: typeof Units_.IdentityId;
         payload: t.PartialC<{
           reason: t.StringC;
+          email: typeof Common_.Email;
+          isContactingAllowed: t.BooleanC;
         }>;
         headers: typeof ApiCommon_.Headers;
       }>,
@@ -76,6 +81,8 @@ export const Request: RequestC = t.brand(
       customerId: Units_.IdentityId,
       payload: t.partial({
         reason: t.string,
+        email: Common_.Email,
+        isContactingAllowed: t.boolean,
       }),
       headers: ApiCommon_.Headers,
     }),
@@ -94,6 +101,8 @@ export const Request: RequestC = t.brand(
       customerId?: Units_.IdentityId;
       payload?: {
         reason?: string;
+        email?: Common_.Email;
+        isContactingAllowed?: boolean;
       };
       headers?: ApiCommon_.Headers;
     } & {

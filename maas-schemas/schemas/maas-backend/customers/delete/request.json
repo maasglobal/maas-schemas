@@ -17,6 +17,14 @@
         "reason": {
           "type": "string",
           "description": "Optional reason why customer deleted the account"
+        },
+        "email": {
+          "description": "Optional customer e-mail",
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/email" }]
+        },
+        "isContactingAllowed": {
+          "type": "boolean",
+          "description": "Optional flag indicating if customer allowed to be contacted in the future"
         }
       }
     },
