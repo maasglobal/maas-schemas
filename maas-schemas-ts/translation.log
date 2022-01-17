@@ -1577,6 +1577,14 @@ INFO: primitive type "string" used outside top-level definitions
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/customers/customer.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/delete/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/delete/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/customers/delete/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/customers/delete/response.json
+WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/favorite-locations/add/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/customers/favorite-locations/add/response.json

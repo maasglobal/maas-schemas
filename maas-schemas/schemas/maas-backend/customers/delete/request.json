@@ -1,0 +1,35 @@
+{
+  "$id": "https://schemas.maas.global/maas-backend/customers/delete/request.json",
+  "description": "MaaS customer delete",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identityId", "customerId", "payload", "headers"],
+  "properties": {
+    "identityId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+    },
+    "customerId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "reason": {
+          "type": "string",
+          "description": "Optional reason why customer deleted the account"
+        },
+        "email": {
+          "description": "Optional customer e-mail",
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/email" }]
+        },
+        "isContactingAllowed": {
+          "type": "boolean",
+          "description": "Optional flag indicating if customer allowed to be contacted in the future"
+        }
+      }
+    },
+    "headers": {
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
+    }
+  }
+}
