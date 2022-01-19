@@ -1,6 +1,9 @@
 import * as P from 'maasglobal-prelude-ts';
 
-import { MetaCurrencyTOKEN } from '../../../_types/core/components/common';
+import {
+  defaultMetaCurrencyWMP,
+  MetaCurrencyTOKEN,
+} from '../../../_types/core/components/common';
 import { TokenId } from '../../../_types/core/components/fare';
 import { Fare } from '../../../_types/core/components/fare';
 import { Currency } from '../../../_types/core/components/units';
@@ -9,6 +12,14 @@ import { BalanceName } from '../../../_types/core/balances';
 import * as MetaCurrency_ from '../../core/components/common/meta-currency';
 import * as TokenId_ from '../../core/components/fare/token-id';
 import * as Currency_ from '../../core/components/units/currency';
+
+export function fromTokenId(tokenId: TokenId): BalanceName {
+  return tokenId as BalanceName;
+}
+export function fromCurrency(currency: Currency): BalanceName {
+  return currency as BalanceName;
+}
+export const WMP: BalanceName = defaultMetaCurrencyWMP as BalanceName;
 
 export function isTokenId(bn: BalanceName): bn is BalanceName & TokenId {
   const firstChar: string = bn.charAt(0);
