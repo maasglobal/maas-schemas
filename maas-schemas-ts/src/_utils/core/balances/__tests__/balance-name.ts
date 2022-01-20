@@ -3,20 +3,45 @@ import * as P from 'maasglobal-prelude-ts';
 import * as t from 'io-ts';
 import { validator } from 'io-ts-validator';
 
-import { defaultMetaCurrencyWMP as WMP } from '../../../../_types/core/components/common';
+import { defaultMetaCurrencyWMP } from '../../../../_types/core/components/common';
 import { TokenId } from '../../../../_types/core/components/fare';
 import { Fare } from '../../../../_types/core/components/fare';
 import { defaultCurrencyEUR as EUR } from '../../../../_types/core/components/units';
 
 import { BalanceName } from '../../../../_types/core/balances';
-import { fromFare, isTokenId, Ord } from '../balance-name';
+import {
+  fromTokenId,
+  fromCurrency,
+  fromFare,
+  isTokenId,
+  Ord,
+  WMP,
+} from '../balance-name';
 
 describe('balance-name', () => {
   const testToken = validator(TokenId).decodeSync('cx-test-token_v2');
 
-  const tokenBalanceName = validator(BalanceName).decodeSync(testToken);
-  const eurBalanceName = validator(BalanceName).decodeSync(EUR);
-  const wmpBalanceName = validator(BalanceName).decodeSync(WMP);
+  const tokenBalanceName: BalanceName = fromTokenId(testToken);
+  const eurBalanceName: BalanceName = fromCurrency(EUR);
+  const wmpBalanceName: BalanceName = WMP;
+
+  describe('fromTokenId', () => {
+    it('should not modify runtime value', () => {
+      expect(tokenBalanceName).toStrictEqual(testToken);
+    });
+  });
+
+  describe('fromCurrency', () => {
+    it('should not modify runtime value', () => {
+      expect(eurBalanceName).toStrictEqual(EUR);
+    });
+  });
+
+  describe('WMP', () => {
+    it('should match meta currency runtime value', () => {
+      expect(wmpBalanceName).toStrictEqual(defaultMetaCurrencyWMP);
+    });
+  });
 
   describe('isTokenId', () => {
     it('should accept tokenIds', () => {
