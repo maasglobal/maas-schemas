@@ -88,6 +88,18 @@
     "spaceDemand": {
       "description": "Optional space demand. Example: 3 adults and 2 luggages.",
       "$ref": "https://schemas.maas.global/core/components/spaceDemand.json#/definitions/spaceDemandObject"
+    },
+    "pickupAddress": {
+      "description": "For taxi flow, the pick up address can be changed by the operator and is not alway the same what `booking.leg.from`.",
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/address"
+    },
+    "dropoffAddress": {
+      "description": "For taxi flow, the drop off address can be changed by the operator and is not alway the same what `booking.leg.to`.",
+      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/address"
+    },
+    "costBreakDown": {
+      "description": "Taxi cost break down.",
+      "$ref": "https://schemas.maas.global/core/components/costBreakDown.json#/definitions/costBreakDownArray"
     }
   },
   "additionalProperties": false
