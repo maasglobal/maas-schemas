@@ -28,8 +28,7 @@ export interface CostBreakDownArrayBrand {
 }
 /** require('io-ts-validator').validator(nonEmptyArray(CostBreakDownArray)).decodeSync(examplesCostBreakDownArray) // => examplesCostBreakDownArray */
 export const examplesCostBreakDownArray: NonEmptyArray<CostBreakDownArray> = ([
-  'First 10 km, 50 euros',
-  'Next 20 km, 10 euros',
+  ['First 10 km, 50 euros', 'Next 20 km, 10 euros'],
 ] as unknown) as NonEmptyArray<CostBreakDownArray>;
 
 // CostBreakDown

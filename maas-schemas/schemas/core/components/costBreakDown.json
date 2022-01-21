@@ -8,7 +8,7 @@
       "items": {
         "type": "string"
       },
-      "examples": ["First 10 km, 50 euros", "Next 20 km, 10 euros"]
+      "examples": [["First 10 km, 50 euros", "Next 20 km, 10 euros"]]
     }
   }
 }
