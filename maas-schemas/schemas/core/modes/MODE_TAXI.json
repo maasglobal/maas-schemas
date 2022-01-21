@@ -90,11 +90,11 @@
       "$ref": "https://schemas.maas.global/core/components/spaceDemand.json#/definitions/spaceDemandObject"
     },
     "pickupAddress": {
-      "description": "For taxi flow, the pick up address can be changed by the operator and is not alway the same what `booking.leg.from`.",
+      "description": "For taxi flow, the pick up address can be changed by the operator and is not always the same what `booking.leg.from`.",
       "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/address"
     },
     "dropoffAddress": {
-      "description": "For taxi flow, the drop off address can be changed by the operator and is not alway the same what `booking.leg.to`.",
+      "description": "For taxi flow, the drop off address can be changed by the operator and is not always the same what `booking.leg.to`.",
       "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/address"
     },
     "costBreakDown": {
