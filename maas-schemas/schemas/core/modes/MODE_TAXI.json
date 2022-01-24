@@ -91,11 +91,11 @@
     },
     "pickupAddress": {
       "description": "For taxi flow, the pick up address can be changed by the operator and is not always the same what `booking.leg.from`.",
-      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/address"
+      "$ref": "https://schemas.maas.global/core/leg.json#/definitions/from"
     },
     "dropoffAddress": {
       "description": "For taxi flow, the drop off address can be changed by the operator and is not always the same what `booking.leg.to`.",
-      "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/address"
+      "$ref": "https://schemas.maas.global/core/leg.json#/definitions/to"
     },
     "costBreakDown": {
       "description": "Taxi cost break down.",
