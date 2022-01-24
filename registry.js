@@ -27,6 +27,7 @@ module.exports = {
   'schemas/core/components/common.json': require('./schemas/core/components/common.json'),
   'schemas/core/components/configurator.json': require('./schemas/core/components/configurator.json'),
   'schemas/core/components/cost.json': require('./schemas/core/components/cost.json'),
+  'schemas/core/components/costBreakDown.json': require('./schemas/core/components/costBreakDown.json'),
   'schemas/core/components/customerSelection.json': require('./schemas/core/components/customerSelection.json'),
   'schemas/core/components/fare.json': require('./schemas/core/components/fare.json'),
   'schemas/core/components/geolocation.json': require('./schemas/core/components/geolocation.json'),

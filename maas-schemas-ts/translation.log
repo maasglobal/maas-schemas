@@ -270,6 +270,10 @@ WARNING: multipleOf field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/cost.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/cost.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/costBreakDown.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/core/components/costBreakDown.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/customerSelection.json
 INFO: primitive type "string" used outside top-level definitions
@@ -1025,6 +1029,12 @@ WARNING: unexpected key in a $ref object
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: unexpected key in a $ref object
+  in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: unexpected key in a $ref object
+  in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
+WARNING: unexpected key in a $ref object
   in ../maas-schemas/schemas/core/modes/MODE_TAXI.json
 WARNING: unexpected key in a $ref object
   in ../maas-schemas/schemas/core/modes/MODE_TAXI.json

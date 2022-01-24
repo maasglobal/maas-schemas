@@ -13,6 +13,8 @@ import * as UnitsGeo_ from '../components/units-geo';
 import * as Units_ from '../components/units';
 import * as Common_ from '../components/common';
 import * as SpaceDemand_ from '../components/spaceDemand';
+import * as Address_ from '../components/address';
+import * as CostBreakDown_ from '../components/costBreakDown';
 
 export const schemaId = 'https://schemas.maas.global/core/modes/MODE_TAXI.json';
 
@@ -43,6 +45,9 @@ export type MODE_TAXI = t.Branded<
     };
     messageToDriver?: string;
     spaceDemand?: SpaceDemand_.SpaceDemandObject;
+    pickupAddress?: Address_.Address;
+    dropoffAddress?: Address_.Address;
+    costBreakDown?: CostBreakDown_.CostBreakDownArray;
   },
   MODE_TAXIBrand
 >;
@@ -71,6 +76,9 @@ export type MODE_TAXIC = t.BrandC<
     }>;
     messageToDriver: t.StringC;
     spaceDemand: typeof SpaceDemand_.SpaceDemandObject;
+    pickupAddress: typeof Address_.Address;
+    dropoffAddress: typeof Address_.Address;
+    costBreakDown: typeof CostBreakDown_.CostBreakDownArray;
   }>,
   MODE_TAXIBrand
 >;
@@ -99,6 +107,9 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
     }),
     messageToDriver: t.string,
     spaceDemand: SpaceDemand_.SpaceDemandObject,
+    pickupAddress: Address_.Address,
+    dropoffAddress: Address_.Address,
+    costBreakDown: CostBreakDown_.CostBreakDownArray,
   }),
   (
     x,
@@ -127,6 +138,9 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
       };
       messageToDriver?: string;
       spaceDemand?: SpaceDemand_.SpaceDemandObject;
+      pickupAddress?: Address_.Address;
+      dropoffAddress?: Address_.Address;
+      costBreakDown?: CostBreakDown_.CostBreakDownArray;
     },
     MODE_TAXIBrand
   > => true,

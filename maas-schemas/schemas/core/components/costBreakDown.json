@@ -1,0 +1,14 @@
+{
+  "$id": "https://schemas.maas.global/core/components/costBreakDown.json",
+  "description": "A costBreakDown shows pricing according to TSPs wishes and nuances",
+  "definitions": {
+    "costBreakDownArray": {
+      "type": "array",
+      "description": "TSP specific cost rules",
+      "items": {
+        "type": "string"
+      },
+      "examples": [["First 10 km, 50 euros", "Next 20 km, 10 euros"]]
+    }
+  }
+}
