@@ -24,3 +24,5 @@ registry.js
 maas-schemas/_docs
 maas-schemas/docs
 
+# npm lockfiles
+package-lock.json
