@@ -41,7 +41,7 @@ export type Request = t.Branded<
     payload?: ({
       amount?: number;
       currency?: Units_.Currency;
-      productType?: string & ('product' | 'subscription');
+      productType?: string & ('product' | 'subscription' | 'package');
       productId?: string;
     } & Record<string, unknown>) &
       (
@@ -83,7 +83,13 @@ export type RequestC = t.BrandC<
                   productType: t.IntersectionC<
                     [
                       t.StringC,
-                      t.UnionC<[t.LiteralC<'product'>, t.LiteralC<'subscription'>]>,
+                      t.UnionC<
+                        [
+                          t.LiteralC<'product'>,
+                          t.LiteralC<'subscription'>,
+                          t.LiteralC<'package'>,
+                        ]
+                      >,
                     ]
                   >;
                   productId: t.StringC;
@@ -133,7 +139,11 @@ export const Request: RequestC = t.brand(
             currency: Units_.Currency,
             productType: t.intersection([
               t.string,
-              t.union([t.literal('product'), t.literal('subscription')]),
+              t.union([
+                t.literal('product'),
+                t.literal('subscription'),
+                t.literal('package'),
+              ]),
             ]),
             productId: t.string,
           }),
@@ -172,7 +182,7 @@ export const Request: RequestC = t.brand(
       payload?: ({
         amount?: number;
         currency?: Units_.Currency;
-        productType?: string & ('product' | 'subscription');
+        productType?: string & ('product' | 'subscription' | 'package');
         productId?: string;
       } & Record<string, unknown>) &
         (
