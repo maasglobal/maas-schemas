@@ -27,7 +27,7 @@
         "productType": {
           "description": "Product identifier",
           "type": "string",
-          "enum": ["product", "subscription"]
+          "enum": ["product", "subscription", "package"]
         },
         "productId": {
           "description": "Product identifier",
