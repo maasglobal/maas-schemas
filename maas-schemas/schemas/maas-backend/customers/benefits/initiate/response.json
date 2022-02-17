@@ -5,6 +5,9 @@
   "properties": {
     "checkoutUrl": {
       "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
+    },
+    "checkoutSessionId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
     }
   },
   "required": ["checkoutUrl"],
