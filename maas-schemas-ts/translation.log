@@ -650,6 +650,12 @@ INFO: missing description
   in ../maas-schemas/schemas/core/components/state.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/state.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/station.json
 INFO: primitive type "string" used outside top-level definitions
@@ -1552,6 +1558,18 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/bookings/v2/bookings-create/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/bookings/v2/bookings-create/response.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/checkouts/session-retrieve/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/checkouts/session-retrieve/response.json
+INFO: primitive type "number" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/checkouts/session-retrieve/response.json
+WARNING: minimum field not supported outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/checkouts/session-retrieve/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/checkouts/session-retrieve/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/checkouts/session-retrieve/response.json
 WARNING: naming clash, ignoring default export
   in ../maas-schemas/schemas/maas-backend/coupons/code.json
 WARNING: missing $schema declaration

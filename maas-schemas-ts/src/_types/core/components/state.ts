@@ -1408,6 +1408,114 @@ export interface VerificationStateABANDONEDBrand {
 /** require('io-ts-validator').validator(VerificationStateABANDONED).decodeSync(defaultVerificationStateABANDONED) // => defaultVerificationStateABANDONED */
 export const defaultVerificationStateABANDONED: VerificationStateABANDONED = ('ABANDONED' as unknown) as VerificationStateABANDONED;
 
+// CheckoutSessionState
+// The life-cycle state of a verification
+export type CheckoutSessionState = t.Branded<
+  string & ('PENDING' | 'FINISHED' | 'REFUNDED'),
+  CheckoutSessionStateBrand
+>;
+export type CheckoutSessionStateC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.StringC,
+      t.UnionC<[t.LiteralC<'PENDING'>, t.LiteralC<'FINISHED'>, t.LiteralC<'REFUNDED'>]>,
+    ]
+  >,
+  CheckoutSessionStateBrand
+>;
+export const CheckoutSessionState: CheckoutSessionStateC = t.brand(
+  t.intersection([
+    t.string,
+    t.union([t.literal('PENDING'), t.literal('FINISHED'), t.literal('REFUNDED')]),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    string & ('PENDING' | 'FINISHED' | 'REFUNDED'),
+    CheckoutSessionStateBrand
+  > => true,
+  'CheckoutSessionState',
+);
+export interface CheckoutSessionStateBrand {
+  readonly CheckoutSessionState: unique symbol;
+}
+
+// CheckoutSessionStatePENDING
+// The purpose of this remains a mystery
+export type CheckoutSessionStatePENDING = t.Branded<
+  CheckoutSessionState & 'PENDING',
+  CheckoutSessionStatePENDINGBrand
+>;
+export type CheckoutSessionStatePENDINGC = t.BrandC<
+  t.IntersectionC<[typeof CheckoutSessionState, t.LiteralC<'PENDING'>]>,
+  CheckoutSessionStatePENDINGBrand
+>;
+export const CheckoutSessionStatePENDING: CheckoutSessionStatePENDINGC = t.brand(
+  t.intersection([CheckoutSessionState, t.literal('PENDING')]),
+  (
+    x,
+  ): x is t.Branded<CheckoutSessionState & 'PENDING', CheckoutSessionStatePENDINGBrand> =>
+    true,
+  'CheckoutSessionStatePENDING',
+);
+export interface CheckoutSessionStatePENDINGBrand {
+  readonly CheckoutSessionStatePENDING: unique symbol;
+}
+/** require('io-ts-validator').validator(CheckoutSessionStatePENDING).decodeSync(defaultCheckoutSessionStatePENDING) // => defaultCheckoutSessionStatePENDING */
+export const defaultCheckoutSessionStatePENDING: CheckoutSessionStatePENDING = ('PENDING' as unknown) as CheckoutSessionStatePENDING;
+
+// CheckoutSessionStateFINISHED
+// The purpose of this remains a mystery
+export type CheckoutSessionStateFINISHED = t.Branded<
+  CheckoutSessionState & 'FINISHED',
+  CheckoutSessionStateFINISHEDBrand
+>;
+export type CheckoutSessionStateFINISHEDC = t.BrandC<
+  t.IntersectionC<[typeof CheckoutSessionState, t.LiteralC<'FINISHED'>]>,
+  CheckoutSessionStateFINISHEDBrand
+>;
+export const CheckoutSessionStateFINISHED: CheckoutSessionStateFINISHEDC = t.brand(
+  t.intersection([CheckoutSessionState, t.literal('FINISHED')]),
+  (
+    x,
+  ): x is t.Branded<
+    CheckoutSessionState & 'FINISHED',
+    CheckoutSessionStateFINISHEDBrand
+  > => true,
+  'CheckoutSessionStateFINISHED',
+);
+export interface CheckoutSessionStateFINISHEDBrand {
+  readonly CheckoutSessionStateFINISHED: unique symbol;
+}
+/** require('io-ts-validator').validator(CheckoutSessionStateFINISHED).decodeSync(defaultCheckoutSessionStateFINISHED) // => defaultCheckoutSessionStateFINISHED */
+export const defaultCheckoutSessionStateFINISHED: CheckoutSessionStateFINISHED = ('FINISHED' as unknown) as CheckoutSessionStateFINISHED;
+
+// CheckoutSessionStateREFUNDED
+// The purpose of this remains a mystery
+export type CheckoutSessionStateREFUNDED = t.Branded<
+  CheckoutSessionState & 'REFUNDED',
+  CheckoutSessionStateREFUNDEDBrand
+>;
+export type CheckoutSessionStateREFUNDEDC = t.BrandC<
+  t.IntersectionC<[typeof CheckoutSessionState, t.LiteralC<'REFUNDED'>]>,
+  CheckoutSessionStateREFUNDEDBrand
+>;
+export const CheckoutSessionStateREFUNDED: CheckoutSessionStateREFUNDEDC = t.brand(
+  t.intersection([CheckoutSessionState, t.literal('REFUNDED')]),
+  (
+    x,
+  ): x is t.Branded<
+    CheckoutSessionState & 'REFUNDED',
+    CheckoutSessionStateREFUNDEDBrand
+  > => true,
+  'CheckoutSessionStateREFUNDED',
+);
+export interface CheckoutSessionStateREFUNDEDBrand {
+  readonly CheckoutSessionStateREFUNDED: unique symbol;
+}
+/** require('io-ts-validator').validator(CheckoutSessionStateREFUNDED).decodeSync(defaultCheckoutSessionStateREFUNDED) // => defaultCheckoutSessionStateREFUNDED */
+export const defaultCheckoutSessionStateREFUNDED: CheckoutSessionStateREFUNDED = ('REFUNDED' as unknown) as CheckoutSessionStateREFUNDED;
+
 // State
 // The default export. More information at the top.
 export type State = t.Branded<unknown, StateBrand>;
