@@ -246,6 +246,23 @@
     "verificationStateABANDONED": {
       "default": "ABANDONED",
       "allOf": [{ "$ref": "#/definitions/verificationState" }, { "const": "ABANDONED" }]
+    },
+    "checkoutSessionState": {
+      "description": "The life-cycle state of a verification",
+      "type": "string",
+      "enum": ["PENDING", "FINISHED", "REFUNDED"]
+    },
+    "checkoutSessionStatePENDING": {
+      "default": "PENDING",
+      "allOf": [{ "$ref": "#/definitions/checkoutSessionState" }, { "const": "PENDING" }]
+    },
+    "checkoutSessionStateFINISHED": {
+      "default": "FINISHED",
+      "allOf": [{ "$ref": "#/definitions/checkoutSessionState" }, { "const": "FINISHED" }]
+    },
+    "checkoutSessionStateREFUNDED": {
+      "default": "REFUNDED",
+      "allOf": [{ "$ref": "#/definitions/checkoutSessionState" }, { "const": "REFUNDED" }]
     }
   }
 }

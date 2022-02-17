@@ -1,0 +1,25 @@
+{
+  "$id": "https://schemas.maas.global/maas-backend/checkouts/session-retrieve/request.json",
+  "additionalProperties": false,
+  "description": "MaaS customer benefits initiate",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+    },
+    "headers": {
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "checkoutSessionId": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["checkoutSessionId"]
+    }
+  },
+  "required": ["identityId", "payload", "headers"]
+}

@@ -34,6 +34,7 @@ export const schemaId =
 export type Response = t.Branded<
   {
     checkoutUrl?: Units_.Url;
+    checkoutSessionId?: Units_.Uuid;
   } & {
     checkoutUrl: Defined;
   },
@@ -44,6 +45,7 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         checkoutUrl: typeof Units_.Url;
+        checkoutSessionId: typeof Units_.Uuid;
       }>,
       t.TypeC<{
         checkoutUrl: typeof Defined;
@@ -56,6 +58,7 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       checkoutUrl: Units_.Url,
+      checkoutSessionId: Units_.Uuid,
     }),
     t.type({
       checkoutUrl: Defined,
@@ -66,6 +69,7 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       checkoutUrl?: Units_.Url;
+      checkoutSessionId?: Units_.Uuid;
     } & {
       checkoutUrl: Defined;
     },

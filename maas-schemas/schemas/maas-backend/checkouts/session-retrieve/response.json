@@ -1,0 +1,38 @@
+{
+  "$id": "https://schemas.maas.global/maas-backend/checkouts/session-retrieve/request.json",
+  "description": "MaaS customer benefits initiate",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
+    },
+    "state": {
+      "$ref": "https://schemas.maas.global/core/components/state.json#/definitions/checkoutSessionState"
+    },
+    "identityId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+    },
+    "checkoutProviderId": {
+      "$ref": "https://schemas.maas.global/core/components/benefit-provider.json#/definitions/benefitsProviderId"
+    },
+    "amount": {
+      "description": "Amount of money to charge",
+      "type": "number",
+      "minimum": 0
+    },
+    "currency": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
+    },
+    "productType": {
+      "description": "Product identifier",
+      "type": "string",
+      "enum": ["product", "subscription", "package"]
+    },
+    "productId": {
+      "description": "Product identifier",
+      "type": "string"
+    }
+  },
+  "required": ["id", "state", "identityId", "checkoutProviderId", "amount", "currency", "productType", "productId"],
+  "additionalProperties": false
+}
