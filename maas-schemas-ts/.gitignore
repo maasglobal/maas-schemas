@@ -3,3 +3,4 @@ lib
 tmp
 *.swp
 src/**/*.doctest.ts
+coverage
