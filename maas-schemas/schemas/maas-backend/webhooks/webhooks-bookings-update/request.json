@@ -4,9 +4,7 @@
   "type": "object",
   "properties": {
     "agencyId": {
-      "type": "string",
-      "minLength": 3,
-      "maxLength": 256
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
     },
     "payload": {
       "$ref": "https://schemas.maas.global/tsp/webhooks-bookings-update/remote-request.json"

@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Common_ from '../../../core/components/common';
 import * as RemoteRequest_ from '../../../tsp/webhooks-bookings-update/remote-request';
 
 export type Defined = {} | null;
@@ -33,7 +34,7 @@ export const schemaId =
 // The default export. More information at the top.
 export type Request = t.Branded<
   {
-    agencyId?: string;
+    agencyId?: Common_.AgencyId;
     payload?: RemoteRequest_.RemoteRequest;
   } & {
     agencyId: Defined;
@@ -45,7 +46,7 @@ export type RequestC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        agencyId: t.StringC;
+        agencyId: typeof Common_.AgencyId;
         payload: typeof RemoteRequest_.RemoteRequest;
       }>,
       t.TypeC<{
@@ -59,7 +60,7 @@ export type RequestC = t.BrandC<
 export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
-      agencyId: t.string,
+      agencyId: Common_.AgencyId,
       payload: RemoteRequest_.RemoteRequest,
     }),
     t.type({
@@ -71,7 +72,7 @@ export const Request: RequestC = t.brand(
     x,
   ): x is t.Branded<
     {
-      agencyId?: string;
+      agencyId?: Common_.AgencyId;
       payload?: RemoteRequest_.RemoteRequest;
     } & {
       agencyId: Defined;
