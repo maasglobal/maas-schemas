@@ -16,7 +16,7 @@
     "prettify": "yarn eslint --fix||true",
     "lint": "yarn eslint",
     "clean-types": "rm -rf src/_types",
-    "clean-interfaces": "find src -mindepth 1 -maxdepth 1 -not -name tsconfig.json -not -name _types -not -name _utils|xargs rm -rf",
+    "clean-interfaces": "find src -mindepth 1 -maxdepth 1 -not -name tsconfig.json -not -name _types -not -name _utils -not -name _private|xargs rm -rf",
     "clean-src": "yarn clean-types && yarn clean-interfaces",
     "clean": "rm -rf lib",
     "run-converter": "yarn iotsfjs --inputFile '../maas-schemas/schemas/**/*.json' --outputDir ./src/_types --base https://schemas.maas.global/ --maskNull",

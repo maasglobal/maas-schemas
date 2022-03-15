@@ -13,5 +13,5 @@ module.exports = {
   },
   roots: ['.'],
   collectCoverage: true,
-  collectCoverageFrom: ['src/_utils/**/*.ts'],
+  collectCoverageFrom: ['src/_utils/**/*.ts', 'src/_private/**/*.ts'],
 };

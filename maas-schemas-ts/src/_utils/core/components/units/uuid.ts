@@ -1,19 +1,7 @@
 import * as P from 'maasglobal-prelude-ts';
 
+import * as Tuple_ from '../../../../_private/tuple';
 import { Uuid } from '../../../../_types/core/components/units';
-
-// unsafe tuple contructor, throws on incorrect input length
-function unsafeTuple(n: 2): <A>(as: Array<A>) => [A, A];
-function unsafeTuple(n: 5): <A>(as: Array<A>) => [A, A, A, A, A];
-function unsafeTuple(n: number): <A>(as: Array<A>) => Array<A> {
-  return (as) => {
-    if (as.length !== n) {
-      // eslint-disable-next-line fp/no-throw
-      throw new Error(`Can not construct ${n}-tuple of array with length ${as.length}`);
-    }
-    return as;
-  };
-}
 
 export type Separator = '-';
 export const separator: Separator = '-';
@@ -21,7 +9,16 @@ export const separator: Separator = '-';
 export type Group = string;
 export type Groups = [Group, Group, Group, Group, Group];
 export const groups = (uuid: Uuid): Groups =>
-  P.pipe(uuid.split(separator), unsafeTuple(5));
+  P.pipe(
+    uuid.split(separator),
+    Tuple_.fromArray(5),
+    P.Option_.getOrElse(
+      (): Groups => {
+        // eslint-disable-next-line fp/no-throw
+        throw new Error('Uuid has more than five groups');
+      },
+    ),
+  );
 
 export type Field = string;
 export type Fields = {
@@ -40,7 +37,11 @@ export const fields = (uuid: Uuid): Fields =>
         clockSeq.split(P.string_.empty),
         P.Array_.chunksOf(2),
         P.Array_.map((chunk) => chunk.join(P.string_.empty)),
-        unsafeTuple(2),
+        Tuple_.fromArray(2),
+        P.Option_.getOrElse((): [string, string] => {
+          // eslint-disable-next-line fp/no-throw
+          throw new Error('Uuid ClockSeq hi/lo not 2x2 hex long');
+        }),
         ([clockSeqHiAndReserved, clockSeqLow]) => ({
           timeLow,
           timeMid,
