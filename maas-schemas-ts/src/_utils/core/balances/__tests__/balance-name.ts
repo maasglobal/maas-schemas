@@ -3,10 +3,16 @@ import * as P from 'maasglobal-prelude-ts';
 import * as t from 'io-ts';
 import { validator } from 'io-ts-validator';
 
-import { defaultMetaCurrencyWMP } from '../../../../_types/core/components/common';
+import {
+  MetaCurrency,
+  defaultMetaCurrencyWMP,
+} from '../../../../_types/core/components/common';
 import { TokenId } from '../../../../_types/core/components/fare';
 import { Fare } from '../../../../_types/core/components/fare';
-import { defaultCurrencyEUR as EUR } from '../../../../_types/core/components/units';
+import {
+  Currency,
+  defaultCurrencyEUR as EUR,
+} from '../../../../_types/core/components/units';
 
 import { BalanceName } from '../../../../_types/core/balances';
 import {
@@ -109,6 +115,14 @@ describe('balance-name', () => {
 
       expect(converted).toStrictEqual(expected);
     });
+    it('should crash when token does not have tokenId', () => {
+      const broken = validator(Fare, 'strict').decodeSync({
+        type: 'charge',
+        amount: 12,
+        currency: 'TOKEN',
+      });
+      expect(() => fromFare(broken)).toThrow();
+    });
   });
 
   describe('Ord', () => {
@@ -133,6 +147,20 @@ describe('balance-name', () => {
         'WMP',
       ]);
       expect(P.pipe(arbitraryOrder, P.Array_.sort(Ord))).toStrictEqual(expectedOrder);
+    });
+    it('should support comparing meta currency based balance names', () => {
+      // currently WMP is the only meta currency supported in balance names
+      // this tests the currently hypothetical case of several meta currencies
+      const bowser: BalanceName = 'BOWSER' as any;
+      const goomba: BalanceName = 'GOOMBA' as any;
+      expect(() => validator(Currency).decodeSync(bowser)).toThrow();
+      expect(() => validator(TokenId).decodeSync(bowser)).toThrow();
+      expect(() => validator(Currency).decodeSync(goomba)).toThrow();
+      expect(() => validator(TokenId).decodeSync(goomba)).toThrow();
+      expect(Ord.compare(bowser, bowser)).toEqual(0);
+      expect(Ord.compare(bowser, goomba)).toEqual(-1);
+      expect(Ord.compare(goomba, goomba)).toEqual(0);
+      expect(Ord.compare(goomba, bowser)).toEqual(1);
     });
   });
 });

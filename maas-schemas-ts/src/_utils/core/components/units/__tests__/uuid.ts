@@ -26,6 +26,14 @@ describe('Uuid_', () => {
         node: '9c12ff9bb3ec',
       });
     });
+    it('should crash on invalid uuid', () => {
+      expect(() =>
+        Uuid_.fields('c16515ca-ae80-4b0a-bc35-9c12ff9bb3ec-cafe' as Uuid),
+      ).toThrow();
+      expect(() =>
+        Uuid_.fields('c16515ca-ae80-4b0a-bc35cafe-9c12ff9bb3ec' as Uuid),
+      ).toThrow();
+    });
   });
   describe('version function', () => {
     it('should return uuid version', () => {

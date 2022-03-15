@@ -12,4 +12,6 @@ module.exports = {
     '^.+\\.(t|j)sx?$': 'ts-jest',
   },
   roots: ['.'],
+  collectCoverage: true,
+  collectCoverageFrom: ['src/_utils/**/*.ts', 'src/_private/**/*.ts'],
 };
