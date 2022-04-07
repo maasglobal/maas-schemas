@@ -169,6 +169,8 @@ export interface PhoneBrand {
 export const examplesPhone: NonEmptyArray<Phone> = ([
   '+358401234567',
 ] as unknown) as NonEmptyArray<Phone>;
+// NEGATIVE Test Case: phone number without plus
+/** require('io-ts-validator').validator(Phone).decodeEither("358401234567")._tag // => 'Left' */
 
 // RawPhone
 // Slightly looser definition of phone number

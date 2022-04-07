@@ -46,6 +46,10 @@ export interface ErrorNumberBrand {
 export const examplesErrorNumber: NonEmptyArray<ErrorNumber> = ([
   500,
 ] as unknown) as NonEmptyArray<ErrorNumber>;
+/** require('io-ts-validator').validator(ErrorNumber).decodeSync(minimumErrorNumber) // => minimumErrorNumber */
+export const minimumErrorNumber: ErrorNumber = (0 as unknown) as ErrorNumber;
+/** require('io-ts-validator').validator(ErrorNumber).decodeSync(maximumErrorNumber) // => maximumErrorNumber */
+export const maximumErrorNumber: ErrorNumber = (999 as unknown) as ErrorNumber;
 
 // ErrorIdentifier
 // An internal error code, used for reference

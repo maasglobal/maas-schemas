@@ -47,6 +47,8 @@ export const Ref: RefC = t.brand(
 export interface RefBrand {
   readonly Ref: unique symbol;
 }
+/** require('io-ts-validator').validator(Ref).decodeSync(minimumRef) // => minimumRef */
+export const minimumRef: Ref = (0 as unknown) as Ref;
 
 // WithConfigurator
 // Works with configurator

@@ -348,6 +348,10 @@ export const Time: TimeC = t.brand(
 export interface TimeBrand {
   readonly Time: unique symbol;
 }
+/** require('io-ts-validator').validator(Time).decodeSync(minimumTime) // => minimumTime */
+export const minimumTime: Time = (126230400000 as unknown) as Time;
+/** require('io-ts-validator').validator(Time).decodeSync(maximumTime) // => maximumTime */
+export const maximumTime: Time = (9007199254740991 as unknown) as Time;
 
 // Duration
 // duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time
@@ -364,6 +368,10 @@ export const Duration: DurationC = t.brand(
 export interface DurationBrand {
   readonly Duration: unique symbol;
 }
+/** require('io-ts-validator').validator(Duration).decodeSync(minimumDuration) // => minimumDuration */
+export const minimumDuration: Duration = (-9007199254740991 as unknown) as Duration;
+/** require('io-ts-validator').validator(Duration).decodeSync(maximumDuration) // => maximumDuration */
+export const maximumDuration: Duration = (9007199254740991 as unknown) as Duration;
 
 // IsoDate
 // A date in the form YYYY-MM-DD without a time component

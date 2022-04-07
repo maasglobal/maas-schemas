@@ -40,6 +40,10 @@ export const Latitude: LatitudeC = t.brand(
 export interface LatitudeBrand {
   readonly Latitude: unique symbol;
 }
+/** require('io-ts-validator').validator(Latitude).decodeSync(minimumLatitude) // => minimumLatitude */
+export const minimumLatitude: Latitude = (-90 as unknown) as Latitude;
+/** require('io-ts-validator').validator(Latitude).decodeSync(maximumLatitude) // => maximumLatitude */
+export const maximumLatitude: Latitude = (90 as unknown) as Latitude;
 
 // Longitude
 // Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
@@ -54,6 +58,10 @@ export const Longitude: LongitudeC = t.brand(
 export interface LongitudeBrand {
   readonly Longitude: unique symbol;
 }
+/** require('io-ts-validator').validator(Longitude).decodeSync(minimumLongitude) // => minimumLongitude */
+export const minimumLongitude: Longitude = (-180 as unknown) as Longitude;
+/** require('io-ts-validator').validator(Longitude).decodeSync(maximumLongitude) // => maximumLongitude */
+export const maximumLongitude: Longitude = (180 as unknown) as Longitude;
 
 // RelaxedLatitude
 // No-numeric precision version of MaaS core latitude
@@ -68,6 +76,10 @@ export const RelaxedLatitude: RelaxedLatitudeC = t.brand(
 export interface RelaxedLatitudeBrand {
   readonly RelaxedLatitude: unique symbol;
 }
+/** require('io-ts-validator').validator(RelaxedLatitude).decodeSync(minimumRelaxedLatitude) // => minimumRelaxedLatitude */
+export const minimumRelaxedLatitude: RelaxedLatitude = (-90 as unknown) as RelaxedLatitude;
+/** require('io-ts-validator').validator(RelaxedLatitude).decodeSync(maximumRelaxedLatitude) // => maximumRelaxedLatitude */
+export const maximumRelaxedLatitude: RelaxedLatitude = (90 as unknown) as RelaxedLatitude;
 
 // RelaxedLongitude
 // No-numeric precision version of MaaS core longitude
@@ -82,6 +94,10 @@ export const RelaxedLongitude: RelaxedLongitudeC = t.brand(
 export interface RelaxedLongitudeBrand {
   readonly RelaxedLongitude: unique symbol;
 }
+/** require('io-ts-validator').validator(RelaxedLongitude).decodeSync(minimumRelaxedLongitude) // => minimumRelaxedLongitude */
+export const minimumRelaxedLongitude: RelaxedLongitude = (-180 as unknown) as RelaxedLongitude;
+/** require('io-ts-validator').validator(RelaxedLongitude).decodeSync(maximumRelaxedLongitude) // => maximumRelaxedLongitude */
+export const maximumRelaxedLongitude: RelaxedLongitude = (180 as unknown) as RelaxedLongitude;
 
 // Distance
 // Distance in meters
@@ -96,6 +112,10 @@ export const Distance: DistanceC = t.brand(
 export interface DistanceBrand {
   readonly Distance: unique symbol;
 }
+/** require('io-ts-validator').validator(Distance).decodeSync(minimumDistance) // => minimumDistance */
+export const minimumDistance: Distance = (0 as unknown) as Distance;
+/** require('io-ts-validator').validator(Distance).decodeSync(maximumDistance) // => maximumDistance */
+export const maximumDistance: Distance = (40075000 as unknown) as Distance;
 
 // Polyline
 // Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm
