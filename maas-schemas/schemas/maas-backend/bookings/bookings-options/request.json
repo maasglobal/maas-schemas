@@ -1,0 +1,89 @@
+{
+  "$id": "https://schemas.maas.global/maas-backend/bookings/bookings-options/request.json",
+  "description": "Request schema for bookings-options",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identityId", "payload", "headers"],
+  "properties": {
+    "identityId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "$ref": "#/definitions/payload"
+    },
+    "headers": {
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
+    }
+  },
+  "definitions": {
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "$ref": "https://schemas.maas.global/core/components/travel-mode.json"
+        },
+        "startTime": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+        },
+        "endTime": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+        },
+        "from": {
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/shortLocationString"
+        },
+        "to": {
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/shortLocationString"
+        },
+        "fromName": {
+          "description": "The human understandable name for 'from'",
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName" }]
+        },
+        "fromAddress": {
+          "description": "Componentized from address",
+          "allOf": [
+            { "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress" }
+          ]
+        },
+        "fromRadius": {
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance" }]
+        },
+        "toName": {
+          "description": "The human understandable name for 'to'",
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName" }]
+        },
+        "toAddress": {
+          "description": "Componentized to address",
+          "allOf": [
+            { "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress" }
+          ]
+        },
+        "toRadius": {
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance" }]
+        },
+        "bookingIdToExtend": {
+          "description": "bookingId to fetch possible extension options for",
+          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid" }]
+        },
+        "spaceDemand": {
+          "description": "Optional space demand. Example: 3 adults and 2 luggages.",
+          "$ref": "https://schemas.maas.global/core/components/spaceDemand.json#/definitions/spaceDemandString"
+        },
+        "agencyId": {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
+        },
+        "code": {
+          "description": "Optional device code to identify bookable options",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 255
+        }
+      },
+      "patternProperties": {
+        "^(optionalParameters).+": {
+          "type": ["string", "number", "boolean"]
+        }
+      }
+    }
+  }
+}
