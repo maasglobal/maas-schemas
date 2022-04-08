@@ -24,6 +24,8 @@ export const PointCost: PointCostC = t.brand(
 export interface PointCostBrand {
   readonly PointCost: unique symbol;
 }
+/** require('io-ts-validator').validator(PointCost).decodeSync(minimumPointCost) // => minimumPointCost */
+export const minimumPointCost: PointCost = (0 as unknown) as PointCost;
 
 export default PointCost;
 

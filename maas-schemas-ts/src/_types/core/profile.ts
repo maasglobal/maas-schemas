@@ -46,6 +46,8 @@ export const BookingOptionsReference: BookingOptionsReferenceC = t.brand(
 export interface BookingOptionsReferenceBrand {
   readonly BookingOptionsReference: unique symbol;
 }
+/** require('io-ts-validator').validator(BookingOptionsReference).decodeSync(minimumBookingOptionsReference) // => minimumBookingOptionsReference */
+export const minimumBookingOptionsReference: BookingOptionsReference = (0 as unknown) as BookingOptionsReference;
 
 // SubscriptionInstance
 // The purpose of this remains a mystery

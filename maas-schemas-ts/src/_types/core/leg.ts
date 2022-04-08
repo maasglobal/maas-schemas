@@ -304,6 +304,8 @@ export const ProductOption: ProductOptionC = t.brand(
 export interface ProductOptionBrand {
   readonly ProductOption: unique symbol;
 }
+/** require('io-ts-validator').validator(ProductOption).decodeSync(minimumProductOption) // => minimumProductOption */
+export const minimumProductOption: ProductOption = (0 as unknown) as ProductOption;
 
 // LegExtensions
 // MaaS specific leg extensions

@@ -48,6 +48,8 @@ export const examplesBalanceName: NonEmptyArray<BalanceName> = ([
   'fi-hsl-single-ab',
   'WMP',
 ] as unknown) as NonEmptyArray<BalanceName>;
+// NEGATIVE Test Case: non-unique token meta currency
+/** require('io-ts-validator').validator(BalanceName).decodeEither("TOKEN")._tag // => 'Left' */
 
 // Balances
 // The default export. More information at the top.

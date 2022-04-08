@@ -1,6 +1,6 @@
 {
   "name": "maas-schemas-ts",
-  "version": "15.16.1",
+  "version": "15.16.2",
   "description": "TypeScript types and io-ts validators for maas-schemas",
   "main": "index.js",
   "files": [
@@ -85,7 +85,7 @@
     "fp-ts": "^2.11.5",
     "glob": "^7.2.0",
     "io-ts": "^2.2.16",
-    "io-ts-from-json-schema": "^0.0.19",
+    "io-ts-from-json-schema": "^0.0.20",
     "io-ts-types": "^0.5.16",
     "io-ts-validator": "^0.0.6",
     "jest": "^26.5.2",
