@@ -1,0 +1,12 @@
+{
+  "$id": "https://schemas.maas.global/tsp/booking-upload/response.json",
+  "description": "Response schema for upload call to a TSP adapter, expecting a signed url",
+  "type": "object",
+  "properties": {
+    "uploadUrl": {
+      "type": "string"
+    }
+  },
+  "required": ["uploadUrl"],
+  "additionalProperties": false
+}

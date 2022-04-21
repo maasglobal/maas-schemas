@@ -1,0 +1,24 @@
+{
+  "$id": "https://schemas.maas.global/tsp/booking-upload/request.json",
+  "description": "Request schema for upload photos of a specific booking with a TSP ID",
+  "type": "object",
+  "properties": {
+    "tspId": {
+      "$ref": "https://schemas.maas.global/core/booking.json#/definitions/tspId"
+    },
+    "query": {
+      "type": "object",
+      "description": "Extra parameter for upload e.g purpose/type of photos like parking photos or damage reports"
+    }
+  },
+  "required": ["tspId"],
+  "additionalProperties": true,
+  "examples": [
+    {
+      "query": {
+        "type": "parking"
+      },
+      "tspId": "deadbeefdeadbeefdeadcafebeef"
+    }
+  ]
+}
