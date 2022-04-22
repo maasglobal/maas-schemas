@@ -1,0 +1,12 @@
+{
+  "$id": "https://schemas.maas.global/maas-backend/bookings/bookings-upload/response.json",
+  "description": "Response schema for bookings-upload",
+  "type": "object",
+  "properties": {
+    "uploadUrl": {
+      "type": "string"
+    }
+  },
+  "required": ["uploadUrl"],
+  "additionalProperties": false
+}

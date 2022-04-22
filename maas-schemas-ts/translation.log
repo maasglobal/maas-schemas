@@ -1573,6 +1573,12 @@ WARNING: missing $schema declaration
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/bookings/bookings-update/response.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/bookings/bookings-upload/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/bookings/bookings-upload/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/bookings/bookings-upload/response.json
+WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/bookings/v2/bookings-create/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/bookings/v2/bookings-create/response.json
