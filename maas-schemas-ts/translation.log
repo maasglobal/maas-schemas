@@ -78,6 +78,10 @@ INFO: missing description
   in ../maas-schemas/schemas/core/components/api-common.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/api-common.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/api-common.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/api-common.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/authorization.json
 INFO: primitive type "string" used outside top-level definitions
@@ -2380,6 +2384,28 @@ WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/regions/regions-options/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/regions/regions-options/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/routes/routes-query-v3/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/routes/routes-query-v3/request.json
+WARNING: unexpected key in a $ref object
+  in ../maas-schemas/schemas/maas-backend/routes/routes-query-v3/request.json
+WARNING: patternProperty support has limitations
+  in ../maas-schemas/schemas/maas-backend/routes/routes-query-v3/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/routes/routes-query-v3/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/maas-backend/routes/routes-query-v3/request.json
+WARNING: unexpected key in a $ref object
+  in ../maas-schemas/schemas/maas-backend/routes/routes-query-v3/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/routes/routes-query-v3/request.json
+INFO: missing description
+  in ../maas-schemas/schemas/maas-backend/routes/routes-query-v3/request.json
+INFO: missing description
+  in ../maas-schemas/schemas/maas-backend/routes/routes-query-v3/request.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/routes/routes-query-v3/response.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/routes/routes-query/request.json
 INFO: primitive type "string" used outside top-level definitions

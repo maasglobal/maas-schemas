@@ -5,14 +5,30 @@
     "headers": {
       "type": "object",
       "properties": {
-        "Accept": {
+        "accept": {
           "$ref": "#/definitions/acceptHeader"
         },
-        "X-Whim-User-Agent": {
+        "x-whim-user-agent": {
           "$ref": "#/definitions/userAgentHeader"
         }
       },
       "additionalProperties": true
+    },
+    "standardApiEndpointHeaders": {
+      "type": "object",
+      "properties": {
+        "accept": {
+          "$ref": "#/definitions/acceptHeader"
+        },
+        "x-whim-user-agent": {
+          "$ref": "#/definitions/userAgentHeader"
+        },
+        "x-whim-app-instance-id": {
+          "$ref": "#/definitions/appInstanceIdHeader"
+        }
+      },
+      "additionalProperties": true,
+      "required": ["accept", "x-whim-user-agent", "x-whim-app-instance-id"]
     },
     "acceptHeader": {
       "description": "SemVer versioning schemas for versioning our resources",
@@ -20,6 +36,10 @@
       "pattern": "\\bapplication/json[;,]\\s*version=((0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?(?:\\+[\\da-z\\-]+(?:\\.[\\da-z\\-]+)*)?)\\b"
     },
     "userAgentHeader": {
+      "type": "string",
+      "minLength": 1
+    },
+    "appInstanceIdHeader": {
       "type": "string",
       "minLength": 1
     }
