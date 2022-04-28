@@ -1,0 +1,19 @@
+{
+  "$id": "https://schemas.maas.global/maas-backend/routes/routes-query-v3/response.json",
+  "description": "MaaS.fi routes-query response schema",
+  "type": "object",
+  "properties": {
+    "plan": {
+      "$ref": "https://schemas.maas.global/core/plan.json"
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.maas.global/core/error.json#/definitions/reason"
+      }
+    },
+    "debug": { "type": "object" }
+  },
+  "required": ["plan"],
+  "additionalProperties": false
+}
