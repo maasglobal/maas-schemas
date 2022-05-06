@@ -31,6 +31,17 @@ export class DefinedType extends t.Type<Defined> {
 export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
+export interface NullBrand {
+  readonly Null: unique symbol;
+}
+export type NullC = t.BrandC<t.UnknownC, NullBrand>;
+export const Null: NullC = t.brand(
+  t.unknown,
+  (n): n is t.Branded<unknown, NullBrand> => n === null,
+  'Null',
+);
+export type Null = t.TypeOf<typeof Null>;
+
 export const schemaId =
   'https://schemas.maas.global/maas-backend/routes/routes-query-v3/request.json';
 
@@ -357,11 +368,78 @@ export interface QueryStringParametersBrand {
 
 // Request
 // The default export. More information at the top.
-export type Request = t.Branded<unknown, RequestBrand>;
-export type RequestC = t.BrandC<t.UnknownC, RequestBrand>;
+export type Request = t.Branded<
+  ({
+    requestContext?: ApiCommon_.ApiGatewayAuthorizedRequestContext;
+    headers?: Headers;
+    pathParameters?: Null;
+    queryStringParameters?: QueryStringParameters;
+    body?: Null;
+  } & Record<string, unknown>) & {
+    requestContext: Defined;
+    headers: Defined;
+    queryStringParameters: Defined;
+  },
+  RequestBrand
+>;
+export type RequestC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            requestContext: typeof ApiCommon_.ApiGatewayAuthorizedRequestContext;
+            headers: typeof Headers;
+            pathParameters: typeof Null;
+            queryStringParameters: typeof QueryStringParameters;
+            body: typeof Null;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
+      t.TypeC<{
+        requestContext: typeof Defined;
+        headers: typeof Defined;
+        queryStringParameters: typeof Defined;
+      }>,
+    ]
+  >,
+  RequestBrand
+>;
 export const Request: RequestC = t.brand(
-  t.unknown,
-  (x): x is t.Branded<unknown, RequestBrand> => true,
+  t.intersection([
+    t.intersection([
+      t.partial({
+        requestContext: ApiCommon_.ApiGatewayAuthorizedRequestContext,
+        headers: Headers,
+        pathParameters: Null,
+        queryStringParameters: QueryStringParameters,
+        body: Null,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
+    t.type({
+      requestContext: Defined,
+      headers: Defined,
+      queryStringParameters: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    ({
+      requestContext?: ApiCommon_.ApiGatewayAuthorizedRequestContext;
+      headers?: Headers;
+      pathParameters?: Null;
+      queryStringParameters?: QueryStringParameters;
+      body?: Null;
+    } & Record<string, unknown>) & {
+      requestContext: Defined;
+      headers: Defined;
+      queryStringParameters: Defined;
+    },
+    RequestBrand
+  > => true,
   'Request',
 );
 export interface RequestBrand {

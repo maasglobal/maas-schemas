@@ -42,6 +42,23 @@
     "appInstanceIdHeader": {
       "type": "string",
       "minLength": 1
+    },
+    "apiGatewayAuthorizedRequestContext": {
+      "type": "object",
+      "properties": {
+        "authorizer": {
+          "type": "object",
+          "properties": {
+            "principalId": {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+            }
+          },
+          "additionalProperties": true,
+          "required": ["principalId"]
+        }
+      },
+      "additionalProperties": true,
+      "required": ["authorizer"]
     }
   }
 }
