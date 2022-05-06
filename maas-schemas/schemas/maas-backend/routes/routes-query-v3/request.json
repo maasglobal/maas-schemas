@@ -78,5 +78,25 @@
       },
       "additionalProperties": false
     }
-  }
+  },
+  "type": "object",
+  "properties": {
+    "requestContext": {
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/apiGatewayAuthorizedRequestContext"
+    },
+    "headers": {
+      "$ref": "#/definitions/headers"
+    },
+    "pathParameters": {
+      "type": "null"
+    },
+    "queryStringParameters": {
+      "$ref": "#/definitions/queryStringParameters"
+    },
+    "body": {
+      "type": "null"
+    }
+  },
+  "additionalProperties": true,
+  "required": ["requestContext", "headers", "queryStringParameters"]
 }
