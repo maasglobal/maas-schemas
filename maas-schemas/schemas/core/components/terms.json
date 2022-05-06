@@ -9,6 +9,9 @@
       "minLength": 0,
       "maxLength": 64
     },
+    "display": {
+      "$ref": "#/definitions/display"
+    },
     "seatings": {
       "description": "In 1 booking for a journey, it can be valid for many of the journey's leg. Each item of seating is a seat on 1 specific route",
       "type": "array",
@@ -160,6 +163,17 @@
   },
   "additionalProperties": true,
   "definitions": {
+    "display": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
     "seat": {
       "description": "Ticket's seat information for long distance trains, coaches or flights",
       "type": "object",
@@ -203,7 +217,11 @@
             "endTime": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }
           },
           "required": ["endTime"]
-        }
+        },
+        "desc": {
+          "type": "string"
+        },
+        "expiration": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }
       },
       "required": ["cancellable", "refunded"]
     },
