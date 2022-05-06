@@ -82,6 +82,8 @@ INFO: missing description
   in ../maas-schemas/schemas/core/components/api-common.json
 INFO: missing description
   in ../maas-schemas/schemas/core/components/api-common.json
+INFO: missing description
+  in ../maas-schemas/schemas/core/components/api-common.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/authorization.json
 INFO: primitive type "string" used outside top-level definitions

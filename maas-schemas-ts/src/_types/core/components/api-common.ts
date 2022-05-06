@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Units_ from './units';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -188,6 +189,94 @@ export const StandardApiEndpointHeaders: StandardApiEndpointHeadersC = t.brand(
 );
 export interface StandardApiEndpointHeadersBrand {
   readonly StandardApiEndpointHeaders: unique symbol;
+}
+
+// ApiGatewayAuthorizedRequestContext
+// The purpose of this remains a mystery
+export type ApiGatewayAuthorizedRequestContext = t.Branded<
+  ({
+    authorizer?: ({
+      principalId?: Units_.IdentityId;
+    } & Record<string, unknown>) & {
+      principalId: Defined;
+    };
+  } & Record<string, unknown>) & {
+    authorizer: Defined;
+  },
+  ApiGatewayAuthorizedRequestContextBrand
+>;
+export type ApiGatewayAuthorizedRequestContextC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            authorizer: t.IntersectionC<
+              [
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      principalId: typeof Units_.IdentityId;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
+                t.TypeC<{
+                  principalId: typeof Defined;
+                }>,
+              ]
+            >;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
+      t.TypeC<{
+        authorizer: typeof Defined;
+      }>,
+    ]
+  >,
+  ApiGatewayAuthorizedRequestContextBrand
+>;
+export const ApiGatewayAuthorizedRequestContext: ApiGatewayAuthorizedRequestContextC = t.brand(
+  t.intersection([
+    t.intersection([
+      t.partial({
+        authorizer: t.intersection([
+          t.intersection([
+            t.partial({
+              principalId: Units_.IdentityId,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+          t.type({
+            principalId: Defined,
+          }),
+        ]),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
+    t.type({
+      authorizer: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    ({
+      authorizer?: ({
+        principalId?: Units_.IdentityId;
+      } & Record<string, unknown>) & {
+        principalId: Defined;
+      };
+    } & Record<string, unknown>) & {
+      authorizer: Defined;
+    },
+    ApiGatewayAuthorizedRequestContextBrand
+  > => true,
+  'ApiGatewayAuthorizedRequestContext',
+);
+export interface ApiGatewayAuthorizedRequestContextBrand {
+  readonly ApiGatewayAuthorizedRequestContext: unique symbol;
 }
 
 // ApiCommon
