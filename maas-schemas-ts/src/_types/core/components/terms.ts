@@ -31,6 +31,42 @@ export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/terms.json';
 
+// Display
+// The purpose of this remains a mystery
+export type Display = t.Branded<
+  {
+    name?: string;
+    description?: string;
+  },
+  DisplayBrand
+>;
+export type DisplayC = t.BrandC<
+  t.PartialC<{
+    name: t.StringC;
+    description: t.StringC;
+  }>,
+  DisplayBrand
+>;
+export const Display: DisplayC = t.brand(
+  t.partial({
+    name: t.string,
+    description: t.string,
+  }),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      name?: string;
+      description?: string;
+    },
+    DisplayBrand
+  > => true,
+  'Display',
+);
+export interface DisplayBrand {
+  readonly Display: unique symbol;
+}
+
 // Seat
 // Ticket's seat information for long distance trains, coaches or flights
 export type Seat = t.Branded<
@@ -312,6 +348,7 @@ export interface SurchargeBrand {
 export type Terms = t.Branded<
   {
     type?: string;
+    display?: Display;
     seatings?: Array<Seat>;
     validity?: ({
       startTime?: Units_.Time;
@@ -374,6 +411,7 @@ export type TermsC = t.BrandC<
     [
       t.PartialC<{
         type: t.StringC;
+        display: typeof Display;
         seatings: t.ArrayC<typeof Seat>;
         validity: t.IntersectionC<
           [
@@ -488,6 +526,7 @@ export const Terms: TermsC = t.brand(
   t.intersection([
     t.partial({
       type: t.string,
+      display: Display,
       seatings: t.array(Seat),
       validity: t.intersection([
         t.intersection([
@@ -578,6 +617,7 @@ export const Terms: TermsC = t.brand(
   ): x is t.Branded<
     {
       type?: string;
+      display?: Display;
       seatings?: Array<Seat>;
       validity?: ({
         startTime?: Units_.Time;
