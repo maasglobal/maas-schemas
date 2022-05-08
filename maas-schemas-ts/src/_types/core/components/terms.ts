@@ -37,28 +37,36 @@ export type Display = t.Branded<
   {
     name?: string;
     description?: string;
-  },
+  } & Record<string, unknown>,
   DisplayBrand
 >;
 export type DisplayC = t.BrandC<
-  t.PartialC<{
-    name: t.StringC;
-    description: t.StringC;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        name: t.StringC;
+        description: t.StringC;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   DisplayBrand
 >;
 export const Display: DisplayC = t.brand(
-  t.partial({
-    name: t.string,
-    description: t.string,
-  }),
+  t.intersection([
+    t.partial({
+      name: t.string,
+      description: t.string,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       name?: string;
       description?: string;
-    },
+    } & Record<string, unknown>,
     DisplayBrand
   > => true,
   'Display',
