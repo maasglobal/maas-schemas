@@ -1,0 +1,32 @@
+{
+  "$id": "https://schemas.maas.global/maas-backend/tsp-auth/set/request.json",
+  "description": "Request schema for tsp-auth set",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+    },
+    "customerId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+    },
+    "agencyId": {
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
+    },
+    "headers": {
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "validTo": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+        },
+        "authData": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "required": ["identityId", "customerId", "agencyId", "payload"],
+  "additionalProperties": false
+}

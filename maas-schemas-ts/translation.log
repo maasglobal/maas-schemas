@@ -2687,9 +2687,13 @@ WARNING: missing $schema declaration
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/tracking/tracking-update-user-location/response.json
 WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/tsp-auth/expire/request.json
+WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/tsp-auth/init/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/tsp-auth/init/response.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/maas-backend/tsp-auth/set/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/maas-backend/tsp-auth/validate/request.json
 WARNING: missing $schema declaration
