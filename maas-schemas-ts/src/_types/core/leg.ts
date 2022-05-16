@@ -11,8 +11,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as State_ from './components/state';
 import * as Place_ from './components/place';
 import * as Units_ from './components/units';
-import * as t from 'io-ts';
 import * as TravelMode_ from './components/travel-mode';
+import * as t from 'io-ts';
 import * as Stop_ from './stop';
 import * as UnitsGeo_ from './components/units-geo';
 import * as Common_ from './components/common';
@@ -102,36 +102,11 @@ export interface EndTimeBrand {
 
 // Mode
 // The purpose of this remains a mystery
-export type Mode = t.Branded<
-  | TravelMode_.PersonalMode
-  | TravelMode_.PublicTransitMode
-  | TravelMode_.PrivateTransitMode,
-  ModeBrand
->;
-export type ModeC = t.BrandC<
-  t.UnionC<
-    [
-      typeof TravelMode_.PersonalMode,
-      typeof TravelMode_.PublicTransitMode,
-      typeof TravelMode_.PrivateTransitMode,
-    ]
-  >,
-  ModeBrand
->;
+export type Mode = t.Branded<TravelMode_.TravelMode, ModeBrand>;
+export type ModeC = t.BrandC<typeof TravelMode_.TravelMode, ModeBrand>;
 export const Mode: ModeC = t.brand(
-  t.union([
-    TravelMode_.PersonalMode,
-    TravelMode_.PublicTransitMode,
-    TravelMode_.PrivateTransitMode,
-  ]),
-  (
-    x,
-  ): x is t.Branded<
-    | TravelMode_.PersonalMode
-    | TravelMode_.PublicTransitMode
-    | TravelMode_.PrivateTransitMode,
-    ModeBrand
-  > => true,
+  TravelMode_.TravelMode,
+  (x): x is t.Branded<TravelMode_.TravelMode, ModeBrand> => true,
   'Mode',
 );
 export interface ModeBrand {
