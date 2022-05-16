@@ -19,17 +19,7 @@
       "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
     },
     "mode": {
-      "anyOf": [
-        {
-          "$ref": "https://schemas.maas.global/core/components/travel-mode.json#/definitions/personalMode"
-        },
-        {
-          "$ref": "https://schemas.maas.global/core/components/travel-mode.json#/definitions/publicTransitMode"
-        },
-        {
-          "$ref": "https://schemas.maas.global/core/components/travel-mode.json#/definitions/privateTransitMode"
-        }
-      ]
+      "$ref": "https://schemas.maas.global/core/components/travel-mode.json"
     },
     "stops": {
       "type": "array",
