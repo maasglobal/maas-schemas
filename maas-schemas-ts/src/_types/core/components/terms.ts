@@ -137,6 +137,8 @@ export type Cancellation = t.Branded<
     } & Record<string, unknown>) & {
       endTime: Defined;
     };
+    desc?: string;
+    expiration?: Units_.Time;
   } & Record<string, unknown>) & {
     cancellable: Defined;
     refunded: Defined;
@@ -169,6 +171,8 @@ export type CancellationC = t.BrandC<
                 }>,
               ]
             >;
+            desc: t.StringC;
+            expiration: typeof Units_.Time;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
         ]
@@ -201,6 +205,8 @@ export const Cancellation: CancellationC = t.brand(
             endTime: Defined,
           }),
         ]),
+        desc: t.string,
+        expiration: Units_.Time,
       }),
       t.record(t.string, t.unknown),
     ]),
@@ -223,6 +229,8 @@ export const Cancellation: CancellationC = t.brand(
       } & Record<string, unknown>) & {
         endTime: Defined;
       };
+      desc?: string;
+      expiration?: Units_.Time;
     } & Record<string, unknown>) & {
       cancellable: Defined;
       refunded: Defined;
