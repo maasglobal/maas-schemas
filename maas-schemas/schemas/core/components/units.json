@@ -54,7 +54,7 @@
     "currency": {
       "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
       "type": "string",
-      "enum": ["EUR", "GBP", "SGD", "USD", "JPY", "CHF"]
+      "enum": ["EUR", "GBP", "SGD", "JPY", "CHF"]
     },
     "currencyOrToken": {
       "anyOf": [
@@ -77,10 +77,6 @@
     "currencySGD": {
       "default": "SGD",
       "allOf": [{ "$ref": "#/definitions/currency" }, { "const": "SGD" }]
-    },
-    "currencyUSD": {
-      "default": "USD",
-      "allOf": [{ "$ref": "#/definitions/currency" }, { "const": "USD" }]
     },
     "currencyJPY": {
       "default": "JPY",
