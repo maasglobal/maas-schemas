@@ -164,7 +164,7 @@ export const examplesIdentityId: NonEmptyArray<IdentityId> = ([
 // Currency
 // Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1
 export type Currency = t.Branded<
-  string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY' | 'CHF'),
+  string & ('EUR' | 'GBP' | 'SGD' | 'JPY' | 'CHF'),
   CurrencyBrand
 >;
 export type CurrencyC = t.BrandC<
@@ -176,7 +176,6 @@ export type CurrencyC = t.BrandC<
           t.LiteralC<'EUR'>,
           t.LiteralC<'GBP'>,
           t.LiteralC<'SGD'>,
-          t.LiteralC<'USD'>,
           t.LiteralC<'JPY'>,
           t.LiteralC<'CHF'>,
         ]
@@ -192,17 +191,12 @@ export const Currency: CurrencyC = t.brand(
       t.literal('EUR'),
       t.literal('GBP'),
       t.literal('SGD'),
-      t.literal('USD'),
       t.literal('JPY'),
       t.literal('CHF'),
     ]),
   ]),
-  (
-    x,
-  ): x is t.Branded<
-    string & ('EUR' | 'GBP' | 'SGD' | 'USD' | 'JPY' | 'CHF'),
-    CurrencyBrand
-  > => true,
+  (x): x is t.Branded<string & ('EUR' | 'GBP' | 'SGD' | 'JPY' | 'CHF'), CurrencyBrand> =>
+    true,
   'Currency',
 );
 export interface CurrencyBrand {
@@ -278,24 +272,6 @@ export interface CurrencySGDBrand {
 }
 /** require('io-ts-validator').validator(CurrencySGD).decodeSync(defaultCurrencySGD) // => defaultCurrencySGD */
 export const defaultCurrencySGD: CurrencySGD = ('SGD' as unknown) as CurrencySGD;
-
-// CurrencyUSD
-// The purpose of this remains a mystery
-export type CurrencyUSD = t.Branded<Currency & 'USD', CurrencyUSDBrand>;
-export type CurrencyUSDC = t.BrandC<
-  t.IntersectionC<[typeof Currency, t.LiteralC<'USD'>]>,
-  CurrencyUSDBrand
->;
-export const CurrencyUSD: CurrencyUSDC = t.brand(
-  t.intersection([Currency, t.literal('USD')]),
-  (x): x is t.Branded<Currency & 'USD', CurrencyUSDBrand> => true,
-  'CurrencyUSD',
-);
-export interface CurrencyUSDBrand {
-  readonly CurrencyUSD: unique symbol;
-}
-/** require('io-ts-validator').validator(CurrencyUSD).decodeSync(defaultCurrencyUSD) // => defaultCurrencyUSD */
-export const defaultCurrencyUSD: CurrencyUSD = ('USD' as unknown) as CurrencyUSD;
 
 // CurrencyJPY
 // The purpose of this remains a mystery
