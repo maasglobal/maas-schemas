@@ -1,8 +1,11 @@
 {
-  "name": "maas-schemas",
+  "name": "@maasglobal/maas-schemas",
   "version": "15.19.0",
   "description": "Schemas for MaaS infrastructure",
   "main": "index.js",
+  "publishConfig": {
+    "registry": "https://npm.deployment.maas.global/repository/npm-maas/"
+  },
   "engine": {
     "node": ">=6"
   },
@@ -53,10 +56,10 @@
   },
   "scripts": {
     "lint": "eslint --ignore-path=.gitignore .",
-    "lint-updated": "pipe-git-updated --base=develop --ext=js -- eslint --ignore-pattern '!*'",
-    "prettier-check-updated": "pipe-git-updated --base=develop --ext=css --ext=html --ext=js --ext=json --ext=md --ext=yaml --ext=yml -- prettier -c",
+    "lint-updated": "pipe-git-updated --base=HEAD --ext=js -- eslint --ignore-pattern '!*'",
+    "prettier-check-updated": "pipe-git-updated --base=HEAD --ext=css --ext=html --ext=js --ext=json --ext=md --ext=yaml --ext=yml -- prettier -c",
     "prettify": "prettier --write --ignore-path .gitignore '**/*.{css,html,js,json,md,yaml,yml}'",
-    "prettify-updated": "pipe-git-updated --base=develop --ext=css --ext=html --ext=js --ext=json --ext=md --ext=yaml --ext=yml -- prettier --write",
+    "prettify-updated": "pipe-git-updated --base=HEAD --ext=css --ext=html --ext=js --ext=json --ext=md --ext=yaml --ext=yml -- prettier --write",
     "validate-schemas": "./scripts/validate-schemas.js",
     "test": "jest",
     "build": "node build.js",

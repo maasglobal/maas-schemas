@@ -1,8 +1,11 @@
 {
-  "name": "maas-schemas-ts",
+  "name": "@maasglobal/maas-schemas-ts",
   "version": "15.19.0",
   "description": "TypeScript types and io-ts validators for maas-schemas",
   "main": "index.js",
+  "publishConfig": {
+    "registry": "https://npm.deployment.maas.global/repository/npm-maas/"
+  },
   "files": [
     "lib/**/*"
   ],
