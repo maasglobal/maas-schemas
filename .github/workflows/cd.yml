@@ -1,0 +1,30 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - "develop"
+
+env:
+  PRIVATE_NPM_TOKEN: ${{ secrets.PRIVATE_NPM_TOKEN }}
+
+jobs:
+  check:
+    runs-on: [self-hosted, linux, x64, node14x]
+    timeout-minutes: 30
+    name: CD
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - name: Install Dependencies
+        run: |
+          printf "@maasglobal:registry=https://npm.deployment.maas.global/repository/npm-maas/\n//npm.deployment.maas.global/repository/npm-maas/:_authToken=NpmToken.${PRIVATE_NPM_TOKEN}" > ~/.npmrc
+          yarn --cwd maas-schemas
+          yarn --cwd maas-schemas-ts
+      - name: Deploy to Registry
+        run: |
+          yarn --cwd maas-schemas deploy-npm
+          yarn --cwd maas-schemas-ts deploy-npm
