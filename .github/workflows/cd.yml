@@ -10,7 +10,7 @@ env:
 
 jobs:
   check:
-    runs-on: [self-hosted, linux, x64, node14x]
+    runs-on: [self-hosted, linux, X64, general, t3.small]
     timeout-minutes: 30
     name: CD
     steps:
