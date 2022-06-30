@@ -1,6 +1,6 @@
 {
   "name": "@maasglobal/maas-schemas",
-  "version": "15.19.0",
+  "version": "15.20.0",
   "description": "Schemas for MaaS infrastructure",
   "main": "index.js",
   "publishConfig": {
