@@ -10,6 +10,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as ApiCommon_ from '../../../core/components/api-common';
 import * as t from 'io-ts';
+import * as TravelMode_ from '../../../core/components/travel-mode';
 import * as UnitsGeo_ from '../../../core/components/units-geo';
 import * as Address_ from '../../../core/components/address';
 import * as Station_ from '../../../core/components/station';
@@ -61,10 +62,66 @@ export interface HeadersBrand {
   readonly Headers: unique symbol;
 }
 
-// QueryStringParameters
+// RoutesQueryModesRaw
 // The purpose of this remains a mystery
-export type QueryStringParameters = t.Branded<
-  ({
+export type RoutesQueryModesRaw = t.Branded<string, RoutesQueryModesRawBrand>;
+export type RoutesQueryModesRawC = t.BrandC<t.StringC, RoutesQueryModesRawBrand>;
+export const RoutesQueryModesRaw: RoutesQueryModesRawC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, RoutesQueryModesRawBrand> =>
+    typeof x !== 'string' || x.length >= 1,
+  'RoutesQueryModesRaw',
+);
+export interface RoutesQueryModesRawBrand {
+  readonly RoutesQueryModesRaw: unique symbol;
+}
+
+// RoutesQueryMode
+// The purpose of this remains a mystery
+export type RoutesQueryMode = t.Branded<
+  | TravelMode_.PersonalModeSHARED_BICYCLE
+  | TravelMode_.PersonalModeWALK
+  | TravelMode_.PublicTransitMode
+  | TravelMode_.PrivateTransitModeTAXI,
+  RoutesQueryModeBrand
+>;
+export type RoutesQueryModeC = t.BrandC<
+  t.UnionC<
+    [
+      typeof TravelMode_.PersonalModeSHARED_BICYCLE,
+      typeof TravelMode_.PersonalModeWALK,
+      typeof TravelMode_.PublicTransitMode,
+      typeof TravelMode_.PrivateTransitModeTAXI,
+    ]
+  >,
+  RoutesQueryModeBrand
+>;
+export const RoutesQueryMode: RoutesQueryModeC = t.brand(
+  t.union([
+    TravelMode_.PersonalModeSHARED_BICYCLE,
+    TravelMode_.PersonalModeWALK,
+    TravelMode_.PublicTransitMode,
+    TravelMode_.PrivateTransitModeTAXI,
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    | TravelMode_.PersonalModeSHARED_BICYCLE
+    | TravelMode_.PersonalModeWALK
+    | TravelMode_.PublicTransitMode
+    | TravelMode_.PrivateTransitModeTAXI,
+    RoutesQueryModeBrand
+  > => true,
+  'RoutesQueryMode',
+);
+export interface RoutesQueryModeBrand {
+  readonly RoutesQueryMode: unique symbol;
+}
+
+// RoutesQueryParametersRaw
+// The purpose of this remains a mystery
+export type RoutesQueryParametersRaw = t.Branded<
+  {
     from?: UnitsGeo_.ShortLocationString;
     fromName?: Address_.PlaceName;
     fromAddress?: Address_.ComponentAddress;
@@ -77,237 +134,62 @@ export type QueryStringParameters = t.Branded<
     arriveBy?: Units_.Time;
     leaveAtReturn?: Units_.Time;
     arriveByReturn?: Units_.Time;
-    modes?: string &
-      ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT');
-    transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
-    options?: Record<string, unknown> & Record<string, unknown>;
+    modes?: RoutesQueryModesRaw;
     bookingIdToExtend?: Units_.Uuid;
     spaceDemand?: SpaceDemand_.SpaceDemandString;
-  } & Record<
-    string,
-    | UnitsGeo_.ShortLocationString
-    | Address_.PlaceName
-    | Address_.ComponentAddress
-    | Station_.Id
-    | UnitsGeo_.ShortLocationString
-    | Address_.PlaceName
-    | Address_.ComponentAddress
-    | Station_.Id
-    | Units_.Time
-    | Units_.Time
-    | Units_.Time
-    | Units_.Time
-    | (string & ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT'))
-    | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
-    | (Record<string, unknown> & Record<string, unknown>)
-    | Units_.Uuid
-    | SpaceDemand_.SpaceDemandString
-    | (string | number | boolean)
-  >) & {
+  } & {
     from: Defined;
     to: Defined;
   },
-  QueryStringParametersBrand
+  RoutesQueryParametersRawBrand
 >;
-export type QueryStringParametersC = t.BrandC<
+export type RoutesQueryParametersRawC = t.BrandC<
   t.IntersectionC<
     [
-      t.IntersectionC<
-        [
-          t.PartialC<{
-            from: typeof UnitsGeo_.ShortLocationString;
-            fromName: typeof Address_.PlaceName;
-            fromAddress: typeof Address_.ComponentAddress;
-            fromStationId: typeof Station_.Id;
-            to: typeof UnitsGeo_.ShortLocationString;
-            toName: typeof Address_.PlaceName;
-            toAddress: typeof Address_.ComponentAddress;
-            toStationId: typeof Station_.Id;
-            leaveAt: typeof Units_.Time;
-            arriveBy: typeof Units_.Time;
-            leaveAtReturn: typeof Units_.Time;
-            arriveByReturn: typeof Units_.Time;
-            modes: t.IntersectionC<
-              [
-                t.StringC,
-                t.UnionC<
-                  [
-                    t.LiteralC<'PUBLIC_TRANSIT'>,
-                    t.LiteralC<'TAXI'>,
-                    t.LiteralC<'CAR'>,
-                    t.LiteralC<'WALK'>,
-                    t.LiteralC<'BICYCLE'>,
-                    t.LiteralC<'BICYCLE_RENT'>,
-                  ]
-                >,
-              ]
-            >;
-            transitMode: t.IntersectionC<
-              [
-                t.StringC,
-                t.UnionC<
-                  [
-                    t.LiteralC<'TRAIN'>,
-                    t.LiteralC<'BUS'>,
-                    t.LiteralC<'SUBWAY'>,
-                    t.LiteralC<'TRAM'>,
-                    t.LiteralC<'RAIL'>,
-                  ]
-                >,
-              ]
-            >;
-            options: t.IntersectionC<
-              [t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]
-            >;
-            bookingIdToExtend: typeof Units_.Uuid;
-            spaceDemand: typeof SpaceDemand_.SpaceDemandString;
-          }>,
-          t.RecordC<
-            t.StringC,
-            t.UnionC<
-              [
-                typeof UnitsGeo_.ShortLocationString,
-                typeof Address_.PlaceName,
-                typeof Address_.ComponentAddress,
-                typeof Station_.Id,
-                typeof UnitsGeo_.ShortLocationString,
-                typeof Address_.PlaceName,
-                typeof Address_.ComponentAddress,
-                typeof Station_.Id,
-                typeof Units_.Time,
-                typeof Units_.Time,
-                typeof Units_.Time,
-                typeof Units_.Time,
-                t.IntersectionC<
-                  [
-                    t.StringC,
-                    t.UnionC<
-                      [
-                        t.LiteralC<'PUBLIC_TRANSIT'>,
-                        t.LiteralC<'TAXI'>,
-                        t.LiteralC<'CAR'>,
-                        t.LiteralC<'WALK'>,
-                        t.LiteralC<'BICYCLE'>,
-                        t.LiteralC<'BICYCLE_RENT'>,
-                      ]
-                    >,
-                  ]
-                >,
-                t.IntersectionC<
-                  [
-                    t.StringC,
-                    t.UnionC<
-                      [
-                        t.LiteralC<'TRAIN'>,
-                        t.LiteralC<'BUS'>,
-                        t.LiteralC<'SUBWAY'>,
-                        t.LiteralC<'TRAM'>,
-                        t.LiteralC<'RAIL'>,
-                      ]
-                    >,
-                  ]
-                >,
-                t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>,
-                typeof Units_.Uuid,
-                typeof SpaceDemand_.SpaceDemandString,
-                t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>,
-              ]
-            >
-          >,
-        ]
-      >,
+      t.PartialC<{
+        from: typeof UnitsGeo_.ShortLocationString;
+        fromName: typeof Address_.PlaceName;
+        fromAddress: typeof Address_.ComponentAddress;
+        fromStationId: typeof Station_.Id;
+        to: typeof UnitsGeo_.ShortLocationString;
+        toName: typeof Address_.PlaceName;
+        toAddress: typeof Address_.ComponentAddress;
+        toStationId: typeof Station_.Id;
+        leaveAt: typeof Units_.Time;
+        arriveBy: typeof Units_.Time;
+        leaveAtReturn: typeof Units_.Time;
+        arriveByReturn: typeof Units_.Time;
+        modes: typeof RoutesQueryModesRaw;
+        bookingIdToExtend: typeof Units_.Uuid;
+        spaceDemand: typeof SpaceDemand_.SpaceDemandString;
+      }>,
       t.TypeC<{
         from: typeof Defined;
         to: typeof Defined;
       }>,
     ]
   >,
-  QueryStringParametersBrand
+  RoutesQueryParametersRawBrand
 >;
-export const QueryStringParameters: QueryStringParametersC = t.brand(
+export const RoutesQueryParametersRaw: RoutesQueryParametersRawC = t.brand(
   t.intersection([
-    t.intersection([
-      t.partial({
-        from: UnitsGeo_.ShortLocationString,
-        fromName: Address_.PlaceName,
-        fromAddress: Address_.ComponentAddress,
-        fromStationId: Station_.Id,
-        to: UnitsGeo_.ShortLocationString,
-        toName: Address_.PlaceName,
-        toAddress: Address_.ComponentAddress,
-        toStationId: Station_.Id,
-        leaveAt: Units_.Time,
-        arriveBy: Units_.Time,
-        leaveAtReturn: Units_.Time,
-        arriveByReturn: Units_.Time,
-        modes: t.intersection([
-          t.string,
-          t.union([
-            t.literal('PUBLIC_TRANSIT'),
-            t.literal('TAXI'),
-            t.literal('CAR'),
-            t.literal('WALK'),
-            t.literal('BICYCLE'),
-            t.literal('BICYCLE_RENT'),
-          ]),
-        ]),
-        transitMode: t.intersection([
-          t.string,
-          t.union([
-            t.literal('TRAIN'),
-            t.literal('BUS'),
-            t.literal('SUBWAY'),
-            t.literal('TRAM'),
-            t.literal('RAIL'),
-          ]),
-        ]),
-        options: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
-        bookingIdToExtend: Units_.Uuid,
-        spaceDemand: SpaceDemand_.SpaceDemandString,
-      }),
-      t.record(
-        t.string,
-        t.union([
-          UnitsGeo_.ShortLocationString,
-          Address_.PlaceName,
-          Address_.ComponentAddress,
-          Station_.Id,
-          UnitsGeo_.ShortLocationString,
-          Address_.PlaceName,
-          Address_.ComponentAddress,
-          Station_.Id,
-          Units_.Time,
-          Units_.Time,
-          Units_.Time,
-          Units_.Time,
-          t.intersection([
-            t.string,
-            t.union([
-              t.literal('PUBLIC_TRANSIT'),
-              t.literal('TAXI'),
-              t.literal('CAR'),
-              t.literal('WALK'),
-              t.literal('BICYCLE'),
-              t.literal('BICYCLE_RENT'),
-            ]),
-          ]),
-          t.intersection([
-            t.string,
-            t.union([
-              t.literal('TRAIN'),
-              t.literal('BUS'),
-              t.literal('SUBWAY'),
-              t.literal('TRAM'),
-              t.literal('RAIL'),
-            ]),
-          ]),
-          t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
-          Units_.Uuid,
-          SpaceDemand_.SpaceDemandString,
-          t.union([t.string, t.number, t.boolean]),
-        ]),
-      ),
-    ]),
+    t.partial({
+      from: UnitsGeo_.ShortLocationString,
+      fromName: Address_.PlaceName,
+      fromAddress: Address_.ComponentAddress,
+      fromStationId: Station_.Id,
+      to: UnitsGeo_.ShortLocationString,
+      toName: Address_.PlaceName,
+      toAddress: Address_.ComponentAddress,
+      toStationId: Station_.Id,
+      leaveAt: Units_.Time,
+      arriveBy: Units_.Time,
+      leaveAtReturn: Units_.Time,
+      arriveByReturn: Units_.Time,
+      modes: RoutesQueryModesRaw,
+      bookingIdToExtend: Units_.Uuid,
+      spaceDemand: SpaceDemand_.SpaceDemandString,
+    }),
     t.type({
       from: Defined,
       to: Defined,
@@ -316,7 +198,7 @@ export const QueryStringParameters: QueryStringParametersC = t.brand(
   (
     x,
   ): x is t.Branded<
-    ({
+    {
       from?: UnitsGeo_.ShortLocationString;
       fromName?: Address_.PlaceName;
       fromAddress?: Address_.ComponentAddress;
@@ -329,43 +211,19 @@ export const QueryStringParameters: QueryStringParametersC = t.brand(
       arriveBy?: Units_.Time;
       leaveAtReturn?: Units_.Time;
       arriveByReturn?: Units_.Time;
-      modes?: string &
-        ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT');
-      transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
-      options?: Record<string, unknown> & Record<string, unknown>;
+      modes?: RoutesQueryModesRaw;
       bookingIdToExtend?: Units_.Uuid;
       spaceDemand?: SpaceDemand_.SpaceDemandString;
-    } & Record<
-      string,
-      | UnitsGeo_.ShortLocationString
-      | Address_.PlaceName
-      | Address_.ComponentAddress
-      | Station_.Id
-      | UnitsGeo_.ShortLocationString
-      | Address_.PlaceName
-      | Address_.ComponentAddress
-      | Station_.Id
-      | Units_.Time
-      | Units_.Time
-      | Units_.Time
-      | Units_.Time
-      | (string &
-          ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT'))
-      | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
-      | (Record<string, unknown> & Record<string, unknown>)
-      | Units_.Uuid
-      | SpaceDemand_.SpaceDemandString
-      | (string | number | boolean)
-    >) & {
+    } & {
       from: Defined;
       to: Defined;
     },
-    QueryStringParametersBrand
+    RoutesQueryParametersRawBrand
   > => true,
-  'QueryStringParameters',
+  'RoutesQueryParametersRaw',
 );
-export interface QueryStringParametersBrand {
-  readonly QueryStringParameters: unique symbol;
+export interface RoutesQueryParametersRawBrand {
+  readonly RoutesQueryParametersRaw: unique symbol;
 }
 
 // Request
@@ -375,7 +233,7 @@ export type Request = t.Branded<
     requestContext?: ApiCommon_.ApiGatewayAuthorizedRequestContext;
     headers?: Headers;
     pathParameters?: Null;
-    queryStringParameters?: QueryStringParameters;
+    queryStringParameters?: RoutesQueryParametersRaw;
     body?: Null;
   } & Record<string, unknown>) & {
     requestContext: Defined;
@@ -393,7 +251,7 @@ export type RequestC = t.BrandC<
             requestContext: typeof ApiCommon_.ApiGatewayAuthorizedRequestContext;
             headers: typeof Headers;
             pathParameters: typeof Null;
-            queryStringParameters: typeof QueryStringParameters;
+            queryStringParameters: typeof RoutesQueryParametersRaw;
             body: typeof Null;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
@@ -415,7 +273,7 @@ export const Request: RequestC = t.brand(
         requestContext: ApiCommon_.ApiGatewayAuthorizedRequestContext,
         headers: Headers,
         pathParameters: Null,
-        queryStringParameters: QueryStringParameters,
+        queryStringParameters: RoutesQueryParametersRaw,
         body: Null,
       }),
       t.record(t.string, t.unknown),
@@ -433,7 +291,7 @@ export const Request: RequestC = t.brand(
       requestContext?: ApiCommon_.ApiGatewayAuthorizedRequestContext;
       headers?: Headers;
       pathParameters?: Null;
-      queryStringParameters?: QueryStringParameters;
+      queryStringParameters?: RoutesQueryParametersRaw;
       body?: Null;
     } & Record<string, unknown>) & {
       requestContext: Defined;

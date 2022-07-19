@@ -5,7 +5,21 @@
     "headers": {
       "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/standardApiEndpointHeaders"
     },
-    "queryStringParameters": {
+    "routesQueryModesRaw": {
+      "type": "string",
+      "minLength": 1
+    },
+    "routesQueryMode": {
+      "anyOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/travel-mode.json#/definitions/personalModeSHARED_BICYCLE"
+        },
+        { "$ref": "https://schemas.maas.global/core/components/travel-mode.json#/definitions/personalModeWALK" },
+        { "$ref": "https://schemas.maas.global/core/components/travel-mode.json#/definitions/publicTransitMode" },
+        { "$ref": "https://schemas.maas.global/core/components/travel-mode.json#/definitions/privateTransitModeTAXI" }
+      ]
+    },
+    "routesQueryParametersRaw": {
       "type": "object",
       "required": ["from", "to"],
       "properties": {
@@ -52,28 +66,15 @@
           "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         },
         "modes": {
-          "type": "string",
-          "enum": ["PUBLIC_TRANSIT", "TAXI", "CAR", "WALK", "BICYCLE", "BICYCLE_RENT"]
-        },
-        "transitMode": {
-          "type": "string",
-          "enum": ["TRAIN", "BUS", "SUBWAY", "TRAM", "RAIL"]
-        },
-        "options": {
-          "type": "object"
+          "$ref": "#/definitions/routesQueryModesRaw"
         },
         "bookingIdToExtend": {
           "description": "bookingId to fetch possible extension options for",
           "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid" }]
         },
         "spaceDemand": {
-          "description": "Optional space demand. Example: 3 adults and 2 luggages.",
+          "description": "Optional space demand. Example: 3 adults and 2 pieces of luggage.",
           "$ref": "https://schemas.maas.global/core/components/spaceDemand.json#/definitions/spaceDemandString"
-        }
-      },
-      "patternProperties": {
-        "^(optionalParameters).+": {
-          "type": ["string", "number", "boolean"]
         }
       },
       "additionalProperties": false
@@ -91,7 +92,7 @@
       "type": "null"
     },
     "queryStringParameters": {
-      "$ref": "#/definitions/queryStringParameters"
+      "$ref": "#/definitions/routesQueryParametersRaw"
     },
     "body": {
       "type": "null"
