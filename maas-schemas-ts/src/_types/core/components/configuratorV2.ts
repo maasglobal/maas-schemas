@@ -37,16 +37,16 @@ export const schemaId = 'https://schemas.maas.global/core/components/configurato
 // ConfiguratorV2
 // The default export. More information at the top.
 export type ConfiguratorV2 = t.Branded<
-  {
+  ({
     version?: string;
     estimatable?: boolean;
     purchasable?: boolean;
     validUntil?: Units_.Time | 0;
     configuratorSelection?: CustomerSelectionV2_.CustomerSelectionV2;
-    configurations?: Record<string, ConfiguratorCommon_.Config>;
+    configurations?: Record<string, ConfiguratorCommon_.Config> & Record<string, unknown>;
     cost?: Cost_.Cost;
     fares?: Array<Fare_.Fare>;
-  } & {
+  } & Record<string, unknown>) & {
     version: Defined;
     estimatable: Defined;
     purchasable: Defined;
@@ -59,16 +59,26 @@ export type ConfiguratorV2 = t.Branded<
 export type ConfiguratorV2C = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        version: t.StringC;
-        estimatable: t.BooleanC;
-        purchasable: t.BooleanC;
-        validUntil: t.UnionC<[typeof Units_.Time, t.LiteralC<0>]>;
-        configuratorSelection: typeof CustomerSelectionV2_.CustomerSelectionV2;
-        configurations: t.RecordC<t.StringC, typeof ConfiguratorCommon_.Config>;
-        cost: typeof Cost_.Cost;
-        fares: t.ArrayC<typeof Fare_.Fare>;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            version: t.StringC;
+            estimatable: t.BooleanC;
+            purchasable: t.BooleanC;
+            validUntil: t.UnionC<[typeof Units_.Time, t.LiteralC<0>]>;
+            configuratorSelection: typeof CustomerSelectionV2_.CustomerSelectionV2;
+            configurations: t.IntersectionC<
+              [
+                t.RecordC<t.StringC, typeof ConfiguratorCommon_.Config>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >;
+            cost: typeof Cost_.Cost;
+            fares: t.ArrayC<typeof Fare_.Fare>;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         version: typeof Defined;
         estimatable: typeof Defined;
@@ -83,16 +93,22 @@ export type ConfiguratorV2C = t.BrandC<
 >;
 export const ConfiguratorV2: ConfiguratorV2C = t.brand(
   t.intersection([
-    t.partial({
-      version: t.string,
-      estimatable: t.boolean,
-      purchasable: t.boolean,
-      validUntil: t.union([Units_.Time, t.literal(0)]),
-      configuratorSelection: CustomerSelectionV2_.CustomerSelectionV2,
-      configurations: t.record(t.string, ConfiguratorCommon_.Config),
-      cost: Cost_.Cost,
-      fares: t.array(Fare_.Fare),
-    }),
+    t.intersection([
+      t.partial({
+        version: t.string,
+        estimatable: t.boolean,
+        purchasable: t.boolean,
+        validUntil: t.union([Units_.Time, t.literal(0)]),
+        configuratorSelection: CustomerSelectionV2_.CustomerSelectionV2,
+        configurations: t.intersection([
+          t.record(t.string, ConfiguratorCommon_.Config),
+          t.record(t.string, t.unknown),
+        ]),
+        cost: Cost_.Cost,
+        fares: t.array(Fare_.Fare),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       version: Defined,
       estimatable: Defined,
@@ -105,16 +121,17 @@ export const ConfiguratorV2: ConfiguratorV2C = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       version?: string;
       estimatable?: boolean;
       purchasable?: boolean;
       validUntil?: Units_.Time | 0;
       configuratorSelection?: CustomerSelectionV2_.CustomerSelectionV2;
-      configurations?: Record<string, ConfiguratorCommon_.Config>;
+      configurations?: Record<string, ConfiguratorCommon_.Config> &
+        Record<string, unknown>;
       cost?: Cost_.Cost;
       fares?: Array<Fare_.Fare>;
-    } & {
+    } & Record<string, unknown>) & {
       version: Defined;
       estimatable: Defined;
       purchasable: Defined;

@@ -38,7 +38,7 @@ export type Request = t.Branded<
     identityId?: Units_.IdentityId;
     customerId?: Units_.IdentityId;
     paymentSourceId?: PaymentSource_.PaymentSourceId;
-    payload?: {
+    payload?: ({
       paymentSource?: {
         isDefault?: true;
         alias?: PaymentSource_.Alias;
@@ -50,7 +50,7 @@ export type Request = t.Branded<
             alias: Defined;
           }
       );
-    } & {
+    } & Record<string, unknown>) & {
       paymentSource: Defined;
     };
     headers?: ApiCommon_.Headers;
@@ -72,26 +72,31 @@ export type RequestC = t.BrandC<
         paymentSourceId: typeof PaymentSource_.PaymentSourceId;
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              paymentSource: t.IntersectionC<
-                [
-                  t.PartialC<{
-                    isDefault: t.LiteralC<true>;
-                    alias: typeof PaymentSource_.Alias;
-                  }>,
-                  t.UnionC<
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  paymentSource: t.IntersectionC<
                     [
-                      t.TypeC<{
-                        isDefault: typeof Defined;
+                      t.PartialC<{
+                        isDefault: t.LiteralC<true>;
+                        alias: typeof PaymentSource_.Alias;
                       }>,
-                      t.TypeC<{
-                        alias: typeof Defined;
-                      }>,
+                      t.UnionC<
+                        [
+                          t.TypeC<{
+                            isDefault: typeof Defined;
+                          }>,
+                          t.TypeC<{
+                            alias: typeof Defined;
+                          }>,
+                        ]
+                      >,
                     ]
-                  >,
-                ]
-              >;
-            }>,
+                  >;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               paymentSource: typeof Defined;
             }>,
@@ -117,22 +122,25 @@ export const Request: RequestC = t.brand(
       customerId: Units_.IdentityId,
       paymentSourceId: PaymentSource_.PaymentSourceId,
       payload: t.intersection([
-        t.partial({
-          paymentSource: t.intersection([
-            t.partial({
-              isDefault: t.literal(true),
-              alias: PaymentSource_.Alias,
-            }),
-            t.union([
-              t.type({
-                isDefault: Defined,
+        t.intersection([
+          t.partial({
+            paymentSource: t.intersection([
+              t.partial({
+                isDefault: t.literal(true),
+                alias: PaymentSource_.Alias,
               }),
-              t.type({
-                alias: Defined,
-              }),
+              t.union([
+                t.type({
+                  isDefault: Defined,
+                }),
+                t.type({
+                  alias: Defined,
+                }),
+              ]),
             ]),
-          ]),
-        }),
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           paymentSource: Defined,
         }),
@@ -154,7 +162,7 @@ export const Request: RequestC = t.brand(
       identityId?: Units_.IdentityId;
       customerId?: Units_.IdentityId;
       paymentSourceId?: PaymentSource_.PaymentSourceId;
-      payload?: {
+      payload?: ({
         paymentSource?: {
           isDefault?: true;
           alias?: PaymentSource_.Alias;
@@ -166,7 +174,7 @@ export const Request: RequestC = t.brand(
               alias: Defined;
             }
         );
-      } & {
+      } & Record<string, unknown>) & {
         paymentSource: Defined;
       };
       headers?: ApiCommon_.Headers;

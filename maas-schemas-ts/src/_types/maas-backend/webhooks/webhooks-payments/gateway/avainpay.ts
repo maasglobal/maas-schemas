@@ -31,7 +31,7 @@ export const schemaId =
 // Request
 // The purpose of this remains a mystery
 export type Request = t.Branded<
-  {
+  ({
     payload?: ({
       action_str?: string;
       data_type?: string;
@@ -40,21 +40,21 @@ export type Request = t.Branded<
         system_time?: number;
         nonce?: string;
         signature?: string;
-      };
-      request_map?: Record<string, unknown>;
+      } & Record<string, unknown>;
+      request_map?: Record<string, unknown> & Record<string, unknown>;
     } & Record<string, unknown>) & {
       action_str: Defined;
       data_type: Defined;
     };
     headers?: {
       'Set-Cookie'?: string;
-    };
-    params?: {
+    } & Record<string, unknown>;
+    params?: ({
       gatewayName?: string & 'avainpay';
-    } & {
+    } & Record<string, unknown>) & {
       gatewayName: Defined;
     };
-  } & {
+  } & Record<string, unknown>) & {
     params: Defined;
     payload: Defined;
   },
@@ -63,45 +63,67 @@ export type Request = t.Branded<
 export type RequestC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        payload: t.IntersectionC<
-          [
-            t.IntersectionC<
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            payload: t.IntersectionC<
+              [
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      action_str: t.StringC;
+                      data_type: t.StringC;
+                      log_list: t.UnknownArrayC;
+                      trans_map: t.IntersectionC<
+                        [
+                          t.PartialC<{
+                            system_time: t.NumberC;
+                            nonce: t.StringC;
+                            signature: t.StringC;
+                          }>,
+                          t.RecordC<t.StringC, t.UnknownC>,
+                        ]
+                      >;
+                      request_map: t.IntersectionC<
+                        [t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]
+                      >;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
+                t.TypeC<{
+                  action_str: typeof Defined;
+                  data_type: typeof Defined;
+                }>,
+              ]
+            >;
+            headers: t.IntersectionC<
               [
                 t.PartialC<{
-                  action_str: t.StringC;
-                  data_type: t.StringC;
-                  log_list: t.UnknownArrayC;
-                  trans_map: t.PartialC<{
-                    system_time: t.NumberC;
-                    nonce: t.StringC;
-                    signature: t.StringC;
-                  }>;
-                  request_map: t.UnknownRecordC;
+                  'Set-Cookie': t.StringC;
                 }>,
                 t.RecordC<t.StringC, t.UnknownC>,
               ]
-            >,
-            t.TypeC<{
-              action_str: typeof Defined;
-              data_type: typeof Defined;
-            }>,
-          ]
-        >;
-        headers: t.PartialC<{
-          'Set-Cookie': t.StringC;
-        }>;
-        params: t.IntersectionC<
-          [
-            t.PartialC<{
-              gatewayName: t.IntersectionC<[t.StringC, t.LiteralC<'avainpay'>]>;
-            }>,
-            t.TypeC<{
-              gatewayName: typeof Defined;
-            }>,
-          ]
-        >;
-      }>,
+            >;
+            params: t.IntersectionC<
+              [
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      gatewayName: t.IntersectionC<[t.StringC, t.LiteralC<'avainpay'>]>;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
+                t.TypeC<{
+                  gatewayName: typeof Defined;
+                }>,
+              ]
+            >;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         params: typeof Defined;
         payload: typeof Defined;
@@ -112,39 +134,54 @@ export type RequestC = t.BrandC<
 >;
 export const Request: RequestC = t.brand(
   t.intersection([
-    t.partial({
-      payload: t.intersection([
-        t.intersection([
-          t.partial({
-            action_str: t.string,
-            data_type: t.string,
-            log_list: t.UnknownArray,
-            trans_map: t.partial({
-              system_time: t.number,
-              nonce: t.string,
-              signature: t.string,
+    t.intersection([
+      t.partial({
+        payload: t.intersection([
+          t.intersection([
+            t.partial({
+              action_str: t.string,
+              data_type: t.string,
+              log_list: t.UnknownArray,
+              trans_map: t.intersection([
+                t.partial({
+                  system_time: t.number,
+                  nonce: t.string,
+                  signature: t.string,
+                }),
+                t.record(t.string, t.unknown),
+              ]),
+              request_map: t.intersection([
+                t.UnknownRecord,
+                t.record(t.string, t.unknown),
+              ]),
             }),
-            request_map: t.UnknownRecord,
+            t.record(t.string, t.unknown),
+          ]),
+          t.type({
+            action_str: Defined,
+            data_type: Defined,
+          }),
+        ]),
+        headers: t.intersection([
+          t.partial({
+            'Set-Cookie': t.string,
           }),
           t.record(t.string, t.unknown),
         ]),
-        t.type({
-          action_str: Defined,
-          data_type: Defined,
-        }),
-      ]),
-      headers: t.partial({
-        'Set-Cookie': t.string,
+        params: t.intersection([
+          t.intersection([
+            t.partial({
+              gatewayName: t.intersection([t.string, t.literal('avainpay')]),
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+          t.type({
+            gatewayName: Defined,
+          }),
+        ]),
       }),
-      params: t.intersection([
-        t.partial({
-          gatewayName: t.intersection([t.string, t.literal('avainpay')]),
-        }),
-        t.type({
-          gatewayName: Defined,
-        }),
-      ]),
-    }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       params: Defined,
       payload: Defined,
@@ -153,7 +190,7 @@ export const Request: RequestC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       payload?: ({
         action_str?: string;
         data_type?: string;
@@ -162,21 +199,21 @@ export const Request: RequestC = t.brand(
           system_time?: number;
           nonce?: string;
           signature?: string;
-        };
-        request_map?: Record<string, unknown>;
+        } & Record<string, unknown>;
+        request_map?: Record<string, unknown> & Record<string, unknown>;
       } & Record<string, unknown>) & {
         action_str: Defined;
         data_type: Defined;
       };
       headers?: {
         'Set-Cookie'?: string;
-      };
-      params?: {
+      } & Record<string, unknown>;
+      params?: ({
         gatewayName?: string & 'avainpay';
-      } & {
+      } & Record<string, unknown>) & {
         gatewayName: Defined;
       };
-    } & {
+    } & Record<string, unknown>) & {
       params: Defined;
       payload: Defined;
     },

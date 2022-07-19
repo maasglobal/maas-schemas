@@ -14,11 +14,14 @@ export const schemaId = 'https://schemas.maas.global/tsp/vehicle-alert/response.
 
 // Response
 // The default export. More information at the top.
-export type Response = t.Branded<{}, ResponseBrand>;
-export type ResponseC = t.BrandC<t.PartialC<{}>, ResponseBrand>;
+export type Response = t.Branded<{} & Record<string, unknown>, ResponseBrand>;
+export type ResponseC = t.BrandC<
+  t.IntersectionC<[t.PartialC<{}>, t.RecordC<t.StringC, t.UnknownC>]>,
+  ResponseBrand
+>;
 export const Response: ResponseC = t.brand(
-  t.partial({}),
-  (x): x is t.Branded<{}, ResponseBrand> => true,
+  t.intersection([t.partial({}), t.record(t.string, t.unknown)]),
+  (x): x is t.Branded<{} & Record<string, unknown>, ResponseBrand> => true,
   'Response',
 );
 export interface ResponseBrand {

@@ -106,7 +106,7 @@ export interface PreAuthBufferBrand {
 // Product
 // The default export. More information at the top.
 export type Product = t.Branded<
-  {
+  ({
     id?: Id;
     name?: string;
     description?: string;
@@ -117,7 +117,7 @@ export type Product = t.Branded<
     allowFinishTrip?: boolean;
     preAuthBuffer?: PreAuthBuffer;
     paymentInstruction?: string;
-  } & {
+  } & Record<string, unknown>) & {
     id: Defined;
     tspProductId: Defined;
     name: Defined;
@@ -127,18 +127,23 @@ export type Product = t.Branded<
 export type ProductC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        id: typeof Id;
-        name: t.StringC;
-        description: t.StringC;
-        icon: t.StringC;
-        priority: t.NumberC;
-        agencyId: typeof Common_.AgencyId;
-        tspProductId: t.StringC;
-        allowFinishTrip: t.BooleanC;
-        preAuthBuffer: typeof PreAuthBuffer;
-        paymentInstruction: t.StringC;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            id: typeof Id;
+            name: t.StringC;
+            description: t.StringC;
+            icon: t.StringC;
+            priority: t.NumberC;
+            agencyId: typeof Common_.AgencyId;
+            tspProductId: t.StringC;
+            allowFinishTrip: t.BooleanC;
+            preAuthBuffer: typeof PreAuthBuffer;
+            paymentInstruction: t.StringC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         id: typeof Defined;
         tspProductId: typeof Defined;
@@ -150,18 +155,21 @@ export type ProductC = t.BrandC<
 >;
 export const Product: ProductC = t.brand(
   t.intersection([
-    t.partial({
-      id: Id,
-      name: t.string,
-      description: t.string,
-      icon: t.string,
-      priority: t.number,
-      agencyId: Common_.AgencyId,
-      tspProductId: t.string,
-      allowFinishTrip: t.boolean,
-      preAuthBuffer: PreAuthBuffer,
-      paymentInstruction: t.string,
-    }),
+    t.intersection([
+      t.partial({
+        id: Id,
+        name: t.string,
+        description: t.string,
+        icon: t.string,
+        priority: t.number,
+        agencyId: Common_.AgencyId,
+        tspProductId: t.string,
+        allowFinishTrip: t.boolean,
+        preAuthBuffer: PreAuthBuffer,
+        paymentInstruction: t.string,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       id: Defined,
       tspProductId: Defined,
@@ -171,7 +179,7 @@ export const Product: ProductC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       id?: Id;
       name?: string;
       description?: string;
@@ -182,7 +190,7 @@ export const Product: ProductC = t.brand(
       allowFinishTrip?: boolean;
       preAuthBuffer?: PreAuthBuffer;
       paymentInstruction?: string;
-    } & {
+    } & Record<string, unknown>) & {
       id: Defined;
       tspProductId: Defined;
       name: Defined;

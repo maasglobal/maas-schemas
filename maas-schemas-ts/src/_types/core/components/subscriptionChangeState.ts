@@ -222,12 +222,12 @@ export const defaultFailureKeyEXISTING_TICKET: FailureKeyEXISTING_TICKET = ('EXI
 // SubscriptionChangeState
 // The default export. More information at the top.
 export type SubscriptionChangeState = t.Branded<
-  {
+  ({
     id?: Units_.Uuid;
     state?: State;
     created?: Units_.Time;
     failureKey?: FailureKey;
-  } & {
+  } & Record<string, unknown>) & {
     id: Defined;
     state: Defined;
   },
@@ -236,12 +236,17 @@ export type SubscriptionChangeState = t.Branded<
 export type SubscriptionChangeStateC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        id: typeof Units_.Uuid;
-        state: typeof State;
-        created: typeof Units_.Time;
-        failureKey: typeof FailureKey;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            id: typeof Units_.Uuid;
+            state: typeof State;
+            created: typeof Units_.Time;
+            failureKey: typeof FailureKey;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         id: typeof Defined;
         state: typeof Defined;
@@ -252,12 +257,15 @@ export type SubscriptionChangeStateC = t.BrandC<
 >;
 export const SubscriptionChangeState: SubscriptionChangeStateC = t.brand(
   t.intersection([
-    t.partial({
-      id: Units_.Uuid,
-      state: State,
-      created: Units_.Time,
-      failureKey: FailureKey,
-    }),
+    t.intersection([
+      t.partial({
+        id: Units_.Uuid,
+        state: State,
+        created: Units_.Time,
+        failureKey: FailureKey,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       id: Defined,
       state: Defined,
@@ -266,12 +274,12 @@ export const SubscriptionChangeState: SubscriptionChangeStateC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       id?: Units_.Uuid;
       state?: State;
       created?: Units_.Time;
       failureKey?: FailureKey;
-    } & {
+    } & Record<string, unknown>) & {
       id: Defined;
       state: Defined;
     },

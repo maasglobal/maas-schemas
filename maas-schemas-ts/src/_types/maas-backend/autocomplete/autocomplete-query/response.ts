@@ -56,7 +56,7 @@ export type Response = t.Branded<
   {
     provider?: string;
     suggestions?: SuggestionsList;
-    debug?: Record<string, unknown>;
+    debug?: Record<string, unknown> & Record<string, unknown>;
   } & {
     provider: Defined;
     suggestions: Defined;
@@ -69,7 +69,7 @@ export type ResponseC = t.BrandC<
       t.PartialC<{
         provider: t.StringC;
         suggestions: typeof SuggestionsList;
-        debug: t.UnknownRecordC;
+        debug: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
       }>,
       t.TypeC<{
         provider: typeof Defined;
@@ -84,7 +84,7 @@ export const Response: ResponseC = t.brand(
     t.partial({
       provider: t.string,
       suggestions: SuggestionsList,
-      debug: t.UnknownRecord,
+      debug: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
     }),
     t.type({
       provider: Defined,
@@ -97,7 +97,7 @@ export const Response: ResponseC = t.brand(
     {
       provider?: string;
       suggestions?: SuggestionsList;
-      debug?: Record<string, unknown>;
+      debug?: Record<string, unknown> & Record<string, unknown>;
     } & {
       provider: Defined;
       suggestions: Defined;

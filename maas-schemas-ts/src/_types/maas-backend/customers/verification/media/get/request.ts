@@ -35,10 +35,10 @@ export type Request = t.Branded<
   {
     customerId?: Units_.IdentityId;
     identityId?: Units_.IdentityId;
-    payload?: {
+    payload?: ({
       side?: string;
       type?: string;
-    } & {
+    } & Record<string, unknown>) & {
       type: Defined;
       side: Defined;
     };
@@ -51,10 +51,15 @@ export type RequestC = t.BrandC<
     identityId: typeof Units_.IdentityId;
     payload: t.IntersectionC<
       [
-        t.PartialC<{
-          side: t.StringC;
-          type: t.StringC;
-        }>,
+        t.IntersectionC<
+          [
+            t.PartialC<{
+              side: t.StringC;
+              type: t.StringC;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >,
         t.TypeC<{
           type: typeof Defined;
           side: typeof Defined;
@@ -69,10 +74,13 @@ export const Request: RequestC = t.brand(
     customerId: Units_.IdentityId,
     identityId: Units_.IdentityId,
     payload: t.intersection([
-      t.partial({
-        side: t.string,
-        type: t.string,
-      }),
+      t.intersection([
+        t.partial({
+          side: t.string,
+          type: t.string,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       t.type({
         type: Defined,
         side: Defined,
@@ -85,10 +93,10 @@ export const Request: RequestC = t.brand(
     {
       customerId?: Units_.IdentityId;
       identityId?: Units_.IdentityId;
-      payload?: {
+      payload?: ({
         side?: string;
         type?: string;
-      } & {
+      } & Record<string, unknown>) & {
         type: Defined;
         side: Defined;
       };

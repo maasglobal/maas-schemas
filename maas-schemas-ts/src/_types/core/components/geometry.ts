@@ -102,34 +102,35 @@ export interface PolygonBrand {
 // Geometry
 // The default export. More information at the top.
 export type Geometry = t.Branded<
-  Record<string, unknown> & {
-    type: Defined;
-    coordinates: Defined;
-  } & (
-      | {
+  Record<string, unknown> &
+    Record<string, unknown> & {
+      type: Defined;
+      coordinates: Defined;
+    } & (
+      | ({
           type?: 'Point';
           coordinates?: Position;
-        }
-      | {
+        } & Record<string, unknown>)
+      | ({
           type?: 'MultiPoint';
           coordinates?: PositionArray;
-        }
-      | {
+        } & Record<string, unknown>)
+      | ({
           type?: 'LineString';
           coordinates?: LineString;
-        }
-      | {
+        } & Record<string, unknown>)
+      | ({
           type?: 'MultiLineString';
           coordinates?: Array<LineString>;
-        }
-      | {
+        } & Record<string, unknown>)
+      | ({
           type?: 'Polygon';
           coordinates?: Polygon;
-        }
-      | {
+        } & Record<string, unknown>)
+      | ({
           type?: 'MultiPolygon';
           coordinates?: Array<Polygon>;
-        }
+        } & Record<string, unknown>)
     ),
   GeometryBrand
 >;
@@ -137,36 +138,67 @@ export type GeometryC = t.BrandC<
   t.IntersectionC<
     [
       t.UnknownRecordC,
+      t.RecordC<t.StringC, t.UnknownC>,
       t.TypeC<{
         type: typeof Defined;
         coordinates: typeof Defined;
       }>,
       t.UnionC<
         [
-          t.PartialC<{
-            type: t.LiteralC<'Point'>;
-            coordinates: typeof Position;
-          }>,
-          t.PartialC<{
-            type: t.LiteralC<'MultiPoint'>;
-            coordinates: typeof PositionArray;
-          }>,
-          t.PartialC<{
-            type: t.LiteralC<'LineString'>;
-            coordinates: typeof LineString;
-          }>,
-          t.PartialC<{
-            type: t.LiteralC<'MultiLineString'>;
-            coordinates: t.ArrayC<typeof LineString>;
-          }>,
-          t.PartialC<{
-            type: t.LiteralC<'Polygon'>;
-            coordinates: typeof Polygon;
-          }>,
-          t.PartialC<{
-            type: t.LiteralC<'MultiPolygon'>;
-            coordinates: t.ArrayC<typeof Polygon>;
-          }>,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                type: t.LiteralC<'Point'>;
+                coordinates: typeof Position;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                type: t.LiteralC<'MultiPoint'>;
+                coordinates: typeof PositionArray;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                type: t.LiteralC<'LineString'>;
+                coordinates: typeof LineString;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                type: t.LiteralC<'MultiLineString'>;
+                coordinates: t.ArrayC<typeof LineString>;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                type: t.LiteralC<'Polygon'>;
+                coordinates: typeof Polygon;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                type: t.LiteralC<'MultiPolygon'>;
+                coordinates: t.ArrayC<typeof Polygon>;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
         ]
       >,
     ]
@@ -176,68 +208,88 @@ export type GeometryC = t.BrandC<
 export const Geometry: GeometryC = t.brand(
   t.intersection([
     t.UnknownRecord,
+    t.record(t.string, t.unknown),
     t.type({
       type: Defined,
       coordinates: Defined,
     }),
     t.union([
-      t.partial({
-        type: t.literal('Point'),
-        coordinates: Position,
-      }),
-      t.partial({
-        type: t.literal('MultiPoint'),
-        coordinates: PositionArray,
-      }),
-      t.partial({
-        type: t.literal('LineString'),
-        coordinates: LineString,
-      }),
-      t.partial({
-        type: t.literal('MultiLineString'),
-        coordinates: t.array(LineString),
-      }),
-      t.partial({
-        type: t.literal('Polygon'),
-        coordinates: Polygon,
-      }),
-      t.partial({
-        type: t.literal('MultiPolygon'),
-        coordinates: t.array(Polygon),
-      }),
+      t.intersection([
+        t.partial({
+          type: t.literal('Point'),
+          coordinates: Position,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
+      t.intersection([
+        t.partial({
+          type: t.literal('MultiPoint'),
+          coordinates: PositionArray,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
+      t.intersection([
+        t.partial({
+          type: t.literal('LineString'),
+          coordinates: LineString,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
+      t.intersection([
+        t.partial({
+          type: t.literal('MultiLineString'),
+          coordinates: t.array(LineString),
+        }),
+        t.record(t.string, t.unknown),
+      ]),
+      t.intersection([
+        t.partial({
+          type: t.literal('Polygon'),
+          coordinates: Polygon,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
+      t.intersection([
+        t.partial({
+          type: t.literal('MultiPolygon'),
+          coordinates: t.array(Polygon),
+        }),
+        t.record(t.string, t.unknown),
+      ]),
     ]),
   ]),
   (
     x,
   ): x is t.Branded<
-    Record<string, unknown> & {
-      type: Defined;
-      coordinates: Defined;
-    } & (
-        | {
+    Record<string, unknown> &
+      Record<string, unknown> & {
+        type: Defined;
+        coordinates: Defined;
+      } & (
+        | ({
             type?: 'Point';
             coordinates?: Position;
-          }
-        | {
+          } & Record<string, unknown>)
+        | ({
             type?: 'MultiPoint';
             coordinates?: PositionArray;
-          }
-        | {
+          } & Record<string, unknown>)
+        | ({
             type?: 'LineString';
             coordinates?: LineString;
-          }
-        | {
+          } & Record<string, unknown>)
+        | ({
             type?: 'MultiLineString';
             coordinates?: Array<LineString>;
-          }
-        | {
+          } & Record<string, unknown>)
+        | ({
             type?: 'Polygon';
             coordinates?: Polygon;
-          }
-        | {
+          } & Record<string, unknown>)
+        | ({
             type?: 'MultiPolygon';
             coordinates?: Array<Polygon>;
-          }
+          } & Record<string, unknown>)
       ),
     GeometryBrand
   > => true,

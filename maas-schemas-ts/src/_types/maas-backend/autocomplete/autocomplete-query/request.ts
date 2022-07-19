@@ -50,53 +50,61 @@ export type Request = t.Branded<
       lon: Defined;
     };
     headers?: ApiCommon_.Headers;
-  },
+  } & Record<string, unknown>,
   RequestBrand
 >;
 export type RequestC = t.BrandC<
-  t.PartialC<{
-    identityId: typeof Units_.IdentityId;
-    payload: t.IntersectionC<
-      [
-        t.PartialC<{
-          name: typeof Address_.PlaceName;
-          lat: typeof UnitsGeo_.RelaxedLatitude;
-          lon: typeof UnitsGeo_.RelaxedLongitude;
-          providerHint: t.StringC;
-          count: t.NumberC;
-          radius: t.IntersectionC<[typeof UnitsGeo_.Distance, t.UnknownC]>;
-        }>,
-        t.TypeC<{
-          name: typeof Defined;
-          lat: typeof Defined;
-          lon: typeof Defined;
-        }>,
-      ]
-    >;
-    headers: typeof ApiCommon_.Headers;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof Units_.IdentityId;
+        payload: t.IntersectionC<
+          [
+            t.PartialC<{
+              name: typeof Address_.PlaceName;
+              lat: typeof UnitsGeo_.RelaxedLatitude;
+              lon: typeof UnitsGeo_.RelaxedLongitude;
+              providerHint: t.StringC;
+              count: t.NumberC;
+              radius: t.IntersectionC<[typeof UnitsGeo_.Distance, t.UnknownC]>;
+            }>,
+            t.TypeC<{
+              name: typeof Defined;
+              lat: typeof Defined;
+              lon: typeof Defined;
+            }>,
+          ]
+        >;
+        headers: typeof ApiCommon_.Headers;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   RequestBrand
 >;
 export const Request: RequestC = t.brand(
-  t.partial({
-    identityId: Units_.IdentityId,
-    payload: t.intersection([
-      t.partial({
-        name: Address_.PlaceName,
-        lat: UnitsGeo_.RelaxedLatitude,
-        lon: UnitsGeo_.RelaxedLongitude,
-        providerHint: t.string,
-        count: t.number,
-        radius: t.intersection([UnitsGeo_.Distance, t.unknown]),
-      }),
-      t.type({
-        name: Defined,
-        lat: Defined,
-        lon: Defined,
-      }),
-    ]),
-    headers: ApiCommon_.Headers,
-  }),
+  t.intersection([
+    t.partial({
+      identityId: Units_.IdentityId,
+      payload: t.intersection([
+        t.partial({
+          name: Address_.PlaceName,
+          lat: UnitsGeo_.RelaxedLatitude,
+          lon: UnitsGeo_.RelaxedLongitude,
+          providerHint: t.string,
+          count: t.number,
+          radius: t.intersection([UnitsGeo_.Distance, t.unknown]),
+        }),
+        t.type({
+          name: Defined,
+          lat: Defined,
+          lon: Defined,
+        }),
+      ]),
+      headers: ApiCommon_.Headers,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
@@ -115,7 +123,7 @@ export const Request: RequestC = t.brand(
         lon: Defined;
       };
       headers?: ApiCommon_.Headers;
-    },
+    } & Record<string, unknown>,
     RequestBrand
   > => true,
   'Request',

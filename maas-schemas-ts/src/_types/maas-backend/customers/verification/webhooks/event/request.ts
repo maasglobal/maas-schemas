@@ -46,16 +46,16 @@ export type Request = t.Branded<
       code: Defined;
       action: Defined;
     };
-    headers?: {
+    headers?: ({
       'x-signature'?: string;
       'x-auth-client'?: Units_.Uuid;
-    } & {
+    } & Record<string, unknown>) & {
       'x-signature': Defined;
       'x-auth-client': Defined;
     };
     technicalData?: {
       ip?: string;
-    };
+    } & Record<string, unknown>;
   } & {
     headers: Defined;
     payload: Defined;
@@ -90,19 +90,29 @@ export type RequestC = t.BrandC<
         >;
         headers: t.IntersectionC<
           [
-            t.PartialC<{
-              'x-signature': t.StringC;
-              'x-auth-client': typeof Units_.Uuid;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  'x-signature': t.StringC;
+                  'x-auth-client': typeof Units_.Uuid;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               'x-signature': typeof Defined;
               'x-auth-client': typeof Defined;
             }>,
           ]
         >;
-        technicalData: t.PartialC<{
-          ip: t.StringC;
-        }>;
+        technicalData: t.IntersectionC<
+          [
+            t.PartialC<{
+              ip: t.StringC;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
       }>,
       t.TypeC<{
         headers: typeof Defined;
@@ -135,18 +145,24 @@ export const Request: RequestC = t.brand(
         }),
       ]),
       headers: t.intersection([
-        t.partial({
-          'x-signature': t.string,
-          'x-auth-client': Units_.Uuid,
-        }),
+        t.intersection([
+          t.partial({
+            'x-signature': t.string,
+            'x-auth-client': Units_.Uuid,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           'x-signature': Defined,
           'x-auth-client': Defined,
         }),
       ]),
-      technicalData: t.partial({
-        ip: t.string,
-      }),
+      technicalData: t.intersection([
+        t.partial({
+          ip: t.string,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
     }),
     t.type({
       headers: Defined,
@@ -170,16 +186,16 @@ export const Request: RequestC = t.brand(
         code: Defined;
         action: Defined;
       };
-      headers?: {
+      headers?: ({
         'x-signature'?: string;
         'x-auth-client'?: Units_.Uuid;
-      } & {
+      } & Record<string, unknown>) & {
         'x-signature': Defined;
         'x-auth-client': Defined;
       };
       technicalData?: {
         ip?: string;
-      };
+      } & Record<string, unknown>;
     } & {
       headers: Defined;
       payload: Defined;

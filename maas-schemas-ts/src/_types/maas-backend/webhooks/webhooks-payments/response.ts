@@ -39,8 +39,8 @@ export type AvainpayResponse = t.Branded<
       system_time?: number;
       nonce?: string;
       signature?: string;
-    };
-    response_map?: Record<string, unknown>;
+    } & Record<string, unknown>;
+    response_map?: Record<string, unknown> & Record<string, unknown>;
   } & Record<string, unknown>) & {
     action_str: Defined;
     data_type: Defined;
@@ -56,12 +56,19 @@ export type AvainpayResponseC = t.BrandC<
             action_str: t.StringC;
             data_type: t.StringC;
             log_list: t.UnknownArrayC;
-            trans_map: t.PartialC<{
-              system_time: t.NumberC;
-              nonce: t.StringC;
-              signature: t.StringC;
-            }>;
-            response_map: t.UnknownRecordC;
+            trans_map: t.IntersectionC<
+              [
+                t.PartialC<{
+                  system_time: t.NumberC;
+                  nonce: t.StringC;
+                  signature: t.StringC;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >;
+            response_map: t.IntersectionC<
+              [t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]
+            >;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
         ]
@@ -81,12 +88,15 @@ export const AvainpayResponse: AvainpayResponseC = t.brand(
         action_str: t.string,
         data_type: t.string,
         log_list: t.UnknownArray,
-        trans_map: t.partial({
-          system_time: t.number,
-          nonce: t.string,
-          signature: t.string,
-        }),
-        response_map: t.UnknownRecord,
+        trans_map: t.intersection([
+          t.partial({
+            system_time: t.number,
+            nonce: t.string,
+            signature: t.string,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
+        response_map: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
       }),
       t.record(t.string, t.unknown),
     ]),
@@ -106,8 +116,8 @@ export const AvainpayResponse: AvainpayResponseC = t.brand(
         system_time?: number;
         nonce?: string;
         signature?: string;
-      };
-      response_map?: Record<string, unknown>;
+      } & Record<string, unknown>;
+      response_map?: Record<string, unknown> & Record<string, unknown>;
     } & Record<string, unknown>) & {
       action_str: Defined;
       data_type: Defined;

@@ -25,12 +25,14 @@ export type PersonalDataValidation = t.Branded<
       path?: string;
       remoteSource?: string;
       value?: string | number | boolean;
-      enum?: Array<{
-        value?: string | number | boolean;
-        name?: string;
-        description?: string;
-        meta?: Record<string, unknown>;
-      }>;
+      enum?: Array<
+        {
+          value?: string | number | boolean;
+          name?: string;
+          description?: string;
+          meta?: Record<string, unknown> & Record<string, unknown>;
+        } & Record<string, unknown>
+      >;
       length?: number;
       regex?: string;
       date?: string | number;
@@ -38,109 +40,143 @@ export type PersonalDataValidation = t.Branded<
         month?: number;
         day?: number;
         hour?: number;
-      };
-      meta?: Record<string, unknown>;
-    };
+      } & Record<string, unknown>;
+      meta?: Record<string, unknown> & Record<string, unknown>;
+    } & Record<string, unknown>;
     errorCode?: string;
-  },
+  } & Record<string, unknown>,
   PersonalDataValidationBrand
 >;
 export type PersonalDataValidationC = t.BrandC<
-  t.PartialC<{
-    id: t.NumberC;
-    name: t.StringC;
-    type: t.UnionC<
-      [
-        t.LiteralC<'value'>,
-        t.LiteralC<'enum'>,
-        t.LiteralC<'length'>,
-        t.LiteralC<'regex'>,
-        t.LiteralC<'date'>,
-        t.LiteralC<'dateDurationUntilNow'>,
-      ]
-    >;
-    operator: t.UnionC<
-      [
-        t.LiteralC<'>'>,
-        t.LiteralC<'>='>,
-        t.LiteralC<'<'>,
-        t.LiteralC<'<='>,
-        t.LiteralC<'='>,
-        t.LiteralC<'!='>,
-        t.LiteralC<'in'>,
-      ]
-    >;
-    config: t.PartialC<{
-      path: t.StringC;
-      remoteSource: t.StringC;
-      value: t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>;
-      enum: t.ArrayC<
-        t.PartialC<{
-          value: t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>;
-          name: t.StringC;
-          description: t.StringC;
-          meta: t.UnknownRecordC;
-        }>
-      >;
-      length: t.NumberC;
-      regex: t.StringC;
-      date: t.UnionC<[t.StringC, t.NumberC]>;
-      dateDurationUntilNow: t.PartialC<{
-        month: t.NumberC;
-        day: t.NumberC;
-        hour: t.NumberC;
-      }>;
-      meta: t.UnknownRecordC;
-    }>;
-    errorCode: t.StringC;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.NumberC;
+        name: t.StringC;
+        type: t.UnionC<
+          [
+            t.LiteralC<'value'>,
+            t.LiteralC<'enum'>,
+            t.LiteralC<'length'>,
+            t.LiteralC<'regex'>,
+            t.LiteralC<'date'>,
+            t.LiteralC<'dateDurationUntilNow'>,
+          ]
+        >;
+        operator: t.UnionC<
+          [
+            t.LiteralC<'>'>,
+            t.LiteralC<'>='>,
+            t.LiteralC<'<'>,
+            t.LiteralC<'<='>,
+            t.LiteralC<'='>,
+            t.LiteralC<'!='>,
+            t.LiteralC<'in'>,
+          ]
+        >;
+        config: t.IntersectionC<
+          [
+            t.PartialC<{
+              path: t.StringC;
+              remoteSource: t.StringC;
+              value: t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>;
+              enum: t.ArrayC<
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      value: t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>;
+                      name: t.StringC;
+                      description: t.StringC;
+                      meta: t.IntersectionC<
+                        [t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]
+                      >;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >
+              >;
+              length: t.NumberC;
+              regex: t.StringC;
+              date: t.UnionC<[t.StringC, t.NumberC]>;
+              dateDurationUntilNow: t.IntersectionC<
+                [
+                  t.PartialC<{
+                    month: t.NumberC;
+                    day: t.NumberC;
+                    hour: t.NumberC;
+                  }>,
+                  t.RecordC<t.StringC, t.UnknownC>,
+                ]
+              >;
+              meta: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
+        errorCode: t.StringC;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   PersonalDataValidationBrand
 >;
 export const PersonalDataValidation: PersonalDataValidationC = t.brand(
-  t.partial({
-    id: t.number,
-    name: t.string,
-    type: t.union([
-      t.literal('value'),
-      t.literal('enum'),
-      t.literal('length'),
-      t.literal('regex'),
-      t.literal('date'),
-      t.literal('dateDurationUntilNow'),
-    ]),
-    operator: t.union([
-      t.literal('>'),
-      t.literal('>='),
-      t.literal('<'),
-      t.literal('<='),
-      t.literal('='),
-      t.literal('!='),
-      t.literal('in'),
-    ]),
-    config: t.partial({
-      path: t.string,
-      remoteSource: t.string,
-      value: t.union([t.string, t.number, t.boolean]),
-      enum: t.array(
+  t.intersection([
+    t.partial({
+      id: t.number,
+      name: t.string,
+      type: t.union([
+        t.literal('value'),
+        t.literal('enum'),
+        t.literal('length'),
+        t.literal('regex'),
+        t.literal('date'),
+        t.literal('dateDurationUntilNow'),
+      ]),
+      operator: t.union([
+        t.literal('>'),
+        t.literal('>='),
+        t.literal('<'),
+        t.literal('<='),
+        t.literal('='),
+        t.literal('!='),
+        t.literal('in'),
+      ]),
+      config: t.intersection([
         t.partial({
+          path: t.string,
+          remoteSource: t.string,
           value: t.union([t.string, t.number, t.boolean]),
-          name: t.string,
-          description: t.string,
-          meta: t.UnknownRecord,
+          enum: t.array(
+            t.intersection([
+              t.partial({
+                value: t.union([t.string, t.number, t.boolean]),
+                name: t.string,
+                description: t.string,
+                meta: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+              }),
+              t.record(t.string, t.unknown),
+            ]),
+          ),
+          length: t.number,
+          regex: t.string,
+          date: t.union([t.string, t.number]),
+          dateDurationUntilNow: t.intersection([
+            t.partial({
+              month: t.number,
+              day: t.number,
+              hour: t.number,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+          meta: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
         }),
-      ),
-      length: t.number,
-      regex: t.string,
-      date: t.union([t.string, t.number]),
-      dateDurationUntilNow: t.partial({
-        month: t.number,
-        day: t.number,
-        hour: t.number,
-      }),
-      meta: t.UnknownRecord,
+        t.record(t.string, t.unknown),
+      ]),
+      errorCode: t.string,
     }),
-    errorCode: t.string,
-  }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
@@ -153,12 +189,14 @@ export const PersonalDataValidation: PersonalDataValidationC = t.brand(
         path?: string;
         remoteSource?: string;
         value?: string | number | boolean;
-        enum?: Array<{
-          value?: string | number | boolean;
-          name?: string;
-          description?: string;
-          meta?: Record<string, unknown>;
-        }>;
+        enum?: Array<
+          {
+            value?: string | number | boolean;
+            name?: string;
+            description?: string;
+            meta?: Record<string, unknown> & Record<string, unknown>;
+          } & Record<string, unknown>
+        >;
         length?: number;
         regex?: string;
         date?: string | number;
@@ -166,11 +204,11 @@ export const PersonalDataValidation: PersonalDataValidationC = t.brand(
           month?: number;
           day?: number;
           hour?: number;
-        };
-        meta?: Record<string, unknown>;
-      };
+        } & Record<string, unknown>;
+        meta?: Record<string, unknown> & Record<string, unknown>;
+      } & Record<string, unknown>;
       errorCode?: string;
-    },
+    } & Record<string, unknown>,
     PersonalDataValidationBrand
   > => true,
   'PersonalDataValidation',

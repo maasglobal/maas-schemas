@@ -36,7 +36,7 @@ export const schemaId = 'https://schemas.maas.global/maas-backend/products/provi
 // Selection
 // Optional parameter for selections
 export type Selection = t.Branded<
-  {
+  ({
     id?: string;
     name?: string;
     type?: 'oneOf' | 'someOf' | 'allOf' | 'oneOrNoneOf' | 'someOrNoneOf';
@@ -53,7 +53,7 @@ export type Selection = t.Branded<
         type: Defined;
       }
     >;
-  } & {
+  } & Record<string, unknown>) & {
     id: Defined;
     name: Defined;
     inputs: Defined;
@@ -63,44 +63,49 @@ export type Selection = t.Branded<
 export type SelectionC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        id: t.StringC;
-        name: t.StringC;
-        type: t.UnionC<
-          [
-            t.LiteralC<'oneOf'>,
-            t.LiteralC<'someOf'>,
-            t.LiteralC<'allOf'>,
-            t.LiteralC<'oneOrNoneOf'>,
-            t.LiteralC<'someOrNoneOf'>,
-          ]
-        >;
-        userSelectable: t.BooleanC;
-        inputs: t.ArrayC<
-          t.IntersectionC<
-            [
-              t.PartialC<{
-                id: t.StringC;
-                name: t.StringC;
-                type: t.UnionC<
-                  [
-                    t.LiteralC<'string'>,
-                    t.LiteralC<'number'>,
-                    t.LiteralC<'boolean'>,
-                    t.LiteralC<'station'>,
-                  ]
-                >;
-                default: t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>;
-              }>,
-              t.TypeC<{
-                id: typeof Defined;
-                name: typeof Defined;
-                type: typeof Defined;
-              }>,
-            ]
-          >
-        >;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            id: t.StringC;
+            name: t.StringC;
+            type: t.UnionC<
+              [
+                t.LiteralC<'oneOf'>,
+                t.LiteralC<'someOf'>,
+                t.LiteralC<'allOf'>,
+                t.LiteralC<'oneOrNoneOf'>,
+                t.LiteralC<'someOrNoneOf'>,
+              ]
+            >;
+            userSelectable: t.BooleanC;
+            inputs: t.ArrayC<
+              t.IntersectionC<
+                [
+                  t.PartialC<{
+                    id: t.StringC;
+                    name: t.StringC;
+                    type: t.UnionC<
+                      [
+                        t.LiteralC<'string'>,
+                        t.LiteralC<'number'>,
+                        t.LiteralC<'boolean'>,
+                        t.LiteralC<'station'>,
+                      ]
+                    >;
+                    default: t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>;
+                  }>,
+                  t.TypeC<{
+                    id: typeof Defined;
+                    name: typeof Defined;
+                    type: typeof Defined;
+                  }>,
+                ]
+              >
+            >;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         id: typeof Defined;
         name: typeof Defined;
@@ -112,38 +117,41 @@ export type SelectionC = t.BrandC<
 >;
 export const Selection: SelectionC = t.brand(
   t.intersection([
-    t.partial({
-      id: t.string,
-      name: t.string,
-      type: t.union([
-        t.literal('oneOf'),
-        t.literal('someOf'),
-        t.literal('allOf'),
-        t.literal('oneOrNoneOf'),
-        t.literal('someOrNoneOf'),
-      ]),
-      userSelectable: t.boolean,
-      inputs: t.array(
-        t.intersection([
-          t.partial({
-            id: t.string,
-            name: t.string,
-            type: t.union([
-              t.literal('string'),
-              t.literal('number'),
-              t.literal('boolean'),
-              t.literal('station'),
-            ]),
-            default: t.union([t.string, t.number, t.boolean]),
-          }),
-          t.type({
-            id: Defined,
-            name: Defined,
-            type: Defined,
-          }),
+    t.intersection([
+      t.partial({
+        id: t.string,
+        name: t.string,
+        type: t.union([
+          t.literal('oneOf'),
+          t.literal('someOf'),
+          t.literal('allOf'),
+          t.literal('oneOrNoneOf'),
+          t.literal('someOrNoneOf'),
         ]),
-      ),
-    }),
+        userSelectable: t.boolean,
+        inputs: t.array(
+          t.intersection([
+            t.partial({
+              id: t.string,
+              name: t.string,
+              type: t.union([
+                t.literal('string'),
+                t.literal('number'),
+                t.literal('boolean'),
+                t.literal('station'),
+              ]),
+              default: t.union([t.string, t.number, t.boolean]),
+            }),
+            t.type({
+              id: Defined,
+              name: Defined,
+              type: Defined,
+            }),
+          ]),
+        ),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       id: Defined,
       name: Defined,
@@ -153,7 +161,7 @@ export const Selection: SelectionC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       id?: string;
       name?: string;
       type?: 'oneOf' | 'someOf' | 'allOf' | 'oneOrNoneOf' | 'someOrNoneOf';
@@ -170,7 +178,7 @@ export const Selection: SelectionC = t.brand(
           type: Defined;
         }
       >;
-    } & {
+    } & Record<string, unknown>) & {
       id: Defined;
       name: Defined;
       inputs: Defined;
@@ -186,15 +194,15 @@ export interface SelectionBrand {
 // MessageToDriver
 // Optional parameter for a message to driver
 export type MessageToDriver = t.Branded<
-  {
-    message?: {
+  ({
+    message?: ({
       property?: string;
       maxLength?: number;
-    } & {
+    } & Record<string, unknown>) & {
       property: Defined;
       maxLength: Defined;
     };
-  } & {
+  } & Record<string, unknown>) & {
     message: Defined;
   },
   MessageToDriverBrand
@@ -202,20 +210,30 @@ export type MessageToDriver = t.Branded<
 export type MessageToDriverC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        message: t.IntersectionC<
-          [
-            t.PartialC<{
-              property: t.StringC;
-              maxLength: t.NumberC;
-            }>,
-            t.TypeC<{
-              property: typeof Defined;
-              maxLength: typeof Defined;
-            }>,
-          ]
-        >;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            message: t.IntersectionC<
+              [
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      property: t.StringC;
+                      maxLength: t.NumberC;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
+                t.TypeC<{
+                  property: typeof Defined;
+                  maxLength: typeof Defined;
+                }>,
+              ]
+            >;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         message: typeof Defined;
       }>,
@@ -225,18 +243,24 @@ export type MessageToDriverC = t.BrandC<
 >;
 export const MessageToDriver: MessageToDriverC = t.brand(
   t.intersection([
-    t.partial({
-      message: t.intersection([
-        t.partial({
-          property: t.string,
-          maxLength: t.number,
-        }),
-        t.type({
-          property: Defined,
-          maxLength: Defined,
-        }),
-      ]),
-    }),
+    t.intersection([
+      t.partial({
+        message: t.intersection([
+          t.intersection([
+            t.partial({
+              property: t.string,
+              maxLength: t.number,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+          t.type({
+            property: Defined,
+            maxLength: Defined,
+          }),
+        ]),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       message: Defined,
     }),
@@ -244,15 +268,15 @@ export const MessageToDriver: MessageToDriverC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
-      message?: {
+    ({
+      message?: ({
         property?: string;
         maxLength?: number;
-      } & {
+      } & Record<string, unknown>) & {
         property: Defined;
         maxLength: Defined;
       };
-    } & {
+    } & Record<string, unknown>) & {
       message: Defined;
     },
     MessageToDriverBrand
@@ -266,9 +290,9 @@ export interface MessageToDriverBrand {
 // BookingPeriod
 // Optional parameter for default booking period
 export type BookingPeriod = t.Branded<
-  {
+  ({
     searchDefault?: number;
-  } & {
+  } & Record<string, unknown>) & {
     searchDefault: Defined;
   },
   BookingPeriodBrand
@@ -276,9 +300,14 @@ export type BookingPeriod = t.Branded<
 export type BookingPeriodC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        searchDefault: t.NumberC;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            searchDefault: t.NumberC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         searchDefault: typeof Defined;
       }>,
@@ -288,9 +317,12 @@ export type BookingPeriodC = t.BrandC<
 >;
 export const BookingPeriod: BookingPeriodC = t.brand(
   t.intersection([
-    t.partial({
-      searchDefault: t.number,
-    }),
+    t.intersection([
+      t.partial({
+        searchDefault: t.number,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       searchDefault: Defined,
     }),
@@ -298,9 +330,9 @@ export const BookingPeriod: BookingPeriodC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       searchDefault?: number;
-    } & {
+    } & Record<string, unknown>) & {
       searchDefault: Defined;
     },
     BookingPeriodBrand
@@ -314,10 +346,10 @@ export interface BookingPeriodBrand {
 // GradualRadiusOption
 // Optional parameter for gradual radius searching
 export type GradualRadiusOption = t.Branded<
-  {
+  ({
     gradualRadius?: number;
     maxRadius?: number;
-  } & {
+  } & Record<string, unknown>) & {
     gradualRadius: Defined;
     maxRadius: Defined;
   },
@@ -326,10 +358,15 @@ export type GradualRadiusOption = t.Branded<
 export type GradualRadiusOptionC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        gradualRadius: t.NumberC;
-        maxRadius: t.NumberC;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            gradualRadius: t.NumberC;
+            maxRadius: t.NumberC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         gradualRadius: typeof Defined;
         maxRadius: typeof Defined;
@@ -340,10 +377,13 @@ export type GradualRadiusOptionC = t.BrandC<
 >;
 export const GradualRadiusOption: GradualRadiusOptionC = t.brand(
   t.intersection([
-    t.partial({
-      gradualRadius: t.number,
-      maxRadius: t.number,
-    }),
+    t.intersection([
+      t.partial({
+        gradualRadius: t.number,
+        maxRadius: t.number,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       gradualRadius: Defined,
       maxRadius: Defined,
@@ -352,10 +392,10 @@ export const GradualRadiusOption: GradualRadiusOptionC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       gradualRadius?: number;
       maxRadius?: number;
-    } & {
+    } & Record<string, unknown>) & {
       gradualRadius: Defined;
       maxRadius: Defined;
     },
@@ -381,7 +421,7 @@ export type Provider = t.Branded<
       icon?: Units_.Url;
       logoSolidColor?: Units_.Url;
       logoFullColor?: Units_.Url;
-    };
+    } & Record<string, unknown>;
     features?: {
       ticket?: boolean;
       stationsList?: boolean;
@@ -405,11 +445,11 @@ export type Provider = t.Branded<
         fixedFareCurrency: Defined;
         maxRadiusMetres: Defined;
       };
-      prebooking?: {
+      prebooking?: ({
         isSupported?: boolean;
         minIntervalUntilBooking?: number;
         maxIntervalUntilBooking?: number;
-      } & {
+      } & Record<string, unknown>) & {
         isSupported: Defined;
         minIntervalUntilBooking: Defined;
         maxIntervalUntilBooking: Defined;
@@ -422,7 +462,7 @@ export type Provider = t.Branded<
     optionalParameters?: Array<
       Selection | MessageToDriver | BookingPeriod | GradualRadiusOption
     >;
-    disruption?: Record<string, unknown>;
+    disruption?: Record<string, unknown> & Record<string, unknown>;
     created?: Units_.Time;
   } & {
     name: Defined;
@@ -445,13 +485,18 @@ export type ProviderC = t.BrandC<
         agencyId: typeof Common_.AgencyId;
         groupId: t.StringC;
         hidden: t.BooleanC;
-        branding: t.PartialC<{
-          primaryColor: t.StringC;
-          secondaryColor: t.StringC;
-          icon: typeof Units_.Url;
-          logoSolidColor: typeof Units_.Url;
-          logoFullColor: typeof Units_.Url;
-        }>;
+        branding: t.IntersectionC<
+          [
+            t.PartialC<{
+              primaryColor: t.StringC;
+              secondaryColor: t.StringC;
+              icon: typeof Units_.Url;
+              logoSolidColor: typeof Units_.Url;
+              logoFullColor: typeof Units_.Url;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
         features: t.IntersectionC<
           [
             t.PartialC<{
@@ -493,11 +538,16 @@ export type ProviderC = t.BrandC<
           >;
           prebooking: t.IntersectionC<
             [
-              t.PartialC<{
-                isSupported: t.BooleanC;
-                minIntervalUntilBooking: t.NumberC;
-                maxIntervalUntilBooking: t.NumberC;
-              }>,
+              t.IntersectionC<
+                [
+                  t.PartialC<{
+                    isSupported: t.BooleanC;
+                    minIntervalUntilBooking: t.NumberC;
+                    maxIntervalUntilBooking: t.NumberC;
+                  }>,
+                  t.RecordC<t.StringC, t.UnknownC>,
+                ]
+              >,
               t.TypeC<{
                 isSupported: typeof Defined;
                 minIntervalUntilBooking: typeof Defined;
@@ -528,7 +578,7 @@ export type ProviderC = t.BrandC<
             ]
           >
         >;
-        disruption: t.UnknownRecordC;
+        disruption: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
         created: typeof Units_.Time;
       }>,
       t.TypeC<{
@@ -553,13 +603,16 @@ export const Provider: ProviderC = t.brand(
       agencyId: Common_.AgencyId,
       groupId: t.string,
       hidden: t.boolean,
-      branding: t.partial({
-        primaryColor: t.string,
-        secondaryColor: t.string,
-        icon: Units_.Url,
-        logoSolidColor: Units_.Url,
-        logoFullColor: Units_.Url,
-      }),
+      branding: t.intersection([
+        t.partial({
+          primaryColor: t.string,
+          secondaryColor: t.string,
+          icon: Units_.Url,
+          logoSolidColor: Units_.Url,
+          logoFullColor: Units_.Url,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       features: t.intersection([
         t.partial({
           ticket: t.boolean,
@@ -594,11 +647,14 @@ export const Provider: ProviderC = t.brand(
           }),
         ]),
         prebooking: t.intersection([
-          t.partial({
-            isSupported: t.boolean,
-            minIntervalUntilBooking: t.number,
-            maxIntervalUntilBooking: t.number,
-          }),
+          t.intersection([
+            t.partial({
+              isSupported: t.boolean,
+              minIntervalUntilBooking: t.number,
+              maxIntervalUntilBooking: t.number,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
           t.type({
             isSupported: Defined,
             minIntervalUntilBooking: Defined,
@@ -615,7 +671,7 @@ export const Provider: ProviderC = t.brand(
       optionalParameters: t.array(
         t.union([Selection, MessageToDriver, BookingPeriod, GradualRadiusOption]),
       ),
-      disruption: t.UnknownRecord,
+      disruption: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
       created: Units_.Time,
     }),
     t.type({
@@ -644,7 +700,7 @@ export const Provider: ProviderC = t.brand(
         icon?: Units_.Url;
         logoSolidColor?: Units_.Url;
         logoFullColor?: Units_.Url;
-      };
+      } & Record<string, unknown>;
       features?: {
         ticket?: boolean;
         stationsList?: boolean;
@@ -668,11 +724,11 @@ export const Provider: ProviderC = t.brand(
           fixedFareCurrency: Defined;
           maxRadiusMetres: Defined;
         };
-        prebooking?: {
+        prebooking?: ({
           isSupported?: boolean;
           minIntervalUntilBooking?: number;
           maxIntervalUntilBooking?: number;
-        } & {
+        } & Record<string, unknown>) & {
           isSupported: Defined;
           minIntervalUntilBooking: Defined;
           maxIntervalUntilBooking: Defined;
@@ -685,7 +741,7 @@ export const Provider: ProviderC = t.brand(
       optionalParameters?: Array<
         Selection | MessageToDriver | BookingPeriod | GradualRadiusOption
       >;
-      disruption?: Record<string, unknown>;
+      disruption?: Record<string, unknown> & Record<string, unknown>;
       created?: Units_.Time;
     } & {
       name: Defined;

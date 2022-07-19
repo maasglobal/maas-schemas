@@ -39,22 +39,22 @@ export type Request = t.Branded<
     identityId?: Units_.IdentityId;
     agencyId?: Common_.AgencyId;
     payload?:
-      | ({
+      | (({
           lat?: UnitsGeo_.RelaxedLatitude;
           lon?: UnitsGeo_.RelaxedLatitude;
           radius?: number;
           type?: 'origin' | 'destination' | 'viaAvoid';
-        } & {
+        } & Record<string, unknown>) & {
           lat: Defined;
           lon: Defined;
           type: Defined;
         })
-      | ({
+      | (({
           agencyId?: Common_.AgencyId;
           name?: string;
           count?: number;
           type?: 'origin' | 'destination' | 'viaAvoid';
-        } & {
+        } & Record<string, unknown>) & {
           name: Defined;
           count: Defined;
           type: Defined;
@@ -77,18 +77,23 @@ export type RequestC = t.BrandC<
           [
             t.IntersectionC<
               [
-                t.PartialC<{
-                  lat: typeof UnitsGeo_.RelaxedLatitude;
-                  lon: typeof UnitsGeo_.RelaxedLatitude;
-                  radius: t.NumberC;
-                  type: t.UnionC<
-                    [
-                      t.LiteralC<'origin'>,
-                      t.LiteralC<'destination'>,
-                      t.LiteralC<'viaAvoid'>,
-                    ]
-                  >;
-                }>,
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      lat: typeof UnitsGeo_.RelaxedLatitude;
+                      lon: typeof UnitsGeo_.RelaxedLatitude;
+                      radius: t.NumberC;
+                      type: t.UnionC<
+                        [
+                          t.LiteralC<'origin'>,
+                          t.LiteralC<'destination'>,
+                          t.LiteralC<'viaAvoid'>,
+                        ]
+                      >;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
                 t.TypeC<{
                   lat: typeof Defined;
                   lon: typeof Defined;
@@ -98,18 +103,23 @@ export type RequestC = t.BrandC<
             >,
             t.IntersectionC<
               [
-                t.PartialC<{
-                  agencyId: typeof Common_.AgencyId;
-                  name: t.StringC;
-                  count: t.NumberC;
-                  type: t.UnionC<
-                    [
-                      t.LiteralC<'origin'>,
-                      t.LiteralC<'destination'>,
-                      t.LiteralC<'viaAvoid'>,
-                    ]
-                  >;
-                }>,
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      agencyId: typeof Common_.AgencyId;
+                      name: t.StringC;
+                      count: t.NumberC;
+                      type: t.UnionC<
+                        [
+                          t.LiteralC<'origin'>,
+                          t.LiteralC<'destination'>,
+                          t.LiteralC<'viaAvoid'>,
+                        ]
+                      >;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
                 t.TypeC<{
                   name: typeof Defined;
                   count: typeof Defined;
@@ -137,16 +147,19 @@ export const Request: RequestC = t.brand(
       agencyId: Common_.AgencyId,
       payload: t.union([
         t.intersection([
-          t.partial({
-            lat: UnitsGeo_.RelaxedLatitude,
-            lon: UnitsGeo_.RelaxedLatitude,
-            radius: t.number,
-            type: t.union([
-              t.literal('origin'),
-              t.literal('destination'),
-              t.literal('viaAvoid'),
-            ]),
-          }),
+          t.intersection([
+            t.partial({
+              lat: UnitsGeo_.RelaxedLatitude,
+              lon: UnitsGeo_.RelaxedLatitude,
+              radius: t.number,
+              type: t.union([
+                t.literal('origin'),
+                t.literal('destination'),
+                t.literal('viaAvoid'),
+              ]),
+            }),
+            t.record(t.string, t.unknown),
+          ]),
           t.type({
             lat: Defined,
             lon: Defined,
@@ -154,16 +167,19 @@ export const Request: RequestC = t.brand(
           }),
         ]),
         t.intersection([
-          t.partial({
-            agencyId: Common_.AgencyId,
-            name: t.string,
-            count: t.number,
-            type: t.union([
-              t.literal('origin'),
-              t.literal('destination'),
-              t.literal('viaAvoid'),
-            ]),
-          }),
+          t.intersection([
+            t.partial({
+              agencyId: Common_.AgencyId,
+              name: t.string,
+              count: t.number,
+              type: t.union([
+                t.literal('origin'),
+                t.literal('destination'),
+                t.literal('viaAvoid'),
+              ]),
+            }),
+            t.record(t.string, t.unknown),
+          ]),
           t.type({
             name: Defined,
             count: Defined,
@@ -186,22 +202,22 @@ export const Request: RequestC = t.brand(
       identityId?: Units_.IdentityId;
       agencyId?: Common_.AgencyId;
       payload?:
-        | ({
+        | (({
             lat?: UnitsGeo_.RelaxedLatitude;
             lon?: UnitsGeo_.RelaxedLatitude;
             radius?: number;
             type?: 'origin' | 'destination' | 'viaAvoid';
-          } & {
+          } & Record<string, unknown>) & {
             lat: Defined;
             lon: Defined;
             type: Defined;
           })
-        | ({
+        | (({
             agencyId?: Common_.AgencyId;
             name?: string;
             count?: number;
             type?: 'origin' | 'destination' | 'viaAvoid';
-          } & {
+          } & Record<string, unknown>) & {
             name: Defined;
             count: Defined;
             type: Defined;

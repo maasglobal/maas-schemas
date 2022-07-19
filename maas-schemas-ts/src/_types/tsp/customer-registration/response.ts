@@ -32,7 +32,7 @@ export const schemaId =
 // The default export. More information at the top.
 export type Response = t.Branded<
   ({
-    customer?: Record<string, unknown>;
+    customer?: Record<string, unknown> & Record<string, unknown>;
   } & Record<string, unknown>) & {
     customer: Defined;
   },
@@ -44,7 +44,9 @@ export type ResponseC = t.BrandC<
       t.IntersectionC<
         [
           t.PartialC<{
-            customer: t.UnknownRecordC;
+            customer: t.IntersectionC<
+              [t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]
+            >;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
         ]
@@ -60,7 +62,7 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.intersection([
       t.partial({
-        customer: t.UnknownRecord,
+        customer: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
       }),
       t.record(t.string, t.unknown),
     ]),
@@ -72,7 +74,7 @@ export const Response: ResponseC = t.brand(
     x,
   ): x is t.Branded<
     ({
-      customer?: Record<string, unknown>;
+      customer?: Record<string, unknown> & Record<string, unknown>;
     } & Record<string, unknown>) & {
       customer: Defined;
     },

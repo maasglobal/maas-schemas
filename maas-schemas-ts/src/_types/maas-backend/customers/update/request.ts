@@ -37,11 +37,11 @@ export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
     customerId?: Units_.IdentityId;
-    payload?: {
+    payload?: ({
       customer?: {
         personalData?: PersonalData_.PersonalData;
       };
-    } & {
+    } & Record<string, unknown>) & {
       customer: Defined;
     };
     headers?: ApiCommon_.Headers;
@@ -61,11 +61,16 @@ export type RequestC = t.BrandC<
         customerId: typeof Units_.IdentityId;
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              customer: t.PartialC<{
-                personalData: typeof PersonalData_.PersonalData;
-              }>;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  customer: t.PartialC<{
+                    personalData: typeof PersonalData_.PersonalData;
+                  }>;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               customer: typeof Defined;
             }>,
@@ -89,11 +94,14 @@ export const Request: RequestC = t.brand(
       identityId: Units_.IdentityId,
       customerId: Units_.IdentityId,
       payload: t.intersection([
-        t.partial({
-          customer: t.partial({
-            personalData: PersonalData_.PersonalData,
+        t.intersection([
+          t.partial({
+            customer: t.partial({
+              personalData: PersonalData_.PersonalData,
+            }),
           }),
-        }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           customer: Defined,
         }),
@@ -113,11 +121,11 @@ export const Request: RequestC = t.brand(
     {
       identityId?: Units_.IdentityId;
       customerId?: Units_.IdentityId;
-      payload?: {
+      payload?: ({
         customer?: {
           personalData?: PersonalData_.PersonalData;
         };
-      } & {
+      } & Record<string, unknown>) & {
         customer: Defined;
       };
       headers?: ApiCommon_.Headers;

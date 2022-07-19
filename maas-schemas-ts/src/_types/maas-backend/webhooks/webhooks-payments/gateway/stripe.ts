@@ -31,7 +31,7 @@ export const schemaId =
 // Request
 // The purpose of this remains a mystery
 export type Request = t.Branded<
-  {
+  ({
     payload?: ({
       id?: string;
       type?: string;
@@ -42,26 +42,28 @@ export type Request = t.Branded<
           amount_capturable?: number;
           amount_received?: number;
           charges?: {
-            data?: Array<{
-              id?: string;
-              object?: string;
-              amount?: number;
-              amount_refunded?: number;
-            }>;
-          };
-        };
-      };
+            data?: Array<
+              {
+                id?: string;
+                object?: string;
+                amount?: number;
+                amount_refunded?: number;
+              } & Record<string, unknown>
+            >;
+          } & Record<string, unknown>;
+        } & Record<string, unknown>;
+      } & Record<string, unknown>;
     } & Record<string, unknown>) & {
       type: Defined;
       id: Defined;
       data: Defined;
     };
-    params?: {
+    params?: ({
       gatewayName?: string & 'stripe';
-    } & {
+    } & Record<string, unknown>) & {
       gatewayName: Defined;
     };
-  } & {
+  } & Record<string, unknown>) & {
     params: Defined;
     payload: Defined;
   },
@@ -70,54 +72,84 @@ export type Request = t.Branded<
 export type RequestC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        payload: t.IntersectionC<
-          [
-            t.IntersectionC<
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            payload: t.IntersectionC<
               [
-                t.PartialC<{
-                  id: t.StringC;
-                  type: t.StringC;
-                  data: t.PartialC<{
-                    object: t.PartialC<{
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
                       id: t.StringC;
-                      amount: t.NumberC;
-                      amount_capturable: t.NumberC;
-                      amount_received: t.NumberC;
-                      charges: t.PartialC<{
-                        data: t.ArrayC<
+                      type: t.StringC;
+                      data: t.IntersectionC<
+                        [
                           t.PartialC<{
-                            id: t.StringC;
-                            object: t.StringC;
-                            amount: t.NumberC;
-                            amount_refunded: t.NumberC;
-                          }>
-                        >;
-                      }>;
-                    }>;
-                  }>;
+                            object: t.IntersectionC<
+                              [
+                                t.PartialC<{
+                                  id: t.StringC;
+                                  amount: t.NumberC;
+                                  amount_capturable: t.NumberC;
+                                  amount_received: t.NumberC;
+                                  charges: t.IntersectionC<
+                                    [
+                                      t.PartialC<{
+                                        data: t.ArrayC<
+                                          t.IntersectionC<
+                                            [
+                                              t.PartialC<{
+                                                id: t.StringC;
+                                                object: t.StringC;
+                                                amount: t.NumberC;
+                                                amount_refunded: t.NumberC;
+                                              }>,
+                                              t.RecordC<t.StringC, t.UnknownC>,
+                                            ]
+                                          >
+                                        >;
+                                      }>,
+                                      t.RecordC<t.StringC, t.UnknownC>,
+                                    ]
+                                  >;
+                                }>,
+                                t.RecordC<t.StringC, t.UnknownC>,
+                              ]
+                            >;
+                          }>,
+                          t.RecordC<t.StringC, t.UnknownC>,
+                        ]
+                      >;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
+                t.TypeC<{
+                  type: typeof Defined;
+                  id: typeof Defined;
+                  data: typeof Defined;
                 }>,
-                t.RecordC<t.StringC, t.UnknownC>,
               ]
-            >,
-            t.TypeC<{
-              type: typeof Defined;
-              id: typeof Defined;
-              data: typeof Defined;
-            }>,
-          ]
-        >;
-        params: t.IntersectionC<
-          [
-            t.PartialC<{
-              gatewayName: t.IntersectionC<[t.StringC, t.LiteralC<'stripe'>]>;
-            }>,
-            t.TypeC<{
-              gatewayName: typeof Defined;
-            }>,
-          ]
-        >;
-      }>,
+            >;
+            params: t.IntersectionC<
+              [
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      gatewayName: t.IntersectionC<[t.StringC, t.LiteralC<'stripe'>]>;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
+                t.TypeC<{
+                  gatewayName: typeof Defined;
+                }>,
+              ]
+            >;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         params: typeof Defined;
         payload: typeof Defined;
@@ -128,48 +160,66 @@ export type RequestC = t.BrandC<
 >;
 export const Request: RequestC = t.brand(
   t.intersection([
-    t.partial({
-      payload: t.intersection([
-        t.intersection([
-          t.partial({
-            id: t.string,
-            type: t.string,
-            data: t.partial({
-              object: t.partial({
-                id: t.string,
-                amount: t.number,
-                amount_capturable: t.number,
-                amount_received: t.number,
-                charges: t.partial({
-                  data: t.array(
+    t.intersection([
+      t.partial({
+        payload: t.intersection([
+          t.intersection([
+            t.partial({
+              id: t.string,
+              type: t.string,
+              data: t.intersection([
+                t.partial({
+                  object: t.intersection([
                     t.partial({
                       id: t.string,
-                      object: t.string,
                       amount: t.number,
-                      amount_refunded: t.number,
+                      amount_capturable: t.number,
+                      amount_received: t.number,
+                      charges: t.intersection([
+                        t.partial({
+                          data: t.array(
+                            t.intersection([
+                              t.partial({
+                                id: t.string,
+                                object: t.string,
+                                amount: t.number,
+                                amount_refunded: t.number,
+                              }),
+                              t.record(t.string, t.unknown),
+                            ]),
+                          ),
+                        }),
+                        t.record(t.string, t.unknown),
+                      ]),
                     }),
-                  ),
+                    t.record(t.string, t.unknown),
+                  ]),
                 }),
-              }),
+                t.record(t.string, t.unknown),
+              ]),
             }),
+            t.record(t.string, t.unknown),
+          ]),
+          t.type({
+            type: Defined,
+            id: Defined,
+            data: Defined,
           }),
-          t.record(t.string, t.unknown),
         ]),
-        t.type({
-          type: Defined,
-          id: Defined,
-          data: Defined,
-        }),
-      ]),
-      params: t.intersection([
-        t.partial({
-          gatewayName: t.intersection([t.string, t.literal('stripe')]),
-        }),
-        t.type({
-          gatewayName: Defined,
-        }),
-      ]),
-    }),
+        params: t.intersection([
+          t.intersection([
+            t.partial({
+              gatewayName: t.intersection([t.string, t.literal('stripe')]),
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+          t.type({
+            gatewayName: Defined,
+          }),
+        ]),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       params: Defined,
       payload: Defined,
@@ -178,7 +228,7 @@ export const Request: RequestC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       payload?: ({
         id?: string;
         type?: string;
@@ -189,26 +239,28 @@ export const Request: RequestC = t.brand(
             amount_capturable?: number;
             amount_received?: number;
             charges?: {
-              data?: Array<{
-                id?: string;
-                object?: string;
-                amount?: number;
-                amount_refunded?: number;
-              }>;
-            };
-          };
-        };
+              data?: Array<
+                {
+                  id?: string;
+                  object?: string;
+                  amount?: number;
+                  amount_refunded?: number;
+                } & Record<string, unknown>
+              >;
+            } & Record<string, unknown>;
+          } & Record<string, unknown>;
+        } & Record<string, unknown>;
       } & Record<string, unknown>) & {
         type: Defined;
         id: Defined;
         data: Defined;
       };
-      params?: {
+      params?: ({
         gatewayName?: string & 'stripe';
-      } & {
+      } & Record<string, unknown>) & {
         gatewayName: Defined;
       };
-    } & {
+    } & Record<string, unknown>) & {
       params: Defined;
       payload: Defined;
     },

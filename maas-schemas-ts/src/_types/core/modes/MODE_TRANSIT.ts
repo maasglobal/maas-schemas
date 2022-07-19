@@ -14,11 +14,22 @@ export const schemaId = 'https://schemas.maas.global/core/modes/MODE_TRANSIT.jso
 
 // MODE_TRANSIT
 // The default export. More information at the top.
-export type MODE_TRANSIT = t.Branded<Record<string, unknown>, MODE_TRANSITBrand>;
-export type MODE_TRANSITC = t.BrandC<t.UnknownRecordC, MODE_TRANSITBrand>;
+export type MODE_TRANSIT = t.Branded<
+  Record<string, unknown> & Record<string, unknown>,
+  MODE_TRANSITBrand
+>;
+export type MODE_TRANSITC = t.BrandC<
+  t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>,
+  MODE_TRANSITBrand
+>;
 export const MODE_TRANSIT: MODE_TRANSITC = t.brand(
-  t.UnknownRecord,
-  (x): x is t.Branded<Record<string, unknown>, MODE_TRANSITBrand> => true,
+  t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+  (
+    x,
+  ): x is t.Branded<
+    Record<string, unknown> & Record<string, unknown>,
+    MODE_TRANSITBrand
+  > => true,
   'MODE_TRANSIT',
 );
 export interface MODE_TRANSITBrand {

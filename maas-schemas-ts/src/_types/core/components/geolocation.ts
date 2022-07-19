@@ -88,7 +88,7 @@ export interface GeometryBrand {
 // Properties
 // The purpose of this remains a mystery
 export type Properties = t.Branded<
-  {
+  ({
     name?: string;
     streetNumber?: string;
     streetName?: string;
@@ -97,7 +97,7 @@ export type Properties = t.Branded<
     countryCode?: string;
     houseNumber?: number;
     zipcode?: Address_.ZipCode;
-  } & {
+  } & Record<string, unknown>) & {
     name: Defined;
   },
   PropertiesBrand
@@ -105,16 +105,21 @@ export type Properties = t.Branded<
 export type PropertiesC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        name: t.StringC;
-        streetNumber: t.StringC;
-        streetName: t.StringC;
-        city: t.StringC;
-        country: t.StringC;
-        countryCode: t.StringC;
-        houseNumber: t.NumberC;
-        zipcode: typeof Address_.ZipCode;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            name: t.StringC;
+            streetNumber: t.StringC;
+            streetName: t.StringC;
+            city: t.StringC;
+            country: t.StringC;
+            countryCode: t.StringC;
+            houseNumber: t.NumberC;
+            zipcode: typeof Address_.ZipCode;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         name: typeof Defined;
       }>,
@@ -124,16 +129,19 @@ export type PropertiesC = t.BrandC<
 >;
 export const Properties: PropertiesC = t.brand(
   t.intersection([
-    t.partial({
-      name: t.string,
-      streetNumber: t.string,
-      streetName: t.string,
-      city: t.string,
-      country: t.string,
-      countryCode: t.string,
-      houseNumber: t.number,
-      zipcode: Address_.ZipCode,
-    }),
+    t.intersection([
+      t.partial({
+        name: t.string,
+        streetNumber: t.string,
+        streetName: t.string,
+        city: t.string,
+        country: t.string,
+        countryCode: t.string,
+        houseNumber: t.number,
+        zipcode: Address_.ZipCode,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       name: Defined,
     }),
@@ -141,7 +149,7 @@ export const Properties: PropertiesC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       name?: string;
       streetNumber?: string;
       streetName?: string;
@@ -150,7 +158,7 @@ export const Properties: PropertiesC = t.brand(
       countryCode?: string;
       houseNumber?: number;
       zipcode?: Address_.ZipCode;
-    } & {
+    } & Record<string, unknown>) & {
       name: Defined;
     },
     PropertiesBrand
@@ -228,10 +236,10 @@ export interface FeatureBrand {
 // FeatureCollection
 // The purpose of this remains a mystery
 export type FeatureCollection = t.Branded<
-  {
+  ({
     type?: 'FeatureCollection';
     features?: Array<Feature>;
-  } & {
+  } & Record<string, unknown>) & {
     type: Defined;
     features: Defined;
   },
@@ -240,10 +248,15 @@ export type FeatureCollection = t.Branded<
 export type FeatureCollectionC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        type: t.LiteralC<'FeatureCollection'>;
-        features: t.ArrayC<typeof Feature>;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            type: t.LiteralC<'FeatureCollection'>;
+            features: t.ArrayC<typeof Feature>;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         type: typeof Defined;
         features: typeof Defined;
@@ -254,10 +267,13 @@ export type FeatureCollectionC = t.BrandC<
 >;
 export const FeatureCollection: FeatureCollectionC = t.brand(
   t.intersection([
-    t.partial({
-      type: t.literal('FeatureCollection'),
-      features: t.array(Feature),
-    }),
+    t.intersection([
+      t.partial({
+        type: t.literal('FeatureCollection'),
+        features: t.array(Feature),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       type: Defined,
       features: Defined,
@@ -266,10 +282,10 @@ export const FeatureCollection: FeatureCollectionC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       type?: 'FeatureCollection';
       features?: Array<Feature>;
-    } & {
+    } & Record<string, unknown>) & {
       type: Defined;
       features: Defined;
     },

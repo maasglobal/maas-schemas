@@ -40,7 +40,7 @@ export type Request = t.Branded<
     payload?: {
       booking?: Response_.Option;
       customerSelection?: CustomerSelection_.CustomerSelection;
-    };
+    } & Record<string, unknown>;
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
@@ -53,10 +53,15 @@ export type RequestC = t.BrandC<
     [
       t.PartialC<{
         identityId: typeof Units_.IdentityId;
-        payload: t.PartialC<{
-          booking: typeof Response_.Option;
-          customerSelection: typeof CustomerSelection_.CustomerSelection;
-        }>;
+        payload: t.IntersectionC<
+          [
+            t.PartialC<{
+              booking: typeof Response_.Option;
+              customerSelection: typeof CustomerSelection_.CustomerSelection;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
         headers: typeof ApiCommon_.Headers;
       }>,
       t.TypeC<{
@@ -71,10 +76,13 @@ export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       identityId: Units_.IdentityId,
-      payload: t.partial({
-        booking: Response_.Option,
-        customerSelection: CustomerSelection_.CustomerSelection,
-      }),
+      payload: t.intersection([
+        t.partial({
+          booking: Response_.Option,
+          customerSelection: CustomerSelection_.CustomerSelection,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       headers: ApiCommon_.Headers,
     }),
     t.type({
@@ -90,7 +98,7 @@ export const Request: RequestC = t.brand(
       payload?: {
         booking?: Response_.Option;
         customerSelection?: CustomerSelection_.CustomerSelection;
-      };
+      } & Record<string, unknown>;
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;

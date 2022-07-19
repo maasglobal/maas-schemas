@@ -137,10 +137,10 @@ export interface PolylineBrand {
 // Location
 // Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
 export type Location = t.Branded<
-  {
+  ({
     lat?: Latitude;
     lon?: Longitude;
-  } & {
+  } & Record<string, unknown>) & {
     lat: Defined;
     lon: Defined;
   },
@@ -149,10 +149,15 @@ export type Location = t.Branded<
 export type LocationC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        lat: typeof Latitude;
-        lon: typeof Longitude;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            lat: typeof Latitude;
+            lon: typeof Longitude;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         lat: typeof Defined;
         lon: typeof Defined;
@@ -163,10 +168,13 @@ export type LocationC = t.BrandC<
 >;
 export const Location: LocationC = t.brand(
   t.intersection([
-    t.partial({
-      lat: Latitude,
-      lon: Longitude,
-    }),
+    t.intersection([
+      t.partial({
+        lat: Latitude,
+        lon: Longitude,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       lat: Defined,
       lon: Defined,
@@ -175,10 +183,10 @@ export const Location: LocationC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       lat?: Latitude;
       lon?: Longitude;
-    } & {
+    } & Record<string, unknown>) & {
       lat: Defined;
       lon: Defined;
     },
@@ -193,10 +201,10 @@ export interface LocationBrand {
 // RelaxedLocation
 // No-numeric precision version of MaaS core location
 export type RelaxedLocation = t.Branded<
-  {
+  ({
     lat?: RelaxedLatitude;
     lon?: RelaxedLongitude;
-  } & {
+  } & Record<string, unknown>) & {
     lat: Defined;
     lon: Defined;
   },
@@ -205,10 +213,15 @@ export type RelaxedLocation = t.Branded<
 export type RelaxedLocationC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        lat: typeof RelaxedLatitude;
-        lon: typeof RelaxedLongitude;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            lat: typeof RelaxedLatitude;
+            lon: typeof RelaxedLongitude;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         lat: typeof Defined;
         lon: typeof Defined;
@@ -219,10 +232,13 @@ export type RelaxedLocationC = t.BrandC<
 >;
 export const RelaxedLocation: RelaxedLocationC = t.brand(
   t.intersection([
-    t.partial({
-      lat: RelaxedLatitude,
-      lon: RelaxedLongitude,
-    }),
+    t.intersection([
+      t.partial({
+        lat: RelaxedLatitude,
+        lon: RelaxedLongitude,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       lat: Defined,
       lon: Defined,
@@ -231,10 +247,10 @@ export const RelaxedLocation: RelaxedLocationC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       lat?: RelaxedLatitude;
       lon?: RelaxedLongitude;
-    } & {
+    } & Record<string, unknown>) & {
       lat: Defined;
       lon: Defined;
     },

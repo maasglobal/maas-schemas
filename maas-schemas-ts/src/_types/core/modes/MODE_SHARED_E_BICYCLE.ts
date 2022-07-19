@@ -32,54 +32,70 @@ export const schemaId =
 // The default export. More information at the top.
 export type MODE_SHARED_E_BICYCLE = t.Branded<
   {
-    bike?: {
+    bike?: ({
       id?: string;
       battery?: number;
-    } & {
+    } & Record<string, unknown>) & {
       id: Defined;
     };
-  },
+  } & Record<string, unknown>,
   MODE_SHARED_E_BICYCLEBrand
 >;
 export type MODE_SHARED_E_BICYCLEC = t.BrandC<
-  t.PartialC<{
-    bike: t.IntersectionC<
-      [
-        t.PartialC<{
-          id: t.StringC;
-          battery: t.NumberC;
-        }>,
-        t.TypeC<{
-          id: typeof Defined;
-        }>,
-      ]
-    >;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        bike: t.IntersectionC<
+          [
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  id: t.StringC;
+                  battery: t.NumberC;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
+            t.TypeC<{
+              id: typeof Defined;
+            }>,
+          ]
+        >;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   MODE_SHARED_E_BICYCLEBrand
 >;
 export const MODE_SHARED_E_BICYCLE: MODE_SHARED_E_BICYCLEC = t.brand(
-  t.partial({
-    bike: t.intersection([
-      t.partial({
-        id: t.string,
-        battery: t.number,
-      }),
-      t.type({
-        id: Defined,
-      }),
-    ]),
-  }),
+  t.intersection([
+    t.partial({
+      bike: t.intersection([
+        t.intersection([
+          t.partial({
+            id: t.string,
+            battery: t.number,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
+        t.type({
+          id: Defined,
+        }),
+      ]),
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
-      bike?: {
+      bike?: ({
         id?: string;
         battery?: number;
-      } & {
+      } & Record<string, unknown>) & {
         id: Defined;
       };
-    },
+    } & Record<string, unknown>,
     MODE_SHARED_E_BICYCLEBrand
   > => true,
   'MODE_SHARED_E_BICYCLE',

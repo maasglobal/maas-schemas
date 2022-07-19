@@ -164,10 +164,10 @@ export interface ResponseErrorMessageBrand {
 // MaaS error response definition
 // MaaS event response error object. An error that the service may send.
 export type Response = t.Branded<
-  {
+  ({
     message?: ResponseErrorMessage;
     code?: ErrorCode;
-  } & {
+  } & Record<string, unknown>) & {
     message: Defined;
     code: Defined;
   },
@@ -176,10 +176,15 @@ export type Response = t.Branded<
 export type ResponseC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        message: typeof ResponseErrorMessage;
-        code: typeof ErrorCode;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            message: typeof ResponseErrorMessage;
+            code: typeof ErrorCode;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         message: typeof Defined;
         code: typeof Defined;
@@ -190,10 +195,13 @@ export type ResponseC = t.BrandC<
 >;
 export const Response: ResponseC = t.brand(
   t.intersection([
-    t.partial({
-      message: ResponseErrorMessage,
-      code: ErrorCode,
-    }),
+    t.intersection([
+      t.partial({
+        message: ResponseErrorMessage,
+        code: ErrorCode,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       message: Defined,
       code: Defined,
@@ -202,10 +210,10 @@ export const Response: ResponseC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       message?: ResponseErrorMessage;
       code?: ErrorCode;
-    } & {
+    } & Record<string, unknown>) & {
       message: Defined;
       code: Defined;
     },

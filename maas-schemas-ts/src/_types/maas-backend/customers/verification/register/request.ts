@@ -38,9 +38,9 @@ export type Request = t.Branded<
     customerId?: Units_.IdentityId;
     headers?: ApiCommon_.Headers;
     identityId?: Units_.IdentityId;
-    payload?: {
+    payload?: ({
       agencyId?: Common_.AgencyId;
-    } & {
+    } & Record<string, unknown>) & {
       agencyId: Defined;
     };
   } & {
@@ -60,9 +60,14 @@ export type RequestC = t.BrandC<
         identityId: typeof Units_.IdentityId;
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              agencyId: typeof Common_.AgencyId;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  agencyId: typeof Common_.AgencyId;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               agencyId: typeof Defined;
             }>,
@@ -86,9 +91,12 @@ export const Request: RequestC = t.brand(
       headers: ApiCommon_.Headers,
       identityId: Units_.IdentityId,
       payload: t.intersection([
-        t.partial({
-          agencyId: Common_.AgencyId,
-        }),
+        t.intersection([
+          t.partial({
+            agencyId: Common_.AgencyId,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           agencyId: Defined,
         }),
@@ -108,9 +116,9 @@ export const Request: RequestC = t.brand(
       customerId?: Units_.IdentityId;
       headers?: ApiCommon_.Headers;
       identityId?: Units_.IdentityId;
-      payload?: {
+      payload?: ({
         agencyId?: Common_.AgencyId;
-      } & {
+      } & Record<string, unknown>) & {
         agencyId: Defined;
       };
     } & {

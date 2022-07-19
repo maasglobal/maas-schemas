@@ -38,10 +38,10 @@ export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
     customerId?: Units_.IdentityId;
-    payload?: {
+    payload?: ({
       type?: PersonalDocument_.DocumentType;
       location?: UnitsGeo_.ShortLocationString;
-    } & {
+    } & Record<string, unknown>) & {
       type: Defined;
       location: Defined;
     };
@@ -61,10 +61,15 @@ export type RequestC = t.BrandC<
         customerId: typeof Units_.IdentityId;
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              type: typeof PersonalDocument_.DocumentType;
-              location: typeof UnitsGeo_.ShortLocationString;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  type: typeof PersonalDocument_.DocumentType;
+                  location: typeof UnitsGeo_.ShortLocationString;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               type: typeof Defined;
               location: typeof Defined;
@@ -88,10 +93,13 @@ export const Request: RequestC = t.brand(
       identityId: Units_.IdentityId,
       customerId: Units_.IdentityId,
       payload: t.intersection([
-        t.partial({
-          type: PersonalDocument_.DocumentType,
-          location: UnitsGeo_.ShortLocationString,
-        }),
+        t.intersection([
+          t.partial({
+            type: PersonalDocument_.DocumentType,
+            location: UnitsGeo_.ShortLocationString,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           type: Defined,
           location: Defined,
@@ -111,10 +119,10 @@ export const Request: RequestC = t.brand(
     {
       identityId?: Units_.IdentityId;
       customerId?: Units_.IdentityId;
-      payload?: {
+      payload?: ({
         type?: PersonalDocument_.DocumentType;
         location?: UnitsGeo_.ShortLocationString;
-      } & {
+      } & Record<string, unknown>) & {
         type: Defined;
         location: Defined;
       };

@@ -19,6 +19,7 @@ export const schemaId = 'https://schemas.maas.global/core/components/configurato
 // The default export. More information at the top.
 export type Configurator = t.Branded<
   Record<string, unknown> &
+    Record<string, unknown> &
     (
       | ConfiguratorV2_.ConfiguratorV2
       | ConfiguratorV1_.ConfiguratorV1
@@ -30,6 +31,7 @@ export type ConfiguratorC = t.BrandC<
   t.IntersectionC<
     [
       t.UnknownRecordC,
+      t.RecordC<t.StringC, t.UnknownC>,
       t.UnionC<
         [
           typeof ConfiguratorV2_.ConfiguratorV2,
@@ -44,6 +46,7 @@ export type ConfiguratorC = t.BrandC<
 export const Configurator: ConfiguratorC = t.brand(
   t.intersection([
     t.UnknownRecord,
+    t.record(t.string, t.unknown),
     t.union([
       ConfiguratorV2_.ConfiguratorV2,
       ConfiguratorV1_.ConfiguratorV1,
@@ -54,6 +57,7 @@ export const Configurator: ConfiguratorC = t.brand(
     x,
   ): x is t.Branded<
     Record<string, unknown> &
+      Record<string, unknown> &
       (
         | ConfiguratorV2_.ConfiguratorV2
         | ConfiguratorV1_.ConfiguratorV1

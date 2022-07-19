@@ -14,11 +14,20 @@ export const schemaId = 'https://schemas.maas.global/core/modes/MODE_FERRY.json'
 
 // MODE_FERRY
 // The default export. More information at the top.
-export type MODE_FERRY = t.Branded<Record<string, unknown>, MODE_FERRYBrand>;
-export type MODE_FERRYC = t.BrandC<t.UnknownRecordC, MODE_FERRYBrand>;
+export type MODE_FERRY = t.Branded<
+  Record<string, unknown> & Record<string, unknown>,
+  MODE_FERRYBrand
+>;
+export type MODE_FERRYC = t.BrandC<
+  t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>,
+  MODE_FERRYBrand
+>;
 export const MODE_FERRY: MODE_FERRYC = t.brand(
-  t.UnknownRecord,
-  (x): x is t.Branded<Record<string, unknown>, MODE_FERRYBrand> => true,
+  t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+  (
+    x,
+  ): x is t.Branded<Record<string, unknown> & Record<string, unknown>, MODE_FERRYBrand> =>
+    true,
   'MODE_FERRY',
 );
 export interface MODE_FERRYBrand {

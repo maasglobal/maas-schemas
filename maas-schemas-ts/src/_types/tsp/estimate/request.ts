@@ -33,11 +33,11 @@ export const schemaId = 'https://schemas.maas.global/tsp/estimate/request.json';
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  {
+  ({
     productOption?: ProductOption_.ProductOption;
     customer?: Customer_.Customer;
     customerSelection?: CustomerSelection_.CustomerSelection;
-  } & {
+  } & Record<string, unknown>) & {
     productOption: Defined;
   },
   RequestBrand
@@ -45,11 +45,16 @@ export type Request = t.Branded<
 export type RequestC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        productOption: typeof ProductOption_.ProductOption;
-        customer: typeof Customer_.Customer;
-        customerSelection: typeof CustomerSelection_.CustomerSelection;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            productOption: typeof ProductOption_.ProductOption;
+            customer: typeof Customer_.Customer;
+            customerSelection: typeof CustomerSelection_.CustomerSelection;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         productOption: typeof Defined;
       }>,
@@ -59,11 +64,14 @@ export type RequestC = t.BrandC<
 >;
 export const Request: RequestC = t.brand(
   t.intersection([
-    t.partial({
-      productOption: ProductOption_.ProductOption,
-      customer: Customer_.Customer,
-      customerSelection: CustomerSelection_.CustomerSelection,
-    }),
+    t.intersection([
+      t.partial({
+        productOption: ProductOption_.ProductOption,
+        customer: Customer_.Customer,
+        customerSelection: CustomerSelection_.CustomerSelection,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       productOption: Defined,
     }),
@@ -71,11 +79,11 @@ export const Request: RequestC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       productOption?: ProductOption_.ProductOption;
       customer?: Customer_.Customer;
       customerSelection?: CustomerSelection_.CustomerSelection;
-    } & {
+    } & Record<string, unknown>) & {
       productOption: Defined;
     },
     RequestBrand

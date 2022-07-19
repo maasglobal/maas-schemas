@@ -140,9 +140,9 @@ export type Addon = t.Branded<
     quantity?: number;
     unitPrice?: Price;
     image?: Units_.Url;
-    virtualCardIssue?: {
+    virtualCardIssue?: ({
       providerName?: string;
-    } & {
+    } & Record<string, unknown>) & {
       providerName: Defined;
     };
     productProviderIds?: Array<string>;
@@ -166,9 +166,14 @@ export type AddonC = t.BrandC<
             image: typeof Units_.Url;
             virtualCardIssue: t.IntersectionC<
               [
-                t.PartialC<{
-                  providerName: t.StringC;
-                }>,
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      providerName: t.StringC;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
                 t.TypeC<{
                   providerName: typeof Defined;
                 }>,
@@ -198,9 +203,12 @@ export const Addon: AddonC = t.brand(
         unitPrice: Price,
         image: Units_.Url,
         virtualCardIssue: t.intersection([
-          t.partial({
-            providerName: t.string,
-          }),
+          t.intersection([
+            t.partial({
+              providerName: t.string,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
           t.type({
             providerName: Defined,
           }),
@@ -224,9 +232,9 @@ export const Addon: AddonC = t.brand(
       quantity?: number;
       unitPrice?: Price;
       image?: Units_.Url;
-      virtualCardIssue?: {
+      virtualCardIssue?: ({
         providerName?: string;
-      } & {
+      } & Record<string, unknown>) & {
         providerName: Defined;
       };
       productProviderIds?: Array<string>;
@@ -245,11 +253,11 @@ export interface AddonBrand {
 // Coupon
 // Additional coupon that may provide discounts
 export type Coupon = t.Branded<
-  {
+  ({
     id?: SubscriptionItemId;
     name?: string;
     description?: string;
-  } & {
+  } & Record<string, unknown>) & {
     id: Defined;
   },
   CouponBrand
@@ -257,11 +265,16 @@ export type Coupon = t.Branded<
 export type CouponC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        id: typeof SubscriptionItemId;
-        name: t.StringC;
-        description: t.StringC;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            id: typeof SubscriptionItemId;
+            name: t.StringC;
+            description: t.StringC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         id: typeof Defined;
       }>,
@@ -271,11 +284,14 @@ export type CouponC = t.BrandC<
 >;
 export const Coupon: CouponC = t.brand(
   t.intersection([
-    t.partial({
-      id: SubscriptionItemId,
-      name: t.string,
-      description: t.string,
-    }),
+    t.intersection([
+      t.partial({
+        id: SubscriptionItemId,
+        name: t.string,
+        description: t.string,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       id: Defined,
     }),
@@ -283,11 +299,11 @@ export const Coupon: CouponC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       id?: SubscriptionItemId;
       name?: string;
       description?: string;
-    } & {
+    } & Record<string, unknown>) & {
       id: Defined;
     },
     CouponBrand
@@ -301,11 +317,11 @@ export interface CouponBrand {
 // Benefit
 // Additional information about benefit used to purchase subscription
 export type Benefit = t.Branded<
-  {
+  ({
     name?: string;
     cycles?: number;
     startTime?: Units_.Time;
-  } & {
+  } & Record<string, unknown>) & {
     name: Defined;
   },
   BenefitBrand
@@ -313,11 +329,16 @@ export type Benefit = t.Branded<
 export type BenefitC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        name: t.StringC;
-        cycles: t.NumberC;
-        startTime: typeof Units_.Time;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            name: t.StringC;
+            cycles: t.NumberC;
+            startTime: typeof Units_.Time;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         name: typeof Defined;
       }>,
@@ -327,11 +348,14 @@ export type BenefitC = t.BrandC<
 >;
 export const Benefit: BenefitC = t.brand(
   t.intersection([
-    t.partial({
-      name: t.string,
-      cycles: t.number,
-      startTime: Units_.Time,
-    }),
+    t.intersection([
+      t.partial({
+        name: t.string,
+        cycles: t.number,
+        startTime: Units_.Time,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       name: Defined,
     }),
@@ -339,11 +363,11 @@ export const Benefit: BenefitC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       name?: string;
       cycles?: number;
       startTime?: Units_.Time;
-    } & {
+    } & Record<string, unknown>) & {
       name: Defined;
     },
     BenefitBrand
@@ -357,18 +381,18 @@ export interface BenefitBrand {
 // Terms
 // Terms related to this subscription
 export type Terms = t.Branded<
-  {
+  ({
     activated?: Units_.Time;
     modified?: Units_.Time;
-    validity?: {
+    validity?: ({
       startTime?: Units_.Time;
       endTime?: Units_.Time;
-    } & {
+    } & Record<string, unknown>) & {
       startTime: Defined;
       endTime: Defined;
     };
     scheduledChanges?: boolean;
-  } & {
+  } & Record<string, unknown>) & {
     validity: Defined;
   },
   TermsBrand
@@ -376,23 +400,33 @@ export type Terms = t.Branded<
 export type TermsC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        activated: typeof Units_.Time;
-        modified: typeof Units_.Time;
-        validity: t.IntersectionC<
-          [
-            t.PartialC<{
-              startTime: typeof Units_.Time;
-              endTime: typeof Units_.Time;
-            }>,
-            t.TypeC<{
-              startTime: typeof Defined;
-              endTime: typeof Defined;
-            }>,
-          ]
-        >;
-        scheduledChanges: t.BooleanC;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            activated: typeof Units_.Time;
+            modified: typeof Units_.Time;
+            validity: t.IntersectionC<
+              [
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      startTime: typeof Units_.Time;
+                      endTime: typeof Units_.Time;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
+                t.TypeC<{
+                  startTime: typeof Defined;
+                  endTime: typeof Defined;
+                }>,
+              ]
+            >;
+            scheduledChanges: t.BooleanC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         validity: typeof Defined;
       }>,
@@ -402,21 +436,27 @@ export type TermsC = t.BrandC<
 >;
 export const Terms: TermsC = t.brand(
   t.intersection([
-    t.partial({
-      activated: Units_.Time,
-      modified: Units_.Time,
-      validity: t.intersection([
-        t.partial({
-          startTime: Units_.Time,
-          endTime: Units_.Time,
-        }),
-        t.type({
-          startTime: Defined,
-          endTime: Defined,
-        }),
-      ]),
-      scheduledChanges: t.boolean,
-    }),
+    t.intersection([
+      t.partial({
+        activated: Units_.Time,
+        modified: Units_.Time,
+        validity: t.intersection([
+          t.intersection([
+            t.partial({
+              startTime: Units_.Time,
+              endTime: Units_.Time,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+          t.type({
+            startTime: Defined,
+            endTime: Defined,
+          }),
+        ]),
+        scheduledChanges: t.boolean,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       validity: Defined,
     }),
@@ -424,18 +464,18 @@ export const Terms: TermsC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       activated?: Units_.Time;
       modified?: Units_.Time;
-      validity?: {
+      validity?: ({
         startTime?: Units_.Time;
         endTime?: Units_.Time;
-      } & {
+      } & Record<string, unknown>) & {
         startTime: Defined;
         endTime: Defined;
       };
       scheduledChanges?: boolean;
-    } & {
+    } & Record<string, unknown>) & {
       validity: Defined;
     },
     TermsBrand

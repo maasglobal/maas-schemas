@@ -14,11 +14,18 @@ export const schemaId = 'https://schemas.maas.global/core/modes/MODE_BUS.json';
 
 // MODE_BUS
 // The default export. More information at the top.
-export type MODE_BUS = t.Branded<Record<string, unknown>, MODE_BUSBrand>;
-export type MODE_BUSC = t.BrandC<t.UnknownRecordC, MODE_BUSBrand>;
+export type MODE_BUS = t.Branded<
+  Record<string, unknown> & Record<string, unknown>,
+  MODE_BUSBrand
+>;
+export type MODE_BUSC = t.BrandC<
+  t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>,
+  MODE_BUSBrand
+>;
 export const MODE_BUS: MODE_BUSC = t.brand(
-  t.UnknownRecord,
-  (x): x is t.Branded<Record<string, unknown>, MODE_BUSBrand> => true,
+  t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+  (x): x is t.Branded<Record<string, unknown> & Record<string, unknown>, MODE_BUSBrand> =>
+    true,
   'MODE_BUS',
 );
 export interface MODE_BUSBrand {

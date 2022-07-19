@@ -94,7 +94,7 @@ export type Customer = t.Branded<
     >;
     referral?: {
       code?: string;
-    };
+    } & Record<string, unknown>;
     subscriberType?: string;
     authToken?: Common_.EncodedQueryParam;
     cugHome?: string;
@@ -173,9 +173,14 @@ export type CustomerC = t.BrandC<
         ]
       >
     >;
-    referral: t.PartialC<{
-      code: t.StringC;
-    }>;
+    referral: t.IntersectionC<
+      [
+        t.PartialC<{
+          code: t.StringC;
+        }>,
+        t.RecordC<t.StringC, t.UnknownC>,
+      ]
+    >;
     subscriberType: t.StringC;
     authToken: typeof Common_.EncodedQueryParam;
     cugHome: t.StringC;
@@ -240,9 +245,12 @@ export const Customer: CustomerC = t.brand(
         ]),
       ]),
     ),
-    referral: t.partial({
-      code: t.string,
-    }),
+    referral: t.intersection([
+      t.partial({
+        code: t.string,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     subscriberType: t.string,
     authToken: Common_.EncodedQueryParam,
     cugHome: t.string,
@@ -295,7 +303,7 @@ export const Customer: CustomerC = t.brand(
       >;
       referral?: {
         code?: string;
-      };
+      } & Record<string, unknown>;
       subscriberType?: string;
       authToken?: Common_.EncodedQueryParam;
       cugHome?: string;

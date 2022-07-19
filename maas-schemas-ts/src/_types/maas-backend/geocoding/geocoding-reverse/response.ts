@@ -35,15 +35,17 @@ export type Response = t.Branded<
   {
     type?: 'FeatureCollection';
     features?: Array<
-      Geolocation_.Feature & {
-        properties?: Record<string, unknown> & {
-          city: Defined;
-          country: Defined;
-          countryCode: Defined;
-        };
-      }
+      Geolocation_.Feature &
+        ({
+          properties?: Record<string, unknown> &
+            Record<string, unknown> & {
+              city: Defined;
+              country: Defined;
+              countryCode: Defined;
+            };
+        } & Record<string, unknown>)
     >;
-    debug?: Record<string, unknown>;
+    debug?: Record<string, unknown> & Record<string, unknown>;
   } & {
     type: Defined;
     features: Defined;
@@ -59,22 +61,28 @@ export type ResponseC = t.BrandC<
           t.IntersectionC<
             [
               typeof Geolocation_.Feature,
-              t.PartialC<{
-                properties: t.IntersectionC<
-                  [
-                    t.UnknownRecordC,
-                    t.TypeC<{
-                      city: typeof Defined;
-                      country: typeof Defined;
-                      countryCode: typeof Defined;
-                    }>,
-                  ]
-                >;
-              }>,
+              t.IntersectionC<
+                [
+                  t.PartialC<{
+                    properties: t.IntersectionC<
+                      [
+                        t.UnknownRecordC,
+                        t.RecordC<t.StringC, t.UnknownC>,
+                        t.TypeC<{
+                          city: typeof Defined;
+                          country: typeof Defined;
+                          countryCode: typeof Defined;
+                        }>,
+                      ]
+                    >;
+                  }>,
+                  t.RecordC<t.StringC, t.UnknownC>,
+                ]
+              >,
             ]
           >
         >;
-        debug: t.UnknownRecordC;
+        debug: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
       }>,
       t.TypeC<{
         type: typeof Defined;
@@ -91,19 +99,23 @@ export const Response: ResponseC = t.brand(
       features: t.array(
         t.intersection([
           Geolocation_.Feature,
-          t.partial({
-            properties: t.intersection([
-              t.UnknownRecord,
-              t.type({
-                city: Defined,
-                country: Defined,
-                countryCode: Defined,
-              }),
-            ]),
-          }),
+          t.intersection([
+            t.partial({
+              properties: t.intersection([
+                t.UnknownRecord,
+                t.record(t.string, t.unknown),
+                t.type({
+                  city: Defined,
+                  country: Defined,
+                  countryCode: Defined,
+                }),
+              ]),
+            }),
+            t.record(t.string, t.unknown),
+          ]),
         ]),
       ),
-      debug: t.UnknownRecord,
+      debug: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
     }),
     t.type({
       type: Defined,
@@ -116,15 +128,17 @@ export const Response: ResponseC = t.brand(
     {
       type?: 'FeatureCollection';
       features?: Array<
-        Geolocation_.Feature & {
-          properties?: Record<string, unknown> & {
-            city: Defined;
-            country: Defined;
-            countryCode: Defined;
-          };
-        }
+        Geolocation_.Feature &
+          ({
+            properties?: Record<string, unknown> &
+              Record<string, unknown> & {
+                city: Defined;
+                country: Defined;
+                countryCode: Defined;
+              };
+          } & Record<string, unknown>)
       >;
-      debug?: Record<string, unknown>;
+      debug?: Record<string, unknown> & Record<string, unknown>;
     } & {
       type: Defined;
       features: Defined;

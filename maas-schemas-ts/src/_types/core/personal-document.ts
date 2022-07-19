@@ -366,11 +366,18 @@ export interface CategoryBrand {
 
 // Details
 // The purpose of this remains a mystery
-export type Details = t.Branded<Record<string, unknown>, DetailsBrand>;
-export type DetailsC = t.BrandC<t.UnknownRecordC, DetailsBrand>;
+export type Details = t.Branded<
+  Record<string, unknown> & Record<string, unknown>,
+  DetailsBrand
+>;
+export type DetailsC = t.BrandC<
+  t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>,
+  DetailsBrand
+>;
 export const Details: DetailsC = t.brand(
-  t.UnknownRecord,
-  (x): x is t.Branded<Record<string, unknown>, DetailsBrand> => true,
+  t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+  (x): x is t.Branded<Record<string, unknown> & Record<string, unknown>, DetailsBrand> =>
+    true,
   'Details',
 );
 export interface DetailsBrand {

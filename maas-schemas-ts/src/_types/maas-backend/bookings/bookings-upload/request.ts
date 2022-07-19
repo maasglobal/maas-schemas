@@ -36,7 +36,7 @@ export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
     bookingId?: Units_.Uuid;
-    payload?: Record<string, unknown>;
+    payload?: Record<string, unknown> & Record<string, unknown>;
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
@@ -51,7 +51,7 @@ export type RequestC = t.BrandC<
       t.PartialC<{
         identityId: typeof Units_.IdentityId;
         bookingId: typeof Units_.Uuid;
-        payload: t.UnknownRecordC;
+        payload: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
         headers: typeof ApiCommon_.Headers;
       }>,
       t.TypeC<{
@@ -68,7 +68,7 @@ export const Request: RequestC = t.brand(
     t.partial({
       identityId: Units_.IdentityId,
       bookingId: Units_.Uuid,
-      payload: t.UnknownRecord,
+      payload: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
       headers: ApiCommon_.Headers,
     }),
     t.type({
@@ -83,7 +83,7 @@ export const Request: RequestC = t.brand(
     {
       identityId?: Units_.IdentityId;
       bookingId?: Units_.Uuid;
-      payload?: Record<string, unknown>;
+      payload?: Record<string, unknown> & Record<string, unknown>;
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;

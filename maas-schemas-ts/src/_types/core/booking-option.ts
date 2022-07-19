@@ -193,14 +193,14 @@ export interface CustomerBrand {
 // ContentWithCost
 // The purpose of this remains a mystery
 export type ContentWithCost = t.Branded<
-  {
+  ({
     leg?: Leg;
     terms?: Terms_.Terms;
     meta?: BookingMeta_.BookingMeta;
     tspProduct?: TspProduct;
     cost?: Cost_.Cost;
     customer?: Customer;
-  } & {
+  } & Record<string, unknown>) & {
     leg: Defined;
     meta: Defined;
     terms: Defined;
@@ -212,14 +212,19 @@ export type ContentWithCost = t.Branded<
 export type ContentWithCostC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        leg: typeof Leg;
-        terms: typeof Terms_.Terms;
-        meta: typeof BookingMeta_.BookingMeta;
-        tspProduct: typeof TspProduct;
-        cost: typeof Cost_.Cost;
-        customer: typeof Customer;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            leg: typeof Leg;
+            terms: typeof Terms_.Terms;
+            meta: typeof BookingMeta_.BookingMeta;
+            tspProduct: typeof TspProduct;
+            cost: typeof Cost_.Cost;
+            customer: typeof Customer;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         leg: typeof Defined;
         meta: typeof Defined;
@@ -233,14 +238,17 @@ export type ContentWithCostC = t.BrandC<
 >;
 export const ContentWithCost: ContentWithCostC = t.brand(
   t.intersection([
-    t.partial({
-      leg: Leg,
-      terms: Terms_.Terms,
-      meta: BookingMeta_.BookingMeta,
-      tspProduct: TspProduct,
-      cost: Cost_.Cost,
-      customer: Customer,
-    }),
+    t.intersection([
+      t.partial({
+        leg: Leg,
+        terms: Terms_.Terms,
+        meta: BookingMeta_.BookingMeta,
+        tspProduct: TspProduct,
+        cost: Cost_.Cost,
+        customer: Customer,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       leg: Defined,
       meta: Defined,
@@ -252,14 +260,14 @@ export const ContentWithCost: ContentWithCostC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       leg?: Leg;
       terms?: Terms_.Terms;
       meta?: BookingMeta_.BookingMeta;
       tspProduct?: TspProduct;
       cost?: Cost_.Cost;
       customer?: Customer;
-    } & {
+    } & Record<string, unknown>) & {
       leg: Defined;
       meta: Defined;
       terms: Defined;
@@ -277,14 +285,14 @@ export interface ContentWithCostBrand {
 // ContentWithConfigurator
 // The purpose of this remains a mystery
 export type ContentWithConfigurator = t.Branded<
-  {
+  ({
     leg?: Leg;
     terms?: Terms_.Terms;
     meta?: BookingMeta_.BookingMeta;
     tspProduct?: TspProduct;
     configurator?: Configurator_.Configurator;
     customer?: Customer;
-  } & {
+  } & Record<string, unknown>) & {
     leg: Defined;
     meta: Defined;
     terms: Defined;
@@ -296,14 +304,19 @@ export type ContentWithConfigurator = t.Branded<
 export type ContentWithConfiguratorC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        leg: typeof Leg;
-        terms: typeof Terms_.Terms;
-        meta: typeof BookingMeta_.BookingMeta;
-        tspProduct: typeof TspProduct;
-        configurator: typeof Configurator_.Configurator;
-        customer: typeof Customer;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            leg: typeof Leg;
+            terms: typeof Terms_.Terms;
+            meta: typeof BookingMeta_.BookingMeta;
+            tspProduct: typeof TspProduct;
+            configurator: typeof Configurator_.Configurator;
+            customer: typeof Customer;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         leg: typeof Defined;
         meta: typeof Defined;
@@ -317,14 +330,17 @@ export type ContentWithConfiguratorC = t.BrandC<
 >;
 export const ContentWithConfigurator: ContentWithConfiguratorC = t.brand(
   t.intersection([
-    t.partial({
-      leg: Leg,
-      terms: Terms_.Terms,
-      meta: BookingMeta_.BookingMeta,
-      tspProduct: TspProduct,
-      configurator: Configurator_.Configurator,
-      customer: Customer,
-    }),
+    t.intersection([
+      t.partial({
+        leg: Leg,
+        terms: Terms_.Terms,
+        meta: BookingMeta_.BookingMeta,
+        tspProduct: TspProduct,
+        configurator: Configurator_.Configurator,
+        customer: Customer,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       leg: Defined,
       meta: Defined,
@@ -336,14 +352,14 @@ export const ContentWithConfigurator: ContentWithConfiguratorC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       leg?: Leg;
       terms?: Terms_.Terms;
       meta?: BookingMeta_.BookingMeta;
       tspProduct?: TspProduct;
       configurator?: Configurator_.Configurator;
       customer?: Customer;
-    } & {
+    } & Record<string, unknown>) & {
       leg: Defined;
       meta: Defined;
       terms: Defined;
@@ -370,7 +386,7 @@ export type LegDelta = t.Branded<
     to?: Place_.Place;
     legGeometry?: {
       points?: UnitsGeo_.Polyline;
-    };
+    } & Record<string, unknown>;
   },
   LegDeltaBrand
 >;
@@ -382,9 +398,14 @@ export type LegDeltaC = t.BrandC<
     departureDelay: typeof Units_.Duration;
     from: typeof Place_.Place;
     to: typeof Place_.Place;
-    legGeometry: t.PartialC<{
-      points: typeof UnitsGeo_.Polyline;
-    }>;
+    legGeometry: t.IntersectionC<
+      [
+        t.PartialC<{
+          points: typeof UnitsGeo_.Polyline;
+        }>,
+        t.RecordC<t.StringC, t.UnknownC>,
+      ]
+    >;
   }>,
   LegDeltaBrand
 >;
@@ -396,9 +417,12 @@ export const LegDelta: LegDeltaC = t.brand(
     departureDelay: Units_.Duration,
     from: Place_.Place,
     to: Place_.Place,
-    legGeometry: t.partial({
-      points: UnitsGeo_.Polyline,
-    }),
+    legGeometry: t.intersection([
+      t.partial({
+        points: UnitsGeo_.Polyline,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
   }),
   (
     x,
@@ -412,7 +436,7 @@ export const LegDelta: LegDeltaC = t.brand(
       to?: Place_.Place;
       legGeometry?: {
         points?: UnitsGeo_.Polyline;
-      };
+      } & Record<string, unknown>;
     },
     LegDeltaBrand
   > => true,

@@ -36,7 +36,7 @@ export const schemaId =
 // Verification
 // The purpose of this remains a mystery
 export type Verification = t.Branded<
-  {
+  ({
     id?: string;
     identityId?: Units_.IdentityId;
     kycServiceId?: string;
@@ -47,16 +47,16 @@ export type Verification = t.Branded<
     created?: Units_.Time;
     modified?: Units_.Time;
     metadata?:
-      | {
+      | ({
           agencyId?: Common_.AgencyId;
           locale?: I18n_.Locale;
-        }
-      | {
+        } & Record<string, unknown>)
+      | ({
           planId?: string;
           locale?: I18n_.Locale;
-        };
+        } & Record<string, unknown>);
     kycService?: KycService_.KycService;
-  } & {
+  } & Record<string, unknown>) & {
     id: Defined;
     identityId: Defined;
     kycServiceId: Defined;
@@ -69,30 +69,45 @@ export type Verification = t.Branded<
 export type VerificationC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        id: t.StringC;
-        identityId: typeof Units_.IdentityId;
-        kycServiceId: t.StringC;
-        url: typeof Units_.Url;
-        token: t.StringC;
-        status: t.StringC;
-        stateLog: typeof StateLog_.StateLog;
-        created: typeof Units_.Time;
-        modified: typeof Units_.Time;
-        metadata: t.UnionC<
-          [
-            t.PartialC<{
-              agencyId: typeof Common_.AgencyId;
-              locale: typeof I18n_.Locale;
-            }>,
-            t.PartialC<{
-              planId: t.StringC;
-              locale: typeof I18n_.Locale;
-            }>,
-          ]
-        >;
-        kycService: typeof KycService_.KycService;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            id: t.StringC;
+            identityId: typeof Units_.IdentityId;
+            kycServiceId: t.StringC;
+            url: typeof Units_.Url;
+            token: t.StringC;
+            status: t.StringC;
+            stateLog: typeof StateLog_.StateLog;
+            created: typeof Units_.Time;
+            modified: typeof Units_.Time;
+            metadata: t.UnionC<
+              [
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      agencyId: typeof Common_.AgencyId;
+                      locale: typeof I18n_.Locale;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      planId: t.StringC;
+                      locale: typeof I18n_.Locale;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
+              ]
+            >;
+            kycService: typeof KycService_.KycService;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         id: typeof Defined;
         identityId: typeof Defined;
@@ -107,28 +122,37 @@ export type VerificationC = t.BrandC<
 >;
 export const Verification: VerificationC = t.brand(
   t.intersection([
-    t.partial({
-      id: t.string,
-      identityId: Units_.IdentityId,
-      kycServiceId: t.string,
-      url: Units_.Url,
-      token: t.string,
-      status: t.string,
-      stateLog: StateLog_.StateLog,
-      created: Units_.Time,
-      modified: Units_.Time,
-      metadata: t.union([
-        t.partial({
-          agencyId: Common_.AgencyId,
-          locale: I18n_.Locale,
-        }),
-        t.partial({
-          planId: t.string,
-          locale: I18n_.Locale,
-        }),
-      ]),
-      kycService: KycService_.KycService,
-    }),
+    t.intersection([
+      t.partial({
+        id: t.string,
+        identityId: Units_.IdentityId,
+        kycServiceId: t.string,
+        url: Units_.Url,
+        token: t.string,
+        status: t.string,
+        stateLog: StateLog_.StateLog,
+        created: Units_.Time,
+        modified: Units_.Time,
+        metadata: t.union([
+          t.intersection([
+            t.partial({
+              agencyId: Common_.AgencyId,
+              locale: I18n_.Locale,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+          t.intersection([
+            t.partial({
+              planId: t.string,
+              locale: I18n_.Locale,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+        ]),
+        kycService: KycService_.KycService,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       id: Defined,
       identityId: Defined,
@@ -141,7 +165,7 @@ export const Verification: VerificationC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       id?: string;
       identityId?: Units_.IdentityId;
       kycServiceId?: string;
@@ -152,16 +176,16 @@ export const Verification: VerificationC = t.brand(
       created?: Units_.Time;
       modified?: Units_.Time;
       metadata?:
-        | {
+        | ({
             agencyId?: Common_.AgencyId;
             locale?: I18n_.Locale;
-          }
-        | {
+          } & Record<string, unknown>)
+        | ({
             planId?: string;
             locale?: I18n_.Locale;
-          };
+          } & Record<string, unknown>);
       kycService?: KycService_.KycService;
-    } & {
+    } & Record<string, unknown>) & {
       id: Defined;
       identityId: Defined;
       kycServiceId: Defined;

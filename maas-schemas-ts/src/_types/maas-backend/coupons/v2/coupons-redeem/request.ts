@@ -36,9 +36,9 @@ export const schemaId =
 export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
-    payload?: {
+    payload?: ({
       code?: Code_.Code;
-    } & {
+    } & Record<string, unknown>) & {
       code: Defined;
     };
     headers?: ApiCommon_.Headers;
@@ -55,9 +55,14 @@ export type RequestC = t.BrandC<
         identityId: typeof Units_.IdentityId;
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              code: typeof Code_.Code;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  code: typeof Code_.Code;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               code: typeof Defined;
             }>,
@@ -78,9 +83,12 @@ export const Request: RequestC = t.brand(
     t.partial({
       identityId: Units_.IdentityId,
       payload: t.intersection([
-        t.partial({
-          code: Code_.Code,
-        }),
+        t.intersection([
+          t.partial({
+            code: Code_.Code,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           code: Defined,
         }),
@@ -97,9 +105,9 @@ export const Request: RequestC = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
-      payload?: {
+      payload?: ({
         code?: Code_.Code;
-      } & {
+      } & Record<string, unknown>) & {
         code: Defined;
       };
       headers?: ApiCommon_.Headers;

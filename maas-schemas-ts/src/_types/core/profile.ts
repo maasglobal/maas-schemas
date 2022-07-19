@@ -52,7 +52,7 @@ export const minimumBookingOptionsReference: BookingOptionsReference = (0 as unk
 // SubscriptionInstance
 // The purpose of this remains a mystery
 export type SubscriptionInstance = t.Branded<
-  {
+  ({
     id?: BookingOptionsReference | Units_.IdentityId;
     name?: string;
     plan?: {
@@ -70,7 +70,7 @@ export type SubscriptionInstance = t.Branded<
     pointCost?: PointCost_.PointCost;
     description?: string;
     availability?: number;
-  } & {
+  } & Record<string, unknown>) & {
     plan: Defined;
     addons: Defined;
     coupons: Defined;
@@ -81,30 +81,35 @@ export type SubscriptionInstance = t.Branded<
 export type SubscriptionInstanceC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        id: t.UnionC<[typeof BookingOptionsReference, typeof Units_.IdentityId]>;
-        name: t.StringC;
-        plan: t.IntersectionC<
-          [
-            t.PartialC<{
-              id: t.StringC;
-            }>,
-            t.TypeC<{
-              id: typeof Defined;
-            }>,
-          ]
-        >;
-        addons: t.ArrayC<t.StringC>;
-        coupons: t.ArrayC<t.StringC>;
-        wmpGrant: t.NumberC;
-        creditGrant: t.NumberC;
-        creditCurrency: typeof Units_.Currency;
-        level: t.NumberC;
-        active: t.BooleanC;
-        pointCost: typeof PointCost_.PointCost;
-        description: t.StringC;
-        availability: t.NumberC;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            id: t.UnionC<[typeof BookingOptionsReference, typeof Units_.IdentityId]>;
+            name: t.StringC;
+            plan: t.IntersectionC<
+              [
+                t.PartialC<{
+                  id: t.StringC;
+                }>,
+                t.TypeC<{
+                  id: typeof Defined;
+                }>,
+              ]
+            >;
+            addons: t.ArrayC<t.StringC>;
+            coupons: t.ArrayC<t.StringC>;
+            wmpGrant: t.NumberC;
+            creditGrant: t.NumberC;
+            creditCurrency: typeof Units_.Currency;
+            level: t.NumberC;
+            active: t.BooleanC;
+            pointCost: typeof PointCost_.PointCost;
+            description: t.StringC;
+            availability: t.NumberC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         plan: typeof Defined;
         addons: typeof Defined;
@@ -117,28 +122,31 @@ export type SubscriptionInstanceC = t.BrandC<
 >;
 export const SubscriptionInstance: SubscriptionInstanceC = t.brand(
   t.intersection([
-    t.partial({
-      id: t.union([BookingOptionsReference, Units_.IdentityId]),
-      name: t.string,
-      plan: t.intersection([
-        t.partial({
-          id: t.string,
-        }),
-        t.type({
-          id: Defined,
-        }),
-      ]),
-      addons: t.array(t.string),
-      coupons: t.array(t.string),
-      wmpGrant: t.number,
-      creditGrant: t.number,
-      creditCurrency: Units_.Currency,
-      level: t.number,
-      active: t.boolean,
-      pointCost: PointCost_.PointCost,
-      description: t.string,
-      availability: t.number,
-    }),
+    t.intersection([
+      t.partial({
+        id: t.union([BookingOptionsReference, Units_.IdentityId]),
+        name: t.string,
+        plan: t.intersection([
+          t.partial({
+            id: t.string,
+          }),
+          t.type({
+            id: Defined,
+          }),
+        ]),
+        addons: t.array(t.string),
+        coupons: t.array(t.string),
+        wmpGrant: t.number,
+        creditGrant: t.number,
+        creditCurrency: Units_.Currency,
+        level: t.number,
+        active: t.boolean,
+        pointCost: PointCost_.PointCost,
+        description: t.string,
+        availability: t.number,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       plan: Defined,
       addons: Defined,
@@ -149,7 +157,7 @@ export const SubscriptionInstance: SubscriptionInstanceC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       id?: BookingOptionsReference | Units_.IdentityId;
       name?: string;
       plan?: {
@@ -167,7 +175,7 @@ export const SubscriptionInstance: SubscriptionInstanceC = t.brand(
       pointCost?: PointCost_.PointCost;
       description?: string;
       availability?: number;
-    } & {
+    } & Record<string, unknown>) & {
       plan: Defined;
       addons: Defined;
       coupons: Defined;
@@ -198,18 +206,18 @@ export type Profile = t.Branded<
     region?: Region_.Region;
     profileImageUrl?: string;
     favoriteLocations?: Array<Place_.Place>;
-    paymentMethod?: {
+    paymentMethod?: ({
       type?: string & ('unknown' | 'card' | 'stripe');
       valid?: boolean;
       maskedNumber?: string;
       network?: string;
       issuer?: string;
       expiry?: Units_.Time;
-    } & {
+    } & Record<string, unknown>) & {
       type: Defined;
       valid: Defined;
     };
-    subscription?: Record<string, unknown>;
+    subscription?: Record<string, unknown> & Record<string, unknown>;
     subscriptionInstance?: SubscriptionInstance;
     balances?: Array<Fare_.Fare>;
     created?: Units_.Time;
@@ -243,28 +251,35 @@ export type ProfileC = t.BrandC<
         favoriteLocations: t.ArrayC<typeof Place_.Place>;
         paymentMethod: t.IntersectionC<
           [
-            t.PartialC<{
-              type: t.IntersectionC<
-                [
-                  t.StringC,
-                  t.UnionC<
-                    [t.LiteralC<'unknown'>, t.LiteralC<'card'>, t.LiteralC<'stripe'>]
-                  >,
-                ]
-              >;
-              valid: t.BooleanC;
-              maskedNumber: t.StringC;
-              network: t.StringC;
-              issuer: t.StringC;
-              expiry: typeof Units_.Time;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  type: t.IntersectionC<
+                    [
+                      t.StringC,
+                      t.UnionC<
+                        [t.LiteralC<'unknown'>, t.LiteralC<'card'>, t.LiteralC<'stripe'>]
+                      >,
+                    ]
+                  >;
+                  valid: t.BooleanC;
+                  maskedNumber: t.StringC;
+                  network: t.StringC;
+                  issuer: t.StringC;
+                  expiry: typeof Units_.Time;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               type: typeof Defined;
               valid: typeof Defined;
             }>,
           ]
         >;
-        subscription: t.UnknownRecordC;
+        subscription: t.IntersectionC<
+          [t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]
+        >;
         subscriptionInstance: typeof SubscriptionInstance;
         balances: t.ArrayC<typeof Fare_.Fare>;
         created: typeof Units_.Time;
@@ -299,23 +314,26 @@ export const Profile: ProfileC = t.brand(
       profileImageUrl: t.string,
       favoriteLocations: t.array(Place_.Place),
       paymentMethod: t.intersection([
-        t.partial({
-          type: t.intersection([
-            t.string,
-            t.union([t.literal('unknown'), t.literal('card'), t.literal('stripe')]),
-          ]),
-          valid: t.boolean,
-          maskedNumber: t.string,
-          network: t.string,
-          issuer: t.string,
-          expiry: Units_.Time,
-        }),
+        t.intersection([
+          t.partial({
+            type: t.intersection([
+              t.string,
+              t.union([t.literal('unknown'), t.literal('card'), t.literal('stripe')]),
+            ]),
+            valid: t.boolean,
+            maskedNumber: t.string,
+            network: t.string,
+            issuer: t.string,
+            expiry: Units_.Time,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           type: Defined,
           valid: Defined,
         }),
       ]),
-      subscription: t.UnknownRecord,
+      subscription: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
       subscriptionInstance: SubscriptionInstance,
       balances: t.array(Fare_.Fare),
       created: Units_.Time,
@@ -347,18 +365,18 @@ export const Profile: ProfileC = t.brand(
       region?: Region_.Region;
       profileImageUrl?: string;
       favoriteLocations?: Array<Place_.Place>;
-      paymentMethod?: {
+      paymentMethod?: ({
         type?: string & ('unknown' | 'card' | 'stripe');
         valid?: boolean;
         maskedNumber?: string;
         network?: string;
         issuer?: string;
         expiry?: Units_.Time;
-      } & {
+      } & Record<string, unknown>) & {
         type: Defined;
         valid: Defined;
       };
-      subscription?: Record<string, unknown>;
+      subscription?: Record<string, unknown> & Record<string, unknown>;
       subscriptionInstance?: SubscriptionInstance;
       balances?: Array<Fare_.Fare>;
       created?: Units_.Time;

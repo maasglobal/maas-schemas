@@ -35,15 +35,15 @@ export const schemaId =
 export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
-    payload?: {
+    payload?: ({
       name?: string;
-    } & {
+    } & Record<string, unknown>) & {
       name: Defined;
     };
     headers?: {
       Accept?: ApiCommon_.AcceptHeader;
       'X-Whim-User-Agent'?: ApiCommon_.UserAgentHeader;
-    };
+    } & Record<string, unknown>;
   },
   RequestBrand
 >;
@@ -52,18 +52,28 @@ export type RequestC = t.BrandC<
     identityId: typeof Units_.IdentityId;
     payload: t.IntersectionC<
       [
-        t.PartialC<{
-          name: t.StringC;
-        }>,
+        t.IntersectionC<
+          [
+            t.PartialC<{
+              name: t.StringC;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >,
         t.TypeC<{
           name: typeof Defined;
         }>,
       ]
     >;
-    headers: t.PartialC<{
-      Accept: typeof ApiCommon_.AcceptHeader;
-      'X-Whim-User-Agent': typeof ApiCommon_.UserAgentHeader;
-    }>;
+    headers: t.IntersectionC<
+      [
+        t.PartialC<{
+          Accept: typeof ApiCommon_.AcceptHeader;
+          'X-Whim-User-Agent': typeof ApiCommon_.UserAgentHeader;
+        }>,
+        t.RecordC<t.StringC, t.UnknownC>,
+      ]
+    >;
   }>,
   RequestBrand
 >;
@@ -71,32 +81,38 @@ export const Request: RequestC = t.brand(
   t.partial({
     identityId: Units_.IdentityId,
     payload: t.intersection([
-      t.partial({
-        name: t.string,
-      }),
+      t.intersection([
+        t.partial({
+          name: t.string,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       t.type({
         name: Defined,
       }),
     ]),
-    headers: t.partial({
-      Accept: ApiCommon_.AcceptHeader,
-      'X-Whim-User-Agent': ApiCommon_.UserAgentHeader,
-    }),
+    headers: t.intersection([
+      t.partial({
+        Accept: ApiCommon_.AcceptHeader,
+        'X-Whim-User-Agent': ApiCommon_.UserAgentHeader,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
   }),
   (
     x,
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
-      payload?: {
+      payload?: ({
         name?: string;
-      } & {
+      } & Record<string, unknown>) & {
         name: Defined;
       };
       headers?: {
         Accept?: ApiCommon_.AcceptHeader;
         'X-Whim-User-Agent'?: ApiCommon_.UserAgentHeader;
-      };
+      } & Record<string, unknown>;
     },
     RequestBrand
   > => true,

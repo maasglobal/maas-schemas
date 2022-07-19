@@ -41,7 +41,7 @@ export type Response = t.Branded<
       terms?: Booking_.Terms;
       token?: Booking_.Token;
       tspProducts?: Array<BookingOption_.TspProduct>;
-    };
+    } & Record<string, unknown>;
   } & Record<string, unknown>) & {
     success: Defined;
   },
@@ -55,12 +55,17 @@ export type ResponseC = t.BrandC<
           t.PartialC<{
             success: t.BooleanC;
             message: t.StringC;
-            updateBookingsWith: t.PartialC<{
-              meta: typeof BookingMeta_.BookingMeta;
-              terms: typeof Booking_.Terms;
-              token: typeof Booking_.Token;
-              tspProducts: t.ArrayC<typeof BookingOption_.TspProduct>;
-            }>;
+            updateBookingsWith: t.IntersectionC<
+              [
+                t.PartialC<{
+                  meta: typeof BookingMeta_.BookingMeta;
+                  terms: typeof Booking_.Terms;
+                  token: typeof Booking_.Token;
+                  tspProducts: t.ArrayC<typeof BookingOption_.TspProduct>;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
         ]
@@ -78,12 +83,15 @@ export const Response: ResponseC = t.brand(
       t.partial({
         success: t.boolean,
         message: t.string,
-        updateBookingsWith: t.partial({
-          meta: BookingMeta_.BookingMeta,
-          terms: Booking_.Terms,
-          token: Booking_.Token,
-          tspProducts: t.array(BookingOption_.TspProduct),
-        }),
+        updateBookingsWith: t.intersection([
+          t.partial({
+            meta: BookingMeta_.BookingMeta,
+            terms: Booking_.Terms,
+            token: Booking_.Token,
+            tspProducts: t.array(BookingOption_.TspProduct),
+          }),
+          t.record(t.string, t.unknown),
+        ]),
       }),
       t.record(t.string, t.unknown),
     ]),
@@ -102,7 +110,7 @@ export const Response: ResponseC = t.brand(
         terms?: Booking_.Terms;
         token?: Booking_.Token;
         tspProducts?: Array<BookingOption_.TspProduct>;
-      };
+      } & Record<string, unknown>;
     } & Record<string, unknown>) & {
       success: Defined;
     },

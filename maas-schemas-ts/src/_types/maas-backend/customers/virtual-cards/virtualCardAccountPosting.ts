@@ -39,8 +39,8 @@ export type VirtualCardAccountPosting = t.Branded<
     direction?: string & ('CREDIT' | 'DEBIT');
     amount?: number;
     currency?: Units_.Currency;
-    metadata?: Record<string, unknown>;
-    location?: Record<string, unknown>;
+    metadata?: Record<string, unknown> & Record<string, unknown>;
+    location?: Record<string, unknown> & Record<string, unknown>;
     providerPostingId?: string;
     created?: Units_.Time;
   } & {
@@ -64,8 +64,8 @@ export type VirtualCardAccountPostingC = t.BrandC<
         >;
         amount: t.NumberC;
         currency: typeof Units_.Currency;
-        metadata: t.UnknownRecordC;
-        location: t.UnknownRecordC;
+        metadata: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
+        location: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
         providerPostingId: t.StringC;
         created: typeof Units_.Time;
       }>,
@@ -92,8 +92,8 @@ export const VirtualCardAccountPosting: VirtualCardAccountPostingC = t.brand(
       ]),
       amount: t.number,
       currency: Units_.Currency,
-      metadata: t.UnknownRecord,
-      location: t.UnknownRecord,
+      metadata: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+      location: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
       providerPostingId: t.string,
       created: Units_.Time,
     }),
@@ -115,8 +115,8 @@ export const VirtualCardAccountPosting: VirtualCardAccountPostingC = t.brand(
       direction?: string & ('CREDIT' | 'DEBIT');
       amount?: number;
       currency?: Units_.Currency;
-      metadata?: Record<string, unknown>;
-      location?: Record<string, unknown>;
+      metadata?: Record<string, unknown> & Record<string, unknown>;
+      location?: Record<string, unknown> & Record<string, unknown>;
       providerPostingId?: string;
       created?: Units_.Time;
     } & {

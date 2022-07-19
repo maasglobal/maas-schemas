@@ -14,11 +14,22 @@ export const schemaId = 'https://schemas.maas.global/core/modes/MODE_CABLE_CAR.j
 
 // MODE_CABLE_CAR
 // The default export. More information at the top.
-export type MODE_CABLE_CAR = t.Branded<Record<string, unknown>, MODE_CABLE_CARBrand>;
-export type MODE_CABLE_CARC = t.BrandC<t.UnknownRecordC, MODE_CABLE_CARBrand>;
+export type MODE_CABLE_CAR = t.Branded<
+  Record<string, unknown> & Record<string, unknown>,
+  MODE_CABLE_CARBrand
+>;
+export type MODE_CABLE_CARC = t.BrandC<
+  t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>,
+  MODE_CABLE_CARBrand
+>;
 export const MODE_CABLE_CAR: MODE_CABLE_CARC = t.brand(
-  t.UnknownRecord,
-  (x): x is t.Branded<Record<string, unknown>, MODE_CABLE_CARBrand> => true,
+  t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+  (
+    x,
+  ): x is t.Branded<
+    Record<string, unknown> & Record<string, unknown>,
+    MODE_CABLE_CARBrand
+  > => true,
   'MODE_CABLE_CAR',
 );
 export interface MODE_CABLE_CARBrand {

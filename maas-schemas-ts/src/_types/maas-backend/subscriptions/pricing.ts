@@ -170,15 +170,15 @@ export interface DiscountBrand {
 // Terms
 // Terms related to this subscription
 export type Terms = t.Branded<
-  {
-    validity?: {
+  ({
+    validity?: ({
       startTime?: Units_.Time;
       endTime?: Units_.Time;
-    } & {
+    } & Record<string, unknown>) & {
       startTime: Defined;
       endTime: Defined;
     };
-  } & {
+  } & Record<string, unknown>) & {
     validity: Defined;
   },
   TermsBrand
@@ -186,20 +186,30 @@ export type Terms = t.Branded<
 export type TermsC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        validity: t.IntersectionC<
-          [
-            t.PartialC<{
-              startTime: typeof Units_.Time;
-              endTime: typeof Units_.Time;
-            }>,
-            t.TypeC<{
-              startTime: typeof Defined;
-              endTime: typeof Defined;
-            }>,
-          ]
-        >;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            validity: t.IntersectionC<
+              [
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      startTime: typeof Units_.Time;
+                      endTime: typeof Units_.Time;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
+                t.TypeC<{
+                  startTime: typeof Defined;
+                  endTime: typeof Defined;
+                }>,
+              ]
+            >;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         validity: typeof Defined;
       }>,
@@ -209,18 +219,24 @@ export type TermsC = t.BrandC<
 >;
 export const Terms: TermsC = t.brand(
   t.intersection([
-    t.partial({
-      validity: t.intersection([
-        t.partial({
-          startTime: Units_.Time,
-          endTime: Units_.Time,
-        }),
-        t.type({
-          startTime: Defined,
-          endTime: Defined,
-        }),
-      ]),
-    }),
+    t.intersection([
+      t.partial({
+        validity: t.intersection([
+          t.intersection([
+            t.partial({
+              startTime: Units_.Time,
+              endTime: Units_.Time,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+          t.type({
+            startTime: Defined,
+            endTime: Defined,
+          }),
+        ]),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       validity: Defined,
     }),
@@ -228,15 +244,15 @@ export const Terms: TermsC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
-      validity?: {
+    ({
+      validity?: ({
         startTime?: Units_.Time;
         endTime?: Units_.Time;
-      } & {
+      } & Record<string, unknown>) & {
         startTime: Defined;
         endTime: Defined;
       };
-    } & {
+    } & Record<string, unknown>) & {
       validity: Defined;
     },
     TermsBrand

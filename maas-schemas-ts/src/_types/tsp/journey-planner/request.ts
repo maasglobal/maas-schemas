@@ -34,10 +34,10 @@ export type Request = t.Branded<
       leaveAtReturn?: Units_.Time;
       arriveByReturn?: Units_.Time;
       mode?: string;
-    };
+    } & Record<string, unknown>;
   } & Record<
     string,
-    | {
+    | ({
         from?: UnitsGeo_.ShortLocationString;
         fromName?: Address_.PlaceName;
         fromAddress?: Address_.ComponentAddress;
@@ -51,34 +51,17 @@ export type Request = t.Branded<
         leaveAtReturn?: Units_.Time;
         arriveByReturn?: Units_.Time;
         mode?: string;
-      }
+      } & Record<string, unknown>)
     | (string | number | boolean)
-  >,
+  > &
+    Record<string, unknown>,
   RequestBrand
 >;
 export type RequestC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        payload: t.PartialC<{
-          from: typeof UnitsGeo_.ShortLocationString;
-          fromName: typeof Address_.PlaceName;
-          fromAddress: typeof Address_.ComponentAddress;
-          fromStationId: typeof Station_.Id;
-          to: typeof UnitsGeo_.ShortLocationString;
-          toName: typeof Address_.PlaceName;
-          toAddress: typeof Address_.ComponentAddress;
-          toStationId: typeof Station_.Id;
-          leaveAt: typeof Units_.Time;
-          arriveBy: typeof Units_.Time;
-          leaveAtReturn: typeof Units_.Time;
-          arriveByReturn: typeof Units_.Time;
-          mode: t.StringC;
-        }>;
-      }>,
-      t.RecordC<
-        t.StringC,
-        t.UnionC<
+        payload: t.IntersectionC<
           [
             t.PartialC<{
               from: typeof UnitsGeo_.ShortLocationString;
@@ -95,10 +78,39 @@ export type RequestC = t.BrandC<
               arriveByReturn: typeof Units_.Time;
               mode: t.StringC;
             }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
+      }>,
+      t.RecordC<
+        t.StringC,
+        t.UnionC<
+          [
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  from: typeof UnitsGeo_.ShortLocationString;
+                  fromName: typeof Address_.PlaceName;
+                  fromAddress: typeof Address_.ComponentAddress;
+                  fromStationId: typeof Station_.Id;
+                  to: typeof UnitsGeo_.ShortLocationString;
+                  toName: typeof Address_.PlaceName;
+                  toAddress: typeof Address_.ComponentAddress;
+                  toStationId: typeof Station_.Id;
+                  leaveAt: typeof Units_.Time;
+                  arriveBy: typeof Units_.Time;
+                  leaveAtReturn: typeof Units_.Time;
+                  arriveByReturn: typeof Units_.Time;
+                  mode: t.StringC;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>,
           ]
         >
       >,
+      t.RecordC<t.StringC, t.UnknownC>,
     ]
   >,
   RequestBrand
@@ -106,25 +118,7 @@ export type RequestC = t.BrandC<
 export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
-      payload: t.partial({
-        from: UnitsGeo_.ShortLocationString,
-        fromName: Address_.PlaceName,
-        fromAddress: Address_.ComponentAddress,
-        fromStationId: Station_.Id,
-        to: UnitsGeo_.ShortLocationString,
-        toName: Address_.PlaceName,
-        toAddress: Address_.ComponentAddress,
-        toStationId: Station_.Id,
-        leaveAt: Units_.Time,
-        arriveBy: Units_.Time,
-        leaveAtReturn: Units_.Time,
-        arriveByReturn: Units_.Time,
-        mode: t.string,
-      }),
-    }),
-    t.record(
-      t.string,
-      t.union([
+      payload: t.intersection([
         t.partial({
           from: UnitsGeo_.ShortLocationString,
           fromName: Address_.PlaceName,
@@ -140,9 +134,34 @@ export const Request: RequestC = t.brand(
           arriveByReturn: Units_.Time,
           mode: t.string,
         }),
+        t.record(t.string, t.unknown),
+      ]),
+    }),
+    t.record(
+      t.string,
+      t.union([
+        t.intersection([
+          t.partial({
+            from: UnitsGeo_.ShortLocationString,
+            fromName: Address_.PlaceName,
+            fromAddress: Address_.ComponentAddress,
+            fromStationId: Station_.Id,
+            to: UnitsGeo_.ShortLocationString,
+            toName: Address_.PlaceName,
+            toAddress: Address_.ComponentAddress,
+            toStationId: Station_.Id,
+            leaveAt: Units_.Time,
+            arriveBy: Units_.Time,
+            leaveAtReturn: Units_.Time,
+            arriveByReturn: Units_.Time,
+            mode: t.string,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.union([t.string, t.number, t.boolean]),
       ]),
     ),
+    t.record(t.string, t.unknown),
   ]),
   (
     x,
@@ -162,10 +181,10 @@ export const Request: RequestC = t.brand(
         leaveAtReturn?: Units_.Time;
         arriveByReturn?: Units_.Time;
         mode?: string;
-      };
+      } & Record<string, unknown>;
     } & Record<
       string,
-      | {
+      | ({
           from?: UnitsGeo_.ShortLocationString;
           fromName?: Address_.PlaceName;
           fromAddress?: Address_.ComponentAddress;
@@ -179,9 +198,10 @@ export const Request: RequestC = t.brand(
           leaveAtReturn?: Units_.Time;
           arriveByReturn?: Units_.Time;
           mode?: string;
-        }
+        } & Record<string, unknown>)
       | (string | number | boolean)
-    >,
+    > &
+      Record<string, unknown>,
     RequestBrand
   > => true,
   'Request',

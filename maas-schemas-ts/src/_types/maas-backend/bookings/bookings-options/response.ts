@@ -34,7 +34,7 @@ export const schemaId =
 // Option
 // The purpose of this remains a mystery
 export type Option = t.Branded<
-  {
+  ({
     fares?: Booking_.Fares;
     cost?: Booking_.Cost;
     leg?: Booking_.Leg;
@@ -42,38 +42,49 @@ export type Option = t.Branded<
     terms?: Booking_.Terms;
     tspProduct?: {
       id?: string;
-    };
+    } & Record<string, unknown>;
     configurator?: Booking_.Configurator;
-  } & (
-    | {
-        leg: Defined;
-        terms: Defined;
-        product: Defined;
-        fares: Defined;
-      }
-    | {
-        leg: Defined;
-        terms: Defined;
-        product: Defined;
-        configurator: Defined;
-      }
-  ),
+  } & Record<string, unknown>) &
+    (
+      | {
+          leg: Defined;
+          terms: Defined;
+          product: Defined;
+          fares: Defined;
+        }
+      | {
+          leg: Defined;
+          terms: Defined;
+          product: Defined;
+          configurator: Defined;
+        }
+    ),
   OptionBrand
 >;
 export type OptionC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        fares: typeof Booking_.Fares;
-        cost: typeof Booking_.Cost;
-        leg: typeof Booking_.Leg;
-        meta: typeof BookingMeta_.BookingMeta;
-        terms: typeof Booking_.Terms;
-        tspProduct: t.PartialC<{
-          id: t.StringC;
-        }>;
-        configurator: typeof Booking_.Configurator;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            fares: typeof Booking_.Fares;
+            cost: typeof Booking_.Cost;
+            leg: typeof Booking_.Leg;
+            meta: typeof BookingMeta_.BookingMeta;
+            terms: typeof Booking_.Terms;
+            tspProduct: t.IntersectionC<
+              [
+                t.PartialC<{
+                  id: t.StringC;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >;
+            configurator: typeof Booking_.Configurator;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.UnionC<
         [
           t.TypeC<{
@@ -96,17 +107,23 @@ export type OptionC = t.BrandC<
 >;
 export const Option: OptionC = t.brand(
   t.intersection([
-    t.partial({
-      fares: Booking_.Fares,
-      cost: Booking_.Cost,
-      leg: Booking_.Leg,
-      meta: BookingMeta_.BookingMeta,
-      terms: Booking_.Terms,
-      tspProduct: t.partial({
-        id: t.string,
+    t.intersection([
+      t.partial({
+        fares: Booking_.Fares,
+        cost: Booking_.Cost,
+        leg: Booking_.Leg,
+        meta: BookingMeta_.BookingMeta,
+        terms: Booking_.Terms,
+        tspProduct: t.intersection([
+          t.partial({
+            id: t.string,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
+        configurator: Booking_.Configurator,
       }),
-      configurator: Booking_.Configurator,
-    }),
+      t.record(t.string, t.unknown),
+    ]),
     t.union([
       t.type({
         leg: Defined,
@@ -125,7 +142,7 @@ export const Option: OptionC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       fares?: Booking_.Fares;
       cost?: Booking_.Cost;
       leg?: Booking_.Leg;
@@ -133,22 +150,23 @@ export const Option: OptionC = t.brand(
       terms?: Booking_.Terms;
       tspProduct?: {
         id?: string;
-      };
+      } & Record<string, unknown>;
       configurator?: Booking_.Configurator;
-    } & (
-      | {
-          leg: Defined;
-          terms: Defined;
-          product: Defined;
-          fares: Defined;
-        }
-      | {
-          leg: Defined;
-          terms: Defined;
-          product: Defined;
-          configurator: Defined;
-        }
-    ),
+    } & Record<string, unknown>) &
+      (
+        | {
+            leg: Defined;
+            terms: Defined;
+            product: Defined;
+            fares: Defined;
+          }
+        | {
+            leg: Defined;
+            terms: Defined;
+            product: Defined;
+            configurator: Defined;
+          }
+      ),
     OptionBrand
   > => true,
   'Option',
@@ -164,7 +182,7 @@ export type Response = t.Branded<
     options?: Array<Option>;
     additional?: {
       bikeStations?: Array<BikeStation_.BikeStation>;
-    };
+    } & Record<string, unknown>;
     debug?: Record<string, unknown>;
   } & {
     options: Defined;
@@ -176,9 +194,14 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         options: t.ArrayC<typeof Option>;
-        additional: t.PartialC<{
-          bikeStations: t.ArrayC<typeof BikeStation_.BikeStation>;
-        }>;
+        additional: t.IntersectionC<
+          [
+            t.PartialC<{
+              bikeStations: t.ArrayC<typeof BikeStation_.BikeStation>;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
         debug: t.RecordC<t.StringC, t.UnknownC>;
       }>,
       t.TypeC<{
@@ -192,9 +215,12 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       options: t.array(Option),
-      additional: t.partial({
-        bikeStations: t.array(BikeStation_.BikeStation),
-      }),
+      additional: t.intersection([
+        t.partial({
+          bikeStations: t.array(BikeStation_.BikeStation),
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       debug: t.record(t.string, t.unknown),
     }),
     t.type({
@@ -208,7 +234,7 @@ export const Response: ResponseC = t.brand(
       options?: Array<Option>;
       additional?: {
         bikeStations?: Array<BikeStation_.BikeStation>;
-      };
+      } & Record<string, unknown>;
       debug?: Record<string, unknown>;
     } & {
       options: Defined;

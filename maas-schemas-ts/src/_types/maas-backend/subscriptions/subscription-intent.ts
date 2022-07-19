@@ -65,12 +65,12 @@ export interface CouponIdBrand {
 // SubscriptionIntentCreate
 // The purpose of this remains a mystery
 export type SubscriptionIntentCreate = t.Branded<
-  {
+  ({
     planId?: PlanId;
     planAddons?: Array<Subscription_.Addon>;
     planCoupons?: Array<CouponId>;
     state?: State_.SubscriptionIntentState;
-  } & {
+  } & Record<string, unknown>) & {
     planId: Defined;
     planAddons: Defined;
   },
@@ -79,12 +79,17 @@ export type SubscriptionIntentCreate = t.Branded<
 export type SubscriptionIntentCreateC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        planId: typeof PlanId;
-        planAddons: t.ArrayC<typeof Subscription_.Addon>;
-        planCoupons: t.ArrayC<typeof CouponId>;
-        state: typeof State_.SubscriptionIntentState;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            planId: typeof PlanId;
+            planAddons: t.ArrayC<typeof Subscription_.Addon>;
+            planCoupons: t.ArrayC<typeof CouponId>;
+            state: typeof State_.SubscriptionIntentState;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         planId: typeof Defined;
         planAddons: typeof Defined;
@@ -95,12 +100,15 @@ export type SubscriptionIntentCreateC = t.BrandC<
 >;
 export const SubscriptionIntentCreate: SubscriptionIntentCreateC = t.brand(
   t.intersection([
-    t.partial({
-      planId: PlanId,
-      planAddons: t.array(Subscription_.Addon),
-      planCoupons: t.array(CouponId),
-      state: State_.SubscriptionIntentState,
-    }),
+    t.intersection([
+      t.partial({
+        planId: PlanId,
+        planAddons: t.array(Subscription_.Addon),
+        planCoupons: t.array(CouponId),
+        state: State_.SubscriptionIntentState,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       planId: Defined,
       planAddons: Defined,
@@ -109,12 +117,12 @@ export const SubscriptionIntentCreate: SubscriptionIntentCreateC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       planId?: PlanId;
       planAddons?: Array<Subscription_.Addon>;
       planCoupons?: Array<CouponId>;
       state?: State_.SubscriptionIntentState;
-    } & {
+    } & Record<string, unknown>) & {
       planId: Defined;
       planAddons: Defined;
     },

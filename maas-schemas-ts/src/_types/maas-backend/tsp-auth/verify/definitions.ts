@@ -82,35 +82,47 @@ export interface VerificationFailureKeyBrand {
 // VerifiedProducts
 // The list of verified products
 export type VerifiedProducts = t.Branded<
-  Array<{
-    id?: Booking_.TspId;
-    verified?: boolean;
-  }>,
+  Array<
+    {
+      id?: Booking_.TspId;
+      verified?: boolean;
+    } & Record<string, unknown>
+  >,
   VerifiedProductsBrand
 >;
 export type VerifiedProductsC = t.BrandC<
   t.ArrayC<
-    t.PartialC<{
-      id: typeof Booking_.TspId;
-      verified: t.BooleanC;
-    }>
+    t.IntersectionC<
+      [
+        t.PartialC<{
+          id: typeof Booking_.TspId;
+          verified: t.BooleanC;
+        }>,
+        t.RecordC<t.StringC, t.UnknownC>,
+      ]
+    >
   >,
   VerifiedProductsBrand
 >;
 export const VerifiedProducts: VerifiedProductsC = t.brand(
   t.array(
-    t.partial({
-      id: Booking_.TspId,
-      verified: t.boolean,
-    }),
+    t.intersection([
+      t.partial({
+        id: Booking_.TspId,
+        verified: t.boolean,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
   ),
   (
     x,
   ): x is t.Branded<
-    Array<{
-      id?: Booking_.TspId;
-      verified?: boolean;
-    }>,
+    Array<
+      {
+        id?: Booking_.TspId;
+        verified?: boolean;
+      } & Record<string, unknown>
+    >,
     VerifiedProductsBrand
   > => true,
   'VerifiedProducts',
@@ -122,35 +134,47 @@ export interface VerifiedProductsBrand {
 // ProductsNeededVerification
 // The list of products to verify
 export type ProductsNeededVerification = t.Branded<
-  Array<{
-    id?: Booking_.TspId;
-    customerSelection?: CustomerSelection_.CustomerSelection;
-  }>,
+  Array<
+    {
+      id?: Booking_.TspId;
+      customerSelection?: CustomerSelection_.CustomerSelection;
+    } & Record<string, unknown>
+  >,
   ProductsNeededVerificationBrand
 >;
 export type ProductsNeededVerificationC = t.BrandC<
   t.ArrayC<
-    t.PartialC<{
-      id: typeof Booking_.TspId;
-      customerSelection: typeof CustomerSelection_.CustomerSelection;
-    }>
+    t.IntersectionC<
+      [
+        t.PartialC<{
+          id: typeof Booking_.TspId;
+          customerSelection: typeof CustomerSelection_.CustomerSelection;
+        }>,
+        t.RecordC<t.StringC, t.UnknownC>,
+      ]
+    >
   >,
   ProductsNeededVerificationBrand
 >;
 export const ProductsNeededVerification: ProductsNeededVerificationC = t.brand(
   t.array(
-    t.partial({
-      id: Booking_.TspId,
-      customerSelection: CustomerSelection_.CustomerSelection,
-    }),
+    t.intersection([
+      t.partial({
+        id: Booking_.TspId,
+        customerSelection: CustomerSelection_.CustomerSelection,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
   ),
   (
     x,
   ): x is t.Branded<
-    Array<{
-      id?: Booking_.TspId;
-      customerSelection?: CustomerSelection_.CustomerSelection;
-    }>,
+    Array<
+      {
+        id?: Booking_.TspId;
+        customerSelection?: CustomerSelection_.CustomerSelection;
+      } & Record<string, unknown>
+    >,
     ProductsNeededVerificationBrand
   > => true,
   'ProductsNeededVerification',

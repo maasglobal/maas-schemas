@@ -18,30 +18,38 @@ export const schemaId =
 export type Response = t.Branded<
   {
     status?: string & ('IN_PROGRESS' | 'DELETED');
-  },
+  } & Record<string, unknown>,
   ResponseBrand
 >;
 export type ResponseC = t.BrandC<
-  t.PartialC<{
-    status: t.IntersectionC<
-      [t.StringC, t.UnionC<[t.LiteralC<'IN_PROGRESS'>, t.LiteralC<'DELETED'>]>]
-    >;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        status: t.IntersectionC<
+          [t.StringC, t.UnionC<[t.LiteralC<'IN_PROGRESS'>, t.LiteralC<'DELETED'>]>]
+        >;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   ResponseBrand
 >;
 export const Response: ResponseC = t.brand(
-  t.partial({
-    status: t.intersection([
-      t.string,
-      t.union([t.literal('IN_PROGRESS'), t.literal('DELETED')]),
-    ]),
-  }),
+  t.intersection([
+    t.partial({
+      status: t.intersection([
+        t.string,
+        t.union([t.literal('IN_PROGRESS'), t.literal('DELETED')]),
+      ]),
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       status?: string & ('IN_PROGRESS' | 'DELETED');
-    },
+    } & Record<string, unknown>,
     ResponseBrand
   > => true,
   'Response',

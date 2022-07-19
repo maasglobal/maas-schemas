@@ -20,28 +20,36 @@ export type Request = t.Branded<
   {
     vehicleId?: string;
     productId?: Product_.Id;
-  },
+  } & Record<string, unknown>,
   RequestBrand
 >;
 export type RequestC = t.BrandC<
-  t.PartialC<{
-    vehicleId: t.StringC;
-    productId: typeof Product_.Id;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        vehicleId: t.StringC;
+        productId: typeof Product_.Id;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   RequestBrand
 >;
 export const Request: RequestC = t.brand(
-  t.partial({
-    vehicleId: t.string,
-    productId: Product_.Id,
-  }),
+  t.intersection([
+    t.partial({
+      vehicleId: t.string,
+      productId: Product_.Id,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       vehicleId?: string;
       productId?: Product_.Id;
-    },
+    } & Record<string, unknown>,
     RequestBrand
   > => true,
   'Request',

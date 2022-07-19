@@ -14,11 +14,20 @@ export const schemaId = 'https://schemas.maas.global/core/modes/MODE_TRAIN.json'
 
 // MODE_TRAIN
 // The default export. More information at the top.
-export type MODE_TRAIN = t.Branded<Record<string, unknown>, MODE_TRAINBrand>;
-export type MODE_TRAINC = t.BrandC<t.UnknownRecordC, MODE_TRAINBrand>;
+export type MODE_TRAIN = t.Branded<
+  Record<string, unknown> & Record<string, unknown>,
+  MODE_TRAINBrand
+>;
+export type MODE_TRAINC = t.BrandC<
+  t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>,
+  MODE_TRAINBrand
+>;
 export const MODE_TRAIN: MODE_TRAINC = t.brand(
-  t.UnknownRecord,
-  (x): x is t.Branded<Record<string, unknown>, MODE_TRAINBrand> => true,
+  t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+  (
+    x,
+  ): x is t.Branded<Record<string, unknown> & Record<string, unknown>, MODE_TRAINBrand> =>
+    true,
   'MODE_TRAIN',
 );
 export interface MODE_TRAINBrand {

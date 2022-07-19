@@ -17,25 +17,33 @@ export const schemaId = 'https://schemas.maas.global/tsp/vehicle-alert/request.j
 export type Request = t.Branded<
   {
     vehicleId?: string;
-  },
+  } & Record<string, unknown>,
   RequestBrand
 >;
 export type RequestC = t.BrandC<
-  t.PartialC<{
-    vehicleId: t.StringC;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        vehicleId: t.StringC;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   RequestBrand
 >;
 export const Request: RequestC = t.brand(
-  t.partial({
-    vehicleId: t.string,
-  }),
+  t.intersection([
+    t.partial({
+      vehicleId: t.string,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       vehicleId?: string;
-    },
+    } & Record<string, unknown>,
     RequestBrand
   > => true,
   'Request',

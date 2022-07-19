@@ -14,11 +14,22 @@ export const schemaId = 'https://schemas.maas.global/core/modes/MODE_TRAINISH.js
 
 // MODE_TRAINISH
 // The default export. More information at the top.
-export type MODE_TRAINISH = t.Branded<Record<string, unknown>, MODE_TRAINISHBrand>;
-export type MODE_TRAINISHC = t.BrandC<t.UnknownRecordC, MODE_TRAINISHBrand>;
+export type MODE_TRAINISH = t.Branded<
+  Record<string, unknown> & Record<string, unknown>,
+  MODE_TRAINISHBrand
+>;
+export type MODE_TRAINISHC = t.BrandC<
+  t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>,
+  MODE_TRAINISHBrand
+>;
 export const MODE_TRAINISH: MODE_TRAINISHC = t.brand(
-  t.UnknownRecord,
-  (x): x is t.Branded<Record<string, unknown>, MODE_TRAINISHBrand> => true,
+  t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+  (
+    x,
+  ): x is t.Branded<
+    Record<string, unknown> & Record<string, unknown>,
+    MODE_TRAINISHBrand
+  > => true,
   'MODE_TRAINISH',
 );
 export interface MODE_TRAINISHBrand {

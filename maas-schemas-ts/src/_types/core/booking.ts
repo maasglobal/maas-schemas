@@ -243,32 +243,48 @@ export type Token = t.Branded<
     validityDuration?: {
       startTime?: Units_.Time;
       endTime?: Units_.Time;
-    };
-    data?: Record<string, unknown>;
-    meta?: Record<string, unknown>;
-  },
+    } & Record<string, unknown>;
+    data?: Record<string, unknown> & Record<string, unknown>;
+    meta?: Record<string, unknown> & Record<string, unknown>;
+  } & Record<string, unknown>,
   TokenBrand
 >;
 export type TokenC = t.BrandC<
-  t.PartialC<{
-    validityDuration: t.PartialC<{
-      startTime: typeof Units_.Time;
-      endTime: typeof Units_.Time;
-    }>;
-    data: t.UnknownRecordC;
-    meta: t.UnknownRecordC;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        validityDuration: t.IntersectionC<
+          [
+            t.PartialC<{
+              startTime: typeof Units_.Time;
+              endTime: typeof Units_.Time;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
+        data: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
+        meta: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   TokenBrand
 >;
 export const Token: TokenC = t.brand(
-  t.partial({
-    validityDuration: t.partial({
-      startTime: Units_.Time,
-      endTime: Units_.Time,
+  t.intersection([
+    t.partial({
+      validityDuration: t.intersection([
+        t.partial({
+          startTime: Units_.Time,
+          endTime: Units_.Time,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
+      data: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+      meta: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
     }),
-    data: t.UnknownRecord,
-    meta: t.UnknownRecord,
-  }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
@@ -276,10 +292,10 @@ export const Token: TokenC = t.brand(
       validityDuration?: {
         startTime?: Units_.Time;
         endTime?: Units_.Time;
-      };
-      data?: Record<string, unknown>;
-      meta?: Record<string, unknown>;
-    },
+      } & Record<string, unknown>;
+      data?: Record<string, unknown> & Record<string, unknown>;
+      meta?: Record<string, unknown> & Record<string, unknown>;
+    } & Record<string, unknown>,
     TokenBrand
   > => true,
   'Token',
@@ -291,7 +307,7 @@ export interface TokenBrand {
 // Booking
 // The default export. More information at the top.
 export type Booking = t.Branded<
-  {
+  ({
     id?: Id;
     tspId?: TspId | Null;
     state?: State_.BookingState;
@@ -309,7 +325,7 @@ export type Booking = t.Branded<
     signature?: Common_.Signature;
     configurator?: Configurator;
     customerSelection?: CustomerSelection_.CustomerSelection;
-  } & {
+  } & Record<string, unknown>) & {
     id: Defined;
     state: Defined;
     leg: Defined;
@@ -323,30 +339,35 @@ export type Booking = t.Branded<
 export type BookingC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        id: typeof Id;
-        tspId: t.UnionC<[typeof TspId, typeof Null]>;
-        state: typeof State_.BookingState;
-        stateLog: typeof StateLog_.StateLog;
-        fares: typeof Fares;
-        cost: t.UnionC<[typeof Cost, typeof Null]>;
-        leg: typeof Leg;
-        token: typeof Token;
-        meta: typeof BookingMeta_.BookingMeta;
-        terms: typeof Terms;
-        customer: t.IntersectionC<
-          [
-            typeof Customer_.Customer,
-            t.TypeC<{
-              identityId: typeof Defined;
-            }>,
-          ]
-        >;
-        product: typeof Product_.Product;
-        signature: typeof Common_.Signature;
-        configurator: typeof Configurator;
-        customerSelection: typeof CustomerSelection_.CustomerSelection;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            id: typeof Id;
+            tspId: t.UnionC<[typeof TspId, typeof Null]>;
+            state: typeof State_.BookingState;
+            stateLog: typeof StateLog_.StateLog;
+            fares: typeof Fares;
+            cost: t.UnionC<[typeof Cost, typeof Null]>;
+            leg: typeof Leg;
+            token: typeof Token;
+            meta: typeof BookingMeta_.BookingMeta;
+            terms: typeof Terms;
+            customer: t.IntersectionC<
+              [
+                typeof Customer_.Customer,
+                t.TypeC<{
+                  identityId: typeof Defined;
+                }>,
+              ]
+            >;
+            product: typeof Product_.Product;
+            signature: typeof Common_.Signature;
+            configurator: typeof Configurator;
+            customerSelection: typeof CustomerSelection_.CustomerSelection;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         id: typeof Defined;
         state: typeof Defined;
@@ -362,28 +383,31 @@ export type BookingC = t.BrandC<
 >;
 export const Booking: BookingC = t.brand(
   t.intersection([
-    t.partial({
-      id: Id,
-      tspId: t.union([TspId, Null]),
-      state: State_.BookingState,
-      stateLog: StateLog_.StateLog,
-      fares: Fares,
-      cost: t.union([Cost, Null]),
-      leg: Leg,
-      token: Token,
-      meta: BookingMeta_.BookingMeta,
-      terms: Terms,
-      customer: t.intersection([
-        Customer_.Customer,
-        t.type({
-          identityId: Defined,
-        }),
-      ]),
-      product: Product_.Product,
-      signature: Common_.Signature,
-      configurator: Configurator,
-      customerSelection: CustomerSelection_.CustomerSelection,
-    }),
+    t.intersection([
+      t.partial({
+        id: Id,
+        tspId: t.union([TspId, Null]),
+        state: State_.BookingState,
+        stateLog: StateLog_.StateLog,
+        fares: Fares,
+        cost: t.union([Cost, Null]),
+        leg: Leg,
+        token: Token,
+        meta: BookingMeta_.BookingMeta,
+        terms: Terms,
+        customer: t.intersection([
+          Customer_.Customer,
+          t.type({
+            identityId: Defined,
+          }),
+        ]),
+        product: Product_.Product,
+        signature: Common_.Signature,
+        configurator: Configurator,
+        customerSelection: CustomerSelection_.CustomerSelection,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       id: Defined,
       state: Defined,
@@ -397,7 +421,7 @@ export const Booking: BookingC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       id?: Id;
       tspId?: TspId | Null;
       state?: State_.BookingState;
@@ -415,7 +439,7 @@ export const Booking: BookingC = t.brand(
       signature?: Common_.Signature;
       configurator?: Configurator;
       customerSelection?: CustomerSelection_.CustomerSelection;
-    } & {
+    } & Record<string, unknown>) & {
       id: Defined;
       state: Defined;
       leg: Defined;

@@ -37,7 +37,7 @@ export type Response = t.Branded<
     options?: Array<BookingOption_.BookingOption>;
     additional?: {
       bikeStations?: Array<BikeStation_.BikeStation>;
-    };
+    } & Record<string, unknown>;
   } & {
     options: Defined;
   },
@@ -48,9 +48,14 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         options: t.ArrayC<typeof BookingOption_.BookingOption>;
-        additional: t.PartialC<{
-          bikeStations: t.ArrayC<typeof BikeStation_.BikeStation>;
-        }>;
+        additional: t.IntersectionC<
+          [
+            t.PartialC<{
+              bikeStations: t.ArrayC<typeof BikeStation_.BikeStation>;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
       }>,
       t.TypeC<{
         options: typeof Defined;
@@ -63,9 +68,12 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       options: t.array(BookingOption_.BookingOption),
-      additional: t.partial({
-        bikeStations: t.array(BikeStation_.BikeStation),
-      }),
+      additional: t.intersection([
+        t.partial({
+          bikeStations: t.array(BikeStation_.BikeStation),
+        }),
+        t.record(t.string, t.unknown),
+      ]),
     }),
     t.type({
       options: Defined,
@@ -78,7 +86,7 @@ export const Response: ResponseC = t.brand(
       options?: Array<BookingOption_.BookingOption>;
       additional?: {
         bikeStations?: Array<BikeStation_.BikeStation>;
-      };
+      } & Record<string, unknown>;
     } & {
       options: Defined;
     },

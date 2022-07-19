@@ -57,35 +57,43 @@ export type ContactBase = t.Branded<
     country?: Address_.Country;
     phone?: Common_.Phone;
     email?: Common_.Email;
-  },
+  } & Record<string, unknown>,
   ContactBaseBrand
 >;
 export type ContactBaseC = t.BrandC<
-  t.PartialC<{
-    identityId: typeof IdentityId;
-    firstName: typeof Common_.PersonalName;
-    lastName: typeof Common_.PersonalName;
-    address: typeof Address_.Address;
-    city: typeof Address_.City;
-    zipCode: typeof Address_.ZipCode;
-    country: typeof Address_.Country;
-    phone: typeof Common_.Phone;
-    email: typeof Common_.Email;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof IdentityId;
+        firstName: typeof Common_.PersonalName;
+        lastName: typeof Common_.PersonalName;
+        address: typeof Address_.Address;
+        city: typeof Address_.City;
+        zipCode: typeof Address_.ZipCode;
+        country: typeof Address_.Country;
+        phone: typeof Common_.Phone;
+        email: typeof Common_.Email;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   ContactBaseBrand
 >;
 export const ContactBase: ContactBaseC = t.brand(
-  t.partial({
-    identityId: IdentityId,
-    firstName: Common_.PersonalName,
-    lastName: Common_.PersonalName,
-    address: Address_.Address,
-    city: Address_.City,
-    zipCode: Address_.ZipCode,
-    country: Address_.Country,
-    phone: Common_.Phone,
-    email: Common_.Email,
-  }),
+  t.intersection([
+    t.partial({
+      identityId: IdentityId,
+      firstName: Common_.PersonalName,
+      lastName: Common_.PersonalName,
+      address: Address_.Address,
+      city: Address_.City,
+      zipCode: Address_.ZipCode,
+      country: Address_.Country,
+      phone: Common_.Phone,
+      email: Common_.Email,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
@@ -99,7 +107,7 @@ export const ContactBase: ContactBaseC = t.brand(
       country?: Address_.Country;
       phone?: Common_.Phone;
       email?: Common_.Email;
-    },
+    } & Record<string, unknown>,
     ContactBaseBrand
   > => true,
   'ContactBase',
@@ -111,10 +119,10 @@ export interface ContactBaseBrand {
 // StripePaymentMethod
 // The payment (gateway) method info; no credit cards here
 export type StripePaymentMethod = t.Branded<
-  {
+  ({
     type?: string & 'stripe';
     token?: string;
-  } & {
+  } & Record<string, unknown>) & {
     type: Defined;
     token: Defined;
   },
@@ -123,10 +131,15 @@ export type StripePaymentMethod = t.Branded<
 export type StripePaymentMethodC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        type: t.IntersectionC<[t.StringC, t.LiteralC<'stripe'>]>;
-        token: t.StringC;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            type: t.IntersectionC<[t.StringC, t.LiteralC<'stripe'>]>;
+            token: t.StringC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         type: typeof Defined;
         token: typeof Defined;
@@ -137,10 +150,13 @@ export type StripePaymentMethodC = t.BrandC<
 >;
 export const StripePaymentMethod: StripePaymentMethodC = t.brand(
   t.intersection([
-    t.partial({
-      type: t.intersection([t.string, t.literal('stripe')]),
-      token: t.string,
-    }),
+    t.intersection([
+      t.partial({
+        type: t.intersection([t.string, t.literal('stripe')]),
+        token: t.string,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       type: Defined,
       token: Defined,
@@ -149,10 +165,10 @@ export const StripePaymentMethod: StripePaymentMethodC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       type?: string & 'stripe';
       token?: string;
-    } & {
+    } & Record<string, unknown>) & {
       type: Defined;
       token: Defined;
     },
@@ -167,13 +183,13 @@ export interface StripePaymentMethodBrand {
 // CreditCardPaymentMethod
 // Credit card based payment (only for testing)
 export type CreditCardPaymentMethod = t.Branded<
-  {
+  ({
     type?: string & 'card';
     number?: string;
     expiryMonth?: number;
     expiryYear?: number;
     cvv?: string;
-  } & {
+  } & Record<string, unknown>) & {
     type: Defined;
     number: Defined;
     expiryMonth: Defined;
@@ -185,13 +201,18 @@ export type CreditCardPaymentMethod = t.Branded<
 export type CreditCardPaymentMethodC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        type: t.IntersectionC<[t.StringC, t.LiteralC<'card'>]>;
-        number: t.StringC;
-        expiryMonth: t.NumberC;
-        expiryYear: t.NumberC;
-        cvv: t.StringC;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            type: t.IntersectionC<[t.StringC, t.LiteralC<'card'>]>;
+            number: t.StringC;
+            expiryMonth: t.NumberC;
+            expiryYear: t.NumberC;
+            cvv: t.StringC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         type: typeof Defined;
         number: typeof Defined;
@@ -205,13 +226,16 @@ export type CreditCardPaymentMethodC = t.BrandC<
 >;
 export const CreditCardPaymentMethod: CreditCardPaymentMethodC = t.brand(
   t.intersection([
-    t.partial({
-      type: t.intersection([t.string, t.literal('card')]),
-      number: t.string,
-      expiryMonth: t.number,
-      expiryYear: t.number,
-      cvv: t.string,
-    }),
+    t.intersection([
+      t.partial({
+        type: t.intersection([t.string, t.literal('card')]),
+        number: t.string,
+        expiryMonth: t.number,
+        expiryYear: t.number,
+        cvv: t.string,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       type: Defined,
       number: Defined,
@@ -223,13 +247,13 @@ export const CreditCardPaymentMethod: CreditCardPaymentMethodC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       type?: string & 'card';
       number?: string;
       expiryMonth?: number;
       expiryYear?: number;
       cvv?: string;
-    } & {
+    } & Record<string, unknown>) & {
       type: Defined;
       number: Defined;
       expiryMonth: Defined;
@@ -274,9 +298,10 @@ export type NewContact = t.Branded<
   {
     identityId: Defined;
     phone: Defined;
-  } & (ContactBase & {
-    paymentMethod?: NewPaymentMethod;
-  }),
+  } & (ContactBase &
+    ({
+      paymentMethod?: NewPaymentMethod;
+    } & Record<string, unknown>)),
   NewContactBrand
 >;
 export type NewContactC = t.BrandC<
@@ -289,9 +314,14 @@ export type NewContactC = t.BrandC<
       t.IntersectionC<
         [
           typeof ContactBase,
-          t.PartialC<{
-            paymentMethod: typeof NewPaymentMethod;
-          }>,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                paymentMethod: typeof NewPaymentMethod;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
         ]
       >,
     ]
@@ -306,9 +336,12 @@ export const NewContact: NewContactC = t.brand(
     }),
     t.intersection([
       ContactBase,
-      t.partial({
-        paymentMethod: NewPaymentMethod,
-      }),
+      t.intersection([
+        t.partial({
+          paymentMethod: NewPaymentMethod,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
     ]),
   ]),
   (
@@ -317,9 +350,10 @@ export const NewContact: NewContactC = t.brand(
     {
       identityId: Defined;
       phone: Defined;
-    } & (ContactBase & {
-      paymentMethod?: NewPaymentMethod;
-    }),
+    } & (ContactBase &
+      ({
+        paymentMethod?: NewPaymentMethod;
+      } & Record<string, unknown>)),
     NewContactBrand
   > => true,
   'NewContact',
@@ -333,9 +367,10 @@ export interface NewContactBrand {
 export type ContactUpdate = t.Branded<
   {
     identityId: Defined;
-  } & (ContactBase & {
-    paymentMethod?: NewPaymentMethod;
-  }),
+  } & (ContactBase &
+    ({
+      paymentMethod?: NewPaymentMethod;
+    } & Record<string, unknown>)),
   ContactUpdateBrand
 >;
 export type ContactUpdateC = t.BrandC<
@@ -347,9 +382,14 @@ export type ContactUpdateC = t.BrandC<
       t.IntersectionC<
         [
           typeof ContactBase,
-          t.PartialC<{
-            paymentMethod: typeof NewPaymentMethod;
-          }>,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                paymentMethod: typeof NewPaymentMethod;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
         ]
       >,
     ]
@@ -363,9 +403,12 @@ export const ContactUpdate: ContactUpdateC = t.brand(
     }),
     t.intersection([
       ContactBase,
-      t.partial({
-        paymentMethod: NewPaymentMethod,
-      }),
+      t.intersection([
+        t.partial({
+          paymentMethod: NewPaymentMethod,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
     ]),
   ]),
   (
@@ -373,9 +416,10 @@ export const ContactUpdate: ContactUpdateC = t.brand(
   ): x is t.Branded<
     {
       identityId: Defined;
-    } & (ContactBase & {
-      paymentMethod?: NewPaymentMethod;
-    }),
+    } & (ContactBase &
+      ({
+        paymentMethod?: NewPaymentMethod;
+      } & Record<string, unknown>)),
     ContactUpdateBrand
   > => true,
   'ContactUpdate',
@@ -387,10 +431,10 @@ export interface ContactUpdateBrand {
 // PaymentMethodResponse
 // The payment (gateway) method info; no credit cards here
 export type PaymentMethodResponse = t.Branded<
-  {
+  ({
     type?: string;
     valid?: boolean;
-  } & {
+  } & Record<string, unknown>) & {
     type: Defined;
     valid: Defined;
   },
@@ -399,10 +443,15 @@ export type PaymentMethodResponse = t.Branded<
 export type PaymentMethodResponseC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        type: t.StringC;
-        valid: t.BooleanC;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            type: t.StringC;
+            valid: t.BooleanC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         type: typeof Defined;
         valid: typeof Defined;
@@ -413,10 +462,13 @@ export type PaymentMethodResponseC = t.BrandC<
 >;
 export const PaymentMethodResponse: PaymentMethodResponseC = t.brand(
   t.intersection([
-    t.partial({
-      type: t.string,
-      valid: t.boolean,
-    }),
+    t.intersection([
+      t.partial({
+        type: t.string,
+        valid: t.boolean,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       type: Defined,
       valid: Defined,
@@ -425,10 +477,10 @@ export const PaymentMethodResponse: PaymentMethodResponseC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       type?: string;
       valid?: boolean;
-    } & {
+    } & Record<string, unknown>) & {
       type: Defined;
       valid: Defined;
     },
@@ -446,9 +498,10 @@ export type ContactResponse = t.Branded<
   {
     identityId: Defined;
     phone: Defined;
-  } & (ContactBase & {
-    paymentMethod?: PaymentMethodResponse;
-  }),
+  } & (ContactBase &
+    ({
+      paymentMethod?: PaymentMethodResponse;
+    } & Record<string, unknown>)),
   ContactResponseBrand
 >;
 export type ContactResponseC = t.BrandC<
@@ -461,9 +514,14 @@ export type ContactResponseC = t.BrandC<
       t.IntersectionC<
         [
           typeof ContactBase,
-          t.PartialC<{
-            paymentMethod: typeof PaymentMethodResponse;
-          }>,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                paymentMethod: typeof PaymentMethodResponse;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
         ]
       >,
     ]
@@ -478,9 +536,12 @@ export const ContactResponse: ContactResponseC = t.brand(
     }),
     t.intersection([
       ContactBase,
-      t.partial({
-        paymentMethod: PaymentMethodResponse,
-      }),
+      t.intersection([
+        t.partial({
+          paymentMethod: PaymentMethodResponse,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
     ]),
   ]),
   (
@@ -489,9 +550,10 @@ export const ContactResponse: ContactResponseC = t.brand(
     {
       identityId: Defined;
       phone: Defined;
-    } & (ContactBase & {
-      paymentMethod?: PaymentMethodResponse;
-    }),
+    } & (ContactBase &
+      ({
+        paymentMethod?: PaymentMethodResponse;
+      } & Record<string, unknown>)),
     ContactResponseBrand
   > => true,
   'ContactResponse',
