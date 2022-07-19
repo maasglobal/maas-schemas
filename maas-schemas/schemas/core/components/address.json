@@ -28,6 +28,40 @@
         "streetNumber:1/2-d2"
       ]
     },
+    "componentAddressObject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/placeId"
+        },
+        "streetName": {
+          "$ref": "#/definitions/streetName"
+        },
+        "city": {
+          "$ref": "#/definitions/city"
+        },
+        "state": {
+          "$ref": "#/definitions/state"
+        },
+        "zipCode": {
+          "$ref": "#/definitions/zipCode"
+        },
+        "country": {
+          "$ref": "#/definitions/country"
+        },
+        "streetNumber": {
+          "$ref": "#/definitions/streetNumber"
+        },
+        "ward": {
+          "$ref": "#/definitions/ward"
+        },
+        "district": {
+          "$ref": "#/definitions/district"
+        }
+      },
+      "required": ["streetName", "streetNumber", "zipCode"],
+      "additionalProperties": false
+    },
     "placeName": {
       "description": "Place name (given in autocomplete)",
       "type": "string",
@@ -81,6 +115,28 @@
       "description": "Alphabetic city name",
       "type": "string",
       "minLength": 1
+    },
+    "streetName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "streetNumber": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ward": {
+      "type": "string",
+      "minLength": 1
+    },
+    "district": {
+      "type": "string",
+      "minLength": 1
+    },
+    "placeId": {
+      "description": "Upstream API placeId",
+      "type": "string",
+      "regexp": "/^\\p{L}+$/gui",
+      "maxLength": 64
     }
   }
 }
