@@ -34,10 +34,10 @@ export const schemaId =
 export type Response = t.Branded<
   {
     identityId?: Units_.IdentityId;
-    results?: {
+    results?: ({
       successCount?: number;
       failureCount?: number;
-    } & {
+    } & Record<string, unknown>) & {
       successCount: Defined;
       failureCount: Defined;
     };
@@ -54,10 +54,15 @@ export type ResponseC = t.BrandC<
         identityId: typeof Units_.IdentityId;
         results: t.IntersectionC<
           [
-            t.PartialC<{
-              successCount: t.NumberC;
-              failureCount: t.NumberC;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  successCount: t.NumberC;
+                  failureCount: t.NumberC;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               successCount: typeof Defined;
               failureCount: typeof Defined;
@@ -78,10 +83,13 @@ export const Response: ResponseC = t.brand(
     t.partial({
       identityId: Units_.IdentityId,
       results: t.intersection([
-        t.partial({
-          successCount: t.number,
-          failureCount: t.number,
-        }),
+        t.intersection([
+          t.partial({
+            successCount: t.number,
+            failureCount: t.number,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           successCount: Defined,
           failureCount: Defined,
@@ -98,10 +106,10 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
-      results?: {
+      results?: ({
         successCount?: number;
         failureCount?: number;
-      } & {
+      } & Record<string, unknown>) & {
         successCount: Defined;
         failureCount: Defined;
       };

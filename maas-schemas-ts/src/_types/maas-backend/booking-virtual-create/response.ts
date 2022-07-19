@@ -19,25 +19,33 @@ export const schemaId =
 export type Response = t.Branded<
   {
     invoices?: Array<Invoice_.Invoice>;
-  },
+  } & Record<string, unknown>,
   ResponseBrand
 >;
 export type ResponseC = t.BrandC<
-  t.PartialC<{
-    invoices: t.ArrayC<typeof Invoice_.Invoice>;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        invoices: t.ArrayC<typeof Invoice_.Invoice>;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   ResponseBrand
 >;
 export const Response: ResponseC = t.brand(
-  t.partial({
-    invoices: t.array(Invoice_.Invoice),
-  }),
+  t.intersection([
+    t.partial({
+      invoices: t.array(Invoice_.Invoice),
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       invoices?: Array<Invoice_.Invoice>;
-    },
+    } & Record<string, unknown>,
     ResponseBrand
   > => true,
   'Response',

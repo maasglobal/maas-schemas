@@ -20,28 +20,36 @@ export type StripePaymentParameters = t.Branded<
   {
     bookingId?: Units_.Uuid;
     clientSecret?: string;
-  },
+  } & Record<string, unknown>,
   StripePaymentParametersBrand
 >;
 export type StripePaymentParametersC = t.BrandC<
-  t.PartialC<{
-    bookingId: typeof Units_.Uuid;
-    clientSecret: t.StringC;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        bookingId: typeof Units_.Uuid;
+        clientSecret: t.StringC;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   StripePaymentParametersBrand
 >;
 export const StripePaymentParameters: StripePaymentParametersC = t.brand(
-  t.partial({
-    bookingId: Units_.Uuid,
-    clientSecret: t.string,
-  }),
+  t.intersection([
+    t.partial({
+      bookingId: Units_.Uuid,
+      clientSecret: t.string,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       bookingId?: Units_.Uuid;
       clientSecret?: string;
-    },
+    } & Record<string, unknown>,
     StripePaymentParametersBrand
   > => true,
   'StripePaymentParameters',
@@ -53,7 +61,7 @@ export interface StripePaymentParametersBrand {
 // AvainpayPaymentParameters
 // The purpose of this remains a mystery
 export type AvainpayPaymentParameters = t.Branded<
-  | {
+  | ({
       return_code?: string;
       appid?: string;
       sub_appid?: string;
@@ -67,16 +75,16 @@ export type AvainpayPaymentParameters = t.Branded<
       sign?: string;
       paySign?: string;
       timeStamp?: string;
-    }
-  | {
+    } & Record<string, unknown>)
+  | ({
       appId?: string;
       timeStamp?: string;
       nonceStr?: string;
       package?: string;
       signType?: string;
       paySign?: string;
-    }
-  | {
+    } & Record<string, unknown>)
+  | ({
       return_code?: string;
       appid?: string;
       mch_id?: string;
@@ -87,93 +95,117 @@ export type AvainpayPaymentParameters = t.Branded<
       trade_type?: string;
       code_url?: string;
       sign?: string;
-    },
+    } & Record<string, unknown>),
   AvainpayPaymentParametersBrand
 >;
 export type AvainpayPaymentParametersC = t.BrandC<
   t.UnionC<
     [
-      t.PartialC<{
-        return_code: t.StringC;
-        appid: t.StringC;
-        sub_appid: t.StringC;
-        mch_id: t.StringC;
-        sub_mch_id: t.StringC;
-        nonce_str: t.StringC;
-        result_code: t.StringC;
-        prepay_id: t.StringC;
-        trade_type: t.StringC;
-        code_url: t.StringC;
-        sign: t.StringC;
-        paySign: t.StringC;
-        timeStamp: t.StringC;
-      }>,
-      t.PartialC<{
-        appId: t.StringC;
-        timeStamp: t.StringC;
-        nonceStr: t.StringC;
-        package: t.StringC;
-        signType: t.StringC;
-        paySign: t.StringC;
-      }>,
-      t.PartialC<{
-        return_code: t.StringC;
-        appid: t.StringC;
-        mch_id: t.StringC;
-        sub_mch_id: t.StringC;
-        nonce_str: t.StringC;
-        result_code: t.StringC;
-        prepay_id: t.StringC;
-        trade_type: t.StringC;
-        code_url: t.StringC;
-        sign: t.StringC;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            return_code: t.StringC;
+            appid: t.StringC;
+            sub_appid: t.StringC;
+            mch_id: t.StringC;
+            sub_mch_id: t.StringC;
+            nonce_str: t.StringC;
+            result_code: t.StringC;
+            prepay_id: t.StringC;
+            trade_type: t.StringC;
+            code_url: t.StringC;
+            sign: t.StringC;
+            paySign: t.StringC;
+            timeStamp: t.StringC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            appId: t.StringC;
+            timeStamp: t.StringC;
+            nonceStr: t.StringC;
+            package: t.StringC;
+            signType: t.StringC;
+            paySign: t.StringC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            return_code: t.StringC;
+            appid: t.StringC;
+            mch_id: t.StringC;
+            sub_mch_id: t.StringC;
+            nonce_str: t.StringC;
+            result_code: t.StringC;
+            prepay_id: t.StringC;
+            trade_type: t.StringC;
+            code_url: t.StringC;
+            sign: t.StringC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
     ]
   >,
   AvainpayPaymentParametersBrand
 >;
 export const AvainpayPaymentParameters: AvainpayPaymentParametersC = t.brand(
   t.union([
-    t.partial({
-      return_code: t.string,
-      appid: t.string,
-      sub_appid: t.string,
-      mch_id: t.string,
-      sub_mch_id: t.string,
-      nonce_str: t.string,
-      result_code: t.string,
-      prepay_id: t.string,
-      trade_type: t.string,
-      code_url: t.string,
-      sign: t.string,
-      paySign: t.string,
-      timeStamp: t.string,
-    }),
-    t.partial({
-      appId: t.string,
-      timeStamp: t.string,
-      nonceStr: t.string,
-      package: t.string,
-      signType: t.string,
-      paySign: t.string,
-    }),
-    t.partial({
-      return_code: t.string,
-      appid: t.string,
-      mch_id: t.string,
-      sub_mch_id: t.string,
-      nonce_str: t.string,
-      result_code: t.string,
-      prepay_id: t.string,
-      trade_type: t.string,
-      code_url: t.string,
-      sign: t.string,
-    }),
+    t.intersection([
+      t.partial({
+        return_code: t.string,
+        appid: t.string,
+        sub_appid: t.string,
+        mch_id: t.string,
+        sub_mch_id: t.string,
+        nonce_str: t.string,
+        result_code: t.string,
+        prepay_id: t.string,
+        trade_type: t.string,
+        code_url: t.string,
+        sign: t.string,
+        paySign: t.string,
+        timeStamp: t.string,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
+    t.intersection([
+      t.partial({
+        appId: t.string,
+        timeStamp: t.string,
+        nonceStr: t.string,
+        package: t.string,
+        signType: t.string,
+        paySign: t.string,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
+    t.intersection([
+      t.partial({
+        return_code: t.string,
+        appid: t.string,
+        mch_id: t.string,
+        sub_mch_id: t.string,
+        nonce_str: t.string,
+        result_code: t.string,
+        prepay_id: t.string,
+        trade_type: t.string,
+        code_url: t.string,
+        sign: t.string,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
   ]),
   (
     x,
   ): x is t.Branded<
-    | {
+    | ({
         return_code?: string;
         appid?: string;
         sub_appid?: string;
@@ -187,16 +219,16 @@ export const AvainpayPaymentParameters: AvainpayPaymentParametersC = t.brand(
         sign?: string;
         paySign?: string;
         timeStamp?: string;
-      }
-    | {
+      } & Record<string, unknown>)
+    | ({
         appId?: string;
         timeStamp?: string;
         nonceStr?: string;
         package?: string;
         signType?: string;
         paySign?: string;
-      }
-    | {
+      } & Record<string, unknown>)
+    | ({
         return_code?: string;
         appid?: string;
         mch_id?: string;
@@ -207,7 +239,7 @@ export const AvainpayPaymentParameters: AvainpayPaymentParametersC = t.brand(
         trade_type?: string;
         code_url?: string;
         sign?: string;
-      },
+      } & Record<string, unknown>),
     AvainpayPaymentParametersBrand
   > => true,
   'AvainpayPaymentParameters',

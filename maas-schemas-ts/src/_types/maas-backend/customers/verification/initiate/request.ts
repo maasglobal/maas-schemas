@@ -39,20 +39,21 @@ export type Request = t.Branded<
     customerId?: Units_.IdentityId;
     headers?: ApiCommon_.Headers;
     identityId?: Units_.IdentityId;
-    payload?: {
+    payload?: ({
       location?: UnitsGeo_.ShortLocationString;
-      metadata?: {
+      metadata?: ({
         agencyId?: Common_.AgencyId;
         planId?: string;
-      } & (
-        | {
-            planId: Defined;
-          }
-        | {
-            agencyId: Defined;
-          }
-      );
-    } & {
+      } & Record<string, unknown>) &
+        (
+          | {
+              planId: Defined;
+            }
+          | {
+              agencyId: Defined;
+            }
+        );
+    } & Record<string, unknown>) & {
       location: Defined;
     };
   } & {
@@ -72,27 +73,37 @@ export type RequestC = t.BrandC<
         identityId: typeof Units_.IdentityId;
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              location: typeof UnitsGeo_.ShortLocationString;
-              metadata: t.IntersectionC<
-                [
-                  t.PartialC<{
-                    agencyId: typeof Common_.AgencyId;
-                    planId: t.StringC;
-                  }>,
-                  t.UnionC<
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  location: typeof UnitsGeo_.ShortLocationString;
+                  metadata: t.IntersectionC<
                     [
-                      t.TypeC<{
-                        planId: typeof Defined;
-                      }>,
-                      t.TypeC<{
-                        agencyId: typeof Defined;
-                      }>,
+                      t.IntersectionC<
+                        [
+                          t.PartialC<{
+                            agencyId: typeof Common_.AgencyId;
+                            planId: t.StringC;
+                          }>,
+                          t.RecordC<t.StringC, t.UnknownC>,
+                        ]
+                      >,
+                      t.UnionC<
+                        [
+                          t.TypeC<{
+                            planId: typeof Defined;
+                          }>,
+                          t.TypeC<{
+                            agencyId: typeof Defined;
+                          }>,
+                        ]
+                      >,
                     ]
-                  >,
-                ]
-              >;
-            }>,
+                  >;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               location: typeof Defined;
             }>,
@@ -116,23 +127,29 @@ export const Request: RequestC = t.brand(
       headers: ApiCommon_.Headers,
       identityId: Units_.IdentityId,
       payload: t.intersection([
-        t.partial({
-          location: UnitsGeo_.ShortLocationString,
-          metadata: t.intersection([
-            t.partial({
-              agencyId: Common_.AgencyId,
-              planId: t.string,
-            }),
-            t.union([
-              t.type({
-                planId: Defined,
-              }),
-              t.type({
-                agencyId: Defined,
-              }),
+        t.intersection([
+          t.partial({
+            location: UnitsGeo_.ShortLocationString,
+            metadata: t.intersection([
+              t.intersection([
+                t.partial({
+                  agencyId: Common_.AgencyId,
+                  planId: t.string,
+                }),
+                t.record(t.string, t.unknown),
+              ]),
+              t.union([
+                t.type({
+                  planId: Defined,
+                }),
+                t.type({
+                  agencyId: Defined,
+                }),
+              ]),
             ]),
-          ]),
-        }),
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           location: Defined,
         }),
@@ -152,20 +169,21 @@ export const Request: RequestC = t.brand(
       customerId?: Units_.IdentityId;
       headers?: ApiCommon_.Headers;
       identityId?: Units_.IdentityId;
-      payload?: {
+      payload?: ({
         location?: UnitsGeo_.ShortLocationString;
-        metadata?: {
+        metadata?: ({
           agencyId?: Common_.AgencyId;
           planId?: string;
-        } & (
-          | {
-              planId: Defined;
-            }
-          | {
-              agencyId: Defined;
-            }
-        );
-      } & {
+        } & Record<string, unknown>) &
+          (
+            | {
+                planId: Defined;
+              }
+            | {
+                agencyId: Defined;
+              }
+          );
+      } & Record<string, unknown>) & {
         location: Defined;
       };
     } & {

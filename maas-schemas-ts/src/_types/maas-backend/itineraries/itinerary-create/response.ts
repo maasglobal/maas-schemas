@@ -36,28 +36,36 @@ export type PaymentParameter = t.Branded<
   {
     avainpay?: PaymentParameters_.AvainpayPaymentParameters;
     stripe?: PaymentParameters_.StripePaymentParameters;
-  },
+  } & Record<string, unknown>,
   PaymentParameterBrand
 >;
 export type PaymentParameterC = t.BrandC<
-  t.PartialC<{
-    avainpay: typeof PaymentParameters_.AvainpayPaymentParameters;
-    stripe: typeof PaymentParameters_.StripePaymentParameters;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        avainpay: typeof PaymentParameters_.AvainpayPaymentParameters;
+        stripe: typeof PaymentParameters_.StripePaymentParameters;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   PaymentParameterBrand
 >;
 export const PaymentParameter: PaymentParameterC = t.brand(
-  t.partial({
-    avainpay: PaymentParameters_.AvainpayPaymentParameters,
-    stripe: PaymentParameters_.StripePaymentParameters,
-  }),
+  t.intersection([
+    t.partial({
+      avainpay: PaymentParameters_.AvainpayPaymentParameters,
+      stripe: PaymentParameters_.StripePaymentParameters,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       avainpay?: PaymentParameters_.AvainpayPaymentParameters;
       stripe?: PaymentParameters_.StripePaymentParameters;
-    },
+    } & Record<string, unknown>,
     PaymentParameterBrand
   > => true,
   'PaymentParameter',
@@ -91,17 +99,17 @@ export interface PaymentParametersBrand {
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  | ({
+  | (({
       itinerary?: Itinerary_.Itinerary;
       paymentParameters?: PaymentParameters;
-    } & {
+    } & Record<string, unknown>) & {
       itinerary: Defined;
     })
-  | ({
+  | (({
       outward?: Itinerary_.Itinerary;
       return?: Itinerary_.Itinerary;
       paymentParameters?: PaymentParameters;
-    } & {
+    } & Record<string, unknown>) & {
       outward: Defined;
     }),
   ResponseBrand
@@ -111,10 +119,15 @@ export type ResponseC = t.BrandC<
     [
       t.IntersectionC<
         [
-          t.PartialC<{
-            itinerary: typeof Itinerary_.Itinerary;
-            paymentParameters: typeof PaymentParameters;
-          }>,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                itinerary: typeof Itinerary_.Itinerary;
+                paymentParameters: typeof PaymentParameters;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
           t.TypeC<{
             itinerary: typeof Defined;
           }>,
@@ -122,11 +135,16 @@ export type ResponseC = t.BrandC<
       >,
       t.IntersectionC<
         [
-          t.PartialC<{
-            outward: typeof Itinerary_.Itinerary;
-            return: typeof Itinerary_.Itinerary;
-            paymentParameters: typeof PaymentParameters;
-          }>,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                outward: typeof Itinerary_.Itinerary;
+                return: typeof Itinerary_.Itinerary;
+                paymentParameters: typeof PaymentParameters;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
           t.TypeC<{
             outward: typeof Defined;
           }>,
@@ -139,20 +157,26 @@ export type ResponseC = t.BrandC<
 export const Response: ResponseC = t.brand(
   t.union([
     t.intersection([
-      t.partial({
-        itinerary: Itinerary_.Itinerary,
-        paymentParameters: PaymentParameters,
-      }),
+      t.intersection([
+        t.partial({
+          itinerary: Itinerary_.Itinerary,
+          paymentParameters: PaymentParameters,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       t.type({
         itinerary: Defined,
       }),
     ]),
     t.intersection([
-      t.partial({
-        outward: Itinerary_.Itinerary,
-        return: Itinerary_.Itinerary,
-        paymentParameters: PaymentParameters,
-      }),
+      t.intersection([
+        t.partial({
+          outward: Itinerary_.Itinerary,
+          return: Itinerary_.Itinerary,
+          paymentParameters: PaymentParameters,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       t.type({
         outward: Defined,
       }),
@@ -161,17 +185,17 @@ export const Response: ResponseC = t.brand(
   (
     x,
   ): x is t.Branded<
-    | ({
+    | (({
         itinerary?: Itinerary_.Itinerary;
         paymentParameters?: PaymentParameters;
-      } & {
+      } & Record<string, unknown>) & {
         itinerary: Defined;
       })
-    | ({
+    | (({
         outward?: Itinerary_.Itinerary;
         return?: Itinerary_.Itinerary;
         paymentParameters?: PaymentParameters;
-      } & {
+      } & Record<string, unknown>) & {
         outward: Defined;
       }),
     ResponseBrand

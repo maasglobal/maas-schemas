@@ -44,10 +44,12 @@ export type Request = t.Branded<
     payload?: {
       paymentSourceId?: Common_.PaymentSourceId;
       itinerary?: Itinerary_.Itinerary;
-      customerSelections?: Array<{
-        ref?: ProductOption_.Ref;
-        customerSelection?: CustomerSelection_.CustomerSelection;
-      }>;
+      customerSelections?: Array<
+        {
+          ref?: ProductOption_.Ref;
+          customerSelection?: CustomerSelection_.CustomerSelection;
+        } & Record<string, unknown>
+      >;
     } & {
       itinerary: Defined;
       customerSelections: Defined;
@@ -66,10 +68,15 @@ export type RequestC = t.BrandC<
           paymentSourceId: typeof Common_.PaymentSourceId;
           itinerary: typeof Itinerary_.Itinerary;
           customerSelections: t.ArrayC<
-            t.PartialC<{
-              ref: typeof ProductOption_.Ref;
-              customerSelection: typeof CustomerSelection_.CustomerSelection;
-            }>
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  ref: typeof ProductOption_.Ref;
+                  customerSelection: typeof CustomerSelection_.CustomerSelection;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >
           >;
         }>,
         t.TypeC<{
@@ -91,10 +98,13 @@ export const Request: RequestC = t.brand(
         paymentSourceId: Common_.PaymentSourceId,
         itinerary: Itinerary_.Itinerary,
         customerSelections: t.array(
-          t.partial({
-            ref: ProductOption_.Ref,
-            customerSelection: CustomerSelection_.CustomerSelection,
-          }),
+          t.intersection([
+            t.partial({
+              ref: ProductOption_.Ref,
+              customerSelection: CustomerSelection_.CustomerSelection,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
         ),
       }),
       t.type({
@@ -113,10 +123,12 @@ export const Request: RequestC = t.brand(
       payload?: {
         paymentSourceId?: Common_.PaymentSourceId;
         itinerary?: Itinerary_.Itinerary;
-        customerSelections?: Array<{
-          ref?: ProductOption_.Ref;
-          customerSelection?: CustomerSelection_.CustomerSelection;
-        }>;
+        customerSelections?: Array<
+          {
+            ref?: ProductOption_.Ref;
+            customerSelection?: CustomerSelection_.CustomerSelection;
+          } & Record<string, unknown>
+        >;
       } & {
         itinerary: Defined;
         customerSelections: Defined;

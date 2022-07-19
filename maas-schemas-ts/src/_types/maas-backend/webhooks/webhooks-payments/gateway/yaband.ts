@@ -31,7 +31,7 @@ export const schemaId =
 // Request
 // The purpose of this remains a mystery
 export type Request = t.Branded<
-  {
+  ({
     payload?: ({
       sign?: string;
       data?: ({
@@ -49,13 +49,13 @@ export type Request = t.Branded<
       sign: Defined;
       data: Defined;
     };
-    headers?: Record<string, unknown>;
-    params?: {
+    headers?: Record<string, unknown> & Record<string, unknown>;
+    params?: ({
       gatewayName?: string & 'yaband';
-    } & {
+    } & Record<string, unknown>) & {
       gatewayName: Defined;
     };
-  } & {
+  } & Record<string, unknown>) & {
     params: Defined;
     payload: Defined;
   },
@@ -64,56 +64,68 @@ export type Request = t.Branded<
 export type RequestC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        payload: t.IntersectionC<
-          [
-            t.IntersectionC<
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            payload: t.IntersectionC<
               [
-                t.PartialC<{
-                  sign: t.StringC;
-                  data: t.IntersectionC<
-                    [
-                      t.IntersectionC<
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      sign: t.StringC;
+                      data: t.IntersectionC<
                         [
-                          t.PartialC<{
-                            type: t.StringC;
-                            order_id: t.StringC;
-                            trade_id: t.StringC;
-                            transaction_id: t.StringC;
-                            state: t.StringC;
+                          t.IntersectionC<
+                            [
+                              t.PartialC<{
+                                type: t.StringC;
+                                order_id: t.StringC;
+                                trade_id: t.StringC;
+                                transaction_id: t.StringC;
+                                state: t.StringC;
+                              }>,
+                              t.RecordC<t.StringC, t.UnknownC>,
+                            ]
+                          >,
+                          t.TypeC<{
+                            type: typeof Defined;
+                            order_id: typeof Defined;
+                            state: typeof Defined;
                           }>,
-                          t.RecordC<t.StringC, t.UnknownC>,
                         ]
-                      >,
-                      t.TypeC<{
-                        type: typeof Defined;
-                        order_id: typeof Defined;
-                        state: typeof Defined;
-                      }>,
-                    ]
-                  >;
+                      >;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
+                t.TypeC<{
+                  sign: typeof Defined;
+                  data: typeof Defined;
                 }>,
-                t.RecordC<t.StringC, t.UnknownC>,
               ]
-            >,
-            t.TypeC<{
-              sign: typeof Defined;
-              data: typeof Defined;
-            }>,
-          ]
-        >;
-        headers: t.UnknownRecordC;
-        params: t.IntersectionC<
-          [
-            t.PartialC<{
-              gatewayName: t.IntersectionC<[t.StringC, t.LiteralC<'yaband'>]>;
-            }>,
-            t.TypeC<{
-              gatewayName: typeof Defined;
-            }>,
-          ]
-        >;
-      }>,
+            >;
+            headers: t.IntersectionC<
+              [t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]
+            >;
+            params: t.IntersectionC<
+              [
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      gatewayName: t.IntersectionC<[t.StringC, t.LiteralC<'yaband'>]>;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
+                t.TypeC<{
+                  gatewayName: typeof Defined;
+                }>,
+              ]
+            >;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         params: typeof Defined;
         payload: typeof Defined;
@@ -124,46 +136,52 @@ export type RequestC = t.BrandC<
 >;
 export const Request: RequestC = t.brand(
   t.intersection([
-    t.partial({
-      payload: t.intersection([
-        t.intersection([
-          t.partial({
-            sign: t.string,
-            data: t.intersection([
-              t.intersection([
-                t.partial({
-                  type: t.string,
-                  order_id: t.string,
-                  trade_id: t.string,
-                  transaction_id: t.string,
-                  state: t.string,
+    t.intersection([
+      t.partial({
+        payload: t.intersection([
+          t.intersection([
+            t.partial({
+              sign: t.string,
+              data: t.intersection([
+                t.intersection([
+                  t.partial({
+                    type: t.string,
+                    order_id: t.string,
+                    trade_id: t.string,
+                    transaction_id: t.string,
+                    state: t.string,
+                  }),
+                  t.record(t.string, t.unknown),
+                ]),
+                t.type({
+                  type: Defined,
+                  order_id: Defined,
+                  state: Defined,
                 }),
-                t.record(t.string, t.unknown),
               ]),
-              t.type({
-                type: Defined,
-                order_id: Defined,
-                state: Defined,
-              }),
-            ]),
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+          t.type({
+            sign: Defined,
+            data: Defined,
           }),
-          t.record(t.string, t.unknown),
         ]),
-        t.type({
-          sign: Defined,
-          data: Defined,
-        }),
-      ]),
-      headers: t.UnknownRecord,
-      params: t.intersection([
-        t.partial({
-          gatewayName: t.intersection([t.string, t.literal('yaband')]),
-        }),
-        t.type({
-          gatewayName: Defined,
-        }),
-      ]),
-    }),
+        headers: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+        params: t.intersection([
+          t.intersection([
+            t.partial({
+              gatewayName: t.intersection([t.string, t.literal('yaband')]),
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+          t.type({
+            gatewayName: Defined,
+          }),
+        ]),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       params: Defined,
       payload: Defined,
@@ -172,7 +190,7 @@ export const Request: RequestC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       payload?: ({
         sign?: string;
         data?: ({
@@ -190,13 +208,13 @@ export const Request: RequestC = t.brand(
         sign: Defined;
         data: Defined;
       };
-      headers?: Record<string, unknown>;
-      params?: {
+      headers?: Record<string, unknown> & Record<string, unknown>;
+      params?: ({
         gatewayName?: string & 'yaband';
-      } & {
+      } & Record<string, unknown>) & {
         gatewayName: Defined;
       };
-    } & {
+    } & Record<string, unknown>) & {
       params: Defined;
       payload: Defined;
     },

@@ -124,11 +124,22 @@ export interface AgencyIdBrand {
 
 // OpeningHours
 // Opening hour of the station, object format is left for TSP to decide
-export type OpeningHours = t.Branded<Record<string, unknown>, OpeningHoursBrand>;
-export type OpeningHoursC = t.BrandC<t.UnknownRecordC, OpeningHoursBrand>;
+export type OpeningHours = t.Branded<
+  Record<string, unknown> & Record<string, unknown>,
+  OpeningHoursBrand
+>;
+export type OpeningHoursC = t.BrandC<
+  t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>,
+  OpeningHoursBrand
+>;
 export const OpeningHours: OpeningHoursC = t.brand(
-  t.UnknownRecord,
-  (x): x is t.Branded<Record<string, unknown>, OpeningHoursBrand> => true,
+  t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+  (
+    x,
+  ): x is t.Branded<
+    Record<string, unknown> & Record<string, unknown>,
+    OpeningHoursBrand
+  > => true,
   'OpeningHours',
 );
 export interface OpeningHoursBrand {
@@ -164,47 +175,8 @@ export interface ServicesBrand {
 // Timetables
 // Timetable for passing by / originating transports
 export type Timetables = t.Branded<
-  Array<{
-    id?: string;
-    mode?: TravelMode_.TravelMode;
-    name?: string;
-    longName?: string;
-    schedule?: Units_.Time;
-    realtime?: Units_.Time;
-    isRealtime?: boolean;
-  }>,
-  TimetablesBrand
->;
-export type TimetablesC = t.BrandC<
-  t.ArrayC<
-    t.PartialC<{
-      id: t.StringC;
-      mode: typeof TravelMode_.TravelMode;
-      name: t.StringC;
-      longName: t.StringC;
-      schedule: typeof Units_.Time;
-      realtime: typeof Units_.Time;
-      isRealtime: t.BooleanC;
-    }>
-  >,
-  TimetablesBrand
->;
-export const Timetables: TimetablesC = t.brand(
-  t.array(
-    t.partial({
-      id: t.string,
-      mode: TravelMode_.TravelMode,
-      name: t.string,
-      longName: t.string,
-      schedule: Units_.Time,
-      realtime: Units_.Time,
-      isRealtime: t.boolean,
-    }),
-  ),
-  (
-    x,
-  ): x is t.Branded<
-    Array<{
+  Array<
+    {
       id?: string;
       mode?: TravelMode_.TravelMode;
       name?: string;
@@ -212,7 +184,58 @@ export const Timetables: TimetablesC = t.brand(
       schedule?: Units_.Time;
       realtime?: Units_.Time;
       isRealtime?: boolean;
-    }>,
+    } & Record<string, unknown>
+  >,
+  TimetablesBrand
+>;
+export type TimetablesC = t.BrandC<
+  t.ArrayC<
+    t.IntersectionC<
+      [
+        t.PartialC<{
+          id: t.StringC;
+          mode: typeof TravelMode_.TravelMode;
+          name: t.StringC;
+          longName: t.StringC;
+          schedule: typeof Units_.Time;
+          realtime: typeof Units_.Time;
+          isRealtime: t.BooleanC;
+        }>,
+        t.RecordC<t.StringC, t.UnknownC>,
+      ]
+    >
+  >,
+  TimetablesBrand
+>;
+export const Timetables: TimetablesC = t.brand(
+  t.array(
+    t.intersection([
+      t.partial({
+        id: t.string,
+        mode: TravelMode_.TravelMode,
+        name: t.string,
+        longName: t.string,
+        schedule: Units_.Time,
+        realtime: Units_.Time,
+        isRealtime: t.boolean,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
+  ),
+  (
+    x,
+  ): x is t.Branded<
+    Array<
+      {
+        id?: string;
+        mode?: TravelMode_.TravelMode;
+        name?: string;
+        longName?: string;
+        schedule?: Units_.Time;
+        realtime?: Units_.Time;
+        isRealtime?: boolean;
+      } & Record<string, unknown>
+    >,
     TimetablesBrand
   > => true,
   'Timetables',
@@ -249,11 +272,18 @@ export interface PlatformCodeBrand {
 
 // Station
 // The default export. More information at the top.
-export type Station = t.Branded<Record<string, unknown>, StationBrand>;
-export type StationC = t.BrandC<t.UnknownRecordC, StationBrand>;
+export type Station = t.Branded<
+  Record<string, unknown> & Record<string, unknown>,
+  StationBrand
+>;
+export type StationC = t.BrandC<
+  t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>,
+  StationBrand
+>;
 export const Station: StationC = t.brand(
-  t.UnknownRecord,
-  (x): x is t.Branded<Record<string, unknown>, StationBrand> => true,
+  t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+  (x): x is t.Branded<Record<string, unknown> & Record<string, unknown>, StationBrand> =>
+    true,
   'Station',
 );
 export interface StationBrand {

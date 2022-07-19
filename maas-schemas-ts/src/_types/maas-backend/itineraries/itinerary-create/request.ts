@@ -25,45 +25,65 @@ export const schemaId =
 export type OutwardReturnWrapper = t.Branded<
   {
     itinerary?: Itinerary_.Itinerary;
-    customerSelections?: Array<{
-      ref?: ProductOption_.Ref;
-      customerSelection?: CustomerSelection_.CustomerSelection;
-    }>;
-  },
+    customerSelections?: Array<
+      {
+        ref?: ProductOption_.Ref;
+        customerSelection?: CustomerSelection_.CustomerSelection;
+      } & Record<string, unknown>
+    >;
+  } & Record<string, unknown>,
   OutwardReturnWrapperBrand
 >;
 export type OutwardReturnWrapperC = t.BrandC<
-  t.PartialC<{
-    itinerary: typeof Itinerary_.Itinerary;
-    customerSelections: t.ArrayC<
+  t.IntersectionC<
+    [
       t.PartialC<{
-        ref: typeof ProductOption_.Ref;
-        customerSelection: typeof CustomerSelection_.CustomerSelection;
-      }>
-    >;
-  }>,
+        itinerary: typeof Itinerary_.Itinerary;
+        customerSelections: t.ArrayC<
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                ref: typeof ProductOption_.Ref;
+                customerSelection: typeof CustomerSelection_.CustomerSelection;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >
+        >;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   OutwardReturnWrapperBrand
 >;
 export const OutwardReturnWrapper: OutwardReturnWrapperC = t.brand(
-  t.partial({
-    itinerary: Itinerary_.Itinerary,
-    customerSelections: t.array(
-      t.partial({
-        ref: ProductOption_.Ref,
-        customerSelection: CustomerSelection_.CustomerSelection,
-      }),
-    ),
-  }),
+  t.intersection([
+    t.partial({
+      itinerary: Itinerary_.Itinerary,
+      customerSelections: t.array(
+        t.intersection([
+          t.partial({
+            ref: ProductOption_.Ref,
+            customerSelection: CustomerSelection_.CustomerSelection,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
+      ),
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       itinerary?: Itinerary_.Itinerary;
-      customerSelections?: Array<{
-        ref?: ProductOption_.Ref;
-        customerSelection?: CustomerSelection_.CustomerSelection;
-      }>;
-    },
+      customerSelections?: Array<
+        {
+          ref?: ProductOption_.Ref;
+          customerSelection?: CustomerSelection_.CustomerSelection;
+        } & Record<string, unknown>
+      >;
+    } & Record<string, unknown>,
     OutwardReturnWrapperBrand
   > => true,
   'OutwardReturnWrapper',

@@ -33,10 +33,10 @@ export const schemaId =
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  {
+  ({
     agencyId?: Common_.AgencyId;
     payload?: RemoteRequest_.RemoteRequest;
-  } & {
+  } & Record<string, unknown>) & {
     agencyId: Defined;
     payload: Defined;
   },
@@ -45,10 +45,15 @@ export type Request = t.Branded<
 export type RequestC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        agencyId: typeof Common_.AgencyId;
-        payload: typeof RemoteRequest_.RemoteRequest;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            agencyId: typeof Common_.AgencyId;
+            payload: typeof RemoteRequest_.RemoteRequest;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         agencyId: typeof Defined;
         payload: typeof Defined;
@@ -59,10 +64,13 @@ export type RequestC = t.BrandC<
 >;
 export const Request: RequestC = t.brand(
   t.intersection([
-    t.partial({
-      agencyId: Common_.AgencyId,
-      payload: RemoteRequest_.RemoteRequest,
-    }),
+    t.intersection([
+      t.partial({
+        agencyId: Common_.AgencyId,
+        payload: RemoteRequest_.RemoteRequest,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       agencyId: Defined,
       payload: Defined,
@@ -71,10 +79,10 @@ export const Request: RequestC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       agencyId?: Common_.AgencyId;
       payload?: RemoteRequest_.RemoteRequest;
-    } & {
+    } & Record<string, unknown>) & {
       agencyId: Defined;
       payload: Defined;
     },

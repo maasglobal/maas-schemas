@@ -112,7 +112,7 @@ export type Suggestion = t.Branded<
     meta?: {
       google?: GoogleMeta;
       routerank?: RouterankMeta;
-    };
+    } & Record<string, unknown>;
   } & {
     label: Defined;
     meta: Defined;
@@ -125,10 +125,15 @@ export type SuggestionC = t.BrandC<
       t.PartialC<{
         label: t.StringC;
         addressId: t.StringC;
-        meta: t.PartialC<{
-          google: typeof GoogleMeta;
-          routerank: typeof RouterankMeta;
-        }>;
+        meta: t.IntersectionC<
+          [
+            t.PartialC<{
+              google: typeof GoogleMeta;
+              routerank: typeof RouterankMeta;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
       }>,
       t.TypeC<{
         label: typeof Defined;
@@ -143,10 +148,13 @@ export const Suggestion: SuggestionC = t.brand(
     t.partial({
       label: t.string,
       addressId: t.string,
-      meta: t.partial({
-        google: GoogleMeta,
-        routerank: RouterankMeta,
-      }),
+      meta: t.intersection([
+        t.partial({
+          google: GoogleMeta,
+          routerank: RouterankMeta,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
     }),
     t.type({
       label: Defined,
@@ -162,7 +170,7 @@ export const Suggestion: SuggestionC = t.brand(
       meta?: {
         google?: GoogleMeta;
         routerank?: RouterankMeta;
-      };
+      } & Record<string, unknown>;
     } & {
       label: Defined;
       meta: Defined;

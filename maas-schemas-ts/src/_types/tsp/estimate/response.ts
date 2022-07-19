@@ -18,25 +18,33 @@ export const schemaId = 'https://schemas.maas.global/tsp/estimate/response.json'
 export type Response = t.Branded<
   {
     productOption?: ProductOption_.ProductOption;
-  },
+  } & Record<string, unknown>,
   ResponseBrand
 >;
 export type ResponseC = t.BrandC<
-  t.PartialC<{
-    productOption: typeof ProductOption_.ProductOption;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        productOption: typeof ProductOption_.ProductOption;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   ResponseBrand
 >;
 export const Response: ResponseC = t.brand(
-  t.partial({
-    productOption: ProductOption_.ProductOption,
-  }),
+  t.intersection([
+    t.partial({
+      productOption: ProductOption_.ProductOption,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       productOption?: ProductOption_.ProductOption;
-    },
+    } & Record<string, unknown>,
     ResponseBrand
   > => true,
   'Response',

@@ -32,9 +32,9 @@ export const schemaId =
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  {
+  ({
     personalDocument?: PersonalDocument_.PersonalDocument;
-  } & {
+  } & Record<string, unknown>) & {
     personalDocument: Defined;
   },
   ResponseBrand
@@ -42,9 +42,14 @@ export type Response = t.Branded<
 export type ResponseC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        personalDocument: typeof PersonalDocument_.PersonalDocument;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            personalDocument: typeof PersonalDocument_.PersonalDocument;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         personalDocument: typeof Defined;
       }>,
@@ -54,9 +59,12 @@ export type ResponseC = t.BrandC<
 >;
 export const Response: ResponseC = t.brand(
   t.intersection([
-    t.partial({
-      personalDocument: PersonalDocument_.PersonalDocument,
-    }),
+    t.intersection([
+      t.partial({
+        personalDocument: PersonalDocument_.PersonalDocument,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       personalDocument: Defined,
     }),
@@ -64,9 +72,9 @@ export const Response: ResponseC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       personalDocument?: PersonalDocument_.PersonalDocument;
-    } & {
+    } & Record<string, unknown>) & {
       personalDocument: Defined;
     },
     ResponseBrand

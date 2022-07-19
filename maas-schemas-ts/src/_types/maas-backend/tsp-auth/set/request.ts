@@ -41,8 +41,8 @@ export type Request = t.Branded<
     headers?: ApiCommon_.Headers;
     payload?: {
       validTo?: Units_.Time;
-      authData?: Record<string, unknown>;
-    };
+      authData?: Record<string, unknown> & Record<string, unknown>;
+    } & Record<string, unknown>;
   } & {
     identityId: Defined;
     customerId: Defined;
@@ -59,10 +59,17 @@ export type RequestC = t.BrandC<
         customerId: typeof Units_.IdentityId;
         agencyId: typeof Common_.AgencyId;
         headers: typeof ApiCommon_.Headers;
-        payload: t.PartialC<{
-          validTo: typeof Units_.Time;
-          authData: t.UnknownRecordC;
-        }>;
+        payload: t.IntersectionC<
+          [
+            t.PartialC<{
+              validTo: typeof Units_.Time;
+              authData: t.IntersectionC<
+                [t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]
+              >;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
       }>,
       t.TypeC<{
         identityId: typeof Defined;
@@ -81,10 +88,13 @@ export const Request: RequestC = t.brand(
       customerId: Units_.IdentityId,
       agencyId: Common_.AgencyId,
       headers: ApiCommon_.Headers,
-      payload: t.partial({
-        validTo: Units_.Time,
-        authData: t.UnknownRecord,
-      }),
+      payload: t.intersection([
+        t.partial({
+          validTo: Units_.Time,
+          authData: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+        }),
+        t.record(t.string, t.unknown),
+      ]),
     }),
     t.type({
       identityId: Defined,
@@ -103,8 +113,8 @@ export const Request: RequestC = t.brand(
       headers?: ApiCommon_.Headers;
       payload?: {
         validTo?: Units_.Time;
-        authData?: Record<string, unknown>;
-      };
+        authData?: Record<string, unknown> & Record<string, unknown>;
+      } & Record<string, unknown>;
     } & {
       identityId: Defined;
       customerId: Defined;

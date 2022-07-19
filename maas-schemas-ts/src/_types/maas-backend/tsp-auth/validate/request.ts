@@ -24,7 +24,7 @@ export type Request = t.Branded<
       encodedData?: Common_.EncodedQueryParam;
       state?: Common_.EncodedQueryParam;
       error?: Common_.ErrorKey;
-    };
+    } & Record<string, unknown>;
     headers?: Record<string, unknown>;
   },
   RequestBrand
@@ -32,12 +32,17 @@ export type Request = t.Branded<
 export type RequestC = t.BrandC<
   t.PartialC<{
     agencyId: typeof Common_.AgencyId;
-    payload: t.PartialC<{
-      token: typeof Common_.EncodedQueryParam;
-      encodedData: typeof Common_.EncodedQueryParam;
-      state: typeof Common_.EncodedQueryParam;
-      error: typeof Common_.ErrorKey;
-    }>;
+    payload: t.IntersectionC<
+      [
+        t.PartialC<{
+          token: typeof Common_.EncodedQueryParam;
+          encodedData: typeof Common_.EncodedQueryParam;
+          state: typeof Common_.EncodedQueryParam;
+          error: typeof Common_.ErrorKey;
+        }>,
+        t.RecordC<t.StringC, t.UnknownC>,
+      ]
+    >;
     headers: t.RecordC<t.StringC, t.UnknownC>;
   }>,
   RequestBrand
@@ -45,12 +50,15 @@ export type RequestC = t.BrandC<
 export const Request: RequestC = t.brand(
   t.partial({
     agencyId: Common_.AgencyId,
-    payload: t.partial({
-      token: Common_.EncodedQueryParam,
-      encodedData: Common_.EncodedQueryParam,
-      state: Common_.EncodedQueryParam,
-      error: Common_.ErrorKey,
-    }),
+    payload: t.intersection([
+      t.partial({
+        token: Common_.EncodedQueryParam,
+        encodedData: Common_.EncodedQueryParam,
+        state: Common_.EncodedQueryParam,
+        error: Common_.ErrorKey,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     headers: t.record(t.string, t.unknown),
   }),
   (
@@ -63,7 +71,7 @@ export const Request: RequestC = t.brand(
         encodedData?: Common_.EncodedQueryParam;
         state?: Common_.EncodedQueryParam;
         error?: Common_.ErrorKey;
-      };
+      } & Record<string, unknown>;
       headers?: Record<string, unknown>;
     },
     RequestBrand

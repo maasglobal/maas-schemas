@@ -17,18 +17,24 @@ export const schemaId = 'https://schemas.maas.global/core/stop.json';
 // Stop
 // The default export. More information at the top.
 export type Stop = t.Branded<
-  Place_.Place & {
-    startTime?: Units_.Time;
-  },
+  Place_.Place &
+    ({
+      startTime?: Units_.Time;
+    } & Record<string, unknown>),
   StopBrand
 >;
 export type StopC = t.BrandC<
   t.IntersectionC<
     [
       typeof Place_.Place,
-      t.PartialC<{
-        startTime: typeof Units_.Time;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            startTime: typeof Units_.Time;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
     ]
   >,
   StopBrand
@@ -36,16 +42,20 @@ export type StopC = t.BrandC<
 export const Stop: StopC = t.brand(
   t.intersection([
     Place_.Place,
-    t.partial({
-      startTime: Units_.Time,
-    }),
+    t.intersection([
+      t.partial({
+        startTime: Units_.Time,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
   ]),
   (
     x,
   ): x is t.Branded<
-    Place_.Place & {
-      startTime?: Units_.Time;
-    },
+    Place_.Place &
+      ({
+        startTime?: Units_.Time;
+      } & Record<string, unknown>),
     StopBrand
   > => true,
   'Stop',

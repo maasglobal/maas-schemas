@@ -41,7 +41,7 @@ export type Request = t.Branded<
       reason?: string;
       email?: Common_.Email;
       isContactingAllowed?: boolean;
-    };
+    } & Record<string, unknown>;
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
@@ -57,11 +57,16 @@ export type RequestC = t.BrandC<
       t.PartialC<{
         identityId: typeof Units_.IdentityId;
         customerId: typeof Units_.IdentityId;
-        payload: t.PartialC<{
-          reason: t.StringC;
-          email: typeof Common_.Email;
-          isContactingAllowed: t.BooleanC;
-        }>;
+        payload: t.IntersectionC<
+          [
+            t.PartialC<{
+              reason: t.StringC;
+              email: typeof Common_.Email;
+              isContactingAllowed: t.BooleanC;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
         headers: typeof ApiCommon_.Headers;
       }>,
       t.TypeC<{
@@ -79,11 +84,14 @@ export const Request: RequestC = t.brand(
     t.partial({
       identityId: Units_.IdentityId,
       customerId: Units_.IdentityId,
-      payload: t.partial({
-        reason: t.string,
-        email: Common_.Email,
-        isContactingAllowed: t.boolean,
-      }),
+      payload: t.intersection([
+        t.partial({
+          reason: t.string,
+          email: Common_.Email,
+          isContactingAllowed: t.boolean,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       headers: ApiCommon_.Headers,
     }),
     t.type({
@@ -103,7 +111,7 @@ export const Request: RequestC = t.brand(
         reason?: string;
         email?: Common_.Email;
         isContactingAllowed?: boolean;
-      };
+      } & Record<string, unknown>;
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;

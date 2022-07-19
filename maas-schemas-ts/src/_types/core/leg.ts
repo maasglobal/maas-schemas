@@ -227,25 +227,33 @@ export interface AgencyIdBrand {
 export type LegGeometry = t.Branded<
   {
     points?: UnitsGeo_.Polyline;
-  },
+  } & Record<string, unknown>,
   LegGeometryBrand
 >;
 export type LegGeometryC = t.BrandC<
-  t.PartialC<{
-    points: typeof UnitsGeo_.Polyline;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        points: typeof UnitsGeo_.Polyline;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   LegGeometryBrand
 >;
 export const LegGeometry: LegGeometryC = t.brand(
-  t.partial({
-    points: UnitsGeo_.Polyline,
-  }),
+  t.intersection([
+    t.partial({
+      points: UnitsGeo_.Polyline,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       points?: UnitsGeo_.Polyline;
-    },
+    } & Record<string, unknown>,
     LegGeometryBrand
   > => true,
   'LegGeometry',
@@ -288,28 +296,36 @@ export type LegExtensions = t.Branded<
   {
     id?: Units_.Uuid;
     signature?: Common_.Signature;
-  },
+  } & Record<string, unknown>,
   LegExtensionsBrand
 >;
 export type LegExtensionsC = t.BrandC<
-  t.PartialC<{
-    id: typeof Units_.Uuid;
-    signature: typeof Common_.Signature;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: typeof Units_.Uuid;
+        signature: typeof Common_.Signature;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   LegExtensionsBrand
 >;
 export const LegExtensions: LegExtensionsC = t.brand(
-  t.partial({
-    id: Units_.Uuid,
-    signature: Common_.Signature,
-  }),
+  t.intersection([
+    t.partial({
+      id: Units_.Uuid,
+      signature: Common_.Signature,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       id?: Units_.Uuid;
       signature?: Common_.Signature;
-    },
+    } & Record<string, unknown>,
     LegExtensionsBrand
   > => true,
   'LegExtensions',
@@ -453,11 +469,11 @@ export interface LegCoreBrand {
 // WaitingLeg
 // The purpose of this remains a mystery
 export type WaitingLeg = t.Branded<
-  {
+  ({
     startTime?: Units_.Time;
     endTime?: Units_.Time;
     mode?: TravelMode_.WaitingMode;
-  } & {
+  } & Record<string, unknown>) & {
     mode: Defined;
     startTime: Defined;
     endTime: Defined;
@@ -467,11 +483,16 @@ export type WaitingLeg = t.Branded<
 export type WaitingLegC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        startTime: typeof Units_.Time;
-        endTime: typeof Units_.Time;
-        mode: typeof TravelMode_.WaitingMode;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            startTime: typeof Units_.Time;
+            endTime: typeof Units_.Time;
+            mode: typeof TravelMode_.WaitingMode;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         mode: typeof Defined;
         startTime: typeof Defined;
@@ -483,11 +504,14 @@ export type WaitingLegC = t.BrandC<
 >;
 export const WaitingLeg: WaitingLegC = t.brand(
   t.intersection([
-    t.partial({
-      startTime: Units_.Time,
-      endTime: Units_.Time,
-      mode: TravelMode_.WaitingMode,
-    }),
+    t.intersection([
+      t.partial({
+        startTime: Units_.Time,
+        endTime: Units_.Time,
+        mode: TravelMode_.WaitingMode,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       mode: Defined,
       startTime: Defined,
@@ -497,11 +521,11 @@ export const WaitingLeg: WaitingLegC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       startTime?: Units_.Time;
       endTime?: Units_.Time;
       mode?: TravelMode_.WaitingMode;
-    } & {
+    } & Record<string, unknown>) & {
       mode: Defined;
       startTime: Defined;
       endTime: Defined;
@@ -517,11 +541,11 @@ export interface WaitingLegBrand {
 // TransferLeg
 // The purpose of this remains a mystery
 export type TransferLeg = t.Branded<
-  {
+  ({
     startTime?: Units_.Time;
     endTime?: Units_.Time;
     mode?: TravelMode_.TransferMode;
-  } & {
+  } & Record<string, unknown>) & {
     mode: Defined;
     startTime: Defined;
     endTime: Defined;
@@ -531,11 +555,16 @@ export type TransferLeg = t.Branded<
 export type TransferLegC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        startTime: typeof Units_.Time;
-        endTime: typeof Units_.Time;
-        mode: typeof TravelMode_.TransferMode;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            startTime: typeof Units_.Time;
+            endTime: typeof Units_.Time;
+            mode: typeof TravelMode_.TransferMode;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         mode: typeof Defined;
         startTime: typeof Defined;
@@ -547,11 +576,14 @@ export type TransferLegC = t.BrandC<
 >;
 export const TransferLeg: TransferLegC = t.brand(
   t.intersection([
-    t.partial({
-      startTime: Units_.Time,
-      endTime: Units_.Time,
-      mode: TravelMode_.TransferMode,
-    }),
+    t.intersection([
+      t.partial({
+        startTime: Units_.Time,
+        endTime: Units_.Time,
+        mode: TravelMode_.TransferMode,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       mode: Defined,
       startTime: Defined,
@@ -561,11 +593,11 @@ export const TransferLeg: TransferLegC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       startTime?: Units_.Time;
       endTime?: Units_.Time;
       mode?: TravelMode_.TransferMode;
-    } & {
+    } & Record<string, unknown>) & {
       mode: Defined;
       startTime: Defined;
       endTime: Defined;
@@ -581,13 +613,16 @@ export interface TransferLegBrand {
 // Leg
 // The default export. More information at the top.
 export type Leg = t.Branded<
-  Record<string, unknown> & (LegExtensions & (LegCore | WaitingLeg | TransferLeg)),
+  Record<string, unknown> &
+    Record<string, unknown> &
+    (LegExtensions & (LegCore | WaitingLeg | TransferLeg)),
   LegBrand
 >;
 export type LegC = t.BrandC<
   t.IntersectionC<
     [
       t.UnknownRecordC,
+      t.RecordC<t.StringC, t.UnknownC>,
       t.IntersectionC<
         [
           typeof LegExtensions,
@@ -601,12 +636,15 @@ export type LegC = t.BrandC<
 export const Leg: LegC = t.brand(
   t.intersection([
     t.UnknownRecord,
+    t.record(t.string, t.unknown),
     t.intersection([LegExtensions, t.union([LegCore, WaitingLeg, TransferLeg])]),
   ]),
   (
     x,
   ): x is t.Branded<
-    Record<string, unknown> & (LegExtensions & (LegCore | WaitingLeg | TransferLeg)),
+    Record<string, unknown> &
+      Record<string, unknown> &
+      (LegExtensions & (LegCore | WaitingLeg | TransferLeg)),
     LegBrand
   > => true,
   'Leg',

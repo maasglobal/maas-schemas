@@ -38,23 +38,31 @@ export type Seat = t.Branded<
     route?: string;
     number?: string | number;
     coach?: string | number;
-  },
+  } & Record<string, unknown>,
   SeatBrand
 >;
 export type SeatC = t.BrandC<
-  t.PartialC<{
-    route: t.StringC;
-    number: t.UnionC<[t.StringC, t.NumberC]>;
-    coach: t.UnionC<[t.StringC, t.NumberC]>;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        route: t.StringC;
+        number: t.UnionC<[t.StringC, t.NumberC]>;
+        coach: t.UnionC<[t.StringC, t.NumberC]>;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   SeatBrand
 >;
 export const Seat: SeatC = t.brand(
-  t.partial({
-    route: t.string,
-    number: t.union([t.string, t.number]),
-    coach: t.union([t.string, t.number]),
-  }),
+  t.intersection([
+    t.partial({
+      route: t.string,
+      number: t.union([t.string, t.number]),
+      coach: t.union([t.string, t.number]),
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
@@ -62,7 +70,7 @@ export const Seat: SeatC = t.brand(
       route?: string;
       number?: string | number;
       coach?: string | number;
-    },
+    } & Record<string, unknown>,
     SeatBrand
   > => true,
   'Seat',
@@ -74,18 +82,18 @@ export interface SeatBrand {
 // Cancellation
 // The purpose of this remains a mystery
 export type Cancellation = t.Branded<
-  {
+  ({
     cancellable?: boolean;
     cost?: Cost_.Cost;
     fare?: Fare_.Fare;
     refunded?: boolean;
-    validity?: {
+    validity?: ({
       startTime?: Units_.Time;
       endTime?: Units_.Time;
-    } & {
+    } & Record<string, unknown>) & {
       endTime: Defined;
     };
-  } & {
+  } & Record<string, unknown>) & {
     cancellable: Defined;
     refunded: Defined;
   },
@@ -94,23 +102,33 @@ export type Cancellation = t.Branded<
 export type CancellationC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        cancellable: t.BooleanC;
-        cost: typeof Cost_.Cost;
-        fare: typeof Fare_.Fare;
-        refunded: t.BooleanC;
-        validity: t.IntersectionC<
-          [
-            t.PartialC<{
-              startTime: typeof Units_.Time;
-              endTime: typeof Units_.Time;
-            }>,
-            t.TypeC<{
-              endTime: typeof Defined;
-            }>,
-          ]
-        >;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            cancellable: t.BooleanC;
+            cost: typeof Cost_.Cost;
+            fare: typeof Fare_.Fare;
+            refunded: t.BooleanC;
+            validity: t.IntersectionC<
+              [
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      startTime: typeof Units_.Time;
+                      endTime: typeof Units_.Time;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
+                t.TypeC<{
+                  endTime: typeof Defined;
+                }>,
+              ]
+            >;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         cancellable: typeof Defined;
         refunded: typeof Defined;
@@ -121,21 +139,27 @@ export type CancellationC = t.BrandC<
 >;
 export const Cancellation: CancellationC = t.brand(
   t.intersection([
-    t.partial({
-      cancellable: t.boolean,
-      cost: Cost_.Cost,
-      fare: Fare_.Fare,
-      refunded: t.boolean,
-      validity: t.intersection([
-        t.partial({
-          startTime: Units_.Time,
-          endTime: Units_.Time,
-        }),
-        t.type({
-          endTime: Defined,
-        }),
-      ]),
-    }),
+    t.intersection([
+      t.partial({
+        cancellable: t.boolean,
+        cost: Cost_.Cost,
+        fare: Fare_.Fare,
+        refunded: t.boolean,
+        validity: t.intersection([
+          t.intersection([
+            t.partial({
+              startTime: Units_.Time,
+              endTime: Units_.Time,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+          t.type({
+            endTime: Defined,
+          }),
+        ]),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       cancellable: Defined,
       refunded: Defined,
@@ -144,18 +168,18 @@ export const Cancellation: CancellationC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       cancellable?: boolean;
       cost?: Cost_.Cost;
       fare?: Fare_.Fare;
       refunded?: boolean;
-      validity?: {
+      validity?: ({
         startTime?: Units_.Time;
         endTime?: Units_.Time;
-      } & {
+      } & Record<string, unknown>) & {
         endTime: Defined;
       };
-    } & {
+    } & Record<string, unknown>) & {
       cancellable: Defined;
       refunded: Defined;
     },
@@ -170,11 +194,11 @@ export interface CancellationBrand {
 // Amendment
 // The purpose of this remains a mystery
 export type Amendment = t.Branded<
-  {
+  ({
     amendable?: boolean;
     cost?: Cost_.Cost;
     fare?: Fare_.Fare;
-  } & {
+  } & Record<string, unknown>) & {
     amendable: Defined;
   },
   AmendmentBrand
@@ -182,11 +206,16 @@ export type Amendment = t.Branded<
 export type AmendmentC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        amendable: t.BooleanC;
-        cost: typeof Cost_.Cost;
-        fare: typeof Fare_.Fare;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            amendable: t.BooleanC;
+            cost: typeof Cost_.Cost;
+            fare: typeof Fare_.Fare;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         amendable: typeof Defined;
       }>,
@@ -196,11 +225,14 @@ export type AmendmentC = t.BrandC<
 >;
 export const Amendment: AmendmentC = t.brand(
   t.intersection([
-    t.partial({
-      amendable: t.boolean,
-      cost: Cost_.Cost,
-      fare: Fare_.Fare,
-    }),
+    t.intersection([
+      t.partial({
+        amendable: t.boolean,
+        cost: Cost_.Cost,
+        fare: Fare_.Fare,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       amendable: Defined,
     }),
@@ -208,11 +240,11 @@ export const Amendment: AmendmentC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       amendable?: boolean;
       cost?: Cost_.Cost;
       fare?: Fare_.Fare;
-    } & {
+    } & Record<string, unknown>) & {
       amendable: Defined;
     },
     AmendmentBrand
@@ -281,12 +313,12 @@ export type Terms = t.Branded<
   {
     type?: string;
     seatings?: Array<Seat>;
-    validity?: {
+    validity?: ({
       startTime?: Units_.Time;
       endTime?: Units_.Time;
       startTimeReturn?: Units_.Time;
       endTimeReturn?: Units_.Time;
-    } & {
+    } & Record<string, unknown>) & {
       startTime: Defined;
       endTime: Defined;
     };
@@ -295,29 +327,29 @@ export type Terms = t.Branded<
     restrictions?: {
       singleDevice?: boolean;
       skipRestrictionCheck?: boolean;
-      freeTicket?: Record<string, unknown>;
+      freeTicket?: Record<string, unknown> & Record<string, unknown>;
       forbidMultipleBookingsActive?: boolean;
-    };
+    } & Record<string, unknown>;
     surcharges?: {
       midnight?: Surcharge;
       pickup?: Surcharge;
-    };
+    } & Record<string, unknown>;
     cancellation?: {
       counter?: {
         time?: number;
         fromState?: State_.BookingState;
-      };
+      } & Record<string, unknown>;
       cancellationFormActionUrl?: Units_.Url;
       outward?: Cancellation;
       return?: Cancellation;
-    };
+    } & Record<string, unknown>;
     amendment?: {
       outward?: Amendment;
       return?: Amendment;
-    };
+    } & Record<string, unknown>;
     prePurchaseGuidanceUrl?: Units_.Url;
     fareRates?: Array<
-      {
+      ({
         amount?: number;
         currency?: Units_.CurrencyOrToken;
         timeInterval?: number;
@@ -328,7 +360,7 @@ export type Terms = t.Branded<
           | 'extra'
           | 'perKilometer'
           | 'perParkMinute';
-      } & {
+      } & Record<string, unknown>) & {
         amount: Defined;
         currency: Defined;
       }
@@ -344,12 +376,17 @@ export type TermsC = t.BrandC<
         seatings: t.ArrayC<typeof Seat>;
         validity: t.IntersectionC<
           [
-            t.PartialC<{
-              startTime: typeof Units_.Time;
-              endTime: typeof Units_.Time;
-              startTimeReturn: typeof Units_.Time;
-              endTimeReturn: typeof Units_.Time;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  startTime: typeof Units_.Time;
+                  endTime: typeof Units_.Time;
+                  startTimeReturn: typeof Units_.Time;
+                  endTimeReturn: typeof Units_.Time;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               startTime: typeof Defined;
               endTime: typeof Defined;
@@ -358,48 +395,80 @@ export type TermsC = t.BrandC<
         >;
         reusable: t.BooleanC;
         reconcilable: t.BooleanC;
-        restrictions: t.PartialC<{
-          singleDevice: t.BooleanC;
-          skipRestrictionCheck: t.BooleanC;
-          freeTicket: t.UnknownRecordC;
-          forbidMultipleBookingsActive: t.BooleanC;
-        }>;
-        surcharges: t.PartialC<{
-          midnight: typeof Surcharge;
-          pickup: typeof Surcharge;
-        }>;
-        cancellation: t.PartialC<{
-          counter: t.PartialC<{
-            time: t.NumberC;
-            fromState: typeof State_.BookingState;
-          }>;
-          cancellationFormActionUrl: typeof Units_.Url;
-          outward: typeof Cancellation;
-          return: typeof Cancellation;
-        }>;
-        amendment: t.PartialC<{
-          outward: typeof Amendment;
-          return: typeof Amendment;
-        }>;
+        restrictions: t.IntersectionC<
+          [
+            t.PartialC<{
+              singleDevice: t.BooleanC;
+              skipRestrictionCheck: t.BooleanC;
+              freeTicket: t.IntersectionC<
+                [t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]
+              >;
+              forbidMultipleBookingsActive: t.BooleanC;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
+        surcharges: t.IntersectionC<
+          [
+            t.PartialC<{
+              midnight: typeof Surcharge;
+              pickup: typeof Surcharge;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
+        cancellation: t.IntersectionC<
+          [
+            t.PartialC<{
+              counter: t.IntersectionC<
+                [
+                  t.PartialC<{
+                    time: t.NumberC;
+                    fromState: typeof State_.BookingState;
+                  }>,
+                  t.RecordC<t.StringC, t.UnknownC>,
+                ]
+              >;
+              cancellationFormActionUrl: typeof Units_.Url;
+              outward: typeof Cancellation;
+              return: typeof Cancellation;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
+        amendment: t.IntersectionC<
+          [
+            t.PartialC<{
+              outward: typeof Amendment;
+              return: typeof Amendment;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
         prePurchaseGuidanceUrl: typeof Units_.Url;
         fareRates: t.ArrayC<
           t.IntersectionC<
             [
-              t.PartialC<{
-                amount: t.NumberC;
-                currency: typeof Units_.CurrencyOrToken;
-                timeInterval: t.NumberC;
-                startAt: t.NumberC;
-                type: t.UnionC<
-                  [
-                    t.LiteralC<'maxRate'>,
-                    t.LiteralC<'missedReturnPenalty'>,
-                    t.LiteralC<'extra'>,
-                    t.LiteralC<'perKilometer'>,
-                    t.LiteralC<'perParkMinute'>,
-                  ]
-                >;
-              }>,
+              t.IntersectionC<
+                [
+                  t.PartialC<{
+                    amount: t.NumberC;
+                    currency: typeof Units_.CurrencyOrToken;
+                    timeInterval: t.NumberC;
+                    startAt: t.NumberC;
+                    type: t.UnionC<
+                      [
+                        t.LiteralC<'maxRate'>,
+                        t.LiteralC<'missedReturnPenalty'>,
+                        t.LiteralC<'extra'>,
+                        t.LiteralC<'perKilometer'>,
+                        t.LiteralC<'perParkMinute'>,
+                      ]
+                    >;
+                  }>,
+                  t.RecordC<t.StringC, t.UnknownC>,
+                ]
+              >,
               t.TypeC<{
                 amount: typeof Defined;
                 currency: typeof Defined;
@@ -419,12 +488,15 @@ export const Terms: TermsC = t.brand(
       type: t.string,
       seatings: t.array(Seat),
       validity: t.intersection([
-        t.partial({
-          startTime: Units_.Time,
-          endTime: Units_.Time,
-          startTimeReturn: Units_.Time,
-          endTimeReturn: Units_.Time,
-        }),
+        t.intersection([
+          t.partial({
+            startTime: Units_.Time,
+            endTime: Units_.Time,
+            startTimeReturn: Units_.Time,
+            endTimeReturn: Units_.Time,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           startTime: Defined,
           endTime: Defined,
@@ -432,45 +504,63 @@ export const Terms: TermsC = t.brand(
       ]),
       reusable: t.boolean,
       reconcilable: t.boolean,
-      restrictions: t.partial({
-        singleDevice: t.boolean,
-        skipRestrictionCheck: t.boolean,
-        freeTicket: t.UnknownRecord,
-        forbidMultipleBookingsActive: t.boolean,
-      }),
-      surcharges: t.partial({
-        midnight: Surcharge,
-        pickup: Surcharge,
-      }),
-      cancellation: t.partial({
-        counter: t.partial({
-          time: t.number,
-          fromState: State_.BookingState,
+      restrictions: t.intersection([
+        t.partial({
+          singleDevice: t.boolean,
+          skipRestrictionCheck: t.boolean,
+          freeTicket: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+          forbidMultipleBookingsActive: t.boolean,
         }),
-        cancellationFormActionUrl: Units_.Url,
-        outward: Cancellation,
-        return: Cancellation,
-      }),
-      amendment: t.partial({
-        outward: Amendment,
-        return: Amendment,
-      }),
+        t.record(t.string, t.unknown),
+      ]),
+      surcharges: t.intersection([
+        t.partial({
+          midnight: Surcharge,
+          pickup: Surcharge,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
+      cancellation: t.intersection([
+        t.partial({
+          counter: t.intersection([
+            t.partial({
+              time: t.number,
+              fromState: State_.BookingState,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+          cancellationFormActionUrl: Units_.Url,
+          outward: Cancellation,
+          return: Cancellation,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
+      amendment: t.intersection([
+        t.partial({
+          outward: Amendment,
+          return: Amendment,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       prePurchaseGuidanceUrl: Units_.Url,
       fareRates: t.array(
         t.intersection([
-          t.partial({
-            amount: t.number,
-            currency: Units_.CurrencyOrToken,
-            timeInterval: t.number,
-            startAt: t.number,
-            type: t.union([
-              t.literal('maxRate'),
-              t.literal('missedReturnPenalty'),
-              t.literal('extra'),
-              t.literal('perKilometer'),
-              t.literal('perParkMinute'),
-            ]),
-          }),
+          t.intersection([
+            t.partial({
+              amount: t.number,
+              currency: Units_.CurrencyOrToken,
+              timeInterval: t.number,
+              startAt: t.number,
+              type: t.union([
+                t.literal('maxRate'),
+                t.literal('missedReturnPenalty'),
+                t.literal('extra'),
+                t.literal('perKilometer'),
+                t.literal('perParkMinute'),
+              ]),
+            }),
+            t.record(t.string, t.unknown),
+          ]),
           t.type({
             amount: Defined,
             currency: Defined,
@@ -486,12 +576,12 @@ export const Terms: TermsC = t.brand(
     {
       type?: string;
       seatings?: Array<Seat>;
-      validity?: {
+      validity?: ({
         startTime?: Units_.Time;
         endTime?: Units_.Time;
         startTimeReturn?: Units_.Time;
         endTimeReturn?: Units_.Time;
-      } & {
+      } & Record<string, unknown>) & {
         startTime: Defined;
         endTime: Defined;
       };
@@ -500,29 +590,29 @@ export const Terms: TermsC = t.brand(
       restrictions?: {
         singleDevice?: boolean;
         skipRestrictionCheck?: boolean;
-        freeTicket?: Record<string, unknown>;
+        freeTicket?: Record<string, unknown> & Record<string, unknown>;
         forbidMultipleBookingsActive?: boolean;
-      };
+      } & Record<string, unknown>;
       surcharges?: {
         midnight?: Surcharge;
         pickup?: Surcharge;
-      };
+      } & Record<string, unknown>;
       cancellation?: {
         counter?: {
           time?: number;
           fromState?: State_.BookingState;
-        };
+        } & Record<string, unknown>;
         cancellationFormActionUrl?: Units_.Url;
         outward?: Cancellation;
         return?: Cancellation;
-      };
+      } & Record<string, unknown>;
       amendment?: {
         outward?: Amendment;
         return?: Amendment;
-      };
+      } & Record<string, unknown>;
       prePurchaseGuidanceUrl?: Units_.Url;
       fareRates?: Array<
-        {
+        ({
           amount?: number;
           currency?: Units_.CurrencyOrToken;
           timeInterval?: number;
@@ -533,7 +623,7 @@ export const Terms: TermsC = t.brand(
             | 'extra'
             | 'perKilometer'
             | 'perParkMinute';
-        } & {
+        } & Record<string, unknown>) & {
           amount: Defined;
           currency: Defined;
         }

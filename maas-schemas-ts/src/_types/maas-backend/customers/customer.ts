@@ -53,12 +53,12 @@ export type Customer = t.Branded<
     balances?: Array<Fare_.Fare | Cost_.Cost>;
     region?: Region_.Region;
     authorizations?: Array<Authorization_.Authorization>;
-    favoriteLocations?: Array<Record<string, unknown>>;
+    favoriteLocations?: Array<Record<string, unknown> & Record<string, unknown>>;
     personalDocuments?: Array<
-      {
+      ({
         type?: PersonalDocument_.DocumentType;
         status?: PersonalDocument_.DocumentStatus;
-      } & {
+      } & Record<string, unknown>) & {
         type: Defined;
         status: Defined;
       }
@@ -70,7 +70,7 @@ export type Customer = t.Branded<
       id?: Booking_.Id;
       state?: State_.BookingState;
       created?: Units_.Time;
-    };
+    } & Record<string, unknown>;
   } & {
     personalData: Defined;
     paymentSources: Defined;
@@ -92,14 +92,21 @@ export type CustomerC = t.BrandC<
         balances: t.ArrayC<t.UnionC<[typeof Fare_.Fare, typeof Cost_.Cost]>>;
         region: typeof Region_.Region;
         authorizations: t.ArrayC<typeof Authorization_.Authorization>;
-        favoriteLocations: t.ArrayC<t.UnknownRecordC>;
+        favoriteLocations: t.ArrayC<
+          t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>
+        >;
         personalDocuments: t.ArrayC<
           t.IntersectionC<
             [
-              t.PartialC<{
-                type: typeof PersonalDocument_.DocumentType;
-                status: typeof PersonalDocument_.DocumentStatus;
-              }>,
+              t.IntersectionC<
+                [
+                  t.PartialC<{
+                    type: typeof PersonalDocument_.DocumentType;
+                    status: typeof PersonalDocument_.DocumentStatus;
+                  }>,
+                  t.RecordC<t.StringC, t.UnknownC>,
+                ]
+              >,
               t.TypeC<{
                 type: typeof Defined;
                 status: typeof Defined;
@@ -110,11 +117,16 @@ export type CustomerC = t.BrandC<
         personalDocumentConsents: t.ArrayC<typeof Common_.AgencyId>;
         virtualCards: t.ArrayC<typeof VirtualCard_.VirtualCard>;
         verifications: t.ArrayC<typeof VerificationObject_.VerificationObject>;
-        lastBooking: t.PartialC<{
-          id: typeof Booking_.Id;
-          state: typeof State_.BookingState;
-          created: typeof Units_.Time;
-        }>;
+        lastBooking: t.IntersectionC<
+          [
+            t.PartialC<{
+              id: typeof Booking_.Id;
+              state: typeof State_.BookingState;
+              created: typeof Units_.Time;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
       }>,
       t.TypeC<{
         personalData: typeof Defined;
@@ -138,13 +150,18 @@ export const Customer: CustomerC = t.brand(
       balances: t.array(t.union([Fare_.Fare, Cost_.Cost])),
       region: Region_.Region,
       authorizations: t.array(Authorization_.Authorization),
-      favoriteLocations: t.array(t.UnknownRecord),
+      favoriteLocations: t.array(
+        t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+      ),
       personalDocuments: t.array(
         t.intersection([
-          t.partial({
-            type: PersonalDocument_.DocumentType,
-            status: PersonalDocument_.DocumentStatus,
-          }),
+          t.intersection([
+            t.partial({
+              type: PersonalDocument_.DocumentType,
+              status: PersonalDocument_.DocumentStatus,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
           t.type({
             type: Defined,
             status: Defined,
@@ -154,11 +171,14 @@ export const Customer: CustomerC = t.brand(
       personalDocumentConsents: t.array(Common_.AgencyId),
       virtualCards: t.array(VirtualCard_.VirtualCard),
       verifications: t.array(VerificationObject_.VerificationObject),
-      lastBooking: t.partial({
-        id: Booking_.Id,
-        state: State_.BookingState,
-        created: Units_.Time,
-      }),
+      lastBooking: t.intersection([
+        t.partial({
+          id: Booking_.Id,
+          state: State_.BookingState,
+          created: Units_.Time,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
     }),
     t.type({
       personalData: Defined,
@@ -180,12 +200,12 @@ export const Customer: CustomerC = t.brand(
       balances?: Array<Fare_.Fare | Cost_.Cost>;
       region?: Region_.Region;
       authorizations?: Array<Authorization_.Authorization>;
-      favoriteLocations?: Array<Record<string, unknown>>;
+      favoriteLocations?: Array<Record<string, unknown> & Record<string, unknown>>;
       personalDocuments?: Array<
-        {
+        ({
           type?: PersonalDocument_.DocumentType;
           status?: PersonalDocument_.DocumentStatus;
-        } & {
+        } & Record<string, unknown>) & {
           type: Defined;
           status: Defined;
         }
@@ -197,7 +217,7 @@ export const Customer: CustomerC = t.brand(
         id?: Booking_.Id;
         state?: State_.BookingState;
         created?: Units_.Time;
-      };
+      } & Record<string, unknown>;
     } & {
       personalData: Defined;
       paymentSources: Defined;

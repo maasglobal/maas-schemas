@@ -101,43 +101,51 @@ export type PartialFavoriteLocation = t.Branded<
     agencyId?: Common_.AgencyId;
     stopId?: Station_.Id;
     lineId?: string;
-  },
+  } & Record<string, unknown>,
   PartialFavoriteLocationBrand
 >;
 export type PartialFavoriteLocationC = t.BrandC<
-  t.PartialC<{
-    id: t.NumberC;
-    identityId: typeof Units_.IdentityId;
-    type: typeof FavoriteLocationTypes;
-    name: t.StringC;
-    location: typeof UnitsGeo_.Location;
-    streetName: typeof Address_.PlaceName;
-    streetNumber: t.StringC;
-    city: typeof Address_.City;
-    country: typeof Address_.CountryName;
-    zipCode: typeof Address_.ZipCode;
-    agencyId: typeof Common_.AgencyId;
-    stopId: typeof Station_.Id;
-    lineId: t.StringC;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.NumberC;
+        identityId: typeof Units_.IdentityId;
+        type: typeof FavoriteLocationTypes;
+        name: t.StringC;
+        location: typeof UnitsGeo_.Location;
+        streetName: typeof Address_.PlaceName;
+        streetNumber: t.StringC;
+        city: typeof Address_.City;
+        country: typeof Address_.CountryName;
+        zipCode: typeof Address_.ZipCode;
+        agencyId: typeof Common_.AgencyId;
+        stopId: typeof Station_.Id;
+        lineId: t.StringC;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   PartialFavoriteLocationBrand
 >;
 export const PartialFavoriteLocation: PartialFavoriteLocationC = t.brand(
-  t.partial({
-    id: t.number,
-    identityId: Units_.IdentityId,
-    type: FavoriteLocationTypes,
-    name: t.string,
-    location: UnitsGeo_.Location,
-    streetName: Address_.PlaceName,
-    streetNumber: t.string,
-    city: Address_.City,
-    country: Address_.CountryName,
-    zipCode: Address_.ZipCode,
-    agencyId: Common_.AgencyId,
-    stopId: Station_.Id,
-    lineId: t.string,
-  }),
+  t.intersection([
+    t.partial({
+      id: t.number,
+      identityId: Units_.IdentityId,
+      type: FavoriteLocationTypes,
+      name: t.string,
+      location: UnitsGeo_.Location,
+      streetName: Address_.PlaceName,
+      streetNumber: t.string,
+      city: Address_.City,
+      country: Address_.CountryName,
+      zipCode: Address_.ZipCode,
+      agencyId: Common_.AgencyId,
+      stopId: Station_.Id,
+      lineId: t.string,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
@@ -155,7 +163,7 @@ export const PartialFavoriteLocation: PartialFavoriteLocationC = t.brand(
       agencyId?: Common_.AgencyId;
       stopId?: Station_.Id;
       lineId?: string;
-    },
+    } & Record<string, unknown>,
     PartialFavoriteLocationBrand
   > => true,
   'PartialFavoriteLocation',

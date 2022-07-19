@@ -143,7 +143,7 @@ export type CarRental = t.Branded<
     image?: Units_.Url;
     vendor?: {
       voucher?: unknown;
-    };
+    } & Record<string, unknown>;
     terms?: unknown;
     car?: {
       passengers?: number;
@@ -168,12 +168,12 @@ export type CarRental = t.Branded<
       damage?: string;
       fuelLevel?: number;
       location?: UnitsGeo_.Location;
-    };
+    } & Record<string, unknown>;
     freeUntil?: Units_.Time;
     nextBooking?: {
       startTime?: Units_.Time;
       endTime?: Units_.Time;
-    };
+    } & Record<string, unknown>;
     pickupInfo?: Common_.HtmlBlock;
     returnInfo?: Common_.HtmlBlock;
     startEndGeoRegionUrl?: Units_.Url;
@@ -193,48 +193,63 @@ export type CarRentalC = t.BrandC<
         name: t.StringC;
         description: t.StringC;
         image: typeof Units_.Url;
-        vendor: t.PartialC<{
-          voucher: t.UnknownC;
-        }>;
+        vendor: t.IntersectionC<
+          [
+            t.PartialC<{
+              voucher: t.UnknownC;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
         terms: t.UnknownC;
-        car: t.PartialC<{
-          passengers: t.NumberC;
-          doors: t.ArrayC<t.NumberC>;
-          luggage: t.ArrayC<t.NumberC>;
-          transmission: t.UnionC<
-            [t.LiteralC<'manual'>, t.LiteralC<'automatic'>, typeof Null]
-          >;
-          fuel: t.UnionC<
-            [
-              t.UnionC<
+        car: t.IntersectionC<
+          [
+            t.PartialC<{
+              passengers: t.NumberC;
+              doors: t.ArrayC<t.NumberC>;
+              luggage: t.ArrayC<t.NumberC>;
+              transmission: t.UnionC<
+                [t.LiteralC<'manual'>, t.LiteralC<'automatic'>, typeof Null]
+              >;
+              fuel: t.UnionC<
                 [
-                  t.LiteralC<'diesel'>,
-                  t.LiteralC<'electric'>,
-                  t.LiteralC<'ethanol'>,
-                  t.LiteralC<'gasoline'>,
-                  t.LiteralC<'hybrid'>,
-                  t.LiteralC<'hydrogen'>,
-                  t.LiteralC<'lpg'>,
-                  t.LiteralC<'multifuel'>,
-                  t.LiteralC<'unspecified'>,
+                  t.UnionC<
+                    [
+                      t.LiteralC<'diesel'>,
+                      t.LiteralC<'electric'>,
+                      t.LiteralC<'ethanol'>,
+                      t.LiteralC<'gasoline'>,
+                      t.LiteralC<'hybrid'>,
+                      t.LiteralC<'hydrogen'>,
+                      t.LiteralC<'lpg'>,
+                      t.LiteralC<'multifuel'>,
+                      t.LiteralC<'unspecified'>,
+                    ]
+                  >,
+                  typeof Null,
                 ]
-              >,
-              typeof Null,
-            ]
-          >;
-          classification: t.UnionC<
-            [typeof ACRISS_.ACRISS, typeof Ajv_.StringCoarsedNull]
-          >;
-          registrationPlate: t.StringC;
-          damage: t.StringC;
-          fuelLevel: t.NumberC;
-          location: typeof UnitsGeo_.Location;
-        }>;
+              >;
+              classification: t.UnionC<
+                [typeof ACRISS_.ACRISS, typeof Ajv_.StringCoarsedNull]
+              >;
+              registrationPlate: t.StringC;
+              damage: t.StringC;
+              fuelLevel: t.NumberC;
+              location: typeof UnitsGeo_.Location;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
         freeUntil: typeof Units_.Time;
-        nextBooking: t.PartialC<{
-          startTime: typeof Units_.Time;
-          endTime: typeof Units_.Time;
-        }>;
+        nextBooking: t.IntersectionC<
+          [
+            t.PartialC<{
+              startTime: typeof Units_.Time;
+              endTime: typeof Units_.Time;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
         pickupInfo: typeof Common_.HtmlBlock;
         returnInfo: typeof Common_.HtmlBlock;
         startEndGeoRegionUrl: typeof Units_.Url;
@@ -256,40 +271,49 @@ export const CarRental: CarRentalC = t.brand(
       name: t.string,
       description: t.string,
       image: Units_.Url,
-      vendor: t.partial({
-        voucher: t.unknown,
-      }),
+      vendor: t.intersection([
+        t.partial({
+          voucher: t.unknown,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       terms: t.unknown,
-      car: t.partial({
-        passengers: t.number,
-        doors: t.array(t.number),
-        luggage: t.array(t.number),
-        transmission: t.union([t.literal('manual'), t.literal('automatic'), Null]),
-        fuel: t.union([
-          t.union([
-            t.literal('diesel'),
-            t.literal('electric'),
-            t.literal('ethanol'),
-            t.literal('gasoline'),
-            t.literal('hybrid'),
-            t.literal('hydrogen'),
-            t.literal('lpg'),
-            t.literal('multifuel'),
-            t.literal('unspecified'),
+      car: t.intersection([
+        t.partial({
+          passengers: t.number,
+          doors: t.array(t.number),
+          luggage: t.array(t.number),
+          transmission: t.union([t.literal('manual'), t.literal('automatic'), Null]),
+          fuel: t.union([
+            t.union([
+              t.literal('diesel'),
+              t.literal('electric'),
+              t.literal('ethanol'),
+              t.literal('gasoline'),
+              t.literal('hybrid'),
+              t.literal('hydrogen'),
+              t.literal('lpg'),
+              t.literal('multifuel'),
+              t.literal('unspecified'),
+            ]),
+            Null,
           ]),
-          Null,
-        ]),
-        classification: t.union([ACRISS_.ACRISS, Ajv_.StringCoarsedNull]),
-        registrationPlate: t.string,
-        damage: t.string,
-        fuelLevel: t.number,
-        location: UnitsGeo_.Location,
-      }),
+          classification: t.union([ACRISS_.ACRISS, Ajv_.StringCoarsedNull]),
+          registrationPlate: t.string,
+          damage: t.string,
+          fuelLevel: t.number,
+          location: UnitsGeo_.Location,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       freeUntil: Units_.Time,
-      nextBooking: t.partial({
-        startTime: Units_.Time,
-        endTime: Units_.Time,
-      }),
+      nextBooking: t.intersection([
+        t.partial({
+          startTime: Units_.Time,
+          endTime: Units_.Time,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       pickupInfo: Common_.HtmlBlock,
       returnInfo: Common_.HtmlBlock,
       startEndGeoRegionUrl: Units_.Url,
@@ -311,7 +335,7 @@ export const CarRental: CarRentalC = t.brand(
       image?: Units_.Url;
       vendor?: {
         voucher?: unknown;
-      };
+      } & Record<string, unknown>;
       terms?: unknown;
       car?: {
         passengers?: number;
@@ -336,12 +360,12 @@ export const CarRental: CarRentalC = t.brand(
         damage?: string;
         fuelLevel?: number;
         location?: UnitsGeo_.Location;
-      };
+      } & Record<string, unknown>;
       freeUntil?: Units_.Time;
       nextBooking?: {
         startTime?: Units_.Time;
         endTime?: Units_.Time;
-      };
+      } & Record<string, unknown>;
       pickupInfo?: Common_.HtmlBlock;
       returnInfo?: Common_.HtmlBlock;
       startEndGeoRegionUrl?: Units_.Url;

@@ -34,10 +34,10 @@ export const schemaId =
 // The default export. More information at the top.
 export type Request = t.Branded<
   {
-    payload?: {
+    payload?: ({
       tspId?: Booking_.TspId;
       message?: string;
-    } & {
+    } & Record<string, unknown>) & {
       tspId: Defined;
       message: Defined;
     };
@@ -53,10 +53,15 @@ export type RequestC = t.BrandC<
       t.PartialC<{
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              tspId: typeof Booking_.TspId;
-              message: t.StringC;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  tspId: typeof Booking_.TspId;
+                  message: t.StringC;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               tspId: typeof Defined;
               message: typeof Defined;
@@ -76,10 +81,13 @@ export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       payload: t.intersection([
-        t.partial({
-          tspId: Booking_.TspId,
-          message: t.string,
-        }),
+        t.intersection([
+          t.partial({
+            tspId: Booking_.TspId,
+            message: t.string,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           tspId: Defined,
           message: Defined,
@@ -95,10 +103,10 @@ export const Request: RequestC = t.brand(
     x,
   ): x is t.Branded<
     {
-      payload?: {
+      payload?: ({
         tspId?: Booking_.TspId;
         message?: string;
-      } & {
+      } & Record<string, unknown>) & {
         tspId: Defined;
         message: Defined;
       };

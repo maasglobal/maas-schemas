@@ -33,9 +33,10 @@ export const schemaId =
 // The default export. More information at the top.
 export type Response = t.Branded<
   {
-    booking?: Booking_.Booking & {
-      state?: string & ('CANCELLED' | 'CANCELLED_WITH_ERRORS');
-    };
+    booking?: Booking_.Booking &
+      ({
+        state?: string & ('CANCELLED' | 'CANCELLED_WITH_ERRORS');
+      } & Record<string, unknown>);
     debug?: Record<string, unknown>;
   } & {
     booking: Defined;
@@ -49,16 +50,21 @@ export type ResponseC = t.BrandC<
         booking: t.IntersectionC<
           [
             typeof Booking_.Booking,
-            t.PartialC<{
-              state: t.IntersectionC<
-                [
-                  t.StringC,
-                  t.UnionC<
-                    [t.LiteralC<'CANCELLED'>, t.LiteralC<'CANCELLED_WITH_ERRORS'>]
-                  >,
-                ]
-              >;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  state: t.IntersectionC<
+                    [
+                      t.StringC,
+                      t.UnionC<
+                        [t.LiteralC<'CANCELLED'>, t.LiteralC<'CANCELLED_WITH_ERRORS'>]
+                      >,
+                    ]
+                  >;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
           ]
         >;
         debug: t.RecordC<t.StringC, t.UnknownC>;
@@ -75,12 +81,15 @@ export const Response: ResponseC = t.brand(
     t.partial({
       booking: t.intersection([
         Booking_.Booking,
-        t.partial({
-          state: t.intersection([
-            t.string,
-            t.union([t.literal('CANCELLED'), t.literal('CANCELLED_WITH_ERRORS')]),
-          ]),
-        }),
+        t.intersection([
+          t.partial({
+            state: t.intersection([
+              t.string,
+              t.union([t.literal('CANCELLED'), t.literal('CANCELLED_WITH_ERRORS')]),
+            ]),
+          }),
+          t.record(t.string, t.unknown),
+        ]),
       ]),
       debug: t.record(t.string, t.unknown),
     }),
@@ -92,9 +101,10 @@ export const Response: ResponseC = t.brand(
     x,
   ): x is t.Branded<
     {
-      booking?: Booking_.Booking & {
-        state?: string & ('CANCELLED' | 'CANCELLED_WITH_ERRORS');
-      };
+      booking?: Booking_.Booking &
+        ({
+          state?: string & ('CANCELLED' | 'CANCELLED_WITH_ERRORS');
+        } & Record<string, unknown>);
       debug?: Record<string, unknown>;
     } & {
       booking: Defined;

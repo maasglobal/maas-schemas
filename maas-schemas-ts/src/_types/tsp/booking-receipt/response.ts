@@ -34,7 +34,7 @@ export type Response = t.Branded<
   {
     tspId?: Booking_.TspId;
     cost?: Booking_.Cost;
-    receipt?: Record<string, unknown>;
+    receipt?: Record<string, unknown> & Record<string, unknown>;
   } & {
     tspId: Defined;
     cost: Defined;
@@ -47,7 +47,7 @@ export type ResponseC = t.BrandC<
       t.PartialC<{
         tspId: typeof Booking_.TspId;
         cost: typeof Booking_.Cost;
-        receipt: t.UnknownRecordC;
+        receipt: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
       }>,
       t.TypeC<{
         tspId: typeof Defined;
@@ -62,7 +62,7 @@ export const Response: ResponseC = t.brand(
     t.partial({
       tspId: Booking_.TspId,
       cost: Booking_.Cost,
-      receipt: t.UnknownRecord,
+      receipt: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
     }),
     t.type({
       tspId: Defined,
@@ -75,7 +75,7 @@ export const Response: ResponseC = t.brand(
     {
       tspId?: Booking_.TspId;
       cost?: Booking_.Cost;
-      receipt?: Record<string, unknown>;
+      receipt?: Record<string, unknown> & Record<string, unknown>;
     } & {
       tspId: Defined;
       cost: Defined;

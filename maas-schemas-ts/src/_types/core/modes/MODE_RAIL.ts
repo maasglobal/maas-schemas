@@ -33,19 +33,19 @@ export const schemaId = 'https://schemas.maas.global/core/modes/MODE_RAIL.json';
 // The default export. More information at the top.
 export type MODE_RAIL = t.Branded<
   {
-    outward?: {
+    outward?: ({
       id?: string;
       from?: Place_.Place;
       to?: Place_.Place;
-    } & {
+    } & Record<string, unknown>) & {
       from: Defined;
       to: Defined;
     };
-    return?: {
+    return?: ({
       id?: string;
       from?: Place_.Place;
       to?: Place_.Place;
-    } & {
+    } & Record<string, unknown>) & {
       from: Defined;
       to: Defined;
     };
@@ -53,93 +53,125 @@ export type MODE_RAIL = t.Branded<
       name?: string;
       stationId?: Station_.Id;
       alternativeCollections?: string;
-    };
-  },
+    } & Record<string, unknown>;
+  } & Record<string, unknown>,
   MODE_RAILBrand
 >;
 export type MODE_RAILC = t.BrandC<
-  t.PartialC<{
-    outward: t.IntersectionC<
-      [
-        t.PartialC<{
-          id: t.StringC;
-          from: typeof Place_.Place;
-          to: typeof Place_.Place;
-        }>,
-        t.TypeC<{
-          from: typeof Defined;
-          to: typeof Defined;
-        }>,
-      ]
-    >;
-    return: t.IntersectionC<
-      [
-        t.PartialC<{
-          id: t.StringC;
-          from: typeof Place_.Place;
-          to: typeof Place_.Place;
-        }>,
-        t.TypeC<{
-          from: typeof Defined;
-          to: typeof Defined;
-        }>,
-      ]
-    >;
-    deliveryMethod: t.PartialC<{
-      name: t.StringC;
-      stationId: typeof Station_.Id;
-      alternativeCollections: t.StringC;
-    }>;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        outward: t.IntersectionC<
+          [
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  id: t.StringC;
+                  from: typeof Place_.Place;
+                  to: typeof Place_.Place;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
+            t.TypeC<{
+              from: typeof Defined;
+              to: typeof Defined;
+            }>,
+          ]
+        >;
+        return: t.IntersectionC<
+          [
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  id: t.StringC;
+                  from: typeof Place_.Place;
+                  to: typeof Place_.Place;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
+            t.TypeC<{
+              from: typeof Defined;
+              to: typeof Defined;
+            }>,
+          ]
+        >;
+        deliveryMethod: t.IntersectionC<
+          [
+            t.PartialC<{
+              name: t.StringC;
+              stationId: typeof Station_.Id;
+              alternativeCollections: t.StringC;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   MODE_RAILBrand
 >;
 export const MODE_RAIL: MODE_RAILC = t.brand(
-  t.partial({
-    outward: t.intersection([
-      t.partial({
-        id: t.string,
-        from: Place_.Place,
-        to: Place_.Place,
-      }),
-      t.type({
-        from: Defined,
-        to: Defined,
-      }),
-    ]),
-    return: t.intersection([
-      t.partial({
-        id: t.string,
-        from: Place_.Place,
-        to: Place_.Place,
-      }),
-      t.type({
-        from: Defined,
-        to: Defined,
-      }),
-    ]),
-    deliveryMethod: t.partial({
-      name: t.string,
-      stationId: Station_.Id,
-      alternativeCollections: t.string,
+  t.intersection([
+    t.partial({
+      outward: t.intersection([
+        t.intersection([
+          t.partial({
+            id: t.string,
+            from: Place_.Place,
+            to: Place_.Place,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
+        t.type({
+          from: Defined,
+          to: Defined,
+        }),
+      ]),
+      return: t.intersection([
+        t.intersection([
+          t.partial({
+            id: t.string,
+            from: Place_.Place,
+            to: Place_.Place,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
+        t.type({
+          from: Defined,
+          to: Defined,
+        }),
+      ]),
+      deliveryMethod: t.intersection([
+        t.partial({
+          name: t.string,
+          stationId: Station_.Id,
+          alternativeCollections: t.string,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
     }),
-  }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
-      outward?: {
+      outward?: ({
         id?: string;
         from?: Place_.Place;
         to?: Place_.Place;
-      } & {
+      } & Record<string, unknown>) & {
         from: Defined;
         to: Defined;
       };
-      return?: {
+      return?: ({
         id?: string;
         from?: Place_.Place;
         to?: Place_.Place;
-      } & {
+      } & Record<string, unknown>) & {
         from: Defined;
         to: Defined;
       };
@@ -147,8 +179,8 @@ export const MODE_RAIL: MODE_RAILC = t.brand(
         name?: string;
         stationId?: Station_.Id;
         alternativeCollections?: string;
-      };
-    },
+      } & Record<string, unknown>;
+    } & Record<string, unknown>,
     MODE_RAILBrand
   > => true,
   'MODE_RAIL',

@@ -40,11 +40,11 @@ export type Request = t.Branded<
     virtualCardId?: number;
     payload?: {
       transactions?: Array<
-        {
+        ({
           id?: string;
           date?: Units_.Time;
           amount?: number;
-        } & {
+        } & Record<string, unknown>) & {
           id: Defined;
           date: Defined;
           amount: Defined;
@@ -76,11 +76,16 @@ export type RequestC = t.BrandC<
               transactions: t.ArrayC<
                 t.IntersectionC<
                   [
-                    t.PartialC<{
-                      id: t.StringC;
-                      date: typeof Units_.Time;
-                      amount: t.NumberC;
-                    }>,
+                    t.IntersectionC<
+                      [
+                        t.PartialC<{
+                          id: t.StringC;
+                          date: typeof Units_.Time;
+                          amount: t.NumberC;
+                        }>,
+                        t.RecordC<t.StringC, t.UnknownC>,
+                      ]
+                    >,
                     t.TypeC<{
                       id: typeof Defined;
                       date: typeof Defined;
@@ -118,11 +123,14 @@ export const Request: RequestC = t.brand(
         t.partial({
           transactions: t.array(
             t.intersection([
-              t.partial({
-                id: t.string,
-                date: Units_.Time,
-                amount: t.number,
-              }),
+              t.intersection([
+                t.partial({
+                  id: t.string,
+                  date: Units_.Time,
+                  amount: t.number,
+                }),
+                t.record(t.string, t.unknown),
+              ]),
               t.type({
                 id: Defined,
                 date: Defined,
@@ -154,11 +162,11 @@ export const Request: RequestC = t.brand(
       virtualCardId?: number;
       payload?: {
         transactions?: Array<
-          {
+          ({
             id?: string;
             date?: Units_.Time;
             amount?: number;
-          } & {
+          } & Record<string, unknown>) & {
             id: Defined;
             date: Defined;
             amount: Defined;

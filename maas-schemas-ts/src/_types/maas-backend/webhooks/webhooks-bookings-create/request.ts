@@ -38,35 +38,36 @@ export const schemaId =
 // The default export. More information at the top.
 export type Request = t.Branded<
   {
-    payload?: {
+    payload?: ({
       identityId?: Units_.IdentityId;
       locale?: I18n_.Locale;
-      option?: {
+      option?: ({
         cost?: Booking_.Cost;
         leg?: Booking_.Leg;
         meta?: BookingMeta_.BookingMeta;
         terms?: Booking_.Terms;
         tspProduct?: {
           id?: string;
-        };
+        } & Record<string, unknown>;
         configurator?: Booking_.Configurator;
-      } & (
-        | {
-            leg: Defined;
-            terms: Defined;
-            cost: Defined;
-            meta: Defined;
-          }
-        | {
-            leg: Defined;
-            terms: Defined;
-            cost: Defined;
-            meta: Defined;
-            configurator: Defined;
-          }
-      );
+      } & Record<string, unknown>) &
+        (
+          | {
+              leg: Defined;
+              terms: Defined;
+              cost: Defined;
+              meta: Defined;
+            }
+          | {
+              leg: Defined;
+              terms: Defined;
+              cost: Defined;
+              meta: Defined;
+              configurator: Defined;
+            }
+        );
       customerSelection?: CustomerSelection_.CustomerSelection;
-    } & {
+    } & Record<string, unknown>) & {
       option: Defined;
       identityId: Defined;
       locale: Defined;
@@ -83,42 +84,57 @@ export type RequestC = t.BrandC<
       t.PartialC<{
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              identityId: typeof Units_.IdentityId;
-              locale: typeof I18n_.Locale;
-              option: t.IntersectionC<
-                [
-                  t.PartialC<{
-                    cost: typeof Booking_.Cost;
-                    leg: typeof Booking_.Leg;
-                    meta: typeof BookingMeta_.BookingMeta;
-                    terms: typeof Booking_.Terms;
-                    tspProduct: t.PartialC<{
-                      id: t.StringC;
-                    }>;
-                    configurator: typeof Booking_.Configurator;
-                  }>,
-                  t.UnionC<
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  identityId: typeof Units_.IdentityId;
+                  locale: typeof I18n_.Locale;
+                  option: t.IntersectionC<
                     [
-                      t.TypeC<{
-                        leg: typeof Defined;
-                        terms: typeof Defined;
-                        cost: typeof Defined;
-                        meta: typeof Defined;
-                      }>,
-                      t.TypeC<{
-                        leg: typeof Defined;
-                        terms: typeof Defined;
-                        cost: typeof Defined;
-                        meta: typeof Defined;
-                        configurator: typeof Defined;
-                      }>,
+                      t.IntersectionC<
+                        [
+                          t.PartialC<{
+                            cost: typeof Booking_.Cost;
+                            leg: typeof Booking_.Leg;
+                            meta: typeof BookingMeta_.BookingMeta;
+                            terms: typeof Booking_.Terms;
+                            tspProduct: t.IntersectionC<
+                              [
+                                t.PartialC<{
+                                  id: t.StringC;
+                                }>,
+                                t.RecordC<t.StringC, t.UnknownC>,
+                              ]
+                            >;
+                            configurator: typeof Booking_.Configurator;
+                          }>,
+                          t.RecordC<t.StringC, t.UnknownC>,
+                        ]
+                      >,
+                      t.UnionC<
+                        [
+                          t.TypeC<{
+                            leg: typeof Defined;
+                            terms: typeof Defined;
+                            cost: typeof Defined;
+                            meta: typeof Defined;
+                          }>,
+                          t.TypeC<{
+                            leg: typeof Defined;
+                            terms: typeof Defined;
+                            cost: typeof Defined;
+                            meta: typeof Defined;
+                            configurator: typeof Defined;
+                          }>,
+                        ]
+                      >,
                     ]
-                  >,
-                ]
-              >;
-              customerSelection: typeof CustomerSelection_.CustomerSelection;
-            }>,
+                  >;
+                  customerSelection: typeof CustomerSelection_.CustomerSelection;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               option: typeof Defined;
               identityId: typeof Defined;
@@ -139,38 +155,47 @@ export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       payload: t.intersection([
-        t.partial({
-          identityId: Units_.IdentityId,
-          locale: I18n_.Locale,
-          option: t.intersection([
-            t.partial({
-              cost: Booking_.Cost,
-              leg: Booking_.Leg,
-              meta: BookingMeta_.BookingMeta,
-              terms: Booking_.Terms,
-              tspProduct: t.partial({
-                id: t.string,
-              }),
-              configurator: Booking_.Configurator,
-            }),
-            t.union([
-              t.type({
-                leg: Defined,
-                terms: Defined,
-                cost: Defined,
-                meta: Defined,
-              }),
-              t.type({
-                leg: Defined,
-                terms: Defined,
-                cost: Defined,
-                meta: Defined,
-                configurator: Defined,
-              }),
+        t.intersection([
+          t.partial({
+            identityId: Units_.IdentityId,
+            locale: I18n_.Locale,
+            option: t.intersection([
+              t.intersection([
+                t.partial({
+                  cost: Booking_.Cost,
+                  leg: Booking_.Leg,
+                  meta: BookingMeta_.BookingMeta,
+                  terms: Booking_.Terms,
+                  tspProduct: t.intersection([
+                    t.partial({
+                      id: t.string,
+                    }),
+                    t.record(t.string, t.unknown),
+                  ]),
+                  configurator: Booking_.Configurator,
+                }),
+                t.record(t.string, t.unknown),
+              ]),
+              t.union([
+                t.type({
+                  leg: Defined,
+                  terms: Defined,
+                  cost: Defined,
+                  meta: Defined,
+                }),
+                t.type({
+                  leg: Defined,
+                  terms: Defined,
+                  cost: Defined,
+                  meta: Defined,
+                  configurator: Defined,
+                }),
+              ]),
             ]),
-          ]),
-          customerSelection: CustomerSelection_.CustomerSelection,
-        }),
+            customerSelection: CustomerSelection_.CustomerSelection,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           option: Defined,
           identityId: Defined,
@@ -187,35 +212,36 @@ export const Request: RequestC = t.brand(
     x,
   ): x is t.Branded<
     {
-      payload?: {
+      payload?: ({
         identityId?: Units_.IdentityId;
         locale?: I18n_.Locale;
-        option?: {
+        option?: ({
           cost?: Booking_.Cost;
           leg?: Booking_.Leg;
           meta?: BookingMeta_.BookingMeta;
           terms?: Booking_.Terms;
           tspProduct?: {
             id?: string;
-          };
+          } & Record<string, unknown>;
           configurator?: Booking_.Configurator;
-        } & (
-          | {
-              leg: Defined;
-              terms: Defined;
-              cost: Defined;
-              meta: Defined;
-            }
-          | {
-              leg: Defined;
-              terms: Defined;
-              cost: Defined;
-              meta: Defined;
-              configurator: Defined;
-            }
-        );
+        } & Record<string, unknown>) &
+          (
+            | {
+                leg: Defined;
+                terms: Defined;
+                cost: Defined;
+                meta: Defined;
+              }
+            | {
+                leg: Defined;
+                terms: Defined;
+                cost: Defined;
+                meta: Defined;
+                configurator: Defined;
+              }
+          );
         customerSelection?: CustomerSelection_.CustomerSelection;
-      } & {
+      } & Record<string, unknown>) & {
         option: Defined;
         identityId: Defined;
         locale: Defined;

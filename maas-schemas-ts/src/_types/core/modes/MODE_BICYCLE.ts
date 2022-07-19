@@ -36,51 +36,67 @@ export type MODE_BICYCLE = t.Branded<
     returnStation?: BikeStation_.BikeStation;
     pickupStationId?: string;
     returnStationId?: string;
-    bike?: {
+    bike?: ({
       id?: string;
       type?: string;
-    } & {
+    } & Record<string, unknown>) & {
       id: Defined;
     };
-  },
+  } & Record<string, unknown>,
   MODE_BICYCLEBrand
 >;
 export type MODE_BICYCLEC = t.BrandC<
-  t.PartialC<{
-    pickupStation: typeof BikeStation_.BikeStation;
-    returnStation: typeof BikeStation_.BikeStation;
-    pickupStationId: t.StringC;
-    returnStationId: t.StringC;
-    bike: t.IntersectionC<
-      [
-        t.PartialC<{
-          id: t.StringC;
-          type: t.StringC;
-        }>,
-        t.TypeC<{
-          id: typeof Defined;
-        }>,
-      ]
-    >;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        pickupStation: typeof BikeStation_.BikeStation;
+        returnStation: typeof BikeStation_.BikeStation;
+        pickupStationId: t.StringC;
+        returnStationId: t.StringC;
+        bike: t.IntersectionC<
+          [
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  id: t.StringC;
+                  type: t.StringC;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
+            t.TypeC<{
+              id: typeof Defined;
+            }>,
+          ]
+        >;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   MODE_BICYCLEBrand
 >;
 export const MODE_BICYCLE: MODE_BICYCLEC = t.brand(
-  t.partial({
-    pickupStation: BikeStation_.BikeStation,
-    returnStation: BikeStation_.BikeStation,
-    pickupStationId: t.string,
-    returnStationId: t.string,
-    bike: t.intersection([
-      t.partial({
-        id: t.string,
-        type: t.string,
-      }),
-      t.type({
-        id: Defined,
-      }),
-    ]),
-  }),
+  t.intersection([
+    t.partial({
+      pickupStation: BikeStation_.BikeStation,
+      returnStation: BikeStation_.BikeStation,
+      pickupStationId: t.string,
+      returnStationId: t.string,
+      bike: t.intersection([
+        t.intersection([
+          t.partial({
+            id: t.string,
+            type: t.string,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
+        t.type({
+          id: Defined,
+        }),
+      ]),
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
@@ -89,13 +105,13 @@ export const MODE_BICYCLE: MODE_BICYCLEC = t.brand(
       returnStation?: BikeStation_.BikeStation;
       pickupStationId?: string;
       returnStationId?: string;
-      bike?: {
+      bike?: ({
         id?: string;
         type?: string;
-      } & {
+      } & Record<string, unknown>) & {
         id: Defined;
       };
-    },
+    } & Record<string, unknown>,
     MODE_BICYCLEBrand
   > => true,
   'MODE_BICYCLE',

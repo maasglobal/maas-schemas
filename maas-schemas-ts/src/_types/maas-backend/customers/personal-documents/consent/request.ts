@@ -38,19 +38,20 @@ export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
     customerId?: Units_.IdentityId;
-    payload?: {
+    payload?: ({
       partyId?: PersonalDocument_.PartyId;
       partyType?: PersonalDocument_.PartyType;
       agencyId?: Common_.AgencyId;
-    } & (
-      | {
-          partyId: Defined;
-          partyType: Defined;
-        }
-      | {
-          agencyId: Defined;
-        }
-    );
+    } & Record<string, unknown>) &
+      (
+        | {
+            partyId: Defined;
+            partyType: Defined;
+          }
+        | {
+            agencyId: Defined;
+          }
+      );
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
@@ -67,11 +68,16 @@ export type RequestC = t.BrandC<
         customerId: typeof Units_.IdentityId;
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              partyId: typeof PersonalDocument_.PartyId;
-              partyType: typeof PersonalDocument_.PartyType;
-              agencyId: typeof Common_.AgencyId;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  partyId: typeof PersonalDocument_.PartyId;
+                  partyType: typeof PersonalDocument_.PartyType;
+                  agencyId: typeof Common_.AgencyId;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.UnionC<
               [
                 t.TypeC<{
@@ -102,11 +108,14 @@ export const Request: RequestC = t.brand(
       identityId: Units_.IdentityId,
       customerId: Units_.IdentityId,
       payload: t.intersection([
-        t.partial({
-          partyId: PersonalDocument_.PartyId,
-          partyType: PersonalDocument_.PartyType,
-          agencyId: Common_.AgencyId,
-        }),
+        t.intersection([
+          t.partial({
+            partyId: PersonalDocument_.PartyId,
+            partyType: PersonalDocument_.PartyType,
+            agencyId: Common_.AgencyId,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.union([
           t.type({
             partyId: Defined,
@@ -131,19 +140,20 @@ export const Request: RequestC = t.brand(
     {
       identityId?: Units_.IdentityId;
       customerId?: Units_.IdentityId;
-      payload?: {
+      payload?: ({
         partyId?: PersonalDocument_.PartyId;
         partyType?: PersonalDocument_.PartyType;
         agencyId?: Common_.AgencyId;
-      } & (
-        | {
-            partyId: Defined;
-            partyType: Defined;
-          }
-        | {
-            agencyId: Defined;
-          }
-      );
+      } & Record<string, unknown>) &
+        (
+          | {
+              partyId: Defined;
+              partyType: Defined;
+            }
+          | {
+              agencyId: Defined;
+            }
+        );
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;

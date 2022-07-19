@@ -19,32 +19,45 @@ export type KycService = t.Branded<
   {
     id?: string;
     supportedDocumentTypes?: Array<PersonalDocument_.DocumentType>;
-    supportedDocumentCategories?: Record<string, unknown>;
-  },
+    supportedDocumentCategories?: Record<string, unknown> & Record<string, unknown>;
+  } & Record<string, unknown>,
   KycServiceBrand
 >;
 export type KycServiceC = t.BrandC<
-  t.PartialC<{
-    id: t.StringC;
-    supportedDocumentTypes: t.ArrayC<typeof PersonalDocument_.DocumentType>;
-    supportedDocumentCategories: t.UnknownRecordC;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: t.StringC;
+        supportedDocumentTypes: t.ArrayC<typeof PersonalDocument_.DocumentType>;
+        supportedDocumentCategories: t.IntersectionC<
+          [t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]
+        >;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   KycServiceBrand
 >;
 export const KycService: KycServiceC = t.brand(
-  t.partial({
-    id: t.string,
-    supportedDocumentTypes: t.array(PersonalDocument_.DocumentType),
-    supportedDocumentCategories: t.UnknownRecord,
-  }),
+  t.intersection([
+    t.partial({
+      id: t.string,
+      supportedDocumentTypes: t.array(PersonalDocument_.DocumentType),
+      supportedDocumentCategories: t.intersection([
+        t.UnknownRecord,
+        t.record(t.string, t.unknown),
+      ]),
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       id?: string;
       supportedDocumentTypes?: Array<PersonalDocument_.DocumentType>;
-      supportedDocumentCategories?: Record<string, unknown>;
-    },
+      supportedDocumentCategories?: Record<string, unknown> & Record<string, unknown>;
+    } & Record<string, unknown>,
     KycServiceBrand
   > => true,
   'KycService',

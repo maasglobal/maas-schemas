@@ -36,7 +36,7 @@ export type Response = t.Branded<
   {
     plan?: Plan_.Plan;
     reasons?: Array<Error_.Reason>;
-    debug?: Record<string, unknown>;
+    debug?: Record<string, unknown> & Record<string, unknown>;
   } & {
     plan: Defined;
   },
@@ -48,7 +48,7 @@ export type ResponseC = t.BrandC<
       t.PartialC<{
         plan: typeof Plan_.Plan;
         reasons: t.ArrayC<typeof Error_.Reason>;
-        debug: t.UnknownRecordC;
+        debug: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
       }>,
       t.TypeC<{
         plan: typeof Defined;
@@ -62,7 +62,7 @@ export const Response: ResponseC = t.brand(
     t.partial({
       plan: Plan_.Plan,
       reasons: t.array(Error_.Reason),
-      debug: t.UnknownRecord,
+      debug: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
     }),
     t.type({
       plan: Defined,
@@ -74,7 +74,7 @@ export const Response: ResponseC = t.brand(
     {
       plan?: Plan_.Plan;
       reasons?: Array<Error_.Reason>;
-      debug?: Record<string, unknown>;
+      debug?: Record<string, unknown> & Record<string, unknown>;
     } & {
       plan: Defined;
     },

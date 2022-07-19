@@ -38,7 +38,7 @@ export type Response = t.Branded<
     success?: boolean;
     data?: {
       subscription?: Subscription_.Subscription;
-    };
+    } & Record<string, unknown>;
   } & Record<string, unknown>) & {
     code: Defined;
     success: Defined;
@@ -54,9 +54,14 @@ export type ResponseC = t.BrandC<
           t.PartialC<{
             code: typeof Code_.Code;
             success: t.BooleanC;
-            data: t.PartialC<{
-              subscription: typeof Subscription_.Subscription;
-            }>;
+            data: t.IntersectionC<
+              [
+                t.PartialC<{
+                  subscription: typeof Subscription_.Subscription;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
         ]
@@ -76,9 +81,12 @@ export const Response: ResponseC = t.brand(
       t.partial({
         code: Code_.Code,
         success: t.boolean,
-        data: t.partial({
-          subscription: Subscription_.Subscription,
-        }),
+        data: t.intersection([
+          t.partial({
+            subscription: Subscription_.Subscription,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
       }),
       t.record(t.string, t.unknown),
     ]),
@@ -96,7 +104,7 @@ export const Response: ResponseC = t.brand(
       success?: boolean;
       data?: {
         subscription?: Subscription_.Subscription;
-      };
+      } & Record<string, unknown>;
     } & Record<string, unknown>) & {
       code: Defined;
       success: Defined;

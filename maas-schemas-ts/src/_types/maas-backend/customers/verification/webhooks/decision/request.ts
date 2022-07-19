@@ -47,9 +47,9 @@ export const schemaId =
 // The default export. More information at the top.
 export type Request = t.Branded<
   {
-    payload?: {
+    payload?: ({
       status?: string & ('fail' | 'success');
-      verification?: {
+      verification?: ({
         id?: Units_.Uuid;
         code?: number & (9001 | 9102 | 9103 | 9104 | 9121);
         person?: {
@@ -62,35 +62,35 @@ export type Request = t.Branded<
           country?: Address_.Country;
           validFrom?: Units_.IsoDate | Null;
           validUntil?: Units_.IsoDate | Null;
-        };
+        } & Record<string, unknown>;
         reason?: string;
         reasonCode?: number | Null;
         status?: string;
-        additionalVerifiedData?: Record<string, unknown>;
+        additionalVerifiedData?: Record<string, unknown> & Record<string, unknown>;
         vendorData?: string;
         decisionTime?: string;
         acceptanceTime?: string;
-      } & {
+      } & Record<string, unknown>) & {
         id: Defined;
         status: Defined;
         code: Defined;
         person: Defined;
         document: Defined;
       };
-    } & {
+    } & Record<string, unknown>) & {
       status: Defined;
       verification: Defined;
     };
-    headers?: {
+    headers?: ({
       'x-signature'?: string;
       'x-auth-client'?: Units_.Uuid;
-    } & {
+    } & Record<string, unknown>) & {
       'x-signature': Defined;
       'x-auth-client': Defined;
     };
     technicalData?: {
       ip?: string;
-    };
+    } & Record<string, unknown>;
     rawPayload?: string;
   } & {
     headers: Defined;
@@ -104,62 +104,87 @@ export type RequestC = t.BrandC<
       t.PartialC<{
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              status: t.IntersectionC<
-                [t.StringC, t.UnionC<[t.LiteralC<'fail'>, t.LiteralC<'success'>]>]
-              >;
-              verification: t.IntersectionC<
-                [
-                  t.PartialC<{
-                    id: typeof Units_.Uuid;
-                    code: t.IntersectionC<
-                      [
-                        t.NumberC,
-                        t.UnionC<
-                          [
-                            t.LiteralC<9001>,
-                            t.LiteralC<9102>,
-                            t.LiteralC<9103>,
-                            t.LiteralC<9104>,
-                            t.LiteralC<9121>,
-                          ]
-                        >,
-                      ]
-                    >;
-                    person: t.IntersectionC<
-                      [
-                        t.PartialC<{
-                          firstName: t.UnionC<[typeof Common_.PersonalName, typeof Null]>;
-                          lastName: t.UnionC<[typeof Common_.PersonalName, typeof Null]>;
-                        }>,
-                        t.RecordC<t.StringC, t.UnknownC>,
-                      ]
-                    >;
-                    document: t.PartialC<{
-                      number: t.UnionC<[t.StringC, typeof Null]>;
-                      type: typeof PersonalDocument_.DocumentType;
-                      country: typeof Address_.Country;
-                      validFrom: t.UnionC<[typeof Units_.IsoDate, typeof Null]>;
-                      validUntil: t.UnionC<[typeof Units_.IsoDate, typeof Null]>;
-                    }>;
-                    reason: t.StringC;
-                    reasonCode: t.UnionC<[t.NumberC, typeof Null]>;
-                    status: t.StringC;
-                    additionalVerifiedData: t.UnknownRecordC;
-                    vendorData: t.StringC;
-                    decisionTime: t.StringC;
-                    acceptanceTime: t.StringC;
-                  }>,
-                  t.TypeC<{
-                    id: typeof Defined;
-                    status: typeof Defined;
-                    code: typeof Defined;
-                    person: typeof Defined;
-                    document: typeof Defined;
-                  }>,
-                ]
-              >;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  status: t.IntersectionC<
+                    [t.StringC, t.UnionC<[t.LiteralC<'fail'>, t.LiteralC<'success'>]>]
+                  >;
+                  verification: t.IntersectionC<
+                    [
+                      t.IntersectionC<
+                        [
+                          t.PartialC<{
+                            id: typeof Units_.Uuid;
+                            code: t.IntersectionC<
+                              [
+                                t.NumberC,
+                                t.UnionC<
+                                  [
+                                    t.LiteralC<9001>,
+                                    t.LiteralC<9102>,
+                                    t.LiteralC<9103>,
+                                    t.LiteralC<9104>,
+                                    t.LiteralC<9121>,
+                                  ]
+                                >,
+                              ]
+                            >;
+                            person: t.IntersectionC<
+                              [
+                                t.PartialC<{
+                                  firstName: t.UnionC<
+                                    [typeof Common_.PersonalName, typeof Null]
+                                  >;
+                                  lastName: t.UnionC<
+                                    [typeof Common_.PersonalName, typeof Null]
+                                  >;
+                                }>,
+                                t.RecordC<t.StringC, t.UnknownC>,
+                              ]
+                            >;
+                            document: t.IntersectionC<
+                              [
+                                t.PartialC<{
+                                  number: t.UnionC<[t.StringC, typeof Null]>;
+                                  type: typeof PersonalDocument_.DocumentType;
+                                  country: typeof Address_.Country;
+                                  validFrom: t.UnionC<
+                                    [typeof Units_.IsoDate, typeof Null]
+                                  >;
+                                  validUntil: t.UnionC<
+                                    [typeof Units_.IsoDate, typeof Null]
+                                  >;
+                                }>,
+                                t.RecordC<t.StringC, t.UnknownC>,
+                              ]
+                            >;
+                            reason: t.StringC;
+                            reasonCode: t.UnionC<[t.NumberC, typeof Null]>;
+                            status: t.StringC;
+                            additionalVerifiedData: t.IntersectionC<
+                              [t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]
+                            >;
+                            vendorData: t.StringC;
+                            decisionTime: t.StringC;
+                            acceptanceTime: t.StringC;
+                          }>,
+                          t.RecordC<t.StringC, t.UnknownC>,
+                        ]
+                      >,
+                      t.TypeC<{
+                        id: typeof Defined;
+                        status: typeof Defined;
+                        code: typeof Defined;
+                        person: typeof Defined;
+                        document: typeof Defined;
+                      }>,
+                    ]
+                  >;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               status: typeof Defined;
               verification: typeof Defined;
@@ -168,19 +193,29 @@ export type RequestC = t.BrandC<
         >;
         headers: t.IntersectionC<
           [
-            t.PartialC<{
-              'x-signature': t.StringC;
-              'x-auth-client': typeof Units_.Uuid;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  'x-signature': t.StringC;
+                  'x-auth-client': typeof Units_.Uuid;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               'x-signature': typeof Defined;
               'x-auth-client': typeof Defined;
             }>,
           ]
         >;
-        technicalData: t.PartialC<{
-          ip: t.StringC;
-        }>;
+        technicalData: t.IntersectionC<
+          [
+            t.PartialC<{
+              ip: t.StringC;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
         rawPayload: t.StringC;
       }>,
       t.TypeC<{
@@ -195,73 +230,91 @@ export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
       payload: t.intersection([
-        t.partial({
-          status: t.intersection([
-            t.string,
-            t.union([t.literal('fail'), t.literal('success')]),
-          ]),
-          verification: t.intersection([
-            t.partial({
-              id: Units_.Uuid,
-              code: t.intersection([
-                t.number,
-                t.union([
-                  t.literal(9001),
-                  t.literal(9102),
-                  t.literal(9103),
-                  t.literal(9104),
-                  t.literal(9121),
-                ]),
-              ]),
-              person: t.intersection([
+        t.intersection([
+          t.partial({
+            status: t.intersection([
+              t.string,
+              t.union([t.literal('fail'), t.literal('success')]),
+            ]),
+            verification: t.intersection([
+              t.intersection([
                 t.partial({
-                  firstName: t.union([Common_.PersonalName, Null]),
-                  lastName: t.union([Common_.PersonalName, Null]),
+                  id: Units_.Uuid,
+                  code: t.intersection([
+                    t.number,
+                    t.union([
+                      t.literal(9001),
+                      t.literal(9102),
+                      t.literal(9103),
+                      t.literal(9104),
+                      t.literal(9121),
+                    ]),
+                  ]),
+                  person: t.intersection([
+                    t.partial({
+                      firstName: t.union([Common_.PersonalName, Null]),
+                      lastName: t.union([Common_.PersonalName, Null]),
+                    }),
+                    t.record(t.string, t.unknown),
+                  ]),
+                  document: t.intersection([
+                    t.partial({
+                      number: t.union([t.string, Null]),
+                      type: PersonalDocument_.DocumentType,
+                      country: Address_.Country,
+                      validFrom: t.union([Units_.IsoDate, Null]),
+                      validUntil: t.union([Units_.IsoDate, Null]),
+                    }),
+                    t.record(t.string, t.unknown),
+                  ]),
+                  reason: t.string,
+                  reasonCode: t.union([t.number, Null]),
+                  status: t.string,
+                  additionalVerifiedData: t.intersection([
+                    t.UnknownRecord,
+                    t.record(t.string, t.unknown),
+                  ]),
+                  vendorData: t.string,
+                  decisionTime: t.string,
+                  acceptanceTime: t.string,
                 }),
                 t.record(t.string, t.unknown),
               ]),
-              document: t.partial({
-                number: t.union([t.string, Null]),
-                type: PersonalDocument_.DocumentType,
-                country: Address_.Country,
-                validFrom: t.union([Units_.IsoDate, Null]),
-                validUntil: t.union([Units_.IsoDate, Null]),
+              t.type({
+                id: Defined,
+                status: Defined,
+                code: Defined,
+                person: Defined,
+                document: Defined,
               }),
-              reason: t.string,
-              reasonCode: t.union([t.number, Null]),
-              status: t.string,
-              additionalVerifiedData: t.UnknownRecord,
-              vendorData: t.string,
-              decisionTime: t.string,
-              acceptanceTime: t.string,
-            }),
-            t.type({
-              id: Defined,
-              status: Defined,
-              code: Defined,
-              person: Defined,
-              document: Defined,
-            }),
-          ]),
-        }),
+            ]),
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           status: Defined,
           verification: Defined,
         }),
       ]),
       headers: t.intersection([
-        t.partial({
-          'x-signature': t.string,
-          'x-auth-client': Units_.Uuid,
-        }),
+        t.intersection([
+          t.partial({
+            'x-signature': t.string,
+            'x-auth-client': Units_.Uuid,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           'x-signature': Defined,
           'x-auth-client': Defined,
         }),
       ]),
-      technicalData: t.partial({
-        ip: t.string,
-      }),
+      technicalData: t.intersection([
+        t.partial({
+          ip: t.string,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       rawPayload: t.string,
     }),
     t.type({
@@ -273,9 +326,9 @@ export const Request: RequestC = t.brand(
     x,
   ): x is t.Branded<
     {
-      payload?: {
+      payload?: ({
         status?: string & ('fail' | 'success');
-        verification?: {
+        verification?: ({
           id?: Units_.Uuid;
           code?: number & (9001 | 9102 | 9103 | 9104 | 9121);
           person?: {
@@ -288,35 +341,35 @@ export const Request: RequestC = t.brand(
             country?: Address_.Country;
             validFrom?: Units_.IsoDate | Null;
             validUntil?: Units_.IsoDate | Null;
-          };
+          } & Record<string, unknown>;
           reason?: string;
           reasonCode?: number | Null;
           status?: string;
-          additionalVerifiedData?: Record<string, unknown>;
+          additionalVerifiedData?: Record<string, unknown> & Record<string, unknown>;
           vendorData?: string;
           decisionTime?: string;
           acceptanceTime?: string;
-        } & {
+        } & Record<string, unknown>) & {
           id: Defined;
           status: Defined;
           code: Defined;
           person: Defined;
           document: Defined;
         };
-      } & {
+      } & Record<string, unknown>) & {
         status: Defined;
         verification: Defined;
       };
-      headers?: {
+      headers?: ({
         'x-signature'?: string;
         'x-auth-client'?: Units_.Uuid;
-      } & {
+      } & Record<string, unknown>) & {
         'x-signature': Defined;
         'x-auth-client': Defined;
       };
       technicalData?: {
         ip?: string;
-      };
+      } & Record<string, unknown>;
       rawPayload?: string;
     } & {
       headers: Defined;

@@ -40,7 +40,7 @@ export type Request = t.Branded<
     subscriptionIntentId?: Units_.Uuid;
     payload?: {
       state?: State_.SubscriptionIntentState;
-    };
+    } & Record<string, unknown>;
     headers?: ApiCommon_.Headers;
   } & {
     identityId: Defined;
@@ -57,9 +57,14 @@ export type RequestC = t.BrandC<
         identityId: typeof Units_.IdentityId;
         userId: typeof Units_.IdentityId;
         subscriptionIntentId: typeof Units_.Uuid;
-        payload: t.PartialC<{
-          state: typeof State_.SubscriptionIntentState;
-        }>;
+        payload: t.IntersectionC<
+          [
+            t.PartialC<{
+              state: typeof State_.SubscriptionIntentState;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
         headers: typeof ApiCommon_.Headers;
       }>,
       t.TypeC<{
@@ -78,9 +83,12 @@ export const Request: RequestC = t.brand(
       identityId: Units_.IdentityId,
       userId: Units_.IdentityId,
       subscriptionIntentId: Units_.Uuid,
-      payload: t.partial({
-        state: State_.SubscriptionIntentState,
-      }),
+      payload: t.intersection([
+        t.partial({
+          state: State_.SubscriptionIntentState,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       headers: ApiCommon_.Headers,
     }),
     t.type({
@@ -99,7 +107,7 @@ export const Request: RequestC = t.brand(
       subscriptionIntentId?: Units_.Uuid;
       payload?: {
         state?: State_.SubscriptionIntentState;
-      };
+      } & Record<string, unknown>;
       headers?: ApiCommon_.Headers;
     } & {
       identityId: Defined;

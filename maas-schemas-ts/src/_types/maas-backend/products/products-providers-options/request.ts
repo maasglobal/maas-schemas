@@ -34,10 +34,10 @@ export const schemaId =
 // Payload
 // The purpose of this remains a mystery
 export type Payload = t.Branded<
-  {
+  ({
     lat?: UnitsGeo_.RelaxedLatitude;
     lon?: UnitsGeo_.RelaxedLongitude;
-  } & {
+  } & Record<string, unknown>) & {
     lat: Defined;
     lon: Defined;
   },
@@ -46,10 +46,15 @@ export type Payload = t.Branded<
 export type PayloadC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        lat: typeof UnitsGeo_.RelaxedLatitude;
-        lon: typeof UnitsGeo_.RelaxedLongitude;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            lat: typeof UnitsGeo_.RelaxedLatitude;
+            lon: typeof UnitsGeo_.RelaxedLongitude;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         lat: typeof Defined;
         lon: typeof Defined;
@@ -60,10 +65,13 @@ export type PayloadC = t.BrandC<
 >;
 export const Payload: PayloadC = t.brand(
   t.intersection([
-    t.partial({
-      lat: UnitsGeo_.RelaxedLatitude,
-      lon: UnitsGeo_.RelaxedLongitude,
-    }),
+    t.intersection([
+      t.partial({
+        lat: UnitsGeo_.RelaxedLatitude,
+        lon: UnitsGeo_.RelaxedLongitude,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       lat: Defined,
       lon: Defined,
@@ -72,10 +80,10 @@ export const Payload: PayloadC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       lat?: UnitsGeo_.RelaxedLatitude;
       lon?: UnitsGeo_.RelaxedLongitude;
-    } & {
+    } & Record<string, unknown>) & {
       lat: Defined;
       lon: Defined;
     },

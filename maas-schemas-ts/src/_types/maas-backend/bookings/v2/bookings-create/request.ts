@@ -38,11 +38,11 @@ export const schemaId =
 export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
-    payload?: {
+    payload?: ({
       paymentSourceId?: Common_.PaymentSourceId;
       booking?: Response_.Option;
       customerSelection?: CustomerSelection_.CustomerSelection;
-    } & {
+    } & Record<string, unknown>) & {
       paymentSourceId: Defined;
     };
     headers?: ApiCommon_.Headers;
@@ -59,11 +59,16 @@ export type RequestC = t.BrandC<
         identityId: typeof Units_.IdentityId;
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              paymentSourceId: typeof Common_.PaymentSourceId;
-              booking: typeof Response_.Option;
-              customerSelection: typeof CustomerSelection_.CustomerSelection;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  paymentSourceId: typeof Common_.PaymentSourceId;
+                  booking: typeof Response_.Option;
+                  customerSelection: typeof CustomerSelection_.CustomerSelection;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               paymentSourceId: typeof Defined;
             }>,
@@ -84,11 +89,14 @@ export const Request: RequestC = t.brand(
     t.partial({
       identityId: Units_.IdentityId,
       payload: t.intersection([
-        t.partial({
-          paymentSourceId: Common_.PaymentSourceId,
-          booking: Response_.Option,
-          customerSelection: CustomerSelection_.CustomerSelection,
-        }),
+        t.intersection([
+          t.partial({
+            paymentSourceId: Common_.PaymentSourceId,
+            booking: Response_.Option,
+            customerSelection: CustomerSelection_.CustomerSelection,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           paymentSourceId: Defined,
         }),
@@ -105,11 +113,11 @@ export const Request: RequestC = t.brand(
   ): x is t.Branded<
     {
       identityId?: Units_.IdentityId;
-      payload?: {
+      payload?: ({
         paymentSourceId?: Common_.PaymentSourceId;
         booking?: Response_.Option;
         customerSelection?: CustomerSelection_.CustomerSelection;
-      } & {
+      } & Record<string, unknown>) & {
         paymentSourceId: Defined;
       };
       headers?: ApiCommon_.Headers;

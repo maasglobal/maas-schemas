@@ -31,17 +31,17 @@ export const schemaId = 'https://schemas.maas.global/tsp/stations-list/request.j
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  | ({
+  | (({
       location?: UnitsGeo_.ShortLocationString;
       radius?: UnitsGeo_.Distance;
-    } & {
+    } & Record<string, unknown>) & {
       location: Defined;
     })
-  | ({
+  | (({
       name?: string;
       count?: number;
       type?: 'origin' | 'destination' | 'viaAvoid';
-    } & {
+    } & Record<string, unknown>) & {
       name: Defined;
       type: Defined;
     }),
@@ -52,10 +52,15 @@ export type RequestC = t.BrandC<
     [
       t.IntersectionC<
         [
-          t.PartialC<{
-            location: typeof UnitsGeo_.ShortLocationString;
-            radius: typeof UnitsGeo_.Distance;
-          }>,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                location: typeof UnitsGeo_.ShortLocationString;
+                radius: typeof UnitsGeo_.Distance;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
           t.TypeC<{
             location: typeof Defined;
           }>,
@@ -63,13 +68,22 @@ export type RequestC = t.BrandC<
       >,
       t.IntersectionC<
         [
-          t.PartialC<{
-            name: t.StringC;
-            count: t.NumberC;
-            type: t.UnionC<
-              [t.LiteralC<'origin'>, t.LiteralC<'destination'>, t.LiteralC<'viaAvoid'>]
-            >;
-          }>,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                name: t.StringC;
+                count: t.NumberC;
+                type: t.UnionC<
+                  [
+                    t.LiteralC<'origin'>,
+                    t.LiteralC<'destination'>,
+                    t.LiteralC<'viaAvoid'>,
+                  ]
+                >;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
           t.TypeC<{
             name: typeof Defined;
             type: typeof Defined;
@@ -83,24 +97,30 @@ export type RequestC = t.BrandC<
 export const Request: RequestC = t.brand(
   t.union([
     t.intersection([
-      t.partial({
-        location: UnitsGeo_.ShortLocationString,
-        radius: UnitsGeo_.Distance,
-      }),
+      t.intersection([
+        t.partial({
+          location: UnitsGeo_.ShortLocationString,
+          radius: UnitsGeo_.Distance,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       t.type({
         location: Defined,
       }),
     ]),
     t.intersection([
-      t.partial({
-        name: t.string,
-        count: t.number,
-        type: t.union([
-          t.literal('origin'),
-          t.literal('destination'),
-          t.literal('viaAvoid'),
-        ]),
-      }),
+      t.intersection([
+        t.partial({
+          name: t.string,
+          count: t.number,
+          type: t.union([
+            t.literal('origin'),
+            t.literal('destination'),
+            t.literal('viaAvoid'),
+          ]),
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       t.type({
         name: Defined,
         type: Defined,
@@ -110,17 +130,17 @@ export const Request: RequestC = t.brand(
   (
     x,
   ): x is t.Branded<
-    | ({
+    | (({
         location?: UnitsGeo_.ShortLocationString;
         radius?: UnitsGeo_.Distance;
-      } & {
+      } & Record<string, unknown>) & {
         location: Defined;
       })
-    | ({
+    | (({
         name?: string;
         count?: number;
         type?: 'origin' | 'destination' | 'viaAvoid';
-      } & {
+      } & Record<string, unknown>) & {
         name: Defined;
         type: Defined;
       }),

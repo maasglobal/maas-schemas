@@ -32,17 +32,19 @@ export const schemaId =
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
-  | ({
+  | (({
       bookings?: Array<Booking_.Booking>;
-    } & {
+    } & Record<string, unknown>) & {
       bookings: Defined;
     })
-  | ({
-      failures?: Array<{
-        message?: string;
-        productId?: string;
-      }>;
-    } & {
+  | (({
+      failures?: Array<
+        {
+          message?: string;
+          productId?: string;
+        } & Record<string, unknown>
+      >;
+    } & Record<string, unknown>) & {
       failures: Defined;
     }),
   ResponseBrand
@@ -52,9 +54,14 @@ export type ResponseC = t.BrandC<
     [
       t.IntersectionC<
         [
-          t.PartialC<{
-            bookings: t.ArrayC<typeof Booking_.Booking>;
-          }>,
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                bookings: t.ArrayC<typeof Booking_.Booking>;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
           t.TypeC<{
             bookings: typeof Defined;
           }>,
@@ -62,14 +69,24 @@ export type ResponseC = t.BrandC<
       >,
       t.IntersectionC<
         [
-          t.PartialC<{
-            failures: t.ArrayC<
+          t.IntersectionC<
+            [
               t.PartialC<{
-                message: t.StringC;
-                productId: t.StringC;
-              }>
-            >;
-          }>,
+                failures: t.ArrayC<
+                  t.IntersectionC<
+                    [
+                      t.PartialC<{
+                        message: t.StringC;
+                        productId: t.StringC;
+                      }>,
+                      t.RecordC<t.StringC, t.UnknownC>,
+                    ]
+                  >
+                >;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
           t.TypeC<{
             failures: typeof Defined;
           }>,
@@ -82,22 +99,31 @@ export type ResponseC = t.BrandC<
 export const Response: ResponseC = t.brand(
   t.union([
     t.intersection([
-      t.partial({
-        bookings: t.array(Booking_.Booking),
-      }),
+      t.intersection([
+        t.partial({
+          bookings: t.array(Booking_.Booking),
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       t.type({
         bookings: Defined,
       }),
     ]),
     t.intersection([
-      t.partial({
-        failures: t.array(
-          t.partial({
-            message: t.string,
-            productId: t.string,
-          }),
-        ),
-      }),
+      t.intersection([
+        t.partial({
+          failures: t.array(
+            t.intersection([
+              t.partial({
+                message: t.string,
+                productId: t.string,
+              }),
+              t.record(t.string, t.unknown),
+            ]),
+          ),
+        }),
+        t.record(t.string, t.unknown),
+      ]),
       t.type({
         failures: Defined,
       }),
@@ -106,17 +132,19 @@ export const Response: ResponseC = t.brand(
   (
     x,
   ): x is t.Branded<
-    | ({
+    | (({
         bookings?: Array<Booking_.Booking>;
-      } & {
+      } & Record<string, unknown>) & {
         bookings: Defined;
       })
-    | ({
-        failures?: Array<{
-          message?: string;
-          productId?: string;
-        }>;
-      } & {
+    | (({
+        failures?: Array<
+          {
+            message?: string;
+            productId?: string;
+          } & Record<string, unknown>
+        >;
+      } & Record<string, unknown>) & {
         failures: Defined;
       }),
     ResponseBrand

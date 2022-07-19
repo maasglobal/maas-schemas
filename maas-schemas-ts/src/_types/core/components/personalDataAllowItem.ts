@@ -19,28 +19,36 @@ export type PersonalDataAllowItem = t.Branded<
   {
     type?: 'allOf' | 'anyOf';
     items?: Array<string>;
-  },
+  } & Record<string, unknown>,
   PersonalDataAllowItemBrand
 >;
 export type PersonalDataAllowItemC = t.BrandC<
-  t.PartialC<{
-    type: t.UnionC<[t.LiteralC<'allOf'>, t.LiteralC<'anyOf'>]>;
-    items: t.ArrayC<t.StringC>;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        type: t.UnionC<[t.LiteralC<'allOf'>, t.LiteralC<'anyOf'>]>;
+        items: t.ArrayC<t.StringC>;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   PersonalDataAllowItemBrand
 >;
 export const PersonalDataAllowItem: PersonalDataAllowItemC = t.brand(
-  t.partial({
-    type: t.union([t.literal('allOf'), t.literal('anyOf')]),
-    items: t.array(t.string),
-  }),
+  t.intersection([
+    t.partial({
+      type: t.union([t.literal('allOf'), t.literal('anyOf')]),
+      items: t.array(t.string),
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       type?: 'allOf' | 'anyOf';
       items?: Array<string>;
-    },
+    } & Record<string, unknown>,
     PersonalDataAllowItemBrand
   > => true,
   'PersonalDataAllowItem',

@@ -53,7 +53,7 @@ export type Payload = t.Branded<
     modes?: string &
       ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT');
     transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
-    options?: Record<string, unknown>;
+    options?: Record<string, unknown> & Record<string, unknown>;
     bookingIdToExtend?: Units_.Uuid;
     spaceDemand?: SpaceDemand_.SpaceDemandString;
   } & Record<
@@ -72,7 +72,7 @@ export type Payload = t.Branded<
     | Units_.Time
     | (string & ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT'))
     | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
-    | Record<string, unknown>
+    | (Record<string, unknown> & Record<string, unknown>)
     | Units_.Uuid
     | SpaceDemand_.SpaceDemandString
     | (string | number | boolean)
@@ -129,7 +129,9 @@ export type PayloadC = t.BrandC<
                 >,
               ]
             >;
-            options: t.UnknownRecordC;
+            options: t.IntersectionC<
+              [t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]
+            >;
             bookingIdToExtend: typeof Units_.Uuid;
             spaceDemand: typeof SpaceDemand_.SpaceDemandString;
           }>,
@@ -178,7 +180,7 @@ export type PayloadC = t.BrandC<
                     >,
                   ]
                 >,
-                t.UnknownRecordC,
+                t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>,
                 typeof Units_.Uuid,
                 typeof SpaceDemand_.SpaceDemandString,
                 t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>,
@@ -232,7 +234,7 @@ export const Payload: PayloadC = t.brand(
             t.literal('RAIL'),
           ]),
         ]),
-        options: t.UnknownRecord,
+        options: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
         bookingIdToExtend: Units_.Uuid,
         spaceDemand: SpaceDemand_.SpaceDemandString,
       }),
@@ -272,7 +274,7 @@ export const Payload: PayloadC = t.brand(
               t.literal('RAIL'),
             ]),
           ]),
-          t.UnknownRecord,
+          t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
           Units_.Uuid,
           SpaceDemand_.SpaceDemandString,
           t.union([t.string, t.number, t.boolean]),
@@ -303,7 +305,7 @@ export const Payload: PayloadC = t.brand(
       modes?: string &
         ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT');
       transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
-      options?: Record<string, unknown>;
+      options?: Record<string, unknown> & Record<string, unknown>;
       bookingIdToExtend?: Units_.Uuid;
       spaceDemand?: SpaceDemand_.SpaceDemandString;
     } & Record<
@@ -323,7 +325,7 @@ export const Payload: PayloadC = t.brand(
       | (string &
           ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT'))
       | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
-      | Record<string, unknown>
+      | (Record<string, unknown> & Record<string, unknown>)
       | Units_.Uuid
       | SpaceDemand_.SpaceDemandString
       | (string | number | boolean)
@@ -342,11 +344,11 @@ export interface PayloadBrand {
 // Request
 // The default export. More information at the top.
 export type Request = t.Branded<
-  {
+  ({
     identityId?: Units_.IdentityId;
     payload?: Payload;
     headers?: ApiCommon_.Headers;
-  } & {
+  } & Record<string, unknown>) & {
     identityId: Defined;
     payload: Defined;
   },
@@ -355,11 +357,16 @@ export type Request = t.Branded<
 export type RequestC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        identityId: typeof Units_.IdentityId;
-        payload: typeof Payload;
-        headers: typeof ApiCommon_.Headers;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            identityId: typeof Units_.IdentityId;
+            payload: typeof Payload;
+            headers: typeof ApiCommon_.Headers;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         identityId: typeof Defined;
         payload: typeof Defined;
@@ -370,11 +377,14 @@ export type RequestC = t.BrandC<
 >;
 export const Request: RequestC = t.brand(
   t.intersection([
-    t.partial({
-      identityId: Units_.IdentityId,
-      payload: Payload,
-      headers: ApiCommon_.Headers,
-    }),
+    t.intersection([
+      t.partial({
+        identityId: Units_.IdentityId,
+        payload: Payload,
+        headers: ApiCommon_.Headers,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       identityId: Defined,
       payload: Defined,
@@ -383,11 +393,11 @@ export const Request: RequestC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       identityId?: Units_.IdentityId;
       payload?: Payload;
       headers?: ApiCommon_.Headers;
-    } & {
+    } & Record<string, unknown>) & {
       identityId: Defined;
       payload: Defined;
     },

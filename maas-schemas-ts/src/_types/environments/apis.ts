@@ -88,19 +88,24 @@ export const examplesApiDescription: NonEmptyArray<ApiDescription> = ([
 // Api
 // The purpose of this remains a mystery
 export type Api = t.Branded<
-  {
+  ({
     name?: ApiName;
     description?: ApiDescription;
-  } & {},
+  } & Record<string, unknown>) & {},
   ApiBrand
 >;
 export type ApiC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        name: typeof ApiName;
-        description: typeof ApiDescription;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            name: typeof ApiName;
+            description: typeof ApiDescription;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{}>,
     ]
   >,
@@ -108,19 +113,22 @@ export type ApiC = t.BrandC<
 >;
 export const Api: ApiC = t.brand(
   t.intersection([
-    t.partial({
-      name: ApiName,
-      description: ApiDescription,
-    }),
+    t.intersection([
+      t.partial({
+        name: ApiName,
+        description: ApiDescription,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({}),
   ]),
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       name?: ApiName;
       description?: ApiDescription;
-    } & {},
+    } & Record<string, unknown>) & {},
     ApiBrand
   > => true,
   'Api',

@@ -53,7 +53,7 @@ export const minimumRef: Ref = (0 as unknown) as Ref;
 // WithConfigurator
 // Works with configurator
 export type WithConfigurator = t.Branded<
-  {
+  ({
     identityId?: Units_.IdentityId;
     bookingId?: Units_.Uuid;
     ref?: Ref;
@@ -62,7 +62,7 @@ export type WithConfigurator = t.Branded<
     meta?: BookingMeta_.BookingMeta;
     configurator?: Configurator_.Configurator;
     customer?: BookingOption_.Customer;
-  } & {
+  } & Record<string, unknown>) & {
     ref: Defined;
     terms: Defined;
     meta: Defined;
@@ -73,16 +73,21 @@ export type WithConfigurator = t.Branded<
 export type WithConfiguratorC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        identityId: typeof Units_.IdentityId;
-        bookingId: typeof Units_.Uuid;
-        ref: typeof Ref;
-        product: typeof Product_.Product;
-        terms: typeof Terms_.Terms;
-        meta: typeof BookingMeta_.BookingMeta;
-        configurator: typeof Configurator_.Configurator;
-        customer: typeof BookingOption_.Customer;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            identityId: typeof Units_.IdentityId;
+            bookingId: typeof Units_.Uuid;
+            ref: typeof Ref;
+            product: typeof Product_.Product;
+            terms: typeof Terms_.Terms;
+            meta: typeof BookingMeta_.BookingMeta;
+            configurator: typeof Configurator_.Configurator;
+            customer: typeof BookingOption_.Customer;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         ref: typeof Defined;
         terms: typeof Defined;
@@ -95,16 +100,19 @@ export type WithConfiguratorC = t.BrandC<
 >;
 export const WithConfigurator: WithConfiguratorC = t.brand(
   t.intersection([
-    t.partial({
-      identityId: Units_.IdentityId,
-      bookingId: Units_.Uuid,
-      ref: Ref,
-      product: Product_.Product,
-      terms: Terms_.Terms,
-      meta: BookingMeta_.BookingMeta,
-      configurator: Configurator_.Configurator,
-      customer: BookingOption_.Customer,
-    }),
+    t.intersection([
+      t.partial({
+        identityId: Units_.IdentityId,
+        bookingId: Units_.Uuid,
+        ref: Ref,
+        product: Product_.Product,
+        terms: Terms_.Terms,
+        meta: BookingMeta_.BookingMeta,
+        configurator: Configurator_.Configurator,
+        customer: BookingOption_.Customer,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       ref: Defined,
       terms: Defined,
@@ -115,7 +123,7 @@ export const WithConfigurator: WithConfiguratorC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       identityId?: Units_.IdentityId;
       bookingId?: Units_.Uuid;
       ref?: Ref;
@@ -124,7 +132,7 @@ export const WithConfigurator: WithConfiguratorC = t.brand(
       meta?: BookingMeta_.BookingMeta;
       configurator?: Configurator_.Configurator;
       customer?: BookingOption_.Customer;
-    } & {
+    } & Record<string, unknown>) & {
       ref: Defined;
       terms: Defined;
       meta: Defined;
@@ -141,7 +149,7 @@ export interface WithConfiguratorBrand {
 // WithFares
 // Works with fares
 export type WithFares = t.Branded<
-  {
+  ({
     identityId?: Units_.IdentityId;
     bookingId?: Units_.Uuid;
     ref?: number;
@@ -150,7 +158,7 @@ export type WithFares = t.Branded<
     terms?: Terms_.Terms;
     meta?: BookingMeta_.BookingMeta;
     customer?: BookingOption_.Customer;
-  } & {
+  } & Record<string, unknown>) & {
     ref: Defined;
     terms: Defined;
     meta: Defined;
@@ -161,16 +169,21 @@ export type WithFares = t.Branded<
 export type WithFaresC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        identityId: typeof Units_.IdentityId;
-        bookingId: typeof Units_.Uuid;
-        ref: t.NumberC;
-        product: typeof Product_.Product;
-        fares: t.ArrayC<typeof Fare_.Fare>;
-        terms: typeof Terms_.Terms;
-        meta: typeof BookingMeta_.BookingMeta;
-        customer: typeof BookingOption_.Customer;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            identityId: typeof Units_.IdentityId;
+            bookingId: typeof Units_.Uuid;
+            ref: t.NumberC;
+            product: typeof Product_.Product;
+            fares: t.ArrayC<typeof Fare_.Fare>;
+            terms: typeof Terms_.Terms;
+            meta: typeof BookingMeta_.BookingMeta;
+            customer: typeof BookingOption_.Customer;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         ref: typeof Defined;
         terms: typeof Defined;
@@ -183,16 +196,19 @@ export type WithFaresC = t.BrandC<
 >;
 export const WithFares: WithFaresC = t.brand(
   t.intersection([
-    t.partial({
-      identityId: Units_.IdentityId,
-      bookingId: Units_.Uuid,
-      ref: t.number,
-      product: Product_.Product,
-      fares: t.array(Fare_.Fare),
-      terms: Terms_.Terms,
-      meta: BookingMeta_.BookingMeta,
-      customer: BookingOption_.Customer,
-    }),
+    t.intersection([
+      t.partial({
+        identityId: Units_.IdentityId,
+        bookingId: Units_.Uuid,
+        ref: t.number,
+        product: Product_.Product,
+        fares: t.array(Fare_.Fare),
+        terms: Terms_.Terms,
+        meta: BookingMeta_.BookingMeta,
+        customer: BookingOption_.Customer,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       ref: Defined,
       terms: Defined,
@@ -203,7 +219,7 @@ export const WithFares: WithFaresC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       identityId?: Units_.IdentityId;
       bookingId?: Units_.Uuid;
       ref?: number;
@@ -212,7 +228,7 @@ export const WithFares: WithFaresC = t.brand(
       terms?: Terms_.Terms;
       meta?: BookingMeta_.BookingMeta;
       customer?: BookingOption_.Customer;
-    } & {
+    } & Record<string, unknown>) & {
       ref: Defined;
       terms: Defined;
       meta: Defined;
@@ -229,7 +245,7 @@ export interface WithFaresBrand {
 // WithCost
 // Works with cost
 export type WithCost = t.Branded<
-  {
+  ({
     identityId?: Units_.IdentityId;
     bookingId?: Units_.Uuid;
     ref?: number;
@@ -238,7 +254,7 @@ export type WithCost = t.Branded<
     terms?: Terms_.Terms;
     meta?: BookingMeta_.BookingMeta;
     customer?: BookingOption_.Customer;
-  } & {
+  } & Record<string, unknown>) & {
     ref: Defined;
     terms: Defined;
     meta: Defined;
@@ -249,16 +265,21 @@ export type WithCost = t.Branded<
 export type WithCostC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        identityId: typeof Units_.IdentityId;
-        bookingId: typeof Units_.Uuid;
-        ref: t.NumberC;
-        product: typeof Product_.Product;
-        cost: typeof Cost_.Cost;
-        terms: typeof Terms_.Terms;
-        meta: typeof BookingMeta_.BookingMeta;
-        customer: typeof BookingOption_.Customer;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            identityId: typeof Units_.IdentityId;
+            bookingId: typeof Units_.Uuid;
+            ref: t.NumberC;
+            product: typeof Product_.Product;
+            cost: typeof Cost_.Cost;
+            terms: typeof Terms_.Terms;
+            meta: typeof BookingMeta_.BookingMeta;
+            customer: typeof BookingOption_.Customer;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         ref: typeof Defined;
         terms: typeof Defined;
@@ -271,16 +292,19 @@ export type WithCostC = t.BrandC<
 >;
 export const WithCost: WithCostC = t.brand(
   t.intersection([
-    t.partial({
-      identityId: Units_.IdentityId,
-      bookingId: Units_.Uuid,
-      ref: t.number,
-      product: Product_.Product,
-      cost: Cost_.Cost,
-      terms: Terms_.Terms,
-      meta: BookingMeta_.BookingMeta,
-      customer: BookingOption_.Customer,
-    }),
+    t.intersection([
+      t.partial({
+        identityId: Units_.IdentityId,
+        bookingId: Units_.Uuid,
+        ref: t.number,
+        product: Product_.Product,
+        cost: Cost_.Cost,
+        terms: Terms_.Terms,
+        meta: BookingMeta_.BookingMeta,
+        customer: BookingOption_.Customer,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       ref: Defined,
       terms: Defined,
@@ -291,7 +315,7 @@ export const WithCost: WithCostC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       identityId?: Units_.IdentityId;
       bookingId?: Units_.Uuid;
       ref?: number;
@@ -300,7 +324,7 @@ export const WithCost: WithCostC = t.brand(
       terms?: Terms_.Terms;
       meta?: BookingMeta_.BookingMeta;
       customer?: BookingOption_.Customer;
-    } & {
+    } & Record<string, unknown>) & {
       ref: Defined;
       terms: Defined;
       meta: Defined;

@@ -46,7 +46,7 @@ export type Request = t.Branded<
       body?: string;
       title?: string;
       ticket_id?: string;
-    };
+    } & Record<string, unknown>;
   } & {
     devices: Defined;
     notification: Defined;
@@ -71,11 +71,16 @@ export type RequestC = t.BrandC<
             ]
           >
         >;
-        notification: t.PartialC<{
-          body: t.StringC;
-          title: t.StringC;
-          ticket_id: t.StringC;
-        }>;
+        notification: t.IntersectionC<
+          [
+            t.PartialC<{
+              body: t.StringC;
+              title: t.StringC;
+              ticket_id: t.StringC;
+            }>,
+            t.RecordC<t.StringC, t.UnknownC>,
+          ]
+        >;
       }>,
       t.TypeC<{
         devices: typeof Defined;
@@ -100,11 +105,14 @@ export const Request: RequestC = t.brand(
           }),
         ]),
       ),
-      notification: t.partial({
-        body: t.string,
-        title: t.string,
-        ticket_id: t.string,
-      }),
+      notification: t.intersection([
+        t.partial({
+          body: t.string,
+          title: t.string,
+          ticket_id: t.string,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
     }),
     t.type({
       devices: Defined,
@@ -128,7 +136,7 @@ export const Request: RequestC = t.brand(
         body?: string;
         title?: string;
         ticket_id?: string;
-      };
+      } & Record<string, unknown>;
     } & {
       devices: Defined;
       notification: Defined;

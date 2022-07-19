@@ -32,10 +32,10 @@ export const schemaId =
 // The default export. More information at the top.
 export type Response = t.Branded<
   {
-    results?: {
+    results?: ({
       successCount?: number;
       failureCount?: number;
-    } & {
+    } & Record<string, unknown>) & {
       successCount: Defined;
       failureCount: Defined;
     };
@@ -50,10 +50,15 @@ export type ResponseC = t.BrandC<
       t.PartialC<{
         results: t.IntersectionC<
           [
-            t.PartialC<{
-              successCount: t.NumberC;
-              failureCount: t.NumberC;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  successCount: t.NumberC;
+                  failureCount: t.NumberC;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               successCount: typeof Defined;
               failureCount: typeof Defined;
@@ -72,10 +77,13 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       results: t.intersection([
-        t.partial({
-          successCount: t.number,
-          failureCount: t.number,
-        }),
+        t.intersection([
+          t.partial({
+            successCount: t.number,
+            failureCount: t.number,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           successCount: Defined,
           failureCount: Defined,
@@ -90,10 +98,10 @@ export const Response: ResponseC = t.brand(
     x,
   ): x is t.Branded<
     {
-      results?: {
+      results?: ({
         successCount?: number;
         failureCount?: number;
-      } & {
+      } & Record<string, unknown>) & {
         successCount: Defined;
         failureCount: Defined;
       };

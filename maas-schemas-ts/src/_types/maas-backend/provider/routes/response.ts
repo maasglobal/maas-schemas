@@ -49,11 +49,11 @@ export interface ItinerariesBrand {
 // Plan1
 // The purpose of this remains a mystery
 export type Plan1 = t.Branded<
-  {
+  ({
     from?: Place_.Place;
     outwards?: Itineraries;
     returns?: Itineraries;
-  } & {
+  } & Record<string, unknown>) & {
     from: Defined;
     outwards: Defined;
     returns: Defined;
@@ -63,11 +63,16 @@ export type Plan1 = t.Branded<
 export type Plan1C = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        from: typeof Place_.Place;
-        outwards: typeof Itineraries;
-        returns: typeof Itineraries;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            from: typeof Place_.Place;
+            outwards: typeof Itineraries;
+            returns: typeof Itineraries;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         from: typeof Defined;
         outwards: typeof Defined;
@@ -79,11 +84,14 @@ export type Plan1C = t.BrandC<
 >;
 export const Plan1: Plan1C = t.brand(
   t.intersection([
-    t.partial({
-      from: Place_.Place,
-      outwards: Itineraries,
-      returns: Itineraries,
-    }),
+    t.intersection([
+      t.partial({
+        from: Place_.Place,
+        outwards: Itineraries,
+        returns: Itineraries,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       from: Defined,
       outwards: Defined,
@@ -93,11 +101,11 @@ export const Plan1: Plan1C = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       from?: Place_.Place;
       outwards?: Itineraries;
       returns?: Itineraries;
-    } & {
+    } & Record<string, unknown>) & {
       from: Defined;
       outwards: Defined;
       returns: Defined;
@@ -113,10 +121,10 @@ export interface Plan1Brand {
 // Plan2
 // The purpose of this remains a mystery
 export type Plan2 = t.Branded<
-  {
+  ({
     from?: Place_.Place;
     itineraries?: Itineraries;
-  } & {
+  } & Record<string, unknown>) & {
     from: Defined;
     itineraries: Defined;
   },
@@ -125,10 +133,15 @@ export type Plan2 = t.Branded<
 export type Plan2C = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        from: typeof Place_.Place;
-        itineraries: typeof Itineraries;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            from: typeof Place_.Place;
+            itineraries: typeof Itineraries;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         from: typeof Defined;
         itineraries: typeof Defined;
@@ -139,10 +152,13 @@ export type Plan2C = t.BrandC<
 >;
 export const Plan2: Plan2C = t.brand(
   t.intersection([
-    t.partial({
-      from: Place_.Place,
-      itineraries: Itineraries,
-    }),
+    t.intersection([
+      t.partial({
+        from: Place_.Place,
+        itineraries: Itineraries,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       from: Defined,
       itineraries: Defined,
@@ -151,10 +167,10 @@ export const Plan2: Plan2C = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       from?: Place_.Place;
       itineraries?: Itineraries;
-    } & {
+    } & Record<string, unknown>) & {
       from: Defined;
       itineraries: Defined;
     },
@@ -171,25 +187,33 @@ export interface Plan2Brand {
 export type Response = t.Branded<
   {
     plan?: Plan1 | Plan2;
-  },
+  } & Record<string, unknown>,
   ResponseBrand
 >;
 export type ResponseC = t.BrandC<
-  t.PartialC<{
-    plan: t.UnionC<[typeof Plan1, typeof Plan2]>;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        plan: t.UnionC<[typeof Plan1, typeof Plan2]>;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   ResponseBrand
 >;
 export const Response: ResponseC = t.brand(
-  t.partial({
-    plan: t.union([Plan1, Plan2]),
-  }),
+  t.intersection([
+    t.partial({
+      plan: t.union([Plan1, Plan2]),
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
       plan?: Plan1 | Plan2;
-    },
+    } & Record<string, unknown>,
     ResponseBrand
   > => true,
   'Response',

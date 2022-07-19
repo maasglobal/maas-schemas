@@ -35,7 +35,7 @@ export type Response = t.Branded<
   {
     type?: 'FeatureCollection';
     features?: Array<Geolocation_.Feature>;
-    debug?: Record<string, unknown>;
+    debug?: Record<string, unknown> & Record<string, unknown>;
   } & {
     type: Defined;
     features: Defined;
@@ -48,7 +48,7 @@ export type ResponseC = t.BrandC<
       t.PartialC<{
         type: t.LiteralC<'FeatureCollection'>;
         features: t.ArrayC<typeof Geolocation_.Feature>;
-        debug: t.UnknownRecordC;
+        debug: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
       }>,
       t.TypeC<{
         type: typeof Defined;
@@ -63,7 +63,7 @@ export const Response: ResponseC = t.brand(
     t.partial({
       type: t.literal('FeatureCollection'),
       features: t.array(Geolocation_.Feature),
-      debug: t.UnknownRecord,
+      debug: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
     }),
     t.type({
       type: Defined,
@@ -76,7 +76,7 @@ export const Response: ResponseC = t.brand(
     {
       type?: 'FeatureCollection';
       features?: Array<Geolocation_.Feature>;
-      debug?: Record<string, unknown>;
+      debug?: Record<string, unknown> & Record<string, unknown>;
     } & {
       type: Defined;
       features: Defined;

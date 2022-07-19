@@ -32,7 +32,7 @@ export type MODE_TAXI = t.Branded<
       name?: string;
       image?: Units_.Url;
       rating?: number;
-    };
+    } & Record<string, unknown>;
     pickupIdentificationCode?: string;
     dispatchOrderId?: string;
     eta?: Units_.Time;
@@ -42,7 +42,7 @@ export type MODE_TAXI = t.Branded<
       name?: string;
       phone?: Common_.Phone;
       supportUrl?: Units_.Url;
-    };
+    } & Record<string, unknown>;
     messageToDriver?: string;
     spaceDemand?: SpaceDemand_.SpaceDemandObject;
     pickupAddress?: Place_.Place;
@@ -58,22 +58,32 @@ export type MODE_TAXIC = t.BrandC<
     vehicleLocation: typeof UnitsGeo_.Location;
     vehicleType: t.StringC;
     vehicleDescription: t.StringC;
-    driver: t.PartialC<{
-      phone: t.StringC;
-      name: t.StringC;
-      image: typeof Units_.Url;
-      rating: t.NumberC;
-    }>;
+    driver: t.IntersectionC<
+      [
+        t.PartialC<{
+          phone: t.StringC;
+          name: t.StringC;
+          image: typeof Units_.Url;
+          rating: t.NumberC;
+        }>,
+        t.RecordC<t.StringC, t.UnknownC>,
+      ]
+    >;
     pickupIdentificationCode: t.StringC;
     dispatchOrderId: t.StringC;
     eta: typeof Units_.Time;
     pickupAt: typeof Units_.Time;
-    taxiCenter: t.PartialC<{
-      image: typeof Units_.Url;
-      name: t.StringC;
-      phone: typeof Common_.Phone;
-      supportUrl: typeof Units_.Url;
-    }>;
+    taxiCenter: t.IntersectionC<
+      [
+        t.PartialC<{
+          image: typeof Units_.Url;
+          name: t.StringC;
+          phone: typeof Common_.Phone;
+          supportUrl: typeof Units_.Url;
+        }>,
+        t.RecordC<t.StringC, t.UnknownC>,
+      ]
+    >;
     messageToDriver: t.StringC;
     spaceDemand: typeof SpaceDemand_.SpaceDemandObject;
     pickupAddress: typeof Place_.Place;
@@ -89,22 +99,28 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
     vehicleLocation: UnitsGeo_.Location,
     vehicleType: t.string,
     vehicleDescription: t.string,
-    driver: t.partial({
-      phone: t.string,
-      name: t.string,
-      image: Units_.Url,
-      rating: t.number,
-    }),
+    driver: t.intersection([
+      t.partial({
+        phone: t.string,
+        name: t.string,
+        image: Units_.Url,
+        rating: t.number,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     pickupIdentificationCode: t.string,
     dispatchOrderId: t.string,
     eta: Units_.Time,
     pickupAt: Units_.Time,
-    taxiCenter: t.partial({
-      image: Units_.Url,
-      name: t.string,
-      phone: Common_.Phone,
-      supportUrl: Units_.Url,
-    }),
+    taxiCenter: t.intersection([
+      t.partial({
+        image: Units_.Url,
+        name: t.string,
+        phone: Common_.Phone,
+        supportUrl: Units_.Url,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     messageToDriver: t.string,
     spaceDemand: SpaceDemand_.SpaceDemandObject,
     pickupAddress: Place_.Place,
@@ -125,7 +141,7 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
         name?: string;
         image?: Units_.Url;
         rating?: number;
-      };
+      } & Record<string, unknown>;
       pickupIdentificationCode?: string;
       dispatchOrderId?: string;
       eta?: Units_.Time;
@@ -135,7 +151,7 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
         name?: string;
         phone?: Common_.Phone;
         supportUrl?: Units_.Url;
-      };
+      } & Record<string, unknown>;
       messageToDriver?: string;
       spaceDemand?: SpaceDemand_.SpaceDemandObject;
       pickupAddress?: Place_.Place;

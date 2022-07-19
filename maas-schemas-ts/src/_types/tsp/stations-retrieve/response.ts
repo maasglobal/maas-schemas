@@ -52,65 +52,73 @@ export type Response = t.Branded<
       location: Defined;
       agencyId: Defined;
     };
-  },
+  } & Record<string, unknown>,
   ResponseBrand
 >;
 export type ResponseC = t.BrandC<
-  t.PartialC<{
-    station: t.IntersectionC<
-      [
-        t.PartialC<{
-          id: typeof Station_.Id;
-          code: typeof Station_.Code;
-          name: typeof Station_.Name;
-          location: typeof Station_.Location;
-          agencyId: typeof Station_.AgencyId;
-          address: typeof Station_.Address;
-          city: typeof Station_.City;
-          country: typeof Station_.Country;
-          openingHours: typeof Station_.OpeningHours;
-          facilities: typeof Station_.Facilities;
-          timetables: typeof Station_.Timetables;
-          zone: typeof Station_.Zone;
-          services: typeof Station_.Services;
-          platformCode: typeof Station_.PlatformCode;
-        }>,
-        t.TypeC<{
-          id: typeof Defined;
-          location: typeof Defined;
-          agencyId: typeof Defined;
-        }>,
-      ]
-    >;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        station: t.IntersectionC<
+          [
+            t.PartialC<{
+              id: typeof Station_.Id;
+              code: typeof Station_.Code;
+              name: typeof Station_.Name;
+              location: typeof Station_.Location;
+              agencyId: typeof Station_.AgencyId;
+              address: typeof Station_.Address;
+              city: typeof Station_.City;
+              country: typeof Station_.Country;
+              openingHours: typeof Station_.OpeningHours;
+              facilities: typeof Station_.Facilities;
+              timetables: typeof Station_.Timetables;
+              zone: typeof Station_.Zone;
+              services: typeof Station_.Services;
+              platformCode: typeof Station_.PlatformCode;
+            }>,
+            t.TypeC<{
+              id: typeof Defined;
+              location: typeof Defined;
+              agencyId: typeof Defined;
+            }>,
+          ]
+        >;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   ResponseBrand
 >;
 export const Response: ResponseC = t.brand(
-  t.partial({
-    station: t.intersection([
-      t.partial({
-        id: Station_.Id,
-        code: Station_.Code,
-        name: Station_.Name,
-        location: Station_.Location,
-        agencyId: Station_.AgencyId,
-        address: Station_.Address,
-        city: Station_.City,
-        country: Station_.Country,
-        openingHours: Station_.OpeningHours,
-        facilities: Station_.Facilities,
-        timetables: Station_.Timetables,
-        zone: Station_.Zone,
-        services: Station_.Services,
-        platformCode: Station_.PlatformCode,
-      }),
-      t.type({
-        id: Defined,
-        location: Defined,
-        agencyId: Defined,
-      }),
-    ]),
-  }),
+  t.intersection([
+    t.partial({
+      station: t.intersection([
+        t.partial({
+          id: Station_.Id,
+          code: Station_.Code,
+          name: Station_.Name,
+          location: Station_.Location,
+          agencyId: Station_.AgencyId,
+          address: Station_.Address,
+          city: Station_.City,
+          country: Station_.Country,
+          openingHours: Station_.OpeningHours,
+          facilities: Station_.Facilities,
+          timetables: Station_.Timetables,
+          zone: Station_.Zone,
+          services: Station_.Services,
+          platformCode: Station_.PlatformCode,
+        }),
+        t.type({
+          id: Defined,
+          location: Defined,
+          agencyId: Defined,
+        }),
+      ]),
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
@@ -135,7 +143,7 @@ export const Response: ResponseC = t.brand(
         location: Defined;
         agencyId: Defined;
       };
-    },
+    } & Record<string, unknown>,
     ResponseBrand
   > => true,
   'Response',

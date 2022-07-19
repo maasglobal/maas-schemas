@@ -22,23 +22,31 @@ export type Request = t.Branded<
     identityId?: Units_.IdentityId;
     bookingId?: Units_.Uuid;
     headers?: ApiCommon_.Headers;
-  },
+  } & Record<string, unknown>,
   RequestBrand
 >;
 export type RequestC = t.BrandC<
-  t.PartialC<{
-    identityId: typeof Units_.IdentityId;
-    bookingId: typeof Units_.Uuid;
-    headers: typeof ApiCommon_.Headers;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        identityId: typeof Units_.IdentityId;
+        bookingId: typeof Units_.Uuid;
+        headers: typeof ApiCommon_.Headers;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   RequestBrand
 >;
 export const Request: RequestC = t.brand(
-  t.partial({
-    identityId: Units_.IdentityId,
-    bookingId: Units_.Uuid,
-    headers: ApiCommon_.Headers,
-  }),
+  t.intersection([
+    t.partial({
+      identityId: Units_.IdentityId,
+      bookingId: Units_.Uuid,
+      headers: ApiCommon_.Headers,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
@@ -46,7 +54,7 @@ export const Request: RequestC = t.brand(
       identityId?: Units_.IdentityId;
       bookingId?: Units_.Uuid;
       headers?: ApiCommon_.Headers;
-    },
+    } & Record<string, unknown>,
     RequestBrand
   > => true,
   'Request',

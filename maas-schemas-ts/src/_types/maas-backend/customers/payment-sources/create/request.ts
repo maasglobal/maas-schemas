@@ -37,7 +37,7 @@ export type Request = t.Branded<
   {
     identityId?: Units_.IdentityId;
     customerId?: Units_.IdentityId;
-    payload?: {
+    payload?: ({
       paymentSource?: {
         gatewayName?: PaymentSource_.GatewayName;
         type?: PaymentSource_.Type;
@@ -50,7 +50,7 @@ export type Request = t.Branded<
         temporaryToken: Defined;
         isDefault: Defined;
       };
-    } & {
+    } & Record<string, unknown>) & {
       paymentSource: Defined;
     };
     headers?: ApiCommon_.Headers;
@@ -70,25 +70,30 @@ export type RequestC = t.BrandC<
         customerId: typeof Units_.IdentityId;
         payload: t.IntersectionC<
           [
-            t.PartialC<{
-              paymentSource: t.IntersectionC<
-                [
-                  t.PartialC<{
-                    gatewayName: typeof PaymentSource_.GatewayName;
-                    type: typeof PaymentSource_.Type;
-                    temporaryToken: t.StringC;
-                    isDefault: t.BooleanC;
-                    alias: typeof PaymentSource_.Alias;
-                  }>,
-                  t.TypeC<{
-                    type: typeof Defined;
-                    gatewayName: typeof Defined;
-                    temporaryToken: typeof Defined;
-                    isDefault: typeof Defined;
-                  }>,
-                ]
-              >;
-            }>,
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  paymentSource: t.IntersectionC<
+                    [
+                      t.PartialC<{
+                        gatewayName: typeof PaymentSource_.GatewayName;
+                        type: typeof PaymentSource_.Type;
+                        temporaryToken: t.StringC;
+                        isDefault: t.BooleanC;
+                        alias: typeof PaymentSource_.Alias;
+                      }>,
+                      t.TypeC<{
+                        type: typeof Defined;
+                        gatewayName: typeof Defined;
+                        temporaryToken: typeof Defined;
+                        isDefault: typeof Defined;
+                      }>,
+                    ]
+                  >;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
             t.TypeC<{
               paymentSource: typeof Defined;
             }>,
@@ -112,23 +117,26 @@ export const Request: RequestC = t.brand(
       identityId: Units_.IdentityId,
       customerId: Units_.IdentityId,
       payload: t.intersection([
-        t.partial({
-          paymentSource: t.intersection([
-            t.partial({
-              gatewayName: PaymentSource_.GatewayName,
-              type: PaymentSource_.Type,
-              temporaryToken: t.string,
-              isDefault: t.boolean,
-              alias: PaymentSource_.Alias,
-            }),
-            t.type({
-              type: Defined,
-              gatewayName: Defined,
-              temporaryToken: Defined,
-              isDefault: Defined,
-            }),
-          ]),
-        }),
+        t.intersection([
+          t.partial({
+            paymentSource: t.intersection([
+              t.partial({
+                gatewayName: PaymentSource_.GatewayName,
+                type: PaymentSource_.Type,
+                temporaryToken: t.string,
+                isDefault: t.boolean,
+                alias: PaymentSource_.Alias,
+              }),
+              t.type({
+                type: Defined,
+                gatewayName: Defined,
+                temporaryToken: Defined,
+                isDefault: Defined,
+              }),
+            ]),
+          }),
+          t.record(t.string, t.unknown),
+        ]),
         t.type({
           paymentSource: Defined,
         }),
@@ -148,7 +156,7 @@ export const Request: RequestC = t.brand(
     {
       identityId?: Units_.IdentityId;
       customerId?: Units_.IdentityId;
-      payload?: {
+      payload?: ({
         paymentSource?: {
           gatewayName?: PaymentSource_.GatewayName;
           type?: PaymentSource_.Type;
@@ -161,7 +169,7 @@ export const Request: RequestC = t.brand(
           temporaryToken: Defined;
           isDefault: Defined;
         };
-      } & {
+      } & Record<string, unknown>) & {
         paymentSource: Defined;
       };
       headers?: ApiCommon_.Headers;

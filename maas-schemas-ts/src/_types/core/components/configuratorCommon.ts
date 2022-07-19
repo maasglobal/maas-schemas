@@ -42,7 +42,7 @@ export type Choice = t.Branded<
     cost?: Cost_.Cost;
     fares?: Array<Fare_.Fare>;
     terms?: Terms_.Terms;
-    meta?: Record<string, unknown>;
+    meta?: Record<string, unknown> & Record<string, unknown>;
   } & Record<string, unknown>) & {
     id: Defined;
     name: Defined;
@@ -63,7 +63,7 @@ export type ChoiceC = t.BrandC<
             cost: typeof Cost_.Cost;
             fares: t.ArrayC<typeof Fare_.Fare>;
             terms: typeof Terms_.Terms;
-            meta: t.UnknownRecordC;
+            meta: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
         ]
@@ -88,7 +88,7 @@ export const Choice: ChoiceC = t.brand(
         cost: Cost_.Cost,
         fares: t.array(Fare_.Fare),
         terms: Terms_.Terms,
-        meta: t.UnknownRecord,
+        meta: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
       }),
       t.record(t.string, t.unknown),
     ]),
@@ -109,7 +109,7 @@ export const Choice: ChoiceC = t.brand(
       cost?: Cost_.Cost;
       fares?: Array<Fare_.Fare>;
       terms?: Terms_.Terms;
-      meta?: Record<string, unknown>;
+      meta?: Record<string, unknown> & Record<string, unknown>;
     } & Record<string, unknown>) & {
       id: Defined;
       name: Defined;
@@ -126,12 +126,12 @@ export interface ChoiceBrand {
 // Config
 // A customization to the booking option
 export type Config = t.Branded<
-  {
+  ({
     type?: 'oneOf' | 'someOf' | 'allOf' | 'oneOrNoneOf' | 'someOrNoneOf';
     name?: string;
     description?: string;
     choices?: Array<Choice>;
-  } & {
+  } & Record<string, unknown>) & {
     type: Defined;
     name: Defined;
     choices: Defined;
@@ -141,20 +141,25 @@ export type Config = t.Branded<
 export type ConfigC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        type: t.UnionC<
-          [
-            t.LiteralC<'oneOf'>,
-            t.LiteralC<'someOf'>,
-            t.LiteralC<'allOf'>,
-            t.LiteralC<'oneOrNoneOf'>,
-            t.LiteralC<'someOrNoneOf'>,
-          ]
-        >;
-        name: t.StringC;
-        description: t.StringC;
-        choices: t.ArrayC<typeof Choice>;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            type: t.UnionC<
+              [
+                t.LiteralC<'oneOf'>,
+                t.LiteralC<'someOf'>,
+                t.LiteralC<'allOf'>,
+                t.LiteralC<'oneOrNoneOf'>,
+                t.LiteralC<'someOrNoneOf'>,
+              ]
+            >;
+            name: t.StringC;
+            description: t.StringC;
+            choices: t.ArrayC<typeof Choice>;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         type: typeof Defined;
         name: typeof Defined;
@@ -166,18 +171,21 @@ export type ConfigC = t.BrandC<
 >;
 export const Config: ConfigC = t.brand(
   t.intersection([
-    t.partial({
-      type: t.union([
-        t.literal('oneOf'),
-        t.literal('someOf'),
-        t.literal('allOf'),
-        t.literal('oneOrNoneOf'),
-        t.literal('someOrNoneOf'),
-      ]),
-      name: t.string,
-      description: t.string,
-      choices: t.array(Choice),
-    }),
+    t.intersection([
+      t.partial({
+        type: t.union([
+          t.literal('oneOf'),
+          t.literal('someOf'),
+          t.literal('allOf'),
+          t.literal('oneOrNoneOf'),
+          t.literal('someOrNoneOf'),
+        ]),
+        name: t.string,
+        description: t.string,
+        choices: t.array(Choice),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       type: Defined,
       name: Defined,
@@ -187,12 +195,12 @@ export const Config: ConfigC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       type?: 'oneOf' | 'someOf' | 'allOf' | 'oneOrNoneOf' | 'someOrNoneOf';
       name?: string;
       description?: string;
       choices?: Array<Choice>;
-    } & {
+    } & Record<string, unknown>) & {
       type: Defined;
       name: Defined;
       choices: Defined;
@@ -208,12 +216,12 @@ export interface ConfigBrand {
 // Text
 // Generic text field to pass information from user
 export type Text = t.Branded<
-  {
+  ({
     type?: 'text';
     name?: string;
     description?: string;
     input?: string;
-  } & {
+  } & Record<string, unknown>) & {
     type: Defined;
     name: Defined;
   },
@@ -222,12 +230,17 @@ export type Text = t.Branded<
 export type TextC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        type: t.LiteralC<'text'>;
-        name: t.StringC;
-        description: t.StringC;
-        input: t.StringC;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            type: t.LiteralC<'text'>;
+            name: t.StringC;
+            description: t.StringC;
+            input: t.StringC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         type: typeof Defined;
         name: typeof Defined;
@@ -238,12 +251,15 @@ export type TextC = t.BrandC<
 >;
 export const Text: TextC = t.brand(
   t.intersection([
-    t.partial({
-      type: t.literal('text'),
-      name: t.string,
-      description: t.string,
-      input: t.string,
-    }),
+    t.intersection([
+      t.partial({
+        type: t.literal('text'),
+        name: t.string,
+        description: t.string,
+        input: t.string,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       type: Defined,
       name: Defined,
@@ -252,12 +268,12 @@ export const Text: TextC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       type?: 'text';
       name?: string;
       description?: string;
       input?: string;
-    } & {
+    } & Record<string, unknown>) & {
       type: Defined;
       name: Defined;
     },

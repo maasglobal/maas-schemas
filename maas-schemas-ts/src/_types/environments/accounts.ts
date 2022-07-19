@@ -108,11 +108,11 @@ export const examplesAccountDescription: NonEmptyArray<AccountDescription> = ([
 // Account
 // The purpose of this remains a mystery
 export type Account = t.Branded<
-  {
+  ({
     id?: AccountId;
     name?: AccountName;
     description?: AccountDescription;
-  } & {
+  } & Record<string, unknown>) & {
     id: Defined;
   },
   AccountBrand
@@ -120,11 +120,16 @@ export type Account = t.Branded<
 export type AccountC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        id: typeof AccountId;
-        name: typeof AccountName;
-        description: typeof AccountDescription;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            id: typeof AccountId;
+            name: typeof AccountName;
+            description: typeof AccountDescription;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         id: typeof Defined;
       }>,
@@ -134,11 +139,14 @@ export type AccountC = t.BrandC<
 >;
 export const Account: AccountC = t.brand(
   t.intersection([
-    t.partial({
-      id: AccountId,
-      name: AccountName,
-      description: AccountDescription,
-    }),
+    t.intersection([
+      t.partial({
+        id: AccountId,
+        name: AccountName,
+        description: AccountDescription,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       id: Defined,
     }),
@@ -146,11 +154,11 @@ export const Account: AccountC = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       id?: AccountId;
       name?: AccountName;
       description?: AccountDescription;
-    } & {
+    } & Record<string, unknown>) & {
       id: Defined;
     },
     AccountBrand

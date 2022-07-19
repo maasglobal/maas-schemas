@@ -31,50 +31,66 @@ export const schemaId = 'https://schemas.maas.global/core/modes/MODE_SCOOTER.jso
 // The default export. More information at the top.
 export type MODE_SCOOTER = t.Branded<
   {
-    scooter?: {
+    scooter?: ({
       id?: string;
-    } & {
+    } & Record<string, unknown>) & {
       id: Defined;
     };
-  },
+  } & Record<string, unknown>,
   MODE_SCOOTERBrand
 >;
 export type MODE_SCOOTERC = t.BrandC<
-  t.PartialC<{
-    scooter: t.IntersectionC<
-      [
-        t.PartialC<{
-          id: t.StringC;
-        }>,
-        t.TypeC<{
-          id: typeof Defined;
-        }>,
-      ]
-    >;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        scooter: t.IntersectionC<
+          [
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  id: t.StringC;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
+            t.TypeC<{
+              id: typeof Defined;
+            }>,
+          ]
+        >;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
   MODE_SCOOTERBrand
 >;
 export const MODE_SCOOTER: MODE_SCOOTERC = t.brand(
-  t.partial({
-    scooter: t.intersection([
-      t.partial({
-        id: t.string,
-      }),
-      t.type({
-        id: Defined,
-      }),
-    ]),
-  }),
+  t.intersection([
+    t.partial({
+      scooter: t.intersection([
+        t.intersection([
+          t.partial({
+            id: t.string,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
+        t.type({
+          id: Defined,
+        }),
+      ]),
+    }),
+    t.record(t.string, t.unknown),
+  ]),
   (
     x,
   ): x is t.Branded<
     {
-      scooter?: {
+      scooter?: ({
         id?: string;
-      } & {
+      } & Record<string, unknown>) & {
         id: Defined;
       };
-    },
+    } & Record<string, unknown>,
     MODE_SCOOTERBrand
   > => true,
   'MODE_SCOOTER',
