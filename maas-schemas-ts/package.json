@@ -1,6 +1,6 @@
 {
   "name": "@maasglobal/maas-schemas-ts",
-  "version": "15.26.0",
+  "version": "16.0.0",
   "description": "TypeScript types and io-ts validators for maas-schemas",
   "main": "index.js",
   "publishConfig": {
