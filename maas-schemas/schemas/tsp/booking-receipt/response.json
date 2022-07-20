@@ -2,18 +2,47 @@
   "$id": "https://schemas.maas.global/tsp/booking-receipt/response.json",
   "description": "Response schema for getting a receipt for specific booking",
   "type": "object",
+  "definitions": {
+    "tspReceipt": {
+      "type": "object",
+      "description": "Receipt as received from TSP",
+      "properties": {
+        "cost": {
+          "$ref": "https://schemas.maas.global/core/booking.json#/definitions/cost"
+        },
+        "terms": {
+          "$ref": "https://schemas.maas.global/core/components/terms.json"
+        }
+      },
+      "required": ["cost", "terms"],
+      "additionalProperties": false
+    }
+  },
   "properties": {
     "tspId": {
       "$ref": "https://schemas.maas.global/core/booking.json#/definitions/tspId"
     },
-    "cost": {
-      "$ref": "https://schemas.maas.global/core/booking.json#/definitions/cost"
-    },
     "receipt": {
-      "type": "object",
-      "description": "Receipt as received from TSP, could be stored for future reference."
+      "$ref": "#/definitions/tspReceipt"
     }
   },
-  "required": ["tspId", "cost"],
-  "additionalProperties": false
+  "required": ["tspId", "receipt"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "tspId": "abc123",
+      "receipt": {
+        "cost": {
+          "amount": 23.45,
+          "currency": "EUR"
+        },
+        "terms": {
+          "validity": {
+            "endTime": 1658177898859,
+            "startTime": 1658177898859
+          }
+        }
+      }
+    }
+  ]
 }
