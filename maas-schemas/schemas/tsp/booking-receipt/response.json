@@ -22,6 +22,9 @@
     "tspId": {
       "$ref": "https://schemas.maas.global/core/booking.json#/definitions/tspId"
     },
+    "cost": {
+      "$ref": "https://schemas.maas.global/core/booking.json#/definitions/cost"
+    },
     "receipt": {
       "$ref": "#/definitions/tspReceipt"
     }
@@ -31,6 +34,25 @@
   "examples": [
     {
       "tspId": "abc123",
+      "receipt": {
+        "cost": {
+          "amount": 23.45,
+          "currency": "EUR"
+        },
+        "terms": {
+          "validity": {
+            "endTime": 1658177898859,
+            "startTime": 1658177898859
+          }
+        }
+      }
+    },
+    {
+      "tspId": "abc123",
+      "cost": {
+        "amount": 23.45,
+        "currency": "EUR"
+      },
       "receipt": {
         "cost": {
           "amount": 23.45,

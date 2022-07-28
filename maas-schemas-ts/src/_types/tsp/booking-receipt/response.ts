@@ -92,6 +92,7 @@ export interface TspReceiptBrand {
 export type Response = t.Branded<
   {
     tspId?: Booking_.TspId;
+    cost?: Booking_.Cost;
     receipt?: TspReceipt;
   } & {
     tspId: Defined;
@@ -104,6 +105,7 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         tspId: typeof Booking_.TspId;
+        cost: typeof Booking_.Cost;
         receipt: typeof TspReceipt;
       }>,
       t.TypeC<{
@@ -118,6 +120,7 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       tspId: Booking_.TspId,
+      cost: Booking_.Cost,
       receipt: TspReceipt,
     }),
     t.type({
@@ -130,6 +133,7 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       tspId?: Booking_.TspId;
+      cost?: Booking_.Cost;
       receipt?: TspReceipt;
     } & {
       tspId: Defined;
@@ -146,6 +150,14 @@ export interface ResponseBrand {
 export const examplesResponse: NonEmptyArray<Response> = ([
   {
     tspId: 'abc123',
+    receipt: {
+      cost: { amount: 23.45, currency: 'EUR' },
+      terms: { validity: { endTime: 1658177898859, startTime: 1658177898859 } },
+    },
+  },
+  {
+    tspId: 'abc123',
+    cost: { amount: 23.45, currency: 'EUR' },
     receipt: {
       cost: { amount: 23.45, currency: 'EUR' },
       terms: { validity: { endTime: 1658177898859, startTime: 1658177898859 } },
