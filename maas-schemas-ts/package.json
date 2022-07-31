@@ -44,7 +44,7 @@
     "get-problems": "yarn get-info && yarn get-warnings && yarn get-errors && yarn get-unexpected",
     "get-all": "yarn get-culprits && yarn get-problems",
     "deploy-npm": "yarn ci && yarn publish --non-interactive",
-    "deploy-alpha": "yarn deploy-npm --tag alpha"
+    "deploy-alpha": "yarn lint && yarn test && yarn build && yarn publish --non-interactive --tag alpha"
   },
   "repository": {
     "type": "git",
