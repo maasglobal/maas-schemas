@@ -359,7 +359,8 @@ export type Terms = t.Branded<
           | 'missedReturnPenalty'
           | 'extra'
           | 'perKilometer'
-          | 'perParkMinute';
+          | 'perParkMinute'
+          | 'unlockFee';
       } & Record<string, unknown>) & {
         amount: Defined;
         currency: Defined;
@@ -463,6 +464,7 @@ export type TermsC = t.BrandC<
                         t.LiteralC<'extra'>,
                         t.LiteralC<'perKilometer'>,
                         t.LiteralC<'perParkMinute'>,
+                        t.LiteralC<'unlockFee'>,
                       ]
                     >;
                   }>,
@@ -557,6 +559,7 @@ export const Terms: TermsC = t.brand(
                 t.literal('extra'),
                 t.literal('perKilometer'),
                 t.literal('perParkMinute'),
+                t.literal('unlockFee'),
               ]),
             }),
             t.record(t.string, t.unknown),
@@ -622,7 +625,8 @@ export const Terms: TermsC = t.brand(
             | 'missedReturnPenalty'
             | 'extra'
             | 'perKilometer'
-            | 'perParkMinute';
+            | 'perParkMinute'
+            | 'unlockFee';
         } & Record<string, unknown>) & {
           amount: Defined;
           currency: Defined;
