@@ -318,6 +318,7 @@ export type Booking = t.Branded<
     token?: Token;
     meta?: BookingMeta_.BookingMeta;
     terms?: Terms;
+    unmodifiedTerms?: Terms;
     customer?: Customer_.Customer & {
       identityId: Defined;
     };
@@ -352,6 +353,7 @@ export type BookingC = t.BrandC<
             token: typeof Token;
             meta: typeof BookingMeta_.BookingMeta;
             terms: typeof Terms;
+            unmodifiedTerms: typeof Terms;
             customer: t.IntersectionC<
               [
                 typeof Customer_.Customer,
@@ -395,6 +397,7 @@ export const Booking: BookingC = t.brand(
         token: Token,
         meta: BookingMeta_.BookingMeta,
         terms: Terms,
+        unmodifiedTerms: Terms,
         customer: t.intersection([
           Customer_.Customer,
           t.type({
@@ -432,6 +435,7 @@ export const Booking: BookingC = t.brand(
       token?: Token;
       meta?: BookingMeta_.BookingMeta;
       terms?: Terms;
+      unmodifiedTerms?: Terms;
       customer?: Customer_.Customer & {
         identityId: Defined;
       };
@@ -1119,7 +1123,11 @@ export const examplesBooking: NonEmptyArray<Booking> = ([
       reusable: false,
       validity: { endTime: 1636426799000, startTime: 1636372740000 },
     },
-    meta: {},
+    unmodifiedTerms: {
+      reusable: true,
+      validity: { endTime: 1636426799000, startTime: 1636372740000 },
+    },
+    meta: { foo: 'bar' },
     created: 1636370303239,
     modified: 1636370618830,
     cost: null,

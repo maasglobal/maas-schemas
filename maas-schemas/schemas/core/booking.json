@@ -47,6 +47,9 @@
     "terms": {
       "$ref": "#/definitions/terms"
     },
+    "unmodifiedTerms": {
+      "$ref": "#/definitions/terms"
+    },
     "customer": {
       "description": "MaaS booking customer",
       "allOf": [
@@ -981,7 +984,16 @@
           "startTime": 1636372740000
         }
       },
-      "meta": {},
+      "unmodifiedTerms": {
+        "reusable": true,
+        "validity": {
+          "endTime": 1636426799000,
+          "startTime": 1636372740000
+        }
+      },
+      "meta": {
+        "foo": "bar"
+      },
       "created": 1636370303239,
       "modified": 1636370618830,
       "cost": null,
