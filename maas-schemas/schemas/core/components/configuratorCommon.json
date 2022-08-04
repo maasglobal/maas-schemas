@@ -60,6 +60,9 @@
         "terms": {
           "$ref": "https://schemas.maas.global/core/components/terms.json"
         },
+        "unmodifiedTerms": {
+          "$ref": "https://schemas.maas.global/core/components/terms.json"
+        },
         "meta": {
           "type": "object"
         }

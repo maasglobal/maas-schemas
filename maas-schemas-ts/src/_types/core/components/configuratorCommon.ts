@@ -42,6 +42,7 @@ export type Choice = t.Branded<
     cost?: Cost_.Cost;
     fares?: Array<Fare_.Fare>;
     terms?: Terms_.Terms;
+    unmodifiedTerms?: Terms_.Terms;
     meta?: Record<string, unknown> & Record<string, unknown>;
   } & Record<string, unknown>) & {
     id: Defined;
@@ -63,6 +64,7 @@ export type ChoiceC = t.BrandC<
             cost: typeof Cost_.Cost;
             fares: t.ArrayC<typeof Fare_.Fare>;
             terms: typeof Terms_.Terms;
+            unmodifiedTerms: typeof Terms_.Terms;
             meta: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
@@ -88,6 +90,7 @@ export const Choice: ChoiceC = t.brand(
         cost: Cost_.Cost,
         fares: t.array(Fare_.Fare),
         terms: Terms_.Terms,
+        unmodifiedTerms: Terms_.Terms,
         meta: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
       }),
       t.record(t.string, t.unknown),
@@ -109,6 +112,7 @@ export const Choice: ChoiceC = t.brand(
       cost?: Cost_.Cost;
       fares?: Array<Fare_.Fare>;
       terms?: Terms_.Terms;
+      unmodifiedTerms?: Terms_.Terms;
       meta?: Record<string, unknown> & Record<string, unknown>;
     } & Record<string, unknown>) & {
       id: Defined;
