@@ -26,6 +26,18 @@
     },
     "tspProduct": {
       "$ref": "https://schemas.maas.global/core/booking-option.json#/definitions/tspProduct"
+    },
+    "error": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "$ref": "https://schemas.maas.global/core/error.json#/definitions/errorMessage"
+        },
+        "code": {
+          "$ref": "https://schemas.maas.global/core/error.json#/definitions/errorCode"
+        }
+      },
+      "required": ["message", "code"]
     }
   },
   "required": ["tspId", "state"],
