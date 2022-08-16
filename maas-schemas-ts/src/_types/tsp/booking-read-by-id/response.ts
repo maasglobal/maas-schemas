@@ -13,6 +13,7 @@ import * as Booking_ from '../../core/booking';
 import * as State_ from '../../core/components/state';
 import * as BookingOption_ from '../../core/booking-option';
 import * as BookingMeta_ from '../../core/booking-meta';
+import * as Error_ from '../../core/error';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -44,6 +45,13 @@ export type Response = t.Branded<
     terms?: Booking_.Terms;
     token?: Booking_.Token;
     tspProduct?: BookingOption_.TspProduct;
+    error?: ({
+      message?: Error_.ErrorMessage;
+      code?: Error_.ErrorCode;
+    } & Record<string, unknown>) & {
+      message: Defined;
+      code: Defined;
+    };
   } & {
     tspId: Defined;
     state: Defined;
@@ -62,6 +70,23 @@ export type ResponseC = t.BrandC<
         terms: typeof Booking_.Terms;
         token: typeof Booking_.Token;
         tspProduct: typeof BookingOption_.TspProduct;
+        error: t.IntersectionC<
+          [
+            t.IntersectionC<
+              [
+                t.PartialC<{
+                  message: typeof Error_.ErrorMessage;
+                  code: typeof Error_.ErrorCode;
+                }>,
+                t.RecordC<t.StringC, t.UnknownC>,
+              ]
+            >,
+            t.TypeC<{
+              message: typeof Defined;
+              code: typeof Defined;
+            }>,
+          ]
+        >;
       }>,
       t.TypeC<{
         tspId: typeof Defined;
@@ -82,6 +107,19 @@ export const Response: ResponseC = t.brand(
       terms: Booking_.Terms,
       token: Booking_.Token,
       tspProduct: BookingOption_.TspProduct,
+      error: t.intersection([
+        t.intersection([
+          t.partial({
+            message: Error_.ErrorMessage,
+            code: Error_.ErrorCode,
+          }),
+          t.record(t.string, t.unknown),
+        ]),
+        t.type({
+          message: Defined,
+          code: Defined,
+        }),
+      ]),
     }),
     t.type({
       tspId: Defined,
@@ -100,6 +138,13 @@ export const Response: ResponseC = t.brand(
       terms?: Booking_.Terms;
       token?: Booking_.Token;
       tspProduct?: BookingOption_.TspProduct;
+      error?: ({
+        message?: Error_.ErrorMessage;
+        code?: Error_.ErrorCode;
+      } & Record<string, unknown>) & {
+        message: Defined;
+        code: Defined;
+      };
     } & {
       tspId: Defined;
       state: Defined;
