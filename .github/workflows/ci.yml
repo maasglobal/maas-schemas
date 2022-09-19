@@ -27,6 +27,7 @@ jobs:
         run: |
           yarn --cwd maas-schemas ci
           node check-versions
+
   test-ts:
     runs-on: ubuntu-latest
     timeout-minutes: 15
