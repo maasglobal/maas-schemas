@@ -1,11 +1,8 @@
 {
-  "name": "@maasglobal/maas-schemas",
+  "name": "maas-schemas",
   "version": "15.26.0",
   "description": "Schemas for MaaS infrastructure",
   "main": "index.js",
-  "publishConfig": {
-    "registry": "https://npm.deployment.maas.global/repository/npm-maas/"
-  },
   "engine": {
     "node": ">=6"
   },

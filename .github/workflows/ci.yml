@@ -3,29 +3,45 @@ name: CI
 on:
   pull_request:
     branches:
-      - develop
+      - main
 
 env:
   PRIVATE_NPM_TOKEN: ${{ secrets.PRIVATE_NPM_TOKEN }}
 
 jobs:
-  check:
+  test-json:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-    name: CI
+    timeout-minutes: 15
+    name: test json
     steps:
       - uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "14"
+          registry-url: 'https://registry.npmjs.org'
       - name: Install Dependencies
         run: |
-          printf "@maasglobal:registry=https://npm.deployment.maas.global/repository/npm-maas/\n//npm.deployment.maas.global/repository/npm-maas/:_authToken=NpmToken.${PRIVATE_NPM_TOKEN}" > ~/.npmrc
           yarn --cwd maas-schemas
-          yarn --cwd maas-schemas-ts
       - name: Run Tests
         run: |
           yarn --cwd maas-schemas ci
+          node check-versions
+  test-ts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    name: test ts
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install Dependencies
+        run: |
+          yarn --cwd maas-schemas-ts
+      - name: Run Tests
+        run: |
           yarn --cwd maas-schemas-ts ci
           node check-versions
