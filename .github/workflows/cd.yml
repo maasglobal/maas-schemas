@@ -3,28 +3,45 @@ name: CD
 on:
   push:
     branches:
-      - develop
-
-env:
-  PRIVATE_NPM_TOKEN: ${{ secrets.PRIVATE_NPM_TOKEN }}
+      - main
 
 jobs:
-  check:
+  publish-json:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-    name: CD
+    timeout-minutes: 15
+    name: publish json
     steps:
       - uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "14"
+          registry-url: "https://registry.npmjs.org"
       - name: Install Dependencies
         run: |
-          printf "@maasglobal:registry=https://npm.deployment.maas.global/repository/npm-maas/\n//npm.deployment.maas.global/repository/npm-maas/:_authToken=NpmToken.${PRIVATE_NPM_TOKEN}" > ~/.npmrc
           yarn --cwd maas-schemas
-          yarn --cwd maas-schemas-ts
       - name: Deploy to Registry
         run: |
           yarn --cwd maas-schemas deploy-npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PUBLIC_NPM_TOKEN }}
+
+  publish-ts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    name: publish ts
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+          registry-url: "https://registry.npmjs.org"
+      - name: Install Dependencies
+        run: |
+          yarn --cwd maas-schemas-ts
+      - name: Deploy to Registry
+        run: |
           yarn --cwd maas-schemas-ts deploy-npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PUBLIC_NPM_TOKEN }}
