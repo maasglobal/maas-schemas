@@ -64,7 +64,7 @@
           "$ref": "https://schemas.maas.global/core/components/terms.json"
         },
         "meta": {
-          "type": "object"
+          "$ref": "https://schemas.maas.global/core/booking-meta.json"
         }
       },
       "required": ["id", "name", "default"],

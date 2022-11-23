@@ -85,6 +85,9 @@
         "departureDelay": {
           "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/duration"
         },
+        "distance": {
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance"
+        },
         "agencyId": {
           "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
         }

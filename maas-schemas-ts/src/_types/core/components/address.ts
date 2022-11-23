@@ -13,6 +13,21 @@ import * as Common_ from './common';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
+
 export const schemaId = 'https://schemas.maas.global/core/components/address.json';
 
 // ComponentAddress
@@ -56,6 +71,218 @@ export const examplesComponentAddress: NonEmptyArray<ComponentAddress> = ([
   'streetNumber:1-1',
   'streetNumber:1/2-d2',
 ] as unknown) as NonEmptyArray<ComponentAddress>;
+
+// PlaceId
+// Upstream API placeId
+export type PlaceId = t.Branded<string, PlaceIdBrand>;
+export type PlaceIdC = t.BrandC<t.StringC, PlaceIdBrand>;
+export const PlaceId: PlaceIdC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, PlaceIdBrand> =>
+    (typeof x !== 'string' || x.match(RegExp('^\\p{L}+$', 'gui')) !== null) &&
+    (typeof x !== 'string' || x.length <= 64),
+  'PlaceId',
+);
+export interface PlaceIdBrand {
+  readonly PlaceId: unique symbol;
+}
+
+// StreetName
+// The purpose of this remains a mystery
+export type StreetName = t.Branded<string, StreetNameBrand>;
+export type StreetNameC = t.BrandC<t.StringC, StreetNameBrand>;
+export const StreetName: StreetNameC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, StreetNameBrand> => typeof x !== 'string' || x.length >= 1,
+  'StreetName',
+);
+export interface StreetNameBrand {
+  readonly StreetName: unique symbol;
+}
+
+// City
+// Alphabetic city name
+export type City = t.Branded<string, CityBrand>;
+export type CityC = t.BrandC<t.StringC, CityBrand>;
+export const City: CityC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, CityBrand> => typeof x !== 'string' || x.length >= 1,
+  'City',
+);
+export interface CityBrand {
+  readonly City: unique symbol;
+}
+
+// State
+// Alphabetic state name
+export type State = t.Branded<string, StateBrand>;
+export type StateC = t.BrandC<t.StringC, StateBrand>;
+export const State: StateC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, StateBrand> =>
+    (typeof x !== 'string' || x.match(RegExp("^(?:\\p{L}|\\s|')+$", 'gui')) !== null) &&
+    (typeof x !== 'string' || x.length <= 64),
+  'State',
+);
+export interface StateBrand {
+  readonly State: unique symbol;
+}
+
+// ZipCode
+// Numeric zip code, see https://en.wikipedia.org/wiki/Postal_code
+export type ZipCode = t.Branded<string, ZipCodeBrand>;
+export type ZipCodeC = t.BrandC<t.StringC, ZipCodeBrand>;
+export const ZipCode: ZipCodeC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, ZipCodeBrand> =>
+    (typeof x !== 'string' || x.length >= 2) && (typeof x !== 'string' || x.length <= 64),
+  'ZipCode',
+);
+export interface ZipCodeBrand {
+  readonly ZipCode: unique symbol;
+}
+
+// Country
+// ISO 3166-1 alpha-2 country code, see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+export type Country = t.Branded<string, CountryBrand>;
+export type CountryC = t.BrandC<t.StringC, CountryBrand>;
+export const Country: CountryC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, CountryBrand> =>
+    typeof x !== 'string' || x.match(RegExp('^[A-Z]{2,2}$')) !== null,
+  'Country',
+);
+export interface CountryBrand {
+  readonly Country: unique symbol;
+}
+
+// StreetNumber
+// The purpose of this remains a mystery
+export type StreetNumber = t.Branded<string, StreetNumberBrand>;
+export type StreetNumberC = t.BrandC<t.StringC, StreetNumberBrand>;
+export const StreetNumber: StreetNumberC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, StreetNumberBrand> =>
+    typeof x !== 'string' || x.length >= 1,
+  'StreetNumber',
+);
+export interface StreetNumberBrand {
+  readonly StreetNumber: unique symbol;
+}
+
+// Ward
+// The purpose of this remains a mystery
+export type Ward = t.Branded<string, WardBrand>;
+export type WardC = t.BrandC<t.StringC, WardBrand>;
+export const Ward: WardC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, WardBrand> => typeof x !== 'string' || x.length >= 1,
+  'Ward',
+);
+export interface WardBrand {
+  readonly Ward: unique symbol;
+}
+
+// District
+// The purpose of this remains a mystery
+export type District = t.Branded<string, DistrictBrand>;
+export type DistrictC = t.BrandC<t.StringC, DistrictBrand>;
+export const District: DistrictC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, DistrictBrand> => typeof x !== 'string' || x.length >= 1,
+  'District',
+);
+export interface DistrictBrand {
+  readonly District: unique symbol;
+}
+
+// ComponentAddressObject
+// The purpose of this remains a mystery
+export type ComponentAddressObject = t.Branded<
+  {
+    id?: PlaceId;
+    streetName?: StreetName;
+    city?: City;
+    state?: State;
+    zipCode?: ZipCode;
+    country?: Country;
+    streetNumber?: StreetNumber;
+    ward?: Ward;
+    district?: District;
+  } & {
+    streetName: Defined;
+    streetNumber: Defined;
+    zipCode: Defined;
+  },
+  ComponentAddressObjectBrand
+>;
+export type ComponentAddressObjectC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        id: typeof PlaceId;
+        streetName: typeof StreetName;
+        city: typeof City;
+        state: typeof State;
+        zipCode: typeof ZipCode;
+        country: typeof Country;
+        streetNumber: typeof StreetNumber;
+        ward: typeof Ward;
+        district: typeof District;
+      }>,
+      t.TypeC<{
+        streetName: typeof Defined;
+        streetNumber: typeof Defined;
+        zipCode: typeof Defined;
+      }>,
+    ]
+  >,
+  ComponentAddressObjectBrand
+>;
+export const ComponentAddressObject: ComponentAddressObjectC = t.brand(
+  t.intersection([
+    t.partial({
+      id: PlaceId,
+      streetName: StreetName,
+      city: City,
+      state: State,
+      zipCode: ZipCode,
+      country: Country,
+      streetNumber: StreetNumber,
+      ward: Ward,
+      district: District,
+    }),
+    t.type({
+      streetName: Defined,
+      streetNumber: Defined,
+      zipCode: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      id?: PlaceId;
+      streetName?: StreetName;
+      city?: City;
+      state?: State;
+      zipCode?: ZipCode;
+      country?: Country;
+      streetNumber?: StreetNumber;
+      ward?: Ward;
+      district?: District;
+    } & {
+      streetName: Defined;
+      streetNumber: Defined;
+      zipCode: Defined;
+    },
+    ComponentAddressObjectBrand
+  > => true,
+  'ComponentAddressObject',
+);
+export interface ComponentAddressObjectBrand {
+  readonly ComponentAddressObject: unique symbol;
+}
 
 // PlaceName
 // Place name (given in autocomplete)
@@ -135,35 +362,6 @@ export interface AddressBrand {
   readonly Address: unique symbol;
 }
 
-// ZipCode
-// Numeric zip code, see https://en.wikipedia.org/wiki/Postal_code
-export type ZipCode = t.Branded<string, ZipCodeBrand>;
-export type ZipCodeC = t.BrandC<t.StringC, ZipCodeBrand>;
-export const ZipCode: ZipCodeC = t.brand(
-  t.string,
-  (x): x is t.Branded<string, ZipCodeBrand> =>
-    (typeof x !== 'string' || x.length >= 2) && (typeof x !== 'string' || x.length <= 64),
-  'ZipCode',
-);
-export interface ZipCodeBrand {
-  readonly ZipCode: unique symbol;
-}
-
-// State
-// Alphabetic state name
-export type State = t.Branded<string, StateBrand>;
-export type StateC = t.BrandC<t.StringC, StateBrand>;
-export const State: StateC = t.brand(
-  t.string,
-  (x): x is t.Branded<string, StateBrand> =>
-    (typeof x !== 'string' || x.match(RegExp("^(?:\\p{L}|\\s|')+$", 'gui')) !== null) &&
-    (typeof x !== 'string' || x.length <= 64),
-  'State',
-);
-export interface StateBrand {
-  readonly State: unique symbol;
-}
-
 // CountryName
 // Alphabetic country name
 export type CountryName = t.Branded<string, CountryNameBrand>;
@@ -177,33 +375,6 @@ export const CountryName: CountryNameC = t.brand(
 );
 export interface CountryNameBrand {
   readonly CountryName: unique symbol;
-}
-
-// Country
-// ISO 3166-1 alpha-2 country code, see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-export type Country = t.Branded<string, CountryBrand>;
-export type CountryC = t.BrandC<t.StringC, CountryBrand>;
-export const Country: CountryC = t.brand(
-  t.string,
-  (x): x is t.Branded<string, CountryBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^[A-Z]{2,2}$')) !== null,
-  'Country',
-);
-export interface CountryBrand {
-  readonly Country: unique symbol;
-}
-
-// City
-// Alphabetic city name
-export type City = t.Branded<string, CityBrand>;
-export type CityC = t.BrandC<t.StringC, CityBrand>;
-export const City: CityC = t.brand(
-  t.string,
-  (x): x is t.Branded<string, CityBrand> => typeof x !== 'string' || x.length >= 1,
-  'City',
-);
-export interface CityBrand {
-  readonly City: unique symbol;
 }
 
 // Success

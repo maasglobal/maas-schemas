@@ -31,6 +31,50 @@ export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/terms.json';
 
+// Display
+// The purpose of this remains a mystery
+export type Display = t.Branded<
+  {
+    name?: string;
+    description?: string;
+  } & Record<string, unknown>,
+  DisplayBrand
+>;
+export type DisplayC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        name: t.StringC;
+        description: t.StringC;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
+  DisplayBrand
+>;
+export const Display: DisplayC = t.brand(
+  t.intersection([
+    t.partial({
+      name: t.string,
+      description: t.string,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      name?: string;
+      description?: string;
+    } & Record<string, unknown>,
+    DisplayBrand
+  > => true,
+  'Display',
+);
+export interface DisplayBrand {
+  readonly Display: unique symbol;
+}
+
 // Seat
 // Ticket's seat information for long distance trains, coaches or flights
 export type Seat = t.Branded<
@@ -93,6 +137,8 @@ export type Cancellation = t.Branded<
     } & Record<string, unknown>) & {
       endTime: Defined;
     };
+    desc?: string;
+    expiration?: Units_.Time;
   } & Record<string, unknown>) & {
     cancellable: Defined;
     refunded: Defined;
@@ -125,6 +171,8 @@ export type CancellationC = t.BrandC<
                 }>,
               ]
             >;
+            desc: t.StringC;
+            expiration: typeof Units_.Time;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
         ]
@@ -157,6 +205,8 @@ export const Cancellation: CancellationC = t.brand(
             endTime: Defined,
           }),
         ]),
+        desc: t.string,
+        expiration: Units_.Time,
       }),
       t.record(t.string, t.unknown),
     ]),
@@ -179,6 +229,8 @@ export const Cancellation: CancellationC = t.brand(
       } & Record<string, unknown>) & {
         endTime: Defined;
       };
+      desc?: string;
+      expiration?: Units_.Time;
     } & Record<string, unknown>) & {
       cancellable: Defined;
       refunded: Defined;
@@ -312,6 +364,7 @@ export interface SurchargeBrand {
 export type Terms = t.Branded<
   {
     type?: string;
+    display?: Display;
     seatings?: Array<Seat>;
     validity?: ({
       startTime?: Units_.Time;
@@ -374,6 +427,7 @@ export type TermsC = t.BrandC<
     [
       t.PartialC<{
         type: t.StringC;
+        display: typeof Display;
         seatings: t.ArrayC<typeof Seat>;
         validity: t.IntersectionC<
           [
@@ -488,6 +542,7 @@ export const Terms: TermsC = t.brand(
   t.intersection([
     t.partial({
       type: t.string,
+      display: Display,
       seatings: t.array(Seat),
       validity: t.intersection([
         t.intersection([
@@ -578,6 +633,7 @@ export const Terms: TermsC = t.brand(
   ): x is t.Branded<
     {
       type?: string;
+      display?: Display;
       seatings?: Array<Seat>;
       validity?: ({
         startTime?: Units_.Time;
