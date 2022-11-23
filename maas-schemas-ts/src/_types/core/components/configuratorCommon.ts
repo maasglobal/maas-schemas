@@ -12,6 +12,7 @@ import * as t from 'io-ts';
 import * as Cost_ from './cost';
 import * as Fare_ from './fare';
 import * as Terms_ from './terms';
+import * as BookingMeta_ from '../booking-meta';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -43,7 +44,7 @@ export type Choice = t.Branded<
     fares?: Array<Fare_.Fare>;
     terms?: Terms_.Terms;
     unmodifiedTerms?: Terms_.Terms;
-    meta?: Record<string, unknown> & Record<string, unknown>;
+    meta?: BookingMeta_.BookingMeta;
   } & Record<string, unknown>) & {
     id: Defined;
     name: Defined;
@@ -65,7 +66,7 @@ export type ChoiceC = t.BrandC<
             fares: t.ArrayC<typeof Fare_.Fare>;
             terms: typeof Terms_.Terms;
             unmodifiedTerms: typeof Terms_.Terms;
-            meta: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
+            meta: typeof BookingMeta_.BookingMeta;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
         ]
@@ -91,7 +92,7 @@ export const Choice: ChoiceC = t.brand(
         fares: t.array(Fare_.Fare),
         terms: Terms_.Terms,
         unmodifiedTerms: Terms_.Terms,
-        meta: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
+        meta: BookingMeta_.BookingMeta,
       }),
       t.record(t.string, t.unknown),
     ]),
@@ -113,7 +114,7 @@ export const Choice: ChoiceC = t.brand(
       fares?: Array<Fare_.Fare>;
       terms?: Terms_.Terms;
       unmodifiedTerms?: Terms_.Terms;
-      meta?: Record<string, unknown> & Record<string, unknown>;
+      meta?: BookingMeta_.BookingMeta;
     } & Record<string, unknown>) & {
       id: Defined;
       name: Defined;

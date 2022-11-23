@@ -9,6 +9,22 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+import * as Units_ from './units';
+
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export interface DefinedC extends DefinedType {}
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/api-common.json';
 
@@ -49,8 +65,8 @@ export interface UserAgentHeaderBrand {
 // The purpose of this remains a mystery
 export type Headers = t.Branded<
   {
-    Accept?: AcceptHeader;
-    'X-Whim-User-Agent'?: UserAgentHeader;
+    accept?: AcceptHeader;
+    'x-whim-user-agent'?: UserAgentHeader;
   } & Record<string, unknown>,
   HeadersBrand
 >;
@@ -58,8 +74,8 @@ export type HeadersC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        Accept: typeof AcceptHeader;
-        'X-Whim-User-Agent': typeof UserAgentHeader;
+        accept: typeof AcceptHeader;
+        'x-whim-user-agent': typeof UserAgentHeader;
       }>,
       t.RecordC<t.StringC, t.UnknownC>,
     ]
@@ -69,8 +85,8 @@ export type HeadersC = t.BrandC<
 export const Headers: HeadersC = t.brand(
   t.intersection([
     t.partial({
-      Accept: AcceptHeader,
-      'X-Whim-User-Agent': UserAgentHeader,
+      accept: AcceptHeader,
+      'x-whim-user-agent': UserAgentHeader,
     }),
     t.record(t.string, t.unknown),
   ]),
@@ -78,8 +94,8 @@ export const Headers: HeadersC = t.brand(
     x,
   ): x is t.Branded<
     {
-      Accept?: AcceptHeader;
-      'X-Whim-User-Agent'?: UserAgentHeader;
+      accept?: AcceptHeader;
+      'x-whim-user-agent'?: UserAgentHeader;
     } & Record<string, unknown>,
     HeadersBrand
   > => true,
@@ -87,6 +103,180 @@ export const Headers: HeadersC = t.brand(
 );
 export interface HeadersBrand {
   readonly Headers: unique symbol;
+}
+
+// AppInstanceIdHeader
+// The purpose of this remains a mystery
+export type AppInstanceIdHeader = t.Branded<string, AppInstanceIdHeaderBrand>;
+export type AppInstanceIdHeaderC = t.BrandC<t.StringC, AppInstanceIdHeaderBrand>;
+export const AppInstanceIdHeader: AppInstanceIdHeaderC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, AppInstanceIdHeaderBrand> =>
+    typeof x !== 'string' || x.length >= 1,
+  'AppInstanceIdHeader',
+);
+export interface AppInstanceIdHeaderBrand {
+  readonly AppInstanceIdHeader: unique symbol;
+}
+
+// StandardApiEndpointHeaders
+// The purpose of this remains a mystery
+export type StandardApiEndpointHeaders = t.Branded<
+  ({
+    accept?: AcceptHeader;
+    'x-whim-user-agent'?: UserAgentHeader;
+    'x-whim-app-instance-id'?: AppInstanceIdHeader;
+  } & Record<string, unknown>) & {
+    accept: Defined;
+    'x-whim-user-agent': Defined;
+    'x-whim-app-instance-id': Defined;
+  },
+  StandardApiEndpointHeadersBrand
+>;
+export type StandardApiEndpointHeadersC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            accept: typeof AcceptHeader;
+            'x-whim-user-agent': typeof UserAgentHeader;
+            'x-whim-app-instance-id': typeof AppInstanceIdHeader;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
+      t.TypeC<{
+        accept: typeof Defined;
+        'x-whim-user-agent': typeof Defined;
+        'x-whim-app-instance-id': typeof Defined;
+      }>,
+    ]
+  >,
+  StandardApiEndpointHeadersBrand
+>;
+export const StandardApiEndpointHeaders: StandardApiEndpointHeadersC = t.brand(
+  t.intersection([
+    t.intersection([
+      t.partial({
+        accept: AcceptHeader,
+        'x-whim-user-agent': UserAgentHeader,
+        'x-whim-app-instance-id': AppInstanceIdHeader,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
+    t.type({
+      accept: Defined,
+      'x-whim-user-agent': Defined,
+      'x-whim-app-instance-id': Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    ({
+      accept?: AcceptHeader;
+      'x-whim-user-agent'?: UserAgentHeader;
+      'x-whim-app-instance-id'?: AppInstanceIdHeader;
+    } & Record<string, unknown>) & {
+      accept: Defined;
+      'x-whim-user-agent': Defined;
+      'x-whim-app-instance-id': Defined;
+    },
+    StandardApiEndpointHeadersBrand
+  > => true,
+  'StandardApiEndpointHeaders',
+);
+export interface StandardApiEndpointHeadersBrand {
+  readonly StandardApiEndpointHeaders: unique symbol;
+}
+
+// ApiGatewayAuthorizedRequestContext
+// The purpose of this remains a mystery
+export type ApiGatewayAuthorizedRequestContext = t.Branded<
+  ({
+    authorizer?: ({
+      principalId?: Units_.IdentityId;
+    } & Record<string, unknown>) & {
+      principalId: Defined;
+    };
+  } & Record<string, unknown>) & {
+    authorizer: Defined;
+  },
+  ApiGatewayAuthorizedRequestContextBrand
+>;
+export type ApiGatewayAuthorizedRequestContextC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            authorizer: t.IntersectionC<
+              [
+                t.IntersectionC<
+                  [
+                    t.PartialC<{
+                      principalId: typeof Units_.IdentityId;
+                    }>,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                  ]
+                >,
+                t.TypeC<{
+                  principalId: typeof Defined;
+                }>,
+              ]
+            >;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
+      t.TypeC<{
+        authorizer: typeof Defined;
+      }>,
+    ]
+  >,
+  ApiGatewayAuthorizedRequestContextBrand
+>;
+export const ApiGatewayAuthorizedRequestContext: ApiGatewayAuthorizedRequestContextC = t.brand(
+  t.intersection([
+    t.intersection([
+      t.partial({
+        authorizer: t.intersection([
+          t.intersection([
+            t.partial({
+              principalId: Units_.IdentityId,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+          t.type({
+            principalId: Defined,
+          }),
+        ]),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
+    t.type({
+      authorizer: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    ({
+      authorizer?: ({
+        principalId?: Units_.IdentityId;
+      } & Record<string, unknown>) & {
+        principalId: Defined;
+      };
+    } & Record<string, unknown>) & {
+      authorizer: Defined;
+    },
+    ApiGatewayAuthorizedRequestContextBrand
+  > => true,
+  'ApiGatewayAuthorizedRequestContext',
+);
+export interface ApiGatewayAuthorizedRequestContextBrand {
+  readonly ApiGatewayAuthorizedRequestContext: unique symbol;
 }
 
 // ApiCommon

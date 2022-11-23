@@ -17,8 +17,8 @@ import * as Customer_ from './customer';
 import * as TravelMode_ from './components/travel-mode';
 import * as Units_ from './components/units';
 import * as Place_ from './components/place';
-import * as Common_ from './components/common';
 import * as UnitsGeo_ from './components/units-geo';
+import * as Common_ from './components/common';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -47,6 +47,7 @@ export type Leg = t.Branded<
     from?: Place_.Place;
     to?: Place_.Place;
     departureDelay?: Units_.Duration;
+    distance?: UnitsGeo_.Distance;
     agencyId?: Common_.AgencyId;
   } & {
     mode: Defined;
@@ -67,6 +68,7 @@ export type LegC = t.BrandC<
         from: typeof Place_.Place;
         to: typeof Place_.Place;
         departureDelay: typeof Units_.Duration;
+        distance: typeof UnitsGeo_.Distance;
         agencyId: typeof Common_.AgencyId;
       }>,
       t.TypeC<{
@@ -89,6 +91,7 @@ export const Leg: LegC = t.brand(
       from: Place_.Place,
       to: Place_.Place,
       departureDelay: Units_.Duration,
+      distance: UnitsGeo_.Distance,
       agencyId: Common_.AgencyId,
     }),
     t.type({
@@ -109,6 +112,7 @@ export const Leg: LegC = t.brand(
       from?: Place_.Place;
       to?: Place_.Place;
       departureDelay?: Units_.Duration;
+      distance?: UnitsGeo_.Distance;
       agencyId?: Common_.AgencyId;
     } & {
       mode: Defined;
