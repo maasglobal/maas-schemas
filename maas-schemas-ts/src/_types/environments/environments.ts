@@ -12,6 +12,7 @@ import * as t from 'io-ts';
 import * as Common_ from '../core/components/common';
 import * as Units_ from '../core/components/units';
 import * as Apis_ from './apis';
+import * as Tenants_ from './tenants';
 import * as Accounts_ from './accounts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
@@ -213,6 +214,7 @@ export type Environment = t.Branded<
     id?: EnvironmentId;
     api?: Apis_.ApiUrl;
     apis?: Apis_.ApiConfigs;
+    tenants?: Tenants_.TenantIndex;
     live?: EnvironmentLive;
     contact?: Developer;
     account?: Accounts_.AccountAlias;
@@ -222,6 +224,7 @@ export type Environment = t.Branded<
     id: Defined;
     api: Defined;
     apis: Defined;
+    tenants: Defined;
     live: Defined;
     contact: Defined;
     account: Defined;
@@ -235,6 +238,7 @@ export type EnvironmentC = t.BrandC<
         id: typeof EnvironmentId;
         api: typeof Apis_.ApiUrl;
         apis: typeof Apis_.ApiConfigs;
+        tenants: typeof Tenants_.TenantIndex;
         live: typeof EnvironmentLive;
         contact: typeof Developer;
         account: typeof Accounts_.AccountAlias;
@@ -245,6 +249,7 @@ export type EnvironmentC = t.BrandC<
         id: typeof Defined;
         api: typeof Defined;
         apis: typeof Defined;
+        tenants: typeof Defined;
         live: typeof Defined;
         contact: typeof Defined;
         account: typeof Defined;
@@ -259,6 +264,7 @@ export const Environment: EnvironmentC = t.brand(
       id: EnvironmentId,
       api: Apis_.ApiUrl,
       apis: Apis_.ApiConfigs,
+      tenants: Tenants_.TenantIndex,
       live: EnvironmentLive,
       contact: Developer,
       account: Accounts_.AccountAlias,
@@ -269,6 +275,7 @@ export const Environment: EnvironmentC = t.brand(
       id: Defined,
       api: Defined,
       apis: Defined,
+      tenants: Defined,
       live: Defined,
       contact: Defined,
       account: Defined,
@@ -281,6 +288,7 @@ export const Environment: EnvironmentC = t.brand(
       id?: EnvironmentId;
       api?: Apis_.ApiUrl;
       apis?: Apis_.ApiConfigs;
+      tenants?: Tenants_.TenantIndex;
       live?: EnvironmentLive;
       contact?: Developer;
       account?: Accounts_.AccountAlias;
@@ -290,6 +298,7 @@ export const Environment: EnvironmentC = t.brand(
       id: Defined;
       api: Defined;
       apis: Defined;
+      tenants: Defined;
       live: Defined;
       contact: Defined;
       account: Defined;
@@ -307,6 +316,7 @@ export const examplesEnvironment: NonEmptyArray<Environment> = ([
     id: 'production',
     api: 'https://production.example.com/api/',
     apis: { main: { url: 'https://production.example.com/api/' } },
+    tenants: { multipol: { name: 'Multipol' }, whim: { name: 'Whim' } },
     live: true,
     account: 'production',
     contact: { name: 'Alisha Admin', email: 'admin@example.com' },
@@ -385,6 +395,7 @@ export const examplesDevEnvironment: NonEmptyArray<DevEnvironment> = ([
     id: 'testing',
     api: 'https://testing.example.com/api/',
     apis: { main: { url: 'https://testing.example.com/api/' } },
+    tenants: { multipol: { name: 'Multipol' }, whim: { name: 'Whim' } },
     live: false,
     account: 'testing',
     contact: { name: 'Alisha Admin' },
@@ -503,6 +514,7 @@ export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = ([
         id: 'production',
         api: 'https://production.example.com/api/',
         apis: { main: { url: 'https://production.example.com/api/' } },
+        tenants: { multipol: { name: 'Multipol' }, whim: { name: 'Whim' } },
         live: true,
         account: 'production',
         contact: { name: 'Alisha Admin', email: 'admin@example.com' },
@@ -512,6 +524,7 @@ export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = ([
         id: 'testing',
         api: 'https://testing.example.com/api/',
         apis: { main: { url: 'https://testing.example.com/api/' } },
+        tenants: { multipol: { name: 'Multipol' }, whim: { name: 'Whim' } },
         live: false,
         account: 'testing',
         contact: { name: 'Alisha Admin' },
@@ -526,6 +539,7 @@ export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = ([
         id: 'fantasy-topping',
         api: 'https://fantasy-topping.example.com/api/',
         apis: { main: { url: 'https://fantasy-topping.example.com/api/' } },
+        tenants: { multipol: { name: 'Multipol' }, whim: { name: 'Whim' } },
         live: false,
         account: 'testing',
         contact: { name: 'Dennis Developer' },
@@ -632,6 +646,7 @@ export const examplesEnvironments: NonEmptyArray<Environments> = ([
             id: 'production',
             api: 'https://production.example.com/api/',
             apis: { main: { url: 'https://production.example.com/api/' } },
+            tenants: { multipol: { name: 'Multipol' }, whim: { name: 'Whim' } },
             live: true,
             account: 'production',
             contact: { name: 'Alisha Admin', email: 'admin@example.com' },
@@ -641,6 +656,7 @@ export const examplesEnvironments: NonEmptyArray<Environments> = ([
             id: 'testing',
             api: 'https://testing.example.com/api/',
             apis: { main: { url: 'https://testing.example.com/api/' } },
+            tenants: { multipol: { name: 'Multipol' }, whim: { name: 'Whim' } },
             live: false,
             account: 'testing',
             contact: { name: 'Alisha Admin' },
@@ -658,6 +674,7 @@ export const examplesEnvironments: NonEmptyArray<Environments> = ([
               fun: { url: 'https://fantasy-topping.example.com/fun/' },
               boring: { url: 'https://fantasy-topping.example.com/boring/' },
             },
+            tenants: { multipol: { name: 'Multipol' }, whim: { name: 'Whim' } },
             live: false,
             account: 'testing',
             contact: { name: 'Dennis Developer' },

@@ -1,0 +1,55 @@
+{
+  "$id": "https://schemas.maas.global/environments/tenants.json",
+  "definitions": {
+    "tenantId": {
+      "type": "string",
+      "pattern": "^[a-z]{2,20}$",
+      "examples": ["multipol", "whim"]
+    },
+    "tenantName": {
+      "type": "string",
+      "examples": ["Multipol", "Whim"]
+    },
+    "tenantDescription": {
+      "type": "string",
+      "examples": ["Multipol tenant", "Whim tenant"]
+    },
+    "tenant": {
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "#/definitions/tenantName" },
+        "description": { "$ref": "#/definitions/tenantDescription" }
+      },
+      "required": ["name"],
+      "examples": [
+        {
+          "name": "Multipol Api",
+          "description": "This tenant is used for fun stuff"
+        },
+        {
+          "name": "Whim Api",
+          "description": "This tenant is used for other stuff"
+        }
+      ]
+    },
+    "tenantIndex": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/definitions/tenantId" },
+      "patternProperties": {
+        "^": { "$ref": "#/definitions/tenant" }
+      },
+      "additionalProperties": false,
+      "examples": [
+        {
+          "multipol": {
+            "name": "Multipol Api"
+          },
+          "whim": {
+            "name": "Whim Api",
+            "description": "This tenant is used for other stuff"
+          }
+        }
+      ]
+    }
+  }
+}
