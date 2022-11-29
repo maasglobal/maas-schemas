@@ -1,29 +1,6 @@
 {
   "$id": "https://schemas.maas.global/environments/environments.json",
   "definitions": {
-    "developerName": {
-      "description": "Full name or tag of a developer",
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 255,
-      "examples": ["Alisha Admin"]
-    },
-    "developerEmail": {
-      "description": "Email address of a developer",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/email" }],
-      "examples": ["admin@example.com"]
-    },
-    "developer": {
-      "description": "Developer contact information",
-      "type": "object",
-      "properties": {
-        "name": { "$ref": "#/definitions/developerName" },
-        "email": { "$ref": "#/definitions/developerEmail" }
-      },
-      "required": ["name"],
-      "additionalProperties": false,
-      "examples": [{ "name": "Alisha Admin", "email": "admin@example.com" }, { "name": "Dennis Developer" }]
-    },
     "environmentId": {
       "type": "string",
       "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/hostnameLabel" }],
@@ -47,19 +24,17 @@
       "properties": {
         "id": { "$ref": "#/definitions/environmentId" },
         "live": { "$ref": "#/definitions/environmentLive" },
-        "contact": { "$ref": "#/definitions/developer" },
         "account": { "$ref": "https://schemas.maas.global/environments/accounts.json#/definitions/accountAlias" },
         "name": { "$ref": "#/definitions/environmentName" },
         "description": { "$ref": "#/definitions/environmentDescription" }
       },
-      "required": ["id", "live", "contact", "account"],
+      "required": ["id", "live", "account"],
       "additionalProperties": false,
       "examples": [
         {
           "id": "production",
           "live": true,
           "account": "production",
-          "contact": { "name": "Alisha Admin", "email": "admin@example.com" },
           "description": "Production environment"
         }
       ]
@@ -83,7 +58,6 @@
           "id": "testing",
           "live": false,
           "account": "testing",
-          "contact": { "name": "Alisha Admin" },
           "description": "Testing environment"
         }
       ]
@@ -120,14 +94,12 @@
               "id": "production",
               "live": true,
               "account": "production",
-              "contact": { "name": "Alisha Admin", "email": "admin@example.com" },
               "description": "Production environment"
             },
             {
               "id": "testing",
               "live": false,
               "account": "testing",
-              "contact": { "name": "Alisha Admin" },
               "description": "Testing environment"
             }
           ]
@@ -139,7 +111,6 @@
               "id": "fantasy-topping",
               "live": false,
               "account": "testing",
-              "contact": { "name": "Dennis Developer" },
               "name": "Fantasy Topping",
               "description": "Add support for pizza customization"
             }
@@ -184,14 +155,12 @@
               "id": "production",
               "live": true,
               "account": "production",
-              "contact": { "name": "Alisha Admin", "email": "admin@example.com" },
               "description": "Production environment"
             },
             {
               "id": "testing",
               "live": false,
               "account": "testing",
-              "contact": { "name": "Alisha Admin" },
               "description": "Testing environment"
             }
           ]
@@ -203,7 +172,6 @@
               "id": "fantasy-topping",
               "live": false,
               "account": "testing",
-              "contact": { "name": "Dennis Developer" },
               "name": "Fantasy Topping",
               "description": "Add support for pizza customization"
             }
