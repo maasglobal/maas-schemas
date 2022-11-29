@@ -11,7 +11,6 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 import * as Common_ from '../core/components/common';
 import * as Units_ from '../core/components/units';
-import * as Apis_ from './apis';
 import * as Accounts_ from './accounts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
@@ -211,8 +210,6 @@ export const examplesEnvironmentDescription: NonEmptyArray<EnvironmentDescriptio
 export type Environment = t.Branded<
   {
     id?: EnvironmentId;
-    api?: Apis_.ApiUrl;
-    apis?: Apis_.ApiConfigs;
     live?: EnvironmentLive;
     contact?: Developer;
     account?: Accounts_.AccountAlias;
@@ -220,8 +217,6 @@ export type Environment = t.Branded<
     description?: EnvironmentDescription;
   } & {
     id: Defined;
-    api: Defined;
-    apis: Defined;
     live: Defined;
     contact: Defined;
     account: Defined;
@@ -233,8 +228,6 @@ export type EnvironmentC = t.BrandC<
     [
       t.PartialC<{
         id: typeof EnvironmentId;
-        api: typeof Apis_.ApiUrl;
-        apis: typeof Apis_.ApiConfigs;
         live: typeof EnvironmentLive;
         contact: typeof Developer;
         account: typeof Accounts_.AccountAlias;
@@ -243,8 +236,6 @@ export type EnvironmentC = t.BrandC<
       }>,
       t.TypeC<{
         id: typeof Defined;
-        api: typeof Defined;
-        apis: typeof Defined;
         live: typeof Defined;
         contact: typeof Defined;
         account: typeof Defined;
@@ -257,8 +248,6 @@ export const Environment: EnvironmentC = t.brand(
   t.intersection([
     t.partial({
       id: EnvironmentId,
-      api: Apis_.ApiUrl,
-      apis: Apis_.ApiConfigs,
       live: EnvironmentLive,
       contact: Developer,
       account: Accounts_.AccountAlias,
@@ -267,8 +256,6 @@ export const Environment: EnvironmentC = t.brand(
     }),
     t.type({
       id: Defined,
-      api: Defined,
-      apis: Defined,
       live: Defined,
       contact: Defined,
       account: Defined,
@@ -279,8 +266,6 @@ export const Environment: EnvironmentC = t.brand(
   ): x is t.Branded<
     {
       id?: EnvironmentId;
-      api?: Apis_.ApiUrl;
-      apis?: Apis_.ApiConfigs;
       live?: EnvironmentLive;
       contact?: Developer;
       account?: Accounts_.AccountAlias;
@@ -288,8 +273,6 @@ export const Environment: EnvironmentC = t.brand(
       description?: EnvironmentDescription;
     } & {
       id: Defined;
-      api: Defined;
-      apis: Defined;
       live: Defined;
       contact: Defined;
       account: Defined;
@@ -305,8 +288,6 @@ export interface EnvironmentBrand {
 export const examplesEnvironment: NonEmptyArray<Environment> = ([
   {
     id: 'production',
-    api: 'https://production.example.com/api/',
-    apis: { main: { url: 'https://production.example.com/api/' } },
     live: true,
     account: 'production',
     contact: { name: 'Alisha Admin', email: 'admin@example.com' },
@@ -383,8 +364,6 @@ export interface DevEnvironmentBrand {
 export const examplesDevEnvironment: NonEmptyArray<DevEnvironment> = ([
   {
     id: 'testing',
-    api: 'https://testing.example.com/api/',
-    apis: { main: { url: 'https://testing.example.com/api/' } },
     live: false,
     account: 'testing',
     contact: { name: 'Alisha Admin' },
@@ -501,8 +480,6 @@ export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = ([
     envs: [
       {
         id: 'production',
-        api: 'https://production.example.com/api/',
-        apis: { main: { url: 'https://production.example.com/api/' } },
         live: true,
         account: 'production',
         contact: { name: 'Alisha Admin', email: 'admin@example.com' },
@@ -510,8 +487,6 @@ export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = ([
       },
       {
         id: 'testing',
-        api: 'https://testing.example.com/api/',
-        apis: { main: { url: 'https://testing.example.com/api/' } },
         live: false,
         account: 'testing',
         contact: { name: 'Alisha Admin' },
@@ -524,8 +499,6 @@ export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = ([
     envs: [
       {
         id: 'fantasy-topping',
-        api: 'https://fantasy-topping.example.com/api/',
-        apis: { main: { url: 'https://fantasy-topping.example.com/api/' } },
         live: false,
         account: 'testing',
         contact: { name: 'Dennis Developer' },
@@ -557,7 +530,6 @@ export interface EnvironmentIndexBrand {
 export type Environments = t.Branded<
   {
     accounts?: Accounts_.AccountIndex;
-    apis?: Apis_.ApiIndex;
     index?: EnvironmentIndex;
   } & {
     index: Defined;
@@ -569,7 +541,6 @@ export type EnvironmentsC = t.BrandC<
     [
       t.PartialC<{
         accounts: typeof Accounts_.AccountIndex;
-        apis: typeof Apis_.ApiIndex;
         index: typeof EnvironmentIndex;
       }>,
       t.TypeC<{
@@ -583,7 +554,6 @@ export const Environments: EnvironmentsC = t.brand(
   t.intersection([
     t.partial({
       accounts: Accounts_.AccountIndex,
-      apis: Apis_.ApiIndex,
       index: EnvironmentIndex,
     }),
     t.type({
@@ -595,7 +565,6 @@ export const Environments: EnvironmentsC = t.brand(
   ): x is t.Branded<
     {
       accounts?: Accounts_.AccountIndex;
-      apis?: Apis_.ApiIndex;
       index?: EnvironmentIndex;
     } & {
       index: Defined;
@@ -618,20 +587,12 @@ export const examplesEnvironments: NonEmptyArray<Environments> = ([
       },
       testing: { id: '101234567890' },
     },
-    apis: {
-      main: {
-        name: 'The Main Api',
-        description: 'This is the only api available at the moment.',
-      },
-    },
     index: [
       {
         name: 'Core Environments',
         envs: [
           {
             id: 'production',
-            api: 'https://production.example.com/api/',
-            apis: { main: { url: 'https://production.example.com/api/' } },
             live: true,
             account: 'production',
             contact: { name: 'Alisha Admin', email: 'admin@example.com' },
@@ -639,8 +600,6 @@ export const examplesEnvironments: NonEmptyArray<Environments> = ([
           },
           {
             id: 'testing',
-            api: 'https://testing.example.com/api/',
-            apis: { main: { url: 'https://testing.example.com/api/' } },
             live: false,
             account: 'testing',
             contact: { name: 'Alisha Admin' },
@@ -653,11 +612,6 @@ export const examplesEnvironments: NonEmptyArray<Environments> = ([
         envs: [
           {
             id: 'fantasy-topping',
-            api: 'https://fantasy-topping.example.com/api/',
-            apis: {
-              fun: { url: 'https://fantasy-topping.example.com/fun/' },
-              boring: { url: 'https://fantasy-topping.example.com/boring/' },
-            },
             live: false,
             account: 'testing',
             contact: { name: 'Dennis Developer' },

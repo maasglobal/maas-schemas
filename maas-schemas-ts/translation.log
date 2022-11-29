@@ -1366,25 +1366,7 @@ INFO: missing description
   in ../maas-schemas/schemas/environments/accounts.json
 INFO: missing description
   in ../maas-schemas/schemas/environments/accounts.json
-WARNING: patternProperty support has limitations
-  in ../maas-schemas/schemas/environments/apis.json
-WARNING: patternProperty support has limitations
-  in ../maas-schemas/schemas/environments/apis.json
 WARNING: missing $schema declaration
-  in ../maas-schemas/schemas/environments/apis.json
-INFO: missing description
-  in ../maas-schemas/schemas/environments/apis.json
-INFO: missing description
-  in ../maas-schemas/schemas/environments/apis.json
-INFO: missing description
-  in ../maas-schemas/schemas/environments/apis.json
-INFO: missing description
-  in ../maas-schemas/schemas/environments/apis.json
-INFO: missing description
-  in ../maas-schemas/schemas/environments/apis.json
-INFO: missing description
-  in ../maas-schemas/schemas/environments/apis.json
-INFO: missing description
   in ../maas-schemas/schemas/environments/apis.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/environments/environments.json
