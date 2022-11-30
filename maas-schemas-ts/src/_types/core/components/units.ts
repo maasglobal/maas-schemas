@@ -452,12 +452,52 @@ export type IsoDateC = t.BrandC<t.StringC, IsoDateBrand>;
 export const IsoDate: IsoDateC = t.brand(
   t.string,
   (x): x is t.Branded<string, IsoDateBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^\\d{4}-\\d{2}-\\d{2}')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^\\d{4}-\\d{2}-\\d{2}$')) !== null,
   'IsoDate',
 );
 export interface IsoDateBrand {
   readonly IsoDate: unique symbol;
 }
+
+// IsoDateTime
+// An ISO8601 date-time
+export type IsoDateTime = t.Branded<string, IsoDateTimeBrand>;
+export type IsoDateTimeC = t.BrandC<t.StringC, IsoDateTimeBrand>;
+export const IsoDateTime: IsoDateTimeC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, IsoDateTimeBrand> =>
+    typeof x !== 'string' ||
+    x.match(
+      RegExp(
+        '^\\d{4}-((0[1-9])|(1[012]))-((0[1-9])|([12]\\d)|(3[01]))T(([01]\\d)|(2[0123])):([012345]\\d):([012345]\\d)(\\.\\d+)?(Z|([\\+\\-]([01]\\d|2[0123]):[012345]\\d))$',
+      ),
+    ) !== null,
+  'IsoDateTime',
+);
+export interface IsoDateTimeBrand {
+  readonly IsoDateTime: unique symbol;
+}
+/** require('io-ts-validator').validator(nonEmptyArray(IsoDateTime)).decodeSync(examplesIsoDateTime) // => examplesIsoDateTime */
+export const examplesIsoDateTime: NonEmptyArray<IsoDateTime> = ([
+  '2022-11-30T14:32:25Z',
+  '2022-11-30T16:32:25+02:00',
+  '2022-11-30T14:32:25.456Z',
+  '2022-11-30T16:32:25.456-03:00',
+] as unknown) as NonEmptyArray<IsoDateTime>;
+// NEGATIVE Test Case: No time component
+/** require('io-ts-validator').validator(IsoDateTime).decodeEither("2022-11-30")._tag // => 'Left' */
+// NEGATIVE Test Case: No TZ of any kind
+/** require('io-ts-validator').validator(IsoDateTime).decodeEither("2022-11-30T14:32:25")._tag // => 'Left' */
+// NEGATIVE Test Case: Invalid month
+/** require('io-ts-validator').validator(IsoDateTime).decodeEither("2022-41-30T14:32:25Z")._tag // => 'Left' */
+// NEGATIVE Test Case: Invalid day
+/** require('io-ts-validator').validator(IsoDateTime).decodeEither("2022-11-60T14:32:25Z")._tag // => 'Left' */
+// NEGATIVE Test Case: Invalid hour
+/** require('io-ts-validator').validator(IsoDateTime).decodeEither("2022-11-30T74:32:25Z")._tag // => 'Left' */
+// NEGATIVE Test Case: Invalid minute
+/** require('io-ts-validator').validator(IsoDateTime).decodeEither("2022-11-30T14:72:25Z")._tag // => 'Left' */
+// NEGATIVE Test Case: Invalid second
+/** require('io-ts-validator').validator(IsoDateTime).decodeEither("2022-11-30T14:32:75Z")._tag // => 'Left' */
 
 // Units
 // The default export. More information at the top.
