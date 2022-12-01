@@ -1,0 +1,28 @@
+{
+  "$id": "https://schemas.maas.global/core/components/system.json",
+  "description": "MaaS system level definitions",
+  "definitions": {
+    "awsRegion": {
+      "type": "string",
+      "pattern": "(us(-gov)?|ap|ca|cn|eu|sa)-(central|(north|south)?(east|west)?)-\\d",
+      "examples": [
+        "us-east-2",
+        "us-east-1",
+        "us-west-1",
+        "us-west-2",
+        "ap-east-1",
+        "ap-south-1",
+        "ap-northeast-2",
+        "ap-southeast-1",
+        "ca-central-1",
+        "cn-north-1",
+        "cn-northwest-1",
+        "eu-central-1",
+        "eu-west-1",
+        "eu-north-1",
+        "sa-east-1",
+        "us-gov-east-1"
+      ]
+    }
+  }
+}
