@@ -51,6 +51,29 @@
       ],
       "examples": ["eu-west-1:4828507e-683f-41bf-9d87-689808fbf958", "4828507e-683f-41bf-9d87-689808fbf958"]
     },
+    "nodeEnv": {
+      "title": "Node Env",
+      "description": "Definition for NODE_ENV environment variable.",
+      "enum": ["development", "production"]
+    },
+    "nodeEnvDEVELOPMENT": {
+      "default": "development",
+      "allOf": [
+        {
+          "$ref": "#/definitions/nodeEnv"
+        },
+        { "const": "development" }
+      ]
+    },
+    "nodeEnvPRODUCTION": {
+      "default": "production",
+      "allOf": [
+        {
+          "$ref": "#/definitions/nodeEnv"
+        },
+        { "const": "production" }
+      ]
+    },
     "currency": {
       "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
       "type": "string",
