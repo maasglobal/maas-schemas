@@ -1388,6 +1388,12 @@ INFO: missing description
   in ../maas-schemas/schemas/environments/environments.json
 INFO: missing description
   in ../maas-schemas/schemas/environments/environments.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/environments/synopses.json
+WARNING: missing $schema declaration
+  in ../maas-schemas/schemas/environments/synopsis.json
+INFO: missing description
+  in ../maas-schemas/schemas/environments/synopsis.json
 INFO: primitive type "number" used outside top-level definitions
   in ../maas-schemas/schemas/geojson/geometry.json
 INFO: primitive type "number" used outside top-level definitions
