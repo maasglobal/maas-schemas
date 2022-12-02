@@ -9,9 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Common_ from '../core/components/common';
 import * as Units_ from '../core/components/units';
-import * as Apis_ from './apis';
 import * as Accounts_ from './accounts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
@@ -32,99 +30,6 @@ export interface DefinedC extends DefinedType {}
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/environments/environments.json';
-
-// DeveloperName
-// Full name or tag of a developer
-export type DeveloperName = t.Branded<string, DeveloperNameBrand>;
-export type DeveloperNameC = t.BrandC<t.StringC, DeveloperNameBrand>;
-export const DeveloperName: DeveloperNameC = t.brand(
-  t.string,
-  (x): x is t.Branded<string, DeveloperNameBrand> =>
-    (typeof x !== 'string' || x.length >= 1) &&
-    (typeof x !== 'string' || x.length <= 255),
-  'DeveloperName',
-);
-export interface DeveloperNameBrand {
-  readonly DeveloperName: unique symbol;
-}
-/** require('io-ts-validator').validator(nonEmptyArray(DeveloperName)).decodeSync(examplesDeveloperName) // => examplesDeveloperName */
-export const examplesDeveloperName: NonEmptyArray<DeveloperName> = ([
-  'Alisha Admin',
-] as unknown) as NonEmptyArray<DeveloperName>;
-
-// DeveloperEmail
-// Email address of a developer
-export type DeveloperEmail = t.Branded<Common_.Email, DeveloperEmailBrand>;
-export type DeveloperEmailC = t.BrandC<typeof Common_.Email, DeveloperEmailBrand>;
-export const DeveloperEmail: DeveloperEmailC = t.brand(
-  Common_.Email,
-  (x): x is t.Branded<Common_.Email, DeveloperEmailBrand> => true,
-  'DeveloperEmail',
-);
-export interface DeveloperEmailBrand {
-  readonly DeveloperEmail: unique symbol;
-}
-/** require('io-ts-validator').validator(nonEmptyArray(DeveloperEmail)).decodeSync(examplesDeveloperEmail) // => examplesDeveloperEmail */
-export const examplesDeveloperEmail: NonEmptyArray<DeveloperEmail> = ([
-  'admin@example.com',
-] as unknown) as NonEmptyArray<DeveloperEmail>;
-
-// Developer
-// Developer contact information
-export type Developer = t.Branded<
-  {
-    name?: DeveloperName;
-    email?: DeveloperEmail;
-  } & {
-    name: Defined;
-  },
-  DeveloperBrand
->;
-export type DeveloperC = t.BrandC<
-  t.IntersectionC<
-    [
-      t.PartialC<{
-        name: typeof DeveloperName;
-        email: typeof DeveloperEmail;
-      }>,
-      t.TypeC<{
-        name: typeof Defined;
-      }>,
-    ]
-  >,
-  DeveloperBrand
->;
-export const Developer: DeveloperC = t.brand(
-  t.intersection([
-    t.partial({
-      name: DeveloperName,
-      email: DeveloperEmail,
-    }),
-    t.type({
-      name: Defined,
-    }),
-  ]),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      name?: DeveloperName;
-      email?: DeveloperEmail;
-    } & {
-      name: Defined;
-    },
-    DeveloperBrand
-  > => true,
-  'Developer',
-);
-export interface DeveloperBrand {
-  readonly Developer: unique symbol;
-}
-/** require('io-ts-validator').validator(nonEmptyArray(Developer)).decodeSync(examplesDeveloper) // => examplesDeveloper */
-export const examplesDeveloper: NonEmptyArray<Developer> = ([
-  { name: 'Alisha Admin', email: 'admin@example.com' },
-  { name: 'Dennis Developer' },
-] as unknown) as NonEmptyArray<Developer>;
 
 // EnvironmentId
 // The purpose of this remains a mystery
@@ -211,19 +116,13 @@ export const examplesEnvironmentDescription: NonEmptyArray<EnvironmentDescriptio
 export type Environment = t.Branded<
   {
     id?: EnvironmentId;
-    api?: Apis_.ApiUrl;
-    apis?: Apis_.ApiConfigs;
     live?: EnvironmentLive;
-    contact?: Developer;
     account?: Accounts_.AccountAlias;
     name?: EnvironmentName;
     description?: EnvironmentDescription;
   } & {
     id: Defined;
-    api: Defined;
-    apis: Defined;
     live: Defined;
-    contact: Defined;
     account: Defined;
   },
   EnvironmentBrand
@@ -233,20 +132,14 @@ export type EnvironmentC = t.BrandC<
     [
       t.PartialC<{
         id: typeof EnvironmentId;
-        api: typeof Apis_.ApiUrl;
-        apis: typeof Apis_.ApiConfigs;
         live: typeof EnvironmentLive;
-        contact: typeof Developer;
         account: typeof Accounts_.AccountAlias;
         name: typeof EnvironmentName;
         description: typeof EnvironmentDescription;
       }>,
       t.TypeC<{
         id: typeof Defined;
-        api: typeof Defined;
-        apis: typeof Defined;
         live: typeof Defined;
-        contact: typeof Defined;
         account: typeof Defined;
       }>,
     ]
@@ -257,20 +150,14 @@ export const Environment: EnvironmentC = t.brand(
   t.intersection([
     t.partial({
       id: EnvironmentId,
-      api: Apis_.ApiUrl,
-      apis: Apis_.ApiConfigs,
       live: EnvironmentLive,
-      contact: Developer,
       account: Accounts_.AccountAlias,
       name: EnvironmentName,
       description: EnvironmentDescription,
     }),
     t.type({
       id: Defined,
-      api: Defined,
-      apis: Defined,
       live: Defined,
-      contact: Defined,
       account: Defined,
     }),
   ]),
@@ -279,19 +166,13 @@ export const Environment: EnvironmentC = t.brand(
   ): x is t.Branded<
     {
       id?: EnvironmentId;
-      api?: Apis_.ApiUrl;
-      apis?: Apis_.ApiConfigs;
       live?: EnvironmentLive;
-      contact?: Developer;
       account?: Accounts_.AccountAlias;
       name?: EnvironmentName;
       description?: EnvironmentDescription;
     } & {
       id: Defined;
-      api: Defined;
-      apis: Defined;
       live: Defined;
-      contact: Defined;
       account: Defined;
     },
     EnvironmentBrand
@@ -305,11 +186,8 @@ export interface EnvironmentBrand {
 export const examplesEnvironment: NonEmptyArray<Environment> = ([
   {
     id: 'production',
-    api: 'https://production.example.com/api/',
-    apis: { main: { url: 'https://production.example.com/api/' } },
     live: true,
     account: 'production',
-    contact: { name: 'Alisha Admin', email: 'admin@example.com' },
     description: 'Production environment',
   },
 ] as unknown) as NonEmptyArray<Environment>;
@@ -381,15 +259,7 @@ export interface DevEnvironmentBrand {
 }
 /** require('io-ts-validator').validator(nonEmptyArray(DevEnvironment)).decodeSync(examplesDevEnvironment) // => examplesDevEnvironment */
 export const examplesDevEnvironment: NonEmptyArray<DevEnvironment> = ([
-  {
-    id: 'testing',
-    api: 'https://testing.example.com/api/',
-    apis: { main: { url: 'https://testing.example.com/api/' } },
-    live: false,
-    account: 'testing',
-    contact: { name: 'Alisha Admin' },
-    description: 'Testing environment',
-  },
+  { id: 'testing', live: false, account: 'testing', description: 'Testing environment' },
 ] as unknown) as NonEmptyArray<DevEnvironment>;
 
 // EnvironmentGroupName
@@ -501,20 +371,14 @@ export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = ([
     envs: [
       {
         id: 'production',
-        api: 'https://production.example.com/api/',
-        apis: { main: { url: 'https://production.example.com/api/' } },
         live: true,
         account: 'production',
-        contact: { name: 'Alisha Admin', email: 'admin@example.com' },
         description: 'Production environment',
       },
       {
         id: 'testing',
-        api: 'https://testing.example.com/api/',
-        apis: { main: { url: 'https://testing.example.com/api/' } },
         live: false,
         account: 'testing',
-        contact: { name: 'Alisha Admin' },
         description: 'Testing environment',
       },
     ],
@@ -524,11 +388,8 @@ export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = ([
     envs: [
       {
         id: 'fantasy-topping',
-        api: 'https://fantasy-topping.example.com/api/',
-        apis: { main: { url: 'https://fantasy-topping.example.com/api/' } },
         live: false,
         account: 'testing',
-        contact: { name: 'Dennis Developer' },
         name: 'Fantasy Topping',
         description: 'Add support for pizza customization',
       },
@@ -557,7 +418,6 @@ export interface EnvironmentIndexBrand {
 export type Environments = t.Branded<
   {
     accounts?: Accounts_.AccountIndex;
-    apis?: Apis_.ApiIndex;
     index?: EnvironmentIndex;
   } & {
     index: Defined;
@@ -569,7 +429,6 @@ export type EnvironmentsC = t.BrandC<
     [
       t.PartialC<{
         accounts: typeof Accounts_.AccountIndex;
-        apis: typeof Apis_.ApiIndex;
         index: typeof EnvironmentIndex;
       }>,
       t.TypeC<{
@@ -583,7 +442,6 @@ export const Environments: EnvironmentsC = t.brand(
   t.intersection([
     t.partial({
       accounts: Accounts_.AccountIndex,
-      apis: Apis_.ApiIndex,
       index: EnvironmentIndex,
     }),
     t.type({
@@ -595,7 +453,6 @@ export const Environments: EnvironmentsC = t.brand(
   ): x is t.Branded<
     {
       accounts?: Accounts_.AccountIndex;
-      apis?: Apis_.ApiIndex;
       index?: EnvironmentIndex;
     } & {
       index: Defined;
@@ -618,32 +475,20 @@ export const examplesEnvironments: NonEmptyArray<Environments> = ([
       },
       testing: { id: '101234567890' },
     },
-    apis: {
-      main: {
-        name: 'The Main Api',
-        description: 'This is the only api available at the moment.',
-      },
-    },
     index: [
       {
         name: 'Core Environments',
         envs: [
           {
             id: 'production',
-            api: 'https://production.example.com/api/',
-            apis: { main: { url: 'https://production.example.com/api/' } },
             live: true,
             account: 'production',
-            contact: { name: 'Alisha Admin', email: 'admin@example.com' },
             description: 'Production environment',
           },
           {
             id: 'testing',
-            api: 'https://testing.example.com/api/',
-            apis: { main: { url: 'https://testing.example.com/api/' } },
             live: false,
             account: 'testing',
-            contact: { name: 'Alisha Admin' },
             description: 'Testing environment',
           },
         ],
@@ -653,14 +498,8 @@ export const examplesEnvironments: NonEmptyArray<Environments> = ([
         envs: [
           {
             id: 'fantasy-topping',
-            api: 'https://fantasy-topping.example.com/api/',
-            apis: {
-              fun: { url: 'https://fantasy-topping.example.com/fun/' },
-              boring: { url: 'https://fantasy-topping.example.com/boring/' },
-            },
             live: false,
             account: 'testing',
-            contact: { name: 'Dennis Developer' },
             name: 'Fantasy Topping',
             description: 'Add support for pizza customization',
           },
