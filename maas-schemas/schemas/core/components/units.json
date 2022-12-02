@@ -16,13 +16,42 @@
       "maxLength": 63,
       "examples": ["example", "com", "with-hyphen", "foo1", "0bar"]
     },
+    "hostnameDelimiter": {
+      "type": "string",
+      "const": ".",
+      "default": "."
+    },
     "hostname": {
-      "description": "list of 1 or more hostname labels separated by dot",
+      "description": "list of 1 or more hostname labels separated by hostname delimiter",
       "type": "string",
       "pattern": "^[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?(.[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?)*$",
       "minLength": 1,
       "maxLength": 253,
       "examples": ["localhost", "example.com", "sub.example.com"]
+    },
+    "port": {
+      "title": "Port",
+      "description": "Transport layer port number ( 0- ). Most likely TCP or UDP port ( 0-65535 ).",
+      "type": "number",
+      "multipleOf": 1,
+      "minimum": 0
+    },
+    "hostPortDelimiter": {
+      "type": "string",
+      "const": ":",
+      "default": ":"
+    },
+    "authority": {
+      "title": "Authority",
+      "description": "HTTP2 :authority <hostname>[:<port>] https://tools.ietf.org/html/rfc7540#section-8.1.2.3",
+      "type": "string",
+      "pattern": "^[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?(.[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?)*(:(0|1[0-9]*))?$",
+      "examples": ["env.application.example.com:123", "env.application.example.com"]
+    },
+    "networkSchemeDelimiter": {
+      "type": "string",
+      "const": "://",
+      "default": "://"
     },
     "url": {
       "description": "Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex",
