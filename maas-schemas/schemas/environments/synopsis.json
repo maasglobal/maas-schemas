@@ -1,0 +1,83 @@
+{
+  "$id": "https://schemas.maas.global/environments/synopsis.json",
+  "description": "Experimental synopsis that combines an environment with related information",
+  "definitions": {
+    "groupMeta": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "https://schemas.maas.global/environments/environments.json#/definitions/environmentGroupName"
+        },
+        "description": {
+          "$ref": "https://schemas.maas.global/environments/environments.json#/definitions/environmentGroupDescription"
+        }
+      },
+      "required": ["name"],
+      "additionalProperties": false
+    },
+    "unknownAccount": {
+      "description": "The environment configuration file is missing the account information",
+      "type": "null",
+      "default": null
+    }
+  },
+  "type": "object",
+  "properties": {
+    "environment": {
+      "$ref": "https://schemas.maas.global/environments/environments.json#/definitions/environment"
+    },
+    "group": { "$ref": "#/definitions/groupMeta" },
+    "account": {
+      "oneOf": [
+        { "$ref": "#/definitions/unknownAccount" },
+        {
+          "$ref": "https://schemas.maas.global/environments/accounts.json#/definitions/account"
+        }
+      ]
+    }
+  },
+  "required": ["environment", "group", "account"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "environment": {
+        "id": "production",
+
+        "live": true,
+        "account": "production",
+        "description": "Production environment"
+      },
+      "group": { "name": "Core Environments" },
+      "account": {
+        "id": "001234567890",
+        "name": "Example Account",
+        "description": "This account is but an example account"
+      }
+    },
+    {
+      "environment": {
+        "id": "testing",
+        "live": false,
+        "account": "testing",
+        "description": "Testing environment"
+      },
+      "group": { "name": "Core Environments" },
+      "account": {
+        "id": "101234567890"
+      }
+    },
+    {
+      "environment": {
+        "id": "fantasy-topping",
+        "live": false,
+        "account": "testing",
+        "name": "Fantasy Topping",
+        "description": "Add support for pizza customization"
+      },
+      "group": { "name": "Development Environments" },
+      "account": {
+        "id": "101234567890"
+      }
+    }
+  ]
+}

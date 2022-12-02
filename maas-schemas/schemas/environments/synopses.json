@@ -1,0 +1,51 @@
+{
+  "$id": "https://schemas.maas.global/environments/synopses.json",
+  "description": "Experimental synopses array",
+  "type": "array",
+  "items": {
+    "$ref": "https://schemas.maas.global/environments/synopsis.json"
+  },
+  "examples": [
+    [
+      {
+        "environment": {
+          "id": "production",
+          "live": true,
+          "account": "production",
+          "description": "Production environment"
+        },
+        "group": { "name": "Core Environments" },
+        "account": {
+          "id": "001234567890",
+          "name": "Example Account",
+          "description": "This account is but an example account"
+        }
+      },
+      {
+        "environment": {
+          "id": "testing",
+          "live": false,
+          "account": "testing",
+          "description": "Testing environment"
+        },
+        "group": { "name": "Core Environments" },
+        "account": {
+          "id": "101234567890"
+        }
+      },
+      {
+        "environment": {
+          "id": "fantasy-topping",
+          "live": false,
+          "account": "testing",
+          "name": "Fantasy Topping",
+          "description": "Add support for pizza customization"
+        },
+        "group": { "name": "Development Environments" },
+        "account": {
+          "id": "101234567890"
+        }
+      }
+    ]
+  ]
+}
