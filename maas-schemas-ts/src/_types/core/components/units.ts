@@ -58,8 +58,26 @@ export const examplesHostnameLabel: NonEmptyArray<HostnameLabel> = ([
   '0bar',
 ] as unknown) as NonEmptyArray<HostnameLabel>;
 
+// HostnameDelimiter
+// The purpose of this remains a mystery
+export type HostnameDelimiter = t.Branded<string & '.', HostnameDelimiterBrand>;
+export type HostnameDelimiterC = t.BrandC<
+  t.IntersectionC<[t.StringC, t.LiteralC<'.'>]>,
+  HostnameDelimiterBrand
+>;
+export const HostnameDelimiter: HostnameDelimiterC = t.brand(
+  t.intersection([t.string, t.literal('.')]),
+  (x): x is t.Branded<string & '.', HostnameDelimiterBrand> => true,
+  'HostnameDelimiter',
+);
+export interface HostnameDelimiterBrand {
+  readonly HostnameDelimiter: unique symbol;
+}
+/** require('io-ts-validator').validator(HostnameDelimiter).decodeSync(defaultHostnameDelimiter) // => defaultHostnameDelimiter */
+export const defaultHostnameDelimiter: HostnameDelimiter = ('.' as unknown) as HostnameDelimiter;
+
 // Hostname
-// list of 1 or more hostname labels separated by dot
+// list of 1 or more hostname labels separated by hostname delimiter
 export type Hostname = t.Branded<string, HostnameBrand>;
 export type HostnameC = t.BrandC<t.StringC, HostnameBrand>;
 export const Hostname: HostnameC = t.brand(
@@ -84,6 +102,84 @@ export const examplesHostname: NonEmptyArray<Hostname> = ([
   'example.com',
   'sub.example.com',
 ] as unknown) as NonEmptyArray<Hostname>;
+
+// Port
+// Transport layer port number ( 0- ). Most likely TCP or UDP port ( 0-65535 ).
+export type Port = t.Branded<number, PortBrand>;
+export type PortC = t.BrandC<t.NumberC, PortBrand>;
+export const Port: PortC = t.brand(
+  t.number,
+  (x): x is t.Branded<number, PortBrand> => typeof x !== 'number' || x % 1 === 0,
+  'Port',
+);
+export interface PortBrand {
+  readonly Port: unique symbol;
+}
+/** require('io-ts-validator').validator(Port).decodeSync(minimumPort) // => minimumPort */
+export const minimumPort: Port = (0 as unknown) as Port;
+
+// HostPortDelimiter
+// The purpose of this remains a mystery
+export type HostPortDelimiter = t.Branded<string & ':', HostPortDelimiterBrand>;
+export type HostPortDelimiterC = t.BrandC<
+  t.IntersectionC<[t.StringC, t.LiteralC<':'>]>,
+  HostPortDelimiterBrand
+>;
+export const HostPortDelimiter: HostPortDelimiterC = t.brand(
+  t.intersection([t.string, t.literal(':')]),
+  (x): x is t.Branded<string & ':', HostPortDelimiterBrand> => true,
+  'HostPortDelimiter',
+);
+export interface HostPortDelimiterBrand {
+  readonly HostPortDelimiter: unique symbol;
+}
+/** require('io-ts-validator').validator(HostPortDelimiter).decodeSync(defaultHostPortDelimiter) // => defaultHostPortDelimiter */
+export const defaultHostPortDelimiter: HostPortDelimiter = (':' as unknown) as HostPortDelimiter;
+
+// Authority
+// HTTP2 :authority <hostname>[:<port>] https://tools.ietf.org/html/rfc7540#section-8.1.2.3
+export type Authority = t.Branded<string, AuthorityBrand>;
+export type AuthorityC = t.BrandC<t.StringC, AuthorityBrand>;
+export const Authority: AuthorityC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, AuthorityBrand> =>
+    typeof x !== 'string' ||
+    x.match(
+      RegExp(
+        '^[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?(.[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?)*(:(0|1[0-9]*))?$',
+      ),
+    ) !== null,
+  'Authority',
+);
+export interface AuthorityBrand {
+  readonly Authority: unique symbol;
+}
+/** require('io-ts-validator').validator(nonEmptyArray(Authority)).decodeSync(examplesAuthority) // => examplesAuthority */
+export const examplesAuthority: NonEmptyArray<Authority> = ([
+  'env.application.example.com:123',
+  'env.application.example.com',
+] as unknown) as NonEmptyArray<Authority>;
+
+// NetworkSchemeDelimiter
+// The purpose of this remains a mystery
+export type NetworkSchemeDelimiter = t.Branded<
+  string & '://',
+  NetworkSchemeDelimiterBrand
+>;
+export type NetworkSchemeDelimiterC = t.BrandC<
+  t.IntersectionC<[t.StringC, t.LiteralC<'://'>]>,
+  NetworkSchemeDelimiterBrand
+>;
+export const NetworkSchemeDelimiter: NetworkSchemeDelimiterC = t.brand(
+  t.intersection([t.string, t.literal('://')]),
+  (x): x is t.Branded<string & '://', NetworkSchemeDelimiterBrand> => true,
+  'NetworkSchemeDelimiter',
+);
+export interface NetworkSchemeDelimiterBrand {
+  readonly NetworkSchemeDelimiter: unique symbol;
+}
+/** require('io-ts-validator').validator(NetworkSchemeDelimiter).decodeSync(defaultNetworkSchemeDelimiter) // => defaultNetworkSchemeDelimiter */
+export const defaultNetworkSchemeDelimiter: NetworkSchemeDelimiter = ('://' as unknown) as NetworkSchemeDelimiter;
 
 // Url
 // Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex
