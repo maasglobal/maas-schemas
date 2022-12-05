@@ -161,6 +161,61 @@ export const examplesIdentityId: NonEmptyArray<IdentityId> = ([
   '4828507e-683f-41bf-9d87-689808fbf958',
 ] as unknown) as NonEmptyArray<IdentityId>;
 
+// Node Env
+// Definition for NODE_ENV environment variable.
+export type NodeEnv = t.Branded<'development' | 'production', NodeEnvBrand>;
+export type NodeEnvC = t.BrandC<
+  t.UnionC<[t.LiteralC<'development'>, t.LiteralC<'production'>]>,
+  NodeEnvBrand
+>;
+export const NodeEnv: NodeEnvC = t.brand(
+  t.union([t.literal('development'), t.literal('production')]),
+  (x): x is t.Branded<'development' | 'production', NodeEnvBrand> => true,
+  'NodeEnv',
+);
+export interface NodeEnvBrand {
+  readonly NodeEnv: unique symbol;
+}
+
+// NodeEnvDEVELOPMENT
+// The purpose of this remains a mystery
+export type NodeEnvDEVELOPMENT = t.Branded<
+  NodeEnv & 'development',
+  NodeEnvDEVELOPMENTBrand
+>;
+export type NodeEnvDEVELOPMENTC = t.BrandC<
+  t.IntersectionC<[typeof NodeEnv, t.LiteralC<'development'>]>,
+  NodeEnvDEVELOPMENTBrand
+>;
+export const NodeEnvDEVELOPMENT: NodeEnvDEVELOPMENTC = t.brand(
+  t.intersection([NodeEnv, t.literal('development')]),
+  (x): x is t.Branded<NodeEnv & 'development', NodeEnvDEVELOPMENTBrand> => true,
+  'NodeEnvDEVELOPMENT',
+);
+export interface NodeEnvDEVELOPMENTBrand {
+  readonly NodeEnvDEVELOPMENT: unique symbol;
+}
+/** require('io-ts-validator').validator(NodeEnvDEVELOPMENT).decodeSync(defaultNodeEnvDEVELOPMENT) // => defaultNodeEnvDEVELOPMENT */
+export const defaultNodeEnvDEVELOPMENT: NodeEnvDEVELOPMENT = ('development' as unknown) as NodeEnvDEVELOPMENT;
+
+// NodeEnvPRODUCTION
+// The purpose of this remains a mystery
+export type NodeEnvPRODUCTION = t.Branded<NodeEnv & 'production', NodeEnvPRODUCTIONBrand>;
+export type NodeEnvPRODUCTIONC = t.BrandC<
+  t.IntersectionC<[typeof NodeEnv, t.LiteralC<'production'>]>,
+  NodeEnvPRODUCTIONBrand
+>;
+export const NodeEnvPRODUCTION: NodeEnvPRODUCTIONC = t.brand(
+  t.intersection([NodeEnv, t.literal('production')]),
+  (x): x is t.Branded<NodeEnv & 'production', NodeEnvPRODUCTIONBrand> => true,
+  'NodeEnvPRODUCTION',
+);
+export interface NodeEnvPRODUCTIONBrand {
+  readonly NodeEnvPRODUCTION: unique symbol;
+}
+/** require('io-ts-validator').validator(NodeEnvPRODUCTION).decodeSync(defaultNodeEnvPRODUCTION) // => defaultNodeEnvPRODUCTION */
+export const defaultNodeEnvPRODUCTION: NodeEnvPRODUCTION = ('production' as unknown) as NodeEnvPRODUCTION;
+
 // Currency
 // Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1
 export type Currency = t.Branded<
