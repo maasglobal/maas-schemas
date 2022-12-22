@@ -32,9 +32,9 @@ export const MODE_GONDOLA: MODE_GONDOLAC = t.brand(
   > => true,
   'MODE_GONDOLA',
 );
-export interface MODE_GONDOLABrand {
+export type MODE_GONDOLABrand = {
   readonly MODE_GONDOLA: unique symbol;
-}
+};
 
 export default MODE_GONDOLA;
 

@@ -8,15 +8,16 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
 import * as Booking_ from '../../core/booking';
-import * as State_ from '../../core/components/state';
-import * as BookingOption_ from '../../core/booking-option';
 import * as BookingMeta_ from '../../core/booking-meta';
+import * as BookingOption_ from '../../core/booking-option';
 import * as Configurator_ from '../../core/components/configurator';
 import * as CustomerSelection_ from '../../core/components/customerSelection';
-import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
-import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+import * as State_ from '../../core/components/state';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -30,7 +31,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/tsp/booking-create/response.json';
@@ -139,11 +140,11 @@ export const Response: ResponseC = t.brand(
   > => true,
   'Response',
 );
-export interface ResponseBrand {
+export type ResponseBrand = {
   readonly Response: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Response)).decodeSync(examplesResponse) // => examplesResponse */
-export const examplesResponse: NonEmptyArray<Response> = ([
+export const examplesResponse: NonEmptyArray<Response> = [
   {
     leg: {
       from: {
@@ -193,7 +194,7 @@ export const examplesResponse: NonEmptyArray<Response> = ([
     tspProductId: 'testtaxi1-product1',
     token: {},
   },
-] as unknown) as NonEmptyArray<Response>;
+] as unknown as NonEmptyArray<Response>;
 
 export default Response;
 

@@ -9,9 +9,10 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as InvoiceUnits_ from './invoiceUnits';
+
 import * as Units_ from '../../core/components/units';
 import * as InvoiceLineItem_ from './invoiceLineItem';
+import * as InvoiceUnits_ from './invoiceUnits';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -25,7 +26,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/maas-backend/invoices/invoice.json';
@@ -98,8 +99,8 @@ export const Invoice: InvoiceC = t.brand(
   > => true,
   'Invoice',
 );
-export interface InvoiceBrand {
+export type InvoiceBrand = {
   readonly Invoice: unique symbol;
-}
+};
 
 // Success

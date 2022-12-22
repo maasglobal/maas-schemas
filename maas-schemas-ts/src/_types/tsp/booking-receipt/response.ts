@@ -8,11 +8,12 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
 import * as Booking_ from '../../core/booking';
 import * as Terms_ from '../../core/components/terms';
-import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
-import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -26,7 +27,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/tsp/booking-receipt/response.json';
@@ -83,9 +84,9 @@ export const TspReceipt: TspReceiptC = t.brand(
   > => true,
   'TspReceipt',
 );
-export interface TspReceiptBrand {
+export type TspReceiptBrand = {
   readonly TspReceipt: unique symbol;
-}
+};
 
 // Response
 // The default export. More information at the top.
@@ -143,11 +144,11 @@ export const Response: ResponseC = t.brand(
   > => true,
   'Response',
 );
-export interface ResponseBrand {
+export type ResponseBrand = {
   readonly Response: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Response)).decodeSync(examplesResponse) // => examplesResponse */
-export const examplesResponse: NonEmptyArray<Response> = ([
+export const examplesResponse: NonEmptyArray<Response> = [
   {
     tspId: 'abc123',
     receipt: {
@@ -163,7 +164,7 @@ export const examplesResponse: NonEmptyArray<Response> = ([
       terms: { validity: { endTime: 1658177898859, startTime: 1658177898859 } },
     },
   },
-] as unknown) as NonEmptyArray<Response>;
+] as unknown as NonEmptyArray<Response>;
 
 export default Response;
 

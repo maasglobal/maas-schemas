@@ -9,19 +9,20 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from '../../core/components/units';
-import * as PersonalData_ from './personalData';
-import * as PaymentSource_ from './payment-sources/paymentSource';
-import * as Fare_ from '../../core/components/fare';
-import * as Cost_ from '../../core/components/cost';
-import * as Region_ from '../../core/region';
-import * as Authorization_ from '../../core/components/authorization';
-import * as PersonalDocument_ from '../../core/personal-document';
-import * as Common_ from '../../core/components/common';
-import * as VirtualCard_ from './virtual-cards/virtualCard';
-import * as VerificationObject_ from './verification/verification-object';
+
 import * as Booking_ from '../../core/booking';
+import * as Authorization_ from '../../core/components/authorization';
+import * as Common_ from '../../core/components/common';
+import * as Cost_ from '../../core/components/cost';
+import * as Fare_ from '../../core/components/fare';
 import * as State_ from '../../core/components/state';
+import * as Units_ from '../../core/components/units';
+import * as PersonalDocument_ from '../../core/personal-document';
+import * as Region_ from '../../core/region';
+import * as PaymentSource_ from './payment-sources/paymentSource';
+import * as PersonalData_ from './personalData';
+import * as VerificationObject_ from './verification/verification-object';
+import * as VirtualCard_ from './virtual-cards/virtualCard';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -35,7 +36,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -229,9 +230,9 @@ export const Customer: CustomerC = t.brand(
   > => true,
   'Customer',
 );
-export interface CustomerBrand {
+export type CustomerBrand = {
   readonly Customer: unique symbol;
-}
+};
 
 export default Customer;
 

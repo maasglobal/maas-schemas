@@ -9,12 +9,13 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
+import * as Booking_ from '../../core/booking';
+import * as Address_ from '../../core/components/address';
+import * as Common_ from '../../core/components/common';
 import * as TravelMode_ from '../../core/components/travel-mode';
 import * as Units_ from '../../core/components/units';
 import * as UnitsGeo_ from '../../core/components/units-geo';
-import * as Address_ from '../../core/components/address';
-import * as Booking_ from '../../core/booking';
-import * as Common_ from '../../core/components/common';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -28,7 +29,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -236,9 +237,9 @@ export const Request: RequestC = t.brand(
   > => true,
   'Request',
 );
-export interface RequestBrand {
+export type RequestBrand = {
   readonly Request: unique symbol;
-}
+};
 
 export default Request;
 

@@ -22,7 +22,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/geojson/geometry.json';
@@ -37,9 +37,9 @@ export const Position: PositionC = t.brand(
     Array.isArray(x) === false || x.length >= 2,
   'Position',
 );
-export interface PositionBrand {
+export type PositionBrand = {
   readonly Position: unique symbol;
-}
+};
 
 // PositionArray
 // An array of positions
@@ -50,9 +50,9 @@ export const PositionArray: PositionArrayC = t.brand(
   (x): x is t.Branded<Array<Position>, PositionArrayBrand> => true,
   'PositionArray',
 );
-export interface PositionArrayBrand {
+export type PositionArrayBrand = {
   readonly PositionArray: unique symbol;
-}
+};
 
 // LineString
 // An array of two or more positions
@@ -66,9 +66,9 @@ export const LineString: LineStringC = t.brand(
   (x): x is t.Branded<PositionArray & unknown, LineStringBrand> => true,
   'LineString',
 );
-export interface LineStringBrand {
+export type LineStringBrand = {
   readonly LineString: unique symbol;
-}
+};
 
 // LinearRing
 // An array of four positions where the first equals the last
@@ -82,9 +82,9 @@ export const LinearRing: LinearRingC = t.brand(
   (x): x is t.Branded<PositionArray & unknown, LinearRingBrand> => true,
   'LinearRing',
 );
-export interface LinearRingBrand {
+export type LinearRingBrand = {
   readonly LinearRing: unique symbol;
-}
+};
 
 // Polygon
 // An array of linear rings
@@ -95,9 +95,9 @@ export const Polygon: PolygonC = t.brand(
   (x): x is t.Branded<Array<LinearRing>, PolygonBrand> => true,
   'Polygon',
 );
-export interface PolygonBrand {
+export type PolygonBrand = {
   readonly Polygon: unique symbol;
-}
+};
 
 // Geometry
 // The default export. More information at the top.
@@ -295,9 +295,9 @@ export const Geometry: GeometryC = t.brand(
   > => true,
   'Geometry',
 );
-export interface GeometryBrand {
+export type GeometryBrand = {
   readonly Geometry: unique symbol;
-}
+};
 
 export default Geometry;
 

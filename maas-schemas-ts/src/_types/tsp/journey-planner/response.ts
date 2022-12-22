@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Response_ from '../../maas-backend/provider/routes/response';
 
 export const schemaId = 'https://schemas.maas.global/tsp/journey-planner/response.json';
@@ -22,9 +23,9 @@ export const Response: ResponseC = t.brand(
   (x): x is t.Branded<Response_.Response, ResponseBrand> => true,
   'Response',
 );
-export interface ResponseBrand {
+export type ResponseBrand = {
   readonly Response: unique symbol;
-}
+};
 
 export default Response;
 

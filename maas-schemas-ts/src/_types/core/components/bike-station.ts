@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as UnitsGeo_ from './units-geo';
 
 export type Defined = {} | null;
@@ -23,7 +24,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/bike-station.json';
@@ -148,9 +149,9 @@ export const BikeStation: BikeStationC = t.brand(
   > => true,
   'BikeStation',
 );
-export interface BikeStationBrand {
+export type BikeStationBrand = {
   readonly BikeStation: unique symbol;
-}
+};
 
 export default BikeStation;
 

@@ -22,9 +22,9 @@ export const InvoiceId: InvoiceIdC = t.brand(
   (x): x is t.Branded<string, InvoiceIdBrand> => typeof x !== 'string' || x.length >= 2,
   'InvoiceId',
 );
-export interface InvoiceIdBrand {
+export type InvoiceIdBrand = {
   readonly InvoiceId: unique symbol;
-}
+};
 
 // InvoiceLineItemId
 // The purpose of this remains a mystery
@@ -36,9 +36,9 @@ export const InvoiceLineItemId: InvoiceLineItemIdC = t.brand(
     typeof x !== 'string' || x.length >= 2,
   'InvoiceLineItemId',
 );
-export interface InvoiceLineItemIdBrand {
+export type InvoiceLineItemIdBrand = {
   readonly InvoiceLineItemId: unique symbol;
-}
+};
 
 // InvoiceUnits
 // The default export. More information at the top.
@@ -49,9 +49,9 @@ export const InvoiceUnits: InvoiceUnitsC = t.brand(
   (x): x is t.Branded<unknown, InvoiceUnitsBrand> => true,
   'InvoiceUnits',
 );
-export interface InvoiceUnitsBrand {
+export type InvoiceUnitsBrand = {
   readonly InvoiceUnits: unique symbol;
-}
+};
 
 export default InvoiceUnits;
 

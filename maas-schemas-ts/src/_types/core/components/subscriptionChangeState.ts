@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Units_ from './units';
 
 export type Defined = {} | null;
@@ -23,7 +24,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -55,9 +56,9 @@ export const State: StateC = t.brand(
     true,
   'State',
 );
-export interface StateBrand {
+export type StateBrand = {
   readonly State: unique symbol;
-}
+};
 
 // StateIN_PROGRESS
 // The purpose of this remains a mystery
@@ -71,11 +72,12 @@ export const StateIN_PROGRESS: StateIN_PROGRESSC = t.brand(
   (x): x is t.Branded<State & 'IN_PROGRESS', StateIN_PROGRESSBrand> => true,
   'StateIN_PROGRESS',
 );
-export interface StateIN_PROGRESSBrand {
+export type StateIN_PROGRESSBrand = {
   readonly StateIN_PROGRESS: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(StateIN_PROGRESS).decodeSync(defaultStateIN_PROGRESS) // => defaultStateIN_PROGRESS */
-export const defaultStateIN_PROGRESS: StateIN_PROGRESS = ('IN_PROGRESS' as unknown) as StateIN_PROGRESS;
+export const defaultStateIN_PROGRESS: StateIN_PROGRESS =
+  'IN_PROGRESS' as unknown as StateIN_PROGRESS;
 
 // StateCOMPLETED
 // The purpose of this remains a mystery
@@ -89,11 +91,12 @@ export const StateCOMPLETED: StateCOMPLETEDC = t.brand(
   (x): x is t.Branded<State & 'COMPLETED', StateCOMPLETEDBrand> => true,
   'StateCOMPLETED',
 );
-export interface StateCOMPLETEDBrand {
+export type StateCOMPLETEDBrand = {
   readonly StateCOMPLETED: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(StateCOMPLETED).decodeSync(defaultStateCOMPLETED) // => defaultStateCOMPLETED */
-export const defaultStateCOMPLETED: StateCOMPLETED = ('COMPLETED' as unknown) as StateCOMPLETED;
+export const defaultStateCOMPLETED: StateCOMPLETED =
+  'COMPLETED' as unknown as StateCOMPLETED;
 
 // StateFAILED
 // The purpose of this remains a mystery
@@ -107,11 +110,11 @@ export const StateFAILED: StateFAILEDC = t.brand(
   (x): x is t.Branded<State & 'FAILED', StateFAILEDBrand> => true,
   'StateFAILED',
 );
-export interface StateFAILEDBrand {
+export type StateFAILEDBrand = {
   readonly StateFAILED: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(StateFAILED).decodeSync(defaultStateFAILED) // => defaultStateFAILED */
-export const defaultStateFAILED: StateFAILED = ('FAILED' as unknown) as StateFAILED;
+export const defaultStateFAILED: StateFAILED = 'FAILED' as unknown as StateFAILED;
 
 // FailureKey
 // Failure key enum, identifying reason for the failure
@@ -151,9 +154,9 @@ export const FailureKey: FailureKeyC = t.brand(
   > => true,
   'FailureKey',
 );
-export interface FailureKeyBrand {
+export type FailureKeyBrand = {
   readonly FailureKey: unique symbol;
-}
+};
 
 // FailureKeyUNKNOWN_ERROR
 // The purpose of this remains a mystery
@@ -170,11 +173,12 @@ export const FailureKeyUNKNOWN_ERROR: FailureKeyUNKNOWN_ERRORC = t.brand(
   (x): x is t.Branded<FailureKey & 'UNKNOWN_ERROR', FailureKeyUNKNOWN_ERRORBrand> => true,
   'FailureKeyUNKNOWN_ERROR',
 );
-export interface FailureKeyUNKNOWN_ERRORBrand {
+export type FailureKeyUNKNOWN_ERRORBrand = {
   readonly FailureKeyUNKNOWN_ERROR: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(FailureKeyUNKNOWN_ERROR).decodeSync(defaultFailureKeyUNKNOWN_ERROR) // => defaultFailureKeyUNKNOWN_ERROR */
-export const defaultFailureKeyUNKNOWN_ERROR: FailureKeyUNKNOWN_ERROR = ('UNKNOWN_ERROR' as unknown) as FailureKeyUNKNOWN_ERROR;
+export const defaultFailureKeyUNKNOWN_ERROR: FailureKeyUNKNOWN_ERROR =
+  'UNKNOWN_ERROR' as unknown as FailureKeyUNKNOWN_ERROR;
 
 // FailureKeyNOT_ELIGIBLE
 // The purpose of this remains a mystery
@@ -191,11 +195,12 @@ export const FailureKeyNOT_ELIGIBLE: FailureKeyNOT_ELIGIBLEC = t.brand(
   (x): x is t.Branded<FailureKey & 'NOT_ELIGIBLE', FailureKeyNOT_ELIGIBLEBrand> => true,
   'FailureKeyNOT_ELIGIBLE',
 );
-export interface FailureKeyNOT_ELIGIBLEBrand {
+export type FailureKeyNOT_ELIGIBLEBrand = {
   readonly FailureKeyNOT_ELIGIBLE: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(FailureKeyNOT_ELIGIBLE).decodeSync(defaultFailureKeyNOT_ELIGIBLE) // => defaultFailureKeyNOT_ELIGIBLE */
-export const defaultFailureKeyNOT_ELIGIBLE: FailureKeyNOT_ELIGIBLE = ('NOT_ELIGIBLE' as unknown) as FailureKeyNOT_ELIGIBLE;
+export const defaultFailureKeyNOT_ELIGIBLE: FailureKeyNOT_ELIGIBLE =
+  'NOT_ELIGIBLE' as unknown as FailureKeyNOT_ELIGIBLE;
 
 // FailureKeyEXISTING_TICKET
 // The purpose of this remains a mystery
@@ -213,11 +218,12 @@ export const FailureKeyEXISTING_TICKET: FailureKeyEXISTING_TICKETC = t.brand(
     true,
   'FailureKeyEXISTING_TICKET',
 );
-export interface FailureKeyEXISTING_TICKETBrand {
+export type FailureKeyEXISTING_TICKETBrand = {
   readonly FailureKeyEXISTING_TICKET: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(FailureKeyEXISTING_TICKET).decodeSync(defaultFailureKeyEXISTING_TICKET) // => defaultFailureKeyEXISTING_TICKET */
-export const defaultFailureKeyEXISTING_TICKET: FailureKeyEXISTING_TICKET = ('EXISTING_TICKET' as unknown) as FailureKeyEXISTING_TICKET;
+export const defaultFailureKeyEXISTING_TICKET: FailureKeyEXISTING_TICKET =
+  'EXISTING_TICKET' as unknown as FailureKeyEXISTING_TICKET;
 
 // SubscriptionChangeState
 // The default export. More information at the top.
@@ -287,9 +293,9 @@ export const SubscriptionChangeState: SubscriptionChangeStateC = t.brand(
   > => true,
   'SubscriptionChangeState',
 );
-export interface SubscriptionChangeStateBrand {
+export type SubscriptionChangeStateBrand = {
   readonly SubscriptionChangeState: unique symbol;
-}
+};
 
 export default SubscriptionChangeState;
 

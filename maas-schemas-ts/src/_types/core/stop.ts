@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Place_ from './components/place';
 import * as Units_ from './components/units';
 
@@ -60,9 +61,9 @@ export const Stop: StopC = t.brand(
   > => true,
   'Stop',
 );
-export interface StopBrand {
+export type StopBrand = {
   readonly Stop: unique symbol;
-}
+};
 
 export default Stop;
 

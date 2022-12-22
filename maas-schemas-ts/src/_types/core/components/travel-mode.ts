@@ -24,9 +24,9 @@ export const WaitingMode: WaitingModeC = t.brand(
   (x): x is t.Branded<string & 'WAIT', WaitingModeBrand> => true,
   'WaitingMode',
 );
-export interface WaitingModeBrand {
+export type WaitingModeBrand = {
   readonly WaitingMode: unique symbol;
-}
+};
 
 // WaitingModeWAIT
 // The purpose of this remains a mystery
@@ -40,11 +40,12 @@ export const WaitingModeWAIT: WaitingModeWAITC = t.brand(
   (x): x is t.Branded<WaitingMode & 'WAIT', WaitingModeWAITBrand> => true,
   'WaitingModeWAIT',
 );
-export interface WaitingModeWAITBrand {
+export type WaitingModeWAITBrand = {
   readonly WaitingModeWAIT: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(WaitingModeWAIT).decodeSync(defaultWaitingModeWAIT) // => defaultWaitingModeWAIT */
-export const defaultWaitingModeWAIT: WaitingModeWAIT = ('WAIT' as unknown) as WaitingModeWAIT;
+export const defaultWaitingModeWAIT: WaitingModeWAIT =
+  'WAIT' as unknown as WaitingModeWAIT;
 
 // TransferMode
 // A mode that involves changing transports
@@ -63,9 +64,9 @@ export const TransferMode: TransferModeC = t.brand(
   (x): x is t.Branded<string & ('LEG_SWITCH' | 'TRANSFER'), TransferModeBrand> => true,
   'TransferMode',
 );
-export interface TransferModeBrand {
+export type TransferModeBrand = {
   readonly TransferMode: unique symbol;
-}
+};
 
 // TransferModeLEG_SWITCH
 // The purpose of this remains a mystery
@@ -82,11 +83,12 @@ export const TransferModeLEG_SWITCH: TransferModeLEG_SWITCHC = t.brand(
   (x): x is t.Branded<TransferMode & 'LEG_SWITCH', TransferModeLEG_SWITCHBrand> => true,
   'TransferModeLEG_SWITCH',
 );
-export interface TransferModeLEG_SWITCHBrand {
+export type TransferModeLEG_SWITCHBrand = {
   readonly TransferModeLEG_SWITCH: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(TransferModeLEG_SWITCH).decodeSync(defaultTransferModeLEG_SWITCH) // => defaultTransferModeLEG_SWITCH */
-export const defaultTransferModeLEG_SWITCH: TransferModeLEG_SWITCH = ('LEG_SWITCH' as unknown) as TransferModeLEG_SWITCH;
+export const defaultTransferModeLEG_SWITCH: TransferModeLEG_SWITCH =
+  'LEG_SWITCH' as unknown as TransferModeLEG_SWITCH;
 
 // TransferModeTRANSFER
 // The purpose of this remains a mystery
@@ -103,11 +105,12 @@ export const TransferModeTRANSFER: TransferModeTRANSFERC = t.brand(
   (x): x is t.Branded<TransferMode & 'TRANSFER', TransferModeTRANSFERBrand> => true,
   'TransferModeTRANSFER',
 );
-export interface TransferModeTRANSFERBrand {
+export type TransferModeTRANSFERBrand = {
   readonly TransferModeTRANSFER: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(TransferModeTRANSFER).decodeSync(defaultTransferModeTRANSFER) // => defaultTransferModeTRANSFER */
-export const defaultTransferModeTRANSFER: TransferModeTRANSFER = ('TRANSFER' as unknown) as TransferModeTRANSFER;
+export const defaultTransferModeTRANSFER: TransferModeTRANSFER =
+  'TRANSFER' as unknown as TransferModeTRANSFER;
 
 // PersonalMode
 // A mode that involves using your personal vehicle or legs
@@ -155,9 +158,9 @@ export const PersonalMode: PersonalModeC = t.brand(
   > => true,
   'PersonalMode',
 );
-export interface PersonalModeBrand {
+export type PersonalModeBrand = {
   readonly PersonalMode: unique symbol;
-}
+};
 
 // PersonalModeBICYCLE
 // The purpose of this remains a mystery
@@ -174,11 +177,12 @@ export const PersonalModeBICYCLE: PersonalModeBICYCLEC = t.brand(
   (x): x is t.Branded<PersonalMode & 'BICYCLE', PersonalModeBICYCLEBrand> => true,
   'PersonalModeBICYCLE',
 );
-export interface PersonalModeBICYCLEBrand {
+export type PersonalModeBICYCLEBrand = {
   readonly PersonalModeBICYCLE: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PersonalModeBICYCLE).decodeSync(defaultPersonalModeBICYCLE) // => defaultPersonalModeBICYCLE */
-export const defaultPersonalModeBICYCLE: PersonalModeBICYCLE = ('BICYCLE' as unknown) as PersonalModeBICYCLE;
+export const defaultPersonalModeBICYCLE: PersonalModeBICYCLE =
+  'BICYCLE' as unknown as PersonalModeBICYCLE;
 
 // PersonalModeCAR
 // The purpose of this remains a mystery
@@ -192,11 +196,12 @@ export const PersonalModeCAR: PersonalModeCARC = t.brand(
   (x): x is t.Branded<PersonalMode & 'CAR', PersonalModeCARBrand> => true,
   'PersonalModeCAR',
 );
-export interface PersonalModeCARBrand {
+export type PersonalModeCARBrand = {
   readonly PersonalModeCAR: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PersonalModeCAR).decodeSync(defaultPersonalModeCAR) // => defaultPersonalModeCAR */
-export const defaultPersonalModeCAR: PersonalModeCAR = ('CAR' as unknown) as PersonalModeCAR;
+export const defaultPersonalModeCAR: PersonalModeCAR =
+  'CAR' as unknown as PersonalModeCAR;
 
 // PersonalModeSCOOTER
 // The purpose of this remains a mystery
@@ -213,11 +218,12 @@ export const PersonalModeSCOOTER: PersonalModeSCOOTERC = t.brand(
   (x): x is t.Branded<PersonalMode & 'SCOOTER', PersonalModeSCOOTERBrand> => true,
   'PersonalModeSCOOTER',
 );
-export interface PersonalModeSCOOTERBrand {
+export type PersonalModeSCOOTERBrand = {
   readonly PersonalModeSCOOTER: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PersonalModeSCOOTER).decodeSync(defaultPersonalModeSCOOTER) // => defaultPersonalModeSCOOTER */
-export const defaultPersonalModeSCOOTER: PersonalModeSCOOTER = ('SCOOTER' as unknown) as PersonalModeSCOOTER;
+export const defaultPersonalModeSCOOTER: PersonalModeSCOOTER =
+  'SCOOTER' as unknown as PersonalModeSCOOTER;
 
 // PersonalModeSHARED_BICYCLE
 // The purpose of this remains a mystery
@@ -235,11 +241,12 @@ export const PersonalModeSHARED_BICYCLE: PersonalModeSHARED_BICYCLEC = t.brand(
     true,
   'PersonalModeSHARED_BICYCLE',
 );
-export interface PersonalModeSHARED_BICYCLEBrand {
+export type PersonalModeSHARED_BICYCLEBrand = {
   readonly PersonalModeSHARED_BICYCLE: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PersonalModeSHARED_BICYCLE).decodeSync(defaultPersonalModeSHARED_BICYCLE) // => defaultPersonalModeSHARED_BICYCLE */
-export const defaultPersonalModeSHARED_BICYCLE: PersonalModeSHARED_BICYCLE = ('SHARED_BICYCLE' as unknown) as PersonalModeSHARED_BICYCLE;
+export const defaultPersonalModeSHARED_BICYCLE: PersonalModeSHARED_BICYCLE =
+  'SHARED_BICYCLE' as unknown as PersonalModeSHARED_BICYCLE;
 
 // PersonalModeWALK
 // The purpose of this remains a mystery
@@ -253,11 +260,12 @@ export const PersonalModeWALK: PersonalModeWALKC = t.brand(
   (x): x is t.Branded<PersonalMode & 'WALK', PersonalModeWALKBrand> => true,
   'PersonalModeWALK',
 );
-export interface PersonalModeWALKBrand {
+export type PersonalModeWALKBrand = {
   readonly PersonalModeWALK: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PersonalModeWALK).decodeSync(defaultPersonalModeWALK) // => defaultPersonalModeWALK */
-export const defaultPersonalModeWALK: PersonalModeWALK = ('WALK' as unknown) as PersonalModeWALK;
+export const defaultPersonalModeWALK: PersonalModeWALK =
+  'WALK' as unknown as PersonalModeWALK;
 
 // PersonalModeSHARED_E_BICYCLE
 // The purpose of this remains a mystery
@@ -279,11 +287,12 @@ export const PersonalModeSHARED_E_BICYCLE: PersonalModeSHARED_E_BICYCLEC = t.bra
   > => true,
   'PersonalModeSHARED_E_BICYCLE',
 );
-export interface PersonalModeSHARED_E_BICYCLEBrand {
+export type PersonalModeSHARED_E_BICYCLEBrand = {
   readonly PersonalModeSHARED_E_BICYCLE: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PersonalModeSHARED_E_BICYCLE).decodeSync(defaultPersonalModeSHARED_E_BICYCLE) // => defaultPersonalModeSHARED_E_BICYCLE */
-export const defaultPersonalModeSHARED_E_BICYCLE: PersonalModeSHARED_E_BICYCLE = ('SHARED_E_BICYCLE' as unknown) as PersonalModeSHARED_E_BICYCLE;
+export const defaultPersonalModeSHARED_E_BICYCLE: PersonalModeSHARED_E_BICYCLE =
+  'SHARED_E_BICYCLE' as unknown as PersonalModeSHARED_E_BICYCLE;
 
 // PublicTransitMode
 // A mode that involves transit with fixed schedules
@@ -335,9 +344,9 @@ export const PublicTransitMode: PublicTransitModeC = t.brand(
   > => true,
   'PublicTransitMode',
 );
-export interface PublicTransitModeBrand {
+export type PublicTransitModeBrand = {
   readonly PublicTransitMode: unique symbol;
-}
+};
 
 // PublicTransitModeAEROPLANE
 // The purpose of this remains a mystery
@@ -355,11 +364,12 @@ export const PublicTransitModeAEROPLANE: PublicTransitModeAEROPLANEC = t.brand(
     true,
   'PublicTransitModeAEROPLANE',
 );
-export interface PublicTransitModeAEROPLANEBrand {
+export type PublicTransitModeAEROPLANEBrand = {
   readonly PublicTransitModeAEROPLANE: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PublicTransitModeAEROPLANE).decodeSync(defaultPublicTransitModeAEROPLANE) // => defaultPublicTransitModeAEROPLANE */
-export const defaultPublicTransitModeAEROPLANE: PublicTransitModeAEROPLANE = ('AEROPLANE' as unknown) as PublicTransitModeAEROPLANE;
+export const defaultPublicTransitModeAEROPLANE: PublicTransitModeAEROPLANE =
+  'AEROPLANE' as unknown as PublicTransitModeAEROPLANE;
 
 // PublicTransitModeBUS
 // The purpose of this remains a mystery
@@ -376,11 +386,12 @@ export const PublicTransitModeBUS: PublicTransitModeBUSC = t.brand(
   (x): x is t.Branded<PublicTransitMode & 'BUS', PublicTransitModeBUSBrand> => true,
   'PublicTransitModeBUS',
 );
-export interface PublicTransitModeBUSBrand {
+export type PublicTransitModeBUSBrand = {
   readonly PublicTransitModeBUS: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PublicTransitModeBUS).decodeSync(defaultPublicTransitModeBUS) // => defaultPublicTransitModeBUS */
-export const defaultPublicTransitModeBUS: PublicTransitModeBUS = ('BUS' as unknown) as PublicTransitModeBUS;
+export const defaultPublicTransitModeBUS: PublicTransitModeBUS =
+  'BUS' as unknown as PublicTransitModeBUS;
 
 // PublicTransitModeFERRY
 // The purpose of this remains a mystery
@@ -397,11 +408,12 @@ export const PublicTransitModeFERRY: PublicTransitModeFERRYC = t.brand(
   (x): x is t.Branded<PublicTransitMode & 'FERRY', PublicTransitModeFERRYBrand> => true,
   'PublicTransitModeFERRY',
 );
-export interface PublicTransitModeFERRYBrand {
+export type PublicTransitModeFERRYBrand = {
   readonly PublicTransitModeFERRY: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PublicTransitModeFERRY).decodeSync(defaultPublicTransitModeFERRY) // => defaultPublicTransitModeFERRY */
-export const defaultPublicTransitModeFERRY: PublicTransitModeFERRY = ('FERRY' as unknown) as PublicTransitModeFERRY;
+export const defaultPublicTransitModeFERRY: PublicTransitModeFERRY =
+  'FERRY' as unknown as PublicTransitModeFERRY;
 
 // PublicTransitModeRAIL
 // The purpose of this remains a mystery
@@ -418,11 +430,12 @@ export const PublicTransitModeRAIL: PublicTransitModeRAILC = t.brand(
   (x): x is t.Branded<PublicTransitMode & 'RAIL', PublicTransitModeRAILBrand> => true,
   'PublicTransitModeRAIL',
 );
-export interface PublicTransitModeRAILBrand {
+export type PublicTransitModeRAILBrand = {
   readonly PublicTransitModeRAIL: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PublicTransitModeRAIL).decodeSync(defaultPublicTransitModeRAIL) // => defaultPublicTransitModeRAIL */
-export const defaultPublicTransitModeRAIL: PublicTransitModeRAIL = ('RAIL' as unknown) as PublicTransitModeRAIL;
+export const defaultPublicTransitModeRAIL: PublicTransitModeRAIL =
+  'RAIL' as unknown as PublicTransitModeRAIL;
 
 // PublicTransitModeSUBWAY
 // The purpose of this remains a mystery
@@ -439,11 +452,12 @@ export const PublicTransitModeSUBWAY: PublicTransitModeSUBWAYC = t.brand(
   (x): x is t.Branded<PublicTransitMode & 'SUBWAY', PublicTransitModeSUBWAYBrand> => true,
   'PublicTransitModeSUBWAY',
 );
-export interface PublicTransitModeSUBWAYBrand {
+export type PublicTransitModeSUBWAYBrand = {
   readonly PublicTransitModeSUBWAY: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PublicTransitModeSUBWAY).decodeSync(defaultPublicTransitModeSUBWAY) // => defaultPublicTransitModeSUBWAY */
-export const defaultPublicTransitModeSUBWAY: PublicTransitModeSUBWAY = ('SUBWAY' as unknown) as PublicTransitModeSUBWAY;
+export const defaultPublicTransitModeSUBWAY: PublicTransitModeSUBWAY =
+  'SUBWAY' as unknown as PublicTransitModeSUBWAY;
 
 // PublicTransitModeTRAIN
 // The purpose of this remains a mystery
@@ -460,11 +474,12 @@ export const PublicTransitModeTRAIN: PublicTransitModeTRAINC = t.brand(
   (x): x is t.Branded<PublicTransitMode & 'TRAIN', PublicTransitModeTRAINBrand> => true,
   'PublicTransitModeTRAIN',
 );
-export interface PublicTransitModeTRAINBrand {
+export type PublicTransitModeTRAINBrand = {
   readonly PublicTransitModeTRAIN: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PublicTransitModeTRAIN).decodeSync(defaultPublicTransitModeTRAIN) // => defaultPublicTransitModeTRAIN */
-export const defaultPublicTransitModeTRAIN: PublicTransitModeTRAIN = ('TRAIN' as unknown) as PublicTransitModeTRAIN;
+export const defaultPublicTransitModeTRAIN: PublicTransitModeTRAIN =
+  'TRAIN' as unknown as PublicTransitModeTRAIN;
 
 // PublicTransitModeTRAM
 // The purpose of this remains a mystery
@@ -481,11 +496,12 @@ export const PublicTransitModeTRAM: PublicTransitModeTRAMC = t.brand(
   (x): x is t.Branded<PublicTransitMode & 'TRAM', PublicTransitModeTRAMBrand> => true,
   'PublicTransitModeTRAM',
 );
-export interface PublicTransitModeTRAMBrand {
+export type PublicTransitModeTRAMBrand = {
   readonly PublicTransitModeTRAM: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PublicTransitModeTRAM).decodeSync(defaultPublicTransitModeTRAM) // => defaultPublicTransitModeTRAM */
-export const defaultPublicTransitModeTRAM: PublicTransitModeTRAM = ('TRAM' as unknown) as PublicTransitModeTRAM;
+export const defaultPublicTransitModeTRAM: PublicTransitModeTRAM =
+  'TRAM' as unknown as PublicTransitModeTRAM;
 
 // PublicTransitModeTRANSIT
 // The purpose of this remains a mystery
@@ -503,11 +519,12 @@ export const PublicTransitModeTRANSIT: PublicTransitModeTRANSITC = t.brand(
     true,
   'PublicTransitModeTRANSIT',
 );
-export interface PublicTransitModeTRANSITBrand {
+export type PublicTransitModeTRANSITBrand = {
   readonly PublicTransitModeTRANSIT: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PublicTransitModeTRANSIT).decodeSync(defaultPublicTransitModeTRANSIT) // => defaultPublicTransitModeTRANSIT */
-export const defaultPublicTransitModeTRANSIT: PublicTransitModeTRANSIT = ('TRANSIT' as unknown) as PublicTransitModeTRANSIT;
+export const defaultPublicTransitModeTRANSIT: PublicTransitModeTRANSIT =
+  'TRANSIT' as unknown as PublicTransitModeTRANSIT;
 
 // PrivateTransitMode
 // A mode that is available on-demand for your personal use
@@ -577,9 +594,9 @@ export const PrivateTransitMode: PrivateTransitModeC = t.brand(
   > => true,
   'PrivateTransitMode',
 );
-export interface PrivateTransitModeBrand {
+export type PrivateTransitModeBrand = {
   readonly PrivateTransitMode: unique symbol;
-}
+};
 
 // PrivateTransitModeBUSISH
 // The purpose of this remains a mystery
@@ -597,11 +614,12 @@ export const PrivateTransitModeBUSISH: PrivateTransitModeBUSISHC = t.brand(
     true,
   'PrivateTransitModeBUSISH',
 );
-export interface PrivateTransitModeBUSISHBrand {
+export type PrivateTransitModeBUSISHBrand = {
   readonly PrivateTransitModeBUSISH: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PrivateTransitModeBUSISH).decodeSync(defaultPrivateTransitModeBUSISH) // => defaultPrivateTransitModeBUSISH */
-export const defaultPrivateTransitModeBUSISH: PrivateTransitModeBUSISH = ('BUSISH' as unknown) as PrivateTransitModeBUSISH;
+export const defaultPrivateTransitModeBUSISH: PrivateTransitModeBUSISH =
+  'BUSISH' as unknown as PrivateTransitModeBUSISH;
 
 // PrivateTransitModeCABLE_CAR
 // The purpose of this remains a mystery
@@ -621,11 +639,12 @@ export const PrivateTransitModeCABLE_CAR: PrivateTransitModeCABLE_CARC = t.brand
     true,
   'PrivateTransitModeCABLE_CAR',
 );
-export interface PrivateTransitModeCABLE_CARBrand {
+export type PrivateTransitModeCABLE_CARBrand = {
   readonly PrivateTransitModeCABLE_CAR: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PrivateTransitModeCABLE_CAR).decodeSync(defaultPrivateTransitModeCABLE_CAR) // => defaultPrivateTransitModeCABLE_CAR */
-export const defaultPrivateTransitModeCABLE_CAR: PrivateTransitModeCABLE_CAR = ('CABLE_CAR' as unknown) as PrivateTransitModeCABLE_CAR;
+export const defaultPrivateTransitModeCABLE_CAR: PrivateTransitModeCABLE_CAR =
+  'CABLE_CAR' as unknown as PrivateTransitModeCABLE_CAR;
 
 // PrivateTransitModeCAR
 // The purpose of this remains a mystery
@@ -642,11 +661,12 @@ export const PrivateTransitModeCAR: PrivateTransitModeCARC = t.brand(
   (x): x is t.Branded<PrivateTransitMode & 'CAR', PrivateTransitModeCARBrand> => true,
   'PrivateTransitModeCAR',
 );
-export interface PrivateTransitModeCARBrand {
+export type PrivateTransitModeCARBrand = {
   readonly PrivateTransitModeCAR: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PrivateTransitModeCAR).decodeSync(defaultPrivateTransitModeCAR) // => defaultPrivateTransitModeCAR */
-export const defaultPrivateTransitModeCAR: PrivateTransitModeCAR = ('CAR' as unknown) as PrivateTransitModeCAR;
+export const defaultPrivateTransitModeCAR: PrivateTransitModeCAR =
+  'CAR' as unknown as PrivateTransitModeCAR;
 
 // PrivateTransitModeFUNICULAR
 // The purpose of this remains a mystery
@@ -666,11 +686,12 @@ export const PrivateTransitModeFUNICULAR: PrivateTransitModeFUNICULARC = t.brand
     true,
   'PrivateTransitModeFUNICULAR',
 );
-export interface PrivateTransitModeFUNICULARBrand {
+export type PrivateTransitModeFUNICULARBrand = {
   readonly PrivateTransitModeFUNICULAR: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PrivateTransitModeFUNICULAR).decodeSync(defaultPrivateTransitModeFUNICULAR) // => defaultPrivateTransitModeFUNICULAR */
-export const defaultPrivateTransitModeFUNICULAR: PrivateTransitModeFUNICULAR = ('FUNICULAR' as unknown) as PrivateTransitModeFUNICULAR;
+export const defaultPrivateTransitModeFUNICULAR: PrivateTransitModeFUNICULAR =
+  'FUNICULAR' as unknown as PrivateTransitModeFUNICULAR;
 
 // PrivateTransitModeGONDOLA
 // The purpose of this remains a mystery
@@ -688,11 +709,12 @@ export const PrivateTransitModeGONDOLA: PrivateTransitModeGONDOLAC = t.brand(
     true,
   'PrivateTransitModeGONDOLA',
 );
-export interface PrivateTransitModeGONDOLABrand {
+export type PrivateTransitModeGONDOLABrand = {
   readonly PrivateTransitModeGONDOLA: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PrivateTransitModeGONDOLA).decodeSync(defaultPrivateTransitModeGONDOLA) // => defaultPrivateTransitModeGONDOLA */
-export const defaultPrivateTransitModeGONDOLA: PrivateTransitModeGONDOLA = ('GONDOLA' as unknown) as PrivateTransitModeGONDOLA;
+export const defaultPrivateTransitModeGONDOLA: PrivateTransitModeGONDOLA =
+  'GONDOLA' as unknown as PrivateTransitModeGONDOLA;
 
 // PrivateTransitModeSHARED_CAR
 // The purpose of this remains a mystery
@@ -714,11 +736,12 @@ export const PrivateTransitModeSHARED_CAR: PrivateTransitModeSHARED_CARC = t.bra
   > => true,
   'PrivateTransitModeSHARED_CAR',
 );
-export interface PrivateTransitModeSHARED_CARBrand {
+export type PrivateTransitModeSHARED_CARBrand = {
   readonly PrivateTransitModeSHARED_CAR: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PrivateTransitModeSHARED_CAR).decodeSync(defaultPrivateTransitModeSHARED_CAR) // => defaultPrivateTransitModeSHARED_CAR */
-export const defaultPrivateTransitModeSHARED_CAR: PrivateTransitModeSHARED_CAR = ('SHARED_CAR' as unknown) as PrivateTransitModeSHARED_CAR;
+export const defaultPrivateTransitModeSHARED_CAR: PrivateTransitModeSHARED_CAR =
+  'SHARED_CAR' as unknown as PrivateTransitModeSHARED_CAR;
 
 // PrivateTransitModeTAXI
 // The purpose of this remains a mystery
@@ -735,11 +758,12 @@ export const PrivateTransitModeTAXI: PrivateTransitModeTAXIC = t.brand(
   (x): x is t.Branded<PrivateTransitMode & 'TAXI', PrivateTransitModeTAXIBrand> => true,
   'PrivateTransitModeTAXI',
 );
-export interface PrivateTransitModeTAXIBrand {
+export type PrivateTransitModeTAXIBrand = {
   readonly PrivateTransitModeTAXI: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PrivateTransitModeTAXI).decodeSync(defaultPrivateTransitModeTAXI) // => defaultPrivateTransitModeTAXI */
-export const defaultPrivateTransitModeTAXI: PrivateTransitModeTAXI = ('TAXI' as unknown) as PrivateTransitModeTAXI;
+export const defaultPrivateTransitModeTAXI: PrivateTransitModeTAXI =
+  'TAXI' as unknown as PrivateTransitModeTAXI;
 
 // PrivateTransitModeTRAINISH
 // The purpose of this remains a mystery
@@ -757,11 +781,12 @@ export const PrivateTransitModeTRAINISH: PrivateTransitModeTRAINISHC = t.brand(
     true,
   'PrivateTransitModeTRAINISH',
 );
-export interface PrivateTransitModeTRAINISHBrand {
+export type PrivateTransitModeTRAINISHBrand = {
   readonly PrivateTransitModeTRAINISH: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PrivateTransitModeTRAINISH).decodeSync(defaultPrivateTransitModeTRAINISH) // => defaultPrivateTransitModeTRAINISH */
-export const defaultPrivateTransitModeTRAINISH: PrivateTransitModeTRAINISH = ('TRAINISH' as unknown) as PrivateTransitModeTRAINISH;
+export const defaultPrivateTransitModeTRAINISH: PrivateTransitModeTRAINISH =
+  'TRAINISH' as unknown as PrivateTransitModeTRAINISH;
 
 // TravelMode
 // The default export. More information at the top.
@@ -797,9 +822,9 @@ export const TravelMode: TravelModeC = t.brand(
   > => true,
   'TravelMode',
 );
-export interface TravelModeBrand {
+export type TravelModeBrand = {
   readonly TravelMode: unique symbol;
-}
+};
 
 export default TravelMode;
 

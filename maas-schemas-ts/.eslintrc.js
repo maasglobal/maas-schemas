@@ -1,17 +1,10 @@
 module.exports = {
-  "extends": [
-    "maasglobal-ts/strict",
-  ],
+  extends: ['maasglobal-ts/strict'],
   rules: {
     'simple-import-sort/imports': [
       1,
       {
-        groups: [
-          ['^\\u0000'],
-          ['^maasglobal-prelude'],
-          ['^[^.]'],
-          ['^\\.'],
-        ],
+        groups: [['^\\u0000'], ['^maasglobal-prelude'], ['^[^.]'], ['^\\.']],
       },
     ],
   },
@@ -30,14 +23,15 @@ module.exports = {
       files: ['src/_types/**/*'],
       plugins: ['@typescript-eslint/tslint'],
       rules: {
-        '@typescript-eslint/tslint/config': [2, {
-          'rules': {
-            'no-circular-imports': true,
+        '@typescript-eslint/tslint/config': [
+          2,
+          {
+            rules: {
+              'no-circular-imports': true,
+            },
+            rulesDirectory: ['node_modules/tslint-no-circular-imports'],
           },
-          'rulesDirectory': [
-            'node_modules/tslint-no-circular-imports',
-          ]
-        }],
+        ],
         '@typescript-eslint/naming-convention': 0,
         '@typescript-eslint/prefer-as-const': 0,
         '@typescript-eslint/no-unused-vars': 0,

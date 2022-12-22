@@ -32,9 +32,9 @@ export const MODE_SUBWAY: MODE_SUBWAYC = t.brand(
   > => true,
   'MODE_SUBWAY',
 );
-export interface MODE_SUBWAYBrand {
+export type MODE_SUBWAYBrand = {
   readonly MODE_SUBWAY: unique symbol;
-}
+};
 
 export default MODE_SUBWAY;
 

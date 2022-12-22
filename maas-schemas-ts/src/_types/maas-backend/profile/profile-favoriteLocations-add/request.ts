@@ -9,9 +9,10 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from '../../../core/components/units';
-import * as Place_ from '../../../core/components/place';
+
 import * as ApiCommon_ from '../../../core/components/api-common';
+import * as Place_ from '../../../core/components/place';
+import * as Units_ from '../../../core/components/units';
 
 export const schemaId =
   'https://schemas.maas.global/maas-backend/profile/profile-favoriteLocations-add/request.json';
@@ -52,9 +53,9 @@ export const Request: RequestC = t.brand(
   > => true,
   'Request',
 );
-export interface RequestBrand {
+export type RequestBrand = {
   readonly Request: unique symbol;
-}
+};
 
 export default Request;
 

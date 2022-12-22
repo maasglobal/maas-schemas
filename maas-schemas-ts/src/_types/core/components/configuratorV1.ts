@@ -8,10 +8,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as ConfiguratorCommon_ from './configuratorCommon';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
+import * as ConfiguratorCommon_ from './configuratorCommon';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -25,7 +26,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/configuratorV1.json';
@@ -228,11 +229,11 @@ export const ConfiguratorV1: ConfiguratorV1C = t.brand(
   > => true,
   'ConfiguratorV1',
 );
-export interface ConfiguratorV1Brand {
+export type ConfiguratorV1Brand = {
   readonly ConfiguratorV1: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(ConfiguratorV1)).decodeSync(examplesConfiguratorV1) // => examplesConfiguratorV1 */
-export const examplesConfiguratorV1: NonEmptyArray<ConfiguratorV1> = ([
+export const examplesConfiguratorV1: NonEmptyArray<ConfiguratorV1> = [
   {
     outboundSingle: {
       type: 'oneOf',
@@ -256,7 +257,7 @@ export const examplesConfiguratorV1: NonEmptyArray<ConfiguratorV1> = ([
       ],
     },
   },
-] as unknown) as NonEmptyArray<ConfiguratorV1>;
+] as unknown as NonEmptyArray<ConfiguratorV1>;
 
 export default ConfiguratorV1;
 

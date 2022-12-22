@@ -1,12 +1,11 @@
-import * as Location_ from '../location';
-
 import { validator } from 'io-ts-validator';
 
 import {
-  Location,
   Latitude,
+  Location,
   Longitude,
 } from '../../../../../_types/core/components/units-geo';
+import * as Location_ from '../location';
 
 describe('Location utils', () => {
   it('should provide Location constructor', () => {

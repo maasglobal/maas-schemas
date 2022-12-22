@@ -9,11 +9,12 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as UnitsGeo_ from './units-geo';
+
 import * as Address_ from './address';
 import * as Common_ from './common';
 import * as TravelMode_ from './travel-mode';
 import * as Units_ from './units';
+import * as UnitsGeo_ from './units-geo';
 
 export const schemaId = 'https://schemas.maas.global/core/components/station.json';
 
@@ -27,9 +28,9 @@ export const Id: IdC = t.brand(
     (typeof x !== 'string' || x.length >= 1) && (typeof x !== 'string' || x.length <= 64),
   'Id',
 );
-export interface IdBrand {
+export type IdBrand = {
   readonly Id: unique symbol;
-}
+};
 
 // Code
 // The purpose of this remains a mystery
@@ -40,9 +41,9 @@ export const Code: CodeC = t.brand(
   (x): x is t.Branded<string, CodeBrand> => true,
   'Code',
 );
-export interface CodeBrand {
+export type CodeBrand = {
   readonly Code: unique symbol;
-}
+};
 
 // Name
 // The purpose of this remains a mystery
@@ -53,9 +54,9 @@ export const Name: NameC = t.brand(
   (x): x is t.Branded<string, NameBrand> => true,
   'Name',
 );
-export interface NameBrand {
+export type NameBrand = {
   readonly Name: unique symbol;
-}
+};
 
 // Location
 // The purpose of this remains a mystery
@@ -66,9 +67,9 @@ export const Location: LocationC = t.brand(
   (x): x is t.Branded<UnitsGeo_.ShortLocationString, LocationBrand> => true,
   'Location',
 );
-export interface LocationBrand {
+export type LocationBrand = {
   readonly Location: unique symbol;
-}
+};
 
 // Address
 // The purpose of this remains a mystery
@@ -79,9 +80,9 @@ export const Address: AddressC = t.brand(
   (x): x is t.Branded<Address_.Address, AddressBrand> => true,
   'Address',
 );
-export interface AddressBrand {
+export type AddressBrand = {
   readonly Address: unique symbol;
-}
+};
 
 // City
 // The purpose of this remains a mystery
@@ -92,9 +93,9 @@ export const City: CityC = t.brand(
   (x): x is t.Branded<Address_.City, CityBrand> => true,
   'City',
 );
-export interface CityBrand {
+export type CityBrand = {
   readonly City: unique symbol;
-}
+};
 
 // Country
 // The purpose of this remains a mystery
@@ -105,9 +106,9 @@ export const Country: CountryC = t.brand(
   (x): x is t.Branded<Address_.Country, CountryBrand> => true,
   'Country',
 );
-export interface CountryBrand {
+export type CountryBrand = {
   readonly Country: unique symbol;
-}
+};
 
 // AgencyId
 // The purpose of this remains a mystery
@@ -118,9 +119,9 @@ export const AgencyId: AgencyIdC = t.brand(
   (x): x is t.Branded<Common_.AgencyId, AgencyIdBrand> => true,
   'AgencyId',
 );
-export interface AgencyIdBrand {
+export type AgencyIdBrand = {
   readonly AgencyId: unique symbol;
-}
+};
 
 // OpeningHours
 // Opening hour of the station, object format is left for TSP to decide
@@ -142,9 +143,9 @@ export const OpeningHours: OpeningHoursC = t.brand(
   > => true,
   'OpeningHours',
 );
-export interface OpeningHoursBrand {
+export type OpeningHoursBrand = {
   readonly OpeningHours: unique symbol;
-}
+};
 
 // Facilities
 // Station facilities, including services and features
@@ -155,9 +156,9 @@ export const Facilities: FacilitiesC = t.brand(
   (x): x is t.Branded<Array<string>, FacilitiesBrand> => true,
   'Facilities',
 );
-export interface FacilitiesBrand {
+export type FacilitiesBrand = {
   readonly Facilities: unique symbol;
-}
+};
 
 // Services
 // What agency and mode of transport will occupy this station
@@ -168,9 +169,9 @@ export const Services: ServicesC = t.brand(
   (x): x is t.Branded<Array<TravelMode_.TravelMode>, ServicesBrand> => true,
   'Services',
 );
-export interface ServicesBrand {
+export type ServicesBrand = {
   readonly Services: unique symbol;
-}
+};
 
 // Timetables
 // Timetable for passing by / originating transports
@@ -240,9 +241,9 @@ export const Timetables: TimetablesC = t.brand(
   > => true,
   'Timetables',
 );
-export interface TimetablesBrand {
+export type TimetablesBrand = {
   readonly Timetables: unique symbol;
-}
+};
 
 // Zone
 // Geofencing zone defined by provider that the station is within
@@ -253,9 +254,9 @@ export const Zone: ZoneC = t.brand(
   (x): x is t.Branded<number | string, ZoneBrand> => true,
   'Zone',
 );
-export interface ZoneBrand {
+export type ZoneBrand = {
   readonly Zone: unique symbol;
-}
+};
 
 // PlatformCode
 // Platform number
@@ -266,9 +267,9 @@ export const PlatformCode: PlatformCodeC = t.brand(
   (x): x is t.Branded<number | string, PlatformCodeBrand> => true,
   'PlatformCode',
 );
-export interface PlatformCodeBrand {
+export type PlatformCodeBrand = {
   readonly PlatformCode: unique symbol;
-}
+};
 
 // Station
 // The default export. More information at the top.
@@ -286,9 +287,9 @@ export const Station: StationC = t.brand(
     true,
   'Station',
 );
-export interface StationBrand {
+export type StationBrand = {
   readonly Station: unique symbol;
-}
+};
 
 export default Station;
 

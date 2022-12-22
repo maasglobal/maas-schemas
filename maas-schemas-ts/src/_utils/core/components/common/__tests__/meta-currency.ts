@@ -1,8 +1,7 @@
 import {
-  defaultMetaCurrencyWMP as WMP,
   defaultMetaCurrencyTOKEN as TOKEN,
+  defaultMetaCurrencyWMP as WMP,
 } from '../../../../../_types/core/components/common';
-
 import { Ord } from '../meta-currency';
 
 describe('meta-currency', () => {

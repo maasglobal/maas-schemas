@@ -9,16 +9,17 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Terms_ from './components/terms';
+
 import * as BookingMeta_ from './booking-meta';
-import * as Cost_ from './components/cost';
+import * as Common_ from './components/common';
 import * as Configurator_ from './components/configurator';
-import * as Customer_ from './customer';
+import * as Cost_ from './components/cost';
+import * as Place_ from './components/place';
+import * as Terms_ from './components/terms';
 import * as TravelMode_ from './components/travel-mode';
 import * as Units_ from './components/units';
-import * as Place_ from './components/place';
 import * as UnitsGeo_ from './components/units-geo';
-import * as Common_ from './components/common';
+import * as Customer_ from './customer';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -32,7 +33,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/booking-option.json';
@@ -125,9 +126,9 @@ export const Leg: LegC = t.brand(
   > => true,
   'Leg',
 );
-export interface LegBrand {
+export type LegBrand = {
   readonly Leg: unique symbol;
-}
+};
 
 // TspProduct
 // Defines what kind of TSP product the booking option represents.
@@ -177,9 +178,9 @@ export const TspProduct: TspProductC = t.brand(
   > => true,
   'TspProduct',
 );
-export interface TspProductBrand {
+export type TspProductBrand = {
   readonly TspProduct: unique symbol;
-}
+};
 
 // Customer
 // MaaS booking customer
@@ -190,9 +191,9 @@ export const Customer: CustomerC = t.brand(
   (x): x is t.Branded<Customer_.Customer, CustomerBrand> => true,
   'Customer',
 );
-export interface CustomerBrand {
+export type CustomerBrand = {
   readonly Customer: unique symbol;
-}
+};
 
 // ContentWithCost
 // The purpose of this remains a mystery
@@ -282,9 +283,9 @@ export const ContentWithCost: ContentWithCostC = t.brand(
   > => true,
   'ContentWithCost',
 );
-export interface ContentWithCostBrand {
+export type ContentWithCostBrand = {
   readonly ContentWithCost: unique symbol;
-}
+};
 
 // ContentWithConfigurator
 // The purpose of this remains a mystery
@@ -374,9 +375,9 @@ export const ContentWithConfigurator: ContentWithConfiguratorC = t.brand(
   > => true,
   'ContentWithConfigurator',
 );
-export interface ContentWithConfiguratorBrand {
+export type ContentWithConfiguratorBrand = {
   readonly ContentWithConfigurator: unique symbol;
-}
+};
 
 // LegDelta
 // A leg delta, containing any subset of the valid properties
@@ -446,9 +447,9 @@ export const LegDelta: LegDeltaC = t.brand(
   > => true,
   'LegDelta',
 );
-export interface LegDeltaBrand {
+export type LegDeltaBrand = {
   readonly LegDelta: unique symbol;
-}
+};
 
 // BookingOption
 // The default export. More information at the top.
@@ -466,9 +467,9 @@ export const BookingOption: BookingOptionC = t.brand(
     true,
   'BookingOption',
 );
-export interface BookingOptionBrand {
+export type BookingOptionBrand = {
   readonly BookingOption: unique symbol;
-}
+};
 
 export default BookingOption;
 

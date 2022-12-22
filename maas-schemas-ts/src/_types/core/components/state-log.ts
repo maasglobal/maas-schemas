@@ -8,12 +8,13 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Units_ from './units';
-import * as State_ from './state';
-import * as Error_ from '../error';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
+import * as Error_ from '../error';
+import * as State_ from './state';
+import * as Units_ from './units';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -27,7 +28,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/state-log.json';
@@ -42,9 +43,9 @@ export const ObsoleteTime: ObsoleteTimeC = t.brand(
     typeof x !== 'string' || x.match(RegExp('^[0-9]+$')) !== null,
   'ObsoleteTime',
 );
-export interface ObsoleteTimeBrand {
+export type ObsoleteTimeBrand = {
   readonly ObsoleteTime: unique symbol;
-}
+};
 
 // BookingStateTransition
 // The purpose of this remains a mystery
@@ -122,11 +123,11 @@ export const BookingStateTransition: BookingStateTransitionC = t.brand(
   > => true,
   'BookingStateTransition',
 );
-export interface BookingStateTransitionBrand {
+export type BookingStateTransitionBrand = {
   readonly BookingStateTransition: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(BookingStateTransition)).decodeSync(examplesBookingStateTransition) // => examplesBookingStateTransition */
-export const examplesBookingStateTransition: NonEmptyArray<BookingStateTransition> = ([
+export const examplesBookingStateTransition: NonEmptyArray<BookingStateTransition> = [
   {
     reason: { text: 'INVALID_AUTHORIZATION', errorCode: 500 },
     invalid: false,
@@ -134,7 +135,7 @@ export const examplesBookingStateTransition: NonEmptyArray<BookingStateTransitio
     oldState: 'PAID',
     timestamp: 1630005341433,
   },
-] as unknown) as NonEmptyArray<BookingStateTransition>;
+] as unknown as NonEmptyArray<BookingStateTransition>;
 
 // StateLog
 // The default export. More information at the top.
@@ -145,11 +146,11 @@ export const StateLog: StateLogC = t.brand(
   (x): x is t.Branded<Array<BookingStateTransition>, StateLogBrand> => true,
   'StateLog',
 );
-export interface StateLogBrand {
+export type StateLogBrand = {
   readonly StateLog: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(StateLog)).decodeSync(examplesStateLog) // => examplesStateLog */
-export const examplesStateLog: NonEmptyArray<StateLog> = ([
+export const examplesStateLog: NonEmptyArray<StateLog> = [
   [
     {
       reason: {},
@@ -173,7 +174,7 @@ export const examplesStateLog: NonEmptyArray<StateLog> = ([
       timestamp: 1630005341433,
     },
   ],
-] as unknown) as NonEmptyArray<StateLog>;
+] as unknown as NonEmptyArray<StateLog>;
 
 export default StateLog;
 

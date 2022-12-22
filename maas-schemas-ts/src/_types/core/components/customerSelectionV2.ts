@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as CustomerSelectionCommon_ from './customerSelectionCommon';
 
 export const schemaId =
@@ -34,9 +35,9 @@ export const CustomerSelectionV2: CustomerSelectionV2C = t.brand(
   > => true,
   'CustomerSelectionV2',
 );
-export interface CustomerSelectionV2Brand {
+export type CustomerSelectionV2Brand = {
   readonly CustomerSelectionV2: unique symbol;
-}
+};
 
 export default CustomerSelectionV2;
 

@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Common_ from '../../core/components/common';
 import * as PersonalDataAllowItem_ from '../../core/components/personalDataAllowItem';
 import * as PersonalDataValidation_ from '../../core/components/personalDataValidation';
@@ -26,7 +27,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -124,9 +125,9 @@ export const SubscriptionAdditions: SubscriptionAdditionsC = t.brand(
   > => true,
   'SubscriptionAdditions',
 );
-export interface SubscriptionAdditionsBrand {
+export type SubscriptionAdditionsBrand = {
   readonly SubscriptionAdditions: unique symbol;
-}
+};
 
 // SubscriptionOption
 // The default export. More information at the top.
@@ -148,9 +149,9 @@ export const SubscriptionOption: SubscriptionOptionC = t.brand(
   > => true,
   'SubscriptionOption',
 );
-export interface SubscriptionOptionBrand {
+export type SubscriptionOptionBrand = {
   readonly SubscriptionOption: unique symbol;
-}
+};
 
 export default SubscriptionOption;
 

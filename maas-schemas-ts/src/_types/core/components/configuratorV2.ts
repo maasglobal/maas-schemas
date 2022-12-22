@@ -8,14 +8,15 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
-import * as Units_ from './units';
-import * as CustomerSelectionV2_ from './customerSelectionV2';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
 import * as ConfiguratorCommon_ from './configuratorCommon';
 import * as Cost_ from './cost';
+import * as CustomerSelectionV2_ from './customerSelectionV2';
 import * as Fare_ from './fare';
-import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
-import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+import * as Units_ from './units';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -29,7 +30,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/configuratorV2.json';
@@ -143,11 +144,11 @@ export const ConfiguratorV2: ConfiguratorV2C = t.brand(
   > => true,
   'ConfiguratorV2',
 );
-export interface ConfiguratorV2Brand {
+export type ConfiguratorV2Brand = {
   readonly ConfiguratorV2: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(ConfiguratorV2)).decodeSync(examplesConfiguratorV2) // => examplesConfiguratorV2 */
-export const examplesConfiguratorV2: NonEmptyArray<ConfiguratorV2> = ([
+export const examplesConfiguratorV2: NonEmptyArray<ConfiguratorV2> = [
   {
     version: '2',
     estimatable: true,
@@ -178,7 +179,7 @@ export const examplesConfiguratorV2: NonEmptyArray<ConfiguratorV2> = ([
       },
     },
   },
-] as unknown) as NonEmptyArray<ConfiguratorV2>;
+] as unknown as NonEmptyArray<ConfiguratorV2>;
 
 export default ConfiguratorV2;
 

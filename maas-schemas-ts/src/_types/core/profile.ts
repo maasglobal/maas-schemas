@@ -9,13 +9,14 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from './components/units';
-import * as PointCost_ from './components/point-cost';
-import * as Common_ from './components/common';
+
 import * as Address_ from './components/address';
-import * as Region_ from './region';
-import * as Place_ from './components/place';
+import * as Common_ from './components/common';
 import * as Fare_ from './components/fare';
+import * as Place_ from './components/place';
+import * as PointCost_ from './components/point-cost';
+import * as Units_ from './components/units';
+import * as Region_ from './region';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -29,7 +30,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/profile.json';
@@ -43,11 +44,12 @@ export const BookingOptionsReference: BookingOptionsReferenceC = t.brand(
   (x): x is t.Branded<number, BookingOptionsReferenceBrand> => Number.isInteger(x),
   'BookingOptionsReference',
 );
-export interface BookingOptionsReferenceBrand {
+export type BookingOptionsReferenceBrand = {
   readonly BookingOptionsReference: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(BookingOptionsReference).decodeSync(minimumBookingOptionsReference) // => minimumBookingOptionsReference */
-export const minimumBookingOptionsReference: BookingOptionsReference = (0 as unknown) as BookingOptionsReference;
+export const minimumBookingOptionsReference: BookingOptionsReference =
+  0 as unknown as BookingOptionsReference;
 
 // SubscriptionInstance
 // The purpose of this remains a mystery
@@ -185,9 +187,9 @@ export const SubscriptionInstance: SubscriptionInstanceC = t.brand(
   > => true,
   'SubscriptionInstance',
 );
-export interface SubscriptionInstanceBrand {
+export type SubscriptionInstanceBrand = {
   readonly SubscriptionInstance: unique symbol;
-}
+};
 
 // Profile
 // The default export. More information at the top.
@@ -393,9 +395,9 @@ export const Profile: ProfileC = t.brand(
   > => true,
   'Profile',
 );
-export interface ProfileBrand {
+export type ProfileBrand = {
   readonly Profile: unique symbol;
-}
+};
 
 export default Profile;
 

@@ -9,13 +9,14 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
+import * as Address_ from '../../../core/components/address';
+import * as ApiCommon_ from '../../../core/components/api-common';
+import * as Common_ from '../../../core/components/common';
+import * as SpaceDemand_ from '../../../core/components/spaceDemand';
 import * as TravelMode_ from '../../../core/components/travel-mode';
 import * as Units_ from '../../../core/components/units';
 import * as UnitsGeo_ from '../../../core/components/units-geo';
-import * as Address_ from '../../../core/components/address';
-import * as SpaceDemand_ from '../../../core/components/spaceDemand';
-import * as Common_ from '../../../core/components/common';
-import * as ApiCommon_ from '../../../core/components/api-common';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -29,7 +30,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -205,9 +206,9 @@ export const Payload: PayloadC = t.brand(
   > => true,
   'Payload',
 );
-export interface PayloadBrand {
+export type PayloadBrand = {
   readonly Payload: unique symbol;
-}
+};
 
 // Request
 // The default export. More information at the top.
@@ -269,9 +270,9 @@ export const Request: RequestC = t.brand(
   > => true,
   'Request',
 );
-export interface RequestBrand {
+export type RequestBrand = {
   readonly Request: unique symbol;
-}
+};
 
 export default Request;
 

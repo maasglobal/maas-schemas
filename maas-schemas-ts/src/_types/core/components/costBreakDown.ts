@@ -8,8 +8,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export const schemaId = 'https://schemas.maas.global/core/components/costBreakDown.json';
@@ -23,13 +23,13 @@ export const CostBreakDownArray: CostBreakDownArrayC = t.brand(
   (x): x is t.Branded<Array<string>, CostBreakDownArrayBrand> => true,
   'CostBreakDownArray',
 );
-export interface CostBreakDownArrayBrand {
+export type CostBreakDownArrayBrand = {
   readonly CostBreakDownArray: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(CostBreakDownArray)).decodeSync(examplesCostBreakDownArray) // => examplesCostBreakDownArray */
-export const examplesCostBreakDownArray: NonEmptyArray<CostBreakDownArray> = ([
+export const examplesCostBreakDownArray: NonEmptyArray<CostBreakDownArray> = [
   ['First 10 km, 50 euros', 'Next 20 km, 10 euros'],
-] as unknown) as NonEmptyArray<CostBreakDownArray>;
+] as unknown as NonEmptyArray<CostBreakDownArray>;
 
 // CostBreakDown
 // The default export. More information at the top.
@@ -40,9 +40,9 @@ export const CostBreakDown: CostBreakDownC = t.brand(
   (x): x is t.Branded<unknown, CostBreakDownBrand> => true,
   'CostBreakDown',
 );
-export interface CostBreakDownBrand {
+export type CostBreakDownBrand = {
   readonly CostBreakDown: unique symbol;
-}
+};
 
 export default CostBreakDown;
 

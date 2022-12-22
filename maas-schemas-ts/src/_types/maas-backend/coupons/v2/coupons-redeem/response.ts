@@ -9,8 +9,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Code_ from '../../code';
+
 import * as Subscription_ from '../../../subscriptions/subscription';
+import * as Code_ from '../../code';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -24,7 +25,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -114,9 +115,9 @@ export const Response: ResponseC = t.brand(
   > => true,
   'Response',
 );
-export interface ResponseBrand {
+export type ResponseBrand = {
   readonly Response: unique symbol;
-}
+};
 
 export default Response;
 

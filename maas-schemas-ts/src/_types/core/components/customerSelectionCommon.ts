@@ -25,9 +25,9 @@ export const ConfigChoiceSelection: ConfigChoiceSelectionC = t.brand(
   (x): x is t.Branded<Array<string>, ConfigChoiceSelectionBrand> => true,
   'ConfigChoiceSelection',
 );
-export interface ConfigChoiceSelectionBrand {
+export type ConfigChoiceSelectionBrand = {
   readonly ConfigChoiceSelection: unique symbol;
-}
+};
 
 // TextInputSelection
 // customerSelection format for configurator config type - text
@@ -39,9 +39,9 @@ export const TextInputSelection: TextInputSelectionC = t.brand(
     typeof x !== 'string' || x.length <= 8192,
   'TextInputSelection',
 );
-export interface TextInputSelectionBrand {
+export type TextInputSelectionBrand = {
   readonly TextInputSelection: unique symbol;
-}
+};
 
 // CustomerSelectionCommon
 // The default export. More information at the top.
@@ -52,9 +52,9 @@ export const CustomerSelectionCommon: CustomerSelectionCommonC = t.brand(
   (x): x is t.Branded<unknown, CustomerSelectionCommonBrand> => true,
   'CustomerSelectionCommon',
 );
-export interface CustomerSelectionCommonBrand {
+export type CustomerSelectionCommonBrand = {
   readonly CustomerSelectionCommon: unique symbol;
-}
+};
 
 export default CustomerSelectionCommon;
 

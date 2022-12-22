@@ -9,8 +9,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from '../../../core/components/units';
+
 import * as ApiCommon_ from '../../../core/components/api-common';
+import * as Units_ from '../../../core/components/units';
 
 export const schemaId =
   'https://schemas.maas.global/maas-backend/bookings/bookings-cancel/request.json';
@@ -59,9 +60,9 @@ export const Request: RequestC = t.brand(
   > => true,
   'Request',
 );
-export interface RequestBrand {
+export type RequestBrand = {
   readonly Request: unique symbol;
-}
+};
 
 export default Request;
 

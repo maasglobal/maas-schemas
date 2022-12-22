@@ -9,11 +9,12 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from './units';
+
 import * as ACRISS_ from './ACRISS';
 import * as Ajv_ from './ajv';
-import * as UnitsGeo_ from './units-geo';
 import * as Common_ from './common';
+import * as Units_ from './units';
+import * as UnitsGeo_ from './units-geo';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -27,12 +28,12 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
-export interface NullBrand {
+export type NullBrand = {
   readonly Null: unique symbol;
-}
+};
 export type NullC = t.BrandC<t.UnknownC, NullBrand>;
 export const Null: NullC = t.brand(
   t.unknown,
@@ -129,9 +130,9 @@ export const Instruction: InstructionC = t.brand(
   > => true,
   'Instruction',
 );
-export interface InstructionBrand {
+export type InstructionBrand = {
   readonly Instruction: unique symbol;
-}
+};
 
 // CarRental
 // The default export. More information at the top.
@@ -379,9 +380,9 @@ export const CarRental: CarRentalC = t.brand(
   > => true,
   'CarRental',
 );
-export interface CarRentalBrand {
+export type CarRentalBrand = {
   readonly CarRental: unique symbol;
-}
+};
 
 export default CarRental;
 

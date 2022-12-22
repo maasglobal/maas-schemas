@@ -2,7 +2,7 @@
 
 This repostory contains [io-ts](https://github.com/gcanti/io-ts) codecs that match the [JSON Schema](https://json-schema.org/) definitions from the [maas-schemas](../maas-schemas) package. The validators should work with any JavaScript compatible code.
 
-Beware! The validators defined in this package are a bit looser than the corresponding JSON schema definitions. The definitions in this package may also be incomplete or out of date because of the manual work involved. 
+Beware! The validators defined in this package are a bit looser than the corresponding JSON schema definitions. The definitions in this package may also be incomplete or out of date because of the manual work involved.
 
 ## Runtime Input Validation
 
@@ -39,8 +39,8 @@ function ignore(id) {
 const raw = '916715ef-2e04-47e0-b1a5-feece4861c66';
 const valid = validator(IdentityId).decodeSync(raw);
 
-ignore(raw);    // type error: string !== IdentityId
-ignore(valid);  // no error
+ignore(raw); // type error: string !== IdentityId
+ignore(valid); // no error
 ```
 
 ## TypeScript Type Signatures
@@ -58,6 +58,6 @@ function ignore(id: IdentityId): void {
 const raw = '916715ef-2e04-47e0-b1a5-feece4861c66';
 const valid = validator(IdentityId).decodeSync(raw);
 
-ignore(raw);    // type error: string !== IdentityId
-ignore(valid);  // no error
+ignore(raw); // type error: string !== IdentityId
+ignore(valid); // no error
 ```

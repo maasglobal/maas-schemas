@@ -23,9 +23,9 @@ export const Locale: LocaleC = t.brand(
     x.match(RegExp('^[a-z]{2,3}(?:-[a-zA-Z]{4})?(?:-[A-Z]{2,3})?$')) !== null,
   'Locale',
 );
-export interface LocaleBrand {
+export type LocaleBrand = {
   readonly Locale: unique symbol;
-}
+};
 
 // I18n
 // The default export. More information at the top.
@@ -36,9 +36,9 @@ export const I18n: I18nC = t.brand(
   (x): x is t.Branded<unknown, I18nBrand> => true,
   'I18n',
 );
-export interface I18nBrand {
+export type I18nBrand = {
   readonly I18n: unique symbol;
-}
+};
 
 export default I18n;
 

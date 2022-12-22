@@ -8,26 +8,27 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as Units_ from './components/units';
-import * as t from 'io-ts';
-import * as Fare_ from './components/fare';
-import * as Cost_ from './components/cost';
-import * as Configurator_ from './components/configurator';
-import * as Common_ from './components/common';
-import * as Leg_ from './leg';
-import * as Terms_ from './components/terms';
-import * as State_ from './components/state';
-import * as StateLog_ from './components/state-log';
-import * as BookingMeta_ from './booking-meta';
-import * as Customer_ from './customer';
-import * as Product_ from './product';
-import * as CustomerSelection_ from './components/customerSelection';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-export interface NullBrand {
+import * as BookingMeta_ from './booking-meta';
+import * as Common_ from './components/common';
+import * as Configurator_ from './components/configurator';
+import * as Cost_ from './components/cost';
+import * as CustomerSelection_ from './components/customerSelection';
+import * as Fare_ from './components/fare';
+import * as State_ from './components/state';
+import * as StateLog_ from './components/state-log';
+import * as Terms_ from './components/terms';
+import * as Units_ from './components/units';
+import * as Customer_ from './customer';
+import * as Leg_ from './leg';
+import * as Product_ from './product';
+
+export type NullBrand = {
   readonly Null: unique symbol;
-}
+};
 export type NullC = t.BrandC<t.UnknownC, NullBrand>;
 export const Null: NullC = t.brand(
   t.unknown,
@@ -48,7 +49,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/booking.json';
@@ -62,9 +63,9 @@ export const Id: IdC = t.brand(
   (x): x is t.Branded<Units_.Uuid, IdBrand> => true,
   'Id',
 );
-export interface IdBrand {
+export type IdBrand = {
   readonly Id: unique symbol;
-}
+};
 
 // Fares
 // The purpose of this remains a mystery
@@ -75,9 +76,9 @@ export const Fares: FaresC = t.brand(
   (x): x is t.Branded<Array<Fare_.Fare>, FaresBrand> => true,
   'Fares',
 );
-export interface FaresBrand {
+export type FaresBrand = {
   readonly Fares: unique symbol;
-}
+};
 
 // Cost
 // The purpose of this remains a mystery
@@ -88,9 +89,9 @@ export const Cost: CostC = t.brand(
   (x): x is t.Branded<Cost_.Cost, CostBrand> => true,
   'Cost',
 );
-export interface CostBrand {
+export type CostBrand = {
   readonly Cost: unique symbol;
-}
+};
 
 // Configurator
 // The purpose of this remains a mystery
@@ -104,9 +105,9 @@ export const Configurator: ConfiguratorC = t.brand(
   (x): x is t.Branded<Configurator_.Configurator, ConfiguratorBrand> => true,
   'Configurator',
 );
-export interface ConfiguratorBrand {
+export type ConfiguratorBrand = {
   readonly Configurator: unique symbol;
-}
+};
 
 // TspId
 // The purpose of this remains a mystery
@@ -119,9 +120,9 @@ export const TspId: TspIdC = t.brand(
     (typeof x !== 'string' || x.length <= 256),
   'TspId',
 );
-export interface TspIdBrand {
+export type TspIdBrand = {
   readonly TspId: unique symbol;
-}
+};
 
 // Leg
 // MaaS response may return any subset of legCore
@@ -219,9 +220,9 @@ export const Leg: LegC = t.brand(
   > => true,
   'Leg',
 );
-export interface LegBrand {
+export type LegBrand = {
   readonly Leg: unique symbol;
-}
+};
 
 // Terms
 // The purpose of this remains a mystery
@@ -232,9 +233,9 @@ export const Terms: TermsC = t.brand(
   (x): x is t.Branded<Terms_.Terms, TermsBrand> => true,
   'Terms',
 );
-export interface TermsBrand {
+export type TermsBrand = {
   readonly Terms: unique symbol;
-}
+};
 
 // Token
 // The validity token (such as booking ID, travel ticket etc.) that MaaS clients will display to validate the trip when starting the leg.
@@ -300,9 +301,9 @@ export const Token: TokenC = t.brand(
   > => true,
   'Token',
 );
-export interface TokenBrand {
+export type TokenBrand = {
   readonly Token: unique symbol;
-}
+};
 
 // Booking
 // The default export. More information at the top.
@@ -456,11 +457,11 @@ export const Booking: BookingC = t.brand(
   > => true,
   'Booking',
 );
-export interface BookingBrand {
+export type BookingBrand = {
   readonly Booking: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Booking)).decodeSync(examplesBooking) // => examplesBooking */
-export const examplesBooking: NonEmptyArray<Booking> = ([
+export const examplesBooking: NonEmptyArray<Booking> = [
   {
     id: '12345678-ABCD-1234-ABCD-123456789ABC',
     state: 'EXPIRED',
@@ -1224,7 +1225,7 @@ export const examplesBooking: NonEmptyArray<Booking> = ([
     autoPurchaseId: null,
     deviceId: 27988,
   },
-] as unknown) as NonEmptyArray<Booking>;
+] as unknown as NonEmptyArray<Booking>;
 
 export default Booking;
 

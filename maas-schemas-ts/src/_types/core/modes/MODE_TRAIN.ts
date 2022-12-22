@@ -30,9 +30,9 @@ export const MODE_TRAIN: MODE_TRAINC = t.brand(
     true,
   'MODE_TRAIN',
 );
-export interface MODE_TRAINBrand {
+export type MODE_TRAINBrand = {
   readonly MODE_TRAIN: unique symbol;
-}
+};
 
 export default MODE_TRAIN;
 

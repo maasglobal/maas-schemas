@@ -22,7 +22,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -100,9 +100,9 @@ export const MODE_SHARED_E_BICYCLE: MODE_SHARED_E_BICYCLEC = t.brand(
   > => true,
   'MODE_SHARED_E_BICYCLE',
 );
-export interface MODE_SHARED_E_BICYCLEBrand {
+export type MODE_SHARED_E_BICYCLEBrand = {
   readonly MODE_SHARED_E_BICYCLE: unique symbol;
-}
+};
 
 export default MODE_SHARED_E_BICYCLE;
 

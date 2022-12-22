@@ -9,9 +9,10 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as UnitsGeo_ from './components/units-geo';
-import * as Units_ from './components/units';
+
 import * as State_ from './components/state';
+import * as Units_ from './components/units';
+import * as UnitsGeo_ from './components/units-geo';
 
 export const schemaId = 'https://schemas.maas.global/core/iot-thing-shadow.json';
 
@@ -127,9 +128,9 @@ export const IotThingShadow: IotThingShadowC = t.brand(
   > => true,
   'IotThingShadow',
 );
-export interface IotThingShadowBrand {
+export type IotThingShadowBrand = {
   readonly IotThingShadow: unique symbol;
-}
+};
 
 export default IotThingShadow;
 

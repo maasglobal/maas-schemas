@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Place_ from '../components/place';
 import * as Station_ from '../components/station';
 
@@ -24,7 +25,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/modes/MODE_RAIL.json';
@@ -185,9 +186,9 @@ export const MODE_RAIL: MODE_RAILC = t.brand(
   > => true,
   'MODE_RAIL',
 );
-export interface MODE_RAILBrand {
+export type MODE_RAILBrand = {
   readonly MODE_RAIL: unique symbol;
-}
+};
 
 export default MODE_RAIL;
 

@@ -9,10 +9,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Subscription_ from './subscription';
+
 import * as State_ from '../../core/components/state';
-import * as Units_ from '../../core/components/units';
 import * as StateLog_ from '../../core/components/state-log';
+import * as Units_ from '../../core/components/units';
+import * as Subscription_ from './subscription';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -26,7 +27,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -43,9 +44,9 @@ export const PlanId: PlanIdC = t.brand(
     (typeof x !== 'string' || x.length <= 255),
   'PlanId',
 );
-export interface PlanIdBrand {
+export type PlanIdBrand = {
   readonly PlanId: unique symbol;
-}
+};
 
 // CouponId
 // The purpose of this remains a mystery
@@ -58,9 +59,9 @@ export const CouponId: CouponIdC = t.brand(
     (typeof x !== 'string' || x.length <= 255),
   'CouponId',
 );
-export interface CouponIdBrand {
+export type CouponIdBrand = {
   readonly CouponId: unique symbol;
-}
+};
 
 // SubscriptionIntentCreate
 // The purpose of this remains a mystery
@@ -130,9 +131,9 @@ export const SubscriptionIntentCreate: SubscriptionIntentCreateC = t.brand(
   > => true,
   'SubscriptionIntentCreate',
 );
-export interface SubscriptionIntentCreateBrand {
+export type SubscriptionIntentCreateBrand = {
   readonly SubscriptionIntentCreate: unique symbol;
-}
+};
 
 // SubscriptionIntentBase
 // The purpose of this remains a mystery
@@ -234,9 +235,9 @@ export const SubscriptionIntentBase: SubscriptionIntentBaseC = t.brand(
   > => true,
   'SubscriptionIntentBase',
 );
-export interface SubscriptionIntentBaseBrand {
+export type SubscriptionIntentBaseBrand = {
   readonly SubscriptionIntentBase: unique symbol;
-}
+};
 
 // AddonId
 // The purpose of this remains a mystery
@@ -249,9 +250,9 @@ export const AddonId: AddonIdC = t.brand(
     (typeof x !== 'string' || x.length <= 255),
   'AddonId',
 );
-export interface AddonIdBrand {
+export type AddonIdBrand = {
   readonly AddonId: unique symbol;
-}
+};
 
 // SubscriptionIntent
 // The default export. More information at the top.
@@ -262,9 +263,9 @@ export const SubscriptionIntent: SubscriptionIntentC = t.brand(
   (x): x is t.Branded<unknown, SubscriptionIntentBrand> => true,
   'SubscriptionIntent',
 );
-export interface SubscriptionIntentBrand {
+export type SubscriptionIntentBrand = {
   readonly SubscriptionIntent: unique symbol;
-}
+};
 
 export default SubscriptionIntent;
 

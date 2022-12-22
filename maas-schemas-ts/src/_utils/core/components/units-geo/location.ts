@@ -1,6 +1,6 @@
 import {
-  Location,
   Latitude,
+  Location,
   Longitude,
 } from '../../../../_types/core/components/units-geo';
 

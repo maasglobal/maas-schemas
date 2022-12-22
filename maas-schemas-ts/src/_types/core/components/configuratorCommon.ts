@@ -9,10 +9,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
+import * as BookingMeta_ from '../booking-meta';
 import * as Cost_ from './cost';
 import * as Fare_ from './fare';
 import * as Terms_ from './terms';
-import * as BookingMeta_ from '../booking-meta';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -26,7 +27,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -124,9 +125,9 @@ export const Choice: ChoiceC = t.brand(
   > => true,
   'Choice',
 );
-export interface ChoiceBrand {
+export type ChoiceBrand = {
   readonly Choice: unique symbol;
-}
+};
 
 // Config
 // A customization to the booking option
@@ -214,9 +215,9 @@ export const Config: ConfigC = t.brand(
   > => true,
   'Config',
 );
-export interface ConfigBrand {
+export type ConfigBrand = {
   readonly Config: unique symbol;
-}
+};
 
 // Text
 // Generic text field to pass information from user
@@ -286,9 +287,9 @@ export const Text: TextC = t.brand(
   > => true,
   'Text',
 );
-export interface TextBrand {
+export type TextBrand = {
   readonly Text: unique symbol;
-}
+};
 
 // ConfiguratorCommon
 // The default export. More information at the top.
@@ -299,9 +300,9 @@ export const ConfiguratorCommon: ConfiguratorCommonC = t.brand(
   (x): x is t.Branded<unknown, ConfiguratorCommonBrand> => true,
   'ConfiguratorCommon',
 );
-export interface ConfiguratorCommonBrand {
+export type ConfiguratorCommonBrand = {
   readonly ConfiguratorCommon: unique symbol;
-}
+};
 
 export default ConfiguratorCommon;
 

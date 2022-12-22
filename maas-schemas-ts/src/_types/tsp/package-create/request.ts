@@ -8,11 +8,12 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
 import * as Customer_ from '../../core/customer';
 import * as PackageOption_ from '../../core/package-option';
-import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
-import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -26,7 +27,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/tsp/package-create/request.json';
@@ -83,11 +84,11 @@ export const Request: RequestC = t.brand(
   > => true,
   'Request',
 );
-export interface RequestBrand {
+export type RequestBrand = {
   readonly Request: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Request)).decodeSync(examplesRequest) // => examplesRequest */
-export const examplesRequest: NonEmptyArray<Request> = ([
+export const examplesRequest: NonEmptyArray<Request> = [
   {
     customer: {
       email: 'test@example.com',
@@ -101,7 +102,7 @@ export const examplesRequest: NonEmptyArray<Request> = ([
     },
     package: { id: 'super-tsp-package' },
   },
-] as unknown) as NonEmptyArray<Request>;
+] as unknown as NonEmptyArray<Request>;
 
 export default Request;
 

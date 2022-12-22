@@ -8,15 +8,16 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Units_ from './units';
-import * as Common_ from './common';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-export interface NullBrand {
+import * as Common_ from './common';
+import * as Units_ from './units';
+
+export type NullBrand = {
   readonly Null: unique symbol;
-}
+};
 export type NullC = t.BrandC<t.UnknownC, NullBrand>;
 export const Null: NullC = t.brand(
   t.unknown,
@@ -37,7 +38,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/fare.json';
@@ -52,9 +53,9 @@ export const TokenId: TokenIdC = t.brand(
     typeof x !== 'string' || x.match(RegExp('^[a-z]+(-[a-z0-9_]+)+$')) !== null,
   'TokenId',
 );
-export interface TokenIdBrand {
+export type TokenIdBrand = {
   readonly TokenId: unique symbol;
-}
+};
 
 // FareType
 // The purpose of this remains a mystery
@@ -68,9 +69,9 @@ export const FareType: FareTypeC = t.brand(
   (x): x is t.Branded<string & ('charge' | 'refund'), FareTypeBrand> => true,
   'FareType',
 );
-export interface FareTypeBrand {
+export type FareTypeBrand = {
   readonly FareType: unique symbol;
-}
+};
 
 // FareTypeCHARGE
 // The purpose of this remains a mystery
@@ -84,11 +85,12 @@ export const FareTypeCHARGE: FareTypeCHARGEC = t.brand(
   (x): x is t.Branded<FareType & 'charge', FareTypeCHARGEBrand> => true,
   'FareTypeCHARGE',
 );
-export interface FareTypeCHARGEBrand {
+export type FareTypeCHARGEBrand = {
   readonly FareTypeCHARGE: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(FareTypeCHARGE).decodeSync(defaultFareTypeCHARGE) // => defaultFareTypeCHARGE */
-export const defaultFareTypeCHARGE: FareTypeCHARGE = ('charge' as unknown) as FareTypeCHARGE;
+export const defaultFareTypeCHARGE: FareTypeCHARGE =
+  'charge' as unknown as FareTypeCHARGE;
 
 // FareTypeREFUND
 // The purpose of this remains a mystery
@@ -102,11 +104,12 @@ export const FareTypeREFUND: FareTypeREFUNDC = t.brand(
   (x): x is t.Branded<FareType & 'refund', FareTypeREFUNDBrand> => true,
   'FareTypeREFUND',
 );
-export interface FareTypeREFUNDBrand {
+export type FareTypeREFUNDBrand = {
   readonly FareTypeREFUND: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(FareTypeREFUND).decodeSync(defaultFareTypeREFUND) // => defaultFareTypeREFUND */
-export const defaultFareTypeREFUND: FareTypeREFUND = ('refund' as unknown) as FareTypeREFUND;
+export const defaultFareTypeREFUND: FareTypeREFUND =
+  'refund' as unknown as FareTypeREFUND;
 
 // Fare
 // The default export. More information at the top.
@@ -182,11 +185,11 @@ export const Fare: FareC = t.brand(
   > => true,
   'Fare',
 );
-export interface FareBrand {
+export type FareBrand = {
   readonly Fare: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Fare)).decodeSync(examplesFare) // => examplesFare */
-export const examplesFare: NonEmptyArray<Fare> = ([
+export const examplesFare: NonEmptyArray<Fare> = [
   { type: 'charge', amount: 1200, currency: 'EUR', productionAmount: 1234 },
   { type: 'refund', amount: 1200, currency: 'EUR', productionAmount: 1234 },
   { type: 'charge', amount: 1200, currency: 'WMP', productionAmount: 1234 },
@@ -205,7 +208,7 @@ export const examplesFare: NonEmptyArray<Fare> = ([
     currency: 'fi-package-benefit',
     tokenId: 'fi-package-benefit',
   },
-] as unknown) as NonEmptyArray<Fare>;
+] as unknown as NonEmptyArray<Fare>;
 
 export default Fare;
 

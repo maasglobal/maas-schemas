@@ -1,8 +1,6 @@
 import { validator } from 'io-ts-validator';
 
-import { Hostname } from '../../../../../_types/core/components/units';
-
-import { Authority, Port } from '../../../../../_types/core/components/units';
+import { Authority, Hostname, Port } from '../../../../../_types/core/components/units';
 import * as Authority_ from '../authority';
 
 describe('authority', () => {

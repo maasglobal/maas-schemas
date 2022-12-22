@@ -9,8 +9,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from './components/units';
+
 import * as Card_ from './card';
+import * as Units_ from './components/units';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -24,7 +25,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/paymentSource.json';
@@ -97,9 +98,9 @@ export const PaymentSourceType: PaymentSourceTypeC = t.brand(
   > => true,
   'PaymentSourceType',
 );
-export interface PaymentSourceTypeBrand {
+export type PaymentSourceTypeBrand = {
   readonly PaymentSourceType: unique symbol;
-}
+};
 
 // PaymentSourceTypeCARD
 // The purpose of this remains a mystery
@@ -116,11 +117,12 @@ export const PaymentSourceTypeCARD: PaymentSourceTypeCARDC = t.brand(
   (x): x is t.Branded<PaymentSourceType & 'card', PaymentSourceTypeCARDBrand> => true,
   'PaymentSourceTypeCARD',
 );
-export interface PaymentSourceTypeCARDBrand {
+export type PaymentSourceTypeCARDBrand = {
   readonly PaymentSourceTypeCARD: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PaymentSourceTypeCARD).decodeSync(defaultPaymentSourceTypeCARD) // => defaultPaymentSourceTypeCARD */
-export const defaultPaymentSourceTypeCARD: PaymentSourceTypeCARD = ('card' as unknown) as PaymentSourceTypeCARD;
+export const defaultPaymentSourceTypeCARD: PaymentSourceTypeCARD =
+  'card' as unknown as PaymentSourceTypeCARD;
 
 // PaymentSourceTypePAYPAL_EXPRESS_CHECKOUT
 // The purpose of this remains a mystery
@@ -132,21 +134,23 @@ export type PaymentSourceTypePAYPAL_EXPRESS_CHECKOUTC = t.BrandC<
   t.IntersectionC<[typeof PaymentSourceType, t.LiteralC<'paypal_express_checkout'>]>,
   PaymentSourceTypePAYPAL_EXPRESS_CHECKOUTBrand
 >;
-export const PaymentSourceTypePAYPAL_EXPRESS_CHECKOUT: PaymentSourceTypePAYPAL_EXPRESS_CHECKOUTC = t.brand(
-  t.intersection([PaymentSourceType, t.literal('paypal_express_checkout')]),
-  (
-    x,
-  ): x is t.Branded<
-    PaymentSourceType & 'paypal_express_checkout',
-    PaymentSourceTypePAYPAL_EXPRESS_CHECKOUTBrand
-  > => true,
-  'PaymentSourceTypePAYPAL_EXPRESS_CHECKOUT',
-);
-export interface PaymentSourceTypePAYPAL_EXPRESS_CHECKOUTBrand {
+export const PaymentSourceTypePAYPAL_EXPRESS_CHECKOUT: PaymentSourceTypePAYPAL_EXPRESS_CHECKOUTC =
+  t.brand(
+    t.intersection([PaymentSourceType, t.literal('paypal_express_checkout')]),
+    (
+      x,
+    ): x is t.Branded<
+      PaymentSourceType & 'paypal_express_checkout',
+      PaymentSourceTypePAYPAL_EXPRESS_CHECKOUTBrand
+    > => true,
+    'PaymentSourceTypePAYPAL_EXPRESS_CHECKOUT',
+  );
+export type PaymentSourceTypePAYPAL_EXPRESS_CHECKOUTBrand = {
   readonly PaymentSourceTypePAYPAL_EXPRESS_CHECKOUT: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PaymentSourceTypePAYPAL_EXPRESS_CHECKOUT).decodeSync(defaultPaymentSourceTypePAYPAL_EXPRESS_CHECKOUT) // => defaultPaymentSourceTypePAYPAL_EXPRESS_CHECKOUT */
-export const defaultPaymentSourceTypePAYPAL_EXPRESS_CHECKOUT: PaymentSourceTypePAYPAL_EXPRESS_CHECKOUT = ('paypal_express_checkout' as unknown) as PaymentSourceTypePAYPAL_EXPRESS_CHECKOUT;
+export const defaultPaymentSourceTypePAYPAL_EXPRESS_CHECKOUT: PaymentSourceTypePAYPAL_EXPRESS_CHECKOUT =
+  'paypal_express_checkout' as unknown as PaymentSourceTypePAYPAL_EXPRESS_CHECKOUT;
 
 // PaymentSourceTypeAMAZON_PAYMENTS
 // The purpose of this remains a mystery
@@ -158,21 +162,23 @@ export type PaymentSourceTypeAMAZON_PAYMENTSC = t.BrandC<
   t.IntersectionC<[typeof PaymentSourceType, t.LiteralC<'amazon_payments'>]>,
   PaymentSourceTypeAMAZON_PAYMENTSBrand
 >;
-export const PaymentSourceTypeAMAZON_PAYMENTS: PaymentSourceTypeAMAZON_PAYMENTSC = t.brand(
-  t.intersection([PaymentSourceType, t.literal('amazon_payments')]),
-  (
-    x,
-  ): x is t.Branded<
-    PaymentSourceType & 'amazon_payments',
-    PaymentSourceTypeAMAZON_PAYMENTSBrand
-  > => true,
-  'PaymentSourceTypeAMAZON_PAYMENTS',
-);
-export interface PaymentSourceTypeAMAZON_PAYMENTSBrand {
+export const PaymentSourceTypeAMAZON_PAYMENTS: PaymentSourceTypeAMAZON_PAYMENTSC =
+  t.brand(
+    t.intersection([PaymentSourceType, t.literal('amazon_payments')]),
+    (
+      x,
+    ): x is t.Branded<
+      PaymentSourceType & 'amazon_payments',
+      PaymentSourceTypeAMAZON_PAYMENTSBrand
+    > => true,
+    'PaymentSourceTypeAMAZON_PAYMENTS',
+  );
+export type PaymentSourceTypeAMAZON_PAYMENTSBrand = {
   readonly PaymentSourceTypeAMAZON_PAYMENTS: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PaymentSourceTypeAMAZON_PAYMENTS).decodeSync(defaultPaymentSourceTypeAMAZON_PAYMENTS) // => defaultPaymentSourceTypeAMAZON_PAYMENTS */
-export const defaultPaymentSourceTypeAMAZON_PAYMENTS: PaymentSourceTypeAMAZON_PAYMENTS = ('amazon_payments' as unknown) as PaymentSourceTypeAMAZON_PAYMENTS;
+export const defaultPaymentSourceTypeAMAZON_PAYMENTS: PaymentSourceTypeAMAZON_PAYMENTS =
+  'amazon_payments' as unknown as PaymentSourceTypeAMAZON_PAYMENTS;
 
 // PaymentSourceTypeDIRECT_DEBIT
 // The purpose of this remains a mystery
@@ -194,11 +200,12 @@ export const PaymentSourceTypeDIRECT_DEBIT: PaymentSourceTypeDIRECT_DEBITC = t.b
   > => true,
   'PaymentSourceTypeDIRECT_DEBIT',
 );
-export interface PaymentSourceTypeDIRECT_DEBITBrand {
+export type PaymentSourceTypeDIRECT_DEBITBrand = {
   readonly PaymentSourceTypeDIRECT_DEBIT: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PaymentSourceTypeDIRECT_DEBIT).decodeSync(defaultPaymentSourceTypeDIRECT_DEBIT) // => defaultPaymentSourceTypeDIRECT_DEBIT */
-export const defaultPaymentSourceTypeDIRECT_DEBIT: PaymentSourceTypeDIRECT_DEBIT = ('direct_debit' as unknown) as PaymentSourceTypeDIRECT_DEBIT;
+export const defaultPaymentSourceTypeDIRECT_DEBIT: PaymentSourceTypeDIRECT_DEBIT =
+  'direct_debit' as unknown as PaymentSourceTypeDIRECT_DEBIT;
 
 // PaymentSourceTypeGENERIC
 // The purpose of this remains a mystery
@@ -216,11 +223,12 @@ export const PaymentSourceTypeGENERIC: PaymentSourceTypeGENERICC = t.brand(
     true,
   'PaymentSourceTypeGENERIC',
 );
-export interface PaymentSourceTypeGENERICBrand {
+export type PaymentSourceTypeGENERICBrand = {
   readonly PaymentSourceTypeGENERIC: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PaymentSourceTypeGENERIC).decodeSync(defaultPaymentSourceTypeGENERIC) // => defaultPaymentSourceTypeGENERIC */
-export const defaultPaymentSourceTypeGENERIC: PaymentSourceTypeGENERIC = ('generic' as unknown) as PaymentSourceTypeGENERIC;
+export const defaultPaymentSourceTypeGENERIC: PaymentSourceTypeGENERIC =
+  'generic' as unknown as PaymentSourceTypeGENERIC;
 
 // PaymentSourceTypeALIPAY
 // The purpose of this remains a mystery
@@ -237,11 +245,12 @@ export const PaymentSourceTypeALIPAY: PaymentSourceTypeALIPAYC = t.brand(
   (x): x is t.Branded<PaymentSourceType & 'alipay', PaymentSourceTypeALIPAYBrand> => true,
   'PaymentSourceTypeALIPAY',
 );
-export interface PaymentSourceTypeALIPAYBrand {
+export type PaymentSourceTypeALIPAYBrand = {
   readonly PaymentSourceTypeALIPAY: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PaymentSourceTypeALIPAY).decodeSync(defaultPaymentSourceTypeALIPAY) // => defaultPaymentSourceTypeALIPAY */
-export const defaultPaymentSourceTypeALIPAY: PaymentSourceTypeALIPAY = ('alipay' as unknown) as PaymentSourceTypeALIPAY;
+export const defaultPaymentSourceTypeALIPAY: PaymentSourceTypeALIPAY =
+  'alipay' as unknown as PaymentSourceTypeALIPAY;
 
 // PaymentSourceTypeUNIONPAY
 // The purpose of this remains a mystery
@@ -259,11 +268,12 @@ export const PaymentSourceTypeUNIONPAY: PaymentSourceTypeUNIONPAYC = t.brand(
     true,
   'PaymentSourceTypeUNIONPAY',
 );
-export interface PaymentSourceTypeUNIONPAYBrand {
+export type PaymentSourceTypeUNIONPAYBrand = {
   readonly PaymentSourceTypeUNIONPAY: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PaymentSourceTypeUNIONPAY).decodeSync(defaultPaymentSourceTypeUNIONPAY) // => defaultPaymentSourceTypeUNIONPAY */
-export const defaultPaymentSourceTypeUNIONPAY: PaymentSourceTypeUNIONPAY = ('unionpay' as unknown) as PaymentSourceTypeUNIONPAY;
+export const defaultPaymentSourceTypeUNIONPAY: PaymentSourceTypeUNIONPAY =
+  'unionpay' as unknown as PaymentSourceTypeUNIONPAY;
 
 // PaymentSourceTypeAPPLE_PAY
 // The purpose of this remains a mystery
@@ -281,11 +291,12 @@ export const PaymentSourceTypeAPPLE_PAY: PaymentSourceTypeAPPLE_PAYC = t.brand(
     true,
   'PaymentSourceTypeAPPLE_PAY',
 );
-export interface PaymentSourceTypeAPPLE_PAYBrand {
+export type PaymentSourceTypeAPPLE_PAYBrand = {
   readonly PaymentSourceTypeAPPLE_PAY: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PaymentSourceTypeAPPLE_PAY).decodeSync(defaultPaymentSourceTypeAPPLE_PAY) // => defaultPaymentSourceTypeAPPLE_PAY */
-export const defaultPaymentSourceTypeAPPLE_PAY: PaymentSourceTypeAPPLE_PAY = ('apple_pay' as unknown) as PaymentSourceTypeAPPLE_PAY;
+export const defaultPaymentSourceTypeAPPLE_PAY: PaymentSourceTypeAPPLE_PAY =
+  'apple_pay' as unknown as PaymentSourceTypeAPPLE_PAY;
 
 // PaymentSource
 // The default export. More information at the top.
@@ -367,9 +378,9 @@ export const PaymentSource: PaymentSourceC = t.brand(
   > => true,
   'PaymentSource',
 );
-export interface PaymentSourceBrand {
+export type PaymentSourceBrand = {
   readonly PaymentSource: unique symbol;
-}
+};
 
 export default PaymentSource;
 

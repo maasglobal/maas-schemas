@@ -12,12 +12,10 @@ export const groups = (uuid: Uuid): Groups =>
   P.pipe(
     uuid.split(separator),
     Tuple_.fromArray(5),
-    P.Option_.getOrElse(
-      (): Groups => {
-        // eslint-disable-next-line fp/no-throw
-        throw new Error('Uuid has more than five groups');
-      },
-    ),
+    P.Option_.getOrElse((): Groups => {
+      // eslint-disable-next-line fp/no-throw
+      throw new Error('Uuid has more than five groups');
+    }),
   );
 
 export type Field = string;

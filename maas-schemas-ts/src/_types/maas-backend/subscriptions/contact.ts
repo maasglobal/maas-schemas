@@ -9,8 +9,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Common_ from '../../core/components/common';
+
 import * as Address_ from '../../core/components/address';
+import * as Common_ from '../../core/components/common';
 import * as Units_ from '../../core/components/units';
 
 export type Defined = {} | null;
@@ -25,7 +26,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -40,9 +41,9 @@ export const IdentityId: IdentityIdC = t.brand(
   (x): x is t.Branded<Units_.IdentityId, IdentityIdBrand> => true,
   'IdentityId',
 );
-export interface IdentityIdBrand {
+export type IdentityIdBrand = {
   readonly IdentityId: unique symbol;
-}
+};
 
 // ContactBase
 // The purpose of this remains a mystery
@@ -112,9 +113,9 @@ export const ContactBase: ContactBaseC = t.brand(
   > => true,
   'ContactBase',
 );
-export interface ContactBaseBrand {
+export type ContactBaseBrand = {
   readonly ContactBase: unique symbol;
-}
+};
 
 // StripePaymentMethod
 // The payment (gateway) method info; no credit cards here
@@ -176,9 +177,9 @@ export const StripePaymentMethod: StripePaymentMethodC = t.brand(
   > => true,
   'StripePaymentMethod',
 );
-export interface StripePaymentMethodBrand {
+export type StripePaymentMethodBrand = {
   readonly StripePaymentMethod: unique symbol;
-}
+};
 
 // CreditCardPaymentMethod
 // Credit card based payment (only for testing)
@@ -264,9 +265,9 @@ export const CreditCardPaymentMethod: CreditCardPaymentMethodC = t.brand(
   > => true,
   'CreditCardPaymentMethod',
 );
-export interface CreditCardPaymentMethodBrand {
+export type CreditCardPaymentMethodBrand = {
   readonly CreditCardPaymentMethod: unique symbol;
-}
+};
 
 // NewPaymentMethod
 // The purpose of this remains a mystery
@@ -288,9 +289,9 @@ export const NewPaymentMethod: NewPaymentMethodC = t.brand(
   > => true,
   'NewPaymentMethod',
 );
-export interface NewPaymentMethodBrand {
+export type NewPaymentMethodBrand = {
   readonly NewPaymentMethod: unique symbol;
-}
+};
 
 // NewContact
 // The purpose of this remains a mystery
@@ -358,9 +359,9 @@ export const NewContact: NewContactC = t.brand(
   > => true,
   'NewContact',
 );
-export interface NewContactBrand {
+export type NewContactBrand = {
   readonly NewContact: unique symbol;
-}
+};
 
 // ContactUpdate
 // The purpose of this remains a mystery
@@ -424,9 +425,9 @@ export const ContactUpdate: ContactUpdateC = t.brand(
   > => true,
   'ContactUpdate',
 );
-export interface ContactUpdateBrand {
+export type ContactUpdateBrand = {
   readonly ContactUpdate: unique symbol;
-}
+};
 
 // PaymentMethodResponse
 // The payment (gateway) method info; no credit cards here
@@ -488,9 +489,9 @@ export const PaymentMethodResponse: PaymentMethodResponseC = t.brand(
   > => true,
   'PaymentMethodResponse',
 );
-export interface PaymentMethodResponseBrand {
+export type PaymentMethodResponseBrand = {
   readonly PaymentMethodResponse: unique symbol;
-}
+};
 
 // ContactResponse
 // The purpose of this remains a mystery
@@ -558,9 +559,9 @@ export const ContactResponse: ContactResponseC = t.brand(
   > => true,
   'ContactResponse',
 );
-export interface ContactResponseBrand {
+export type ContactResponseBrand = {
   readonly ContactResponse: unique symbol;
-}
+};
 
 // Contact
 // The default export. More information at the top.
@@ -571,9 +572,9 @@ export const Contact: ContactC = t.brand(
   (x): x is t.Branded<unknown, ContactBrand> => true,
   'Contact',
 );
-export interface ContactBrand {
+export type ContactBrand = {
   readonly Contact: unique symbol;
-}
+};
 
 export default Contact;
 

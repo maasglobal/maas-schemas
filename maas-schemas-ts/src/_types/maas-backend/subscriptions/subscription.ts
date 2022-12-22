@@ -9,13 +9,14 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Contact_ from './contact';
-import * as PointCost_ from '../../core/components/point-cost';
-import * as Region_ from '../../core/region';
-import * as SubscriptionAddress_ from './subscriptionAddress';
-import * as Units_ from '../../core/components/units';
-import * as SubscriptionChangeState_ from '../../core/components/subscriptionChangeState';
+
 import * as Cost_ from '../../core/components/cost';
+import * as PointCost_ from '../../core/components/point-cost';
+import * as SubscriptionChangeState_ from '../../core/components/subscriptionChangeState';
+import * as Units_ from '../../core/components/units';
+import * as Region_ from '../../core/region';
+import * as Contact_ from './contact';
+import * as SubscriptionAddress_ from './subscriptionAddress';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -29,7 +30,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -45,9 +46,9 @@ export const SubscriptionItemId: SubscriptionItemIdC = t.brand(
     typeof x !== 'string' || x.match(RegExp('^[^\\s\\/]{1,50}$')) !== null,
   'SubscriptionItemId',
 );
-export interface SubscriptionItemIdBrand {
+export type SubscriptionItemIdBrand = {
   readonly SubscriptionItemId: unique symbol;
-}
+};
 
 // Price
 // The purpose of this remains a mystery
@@ -58,9 +59,9 @@ export const Price: PriceC = t.brand(
   (x): x is t.Branded<Cost_.Cost, PriceBrand> => true,
   'Price',
 );
-export interface PriceBrand {
+export type PriceBrand = {
   readonly Price: unique symbol;
-}
+};
 
 // Plan
 // Customer subscription plan
@@ -126,9 +127,9 @@ export const Plan: PlanC = t.brand(
   > => true,
   'Plan',
 );
-export interface PlanBrand {
+export type PlanBrand = {
   readonly Plan: unique symbol;
-}
+};
 
 // Addon
 // Customer subscription add-ons
@@ -246,9 +247,9 @@ export const Addon: AddonC = t.brand(
   > => true,
   'Addon',
 );
-export interface AddonBrand {
+export type AddonBrand = {
   readonly Addon: unique symbol;
-}
+};
 
 // Coupon
 // Additional coupon that may provide discounts
@@ -310,9 +311,9 @@ export const Coupon: CouponC = t.brand(
   > => true,
   'Coupon',
 );
-export interface CouponBrand {
+export type CouponBrand = {
   readonly Coupon: unique symbol;
-}
+};
 
 // Benefit
 // Additional information about benefit used to purchase subscription
@@ -374,9 +375,9 @@ export const Benefit: BenefitC = t.brand(
   > => true,
   'Benefit',
 );
-export interface BenefitBrand {
+export type BenefitBrand = {
   readonly Benefit: unique symbol;
-}
+};
 
 // Terms
 // Terms related to this subscription
@@ -482,9 +483,9 @@ export const Terms: TermsC = t.brand(
   > => true,
   'Terms',
 );
-export interface TermsBrand {
+export type TermsBrand = {
   readonly Terms: unique symbol;
-}
+};
 
 // SubscriptionBase
 // The purpose of this remains a mystery
@@ -614,9 +615,9 @@ export const SubscriptionBase: SubscriptionBaseC = t.brand(
   > => true,
   'SubscriptionBase',
 );
-export interface SubscriptionBaseBrand {
+export type SubscriptionBaseBrand = {
   readonly SubscriptionBase: unique symbol;
-}
+};
 
 // Subscription
 // The purpose of this remains a mystery
@@ -676,9 +677,9 @@ export const Subscription: SubscriptionC = t.brand(
   > => true,
   'Subscription',
 );
-export interface SubscriptionBrand {
+export type SubscriptionBrand = {
   readonly Subscription: unique symbol;
-}
+};
 
 // SubscriptionCreatePayload
 // The purpose of this remains a mystery
@@ -730,9 +731,9 @@ export const SubscriptionCreatePayload: SubscriptionCreatePayloadC = t.brand(
   > => true,
   'SubscriptionCreatePayload',
 );
-export interface SubscriptionCreatePayloadBrand {
+export type SubscriptionCreatePayloadBrand = {
   readonly SubscriptionCreatePayload: unique symbol;
-}
+};
 
 // SubscriptionUpdatePayload
 // The purpose of this remains a mystery
@@ -762,8 +763,8 @@ export const SubscriptionUpdatePayload: SubscriptionUpdatePayloadC = t.brand(
   > => true,
   'SubscriptionUpdatePayload',
 );
-export interface SubscriptionUpdatePayloadBrand {
+export type SubscriptionUpdatePayloadBrand = {
   readonly SubscriptionUpdatePayload: unique symbol;
-}
+};
 
 // Success

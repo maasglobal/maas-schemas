@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as RemoteResponse_ from '../../../tsp/webhooks-bookings-update/remote-response';
 
 export const schemaId =
@@ -23,9 +24,9 @@ export const Response: ResponseC = t.brand(
   (x): x is t.Branded<RemoteResponse_.RemoteResponse, ResponseBrand> => true,
   'Response',
 );
-export interface ResponseBrand {
+export type ResponseBrand = {
   readonly Response: unique symbol;
-}
+};
 
 export default Response;
 

@@ -32,9 +32,9 @@ export const MODE_FUNICULAR: MODE_FUNICULARC = t.brand(
   > => true,
   'MODE_FUNICULAR',
 );
-export interface MODE_FUNICULARBrand {
+export type MODE_FUNICULARBrand = {
   readonly MODE_FUNICULAR: unique symbol;
-}
+};
 
 export default MODE_FUNICULAR;
 

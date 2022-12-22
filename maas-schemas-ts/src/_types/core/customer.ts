@@ -8,15 +8,16 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Units_ from './components/units';
-import * as Common_ from './components/common';
-import * as Address_ from './components/address';
-import * as I18n_ from './components/i18n';
-import * as PersonalDocument_ from './personal-document';
-import * as Fare_ from './components/fare';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
+import * as Address_ from './components/address';
+import * as Common_ from './components/common';
+import * as Fare_ from './components/fare';
+import * as I18n_ from './components/i18n';
+import * as Units_ from './components/units';
+import * as PersonalDocument_ from './personal-document';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -30,12 +31,12 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
-export interface NullBrand {
+export type NullBrand = {
   readonly Null: unique symbol;
-}
+};
 export type NullC = t.BrandC<t.UnknownC, NullBrand>;
 export const Null: NullC = t.brand(
   t.unknown,
@@ -312,11 +313,11 @@ export const Customer: CustomerC = t.brand(
   > => true,
   'Customer',
 );
-export interface CustomerBrand {
+export type CustomerBrand = {
   readonly Customer: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Customer)).decodeSync(examplesCustomer) // => examplesCustomer */
-export const examplesCustomer: NonEmptyArray<Customer> = ([
+export const examplesCustomer: NonEmptyArray<Customer> = [
   {
     identityId: 'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
     id: 1234,
@@ -387,7 +388,7 @@ export const examplesCustomer: NonEmptyArray<Customer> = ([
       currency: 'EUR',
     },
   },
-] as unknown) as NonEmptyArray<Customer>;
+] as unknown as NonEmptyArray<Customer>;
 
 export default Customer;
 

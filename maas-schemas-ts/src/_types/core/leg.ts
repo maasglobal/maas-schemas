@@ -8,15 +8,16 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as State_ from './components/state';
-import * as Place_ from './components/place';
-import * as Units_ from './components/units';
-import * as TravelMode_ from './components/travel-mode';
 import * as t from 'io-ts';
-import * as Stop_ from './stop';
-import * as UnitsGeo_ from './components/units-geo';
-import * as Common_ from './components/common';
+
 import * as BookingOption_ from './booking-option';
+import * as Common_ from './components/common';
+import * as Place_ from './components/place';
+import * as State_ from './components/state';
+import * as TravelMode_ from './components/travel-mode';
+import * as Units_ from './components/units';
+import * as UnitsGeo_ from './components/units-geo';
+import * as Stop_ from './stop';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -30,7 +31,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/leg.json';
@@ -44,9 +45,9 @@ export const State: StateC = t.brand(
   (x): x is t.Branded<State_.LegState, StateBrand> => true,
   'State',
 );
-export interface StateBrand {
+export type StateBrand = {
   readonly State: unique symbol;
-}
+};
 
 // From
 // The purpose of this remains a mystery
@@ -57,9 +58,9 @@ export const From: FromC = t.brand(
   (x): x is t.Branded<Place_.Place, FromBrand> => true,
   'From',
 );
-export interface FromBrand {
+export type FromBrand = {
   readonly From: unique symbol;
-}
+};
 
 // To
 // The purpose of this remains a mystery
@@ -70,9 +71,9 @@ export const To: ToC = t.brand(
   (x): x is t.Branded<Place_.Place, ToBrand> => true,
   'To',
 );
-export interface ToBrand {
+export type ToBrand = {
   readonly To: unique symbol;
-}
+};
 
 // StartTime
 // The purpose of this remains a mystery
@@ -83,9 +84,9 @@ export const StartTime: StartTimeC = t.brand(
   (x): x is t.Branded<Units_.Time, StartTimeBrand> => true,
   'StartTime',
 );
-export interface StartTimeBrand {
+export type StartTimeBrand = {
   readonly StartTime: unique symbol;
-}
+};
 
 // EndTime
 // The purpose of this remains a mystery
@@ -96,9 +97,9 @@ export const EndTime: EndTimeC = t.brand(
   (x): x is t.Branded<Units_.Time, EndTimeBrand> => true,
   'EndTime',
 );
-export interface EndTimeBrand {
+export type EndTimeBrand = {
   readonly EndTime: unique symbol;
-}
+};
 
 // Mode
 // The purpose of this remains a mystery
@@ -109,9 +110,9 @@ export const Mode: ModeC = t.brand(
   (x): x is t.Branded<TravelMode_.TravelMode, ModeBrand> => true,
   'Mode',
 );
-export interface ModeBrand {
+export type ModeBrand = {
   readonly Mode: unique symbol;
-}
+};
 
 // Stops
 // The purpose of this remains a mystery
@@ -122,9 +123,9 @@ export const Stops: StopsC = t.brand(
   (x): x is t.Branded<Array<Stop_.Stop>, StopsBrand> => true,
   'Stops',
 );
-export interface StopsBrand {
+export type StopsBrand = {
   readonly Stops: unique symbol;
-}
+};
 
 // DepartureDelay
 // The purpose of this remains a mystery
@@ -135,9 +136,9 @@ export const DepartureDelay: DepartureDelayC = t.brand(
   (x): x is t.Branded<Units_.Duration, DepartureDelayBrand> => true,
   'DepartureDelay',
 );
-export interface DepartureDelayBrand {
+export type DepartureDelayBrand = {
   readonly DepartureDelay: unique symbol;
-}
+};
 
 // ArrivalDelay
 // The purpose of this remains a mystery
@@ -148,9 +149,9 @@ export const ArrivalDelay: ArrivalDelayC = t.brand(
   (x): x is t.Branded<Units_.Duration, ArrivalDelayBrand> => true,
   'ArrivalDelay',
 );
-export interface ArrivalDelayBrand {
+export type ArrivalDelayBrand = {
   readonly ArrivalDelay: unique symbol;
-}
+};
 
 // Distance
 // The purpose of this remains a mystery
@@ -161,9 +162,9 @@ export const Distance: DistanceC = t.brand(
   (x): x is t.Branded<UnitsGeo_.Distance, DistanceBrand> => true,
   'Distance',
 );
-export interface DistanceBrand {
+export type DistanceBrand = {
   readonly Distance: unique symbol;
-}
+};
 
 // Route
 // The purpose of this remains a mystery
@@ -176,9 +177,9 @@ export const Route: RouteC = t.brand(
     (typeof x !== 'string' || x.length <= 255),
   'Route',
 );
-export interface RouteBrand {
+export type RouteBrand = {
   readonly Route: unique symbol;
-}
+};
 
 // RouteShortName
 // The purpose of this remains a mystery
@@ -190,9 +191,9 @@ export const RouteShortName: RouteShortNameC = t.brand(
     (typeof x !== 'string' || x.length >= 1) && (typeof x !== 'string' || x.length <= 64),
   'RouteShortName',
 );
-export interface RouteShortNameBrand {
+export type RouteShortNameBrand = {
   readonly RouteShortName: unique symbol;
-}
+};
 
 // RouteLongName
 // The purpose of this remains a mystery
@@ -205,9 +206,9 @@ export const RouteLongName: RouteLongNameC = t.brand(
     (typeof x !== 'string' || x.length <= 255),
   'RouteLongName',
 );
-export interface RouteLongNameBrand {
+export type RouteLongNameBrand = {
   readonly RouteLongName: unique symbol;
-}
+};
 
 // AgencyId
 // The purpose of this remains a mystery
@@ -218,9 +219,9 @@ export const AgencyId: AgencyIdC = t.brand(
   (x): x is t.Branded<Common_.AgencyId, AgencyIdBrand> => true,
   'AgencyId',
 );
-export interface AgencyIdBrand {
+export type AgencyIdBrand = {
   readonly AgencyId: unique symbol;
-}
+};
 
 // LegGeometry
 // The purpose of this remains a mystery
@@ -258,9 +259,9 @@ export const LegGeometry: LegGeometryC = t.brand(
   > => true,
   'LegGeometry',
 );
-export interface LegGeometryBrand {
+export type LegGeometryBrand = {
   readonly LegGeometry: unique symbol;
-}
+};
 
 // TspProduct
 // The purpose of this remains a mystery
@@ -271,9 +272,9 @@ export const TspProduct: TspProductC = t.brand(
   (x): x is t.Branded<BookingOption_.TspProduct, TspProductBrand> => true,
   'TspProduct',
 );
-export interface TspProductBrand {
+export type TspProductBrand = {
   readonly TspProduct: unique symbol;
-}
+};
 
 // ProductOption
 // Index of the productOption used in the itinerary's productOptions
@@ -284,11 +285,11 @@ export const ProductOption: ProductOptionC = t.brand(
   (x): x is t.Branded<number, ProductOptionBrand> => Number.isInteger(x),
   'ProductOption',
 );
-export interface ProductOptionBrand {
+export type ProductOptionBrand = {
   readonly ProductOption: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(ProductOption).decodeSync(minimumProductOption) // => minimumProductOption */
-export const minimumProductOption: ProductOption = (0 as unknown) as ProductOption;
+export const minimumProductOption: ProductOption = 0 as unknown as ProductOption;
 
 // LegExtensions
 // MaaS specific leg extensions
@@ -330,9 +331,9 @@ export const LegExtensions: LegExtensionsC = t.brand(
   > => true,
   'LegExtensions',
 );
-export interface LegExtensionsBrand {
+export type LegExtensionsBrand = {
   readonly LegExtensions: unique symbol;
-}
+};
 
 // LegCore
 // The purpose of this remains a mystery
@@ -462,9 +463,9 @@ export const LegCore: LegCoreC = t.brand(
   > => true,
   'LegCore',
 );
-export interface LegCoreBrand {
+export type LegCoreBrand = {
   readonly LegCore: unique symbol;
-}
+};
 
 // WaitingLeg
 // The purpose of this remains a mystery
@@ -534,9 +535,9 @@ export const WaitingLeg: WaitingLegC = t.brand(
   > => true,
   'WaitingLeg',
 );
-export interface WaitingLegBrand {
+export type WaitingLegBrand = {
   readonly WaitingLeg: unique symbol;
-}
+};
 
 // TransferLeg
 // The purpose of this remains a mystery
@@ -606,9 +607,9 @@ export const TransferLeg: TransferLegC = t.brand(
   > => true,
   'TransferLeg',
 );
-export interface TransferLegBrand {
+export type TransferLegBrand = {
   readonly TransferLeg: unique symbol;
-}
+};
 
 // Leg
 // The default export. More information at the top.
@@ -649,9 +650,9 @@ export const Leg: LegC = t.brand(
   > => true,
   'Leg',
 );
-export interface LegBrand {
+export type LegBrand = {
   readonly Leg: unique symbol;
-}
+};
 
 export default Leg;
 

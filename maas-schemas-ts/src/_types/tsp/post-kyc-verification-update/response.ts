@@ -8,8 +8,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export type Defined = {} | null;
@@ -24,7 +24,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -90,11 +90,11 @@ export const Response: ResponseC = t.brand(
   > => true,
   'Response',
 );
-export interface ResponseBrand {
+export type ResponseBrand = {
   readonly Response: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Response)).decodeSync(examplesResponse) // => examplesResponse */
-export const examplesResponse: NonEmptyArray<Response> = ([
+export const examplesResponse: NonEmptyArray<Response> = [
   { status: 200, message: 'Documents were processed.' },
   {
     status: 403,
@@ -102,7 +102,7 @@ export const examplesResponse: NonEmptyArray<Response> = ([
     state: 'DECLINED',
     errorCode: 'ERROR_TSP_CATEGORY_B_REQUIRED',
   },
-] as unknown) as NonEmptyArray<Response>;
+] as unknown as NonEmptyArray<Response>;
 
 export default Response;
 

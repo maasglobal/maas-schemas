@@ -2,7 +2,6 @@ import * as P from 'maasglobal-prelude-ts';
 
 import { AccountAlias } from '../../_types/environments/accounts';
 import { EnvironmentId } from '../../_types/environments/environments';
-
 import { Synopsis } from '../../_types/environments/synopsis';
 
 export type AccountSynopsis<A extends AccountAlias> = Synopsis & {

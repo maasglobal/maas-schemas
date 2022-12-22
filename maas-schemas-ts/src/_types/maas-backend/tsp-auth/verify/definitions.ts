@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Booking_ from '../../../core/booking';
 import * as CustomerSelection_ from '../../../core/components/customerSelection';
 
@@ -75,9 +76,9 @@ export const VerificationFailureKey: VerificationFailureKeyC = t.brand(
   > => true,
   'VerificationFailureKey',
 );
-export interface VerificationFailureKeyBrand {
+export type VerificationFailureKeyBrand = {
   readonly VerificationFailureKey: unique symbol;
-}
+};
 
 // VerifiedProducts
 // The list of verified products
@@ -127,9 +128,9 @@ export const VerifiedProducts: VerifiedProductsC = t.brand(
   > => true,
   'VerifiedProducts',
 );
-export interface VerifiedProductsBrand {
+export type VerifiedProductsBrand = {
   readonly VerifiedProducts: unique symbol;
-}
+};
 
 // ProductsNeededVerification
 // The list of products to verify
@@ -179,9 +180,9 @@ export const ProductsNeededVerification: ProductsNeededVerificationC = t.brand(
   > => true,
   'ProductsNeededVerification',
 );
-export interface ProductsNeededVerificationBrand {
+export type ProductsNeededVerificationBrand = {
   readonly ProductsNeededVerification: unique symbol;
-}
+};
 
 // Definitions
 // The default export. More information at the top.
@@ -192,9 +193,9 @@ export const Definitions: DefinitionsC = t.brand(
   (x): x is t.Branded<unknown, DefinitionsBrand> => true,
   'Definitions',
 );
-export interface DefinitionsBrand {
+export type DefinitionsBrand = {
   readonly Definitions: unique symbol;
-}
+};
 
 export default Definitions;
 

@@ -9,10 +9,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from '../../core/components/units';
+
 import * as Booking_ from '../../core/booking';
-import * as BookingOption_ from '../../core/booking-option';
 import * as BookingMeta_ from '../../core/booking-meta';
+import * as BookingOption_ from '../../core/booking-option';
+import * as Units_ from '../../core/components/units';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -26,7 +27,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -134,9 +135,9 @@ export const BookingDelta: BookingDeltaC = t.brand(
   > => true,
   'BookingDelta',
 );
-export interface BookingDeltaBrand {
+export type BookingDeltaBrand = {
   readonly BookingDelta: unique symbol;
-}
+};
 
 // RemoteResponse
 // The default export. More information at the top.
@@ -170,9 +171,9 @@ export const RemoteResponse: RemoteResponseC = t.brand(
   > => true,
   'RemoteResponse',
 );
-export interface RemoteResponseBrand {
+export type RemoteResponseBrand = {
   readonly RemoteResponse: unique symbol;
-}
+};
 
 export default RemoteResponse;
 

@@ -32,9 +32,9 @@ export const MODE_CABLE_CAR: MODE_CABLE_CARC = t.brand(
   > => true,
   'MODE_CABLE_CAR',
 );
-export interface MODE_CABLE_CARBrand {
+export type MODE_CABLE_CARBrand = {
   readonly MODE_CABLE_CAR: unique symbol;
-}
+};
 
 export default MODE_CABLE_CAR;
 

@@ -53,9 +53,9 @@ export const PersonalDataAllowItem: PersonalDataAllowItemC = t.brand(
   > => true,
   'PersonalDataAllowItem',
 );
-export interface PersonalDataAllowItemBrand {
+export type PersonalDataAllowItemBrand = {
   readonly PersonalDataAllowItem: unique symbol;
-}
+};
 
 export default PersonalDataAllowItem;
 

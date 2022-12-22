@@ -8,8 +8,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export type Defined = {} | null;
@@ -24,7 +24,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/error.json';
@@ -39,17 +39,17 @@ export const ErrorNumber: ErrorNumberC = t.brand(
     (typeof x !== 'number' || x <= 999) && Number.isInteger(x),
   'ErrorNumber',
 );
-export interface ErrorNumberBrand {
+export type ErrorNumberBrand = {
   readonly ErrorNumber: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(ErrorNumber)).decodeSync(examplesErrorNumber) // => examplesErrorNumber */
-export const examplesErrorNumber: NonEmptyArray<ErrorNumber> = ([
+export const examplesErrorNumber: NonEmptyArray<ErrorNumber> = [
   500,
-] as unknown) as NonEmptyArray<ErrorNumber>;
+] as unknown as NonEmptyArray<ErrorNumber>;
 /** require('io-ts-validator').validator(ErrorNumber).decodeSync(minimumErrorNumber) // => minimumErrorNumber */
-export const minimumErrorNumber: ErrorNumber = (0 as unknown) as ErrorNumber;
+export const minimumErrorNumber: ErrorNumber = 0 as unknown as ErrorNumber;
 /** require('io-ts-validator').validator(ErrorNumber).decodeSync(maximumErrorNumber) // => maximumErrorNumber */
-export const maximumErrorNumber: ErrorNumber = (999 as unknown) as ErrorNumber;
+export const maximumErrorNumber: ErrorNumber = 999 as unknown as ErrorNumber;
 
 // ErrorIdentifier
 // An internal error code, used for reference
@@ -61,13 +61,13 @@ export const ErrorIdentifier: ErrorIdentifierC = t.brand(
     (typeof x !== 'string' || x.length >= 1) && (typeof x !== 'string' || x.length <= 64),
   'ErrorIdentifier',
 );
-export interface ErrorIdentifierBrand {
+export type ErrorIdentifierBrand = {
   readonly ErrorIdentifier: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(ErrorIdentifier)).decodeSync(examplesErrorIdentifier) // => examplesErrorIdentifier */
-export const examplesErrorIdentifier: NonEmptyArray<ErrorIdentifier> = ([
+export const examplesErrorIdentifier: NonEmptyArray<ErrorIdentifier> = [
   'ERROR_TSP_UNSUPPORTED_AREA',
-] as unknown) as NonEmptyArray<ErrorIdentifier>;
+] as unknown as NonEmptyArray<ErrorIdentifier>;
 
 // ErrorCode
 // The purpose of this remains a mystery
@@ -81,14 +81,14 @@ export const ErrorCode: ErrorCodeC = t.brand(
   (x): x is t.Branded<ErrorNumber | ErrorIdentifier, ErrorCodeBrand> => true,
   'ErrorCode',
 );
-export interface ErrorCodeBrand {
+export type ErrorCodeBrand = {
   readonly ErrorCode: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(ErrorCode)).decodeSync(examplesErrorCode) // => examplesErrorCode */
-export const examplesErrorCode: NonEmptyArray<ErrorCode> = ([
+export const examplesErrorCode: NonEmptyArray<ErrorCode> = [
   500,
   'ERROR_TSP_UNSUPPORTED_AREA',
-] as unknown) as NonEmptyArray<ErrorCode>;
+] as unknown as NonEmptyArray<ErrorCode>;
 
 // ErrorMessage
 // A human readable error message (preferrably in English)
@@ -99,9 +99,9 @@ export const ErrorMessage: ErrorMessageC = t.brand(
   (x): x is t.Branded<string, ErrorMessageBrand> => true,
   'ErrorMessage',
 );
-export interface ErrorMessageBrand {
+export type ErrorMessageBrand = {
   readonly ErrorMessage: unique symbol;
-}
+};
 
 // MaaS error reason definition
 // A data structure to convey information about issues, rejections or service denial to the clients
@@ -135,13 +135,13 @@ export const Reason: ReasonC = t.brand(
   > => true,
   'Reason',
 );
-export interface ReasonBrand {
+export type ReasonBrand = {
   readonly Reason: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Reason)).decodeSync(examplesReason) // => examplesReason */
-export const examplesReason: NonEmptyArray<Reason> = ([
+export const examplesReason: NonEmptyArray<Reason> = [
   { text: 'INVALID_AUTHORIZATION', errorCode: 500 },
-] as unknown) as NonEmptyArray<Reason>;
+] as unknown as NonEmptyArray<Reason>;
 
 // ResponseErrorMessage
 // The purpose of this remains a mystery
@@ -157,9 +157,9 @@ export const ResponseErrorMessage: ResponseErrorMessageC = t.brand(
     (typeof x !== 'string' || x.length <= 256),
   'ResponseErrorMessage',
 );
-export interface ResponseErrorMessageBrand {
+export type ResponseErrorMessageBrand = {
   readonly ResponseErrorMessage: unique symbol;
-}
+};
 
 // MaaS error response definition
 // MaaS event response error object. An error that the service may send.
@@ -221,9 +221,9 @@ export const Response: ResponseC = t.brand(
   > => true,
   'Response',
 );
-export interface ResponseBrand {
+export type ResponseBrand = {
   readonly Response: unique symbol;
-}
+};
 
 // Error
 // The default export. More information at the top.
@@ -234,9 +234,9 @@ export const Error: ErrorC = t.brand(
   (x): x is t.Branded<unknown, ErrorBrand> => true,
   'Error',
 );
-export interface ErrorBrand {
+export type ErrorBrand = {
   readonly Error: unique symbol;
-}
+};
 
 export default Error;
 

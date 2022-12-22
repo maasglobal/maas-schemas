@@ -9,8 +9,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Common_ from '../../core/components/common';
+
 import * as Address_ from '../../core/components/address';
+import * as Common_ from '../../core/components/common';
 import * as Units_ from '../../core/components/units';
 
 export const schemaId =
@@ -25,9 +26,9 @@ export const Honorifics: HonorificsC = t.brand(
   (x): x is t.Branded<string, HonorificsBrand> => true,
   'Honorifics',
 );
-export interface HonorificsBrand {
+export type HonorificsBrand = {
   readonly Honorifics: unique symbol;
-}
+};
 
 // FirstName
 // First name of the customer (e.g. John)
@@ -38,9 +39,9 @@ export const FirstName: FirstNameC = t.brand(
   (x): x is t.Branded<Common_.PersonalName, FirstNameBrand> => true,
   'FirstName',
 );
-export interface FirstNameBrand {
+export type FirstNameBrand = {
   readonly FirstName: unique symbol;
-}
+};
 
 // LastName
 // Last name of the customer (e.g. Doe)
@@ -51,9 +52,9 @@ export const LastName: LastNameC = t.brand(
   (x): x is t.Branded<Common_.PersonalName, LastNameBrand> => true,
   'LastName',
 );
-export interface LastNameBrand {
+export type LastNameBrand = {
   readonly LastName: unique symbol;
-}
+};
 
 // FirstNameLocalized
 // Localized first name of the customer (e.g. John)
@@ -67,9 +68,9 @@ export const FirstNameLocalized: FirstNameLocalizedC = t.brand(
   (x): x is t.Branded<Common_.PersonalName, FirstNameLocalizedBrand> => true,
   'FirstNameLocalized',
 );
-export interface FirstNameLocalizedBrand {
+export type FirstNameLocalizedBrand = {
   readonly FirstNameLocalized: unique symbol;
-}
+};
 
 // LastNameLocalized
 // Localized last name of the customer (e.g. Doe)
@@ -83,9 +84,9 @@ export const LastNameLocalized: LastNameLocalizedC = t.brand(
   (x): x is t.Branded<Common_.PersonalName, LastNameLocalizedBrand> => true,
   'LastNameLocalized',
 );
-export interface LastNameLocalizedBrand {
+export type LastNameLocalizedBrand = {
   readonly LastNameLocalized: unique symbol;
-}
+};
 
 // Sex
 // The purpose of this remains a mystery
@@ -96,9 +97,9 @@ export const Sex: SexC = t.brand(
   (x): x is t.Branded<string, SexBrand> => true,
   'Sex',
 );
-export interface SexBrand {
+export type SexBrand = {
   readonly Sex: unique symbol;
-}
+};
 
 // Phone
 // ITU-T E.164 phone number
@@ -109,9 +110,9 @@ export const Phone: PhoneC = t.brand(
   (x): x is t.Branded<Common_.Phone, PhoneBrand> => true,
   'Phone',
 );
-export interface PhoneBrand {
+export type PhoneBrand = {
   readonly Phone: unique symbol;
-}
+};
 
 // Email
 // Rough validation of a valid e-mail address
@@ -122,9 +123,9 @@ export const Email: EmailC = t.brand(
   (x): x is t.Branded<Common_.Email, EmailBrand> => true,
   'Email',
 );
-export interface EmailBrand {
+export type EmailBrand = {
   readonly Email: unique symbol;
-}
+};
 
 // Address
 // The purpose of this remains a mystery
@@ -135,9 +136,9 @@ export const Address: AddressC = t.brand(
   (x): x is t.Branded<Address_.Address, AddressBrand> => true,
   'Address',
 );
-export interface AddressBrand {
+export type AddressBrand = {
   readonly Address: unique symbol;
-}
+};
 
 // CugHome
 // The purpose of this remains a mystery
@@ -148,9 +149,9 @@ export const CugHome: CugHomeC = t.brand(
   (x): x is t.Branded<string, CugHomeBrand> => true,
   'CugHome',
 );
-export interface CugHomeBrand {
+export type CugHomeBrand = {
   readonly CugHome: unique symbol;
-}
+};
 
 // City
 // The purpose of this remains a mystery
@@ -161,9 +162,9 @@ export const City: CityC = t.brand(
   (x): x is t.Branded<Address_.City, CityBrand> => true,
   'City',
 );
-export interface CityBrand {
+export type CityBrand = {
   readonly City: unique symbol;
-}
+};
 
 // State
 // The purpose of this remains a mystery
@@ -174,9 +175,9 @@ export const State: StateC = t.brand(
   (x): x is t.Branded<Address_.State, StateBrand> => true,
   'State',
 );
-export interface StateBrand {
+export type StateBrand = {
   readonly State: unique symbol;
-}
+};
 
 // Country
 // The purpose of this remains a mystery
@@ -187,9 +188,9 @@ export const Country: CountryC = t.brand(
   (x): x is t.Branded<Address_.Country, CountryBrand> => true,
   'Country',
 );
-export interface CountryBrand {
+export type CountryBrand = {
   readonly Country: unique symbol;
-}
+};
 
 // ZipCode
 // The purpose of this remains a mystery
@@ -200,9 +201,9 @@ export const ZipCode: ZipCodeC = t.brand(
   (x): x is t.Branded<Address_.ZipCode, ZipCodeBrand> => true,
   'ZipCode',
 );
-export interface ZipCodeBrand {
+export type ZipCodeBrand = {
   readonly ZipCode: unique symbol;
-}
+};
 
 // Dob
 // The customer's date of birth or boolean indicating if the value is already in DB
@@ -213,9 +214,9 @@ export const Dob: DobC = t.brand(
   (x): x is t.Branded<boolean | Units_.IsoDate, DobBrand> => true,
   'Dob',
 );
-export interface DobBrand {
+export type DobBrand = {
   readonly Dob: unique symbol;
-}
+};
 
 // Ssid
 // Social Security ID
@@ -226,9 +227,9 @@ export const Ssid: SsidC = t.brand(
   (x): x is t.Branded<boolean | Common_.Ssid, SsidBrand> => true,
   'Ssid',
 );
-export interface SsidBrand {
+export type SsidBrand = {
   readonly Ssid: unique symbol;
-}
+};
 
 // SsidFi
 // Finnish Social Security ID
@@ -242,9 +243,9 @@ export const SsidFi: SsidFiC = t.brand(
   (x): x is t.Branded<boolean | Common_.SsidFI, SsidFiBrand> => true,
   'SsidFi',
 );
-export interface SsidFiBrand {
+export type SsidFiBrand = {
   readonly SsidFi: unique symbol;
-}
+};
 
 // SubscriberType
 // Subscriber Type
@@ -255,9 +256,9 @@ export const SubscriberType: SubscriberTypeC = t.brand(
   (x): x is t.Branded<string, SubscriberTypeBrand> => true,
   'SubscriberType',
 );
-export interface SubscriberTypeBrand {
+export type SubscriberTypeBrand = {
   readonly SubscriberType: unique symbol;
-}
+};
 
 // ProfileImageUrl
 // The purpose of this remains a mystery
@@ -270,9 +271,9 @@ export const ProfileImageUrl: ProfileImageUrlC = t.brand(
     (typeof x !== 'string' || x.length <= 1024),
   'ProfileImageUrl',
 );
-export interface ProfileImageUrlBrand {
+export type ProfileImageUrlBrand = {
   readonly ProfileImageUrl: unique symbol;
-}
+};
 
 // Nationality
 // The purpose of this remains a mystery
@@ -283,9 +284,9 @@ export const Nationality: NationalityC = t.brand(
   (x): x is t.Branded<string, NationalityBrand> => true,
   'Nationality',
 );
-export interface NationalityBrand {
+export type NationalityBrand = {
   readonly Nationality: unique symbol;
-}
+};
 
 // PersonalData
 // The default export. More information at the top.
@@ -399,9 +400,9 @@ export const PersonalData: PersonalDataC = t.brand(
   > => true,
   'PersonalData',
 );
-export interface PersonalDataBrand {
+export type PersonalDataBrand = {
   readonly PersonalData: unique symbol;
-}
+};
 
 export default PersonalData;
 

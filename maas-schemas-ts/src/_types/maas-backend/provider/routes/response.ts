@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Place_ from '../../../core/components/place';
 import * as Itinerary_ from '../../../core/itinerary';
 
@@ -24,7 +25,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -42,9 +43,9 @@ export const Itineraries: ItinerariesC = t.brand(
   (x): x is t.Branded<Array<Itinerary_.Itinerary>, ItinerariesBrand> => true,
   'Itineraries',
 );
-export interface ItinerariesBrand {
+export type ItinerariesBrand = {
   readonly Itineraries: unique symbol;
-}
+};
 
 // Plan1
 // The purpose of this remains a mystery
@@ -114,9 +115,9 @@ export const Plan1: Plan1C = t.brand(
   > => true,
   'Plan1',
 );
-export interface Plan1Brand {
+export type Plan1Brand = {
   readonly Plan1: unique symbol;
-}
+};
 
 // Plan2
 // The purpose of this remains a mystery
@@ -178,9 +179,9 @@ export const Plan2: Plan2C = t.brand(
   > => true,
   'Plan2',
 );
-export interface Plan2Brand {
+export type Plan2Brand = {
   readonly Plan2: unique symbol;
-}
+};
 
 // Response
 // The default export. More information at the top.
@@ -218,9 +219,9 @@ export const Response: ResponseC = t.brand(
   > => true,
   'Response',
 );
-export interface ResponseBrand {
+export type ResponseBrand = {
   readonly Response: unique symbol;
-}
+};
 
 export default Response;
 

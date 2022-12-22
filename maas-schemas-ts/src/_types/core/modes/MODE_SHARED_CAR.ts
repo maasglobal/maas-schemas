@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as CarRental_ from '../components/car-rental';
 
 export const schemaId = 'https://schemas.maas.global/core/modes/MODE_SHARED_CAR.json';
@@ -25,9 +26,9 @@ export const MODE_SHARED_CAR: MODE_SHARED_CARC = t.brand(
   (x): x is t.Branded<CarRental_.CarRental, MODE_SHARED_CARBrand> => true,
   'MODE_SHARED_CAR',
 );
-export interface MODE_SHARED_CARBrand {
+export type MODE_SHARED_CARBrand = {
   readonly MODE_SHARED_CAR: unique symbol;
-}
+};
 
 export default MODE_SHARED_CAR;
 

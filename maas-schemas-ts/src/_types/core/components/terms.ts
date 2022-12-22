@@ -9,10 +9,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Cost_ from './cost';
 import * as Fare_ from './fare';
-import * as Units_ from './units';
 import * as State_ from './state';
+import * as Units_ from './units';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -26,7 +27,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/terms.json';
@@ -71,9 +72,9 @@ export const Display: DisplayC = t.brand(
   > => true,
   'Display',
 );
-export interface DisplayBrand {
+export type DisplayBrand = {
   readonly Display: unique symbol;
-}
+};
 
 // Seat
 // Ticket's seat information for long distance trains, coaches or flights
@@ -119,9 +120,9 @@ export const Seat: SeatC = t.brand(
   > => true,
   'Seat',
 );
-export interface SeatBrand {
+export type SeatBrand = {
   readonly Seat: unique symbol;
-}
+};
 
 // Cancellation
 // The purpose of this remains a mystery
@@ -239,9 +240,9 @@ export const Cancellation: CancellationC = t.brand(
   > => true,
   'Cancellation',
 );
-export interface CancellationBrand {
+export type CancellationBrand = {
   readonly Cancellation: unique symbol;
-}
+};
 
 // Amendment
 // The purpose of this remains a mystery
@@ -303,9 +304,9 @@ export const Amendment: AmendmentC = t.brand(
   > => true,
   'Amendment',
 );
-export interface AmendmentBrand {
+export type AmendmentBrand = {
   readonly Amendment: unique symbol;
-}
+};
 
 // Surcharge
 // The additional fee that will be added if booking is in night time
@@ -355,9 +356,9 @@ export const Surcharge: SurchargeC = t.brand(
   > => true,
   'Surcharge',
 );
-export interface SurchargeBrand {
+export type SurchargeBrand = {
   readonly Surcharge: unique symbol;
-}
+};
 
 // Terms
 // The default export. More information at the top.
@@ -693,9 +694,9 @@ export const Terms: TermsC = t.brand(
   > => true,
   'Terms',
 );
-export interface TermsBrand {
+export type TermsBrand = {
   readonly Terms: unique symbol;
-}
+};
 
 export default Terms;
 

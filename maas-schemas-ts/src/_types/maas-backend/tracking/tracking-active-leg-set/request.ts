@@ -22,9 +22,9 @@ export const Request: RequestC = t.brand(
   (x): x is t.Branded<unknown, RequestBrand> => true,
   'Request',
 );
-export interface RequestBrand {
+export type RequestBrand = {
   readonly Request: unique symbol;
-}
+};
 
 export default Request;
 

@@ -1,14 +1,12 @@
 import * as P from 'maasglobal-prelude-ts';
 
+import { BalanceName } from '../../../_types/core/balances';
 import {
   defaultMetaCurrencyWMP,
   MetaCurrencyTOKEN,
 } from '../../../_types/core/components/common';
-import { TokenId } from '../../../_types/core/components/fare';
-import { Fare } from '../../../_types/core/components/fare';
+import { Fare, TokenId } from '../../../_types/core/components/fare';
 import { Currency } from '../../../_types/core/components/units';
-
-import { BalanceName } from '../../../_types/core/balances';
 import * as MetaCurrency_ from '../../core/components/common/meta-currency';
 import * as TokenId_ from '../../core/components/fare/token-id';
 import * as Currency_ from '../../core/components/units/currency';

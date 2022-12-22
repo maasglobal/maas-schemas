@@ -8,12 +8,13 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Units_ from './components/units';
-import * as Fare_ from './components/fare';
-import * as Common_ from './components/common';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
+import * as Common_ from './components/common';
+import * as Fare_ from './components/fare';
+import * as Units_ from './components/units';
 
 export const schemaId = 'https://schemas.maas.global/core/balances.json';
 
@@ -39,15 +40,15 @@ export const BalanceName: BalanceNameC = t.brand(
   > => true,
   'BalanceName',
 );
-export interface BalanceNameBrand {
+export type BalanceNameBrand = {
   readonly BalanceName: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(BalanceName)).decodeSync(examplesBalanceName) // => examplesBalanceName */
-export const examplesBalanceName: NonEmptyArray<BalanceName> = ([
+export const examplesBalanceName: NonEmptyArray<BalanceName> = [
   'EUR',
   'fi-hsl-single-ab',
   'WMP',
-] as unknown) as NonEmptyArray<BalanceName>;
+] as unknown as NonEmptyArray<BalanceName>;
 // NEGATIVE Test Case: non-unique token meta currency
 /** require('io-ts-validator').validator(BalanceName).decodeEither("TOKEN")._tag // => 'Left' */
 
@@ -60,9 +61,9 @@ export const Balances: BalancesC = t.brand(
   (x): x is t.Branded<unknown, BalancesBrand> => true,
   'Balances',
 );
-export interface BalancesBrand {
+export type BalancesBrand = {
   readonly Balances: unique symbol;
-}
+};
 
 export default Balances;
 

@@ -9,12 +9,13 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Common_ from '../../core/components/common';
-import * as Units_ from '../../core/components/units';
 import * as Fare_ from '../../core/components/fare';
 import * as PersonalDataAllowItem_ from '../../core/components/personalDataAllowItem';
 import * as PersonalDataValidation_ from '../../core/components/personalDataValidation';
 import * as PersonalDocumentRequiredItem_ from '../../core/components/personalDocumentRequiredItem';
+import * as Units_ from '../../core/components/units';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -28,7 +29,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/maas-backend/products/provider.json';
@@ -187,9 +188,9 @@ export const Selection: SelectionC = t.brand(
   > => true,
   'Selection',
 );
-export interface SelectionBrand {
+export type SelectionBrand = {
   readonly Selection: unique symbol;
-}
+};
 
 // MessageToDriver
 // Optional parameter for a message to driver
@@ -283,9 +284,9 @@ export const MessageToDriver: MessageToDriverC = t.brand(
   > => true,
   'MessageToDriver',
 );
-export interface MessageToDriverBrand {
+export type MessageToDriverBrand = {
   readonly MessageToDriver: unique symbol;
-}
+};
 
 // BookingPeriod
 // Optional parameter for default booking period
@@ -339,9 +340,9 @@ export const BookingPeriod: BookingPeriodC = t.brand(
   > => true,
   'BookingPeriod',
 );
-export interface BookingPeriodBrand {
+export type BookingPeriodBrand = {
   readonly BookingPeriod: unique symbol;
-}
+};
 
 // GradualRadiusOption
 // Optional parameter for gradual radius searching
@@ -403,9 +404,9 @@ export const GradualRadiusOption: GradualRadiusOptionC = t.brand(
   > => true,
   'GradualRadiusOption',
 );
-export interface GradualRadiusOptionBrand {
+export type GradualRadiusOptionBrand = {
   readonly GradualRadiusOption: unique symbol;
-}
+};
 
 // Provider
 // The default export. More information at the top.
@@ -758,9 +759,9 @@ export const Provider: ProviderC = t.brand(
   > => true,
   'Provider',
 );
-export interface ProviderBrand {
+export type ProviderBrand = {
   readonly Provider: unique symbol;
-}
+};
 
 export default Provider;
 

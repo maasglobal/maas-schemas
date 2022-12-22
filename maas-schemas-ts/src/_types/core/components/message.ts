@@ -22,7 +22,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/message.json';
@@ -183,9 +183,9 @@ export const Message: MessageC = t.brand(
   > => true,
   'Message',
 );
-export interface MessageBrand {
+export type MessageBrand = {
   readonly Message: unique symbol;
-}
+};
 
 export default Message;
 

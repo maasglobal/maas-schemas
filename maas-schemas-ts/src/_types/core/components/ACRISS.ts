@@ -25,9 +25,9 @@ export const ACRISS: ACRISSC = t.brand(
     ) !== null,
   'ACRISS',
 );
-export interface ACRISSBrand {
+export type ACRISSBrand = {
   readonly ACRISS: unique symbol;
-}
+};
 
 export default ACRISS;
 

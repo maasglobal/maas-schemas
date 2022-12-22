@@ -8,8 +8,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export const schemaId = 'https://schemas.maas.global/core/components/units.json';
@@ -25,13 +25,13 @@ export const Uuid: UuidC = t.brand(
     x.match(RegExp('^[A-Fa-f0-9]{8}(-[A-Fa-f0-9]{4}){3}-[A-Fa-f0-9]{12}$')) !== null,
   'Uuid',
 );
-export interface UuidBrand {
+export type UuidBrand = {
   readonly Uuid: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Uuid)).decodeSync(examplesUuid) // => examplesUuid */
-export const examplesUuid: NonEmptyArray<Uuid> = ([
+export const examplesUuid: NonEmptyArray<Uuid> = [
   '4828507e-683f-41bf-9d87-689808fbf958',
-] as unknown) as NonEmptyArray<Uuid>;
+] as unknown as NonEmptyArray<Uuid>;
 
 // HostnameLabel
 // single component of a hostname
@@ -46,17 +46,17 @@ export const HostnameLabel: HostnameLabelC = t.brand(
     (typeof x !== 'string' || x.length <= 63),
   'HostnameLabel',
 );
-export interface HostnameLabelBrand {
+export type HostnameLabelBrand = {
   readonly HostnameLabel: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(HostnameLabel)).decodeSync(examplesHostnameLabel) // => examplesHostnameLabel */
-export const examplesHostnameLabel: NonEmptyArray<HostnameLabel> = ([
+export const examplesHostnameLabel: NonEmptyArray<HostnameLabel> = [
   'example',
   'com',
   'with-hyphen',
   'foo1',
   '0bar',
-] as unknown) as NonEmptyArray<HostnameLabel>;
+] as unknown as NonEmptyArray<HostnameLabel>;
 
 // HostnameDelimiter
 // The purpose of this remains a mystery
@@ -70,11 +70,12 @@ export const HostnameDelimiter: HostnameDelimiterC = t.brand(
   (x): x is t.Branded<string & '.', HostnameDelimiterBrand> => true,
   'HostnameDelimiter',
 );
-export interface HostnameDelimiterBrand {
+export type HostnameDelimiterBrand = {
   readonly HostnameDelimiter: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(HostnameDelimiter).decodeSync(defaultHostnameDelimiter) // => defaultHostnameDelimiter */
-export const defaultHostnameDelimiter: HostnameDelimiter = ('.' as unknown) as HostnameDelimiter;
+export const defaultHostnameDelimiter: HostnameDelimiter =
+  '.' as unknown as HostnameDelimiter;
 
 // Hostname
 // list of 1 or more hostname labels separated by hostname delimiter
@@ -93,15 +94,15 @@ export const Hostname: HostnameC = t.brand(
     (typeof x !== 'string' || x.length <= 253),
   'Hostname',
 );
-export interface HostnameBrand {
+export type HostnameBrand = {
   readonly Hostname: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Hostname)).decodeSync(examplesHostname) // => examplesHostname */
-export const examplesHostname: NonEmptyArray<Hostname> = ([
+export const examplesHostname: NonEmptyArray<Hostname> = [
   'localhost',
   'example.com',
   'sub.example.com',
-] as unknown) as NonEmptyArray<Hostname>;
+] as unknown as NonEmptyArray<Hostname>;
 
 // Port
 // Transport layer port number ( 0- ). Most likely TCP or UDP port ( 0-65535 ).
@@ -112,11 +113,11 @@ export const Port: PortC = t.brand(
   (x): x is t.Branded<number, PortBrand> => typeof x !== 'number' || x % 1 === 0,
   'Port',
 );
-export interface PortBrand {
+export type PortBrand = {
   readonly Port: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(Port).decodeSync(minimumPort) // => minimumPort */
-export const minimumPort: Port = (0 as unknown) as Port;
+export const minimumPort: Port = 0 as unknown as Port;
 
 // HostPortDelimiter
 // The purpose of this remains a mystery
@@ -130,11 +131,12 @@ export const HostPortDelimiter: HostPortDelimiterC = t.brand(
   (x): x is t.Branded<string & ':', HostPortDelimiterBrand> => true,
   'HostPortDelimiter',
 );
-export interface HostPortDelimiterBrand {
+export type HostPortDelimiterBrand = {
   readonly HostPortDelimiter: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(HostPortDelimiter).decodeSync(defaultHostPortDelimiter) // => defaultHostPortDelimiter */
-export const defaultHostPortDelimiter: HostPortDelimiter = (':' as unknown) as HostPortDelimiter;
+export const defaultHostPortDelimiter: HostPortDelimiter =
+  ':' as unknown as HostPortDelimiter;
 
 // Authority
 // HTTP2 :authority <hostname>[:<port>] https://tools.ietf.org/html/rfc7540#section-8.1.2.3
@@ -151,14 +153,14 @@ export const Authority: AuthorityC = t.brand(
     ) !== null,
   'Authority',
 );
-export interface AuthorityBrand {
+export type AuthorityBrand = {
   readonly Authority: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Authority)).decodeSync(examplesAuthority) // => examplesAuthority */
-export const examplesAuthority: NonEmptyArray<Authority> = ([
+export const examplesAuthority: NonEmptyArray<Authority> = [
   'env.application.example.com:123',
   'env.application.example.com',
-] as unknown) as NonEmptyArray<Authority>;
+] as unknown as NonEmptyArray<Authority>;
 
 // NetworkSchemeDelimiter
 // The purpose of this remains a mystery
@@ -175,11 +177,12 @@ export const NetworkSchemeDelimiter: NetworkSchemeDelimiterC = t.brand(
   (x): x is t.Branded<string & '://', NetworkSchemeDelimiterBrand> => true,
   'NetworkSchemeDelimiter',
 );
-export interface NetworkSchemeDelimiterBrand {
+export type NetworkSchemeDelimiterBrand = {
   readonly NetworkSchemeDelimiter: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(NetworkSchemeDelimiter).decodeSync(defaultNetworkSchemeDelimiter) // => defaultNetworkSchemeDelimiter */
-export const defaultNetworkSchemeDelimiter: NetworkSchemeDelimiter = ('://' as unknown) as NetworkSchemeDelimiter;
+export const defaultNetworkSchemeDelimiter: NetworkSchemeDelimiter =
+  '://' as unknown as NetworkSchemeDelimiter;
 
 // Url
 // Uniform resource locator, see https://en.wikipedia.org/wiki/Uniform_Resource_Locator and https://mathiasbynens.be/demo/url-regex
@@ -192,9 +195,9 @@ export const Url: UrlC = t.brand(
     x.match(RegExp('^(https?|ftp):\\/\\/[^\\s/$.?#].[^\\s]*$')) !== null,
   'Url',
 );
-export interface UrlBrand {
+export type UrlBrand = {
   readonly Url: unique symbol;
-}
+};
 
 // Arn
 // The purpose of this remains a mystery
@@ -211,9 +214,9 @@ export const Arn: ArnC = t.brand(
     (typeof x !== 'string' || x.length <= 256),
   'Arn',
 );
-export interface ArnBrand {
+export type ArnBrand = {
   readonly Arn: unique symbol;
-}
+};
 
 // ObsoleteIdentityId
 // The purpose of this remains a mystery
@@ -228,13 +231,13 @@ export const ObsoleteIdentityId: ObsoleteIdentityIdC = t.brand(
     ) !== null,
   'ObsoleteIdentityId',
 );
-export interface ObsoleteIdentityIdBrand {
+export type ObsoleteIdentityIdBrand = {
   readonly ObsoleteIdentityId: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(ObsoleteIdentityId)).decodeSync(examplesObsoleteIdentityId) // => examplesObsoleteIdentityId */
-export const examplesObsoleteIdentityId: NonEmptyArray<ObsoleteIdentityId> = ([
+export const examplesObsoleteIdentityId: NonEmptyArray<ObsoleteIdentityId> = [
   'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
-] as unknown) as NonEmptyArray<ObsoleteIdentityId>;
+] as unknown as NonEmptyArray<ObsoleteIdentityId>;
 
 // IdentityId
 // The purpose of this remains a mystery
@@ -248,14 +251,14 @@ export const IdentityId: IdentityIdC = t.brand(
   (x): x is t.Branded<ObsoleteIdentityId | Uuid, IdentityIdBrand> => true,
   'IdentityId',
 );
-export interface IdentityIdBrand {
+export type IdentityIdBrand = {
   readonly IdentityId: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(IdentityId)).decodeSync(examplesIdentityId) // => examplesIdentityId */
-export const examplesIdentityId: NonEmptyArray<IdentityId> = ([
+export const examplesIdentityId: NonEmptyArray<IdentityId> = [
   'eu-west-1:4828507e-683f-41bf-9d87-689808fbf958',
   '4828507e-683f-41bf-9d87-689808fbf958',
-] as unknown) as NonEmptyArray<IdentityId>;
+] as unknown as NonEmptyArray<IdentityId>;
 
 // Currency
 // Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1
@@ -295,9 +298,9 @@ export const Currency: CurrencyC = t.brand(
     true,
   'Currency',
 );
-export interface CurrencyBrand {
+export type CurrencyBrand = {
   readonly Currency: unique symbol;
-}
+};
 
 // CurrencyOrToken
 // The purpose of this remains a mystery
@@ -311,9 +314,9 @@ export const CurrencyOrToken: CurrencyOrTokenC = t.brand(
   (x): x is t.Branded<Currency | 'TOKEN', CurrencyOrTokenBrand> => true,
   'CurrencyOrToken',
 );
-export interface CurrencyOrTokenBrand {
+export type CurrencyOrTokenBrand = {
   readonly CurrencyOrToken: unique symbol;
-}
+};
 
 // CurrencyEUR
 // The purpose of this remains a mystery
@@ -327,11 +330,11 @@ export const CurrencyEUR: CurrencyEURC = t.brand(
   (x): x is t.Branded<Currency & 'EUR', CurrencyEURBrand> => true,
   'CurrencyEUR',
 );
-export interface CurrencyEURBrand {
+export type CurrencyEURBrand = {
   readonly CurrencyEUR: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(CurrencyEUR).decodeSync(defaultCurrencyEUR) // => defaultCurrencyEUR */
-export const defaultCurrencyEUR: CurrencyEUR = ('EUR' as unknown) as CurrencyEUR;
+export const defaultCurrencyEUR: CurrencyEUR = 'EUR' as unknown as CurrencyEUR;
 
 // CurrencyGBP
 // The purpose of this remains a mystery
@@ -345,11 +348,11 @@ export const CurrencyGBP: CurrencyGBPC = t.brand(
   (x): x is t.Branded<Currency & 'GBP', CurrencyGBPBrand> => true,
   'CurrencyGBP',
 );
-export interface CurrencyGBPBrand {
+export type CurrencyGBPBrand = {
   readonly CurrencyGBP: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(CurrencyGBP).decodeSync(defaultCurrencyGBP) // => defaultCurrencyGBP */
-export const defaultCurrencyGBP: CurrencyGBP = ('GBP' as unknown) as CurrencyGBP;
+export const defaultCurrencyGBP: CurrencyGBP = 'GBP' as unknown as CurrencyGBP;
 
 // CurrencySGD
 // The purpose of this remains a mystery
@@ -363,11 +366,11 @@ export const CurrencySGD: CurrencySGDC = t.brand(
   (x): x is t.Branded<Currency & 'SGD', CurrencySGDBrand> => true,
   'CurrencySGD',
 );
-export interface CurrencySGDBrand {
+export type CurrencySGDBrand = {
   readonly CurrencySGD: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(CurrencySGD).decodeSync(defaultCurrencySGD) // => defaultCurrencySGD */
-export const defaultCurrencySGD: CurrencySGD = ('SGD' as unknown) as CurrencySGD;
+export const defaultCurrencySGD: CurrencySGD = 'SGD' as unknown as CurrencySGD;
 
 // CurrencyJPY
 // The purpose of this remains a mystery
@@ -381,11 +384,11 @@ export const CurrencyJPY: CurrencyJPYC = t.brand(
   (x): x is t.Branded<Currency & 'JPY', CurrencyJPYBrand> => true,
   'CurrencyJPY',
 );
-export interface CurrencyJPYBrand {
+export type CurrencyJPYBrand = {
   readonly CurrencyJPY: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(CurrencyJPY).decodeSync(defaultCurrencyJPY) // => defaultCurrencyJPY */
-export const defaultCurrencyJPY: CurrencyJPY = ('JPY' as unknown) as CurrencyJPY;
+export const defaultCurrencyJPY: CurrencyJPY = 'JPY' as unknown as CurrencyJPY;
 
 // CurrencyCHF
 // The purpose of this remains a mystery
@@ -399,11 +402,11 @@ export const CurrencyCHF: CurrencyCHFC = t.brand(
   (x): x is t.Branded<Currency & 'CHF', CurrencyCHFBrand> => true,
   'CurrencyCHF',
 );
-export interface CurrencyCHFBrand {
+export type CurrencyCHFBrand = {
   readonly CurrencyCHF: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(CurrencyCHF).decodeSync(defaultCurrencyCHF) // => defaultCurrencyCHF */
-export const defaultCurrencyCHF: CurrencyCHF = ('CHF' as unknown) as CurrencyCHF;
+export const defaultCurrencyCHF: CurrencyCHF = 'CHF' as unknown as CurrencyCHF;
 
 // Time
 // POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time
@@ -417,13 +420,13 @@ export const Time: TimeC = t.brand(
     Number.isInteger(x),
   'Time',
 );
-export interface TimeBrand {
+export type TimeBrand = {
   readonly Time: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(Time).decodeSync(minimumTime) // => minimumTime */
-export const minimumTime: Time = (126230400000 as unknown) as Time;
+export const minimumTime: Time = 126230400000 as unknown as Time;
 /** require('io-ts-validator').validator(Time).decodeSync(maximumTime) // => maximumTime */
-export const maximumTime: Time = (9007199254740991 as unknown) as Time;
+export const maximumTime: Time = 9007199254740991 as unknown as Time;
 
 // Duration
 // duration in milliseconds (negative values permitted), https://en.wikipedia.org/wiki/Unix_time
@@ -437,13 +440,13 @@ export const Duration: DurationC = t.brand(
     Number.isInteger(x),
   'Duration',
 );
-export interface DurationBrand {
+export type DurationBrand = {
   readonly Duration: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(Duration).decodeSync(minimumDuration) // => minimumDuration */
-export const minimumDuration: Duration = (-9007199254740991 as unknown) as Duration;
+export const minimumDuration: Duration = -9007199254740991 as unknown as Duration;
 /** require('io-ts-validator').validator(Duration).decodeSync(maximumDuration) // => maximumDuration */
-export const maximumDuration: Duration = (9007199254740991 as unknown) as Duration;
+export const maximumDuration: Duration = 9007199254740991 as unknown as Duration;
 
 // IsoDate
 // A date in the form YYYY-MM-DD without a time component
@@ -455,9 +458,9 @@ export const IsoDate: IsoDateC = t.brand(
     typeof x !== 'string' || x.match(RegExp('^\\d{4}-\\d{2}-\\d{2}$')) !== null,
   'IsoDate',
 );
-export interface IsoDateBrand {
+export type IsoDateBrand = {
   readonly IsoDate: unique symbol;
-}
+};
 
 // IsoDateTime
 // An ISO8601 date-time
@@ -474,16 +477,16 @@ export const IsoDateTime: IsoDateTimeC = t.brand(
     ) !== null,
   'IsoDateTime',
 );
-export interface IsoDateTimeBrand {
+export type IsoDateTimeBrand = {
   readonly IsoDateTime: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(IsoDateTime)).decodeSync(examplesIsoDateTime) // => examplesIsoDateTime */
-export const examplesIsoDateTime: NonEmptyArray<IsoDateTime> = ([
+export const examplesIsoDateTime: NonEmptyArray<IsoDateTime> = [
   '2022-11-30T14:32:25Z',
   '2022-11-30T16:32:25+02:00',
   '2022-11-30T14:32:25.456Z',
   '2022-11-30T16:32:25.456-03:00',
-] as unknown) as NonEmptyArray<IsoDateTime>;
+] as unknown as NonEmptyArray<IsoDateTime>;
 // NEGATIVE Test Case: No time component
 /** require('io-ts-validator').validator(IsoDateTime).decodeEither("2022-11-30")._tag // => 'Left' */
 // NEGATIVE Test Case: No TZ of any kind
@@ -508,9 +511,9 @@ export const Units: UnitsC = t.brand(
   (x): x is t.Branded<unknown, UnitsBrand> => true,
   'Units',
 );
-export interface UnitsBrand {
+export type UnitsBrand = {
   readonly Units: unique symbol;
-}
+};
 
 export default Units;
 

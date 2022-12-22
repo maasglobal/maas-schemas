@@ -8,10 +8,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Units_ from '../core/components/units';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
+import * as Units_ from '../core/components/units';
 
 export const schemaId = 'https://schemas.maas.global/environments/apis.json';
 
@@ -28,16 +29,16 @@ export const ApiUrl: ApiUrlC = t.brand(
     typeof x !== 'string' || x.match(RegExp('^https://[^\\s]+/$')) !== null,
   'ApiUrl',
 );
-export interface ApiUrlBrand {
+export type ApiUrlBrand = {
   readonly ApiUrl: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(ApiUrl)).decodeSync(examplesApiUrl) // => examplesApiUrl */
-export const examplesApiUrl: NonEmptyArray<ApiUrl> = ([
+export const examplesApiUrl: NonEmptyArray<ApiUrl> = [
   'https://production.example.com/api/',
   'https://testing.example.com/api/',
   'https://environment13.example.com/api/',
   'https://fantasy-toppign.example.com/api/',
-] as unknown) as NonEmptyArray<ApiUrl>;
+] as unknown as NonEmptyArray<ApiUrl>;
 
 // Apis
 // The default export. More information at the top.
@@ -48,9 +49,9 @@ export const Apis: ApisC = t.brand(
   (x): x is t.Branded<unknown, ApisBrand> => true,
   'Apis',
 );
-export interface ApisBrand {
+export type ApisBrand = {
   readonly Apis: unique symbol;
-}
+};
 
 export default Apis;
 

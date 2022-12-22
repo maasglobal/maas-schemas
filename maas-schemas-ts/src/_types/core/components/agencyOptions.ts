@@ -9,11 +9,12 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as TravelMode_ from './travel-mode';
+
+import * as Address_ from './address';
 import * as Common_ from './common';
+import * as TravelMode_ from './travel-mode';
 import * as Units_ from './units';
 import * as UnitsGeo_ from './units-geo';
-import * as Address_ from './address';
 
 export const schemaId = 'https://schemas.maas.global/core/components/agencyOptions.json';
 
@@ -89,9 +90,9 @@ export const AgencyOptions: AgencyOptionsC = t.brand(
   > => true,
   'AgencyOptions',
 );
-export interface AgencyOptionsBrand {
+export type AgencyOptionsBrand = {
   readonly AgencyOptions: unique symbol;
-}
+};
 
 export default AgencyOptions;
 
