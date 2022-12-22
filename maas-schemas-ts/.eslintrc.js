@@ -1,9 +1,9 @@
 module.exports = {
   "extends": [
-    "eslint-config-maasglobal-ts"
+    "maasglobal-ts/strict",
   ],
   rules: {
-    'simple-import-sort/sort': [
+    'simple-import-sort/imports': [
       1,
       {
         groups: [
@@ -23,10 +23,11 @@ module.exports = {
       },
       rules: {
         'fp/no-throw': 0,
+        '@typescript-eslint/naming-convention': 0,
       },
     },
     {
-      files: ['src/**/*'],
+      files: ['src/_types/**/*'],
       plugins: ['@typescript-eslint/tslint'],
       rules: {
         '@typescript-eslint/tslint/config': [2, {
@@ -38,13 +39,12 @@ module.exports = {
           ]
         }],
         '@typescript-eslint/naming-convention': 0,
+        '@typescript-eslint/prefer-as-const': 0,
         '@typescript-eslint/no-unused-vars': 0,
         '@typescript-eslint/ban-types': 0,
         'import/no-default-export': 0,
         'fp/no-class': 0,
         'fp/no-this': 0,
-        '@typescript-eslint/consistent-type-definitions': 0,
-        'simple-import-sort/sort': 0,
       },
     },
   ],
