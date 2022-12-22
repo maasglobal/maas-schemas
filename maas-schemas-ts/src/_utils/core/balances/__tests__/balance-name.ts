@@ -4,10 +4,7 @@ import * as t from 'io-ts';
 import { validator } from 'io-ts-validator';
 
 import { BalanceName } from '../../../../_types/core/balances';
-import {
-  defaultMetaCurrencyWMP,
-  MetaCurrency,
-} from '../../../../_types/core/components/common';
+import { defaultMetaCurrencyWMP } from '../../../../_types/core/components/common';
 import { Fare, TokenId } from '../../../../_types/core/components/fare';
 import {
   Currency,
