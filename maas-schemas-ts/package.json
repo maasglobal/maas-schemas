@@ -1,5 +1,5 @@
 {
-  "name": "maas-schemas-ts",
+  "name": "@maasglobal/maas-schemas-ts",
   "version": "17.2.0",
   "description": "TypeScript types and io-ts validators for maas-schemas",
   "main": "index.js",
