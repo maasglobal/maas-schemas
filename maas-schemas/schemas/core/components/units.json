@@ -130,7 +130,27 @@
     "isoDate": {
       "description": "A date in the form YYYY-MM-DD without a time component",
       "type": "string",
-      "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "isoDateTime": {
+      "description": "An ISO8601 date-time",
+      "type": "string",
+      "pattern": "^\\d{4}-((0[1-9])|(1[012]))-((0[1-9])|([12]\\d)|(3[01]))T(([01]\\d)|(2[0123])):([012345]\\d):([012345]\\d)(\\.\\d+)?(Z|([\\+\\-]([01]\\d|2[0123]):[012345]\\d))$",
+      "examples": [
+        "2022-11-30T14:32:25Z",
+        "2022-11-30T16:32:25+02:00",
+        "2022-11-30T14:32:25.456Z",
+        "2022-11-30T16:32:25.456-03:00"
+      ],
+      "invalid": {
+        "IjIwMjItMTEtMzAi": "No time component",
+        "IjIwMjItMTEtMzBUMTQ6MzI6MjUi": "No TZ of any kind",
+        "IjIwMjItNDEtMzBUMTQ6MzI6MjVaIg==": "Invalid month",
+        "IjIwMjItMTEtNjBUMTQ6MzI6MjVaIg==": "Invalid day",
+        "IjIwMjItMTEtMzBUNzQ6MzI6MjVaIg==": "Invalid hour",
+        "IjIwMjItMTEtMzBUMTQ6NzI6MjVaIg==": "Invalid minute",
+        "IjIwMjItMTEtMzBUMTQ6MzI6NzVaIg==": "Invalid second"
+      }
     }
   }
 }
