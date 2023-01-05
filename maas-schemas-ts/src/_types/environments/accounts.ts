@@ -8,10 +8,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Units_ from '../core/components/units';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
+import * as Units_ from '../core/components/units';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -25,7 +26,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/environments/accounts.json';
@@ -40,13 +41,13 @@ export const AccountId: AccountIdC = t.brand(
     typeof x !== 'string' || x.match(RegExp('^[0-9]{12}$')) !== null,
   'AccountId',
 );
-export interface AccountIdBrand {
+export type AccountIdBrand = {
   readonly AccountId: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(AccountId)).decodeSync(examplesAccountId) // => examplesAccountId */
-export const examplesAccountId: NonEmptyArray<AccountId> = ([
+export const examplesAccountId: NonEmptyArray<AccountId> = [
   '001234567890',
-] as unknown) as NonEmptyArray<AccountId>;
+] as unknown as NonEmptyArray<AccountId>;
 
 // AccountAlias
 // The purpose of this remains a mystery
@@ -60,14 +61,14 @@ export const AccountAlias: AccountAliasC = t.brand(
   (x): x is t.Branded<string & Units_.HostnameLabel, AccountAliasBrand> => true,
   'AccountAlias',
 );
-export interface AccountAliasBrand {
+export type AccountAliasBrand = {
   readonly AccountAlias: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(AccountAlias)).decodeSync(examplesAccountAlias) // => examplesAccountAlias */
-export const examplesAccountAlias: NonEmptyArray<AccountAlias> = ([
+export const examplesAccountAlias: NonEmptyArray<AccountAlias> = [
   'production',
   'testing',
-] as unknown) as NonEmptyArray<AccountAlias>;
+] as unknown as NonEmptyArray<AccountAlias>;
 
 // AccountName
 // The purpose of this remains a mystery
@@ -78,14 +79,14 @@ export const AccountName: AccountNameC = t.brand(
   (x): x is t.Branded<string, AccountNameBrand> => true,
   'AccountName',
 );
-export interface AccountNameBrand {
+export type AccountNameBrand = {
   readonly AccountName: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(AccountName)).decodeSync(examplesAccountName) // => examplesAccountName */
-export const examplesAccountName: NonEmptyArray<AccountName> = ([
+export const examplesAccountName: NonEmptyArray<AccountName> = [
   'Production',
   'Testing',
-] as unknown) as NonEmptyArray<AccountName>;
+] as unknown as NonEmptyArray<AccountName>;
 
 // AccountDescription
 // The purpose of this remains a mystery
@@ -96,14 +97,14 @@ export const AccountDescription: AccountDescriptionC = t.brand(
   (x): x is t.Branded<string, AccountDescriptionBrand> => true,
   'AccountDescription',
 );
-export interface AccountDescriptionBrand {
+export type AccountDescriptionBrand = {
   readonly AccountDescription: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(AccountDescription)).decodeSync(examplesAccountDescription) // => examplesAccountDescription */
-export const examplesAccountDescription: NonEmptyArray<AccountDescription> = ([
+export const examplesAccountDescription: NonEmptyArray<AccountDescription> = [
   'Production account',
   'Testing account',
-] as unknown) as NonEmptyArray<AccountDescription>;
+] as unknown as NonEmptyArray<AccountDescription>;
 
 // Account
 // The purpose of this remains a mystery
@@ -165,18 +166,18 @@ export const Account: AccountC = t.brand(
   > => true,
   'Account',
 );
-export interface AccountBrand {
+export type AccountBrand = {
   readonly Account: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Account)).decodeSync(examplesAccount) // => examplesAccount */
-export const examplesAccount: NonEmptyArray<Account> = ([
+export const examplesAccount: NonEmptyArray<Account> = [
   {
     id: '001234567890',
     name: 'Example Account',
     description: 'This account is but an example account',
   },
   { id: '001234567890' },
-] as unknown) as NonEmptyArray<Account>;
+] as unknown as NonEmptyArray<Account>;
 
 // AccountIndex
 // The purpose of this remains a mystery
@@ -200,11 +201,11 @@ export const AccountIndex: AccountIndexC = t.brand(
   > => true,
   'AccountIndex',
 );
-export interface AccountIndexBrand {
+export type AccountIndexBrand = {
   readonly AccountIndex: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(AccountIndex)).decodeSync(examplesAccountIndex) // => examplesAccountIndex */
-export const examplesAccountIndex: NonEmptyArray<AccountIndex> = ([
+export const examplesAccountIndex: NonEmptyArray<AccountIndex> = [
   {
     production: {
       id: '001234567890',
@@ -213,7 +214,7 @@ export const examplesAccountIndex: NonEmptyArray<AccountIndex> = ([
     },
     testing: { id: '101234567890' },
   },
-] as unknown) as NonEmptyArray<AccountIndex>;
+] as unknown as NonEmptyArray<AccountIndex>;
 
 // Accounts
 // The default export. More information at the top.
@@ -224,9 +225,9 @@ export const Accounts: AccountsC = t.brand(
   (x): x is t.Branded<unknown, AccountsBrand> => true,
   'Accounts',
 );
-export interface AccountsBrand {
+export type AccountsBrand = {
   readonly Accounts: unique symbol;
-}
+};
 
 export default Accounts;
 

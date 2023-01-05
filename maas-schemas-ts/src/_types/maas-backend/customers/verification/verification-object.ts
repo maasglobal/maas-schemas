@@ -9,10 +9,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Units_ from '../../../core/components/units';
-import * as StateLog_ from '../../../core/components/state-log';
+
 import * as Common_ from '../../../core/components/common';
 import * as I18n_ from '../../../core/components/i18n';
+import * as StateLog_ from '../../../core/components/state-log';
+import * as Units_ from '../../../core/components/units';
 import * as KycService_ from '../../../core/kyc-service';
 
 export type Defined = {} | null;
@@ -27,7 +28,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -197,9 +198,9 @@ export const Verification: VerificationC = t.brand(
   > => true,
   'Verification',
 );
-export interface VerificationBrand {
+export type VerificationBrand = {
   readonly Verification: unique symbol;
-}
+};
 
 // VerificationObject
 // The default export. More information at the top.
@@ -210,9 +211,9 @@ export const VerificationObject: VerificationObjectC = t.brand(
   (x): x is t.Branded<unknown, VerificationObjectBrand> => true,
   'VerificationObject',
 );
-export interface VerificationObjectBrand {
+export type VerificationObjectBrand = {
   readonly VerificationObject: unique symbol;
-}
+};
 
 export default VerificationObject;
 

@@ -21,11 +21,11 @@ export const PointCost: PointCostC = t.brand(
   (x): x is t.Branded<number, PointCostBrand> => true,
   'PointCost',
 );
-export interface PointCostBrand {
+export type PointCostBrand = {
   readonly PointCost: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(PointCost).decodeSync(minimumPointCost) // => minimumPointCost */
-export const minimumPointCost: PointCost = (0 as unknown) as PointCost;
+export const minimumPointCost: PointCost = 0 as unknown as PointCost;
 
 export default PointCost;
 

@@ -54,9 +54,9 @@ export const Response: ResponseC = t.brand(
   > => true,
   'Response',
 );
-export interface ResponseBrand {
+export type ResponseBrand = {
   readonly Response: unique symbol;
-}
+};
 
 export default Response;
 

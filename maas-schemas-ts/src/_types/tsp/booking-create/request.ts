@@ -8,15 +8,16 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
-import * as BookingOption_ from '../../core/booking-option';
-import * as BookingMeta_ from '../../core/booking-meta';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
 import * as Booking_ from '../../core/booking';
-import * as Customer_ from '../../core/customer';
+import * as BookingMeta_ from '../../core/booking-meta';
+import * as BookingOption_ from '../../core/booking-option';
 import * as Configurator_ from '../../core/components/configurator';
 import * as CustomerSelection_ from '../../core/components/customerSelection';
-import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
-import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+import * as Customer_ from '../../core/customer';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -30,7 +31,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/tsp/booking-create/request.json';
@@ -127,11 +128,11 @@ export const Request: RequestC = t.brand(
   > => true,
   'Request',
 );
-export interface RequestBrand {
+export type RequestBrand = {
   readonly Request: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Request)).decodeSync(examplesRequest) // => examplesRequest */
-export const examplesRequest: NonEmptyArray<Request> = ([
+export const examplesRequest: NonEmptyArray<Request> = [
   {
     leg: {
       to: {
@@ -204,7 +205,7 @@ export const examplesRequest: NonEmptyArray<Request> = ([
     tspId: null,
     tspProduct: { id: 'testtaxi1-product1' },
   },
-] as unknown) as NonEmptyArray<Request>;
+] as unknown as NonEmptyArray<Request>;
 
 export default Request;
 

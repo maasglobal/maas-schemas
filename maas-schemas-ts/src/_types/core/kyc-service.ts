@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as PersonalDocument_ from './personal-document';
 
 export const schemaId = 'https://schemas.maas.global/core/kyc-service.json';
@@ -62,9 +63,9 @@ export const KycService: KycServiceC = t.brand(
   > => true,
   'KycService',
 );
-export interface KycServiceBrand {
+export type KycServiceBrand = {
   readonly KycService: unique symbol;
-}
+};
 
 export default KycService;
 

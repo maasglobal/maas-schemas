@@ -9,9 +9,10 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as ConfiguratorV2_ from './configuratorV2';
-import * as ConfiguratorV1_ from './configuratorV1';
+
 import * as Common_ from './common';
+import * as ConfiguratorV1_ from './configuratorV1';
+import * as ConfiguratorV2_ from './configuratorV2';
 
 export const schemaId = 'https://schemas.maas.global/core/components/configurator.json';
 
@@ -67,9 +68,9 @@ export const Configurator: ConfiguratorC = t.brand(
   > => true,
   'Configurator',
 );
-export interface ConfiguratorBrand {
+export type ConfiguratorBrand = {
   readonly Configurator: unique symbol;
-}
+};
 
 export default Configurator;
 

@@ -9,10 +9,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as UnitsGeo_ from '../../core/components/units-geo';
+
 import * as Address_ from '../../core/components/address';
 import * as Station_ from '../../core/components/station';
 import * as Units_ from '../../core/components/units';
+import * as UnitsGeo_ from '../../core/components/units-geo';
 
 export const schemaId = 'https://schemas.maas.global/tsp/journey-planner/request.json';
 
@@ -206,9 +207,9 @@ export const Request: RequestC = t.brand(
   > => true,
   'Request',
 );
-export interface RequestBrand {
+export type RequestBrand = {
   readonly Request: unique symbol;
-}
+};
 
 export default Request;
 

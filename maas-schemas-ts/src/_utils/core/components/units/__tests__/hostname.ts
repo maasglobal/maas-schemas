@@ -2,10 +2,12 @@ import * as P from 'maasglobal-prelude-ts';
 
 import { validator } from 'io-ts-validator';
 
-import { Hostname, HostnameLabel } from '../../../../../_types/core/components/units';
+import {
+  Authority,
+  Hostname,
+  HostnameLabel,
+} from '../../../../../_types/core/components/units';
 import { EnvironmentId } from '../../../../../_types/environments/environments';
-
-import { Authority } from '../../../../../_types/core/components/units';
 import * as Hostname_ from '../hostname';
 
 describe('hostname', () => {

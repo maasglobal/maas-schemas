@@ -22,7 +22,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -268,9 +268,9 @@ export const Request: RequestC = t.brand(
   > => true,
   'Request',
 );
-export interface RequestBrand {
+export type RequestBrand = {
   readonly Request: unique symbol;
-}
+};
 
 // Stripe
 // The default export. More information at the top.
@@ -281,9 +281,9 @@ export const Stripe: StripeC = t.brand(
   (x): x is t.Branded<unknown, StripeBrand> => true,
   'Stripe',
 );
-export interface StripeBrand {
+export type StripeBrand = {
   readonly Stripe: unique symbol;
-}
+};
 
 export default Stripe;
 

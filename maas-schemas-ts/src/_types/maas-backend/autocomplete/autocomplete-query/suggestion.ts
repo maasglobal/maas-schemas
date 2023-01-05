@@ -8,10 +8,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as UnitsGeo_ from '../../../core/components/units-geo';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
+import * as UnitsGeo_ from '../../../core/components/units-geo';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -25,7 +26,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -59,9 +60,9 @@ export const GoogleMeta: GoogleMetaC = t.brand(
   > => true,
   'GoogleMeta',
 );
-export interface GoogleMetaBrand {
+export type GoogleMetaBrand = {
   readonly GoogleMeta: unique symbol;
-}
+};
 
 // RouterankMeta
 // Routerank places API specific metadata
@@ -99,9 +100,9 @@ export const RouterankMeta: RouterankMetaC = t.brand(
   > => true,
   'RouterankMeta',
 );
-export interface RouterankMetaBrand {
+export type RouterankMetaBrand = {
   readonly RouterankMeta: unique symbol;
-}
+};
 
 // Suggestion
 // The default export. More information at the top.
@@ -179,11 +180,11 @@ export const Suggestion: SuggestionC = t.brand(
   > => true,
   'Suggestion',
 );
-export interface SuggestionBrand {
+export type SuggestionBrand = {
   readonly Suggestion: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Suggestion)).decodeSync(examplesSuggestion) // => examplesSuggestion */
-export const examplesSuggestion: NonEmptyArray<Suggestion> = ([
+export const examplesSuggestion: NonEmptyArray<Suggestion> = [
   {
     label: 'Nyons, France',
     meta: { google: { placeId: 'ChIJo_XBpV-ByhIREL6_5CqrCAQ' } },
@@ -199,7 +200,7 @@ export const examplesSuggestion: NonEmptyArray<Suggestion> = ([
       },
     },
   },
-] as unknown) as NonEmptyArray<Suggestion>;
+] as unknown as NonEmptyArray<Suggestion>;
 
 export default Suggestion;
 

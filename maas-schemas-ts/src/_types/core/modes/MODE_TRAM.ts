@@ -30,9 +30,9 @@ export const MODE_TRAM: MODE_TRAMC = t.brand(
     true,
   'MODE_TRAM',
 );
-export interface MODE_TRAMBrand {
+export type MODE_TRAMBrand = {
   readonly MODE_TRAM: unique symbol;
-}
+};
 
 export default MODE_TRAM;
 

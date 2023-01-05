@@ -22,7 +22,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/units-geo.json';
@@ -37,13 +37,13 @@ export const Latitude: LatitudeC = t.brand(
     (typeof x !== 'number' || x >= -90) && (typeof x !== 'number' || x <= 90),
   'Latitude',
 );
-export interface LatitudeBrand {
+export type LatitudeBrand = {
   readonly Latitude: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(Latitude).decodeSync(minimumLatitude) // => minimumLatitude */
-export const minimumLatitude: Latitude = (-90 as unknown) as Latitude;
+export const minimumLatitude: Latitude = -90 as unknown as Latitude;
 /** require('io-ts-validator').validator(Latitude).decodeSync(maximumLatitude) // => maximumLatitude */
-export const maximumLatitude: Latitude = (90 as unknown) as Latitude;
+export const maximumLatitude: Latitude = 90 as unknown as Latitude;
 
 // Longitude
 // Geographic longitude (east-west axis) in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
@@ -55,13 +55,13 @@ export const Longitude: LongitudeC = t.brand(
     (typeof x !== 'number' || x >= -180) && (typeof x !== 'number' || x <= 180),
   'Longitude',
 );
-export interface LongitudeBrand {
+export type LongitudeBrand = {
   readonly Longitude: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(Longitude).decodeSync(minimumLongitude) // => minimumLongitude */
-export const minimumLongitude: Longitude = (-180 as unknown) as Longitude;
+export const minimumLongitude: Longitude = -180 as unknown as Longitude;
 /** require('io-ts-validator').validator(Longitude).decodeSync(maximumLongitude) // => maximumLongitude */
-export const maximumLongitude: Longitude = (180 as unknown) as Longitude;
+export const maximumLongitude: Longitude = 180 as unknown as Longitude;
 
 // RelaxedLatitude
 // No-numeric precision version of MaaS core latitude
@@ -73,13 +73,13 @@ export const RelaxedLatitude: RelaxedLatitudeC = t.brand(
     (typeof x !== 'number' || x >= -90) && (typeof x !== 'number' || x <= 90),
   'RelaxedLatitude',
 );
-export interface RelaxedLatitudeBrand {
+export type RelaxedLatitudeBrand = {
   readonly RelaxedLatitude: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(RelaxedLatitude).decodeSync(minimumRelaxedLatitude) // => minimumRelaxedLatitude */
-export const minimumRelaxedLatitude: RelaxedLatitude = (-90 as unknown) as RelaxedLatitude;
+export const minimumRelaxedLatitude: RelaxedLatitude = -90 as unknown as RelaxedLatitude;
 /** require('io-ts-validator').validator(RelaxedLatitude).decodeSync(maximumRelaxedLatitude) // => maximumRelaxedLatitude */
-export const maximumRelaxedLatitude: RelaxedLatitude = (90 as unknown) as RelaxedLatitude;
+export const maximumRelaxedLatitude: RelaxedLatitude = 90 as unknown as RelaxedLatitude;
 
 // RelaxedLongitude
 // No-numeric precision version of MaaS core longitude
@@ -91,13 +91,15 @@ export const RelaxedLongitude: RelaxedLongitudeC = t.brand(
     (typeof x !== 'number' || x >= -180) && (typeof x !== 'number' || x <= 180),
   'RelaxedLongitude',
 );
-export interface RelaxedLongitudeBrand {
+export type RelaxedLongitudeBrand = {
   readonly RelaxedLongitude: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(RelaxedLongitude).decodeSync(minimumRelaxedLongitude) // => minimumRelaxedLongitude */
-export const minimumRelaxedLongitude: RelaxedLongitude = (-180 as unknown) as RelaxedLongitude;
+export const minimumRelaxedLongitude: RelaxedLongitude =
+  -180 as unknown as RelaxedLongitude;
 /** require('io-ts-validator').validator(RelaxedLongitude).decodeSync(maximumRelaxedLongitude) // => maximumRelaxedLongitude */
-export const maximumRelaxedLongitude: RelaxedLongitude = (180 as unknown) as RelaxedLongitude;
+export const maximumRelaxedLongitude: RelaxedLongitude =
+  180 as unknown as RelaxedLongitude;
 
 // Distance
 // Distance in meters
@@ -109,13 +111,13 @@ export const Distance: DistanceC = t.brand(
     (typeof x !== 'number' || x <= 40075000) && (typeof x !== 'number' || x % 1 === 0),
   'Distance',
 );
-export interface DistanceBrand {
+export type DistanceBrand = {
   readonly Distance: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(Distance).decodeSync(minimumDistance) // => minimumDistance */
-export const minimumDistance: Distance = (0 as unknown) as Distance;
+export const minimumDistance: Distance = 0 as unknown as Distance;
 /** require('io-ts-validator').validator(Distance).decodeSync(maximumDistance) // => maximumDistance */
-export const maximumDistance: Distance = (40075000 as unknown) as Distance;
+export const maximumDistance: Distance = 40075000 as unknown as Distance;
 
 // Polyline
 // Google encoded polyline, see: https://developers.google.com/maps/documentation/utilities/polylinealgorithm
@@ -130,9 +132,9 @@ export const Polyline: PolylineC = t.brand(
     (typeof x !== 'string' || x.length <= 65535),
   'Polyline',
 );
-export interface PolylineBrand {
+export type PolylineBrand = {
   readonly Polyline: unique symbol;
-}
+};
 
 // Location
 // Geographic latitude-longitude object in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
@@ -194,9 +196,9 @@ export const Location: LocationC = t.brand(
   > => true,
   'Location',
 );
-export interface LocationBrand {
+export type LocationBrand = {
   readonly Location: unique symbol;
-}
+};
 
 // RelaxedLocation
 // No-numeric precision version of MaaS core location
@@ -258,9 +260,9 @@ export const RelaxedLocation: RelaxedLocationC = t.brand(
   > => true,
   'RelaxedLocation',
 );
-export interface RelaxedLocationBrand {
+export type RelaxedLocationBrand = {
   readonly RelaxedLocation: unique symbol;
-}
+};
 
 // ShortLocation
 // Geographic latitude-longitude number-pair array in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
@@ -274,9 +276,9 @@ export const ShortLocation: ShortLocationC = t.brand(
   (x): x is t.Branded<[Latitude, Longitude], ShortLocationBrand> => true,
   'ShortLocation',
 );
-export interface ShortLocationBrand {
+export type ShortLocationBrand = {
   readonly ShortLocation: unique symbol;
-}
+};
 
 // ShortLocationString
 // Geographic latitude-longitude number-pair as a string in WGS-84 system, see https://en.wikipedia.org/wiki/World_Geodetic_System
@@ -291,9 +293,9 @@ export const ShortLocationString: ShortLocationStringC = t.brand(
     (typeof x !== 'string' || x.length <= 64),
   'ShortLocationString',
 );
-export interface ShortLocationStringBrand {
+export type ShortLocationStringBrand = {
   readonly ShortLocationString: unique symbol;
-}
+};
 
 // UnitsGeo
 // The default export. More information at the top.
@@ -304,9 +306,9 @@ export const UnitsGeo: UnitsGeoC = t.brand(
   (x): x is t.Branded<unknown, UnitsGeoBrand> => true,
   'UnitsGeo',
 );
-export interface UnitsGeoBrand {
+export type UnitsGeoBrand = {
   readonly UnitsGeo: unique symbol;
-}
+};
 
 export default UnitsGeo;
 

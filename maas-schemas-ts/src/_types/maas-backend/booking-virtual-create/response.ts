@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Invoice_ from '../invoices/invoice';
 
 export const schemaId =
@@ -50,9 +51,9 @@ export const Response: ResponseC = t.brand(
   > => true,
   'Response',
 );
-export interface ResponseBrand {
+export type ResponseBrand = {
   readonly Response: unique symbol;
-}
+};
 
 export default Response;
 

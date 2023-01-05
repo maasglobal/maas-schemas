@@ -213,9 +213,9 @@ export const PersonalDataValidation: PersonalDataValidationC = t.brand(
   > => true,
   'PersonalDataValidation',
 );
-export interface PersonalDataValidationBrand {
+export type PersonalDataValidationBrand = {
   readonly PersonalDataValidation: unique symbol;
-}
+};
 
 export default PersonalDataValidation;
 

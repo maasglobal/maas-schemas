@@ -8,8 +8,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export const schemaId =
@@ -24,14 +24,14 @@ export const BenefitsProviderId: BenefitsProviderIdC = t.brand(
   (x): x is t.Branded<string, BenefitsProviderIdBrand> => true,
   'BenefitsProviderId',
 );
-export interface BenefitsProviderIdBrand {
+export type BenefitsProviderIdBrand = {
   readonly BenefitsProviderId: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(BenefitsProviderId)).decodeSync(examplesBenefitsProviderId) // => examplesBenefitsProviderId */
-export const examplesBenefitsProviderId: NonEmptyArray<BenefitsProviderId> = ([
+export const examplesBenefitsProviderId: NonEmptyArray<BenefitsProviderId> = [
   'smartum',
   'epassi',
-] as unknown) as NonEmptyArray<BenefitsProviderId>;
+] as unknown as NonEmptyArray<BenefitsProviderId>;
 
 // BenefitProvider
 // The default export. More information at the top.
@@ -42,9 +42,9 @@ export const BenefitProvider: BenefitProviderC = t.brand(
   (x): x is t.Branded<unknown, BenefitProviderBrand> => true,
   'BenefitProvider',
 );
-export interface BenefitProviderBrand {
+export type BenefitProviderBrand = {
   readonly BenefitProvider: unique symbol;
-}
+};
 
 export default BenefitProvider;
 

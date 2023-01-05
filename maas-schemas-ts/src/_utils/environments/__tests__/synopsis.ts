@@ -5,7 +5,6 @@ import { validator } from 'io-ts-validator';
 
 import { AccountAlias } from '../../../_types/environments/accounts';
 import { EnvironmentId } from '../../../_types/environments/environments';
-
 import { Synopses } from '../../../_types/environments/synopses';
 import { Synopsis } from '../../../_types/environments/synopsis';
 import {

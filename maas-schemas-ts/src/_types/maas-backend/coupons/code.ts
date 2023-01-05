@@ -21,8 +21,8 @@ export const Code: CodeC = t.brand(
   (x): x is t.Branded<string, CodeBrand> => true,
   'Code',
 );
-export interface CodeBrand {
+export type CodeBrand = {
   readonly Code: unique symbol;
-}
+};
 
 // Success

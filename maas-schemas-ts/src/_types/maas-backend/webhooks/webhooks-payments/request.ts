@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Avainpay_ from './gateway/avainpay';
 import * as Stripe_ from './gateway/stripe';
 import * as Yaband_ from './gateway/yaband';
@@ -36,9 +37,9 @@ export const Request: RequestC = t.brand(
   > => true,
   'Request',
 );
-export interface RequestBrand {
+export type RequestBrand = {
   readonly Request: unique symbol;
-}
+};
 
 export default Request;
 

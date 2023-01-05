@@ -9,8 +9,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as UnitsGeo_ from './units-geo';
+
 import * as Address_ from './address';
+import * as UnitsGeo_ from './units-geo';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -24,7 +25,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/geolocation.json';
@@ -81,9 +82,9 @@ export const Geometry: GeometryC = t.brand(
   > => true,
   'Geometry',
 );
-export interface GeometryBrand {
+export type GeometryBrand = {
   readonly Geometry: unique symbol;
-}
+};
 
 // Properties
 // The purpose of this remains a mystery
@@ -165,9 +166,9 @@ export const Properties: PropertiesC = t.brand(
   > => true,
   'Properties',
 );
-export interface PropertiesBrand {
+export type PropertiesBrand = {
   readonly Properties: unique symbol;
-}
+};
 
 // Feature
 // The purpose of this remains a mystery
@@ -229,9 +230,9 @@ export const Feature: FeatureC = t.brand(
   > => true,
   'Feature',
 );
-export interface FeatureBrand {
+export type FeatureBrand = {
   readonly Feature: unique symbol;
-}
+};
 
 // FeatureCollection
 // The purpose of this remains a mystery
@@ -293,9 +294,9 @@ export const FeatureCollection: FeatureCollectionC = t.brand(
   > => true,
   'FeatureCollection',
 );
-export interface FeatureCollectionBrand {
+export type FeatureCollectionBrand = {
   readonly FeatureCollection: unique symbol;
-}
+};
 
 // Geolocation
 // The default export. More information at the top.
@@ -306,9 +307,9 @@ export const Geolocation: GeolocationC = t.brand(
   (x): x is t.Branded<unknown, GeolocationBrand> => true,
   'Geolocation',
 );
-export interface GeolocationBrand {
+export type GeolocationBrand = {
   readonly Geolocation: unique symbol;
-}
+};
 
 export default Geolocation;
 

@@ -9,12 +9,13 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as UnitsGeo_ from '../components/units-geo';
-import * as Units_ from '../components/units';
+
 import * as Common_ from '../components/common';
-import * as SpaceDemand_ from '../components/spaceDemand';
-import * as Place_ from '../components/place';
 import * as CostBreakDown_ from '../components/costBreakDown';
+import * as Place_ from '../components/place';
+import * as SpaceDemand_ from '../components/spaceDemand';
+import * as Units_ from '../components/units';
+import * as UnitsGeo_ from '../components/units-geo';
 
 export const schemaId = 'https://schemas.maas.global/core/modes/MODE_TAXI.json';
 
@@ -162,9 +163,9 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
   > => true,
   'MODE_TAXI',
 );
-export interface MODE_TAXIBrand {
+export type MODE_TAXIBrand = {
   readonly MODE_TAXI: unique symbol;
-}
+};
 
 export default MODE_TAXI;
 

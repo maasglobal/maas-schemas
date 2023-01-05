@@ -22,7 +22,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/modes/MODE_SCOOTER.json';
@@ -95,9 +95,9 @@ export const MODE_SCOOTER: MODE_SCOOTERC = t.brand(
   > => true,
   'MODE_SCOOTER',
 );
-export interface MODE_SCOOTERBrand {
+export type MODE_SCOOTERBrand = {
   readonly MODE_SCOOTER: unique symbol;
-}
+};
 
 export default MODE_SCOOTER;
 

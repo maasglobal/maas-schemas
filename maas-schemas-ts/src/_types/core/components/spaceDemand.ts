@@ -8,8 +8,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export const schemaId = 'https://schemas.maas.global/core/components/spaceDemand.json';
@@ -62,9 +62,9 @@ export const SpaceDemandObject: SpaceDemandObjectC = t.brand(
   > => true,
   'SpaceDemandObject',
 );
-export interface SpaceDemandObjectBrand {
+export type SpaceDemandObjectBrand = {
   readonly SpaceDemandObject: unique symbol;
-}
+};
 
 // SpaceDemandString
 // The purpose of this remains a mystery
@@ -82,13 +82,13 @@ export const SpaceDemandString: SpaceDemandStringC = t.brand(
     ) !== null,
   'SpaceDemandString',
 );
-export interface SpaceDemandStringBrand {
+export type SpaceDemandStringBrand = {
   readonly SpaceDemandString: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(SpaceDemandString)).decodeSync(examplesSpaceDemandString) // => examplesSpaceDemandString */
-export const examplesSpaceDemandString: NonEmptyArray<SpaceDemandString> = ([
+export const examplesSpaceDemandString: NonEmptyArray<SpaceDemandString> = [
   'adults:1|bags:2',
-] as unknown) as NonEmptyArray<SpaceDemandString>;
+] as unknown as NonEmptyArray<SpaceDemandString>;
 
 // SpaceDemand
 // The default export. More information at the top.
@@ -99,9 +99,9 @@ export const SpaceDemand: SpaceDemandC = t.brand(
   (x): x is t.Branded<unknown, SpaceDemandBrand> => true,
   'SpaceDemand',
 );
-export interface SpaceDemandBrand {
+export type SpaceDemandBrand = {
   readonly SpaceDemand: unique symbol;
-}
+};
 
 export default SpaceDemand;
 

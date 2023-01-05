@@ -22,7 +22,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -222,9 +222,9 @@ export const Request: RequestC = t.brand(
   > => true,
   'Request',
 );
-export interface RequestBrand {
+export type RequestBrand = {
   readonly Request: unique symbol;
-}
+};
 
 // Yaband
 // The default export. More information at the top.
@@ -235,9 +235,9 @@ export const Yaband: YabandC = t.brand(
   (x): x is t.Branded<unknown, YabandBrand> => true,
   'Yaband',
 );
-export interface YabandBrand {
+export type YabandBrand = {
   readonly Yaband: unique symbol;
-}
+};
 
 export default Yaband;
 

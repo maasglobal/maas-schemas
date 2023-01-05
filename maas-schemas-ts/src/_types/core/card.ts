@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Address_ from './components/address';
 
 export type Defined = {} | null;
@@ -23,7 +24,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/card.json';
@@ -140,9 +141,9 @@ export const Card: CardC = t.brand(
   > => true,
   'Card',
 );
-export interface CardBrand {
+export type CardBrand = {
   readonly Card: unique symbol;
-}
+};
 
 export default Card;
 

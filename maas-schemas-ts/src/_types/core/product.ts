@@ -8,15 +8,16 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Fare_ from './components/fare';
-import * as Common_ from './components/common';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-export interface NullBrand {
+import * as Common_ from './components/common';
+import * as Fare_ from './components/fare';
+
+export type NullBrand = {
   readonly Null: unique symbol;
-}
+};
 export type NullC = t.BrandC<t.UnknownC, NullBrand>;
 export const Null: NullC = t.brand(
   t.unknown,
@@ -37,7 +38,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/product.json';
@@ -53,9 +54,9 @@ export const Id: IdC = t.brand(
     (typeof x !== 'string' || x.length <= 255),
   'Id',
 );
-export interface IdBrand {
+export type IdBrand = {
   readonly Id: unique symbol;
-}
+};
 
 // PreAuthBuffer
 // The purpose of this remains a mystery
@@ -99,9 +100,9 @@ export const PreAuthBuffer: PreAuthBufferC = t.brand(
   > => true,
   'PreAuthBuffer',
 );
-export interface PreAuthBufferBrand {
+export type PreAuthBufferBrand = {
   readonly PreAuthBuffer: unique symbol;
-}
+};
 
 // Product
 // The default export. More information at the top.
@@ -199,11 +200,11 @@ export const Product: ProductC = t.brand(
   > => true,
   'Product',
 );
-export interface ProductBrand {
+export type ProductBrand = {
   readonly Product: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Product)).decodeSync(examplesProduct) // => examplesProduct */
-export const examplesProduct: NonEmptyArray<Product> = ([
+export const examplesProduct: NonEmptyArray<Product> = [
   {
     id: 'sixt',
     name: 'SIXT_NAME',
@@ -584,7 +585,7 @@ export const examplesProduct: NonEmptyArray<Product> = ([
       },
     ],
   },
-] as unknown) as NonEmptyArray<Product>;
+] as unknown as NonEmptyArray<Product>;
 
 export default Product;
 

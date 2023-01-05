@@ -28,9 +28,9 @@ export const MODE_BUS: MODE_BUSC = t.brand(
     true,
   'MODE_BUS',
 );
-export interface MODE_BUSBrand {
+export type MODE_BUSBrand = {
   readonly MODE_BUS: unique symbol;
-}
+};
 
 export default MODE_BUS;
 

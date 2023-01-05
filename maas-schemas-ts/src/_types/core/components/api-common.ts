@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Units_ from './units';
 
 export type Defined = {} | null;
@@ -23,7 +24,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/api-common.json';
@@ -43,9 +44,9 @@ export const AcceptHeader: AcceptHeaderC = t.brand(
     ) !== null,
   'AcceptHeader',
 );
-export interface AcceptHeaderBrand {
+export type AcceptHeaderBrand = {
   readonly AcceptHeader: unique symbol;
-}
+};
 
 // UserAgentHeader
 // The purpose of this remains a mystery
@@ -57,9 +58,9 @@ export const UserAgentHeader: UserAgentHeaderC = t.brand(
     typeof x !== 'string' || x.length >= 1,
   'UserAgentHeader',
 );
-export interface UserAgentHeaderBrand {
+export type UserAgentHeaderBrand = {
   readonly UserAgentHeader: unique symbol;
-}
+};
 
 // Headers
 // The purpose of this remains a mystery
@@ -101,9 +102,9 @@ export const Headers: HeadersC = t.brand(
   > => true,
   'Headers',
 );
-export interface HeadersBrand {
+export type HeadersBrand = {
   readonly Headers: unique symbol;
-}
+};
 
 // AppInstanceIdHeader
 // The purpose of this remains a mystery
@@ -115,9 +116,9 @@ export const AppInstanceIdHeader: AppInstanceIdHeaderC = t.brand(
     typeof x !== 'string' || x.length >= 1,
   'AppInstanceIdHeader',
 );
-export interface AppInstanceIdHeaderBrand {
+export type AppInstanceIdHeaderBrand = {
   readonly AppInstanceIdHeader: unique symbol;
-}
+};
 
 // StandardApiEndpointHeaders
 // The purpose of this remains a mystery
@@ -187,9 +188,9 @@ export const StandardApiEndpointHeaders: StandardApiEndpointHeadersC = t.brand(
   > => true,
   'StandardApiEndpointHeaders',
 );
-export interface StandardApiEndpointHeadersBrand {
+export type StandardApiEndpointHeadersBrand = {
   readonly StandardApiEndpointHeaders: unique symbol;
-}
+};
 
 // ApiGatewayAuthorizedRequestContext
 // The purpose of this remains a mystery
@@ -237,47 +238,48 @@ export type ApiGatewayAuthorizedRequestContextC = t.BrandC<
   >,
   ApiGatewayAuthorizedRequestContextBrand
 >;
-export const ApiGatewayAuthorizedRequestContext: ApiGatewayAuthorizedRequestContextC = t.brand(
-  t.intersection([
+export const ApiGatewayAuthorizedRequestContext: ApiGatewayAuthorizedRequestContextC =
+  t.brand(
     t.intersection([
-      t.partial({
-        authorizer: t.intersection([
-          t.intersection([
-            t.partial({
-              principalId: Units_.IdentityId,
+      t.intersection([
+        t.partial({
+          authorizer: t.intersection([
+            t.intersection([
+              t.partial({
+                principalId: Units_.IdentityId,
+              }),
+              t.record(t.string, t.unknown),
+            ]),
+            t.type({
+              principalId: Defined,
             }),
-            t.record(t.string, t.unknown),
           ]),
-          t.type({
-            principalId: Defined,
-          }),
-        ]),
+        }),
+        t.record(t.string, t.unknown),
+      ]),
+      t.type({
+        authorizer: Defined,
       }),
-      t.record(t.string, t.unknown),
     ]),
-    t.type({
-      authorizer: Defined,
-    }),
-  ]),
-  (
-    x,
-  ): x is t.Branded<
-    ({
-      authorizer?: ({
-        principalId?: Units_.IdentityId;
+    (
+      x,
+    ): x is t.Branded<
+      ({
+        authorizer?: ({
+          principalId?: Units_.IdentityId;
+        } & Record<string, unknown>) & {
+          principalId: Defined;
+        };
       } & Record<string, unknown>) & {
-        principalId: Defined;
-      };
-    } & Record<string, unknown>) & {
-      authorizer: Defined;
-    },
-    ApiGatewayAuthorizedRequestContextBrand
-  > => true,
-  'ApiGatewayAuthorizedRequestContext',
-);
-export interface ApiGatewayAuthorizedRequestContextBrand {
+        authorizer: Defined;
+      },
+      ApiGatewayAuthorizedRequestContextBrand
+    > => true,
+    'ApiGatewayAuthorizedRequestContext',
+  );
+export type ApiGatewayAuthorizedRequestContextBrand = {
   readonly ApiGatewayAuthorizedRequestContext: unique symbol;
-}
+};
 
 // ApiCommon
 // The default export. More information at the top.
@@ -288,9 +290,9 @@ export const ApiCommon: ApiCommonC = t.brand(
   (x): x is t.Branded<unknown, ApiCommonBrand> => true,
   'ApiCommon',
 );
-export interface ApiCommonBrand {
+export type ApiCommonBrand = {
   readonly ApiCommon: unique symbol;
-}
+};
 
 export default ApiCommon;
 

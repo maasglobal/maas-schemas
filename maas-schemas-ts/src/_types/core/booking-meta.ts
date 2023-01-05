@@ -9,26 +9,27 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as MODE_WALK_ from './modes/MODE_WALK';
+
 import * as MODE_BICYCLE_ from './modes/MODE_BICYCLE';
-import * as MODE_CAR_ from './modes/MODE_CAR';
-import * as MODE_TRAM_ from './modes/MODE_TRAM';
-import * as MODE_SUBWAY_ from './modes/MODE_SUBWAY';
-import * as MODE_RAIL_ from './modes/MODE_RAIL';
 import * as MODE_BUS_ from './modes/MODE_BUS';
-import * as MODE_FERRY_ from './modes/MODE_FERRY';
+import * as MODE_BUSISH_ from './modes/MODE_BUSISH';
 import * as MODE_CABLE_CAR_ from './modes/MODE_CABLE_CAR';
-import * as MODE_GONDOLA_ from './modes/MODE_GONDOLA';
+import * as MODE_CAR_ from './modes/MODE_CAR';
+import * as MODE_FERRY_ from './modes/MODE_FERRY';
 import * as MODE_FUNICULAR_ from './modes/MODE_FUNICULAR';
+import * as MODE_GONDOLA_ from './modes/MODE_GONDOLA';
+import * as MODE_RAIL_ from './modes/MODE_RAIL';
+import * as MODE_SCOOTER_ from './modes/MODE_SCOOTER';
 import * as MODE_SHARED_BICYCLE_ from './modes/MODE_SHARED_BICYCLE';
-import * as MODE_SHARED_E_BICYCLE_ from './modes/MODE_SHARED_E_BICYCLE';
 import * as MODE_SHARED_CAR_ from './modes/MODE_SHARED_CAR';
-import * as MODE_TRANSIT_ from './modes/MODE_TRANSIT';
+import * as MODE_SHARED_E_BICYCLE_ from './modes/MODE_SHARED_E_BICYCLE';
+import * as MODE_SUBWAY_ from './modes/MODE_SUBWAY';
+import * as MODE_TAXI_ from './modes/MODE_TAXI';
 import * as MODE_TRAIN_ from './modes/MODE_TRAIN';
 import * as MODE_TRAINISH_ from './modes/MODE_TRAINISH';
-import * as MODE_BUSISH_ from './modes/MODE_BUSISH';
-import * as MODE_TAXI_ from './modes/MODE_TAXI';
-import * as MODE_SCOOTER_ from './modes/MODE_SCOOTER';
+import * as MODE_TRAM_ from './modes/MODE_TRAM';
+import * as MODE_TRANSIT_ from './modes/MODE_TRANSIT';
+import * as MODE_WALK_ from './modes/MODE_WALK';
 
 export const schemaId = 'https://schemas.maas.global/core/booking-meta.json';
 
@@ -144,9 +145,9 @@ export const BookingMeta: BookingMetaC = t.brand(
   > => true,
   'BookingMeta',
 );
-export interface BookingMetaBrand {
+export type BookingMetaBrand = {
   readonly BookingMeta: unique symbol;
-}
+};
 
 export default BookingMeta;
 

@@ -8,15 +8,16 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Units_ from './components/units';
-import * as Common_ from './components/common';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-export interface NullBrand {
+import * as Common_ from './components/common';
+import * as Units_ from './components/units';
+
+export type NullBrand = {
   readonly Null: unique symbol;
-}
+};
 export type NullC = t.BrandC<t.UnknownC, NullBrand>;
 export const Null: NullC = t.brand(
   t.unknown,
@@ -37,7 +38,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/personal-document.json';
@@ -51,13 +52,13 @@ export const DocumentId: DocumentIdC = t.brand(
   (x): x is t.Branded<Units_.Uuid, DocumentIdBrand> => true,
   'DocumentId',
 );
-export interface DocumentIdBrand {
+export type DocumentIdBrand = {
   readonly DocumentId: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(DocumentId)).decodeSync(examplesDocumentId) // => examplesDocumentId */
-export const examplesDocumentId: NonEmptyArray<DocumentId> = ([
+export const examplesDocumentId: NonEmptyArray<DocumentId> = [
   '932116e4-94cf-41cd-a62b-82d5f2730586',
-] as unknown) as NonEmptyArray<DocumentId>;
+] as unknown as NonEmptyArray<DocumentId>;
 
 // DocumentType
 // The purpose of this remains a mystery
@@ -68,13 +69,13 @@ export const DocumentType: DocumentTypeC = t.brand(
   (x): x is t.Branded<string, DocumentTypeBrand> => true,
   'DocumentType',
 );
-export interface DocumentTypeBrand {
+export type DocumentTypeBrand = {
   readonly DocumentType: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(DocumentType)).decodeSync(examplesDocumentType) // => examplesDocumentType */
-export const examplesDocumentType: NonEmptyArray<DocumentType> = ([
+export const examplesDocumentType: NonEmptyArray<DocumentType> = [
   'DRIVERS_LICENSE',
-] as unknown) as NonEmptyArray<DocumentType>;
+] as unknown as NonEmptyArray<DocumentType>;
 
 // DocumentNumber
 // The purpose of this remains a mystery
@@ -85,13 +86,13 @@ export const DocumentNumber: DocumentNumberC = t.brand(
   (x): x is t.Branded<string, DocumentNumberBrand> => true,
   'DocumentNumber',
 );
-export interface DocumentNumberBrand {
+export type DocumentNumberBrand = {
   readonly DocumentNumber: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(DocumentNumber)).decodeSync(examplesDocumentNumber) // => examplesDocumentNumber */
-export const examplesDocumentNumber: NonEmptyArray<DocumentNumber> = ([
+export const examplesDocumentNumber: NonEmptyArray<DocumentNumber> = [
   '123456789012',
-] as unknown) as NonEmptyArray<DocumentNumber>;
+] as unknown as NonEmptyArray<DocumentNumber>;
 
 // IssuingCountry
 // The purpose of this remains a mystery
@@ -103,13 +104,13 @@ export const IssuingCountry: IssuingCountryC = t.brand(
     typeof x !== 'string' || x.length >= 2,
   'IssuingCountry',
 );
-export interface IssuingCountryBrand {
+export type IssuingCountryBrand = {
   readonly IssuingCountry: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(IssuingCountry)).decodeSync(examplesIssuingCountry) // => examplesIssuingCountry */
-export const examplesIssuingCountry: NonEmptyArray<IssuingCountry> = ([
+export const examplesIssuingCountry: NonEmptyArray<IssuingCountry> = [
   'CX',
-] as unknown) as NonEmptyArray<IssuingCountry>;
+] as unknown as NonEmptyArray<IssuingCountry>;
 
 // DocumentStatus
 // The purpose of this remains a mystery
@@ -175,13 +176,13 @@ export const DocumentStatus: DocumentStatusC = t.brand(
   > => true,
   'DocumentStatus',
 );
-export interface DocumentStatusBrand {
+export type DocumentStatusBrand = {
   readonly DocumentStatus: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(DocumentStatus)).decodeSync(examplesDocumentStatus) // => examplesDocumentStatus */
-export const examplesDocumentStatus: NonEmptyArray<DocumentStatus> = ([
+export const examplesDocumentStatus: NonEmptyArray<DocumentStatus> = [
   'APPROVED',
-] as unknown) as NonEmptyArray<DocumentStatus>;
+] as unknown as NonEmptyArray<DocumentStatus>;
 
 // DocumentStatusPENDING
 // The purpose of this remains a mystery
@@ -198,11 +199,12 @@ export const DocumentStatusPENDING: DocumentStatusPENDINGC = t.brand(
   (x): x is t.Branded<DocumentStatus & 'PENDING', DocumentStatusPENDINGBrand> => true,
   'DocumentStatusPENDING',
 );
-export interface DocumentStatusPENDINGBrand {
+export type DocumentStatusPENDINGBrand = {
   readonly DocumentStatusPENDING: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(DocumentStatusPENDING).decodeSync(defaultDocumentStatusPENDING) // => defaultDocumentStatusPENDING */
-export const defaultDocumentStatusPENDING: DocumentStatusPENDING = ('PENDING' as unknown) as DocumentStatusPENDING;
+export const defaultDocumentStatusPENDING: DocumentStatusPENDING =
+  'PENDING' as unknown as DocumentStatusPENDING;
 
 // DocumentStatusAPPROVED
 // The purpose of this remains a mystery
@@ -219,11 +221,12 @@ export const DocumentStatusAPPROVED: DocumentStatusAPPROVEDC = t.brand(
   (x): x is t.Branded<DocumentStatus & 'APPROVED', DocumentStatusAPPROVEDBrand> => true,
   'DocumentStatusAPPROVED',
 );
-export interface DocumentStatusAPPROVEDBrand {
+export type DocumentStatusAPPROVEDBrand = {
   readonly DocumentStatusAPPROVED: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(DocumentStatusAPPROVED).decodeSync(defaultDocumentStatusAPPROVED) // => defaultDocumentStatusAPPROVED */
-export const defaultDocumentStatusAPPROVED: DocumentStatusAPPROVED = ('APPROVED' as unknown) as DocumentStatusAPPROVED;
+export const defaultDocumentStatusAPPROVED: DocumentStatusAPPROVED =
+  'APPROVED' as unknown as DocumentStatusAPPROVED;
 
 // DocumentStatusDECLINED
 // The purpose of this remains a mystery
@@ -240,11 +243,12 @@ export const DocumentStatusDECLINED: DocumentStatusDECLINEDC = t.brand(
   (x): x is t.Branded<DocumentStatus & 'DECLINED', DocumentStatusDECLINEDBrand> => true,
   'DocumentStatusDECLINED',
 );
-export interface DocumentStatusDECLINEDBrand {
+export type DocumentStatusDECLINEDBrand = {
   readonly DocumentStatusDECLINED: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(DocumentStatusDECLINED).decodeSync(defaultDocumentStatusDECLINED) // => defaultDocumentStatusDECLINED */
-export const defaultDocumentStatusDECLINED: DocumentStatusDECLINED = ('DECLINED' as unknown) as DocumentStatusDECLINED;
+export const defaultDocumentStatusDECLINED: DocumentStatusDECLINED =
+  'DECLINED' as unknown as DocumentStatusDECLINED;
 
 // DocumentStatusEXPIRED
 // The purpose of this remains a mystery
@@ -261,11 +265,12 @@ export const DocumentStatusEXPIRED: DocumentStatusEXPIREDC = t.brand(
   (x): x is t.Branded<DocumentStatus & 'EXPIRED', DocumentStatusEXPIREDBrand> => true,
   'DocumentStatusEXPIRED',
 );
-export interface DocumentStatusEXPIREDBrand {
+export type DocumentStatusEXPIREDBrand = {
   readonly DocumentStatusEXPIRED: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(DocumentStatusEXPIRED).decodeSync(defaultDocumentStatusEXPIRED) // => defaultDocumentStatusEXPIRED */
-export const defaultDocumentStatusEXPIRED: DocumentStatusEXPIRED = ('EXPIRED' as unknown) as DocumentStatusEXPIRED;
+export const defaultDocumentStatusEXPIRED: DocumentStatusEXPIRED =
+  'EXPIRED' as unknown as DocumentStatusEXPIRED;
 
 // DocumentStatusRESUBMISSION_REQUESTED
 // The purpose of this remains a mystery
@@ -277,21 +282,23 @@ export type DocumentStatusRESUBMISSION_REQUESTEDC = t.BrandC<
   t.IntersectionC<[typeof DocumentStatus, t.LiteralC<'RESUBMISSION_REQUESTED'>]>,
   DocumentStatusRESUBMISSION_REQUESTEDBrand
 >;
-export const DocumentStatusRESUBMISSION_REQUESTED: DocumentStatusRESUBMISSION_REQUESTEDC = t.brand(
-  t.intersection([DocumentStatus, t.literal('RESUBMISSION_REQUESTED')]),
-  (
-    x,
-  ): x is t.Branded<
-    DocumentStatus & 'RESUBMISSION_REQUESTED',
-    DocumentStatusRESUBMISSION_REQUESTEDBrand
-  > => true,
-  'DocumentStatusRESUBMISSION_REQUESTED',
-);
-export interface DocumentStatusRESUBMISSION_REQUESTEDBrand {
+export const DocumentStatusRESUBMISSION_REQUESTED: DocumentStatusRESUBMISSION_REQUESTEDC =
+  t.brand(
+    t.intersection([DocumentStatus, t.literal('RESUBMISSION_REQUESTED')]),
+    (
+      x,
+    ): x is t.Branded<
+      DocumentStatus & 'RESUBMISSION_REQUESTED',
+      DocumentStatusRESUBMISSION_REQUESTEDBrand
+    > => true,
+    'DocumentStatusRESUBMISSION_REQUESTED',
+  );
+export type DocumentStatusRESUBMISSION_REQUESTEDBrand = {
   readonly DocumentStatusRESUBMISSION_REQUESTED: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(DocumentStatusRESUBMISSION_REQUESTED).decodeSync(defaultDocumentStatusRESUBMISSION_REQUESTED) // => defaultDocumentStatusRESUBMISSION_REQUESTED */
-export const defaultDocumentStatusRESUBMISSION_REQUESTED: DocumentStatusRESUBMISSION_REQUESTED = ('RESUBMISSION_REQUESTED' as unknown) as DocumentStatusRESUBMISSION_REQUESTED;
+export const defaultDocumentStatusRESUBMISSION_REQUESTED: DocumentStatusRESUBMISSION_REQUESTED =
+  'RESUBMISSION_REQUESTED' as unknown as DocumentStatusRESUBMISSION_REQUESTED;
 
 // DocumentStatusABANDONED
 // The purpose of this remains a mystery
@@ -308,11 +315,12 @@ export const DocumentStatusABANDONED: DocumentStatusABANDONEDC = t.brand(
   (x): x is t.Branded<DocumentStatus & 'ABANDONED', DocumentStatusABANDONEDBrand> => true,
   'DocumentStatusABANDONED',
 );
-export interface DocumentStatusABANDONEDBrand {
+export type DocumentStatusABANDONEDBrand = {
   readonly DocumentStatusABANDONED: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(DocumentStatusABANDONED).decodeSync(defaultDocumentStatusABANDONED) // => defaultDocumentStatusABANDONED */
-export const defaultDocumentStatusABANDONED: DocumentStatusABANDONED = ('ABANDONED' as unknown) as DocumentStatusABANDONED;
+export const defaultDocumentStatusABANDONED: DocumentStatusABANDONED =
+  'ABANDONED' as unknown as DocumentStatusABANDONED;
 
 // ValidFrom
 // The purpose of this remains a mystery
@@ -323,13 +331,13 @@ export const ValidFrom: ValidFromC = t.brand(
   (x): x is t.Branded<Units_.IsoDate, ValidFromBrand> => true,
   'ValidFrom',
 );
-export interface ValidFromBrand {
+export type ValidFromBrand = {
   readonly ValidFrom: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(ValidFrom)).decodeSync(examplesValidFrom) // => examplesValidFrom */
-export const examplesValidFrom: NonEmptyArray<ValidFrom> = ([
+export const examplesValidFrom: NonEmptyArray<ValidFrom> = [
   '2020-01-01',
-] as unknown) as NonEmptyArray<ValidFrom>;
+] as unknown as NonEmptyArray<ValidFrom>;
 
 // ValidTo
 // The purpose of this remains a mystery
@@ -343,13 +351,13 @@ export const ValidTo: ValidToC = t.brand(
   (x): x is t.Branded<Units_.IsoDate | Null, ValidToBrand> => true,
   'ValidTo',
 );
-export interface ValidToBrand {
+export type ValidToBrand = {
   readonly ValidTo: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(ValidTo)).decodeSync(examplesValidTo) // => examplesValidTo */
-export const examplesValidTo: NonEmptyArray<ValidTo> = ([
+export const examplesValidTo: NonEmptyArray<ValidTo> = [
   '2030-12-31',
-] as unknown) as NonEmptyArray<ValidTo>;
+] as unknown as NonEmptyArray<ValidTo>;
 
 // Category
 // The purpose of this remains a mystery
@@ -360,9 +368,9 @@ export const Category: CategoryC = t.brand(
   (x): x is t.Branded<Null | string, CategoryBrand> => true,
   'Category',
 );
-export interface CategoryBrand {
+export type CategoryBrand = {
   readonly Category: unique symbol;
-}
+};
 
 // Details
 // The purpose of this remains a mystery
@@ -380,9 +388,9 @@ export const Details: DetailsC = t.brand(
     true,
   'Details',
 );
-export interface DetailsBrand {
+export type DetailsBrand = {
   readonly Details: unique symbol;
-}
+};
 
 // MediaItemContent
 // The purpose of this remains a mystery
@@ -393,9 +401,9 @@ export const MediaItemContent: MediaItemContentC = t.brand(
   (x): x is t.Branded<string, MediaItemContentBrand> => true,
   'MediaItemContent',
 );
-export interface MediaItemContentBrand {
+export type MediaItemContentBrand = {
   readonly MediaItemContent: unique symbol;
-}
+};
 
 // MediaItemContext
 // The purpose of this remains a mystery
@@ -406,9 +414,9 @@ export const MediaItemContext: MediaItemContextC = t.brand(
   (x): x is t.Branded<string, MediaItemContextBrand> => true,
   'MediaItemContext',
 );
-export interface MediaItemContextBrand {
+export type MediaItemContextBrand = {
   readonly MediaItemContext: unique symbol;
-}
+};
 
 // MediaItem
 // The purpose of this remains a mystery
@@ -462,9 +470,9 @@ export const MediaItem: MediaItemC = t.brand(
   > => true,
   'MediaItem',
 );
-export interface MediaItemBrand {
+export type MediaItemBrand = {
   readonly MediaItem: unique symbol;
-}
+};
 
 // Media
 // Media documents related to user personal document.
@@ -475,9 +483,9 @@ export const Media: MediaC = t.brand(
   (x): x is t.Branded<Array<MediaItem>, MediaBrand> => true,
   'Media',
 );
-export interface MediaBrand {
+export type MediaBrand = {
   readonly Media: unique symbol;
-}
+};
 
 // KycServiceId
 // Id of kyc service used
@@ -489,9 +497,9 @@ export const KycServiceId: KycServiceIdC = t.brand(
     typeof x !== 'string' || x.length >= 2,
   'KycServiceId',
 );
-export interface KycServiceIdBrand {
+export type KycServiceIdBrand = {
   readonly KycServiceId: unique symbol;
-}
+};
 
 // FirstName
 // The purpose of this remains a mystery
@@ -502,13 +510,13 @@ export const FirstName: FirstNameC = t.brand(
   (x): x is t.Branded<Common_.PersonalName, FirstNameBrand> => true,
   'FirstName',
 );
-export interface FirstNameBrand {
+export type FirstNameBrand = {
   readonly FirstName: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(FirstName)).decodeSync(examplesFirstName) // => examplesFirstName */
-export const examplesFirstName: NonEmptyArray<FirstName> = ([
+export const examplesFirstName: NonEmptyArray<FirstName> = [
   'Tea',
-] as unknown) as NonEmptyArray<FirstName>;
+] as unknown as NonEmptyArray<FirstName>;
 
 // LastName
 // The purpose of this remains a mystery
@@ -519,13 +527,13 @@ export const LastName: LastNameC = t.brand(
   (x): x is t.Branded<Common_.PersonalName, LastNameBrand> => true,
   'LastName',
 );
-export interface LastNameBrand {
+export type LastNameBrand = {
   readonly LastName: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(LastName)).decodeSync(examplesLastName) // => examplesLastName */
-export const examplesLastName: NonEmptyArray<LastName> = ([
+export const examplesLastName: NonEmptyArray<LastName> = [
   'Snowman',
-] as unknown) as NonEmptyArray<LastName>;
+] as unknown as NonEmptyArray<LastName>;
 
 // PartyId
 // The purpose of this remains a mystery
@@ -537,9 +545,9 @@ export const PartyId: PartyIdC = t.brand(
     (typeof x !== 'string' || x.length >= 1) && (typeof x !== 'string' || x.length <= 64),
   'PartyId',
 );
-export interface PartyIdBrand {
+export type PartyIdBrand = {
   readonly PartyId: unique symbol;
-}
+};
 
 // PartyType
 // The purpose of this remains a mystery
@@ -551,9 +559,9 @@ export const PartyType: PartyTypeC = t.brand(
     (typeof x !== 'string' || x.length >= 1) && (typeof x !== 'string' || x.length <= 64),
   'PartyType',
 );
-export interface PartyTypeBrand {
+export type PartyTypeBrand = {
   readonly PartyType: unique symbol;
-}
+};
 
 // PersonalDocument
 // The default export. More information at the top.
@@ -671,11 +679,11 @@ export const PersonalDocument: PersonalDocumentC = t.brand(
   > => true,
   'PersonalDocument',
 );
-export interface PersonalDocumentBrand {
+export type PersonalDocumentBrand = {
   readonly PersonalDocument: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(PersonalDocument)).decodeSync(examplesPersonalDocument) // => examplesPersonalDocument */
-export const examplesPersonalDocument: NonEmptyArray<PersonalDocument> = ([
+export const examplesPersonalDocument: NonEmptyArray<PersonalDocument> = [
   {
     identityId: '44ae30b6-eebc-4c00-9e46-704554c2a8a0',
     type: 'DRIVERS_LICENSE',
@@ -695,7 +703,7 @@ export const examplesPersonalDocument: NonEmptyArray<PersonalDocument> = ([
     firstName: 'Tea',
     lastName: 'Snowman',
   },
-] as unknown) as NonEmptyArray<PersonalDocument>;
+] as unknown as NonEmptyArray<PersonalDocument>;
 
 export default PersonalDocument;
 

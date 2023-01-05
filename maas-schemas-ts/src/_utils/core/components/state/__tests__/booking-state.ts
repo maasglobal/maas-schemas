@@ -1,9 +1,6 @@
-import * as P from 'maasglobal-prelude-ts';
-
 import { validator } from 'io-ts-validator';
 
 import { BookingState } from '../../../../../_types/core/components/state';
-
 import { Ord } from '../booking-state';
 
 describe('booking-state', () => {

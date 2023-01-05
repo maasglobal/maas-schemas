@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Units_ from './units';
 
 export const schemaId =
@@ -54,9 +55,9 @@ export const StripePaymentParameters: StripePaymentParametersC = t.brand(
   > => true,
   'StripePaymentParameters',
 );
-export interface StripePaymentParametersBrand {
+export type StripePaymentParametersBrand = {
   readonly StripePaymentParameters: unique symbol;
-}
+};
 
 // AvainpayPaymentParameters
 // The purpose of this remains a mystery
@@ -244,9 +245,9 @@ export const AvainpayPaymentParameters: AvainpayPaymentParametersC = t.brand(
   > => true,
   'AvainpayPaymentParameters',
 );
-export interface AvainpayPaymentParametersBrand {
+export type AvainpayPaymentParametersBrand = {
   readonly AvainpayPaymentParameters: unique symbol;
-}
+};
 
 // PaymentParameters
 // The default export. More information at the top.
@@ -257,9 +258,9 @@ export const PaymentParameters: PaymentParametersC = t.brand(
   (x): x is t.Branded<unknown, PaymentParametersBrand> => true,
   'PaymentParameters',
 );
-export interface PaymentParametersBrand {
+export type PaymentParametersBrand = {
   readonly PaymentParameters: unique symbol;
-}
+};
 
 export default PaymentParameters;
 

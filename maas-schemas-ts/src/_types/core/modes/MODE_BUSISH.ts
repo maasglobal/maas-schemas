@@ -32,9 +32,9 @@ export const MODE_BUSISH: MODE_BUSISHC = t.brand(
   > => true,
   'MODE_BUSISH',
 );
-export interface MODE_BUSISHBrand {
+export type MODE_BUSISHBrand = {
   readonly MODE_BUSISH: unique symbol;
-}
+};
 
 export default MODE_BUSISH;
 

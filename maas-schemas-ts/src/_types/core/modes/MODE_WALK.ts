@@ -30,9 +30,9 @@ export const MODE_WALK: MODE_WALKC = t.brand(
     true,
   'MODE_WALK',
 );
-export interface MODE_WALKBrand {
+export type MODE_WALKBrand = {
   readonly MODE_WALK: unique symbol;
-}
+};
 
 export default MODE_WALK;
 

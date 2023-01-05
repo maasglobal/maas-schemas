@@ -8,8 +8,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export const schemaId = 'https://schemas.maas.global/core/components/system.json';
@@ -27,11 +27,11 @@ export const AwsRegion: AwsRegionC = t.brand(
     ) !== null,
   'AwsRegion',
 );
-export interface AwsRegionBrand {
+export type AwsRegionBrand = {
   readonly AwsRegion: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(AwsRegion)).decodeSync(examplesAwsRegion) // => examplesAwsRegion */
-export const examplesAwsRegion: NonEmptyArray<AwsRegion> = ([
+export const examplesAwsRegion: NonEmptyArray<AwsRegion> = [
   'us-east-2',
   'us-east-1',
   'us-west-1',
@@ -48,7 +48,7 @@ export const examplesAwsRegion: NonEmptyArray<AwsRegion> = ([
   'eu-north-1',
   'sa-east-1',
   'us-gov-east-1',
-] as unknown) as NonEmptyArray<AwsRegion>;
+] as unknown as NonEmptyArray<AwsRegion>;
 
 // System
 // The default export. More information at the top.
@@ -59,9 +59,9 @@ export const System: SystemC = t.brand(
   (x): x is t.Branded<unknown, SystemBrand> => true,
   'System',
 );
-export interface SystemBrand {
+export type SystemBrand = {
   readonly System: unique symbol;
-}
+};
 
 export default System;
 

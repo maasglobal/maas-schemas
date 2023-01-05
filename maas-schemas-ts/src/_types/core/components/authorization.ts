@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Common_ from './common';
 import * as Units_ from './units';
 
@@ -24,7 +25,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/authorization.json';
@@ -106,9 +107,9 @@ export const Authorization: AuthorizationC = t.brand(
   > => true,
   'Authorization',
 );
-export interface AuthorizationBrand {
+export type AuthorizationBrand = {
   readonly Authorization: unique symbol;
-}
+};
 
 export default Authorization;
 

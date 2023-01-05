@@ -3,22 +3,17 @@ import * as P from 'maasglobal-prelude-ts';
 import * as t from 'io-ts';
 import { validator } from 'io-ts-validator';
 
-import {
-  MetaCurrency,
-  defaultMetaCurrencyWMP,
-} from '../../../../_types/core/components/common';
-import { TokenId } from '../../../../_types/core/components/fare';
-import { Fare } from '../../../../_types/core/components/fare';
+import { BalanceName } from '../../../../_types/core/balances';
+import { defaultMetaCurrencyWMP } from '../../../../_types/core/components/common';
+import { Fare, TokenId } from '../../../../_types/core/components/fare';
 import {
   Currency,
   defaultCurrencyEUR as EUR,
 } from '../../../../_types/core/components/units';
-
-import { BalanceName } from '../../../../_types/core/balances';
 import {
-  fromTokenId,
   fromCurrency,
   fromFare,
+  fromTokenId,
   isTokenId,
   Ord,
   WMP,

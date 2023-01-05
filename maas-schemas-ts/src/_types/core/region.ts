@@ -8,10 +8,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Address_ from './components/address';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
+import * as Address_ from './components/address';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -25,7 +26,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/region.json';
@@ -41,13 +42,13 @@ export const RegionId: RegionIdC = t.brand(
     (typeof x !== 'string' || x.length <= 255),
   'RegionId',
 );
-export interface RegionIdBrand {
+export type RegionIdBrand = {
   readonly RegionId: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(RegionId)).decodeSync(examplesRegionId) // => examplesRegionId */
-export const examplesRegionId: NonEmptyArray<RegionId> = ([
+export const examplesRegionId: NonEmptyArray<RegionId> = [
   'fi-helsinki',
-] as unknown) as NonEmptyArray<RegionId>;
+] as unknown as NonEmptyArray<RegionId>;
 
 // RegionName
 // The purpose of this remains a mystery
@@ -60,13 +61,13 @@ export const RegionName: RegionNameC = t.brand(
     (typeof x !== 'string' || x.length <= 255),
   'RegionName',
 );
-export interface RegionNameBrand {
+export type RegionNameBrand = {
   readonly RegionName: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(RegionName)).decodeSync(examplesRegionName) // => examplesRegionName */
-export const examplesRegionName: NonEmptyArray<RegionName> = ([
+export const examplesRegionName: NonEmptyArray<RegionName> = [
   'Helsinki & Turku',
-] as unknown) as NonEmptyArray<RegionName>;
+] as unknown as NonEmptyArray<RegionName>;
 
 // CountryCode
 // The purpose of this remains a mystery
@@ -77,13 +78,13 @@ export const CountryCode: CountryCodeC = t.brand(
   (x): x is t.Branded<Address_.Country, CountryCodeBrand> => true,
   'CountryCode',
 );
-export interface CountryCodeBrand {
+export type CountryCodeBrand = {
   readonly CountryCode: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(CountryCode)).decodeSync(examplesCountryCode) // => examplesCountryCode */
-export const examplesCountryCode: NonEmptyArray<CountryCode> = ([
+export const examplesCountryCode: NonEmptyArray<CountryCode> = [
   'FI',
-] as unknown) as NonEmptyArray<CountryCode>;
+] as unknown as NonEmptyArray<CountryCode>;
 
 // ZipCode
 // The purpose of this remains a mystery
@@ -94,13 +95,13 @@ export const ZipCode: ZipCodeC = t.brand(
   (x): x is t.Branded<Address_.ZipCode, ZipCodeBrand> => true,
   'ZipCode',
 );
-export interface ZipCodeBrand {
+export type ZipCodeBrand = {
   readonly ZipCode: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(ZipCode)).decodeSync(examplesZipCode) // => examplesZipCode */
-export const examplesZipCode: NonEmptyArray<ZipCode> = ([
+export const examplesZipCode: NonEmptyArray<ZipCode> = [
   '00100',
-] as unknown) as NonEmptyArray<ZipCode>;
+] as unknown as NonEmptyArray<ZipCode>;
 
 // Availability
 // The purpose of this remains a mystery
@@ -111,9 +112,9 @@ export const Availability: AvailabilityC = t.brand(
   (x): x is t.Branded<Record<string, unknown>, AvailabilityBrand> => true,
   'Availability',
 );
-export interface AvailabilityBrand {
+export type AvailabilityBrand = {
   readonly Availability: unique symbol;
-}
+};
 
 // Region
 // The default export. More information at the top.
@@ -191,11 +192,11 @@ export const Region: RegionC = t.brand(
   > => true,
   'Region',
 );
-export interface RegionBrand {
+export type RegionBrand = {
   readonly Region: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Region)).decodeSync(examplesRegion) // => examplesRegion */
-export const examplesRegion: NonEmptyArray<Region> = ([
+export const examplesRegion: NonEmptyArray<Region> = [
   {
     id: 'fi-helsinki',
     name: 'Helsinki & Turku',
@@ -210,7 +211,7 @@ export const examplesRegion: NonEmptyArray<Region> = ([
     modified: 0,
     currency: 'EUR',
   },
-] as unknown) as NonEmptyArray<Region>;
+] as unknown as NonEmptyArray<Region>;
 
 export default Region;
 

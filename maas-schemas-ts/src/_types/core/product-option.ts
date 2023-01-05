@@ -9,14 +9,15 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
+import * as BookingMeta_ from './booking-meta';
+import * as BookingOption_ from './booking-option';
+import * as Configurator_ from './components/configurator';
+import * as Cost_ from './components/cost';
+import * as Fare_ from './components/fare';
+import * as Terms_ from './components/terms';
 import * as Units_ from './components/units';
 import * as Product_ from './product';
-import * as Terms_ from './components/terms';
-import * as BookingMeta_ from './booking-meta';
-import * as Configurator_ from './components/configurator';
-import * as BookingOption_ from './booking-option';
-import * as Fare_ from './components/fare';
-import * as Cost_ from './components/cost';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -30,7 +31,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/product-option.json';
@@ -44,11 +45,11 @@ export const Ref: RefC = t.brand(
   (x): x is t.Branded<number, RefBrand> => Number.isInteger(x),
   'Ref',
 );
-export interface RefBrand {
+export type RefBrand = {
   readonly Ref: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(Ref).decodeSync(minimumRef) // => minimumRef */
-export const minimumRef: Ref = (0 as unknown) as Ref;
+export const minimumRef: Ref = 0 as unknown as Ref;
 
 // WithConfigurator
 // Works with configurator
@@ -142,9 +143,9 @@ export const WithConfigurator: WithConfiguratorC = t.brand(
   > => true,
   'WithConfigurator',
 );
-export interface WithConfiguratorBrand {
+export type WithConfiguratorBrand = {
   readonly WithConfigurator: unique symbol;
-}
+};
 
 // WithFares
 // Works with fares
@@ -238,9 +239,9 @@ export const WithFares: WithFaresC = t.brand(
   > => true,
   'WithFares',
 );
-export interface WithFaresBrand {
+export type WithFaresBrand = {
   readonly WithFares: unique symbol;
-}
+};
 
 // WithCost
 // Works with cost
@@ -334,9 +335,9 @@ export const WithCost: WithCostC = t.brand(
   > => true,
   'WithCost',
 );
-export interface WithCostBrand {
+export type WithCostBrand = {
   readonly WithCost: unique symbol;
-}
+};
 
 // ProductOption
 // The default export. More information at the top.
@@ -354,9 +355,9 @@ export const ProductOption: ProductOptionC = t.brand(
     true,
   'ProductOption',
 );
-export interface ProductOptionBrand {
+export type ProductOptionBrand = {
   readonly ProductOption: unique symbol;
-}
+};
 
 export default ProductOption;
 

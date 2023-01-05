@@ -8,14 +8,15 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as Units_ from './components/units';
 import * as t from 'io-ts';
+
+import * as Booking_ from './booking';
 import * as Common_ from './components/common';
-import * as State_ from './components/state';
 import * as Fare_ from './components/fare';
+import * as State_ from './components/state';
+import * as Units_ from './components/units';
 import * as Leg_ from './leg';
 import * as ProductOption_ from './product-option';
-import * as Booking_ from './booking';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -29,7 +30,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/itinerary.json';
@@ -43,9 +44,9 @@ export const Id: IdC = t.brand(
   (x): x is t.Branded<Units_.Uuid, IdBrand> => true,
   'Id',
 );
-export interface IdBrand {
+export type IdBrand = {
   readonly Id: unique symbol;
-}
+};
 
 // Itinerary
 // The default export. More information at the top.
@@ -151,9 +152,9 @@ export const Itinerary: ItineraryC = t.brand(
   > => true,
   'Itinerary',
 );
-export interface ItineraryBrand {
+export type ItineraryBrand = {
   readonly Itinerary: unique symbol;
-}
+};
 
 export default Itinerary;
 

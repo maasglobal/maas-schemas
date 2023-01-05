@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as BikeStation_ from '../components/bike-station';
 
 export type Defined = {} | null;
@@ -23,7 +24,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/modes/MODE_BICYCLE.json';
@@ -116,9 +117,9 @@ export const MODE_BICYCLE: MODE_BICYCLEC = t.brand(
   > => true,
   'MODE_BICYCLE',
 );
-export interface MODE_BICYCLEBrand {
+export type MODE_BICYCLEBrand = {
   readonly MODE_BICYCLE: unique symbol;
-}
+};
 
 export default MODE_BICYCLE;
 

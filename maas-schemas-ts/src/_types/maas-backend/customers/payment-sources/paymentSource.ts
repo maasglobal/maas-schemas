@@ -9,8 +9,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Station_ from '../../../core/components/station';
+
 import * as Address_ from '../../../core/components/address';
+import * as Station_ from '../../../core/components/station';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -24,7 +25,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -40,9 +41,9 @@ export const PaymentSourceId: PaymentSourceIdC = t.brand(
     typeof x !== 'string' || x.length >= 2,
   'PaymentSourceId',
 );
-export interface PaymentSourceIdBrand {
+export type PaymentSourceIdBrand = {
   readonly PaymentSourceId: unique symbol;
-}
+};
 
 // GatewayName
 // The purpose of this remains a mystery
@@ -55,9 +56,9 @@ export const GatewayName: GatewayNameC = t.brand(
     (typeof x !== 'string' || x.length <= 255),
   'GatewayName',
 );
-export interface GatewayNameBrand {
+export type GatewayNameBrand = {
   readonly GatewayName: unique symbol;
-}
+};
 
 // Type
 // The purpose of this remains a mystery
@@ -70,9 +71,9 @@ export const Type: TypeC = t.brand(
     (typeof x !== 'string' || x.length <= 100),
   'Type',
 );
-export interface TypeBrand {
+export type TypeBrand = {
   readonly Type: unique symbol;
-}
+};
 
 // Alias
 // The purpose of this remains a mystery
@@ -85,9 +86,9 @@ export const Alias: AliasC = t.brand(
     (typeof x !== 'string' || x.length <= 100),
   'Alias',
 );
-export interface AliasBrand {
+export type AliasBrand = {
   readonly Alias: unique symbol;
-}
+};
 
 // Status
 // The purpose of this remains a mystery
@@ -100,9 +101,9 @@ export const Status: StatusC = t.brand(
     (typeof x !== 'string' || x.length <= 255),
   'Status',
 );
-export interface StatusBrand {
+export type StatusBrand = {
   readonly Status: unique symbol;
-}
+};
 
 // SetupIntentId
 // The purpose of this remains a mystery
@@ -115,9 +116,9 @@ export const SetupIntentId: SetupIntentIdC = t.brand(
     (typeof x !== 'string' || x.length <= 255),
   'SetupIntentId',
 );
-export interface SetupIntentIdBrand {
+export type SetupIntentIdBrand = {
   readonly SetupIntentId: unique symbol;
-}
+};
 
 // PaymentSource
 // Payment source
@@ -231,8 +232,8 @@ export const PaymentSource: PaymentSourceC = t.brand(
   > => true,
   'PaymentSource',
 );
-export interface PaymentSourceBrand {
+export type PaymentSourceBrand = {
   readonly PaymentSource: unique symbol;
-}
+};
 
 // Success

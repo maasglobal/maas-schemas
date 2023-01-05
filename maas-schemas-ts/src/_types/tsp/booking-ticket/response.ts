@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as Units_ from '../../core/components/units';
 
 export type Defined = {} | null;
@@ -23,7 +24,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/tsp/booking-ticket/response.json';
@@ -142,9 +143,9 @@ export const Response: ResponseC = t.brand(
   > => true,
   'Response',
 );
-export interface ResponseBrand {
+export type ResponseBrand = {
   readonly Response: unique symbol;
-}
+};
 
 export default Response;
 

@@ -8,11 +8,12 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Environments_ from './environments';
-import * as Accounts_ from './accounts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
+import * as Accounts_ from './accounts';
+import * as Environments_ from './environments';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -26,12 +27,12 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
-export interface NullBrand {
+export type NullBrand = {
   readonly Null: unique symbol;
-}
+};
 export type NullC = t.BrandC<t.UnknownC, NullBrand>;
 export const Null: NullC = t.brand(
   t.unknown,
@@ -90,9 +91,9 @@ export const GroupMeta: GroupMetaC = t.brand(
   > => true,
   'GroupMeta',
 );
-export interface GroupMetaBrand {
+export type GroupMetaBrand = {
   readonly GroupMeta: unique symbol;
-}
+};
 
 // UnknownAccount
 // The environment configuration file is missing the account information
@@ -103,11 +104,11 @@ export const UnknownAccount: UnknownAccountC = t.brand(
   (x): x is t.Branded<Null, UnknownAccountBrand> => true,
   'UnknownAccount',
 );
-export interface UnknownAccountBrand {
+export type UnknownAccountBrand = {
   readonly UnknownAccount: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(UnknownAccount).decodeSync(defaultUnknownAccount) // => defaultUnknownAccount */
-export const defaultUnknownAccount: UnknownAccount = (null as unknown) as UnknownAccount;
+export const defaultUnknownAccount: UnknownAccount = null as unknown as UnknownAccount;
 
 // Synopsis
 // The default export. More information at the top.
@@ -169,11 +170,11 @@ export const Synopsis: SynopsisC = t.brand(
   > => true,
   'Synopsis',
 );
-export interface SynopsisBrand {
+export type SynopsisBrand = {
   readonly Synopsis: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Synopsis)).decodeSync(examplesSynopsis) // => examplesSynopsis */
-export const examplesSynopsis: NonEmptyArray<Synopsis> = ([
+export const examplesSynopsis: NonEmptyArray<Synopsis> = [
   {
     environment: {
       id: 'production',
@@ -209,7 +210,7 @@ export const examplesSynopsis: NonEmptyArray<Synopsis> = ([
     group: { name: 'Development Environments' },
     account: { id: '101234567890' },
   },
-] as unknown) as NonEmptyArray<Synopsis>;
+] as unknown as NonEmptyArray<Synopsis>;
 
 export default Synopsis;
 

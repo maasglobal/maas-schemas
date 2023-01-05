@@ -30,9 +30,9 @@ export const MODE_FERRY: MODE_FERRYC = t.brand(
     true,
   'MODE_FERRY',
 );
-export interface MODE_FERRYBrand {
+export type MODE_FERRYBrand = {
   readonly MODE_FERRY: unique symbol;
-}
+};
 
 export default MODE_FERRY;
 

@@ -32,9 +32,9 @@ export const MODE_TRAINISH: MODE_TRAINISHC = t.brand(
   > => true,
   'MODE_TRAINISH',
 );
-export interface MODE_TRAINISHBrand {
+export type MODE_TRAINISHBrand = {
   readonly MODE_TRAINISH: unique symbol;
-}
+};
 
 export default MODE_TRAINISH;
 

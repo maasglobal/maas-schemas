@@ -9,9 +9,10 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as CustomerSelectionV2_ from './customerSelectionV2';
-import * as CustomerSelectionV1_ from './customerSelectionV1';
+
 import * as Common_ from './common';
+import * as CustomerSelectionV1_ from './customerSelectionV1';
+import * as CustomerSelectionV2_ from './customerSelectionV2';
 
 export const schemaId =
   'https://schemas.maas.global/core/components/customerSelection.json';
@@ -50,9 +51,9 @@ export const CustomerSelection: CustomerSelectionC = t.brand(
   > => true,
   'CustomerSelection',
 );
-export interface CustomerSelectionBrand {
+export type CustomerSelectionBrand = {
   readonly CustomerSelection: unique symbol;
-}
+};
 
 export default CustomerSelection;
 

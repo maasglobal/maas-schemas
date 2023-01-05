@@ -22,7 +22,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -221,9 +221,9 @@ export const Request: RequestC = t.brand(
   > => true,
   'Request',
 );
-export interface RequestBrand {
+export type RequestBrand = {
   readonly Request: unique symbol;
-}
+};
 
 // Avainpay
 // The default export. More information at the top.
@@ -234,9 +234,9 @@ export const Avainpay: AvainpayC = t.brand(
   (x): x is t.Branded<unknown, AvainpayBrand> => true,
   'Avainpay',
 );
-export interface AvainpayBrand {
+export type AvainpayBrand = {
   readonly Avainpay: unique symbol;
-}
+};
 
 export default Avainpay;
 

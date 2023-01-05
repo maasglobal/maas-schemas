@@ -1,7 +1,6 @@
 import * as P from 'maasglobal-prelude-ts';
 
 import { Fare } from '../../../../_types/core/components/fare';
-
 import * as BalanceName_ from '../../balances/balance-name';
 
 export const Ord: P.Ord<Fare> = P.Ord_.fromCompare((fareA, fareB) => {

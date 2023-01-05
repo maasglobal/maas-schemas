@@ -10,9 +10,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-export interface NullBrand {
+export type NullBrand = {
   readonly Null: unique symbol;
-}
+};
 export type NullC = t.BrandC<t.UnknownC, NullBrand>;
 export const Null: NullC = t.brand(
   t.unknown,
@@ -35,9 +35,9 @@ export const StringCoarsedNull: StringCoarsedNullC = t.brand(
   (x): x is t.Branded<Null | '', StringCoarsedNullBrand> => true,
   'StringCoarsedNull',
 );
-export interface StringCoarsedNullBrand {
+export type StringCoarsedNullBrand = {
   readonly StringCoarsedNull: unique symbol;
-}
+};
 
 // Ajv
 // The default export. More information at the top.
@@ -48,9 +48,9 @@ export const Ajv: AjvC = t.brand(
   (x): x is t.Branded<unknown, AjvBrand> => true,
   'Ajv',
 );
-export interface AjvBrand {
+export type AjvBrand = {
   readonly Ajv: unique symbol;
-}
+};
 
 export default Ajv;
 

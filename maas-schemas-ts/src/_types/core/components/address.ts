@@ -8,10 +8,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Common_ from './common';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
+import * as Common_ from './common';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -25,7 +26,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/core/components/address.json';
@@ -46,11 +47,11 @@ export const ComponentAddress: ComponentAddressC = t.brand(
     ) !== null,
   'ComponentAddress',
 );
-export interface ComponentAddressBrand {
+export type ComponentAddressBrand = {
   readonly ComponentAddress: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(ComponentAddress)).decodeSync(examplesComponentAddress) // => examplesComponentAddress */
-export const examplesComponentAddress: NonEmptyArray<ComponentAddress> = ([
+export const examplesComponentAddress: NonEmptyArray<ComponentAddress> = [
   'state:Tōkyō-to|district:Kanda Nishikichō 3-chōme|streetNumber:4-パレステュディオ御茶ノ水駿河台参番館|zipCode:101-0054|city:Chiyoda-City|country:Japan',
   "id:pe--Aigle--whosonfirst%3Alocality%3A101853849|streetName:Tarkk'ampujänkätu|city:Helsinki|country:Finland|state:Uusimaa|streetNumber:1|zipCode:00100|district:Tapiola",
   "streetName:Hämeentie Töölöntori Lähettilääntie Tarkk'ampujänkätu",
@@ -70,7 +71,7 @@ export const examplesComponentAddress: NonEmptyArray<ComponentAddress> = ([
   'country:skandinavisk',
   'streetNumber:1-1',
   'streetNumber:1/2-d2',
-] as unknown) as NonEmptyArray<ComponentAddress>;
+] as unknown as NonEmptyArray<ComponentAddress>;
 
 // PlaceId
 // Upstream API placeId
@@ -83,9 +84,9 @@ export const PlaceId: PlaceIdC = t.brand(
     (typeof x !== 'string' || x.length <= 64),
   'PlaceId',
 );
-export interface PlaceIdBrand {
+export type PlaceIdBrand = {
   readonly PlaceId: unique symbol;
-}
+};
 
 // StreetName
 // The purpose of this remains a mystery
@@ -96,9 +97,9 @@ export const StreetName: StreetNameC = t.brand(
   (x): x is t.Branded<string, StreetNameBrand> => typeof x !== 'string' || x.length >= 1,
   'StreetName',
 );
-export interface StreetNameBrand {
+export type StreetNameBrand = {
   readonly StreetName: unique symbol;
-}
+};
 
 // City
 // Alphabetic city name
@@ -109,9 +110,9 @@ export const City: CityC = t.brand(
   (x): x is t.Branded<string, CityBrand> => typeof x !== 'string' || x.length >= 1,
   'City',
 );
-export interface CityBrand {
+export type CityBrand = {
   readonly City: unique symbol;
-}
+};
 
 // State
 // Alphabetic state name
@@ -124,9 +125,9 @@ export const State: StateC = t.brand(
     (typeof x !== 'string' || x.length <= 64),
   'State',
 );
-export interface StateBrand {
+export type StateBrand = {
   readonly State: unique symbol;
-}
+};
 
 // ZipCode
 // Numeric zip code, see https://en.wikipedia.org/wiki/Postal_code
@@ -138,9 +139,9 @@ export const ZipCode: ZipCodeC = t.brand(
     (typeof x !== 'string' || x.length >= 2) && (typeof x !== 'string' || x.length <= 64),
   'ZipCode',
 );
-export interface ZipCodeBrand {
+export type ZipCodeBrand = {
   readonly ZipCode: unique symbol;
-}
+};
 
 // Country
 // ISO 3166-1 alpha-2 country code, see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
@@ -152,9 +153,9 @@ export const Country: CountryC = t.brand(
     typeof x !== 'string' || x.match(RegExp('^[A-Z]{2,2}$')) !== null,
   'Country',
 );
-export interface CountryBrand {
+export type CountryBrand = {
   readonly Country: unique symbol;
-}
+};
 
 // StreetNumber
 // The purpose of this remains a mystery
@@ -166,9 +167,9 @@ export const StreetNumber: StreetNumberC = t.brand(
     typeof x !== 'string' || x.length >= 1,
   'StreetNumber',
 );
-export interface StreetNumberBrand {
+export type StreetNumberBrand = {
   readonly StreetNumber: unique symbol;
-}
+};
 
 // Ward
 // The purpose of this remains a mystery
@@ -179,9 +180,9 @@ export const Ward: WardC = t.brand(
   (x): x is t.Branded<string, WardBrand> => typeof x !== 'string' || x.length >= 1,
   'Ward',
 );
-export interface WardBrand {
+export type WardBrand = {
   readonly Ward: unique symbol;
-}
+};
 
 // District
 // The purpose of this remains a mystery
@@ -192,9 +193,9 @@ export const District: DistrictC = t.brand(
   (x): x is t.Branded<string, DistrictBrand> => typeof x !== 'string' || x.length >= 1,
   'District',
 );
-export interface DistrictBrand {
+export type DistrictBrand = {
   readonly District: unique symbol;
-}
+};
 
 // ComponentAddressObject
 // The purpose of this remains a mystery
@@ -280,9 +281,9 @@ export const ComponentAddressObject: ComponentAddressObjectC = t.brand(
   > => true,
   'ComponentAddressObject',
 );
-export interface ComponentAddressObjectBrand {
+export type ComponentAddressObjectBrand = {
   readonly ComponentAddressObject: unique symbol;
-}
+};
 
 // PlaceName
 // Place name (given in autocomplete)
@@ -293,9 +294,9 @@ export const PlaceName: PlaceNameC = t.brand(
   (x): x is t.Branded<string, PlaceNameBrand> => typeof x !== 'string' || x.length >= 1,
   'PlaceName',
 );
-export interface PlaceNameBrand {
+export type PlaceNameBrand = {
   readonly PlaceName: unique symbol;
-}
+};
 
 // FirstName
 // First name of the customer (e.g. John)
@@ -306,9 +307,9 @@ export const FirstName: FirstNameC = t.brand(
   (x): x is t.Branded<Common_.PersonalName, FirstNameBrand> => true,
   'FirstName',
 );
-export interface FirstNameBrand {
+export type FirstNameBrand = {
   readonly FirstName: unique symbol;
-}
+};
 
 // LastName
 // Last name of the customer (e.g. Doe)
@@ -319,9 +320,9 @@ export const LastName: LastNameC = t.brand(
   (x): x is t.Branded<Common_.PersonalName, LastNameBrand> => true,
   'LastName',
 );
-export interface LastNameBrand {
+export type LastNameBrand = {
   readonly LastName: unique symbol;
-}
+};
 
 // Phone
 // ITU-T E.164 phone number
@@ -332,9 +333,9 @@ export const Phone: PhoneC = t.brand(
   (x): x is t.Branded<Common_.Phone, PhoneBrand> => true,
   'Phone',
 );
-export interface PhoneBrand {
+export type PhoneBrand = {
   readonly Phone: unique symbol;
-}
+};
 
 // Email
 // Rough validation of a valid e-mail address
@@ -345,9 +346,9 @@ export const Email: EmailC = t.brand(
   (x): x is t.Branded<Common_.Email, EmailBrand> => true,
   'Email',
 );
-export interface EmailBrand {
+export type EmailBrand = {
   readonly Email: unique symbol;
-}
+};
 
 // Address
 // Street address (and optional number), http://www.bitboost.com/ref/international-address-formats.html
@@ -358,9 +359,9 @@ export const Address: AddressC = t.brand(
   (x): x is t.Branded<string, AddressBrand> => typeof x !== 'string' || x.length >= 2,
   'Address',
 );
-export interface AddressBrand {
+export type AddressBrand = {
   readonly Address: unique symbol;
-}
+};
 
 // CountryName
 // Alphabetic country name
@@ -373,8 +374,8 @@ export const CountryName: CountryNameC = t.brand(
     (typeof x !== 'string' || x.length <= 64),
   'CountryName',
 );
-export interface CountryNameBrand {
+export type CountryNameBrand = {
   readonly CountryName: unique symbol;
-}
+};
 
 // Success

@@ -1,9 +1,8 @@
-import { Hostname } from '../../../../_types/core/components/units';
-
 import {
   Authority,
   defaultHostPortDelimiter as colon,
   defaultNetworkSchemeDelimiter as colonSlashSlash,
+  Hostname,
   Port,
 } from '../../../../_types/core/components/units';
 

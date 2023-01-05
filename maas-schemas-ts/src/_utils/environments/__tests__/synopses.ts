@@ -1,7 +1,6 @@
 import { validator } from 'io-ts-validator';
 
 import { Environments } from '../../../_types/environments/environments';
-
 import { Synopses } from '../../../_types/environments/synopses';
 import { fromEnvironments } from '../synopses';
 

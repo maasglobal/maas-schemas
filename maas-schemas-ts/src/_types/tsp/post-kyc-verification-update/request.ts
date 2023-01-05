@@ -8,10 +8,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Customer_ from '../../core/customer';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
+import * as Customer_ from '../../core/customer';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -25,7 +26,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -79,11 +80,11 @@ export const Request: RequestC = t.brand(
   > => true,
   'Request',
 );
-export interface RequestBrand {
+export type RequestBrand = {
   readonly Request: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Request)).decodeSync(examplesRequest) // => examplesRequest */
-export const examplesRequest: NonEmptyArray<Request> = ([
+export const examplesRequest: NonEmptyArray<Request> = [
   {
     customer: {
       firstName: 'John',
@@ -111,7 +112,7 @@ export const examplesRequest: NonEmptyArray<Request> = ([
     },
     verifiedPersonalDataItems: ['dob', 'ssid'],
   },
-] as unknown) as NonEmptyArray<Request>;
+] as unknown as NonEmptyArray<Request>;
 
 export default Request;
 

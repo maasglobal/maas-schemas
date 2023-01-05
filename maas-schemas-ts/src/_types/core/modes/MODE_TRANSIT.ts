@@ -32,9 +32,9 @@ export const MODE_TRANSIT: MODE_TRANSITC = t.brand(
   > => true,
   'MODE_TRANSIT',
 );
-export interface MODE_TRANSITBrand {
+export type MODE_TRANSITBrand = {
   readonly MODE_TRANSIT: unique symbol;
-}
+};
 
 export default MODE_TRANSIT;
 

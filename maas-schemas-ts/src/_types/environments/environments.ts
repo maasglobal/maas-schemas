@@ -8,11 +8,12 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
 import * as Units_ from '../core/components/units';
 import * as Accounts_ from './accounts';
-import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
-import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -26,7 +27,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/environments/environments.json';
@@ -43,16 +44,16 @@ export const EnvironmentId: EnvironmentIdC = t.brand(
   (x): x is t.Branded<string & Units_.HostnameLabel, EnvironmentIdBrand> => true,
   'EnvironmentId',
 );
-export interface EnvironmentIdBrand {
+export type EnvironmentIdBrand = {
   readonly EnvironmentId: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(EnvironmentId)).decodeSync(examplesEnvironmentId) // => examplesEnvironmentId */
-export const examplesEnvironmentId: NonEmptyArray<EnvironmentId> = ([
+export const examplesEnvironmentId: NonEmptyArray<EnvironmentId> = [
   'production',
   'testing',
   'environment13',
   'fantasy-topping',
-] as unknown) as NonEmptyArray<EnvironmentId>;
+] as unknown as NonEmptyArray<EnvironmentId>;
 
 // EnvironmentLive
 // Live environments are connected to actual payment and TSP services
@@ -63,14 +64,14 @@ export const EnvironmentLive: EnvironmentLiveC = t.brand(
   (x): x is t.Branded<boolean, EnvironmentLiveBrand> => true,
   'EnvironmentLive',
 );
-export interface EnvironmentLiveBrand {
+export type EnvironmentLiveBrand = {
   readonly EnvironmentLive: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(EnvironmentLive)).decodeSync(examplesEnvironmentLive) // => examplesEnvironmentLive */
-export const examplesEnvironmentLive: NonEmptyArray<EnvironmentLive> = ([
+export const examplesEnvironmentLive: NonEmptyArray<EnvironmentLive> = [
   true,
   false,
-] as unknown) as NonEmptyArray<EnvironmentLive>;
+] as unknown as NonEmptyArray<EnvironmentLive>;
 
 // EnvironmentName
 // The purpose of this remains a mystery
@@ -81,16 +82,16 @@ export const EnvironmentName: EnvironmentNameC = t.brand(
   (x): x is t.Branded<string, EnvironmentNameBrand> => true,
   'EnvironmentName',
 );
-export interface EnvironmentNameBrand {
+export type EnvironmentNameBrand = {
   readonly EnvironmentName: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(EnvironmentName)).decodeSync(examplesEnvironmentName) // => examplesEnvironmentName */
-export const examplesEnvironmentName: NonEmptyArray<EnvironmentName> = ([
+export const examplesEnvironmentName: NonEmptyArray<EnvironmentName> = [
   'production',
   'testing',
   'environment 13',
   'Fantasy Topping',
-] as unknown) as NonEmptyArray<EnvironmentName>;
+] as unknown as NonEmptyArray<EnvironmentName>;
 
 // EnvironmentDescription
 // The purpose of this remains a mystery
@@ -101,15 +102,15 @@ export const EnvironmentDescription: EnvironmentDescriptionC = t.brand(
   (x): x is t.Branded<string, EnvironmentDescriptionBrand> => true,
   'EnvironmentDescription',
 );
-export interface EnvironmentDescriptionBrand {
+export type EnvironmentDescriptionBrand = {
   readonly EnvironmentDescription: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(EnvironmentDescription)).decodeSync(examplesEnvironmentDescription) // => examplesEnvironmentDescription */
-export const examplesEnvironmentDescription: NonEmptyArray<EnvironmentDescription> = ([
+export const examplesEnvironmentDescription: NonEmptyArray<EnvironmentDescription> = [
   'Production environment',
   'Testing environment',
   'Add support for pizza customization',
-] as unknown) as NonEmptyArray<EnvironmentDescription>;
+] as unknown as NonEmptyArray<EnvironmentDescription>;
 
 // Environment
 // The purpose of this remains a mystery
@@ -179,18 +180,18 @@ export const Environment: EnvironmentC = t.brand(
   > => true,
   'Environment',
 );
-export interface EnvironmentBrand {
+export type EnvironmentBrand = {
   readonly Environment: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Environment)).decodeSync(examplesEnvironment) // => examplesEnvironment */
-export const examplesEnvironment: NonEmptyArray<Environment> = ([
+export const examplesEnvironment: NonEmptyArray<Environment> = [
   {
     id: 'production',
     live: true,
     account: 'production',
     description: 'Production environment',
   },
-] as unknown) as NonEmptyArray<Environment>;
+] as unknown as NonEmptyArray<Environment>;
 
 // DevEnvironment
 // The purpose of this remains a mystery
@@ -254,13 +255,13 @@ export const DevEnvironment: DevEnvironmentC = t.brand(
   > => true,
   'DevEnvironment',
 );
-export interface DevEnvironmentBrand {
+export type DevEnvironmentBrand = {
   readonly DevEnvironment: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(DevEnvironment)).decodeSync(examplesDevEnvironment) // => examplesDevEnvironment */
-export const examplesDevEnvironment: NonEmptyArray<DevEnvironment> = ([
+export const examplesDevEnvironment: NonEmptyArray<DevEnvironment> = [
   { id: 'testing', live: false, account: 'testing', description: 'Testing environment' },
-] as unknown) as NonEmptyArray<DevEnvironment>;
+] as unknown as NonEmptyArray<DevEnvironment>;
 
 // EnvironmentGroupName
 // The purpose of this remains a mystery
@@ -271,14 +272,14 @@ export const EnvironmentGroupName: EnvironmentGroupNameC = t.brand(
   (x): x is t.Branded<string, EnvironmentGroupNameBrand> => true,
   'EnvironmentGroupName',
 );
-export interface EnvironmentGroupNameBrand {
+export type EnvironmentGroupNameBrand = {
   readonly EnvironmentGroupName: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(EnvironmentGroupName)).decodeSync(examplesEnvironmentGroupName) // => examplesEnvironmentGroupName */
-export const examplesEnvironmentGroupName: NonEmptyArray<EnvironmentGroupName> = ([
+export const examplesEnvironmentGroupName: NonEmptyArray<EnvironmentGroupName> = [
   'Core Environments',
   'Development Environments',
-] as unknown) as NonEmptyArray<EnvironmentGroupName>;
+] as unknown as NonEmptyArray<EnvironmentGroupName>;
 
 // EnvironmentGroupDescription
 // The purpose of this remains a mystery
@@ -295,15 +296,16 @@ export const EnvironmentGroupDescription: EnvironmentGroupDescriptionC = t.brand
   (x): x is t.Branded<string, EnvironmentGroupDescriptionBrand> => true,
   'EnvironmentGroupDescription',
 );
-export interface EnvironmentGroupDescriptionBrand {
+export type EnvironmentGroupDescriptionBrand = {
   readonly EnvironmentGroupDescription: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(EnvironmentGroupDescription)).decodeSync(examplesEnvironmentGroupDescription) // => examplesEnvironmentGroupDescription */
-export const examplesEnvironmentGroupDescription: NonEmptyArray<EnvironmentGroupDescription> = ([
-  'The main environments used by paying customers',
-  'Production like environments used for quality assurance',
-  'Development environments used for feature development',
-] as unknown) as NonEmptyArray<EnvironmentGroupDescription>;
+export const examplesEnvironmentGroupDescription: NonEmptyArray<EnvironmentGroupDescription> =
+  [
+    'The main environments used by paying customers',
+    'Production like environments used for quality assurance',
+    'Development environments used for feature development',
+  ] as unknown as NonEmptyArray<EnvironmentGroupDescription>;
 
 // EnvironmentGroup
 // The purpose of this remains a mystery
@@ -361,11 +363,11 @@ export const EnvironmentGroup: EnvironmentGroupC = t.brand(
   > => true,
   'EnvironmentGroup',
 );
-export interface EnvironmentGroupBrand {
+export type EnvironmentGroupBrand = {
   readonly EnvironmentGroup: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(EnvironmentGroup)).decodeSync(examplesEnvironmentGroup) // => examplesEnvironmentGroup */
-export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = ([
+export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = [
   {
     name: 'Core Environments',
     envs: [
@@ -395,7 +397,7 @@ export const examplesEnvironmentGroup: NonEmptyArray<EnvironmentGroup> = ([
       },
     ],
   },
-] as unknown) as NonEmptyArray<EnvironmentGroup>;
+] as unknown as NonEmptyArray<EnvironmentGroup>;
 
 // EnvironmentIndex
 // The purpose of this remains a mystery
@@ -409,9 +411,9 @@ export const EnvironmentIndex: EnvironmentIndexC = t.brand(
   (x): x is t.Branded<Array<EnvironmentGroup>, EnvironmentIndexBrand> => true,
   'EnvironmentIndex',
 );
-export interface EnvironmentIndexBrand {
+export type EnvironmentIndexBrand = {
   readonly EnvironmentIndex: unique symbol;
-}
+};
 
 // Environments
 // The default export. More information at the top.
@@ -461,11 +463,11 @@ export const Environments: EnvironmentsC = t.brand(
   > => true,
   'Environments',
 );
-export interface EnvironmentsBrand {
+export type EnvironmentsBrand = {
   readonly Environments: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Environments)).decodeSync(examplesEnvironments) // => examplesEnvironments */
-export const examplesEnvironments: NonEmptyArray<Environments> = ([
+export const examplesEnvironments: NonEmptyArray<Environments> = [
   {
     accounts: {
       production: {
@@ -507,7 +509,7 @@ export const examplesEnvironments: NonEmptyArray<Environments> = ([
       },
     ],
   },
-] as unknown) as NonEmptyArray<Environments>;
+] as unknown as NonEmptyArray<Environments>;
 
 export default Environments;
 

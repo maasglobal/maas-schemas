@@ -8,8 +8,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export const schemaId = 'https://schemas.maas.global/core/components/common.json';
@@ -24,9 +24,9 @@ export const AgencyId: AgencyIdC = t.brand(
     (typeof x !== 'string' || x.length >= 2) && (typeof x !== 'string' || x.length <= 64),
   'AgencyId',
 );
-export interface AgencyIdBrand {
+export type AgencyIdBrand = {
   readonly AgencyId: unique symbol;
-}
+};
 
 // DeviceToken
 // The purpose of this remains a mystery
@@ -38,9 +38,9 @@ export const DeviceToken: DeviceTokenC = t.brand(
     typeof x !== 'string' || x.match(RegExp('^([A-Fa-f0-9]{2}){8,64}$')) !== null,
   'DeviceToken',
 );
-export interface DeviceTokenBrand {
+export type DeviceTokenBrand = {
   readonly DeviceToken: unique symbol;
-}
+};
 
 // Signature
 // Signature of a signed object
@@ -53,9 +53,9 @@ export const Signature: SignatureC = t.brand(
     (typeof x !== 'string' || x.length <= 1024),
   'Signature',
 );
-export interface SignatureBrand {
+export type SignatureBrand = {
   readonly Signature: unique symbol;
-}
+};
 
 // HtmlBlock
 // HTML string of block level content
@@ -66,9 +66,9 @@ export const HtmlBlock: HtmlBlockC = t.brand(
   (x): x is t.Branded<string, HtmlBlockBrand> => true,
   'HtmlBlock',
 );
-export interface HtmlBlockBrand {
+export type HtmlBlockBrand = {
   readonly HtmlBlock: unique symbol;
-}
+};
 
 // JsonParam
 // JSON encoded object or array
@@ -79,9 +79,9 @@ export const JsonParam: JsonParamC = t.brand(
   (x): x is t.Branded<string, JsonParamBrand> => typeof x !== 'string' || x.length >= 2,
   'JsonParam',
 );
-export interface JsonParamBrand {
+export type JsonParamBrand = {
   readonly JsonParam: unique symbol;
-}
+};
 
 // MetaCurrency
 // The purpose of this remains a mystery
@@ -95,9 +95,9 @@ export const MetaCurrency: MetaCurrencyC = t.brand(
   (x): x is t.Branded<string & ('WMP' | 'TOKEN'), MetaCurrencyBrand> => true,
   'MetaCurrency',
 );
-export interface MetaCurrencyBrand {
+export type MetaCurrencyBrand = {
   readonly MetaCurrency: unique symbol;
-}
+};
 
 // MetaCurrencyWMP
 // The purpose of this remains a mystery
@@ -111,11 +111,12 @@ export const MetaCurrencyWMP: MetaCurrencyWMPC = t.brand(
   (x): x is t.Branded<MetaCurrency & 'WMP', MetaCurrencyWMPBrand> => true,
   'MetaCurrencyWMP',
 );
-export interface MetaCurrencyWMPBrand {
+export type MetaCurrencyWMPBrand = {
   readonly MetaCurrencyWMP: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(MetaCurrencyWMP).decodeSync(defaultMetaCurrencyWMP) // => defaultMetaCurrencyWMP */
-export const defaultMetaCurrencyWMP: MetaCurrencyWMP = ('WMP' as unknown) as MetaCurrencyWMP;
+export const defaultMetaCurrencyWMP: MetaCurrencyWMP =
+  'WMP' as unknown as MetaCurrencyWMP;
 
 // MetaCurrencyTOKEN
 // The purpose of this remains a mystery
@@ -129,11 +130,12 @@ export const MetaCurrencyTOKEN: MetaCurrencyTOKENC = t.brand(
   (x): x is t.Branded<MetaCurrency & 'TOKEN', MetaCurrencyTOKENBrand> => true,
   'MetaCurrencyTOKEN',
 );
-export interface MetaCurrencyTOKENBrand {
+export type MetaCurrencyTOKENBrand = {
   readonly MetaCurrencyTOKEN: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(MetaCurrencyTOKEN).decodeSync(defaultMetaCurrencyTOKEN) // => defaultMetaCurrencyTOKEN */
-export const defaultMetaCurrencyTOKEN: MetaCurrencyTOKEN = ('TOKEN' as unknown) as MetaCurrencyTOKEN;
+export const defaultMetaCurrencyTOKEN: MetaCurrencyTOKEN =
+  'TOKEN' as unknown as MetaCurrencyTOKEN;
 
 // PersonalName
 // First or last name of a customer (e.g. John)
@@ -148,9 +150,9 @@ export const PersonalName: PersonalNameC = t.brand(
     (typeof x !== 'string' || x.length <= 255),
   'PersonalName',
 );
-export interface PersonalNameBrand {
+export type PersonalNameBrand = {
   readonly PersonalName: unique symbol;
-}
+};
 
 // Phone
 // ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html
@@ -162,13 +164,13 @@ export const Phone: PhoneC = t.brand(
     typeof x !== 'string' || x.match(RegExp('^\\+(?:\\d){6,14}\\d$')) !== null,
   'Phone',
 );
-export interface PhoneBrand {
+export type PhoneBrand = {
   readonly Phone: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Phone)).decodeSync(examplesPhone) // => examplesPhone */
-export const examplesPhone: NonEmptyArray<Phone> = ([
+export const examplesPhone: NonEmptyArray<Phone> = [
   '+358401234567',
-] as unknown) as NonEmptyArray<Phone>;
+] as unknown as NonEmptyArray<Phone>;
 // NEGATIVE Test Case: phone number without plus
 /** require('io-ts-validator').validator(Phone).decodeEither("358401234567")._tag // => 'Left' */
 
@@ -182,9 +184,9 @@ export const RawPhone: RawPhoneC = t.brand(
     typeof x !== 'string' || x.match(RegExp('^\\+?(?:\\d){6,14}\\d$')) !== null,
   'RawPhone',
 );
-export interface RawPhoneBrand {
+export type RawPhoneBrand = {
   readonly RawPhone: unique symbol;
-}
+};
 
 // Email
 // Rough validation of a valid e-mail address, see https://davidcel.is/posts/stop-validating-email-addresses-with-regex/
@@ -197,13 +199,13 @@ export const Email: EmailC = t.brand(
     (typeof x !== 'string' || x.length <= 64),
   'Email',
 );
-export interface EmailBrand {
+export type EmailBrand = {
   readonly Email: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Email)).decodeSync(examplesEmail) // => examplesEmail */
-export const examplesEmail: NonEmptyArray<Email> = ([
+export const examplesEmail: NonEmptyArray<Email> = [
   'joe.customer@example.com',
-] as unknown) as NonEmptyArray<Email>;
+] as unknown as NonEmptyArray<Email>;
 
 // PaymentSourceId
 // The purpose of this remains a mystery
@@ -216,9 +218,9 @@ export const PaymentSourceId: PaymentSourceIdC = t.brand(
     (typeof x !== 'string' || x.length <= 255),
   'PaymentSourceId',
 );
-export interface PaymentSourceIdBrand {
+export type PaymentSourceIdBrand = {
   readonly PaymentSourceId: unique symbol;
-}
+};
 
 // AppInstanceId
 // An id specific to a user device
@@ -230,9 +232,9 @@ export const AppInstanceId: AppInstanceIdC = t.brand(
     typeof x !== 'string' || x.length >= 6,
   'AppInstanceId',
 );
-export interface AppInstanceIdBrand {
+export type AppInstanceIdBrand = {
   readonly AppInstanceId: unique symbol;
-}
+};
 
 // OpaqueId
 // Typically the hash of the identityId
@@ -244,9 +246,9 @@ export const OpaqueId: OpaqueIdC = t.brand(
     typeof x !== 'string' || x.match(RegExp('^[0-9abcdefABCDEF]+$')) !== null,
   'OpaqueId',
 );
-export interface OpaqueIdBrand {
+export type OpaqueIdBrand = {
   readonly OpaqueId: unique symbol;
-}
+};
 
 // OpaqueIdShort
 // Typically the MD5  hash of the identityId
@@ -258,9 +260,9 @@ export const OpaqueIdShort: OpaqueIdShortC = t.brand(
     typeof x !== 'string' || x.match(RegExp('^[0-9abcdefABCDEF]{32}$')) !== null,
   'OpaqueIdShort',
 );
-export interface OpaqueIdShortBrand {
+export type OpaqueIdShortBrand = {
   readonly OpaqueIdShort: unique symbol;
-}
+};
 
 // ClientId
 // An id indicating the source of the client
@@ -274,9 +276,9 @@ export const ClientId: ClientIdC = t.brand(
   (x): x is t.Branded<string & ('whim' | 'wechat'), ClientIdBrand> => true,
   'ClientId',
 );
-export interface ClientIdBrand {
+export type ClientIdBrand = {
   readonly ClientId: unique symbol;
-}
+};
 
 // ClientIdWHIM
 // The purpose of this remains a mystery
@@ -290,11 +292,11 @@ export const ClientIdWHIM: ClientIdWHIMC = t.brand(
   (x): x is t.Branded<ClientId & 'whim', ClientIdWHIMBrand> => true,
   'ClientIdWHIM',
 );
-export interface ClientIdWHIMBrand {
+export type ClientIdWHIMBrand = {
   readonly ClientIdWHIM: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(ClientIdWHIM).decodeSync(defaultClientIdWHIM) // => defaultClientIdWHIM */
-export const defaultClientIdWHIM: ClientIdWHIM = ('whim' as unknown) as ClientIdWHIM;
+export const defaultClientIdWHIM: ClientIdWHIM = 'whim' as unknown as ClientIdWHIM;
 
 // ClientIdWECHAT
 // The purpose of this remains a mystery
@@ -308,11 +310,12 @@ export const ClientIdWECHAT: ClientIdWECHATC = t.brand(
   (x): x is t.Branded<ClientId & 'wechat', ClientIdWECHATBrand> => true,
   'ClientIdWECHAT',
 );
-export interface ClientIdWECHATBrand {
+export type ClientIdWECHATBrand = {
   readonly ClientIdWECHAT: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(ClientIdWECHAT).decodeSync(defaultClientIdWECHAT) // => defaultClientIdWECHAT */
-export const defaultClientIdWECHAT: ClientIdWECHAT = ('wechat' as unknown) as ClientIdWECHAT;
+export const defaultClientIdWECHAT: ClientIdWECHAT =
+  'wechat' as unknown as ClientIdWECHAT;
 
 // Ssid
 // Social Security ID
@@ -323,9 +326,9 @@ export const Ssid: SsidC = t.brand(
   (x): x is t.Branded<string, SsidBrand> => typeof x !== 'string' || x.length >= 4,
   'Ssid',
 );
-export interface SsidBrand {
+export type SsidBrand = {
   readonly Ssid: unique symbol;
-}
+};
 
 // SsidFI
 // Finnish Social Security ID
@@ -338,9 +341,9 @@ export const SsidFI: SsidFIC = t.brand(
     x.match(RegExp('^[0-9]{6}[-+A][0-9]{3}[0-9ABCDEFHJKLMNPRSTUVWXY]$')) !== null,
   'SsidFI',
 );
-export interface SsidFIBrand {
+export type SsidFIBrand = {
   readonly SsidFI: unique symbol;
-}
+};
 
 // EncodedQueryParam
 // Encoded Query Params
@@ -353,9 +356,9 @@ export const EncodedQueryParam: EncodedQueryParamC = t.brand(
     (typeof x !== 'string' || x.length <= 8192),
   'EncodedQueryParam',
 );
-export interface EncodedQueryParamBrand {
+export type EncodedQueryParamBrand = {
   readonly EncodedQueryParam: unique symbol;
-}
+};
 
 // ErrorKey
 // Error key
@@ -368,9 +371,9 @@ export const ErrorKey: ErrorKeyC = t.brand(
     (typeof x !== 'string' || x.length <= 255),
   'ErrorKey',
 );
-export interface ErrorKeyBrand {
+export type ErrorKeyBrand = {
   readonly ErrorKey: unique symbol;
-}
+};
 
 // WhimDeepLink
 // Whim only deep link to localhost and freely defined view - not a complete URI validation
@@ -383,9 +386,9 @@ export const WhimDeepLink: WhimDeepLinkC = t.brand(
     x.match(RegExp('^(whim):\\/\\/\\/[^\\s/$.?#].[^\\s]*$')) !== null,
   'WhimDeepLink',
 );
-export interface WhimDeepLinkBrand {
+export type WhimDeepLinkBrand = {
   readonly WhimDeepLink: unique symbol;
-}
+};
 
 // EmptyObject
 // The purpose of this remains a mystery
@@ -396,9 +399,9 @@ export const EmptyObject: EmptyObjectC = t.brand(
   (x): x is t.Branded<{}, EmptyObjectBrand> => true,
   'EmptyObject',
 );
-export interface EmptyObjectBrand {
+export type EmptyObjectBrand = {
   readonly EmptyObject: unique symbol;
-}
+};
 
 // Common
 // The default export. More information at the top.
@@ -409,9 +412,9 @@ export const Common: CommonC = t.brand(
   (x): x is t.Branded<unknown, CommonBrand> => true,
   'Common',
 );
-export interface CommonBrand {
+export type CommonBrand = {
   readonly Common: unique symbol;
-}
+};
 
 export default Common;
 

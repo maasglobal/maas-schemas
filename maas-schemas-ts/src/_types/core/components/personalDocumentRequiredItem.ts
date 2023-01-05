@@ -53,9 +53,9 @@ export const PersonalDocumentRequiredItem: PersonalDocumentRequiredItemC = t.bra
   > => true,
   'PersonalDocumentRequiredItem',
 );
-export interface PersonalDocumentRequiredItemBrand {
+export type PersonalDocumentRequiredItemBrand = {
   readonly PersonalDocumentRequiredItem: unique symbol;
-}
+};
 
 export default PersonalDocumentRequiredItem;
 

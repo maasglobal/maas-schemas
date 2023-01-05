@@ -8,8 +8,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 export const schemaId = 'https://schemas.maas.global/core/package-option.json';
@@ -42,13 +42,13 @@ export const PackageOption: PackageOptionC = t.brand(
   > => true,
   'PackageOption',
 );
-export interface PackageOptionBrand {
+export type PackageOptionBrand = {
   readonly PackageOption: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(PackageOption)).decodeSync(examplesPackageOption) // => examplesPackageOption */
-export const examplesPackageOption: NonEmptyArray<PackageOption> = ([
+export const examplesPackageOption: NonEmptyArray<PackageOption> = [
   { id: 'package-id' },
-] as unknown) as NonEmptyArray<PackageOption>;
+] as unknown as NonEmptyArray<PackageOption>;
 
 export default PackageOption;
 

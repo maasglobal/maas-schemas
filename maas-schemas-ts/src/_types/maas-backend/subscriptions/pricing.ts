@@ -9,9 +9,10 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
-import * as Subscription_ from './subscription';
+
 import * as Cost_ from '../../core/components/cost';
 import * as Units_ from '../../core/components/units';
+import * as Subscription_ from './subscription';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -25,7 +26,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -107,9 +108,9 @@ export const LineItem: LineItemC = t.brand(
   > => true,
   'LineItem',
 );
-export interface LineItemBrand {
+export type LineItemBrand = {
   readonly LineItem: unique symbol;
-}
+};
 
 // Discount
 // A discount from coupon or such
@@ -163,9 +164,9 @@ export const Discount: DiscountC = t.brand(
   > => true,
   'Discount',
 );
-export interface DiscountBrand {
+export type DiscountBrand = {
   readonly Discount: unique symbol;
-}
+};
 
 // Terms
 // Terms related to this subscription
@@ -259,9 +260,9 @@ export const Terms: TermsC = t.brand(
   > => true,
   'Terms',
 );
-export interface TermsBrand {
+export type TermsBrand = {
   readonly Terms: unique symbol;
-}
+};
 
 // Pricing
 // The default export. More information at the top.
@@ -323,9 +324,9 @@ export const Pricing: PricingC = t.brand(
   > => true,
   'Pricing',
 );
-export interface PricingBrand {
+export type PricingBrand = {
   readonly Pricing: unique symbol;
-}
+};
 
 export default Pricing;
 

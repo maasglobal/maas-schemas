@@ -9,6 +9,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 */
 
 import * as t from 'io-ts';
+
 import * as VirtualCardTokenReference_ from './virtualCardTokenReference';
 
 export type Defined = {} | null;
@@ -23,7 +24,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
@@ -116,9 +117,9 @@ export const VirtualCard: VirtualCardC = t.brand(
   > => true,
   'VirtualCard',
 );
-export interface VirtualCardBrand {
+export type VirtualCardBrand = {
   readonly VirtualCard: unique symbol;
-}
+};
 
 export default VirtualCard;
 

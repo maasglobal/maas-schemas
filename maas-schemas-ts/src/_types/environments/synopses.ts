@@ -8,10 +8,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Synopsis_ from './synopsis';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
+import * as Synopsis_ from './synopsis';
 
 export const schemaId = 'https://schemas.maas.global/environments/synopses.json';
 
@@ -24,11 +25,11 @@ export const Synopses: SynopsesC = t.brand(
   (x): x is t.Branded<Array<Synopsis_.Synopsis>, SynopsesBrand> => true,
   'Synopses',
 );
-export interface SynopsesBrand {
+export type SynopsesBrand = {
   readonly Synopses: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Synopses)).decodeSync(examplesSynopses) // => examplesSynopses */
-export const examplesSynopses: NonEmptyArray<Synopses> = ([
+export const examplesSynopses: NonEmptyArray<Synopses> = [
   [
     {
       environment: {
@@ -66,7 +67,7 @@ export const examplesSynopses: NonEmptyArray<Synopses> = ([
       account: { id: '101234567890' },
     },
   ],
-] as unknown) as NonEmptyArray<Synopses>;
+] as unknown as NonEmptyArray<Synopses>;
 
 export default Synopses;
 

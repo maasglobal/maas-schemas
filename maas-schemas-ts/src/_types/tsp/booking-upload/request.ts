@@ -8,10 +8,11 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
-import * as t from 'io-ts';
-import * as Booking_ from '../../core/booking';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
+
+import * as Booking_ from '../../core/booking';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -25,7 +26,7 @@ export class DefinedType extends t.Type<Defined> {
     );
   }
 }
-export interface DefinedC extends DefinedType {}
+export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/tsp/booking-upload/request.json';
@@ -86,13 +87,13 @@ export const Request: RequestC = t.brand(
   > => true,
   'Request',
 );
-export interface RequestBrand {
+export type RequestBrand = {
   readonly Request: unique symbol;
-}
+};
 /** require('io-ts-validator').validator(nonEmptyArray(Request)).decodeSync(examplesRequest) // => examplesRequest */
-export const examplesRequest: NonEmptyArray<Request> = ([
+export const examplesRequest: NonEmptyArray<Request> = [
   { query: { type: 'parking' }, tspId: 'deadbeefdeadbeefdeadcafebeef' },
-] as unknown) as NonEmptyArray<Request>;
+] as unknown as NonEmptyArray<Request>;
 
 export default Request;
 
