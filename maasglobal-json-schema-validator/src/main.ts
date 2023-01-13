@@ -5,7 +5,7 @@ import { ValidationError } from './validation-error';
 
 export type SchemaURI = string;
 export type Schema = {
-  $id: SchemaURI;
+  $id?: SchemaURI;
 };
 export type Registry = Record<string, Schema>;
 export type Registries = Array<Registry>;
@@ -41,9 +41,10 @@ export function validator(registries: Registries): Validator {
   const validate: ValidateF = (schema, object) => {
     const copy = JSON.parse(JSON.stringify(object));
 
-    const schemaUri: SchemaURI = typeof schema === 'string' ? schema : schema.$id;
+    // Using URI is preferable but not always possible
+    const preferred = typeof schema === 'string' ? schema : schema.$id ?? schema;
 
-    const valid = ajv.validate(schemaUri, copy);
+    const valid = ajv.validate(preferred, copy);
 
     if (!valid) {
       // eslint-disable-next-line fp/no-throw
