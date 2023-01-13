@@ -28,10 +28,9 @@
   "homepage": "https://github.com/maasglobal/maas-schemas/",
   "dependencies": {
     "@cloudflare/json-schema-walker": "^0.1.1",
-    "ajv": "^6.8.1",
-    "ajv-keywords": "^3.4.1",
     "fast-glob": "^2.2.6",
-    "gh-pages": "^2.1.1"
+    "gh-pages": "^2.1.1",
+    "maasglobal-json-schema-validator": "^0.0.2"
   },
   "devDependencies": {
     "@adobe/jsonschema2md": "^3.3.1",
@@ -39,7 +38,6 @@
     "eslint": "^5.12.1",
     "eslint-config-maasglobal": "^2.0.7",
     "eslint-plugin-import": "^2.15",
-    "essentials": "1",
     "git-list-updated": "^1.1.2",
     "glob": "^7.1.3",
     "jest": "^24.5.0",
@@ -57,10 +55,9 @@
     "prettier-check-updated": "pipe-git-updated --base=HEAD --ext=css --ext=html --ext=js --ext=json --ext=md --ext=yaml --ext=yml -- prettier -c",
     "prettify": "prettier --write --ignore-path .gitignore '**/*.{css,html,js,json,md,yaml,yml}'",
     "prettify-updated": "pipe-git-updated --base=HEAD --ext=css --ext=html --ext=js --ext=json --ext=md --ext=yaml --ext=yml -- prettier --write",
-    "validate-schemas": "./scripts/validate-schemas.js",
     "test": "jest",
     "build": "node build.js",
-    "ci": "yarn run lint-updated && yarn run prettier-check-updated && yarn run validate-schemas && yarn test && yarn build",
+    "ci": "yarn run lint-updated && yarn run prettier-check-updated && yarn test && yarn build",
     "prepublish": "node build.js",
     "docs": "rm -Rf docs && node ./utils/make-docs.js && markdown-folder-to-html && mv _docs docs/html && cp docs/html/README.html docs/html/index.html",
     "gh-pages": "gh-pages -d docs",

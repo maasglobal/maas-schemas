@@ -23,15 +23,17 @@ and in HTML format in docs/html folder.
 
 ## JavaScript API
 
+Validate an object by first resolving the corresponding schema by schemaId
+NOTE: It is recommended to use schema $id instead of raw schema object
+
 ```javascript
-/**
- *  Validate an object by first resolving the corresponding schema by schemaId
- *  NOTE: It is recommended to use schema $id instead of raw schema object
- *
- *  @param {Object/String} schema/schema.$id - schema from the schemas folder. If given as a whole, will extract $id from the schema. None existed schema will be re-validate. If given only $id, will use that to reference to schema
- *  @param {Object} object - input testing subject
- *  @return {Object} resolve w/validated object
- *  @throws {ValidationError}
- */
-function validate(schema, object, options)
+import * as mjsv from 'maasglobal-json-schema-validator';
+import registry from 'maas-schemas/registry';
+
+const validator = mjsv.validator([registry]);
+
+const phone = validator.validate(
+  'https://schemas.maas.global/core/components/common.json#/definitions/phone',
+  '+358401234567',
+);
 ```

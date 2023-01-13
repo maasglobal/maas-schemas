@@ -1,7 +1,7 @@
 'use strict';
 
-const AJV = require('ajv');
-const validator = require('./lib/validator');
+const mjsv = require('maasglobal-json-schema-validator');
+
 const registry = require('./registry');
 
 if (typeof Object.fromEntries === 'undefined') {
@@ -28,43 +28,24 @@ function definitions(schema) {
   );
 }
 
-let ajv;
+let validator;
 
 function init() {
-  ajv = new AJV({
-    addUsedSchema: false,
-    allErrors: true,
-    coerceTypes: true,
-    errorDataPath: 'property',
-    inlineRefs: false,
-    meta: true,
-    multipleOfPrecision: 6,
-    removeAdditional: true,
-    sanitize: false,
-    sourceCode: false,
-    useDefaults: true,
-    validateSchema: false,
-    verbose: true,
-    $data: true,
-  });
-  require('ajv-keywords')(ajv);
+  validator = mjsv.validator([registry]);
 
-  Object.keys(registry).forEach(key => {
-    const schema = registry[key];
-    ajv.addSchema(schema);
-  });
-
-  return ajv;
+  return validator;
 }
 
 /**
  * Validate the object against given schema
  *
  * @param {Object} schema - schema json required from /schemas folder
+ *
+ * @deprecated import { validator } from 'maasglobal-json-schema-validator'
  */
-function validate(schema, object, options = {}) {
-  if (!ajv) init();
-  return validator.validate(ajv, schema, object, options);
+function validate(schema, object) {
+  if (!validator) init();
+  return validator.validate(schema, object);
 }
 
 module.exports = {

@@ -9,7 +9,7 @@
  *  .catch(error => // Error)
  *  .then(result => // OK)
  */
-const ValidationError = require('./ValidationError');
+const { ValidationError } = require('maasglobal-json-schema-validator');
 
 /**
  * Synchronously validate an object using schema retrieved from schemaId.
@@ -22,6 +22,8 @@ const ValidationError = require('./ValidationError');
  * @return {object} validated and coerced object if everything goes alright
  * @throws {ValidationError} in case of invalid object
  * @throws {TypeError} in case of invalid schema
+ *
+ * @deprecated import { validator } from 'maasglobal-json-schema-validator'
  */
 function validate(ajv, schema, object) {
   const result = JSON.parse(JSON.stringify(object));

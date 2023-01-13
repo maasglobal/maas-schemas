@@ -1864,7 +1864,7 @@ esrecurse@^4.1.0:
   dependencies:
     estraverse "^4.1.0"
 
-essentials@1, essentials@^1.0.0:
+essentials@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/essentials/-/essentials-1.1.1.tgz#03befbfbee7078301741279b38a806b6ca624821"
   integrity sha512-SmaxoAdVu86XkZQM/u6TYSu96ZlFGwhvSk1l9zAkznFuQkMb9mRDS2iq/XWDow7R8OwBwdYH8nLyDKznMD+GWw==
@@ -3639,6 +3639,14 @@ lru-cache@^5.1.1:
   integrity sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==
   dependencies:
     yallist "^3.0.2"
+
+maasglobal-json-schema-validator@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/maasglobal-json-schema-validator/-/maasglobal-json-schema-validator-0.0.2.tgz#ebb4ed7b48336dfb383820b9ef055e8b20aaf416"
+  integrity sha512-Tdx21jvW2HaTW1VJjTthEzViMp7ia0Qy9BUsf1DjRL0ELG4eRjrOwpP9IJ7TBnllqiBc0eFV9+9GWD89BkrPAQ==
+  dependencies:
+    ajv "^6.8.1"
+    ajv-keywords "^3.4.1"
 
 macos-release@^2.2.0:
   version "2.3.0"
