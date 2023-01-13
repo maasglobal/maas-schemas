@@ -1,0 +1,5 @@
+
+
+import sys; sys.stdout.write(('/*' + '\n' + '/*'.join(
+  '*/'.join(sys.stdin.read().split('```typescript')).split('```')
+) + '*/').replace("from 'maasglobal-json-schema-validator'", "from './index'").replace("from 'maasglobal-json-schema-validator/lib/", "from './") + '\n' + 'export { phone }')
