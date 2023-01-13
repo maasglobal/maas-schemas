@@ -37,10 +37,10 @@ export class ValidationError extends Error {
     lineNumber?: number,
   ) {
     super(message);
-
+    Object.setPrototypeOf(this, ValidationError.prototype);
+    this.name = this.constructor.name;
     this.object = object;
     this.errors = errors;
-    this.name = 'ValidationError';
     this.statusCode = 400;
     this.file = fileName;
     this.line = lineNumber;
