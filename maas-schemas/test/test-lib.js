@@ -2,7 +2,7 @@
 
 const { expect } = require('chai');
 const main = require('../index');
-const ValidationError = require('../lib/ValidationError');
+const { ValidationError } = require('maasglobal-json-schema-validator');
 
 function generateTestCases(schema, positive, cases) {
   if (positive) {

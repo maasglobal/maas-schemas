@@ -1,9 +1,7 @@
-'use strict';
-
-const { testSchemaPackage } = require('maasglobal-json-schema-validator/lib/conformance');
+import { testSchemaPackage } from './conformance';
 
 describe('Conformance tests', () => {
-  const packageRoot = '.';
+  const packageRoot = './node_modules/maas-schemas';
   const baseURI = 'https://schemas.maas.global/';
   testSchemaPackage(packageRoot, baseURI, []);
 });
