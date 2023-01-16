@@ -24,7 +24,7 @@ and in HTML format in docs/html folder.
 ## JavaScript API
 
 Validate an object by first resolving the corresponding schema by schemaId
-NOTE: It is recommended to use schema $id instead of raw schema object
+NOTE: It is recommended to use schema \$id instead of raw schema object
 
 ```javascript
 import * as mjsv from 'maasglobal-json-schema-validator';
@@ -34,6 +34,6 @@ const validator = mjsv.validator([registry]);
 
 const phone = validator.validate(
   'https://schemas.maas.global/core/components/common.json#/definitions/phone',
-  '+358401234567',
+  '+358401234567'
 );
 ```
