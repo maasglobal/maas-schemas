@@ -30,7 +30,7 @@
     "@cloudflare/json-schema-walker": "^0.1.1",
     "fast-glob": "^2.2.6",
     "gh-pages": "^2.1.1",
-    "maasglobal-json-schema-validator": "^0.0.2"
+    "maasglobal-json-schema-validator": "^0.0.3"
   },
   "devDependencies": {
     "@adobe/jsonschema2md": "^3.3.1",
