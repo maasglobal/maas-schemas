@@ -43,15 +43,46 @@
       "type": "string",
       "regexp": "/^[\\p{L}\\s`'´\\-\\.,]+$/gui",
       "minLength": 1,
-      "maxLength": 255
+      "maxLength": 255,
+      "examples": [
+        "Lauri",
+        "姚 明",
+        "ADÉLAÏDE",
+        "Hans V.",
+        "じぇいむず",
+        "Hiếu Nguyễn",
+
+        "سيارة",
+        "차",
+
+        "Jędruś",
+        "Svan",
+        "O'Neill",
+        "Sören-sön",
+
+        "Dot. d`Tester",
+        "ぐえん"
+      ],
+      "invalid": {
+        "MTIzMTIz": "number",
+        "IjEyMzEyMyI=": "stringified number",
+        "IisxMjMxMjMi": "phonenumber prefix",
+        "IlwiI1wi4oKsXCLigqwjXCIi": "string with special characters",
+        "IiI=": "empty string",
+        "IvCfkqki": "emoji"
+      }
     },
     "phone": {
       "description": "ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html",
       "type": "string",
       "pattern": "^\\+(?:\\d){6,14}\\d$",
-      "examples": ["+358401234567"],
+      "examples": ["+358401234567", "+35850123456", "+855979301811"],
       "invalid": {
-        "IjM1ODQwMTIzNDU2NyI=": "phone number without plus"
+        "IjM1ODQwMTIzNDU2NyI=": "phone number without plus",
+        "IvCfkqki": "emoji",
+        "IiI=": "empty string",
+        "InNkZmRzZiI=": "text",
+        "IiszNTgxMjM0NTY3ODkwMTIzNDU2Nzgi": "extremely long phone number"
       }
     },
     "rawPhone": {
@@ -64,7 +95,7 @@
       "type": "string",
       "pattern": "^.+@.+\\..+$",
       "maxLength": 64,
-      "examples": ["joe.customer@example.com"]
+      "examples": ["joe.customer@example.com", "info@maas.global", "#\"€\"€#\"@gmail.com", "very@very@unsual.com"]
     },
     "paymentSourceId": {
       "type": "string",

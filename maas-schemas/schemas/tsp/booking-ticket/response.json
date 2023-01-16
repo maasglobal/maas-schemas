@@ -20,5 +20,12 @@
     }
   },
   "required": ["ticket", "type", "contentType"],
-  "additionalProperties": true
+  "additionalProperties": true,
+  "examples": [
+    {
+      "ticket": "test",
+      "type": "html",
+      "contentType": "image/svg+xml"
+    }
+  ]
 }

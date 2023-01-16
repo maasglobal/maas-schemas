@@ -6,5 +6,119 @@
     { "$ref": "https://schemas.maas.global/core/components/configuratorV2.json" },
     { "$ref": "https://schemas.maas.global/core/components/configuratorV1.json" },
     { "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/emptyObject" }
+  ],
+  "examples": [
+    {
+      "outboundSingle": {
+        "type": "oneOf",
+        "name": "Outbound Single",
+        "description": "Are you posh or not?",
+        "choices": [
+          {
+            "id": "first-class",
+            "name": "1st Class",
+            "description": "Yes, posh",
+            "fares": [{ "amount": 100.0, "currency": "EUR" }],
+            "default": false
+          },
+          {
+            "id": "second-class",
+            "name": "2nd Class",
+            "description": "Not posh",
+            "fares": [{ "amount": 30.0, "currency": "EUR" }],
+            "default": true
+          }
+        ]
+      }
+    },
+    {
+      "outboundSingle": {
+        "name": "HSL Zones ABC",
+        "type": "oneOf",
+        "choices": [
+          {
+            "id": "extension-subscriber-C",
+            "icon": "https://example.com/product-icons/hsl-zone-c.png",
+            "name": "C zone extension",
+            "fares": [
+              {
+                "type": "charge",
+                "amount": 250,
+                "currency": "WMP",
+                "originalAmount": 250,
+                "productionAmount": 250
+              }
+            ],
+            "terms": {
+              "validity": {
+                "endTime": 1623078877927,
+                "startTime": 1623083477927
+              },
+              "freeTicketOverlapInSeconds": 600
+            },
+            "default": true,
+            "ticketType": {
+              "id": "extension",
+              "name": "Single Ticket"
+            },
+            "customerType": {
+              "id": "subscriber",
+              "name": "Zone extension"
+            },
+            "tspIdToExtend": "Rl1l0FLWtGAXuvXPlhe5s9NXCzjmU0tjqqxDiIdO8IU2lUi5wR6hljEvFYzASEdU+1623073307996-whim-season-b5982d50-d3a3-480f-8ba7-e8e6f5090934",
+            "customerTypeId": "subscriber",
+            "purchasingAppInstanceId": "fb4d6e85-9c4b-3f1e-8bd5-9f4600c3cdd1"
+          }
+        ]
+      }
+    },
+    {
+      "version": "2",
+      "validUntil": 1621967334551,
+      "estimatable": true,
+      "purchasable": true,
+      "configurations": {
+        "travelCard": {
+          "name": "SWISS_PT_TRAVEL_CARD",
+          "type": "oneOf",
+          "choices": [
+            {
+              "id": "none",
+              "name": "SWISS_PT_NO_TRAVEL_CARD",
+              "default": false
+            }
+          ]
+        },
+        "ticketClass": {
+          "name": "SWISS_PT_TICKET_CLASS",
+          "type": "oneOf",
+          "choices": [
+            {
+              "id": "second",
+              "name": "SWISS_PT_SECOND_CLASS",
+              "default": false
+            }
+          ]
+        },
+        "ticketOptions": {
+          "name": "TICKET_OPTIONS_NAME",
+          "type": "oneOf",
+          "choices": [
+            {
+              "id": "offer_0",
+              "name": "SWISS_PT_SINGLE_TICKET",
+              "terms": {},
+              "default": false
+            }
+          ]
+        }
+      },
+      "configuratorSelection": {
+        "travelCard": ["none"],
+        "ticketClass": ["second"],
+        "ticketOptions": ["offer_0"]
+      }
+    },
+    {}
   ]
 }

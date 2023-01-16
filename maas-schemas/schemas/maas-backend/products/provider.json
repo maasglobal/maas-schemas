@@ -283,5 +283,54 @@
         }
       }
     }
-  }
+  },
+  "examples": [
+    {
+      "name": "providerName",
+      "agencyId": "someAgency",
+      "groupId": "someGroupId",
+      "hidden": false,
+      "branding": {},
+      "features": {
+        "ticket": true,
+        "stationsList": true,
+        "stationsRetrieve": true
+      },
+      "personalDataOptionsAllow": [],
+      "personalDataCreateAllow": [],
+      "optionalParameters": [
+        {
+          "id": "someId",
+          "name": "someName",
+          "type": "oneOrNoneOf",
+          "userSelectable": true,
+          "inputs": [
+            {
+              "id": "via",
+              "name": "Via",
+              "type": "station"
+            },
+            {
+              "id": "avoid",
+              "name": "Avoid",
+              "type": "station"
+            }
+          ]
+        },
+        {
+          "message": {
+            "property": "messageToDriver",
+            "maxLength": 120
+          }
+        },
+        {
+          "searchDefault": 120
+        },
+        {
+          "gradualRadius": 120,
+          "maxRadius": 300
+        }
+      ]
+    }
+  ]
 }

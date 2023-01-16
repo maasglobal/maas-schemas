@@ -161,7 +161,8 @@
     },
     "subscriberType": {
       "description": "Subscriber Type",
-      "type": "string"
+      "type": "string",
+      "examples": ["non-subscriber"]
     },
     "authToken": {
       "description": "Authentication Token",
@@ -265,6 +266,19 @@
         "created": 1553687004207,
         "modified": 0,
         "currency": "EUR"
+      }
+    },
+    {
+      "balances": {
+        "WMP": {
+          "currency": "WMP",
+          "amount": 10
+        },
+        "cx-token-test-foo-bar_v2": {
+          "currency": "TOKEN",
+          "tokenId": "cx-token-test-foo-bar_v2",
+          "amount": 1
+        }
       }
     }
   ]

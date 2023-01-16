@@ -102,5 +102,18 @@
       "$ref": "https://schemas.maas.global/core/components/costBreakDown.json#/definitions/costBreakDownArray"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "examples": [
+    {
+      "vehicleId": "T123",
+      "vehicleType": "Mercedes"
+    },
+    {
+      "vehicleId": "T123",
+      "vehicleType": "Mercedes",
+      "spaceDemand": {
+        "adults": 1
+      }
+    }
+  ]
 }

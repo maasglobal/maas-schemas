@@ -60,7 +60,10 @@
           "account": "testing",
           "description": "Testing environment"
         }
-      ]
+      ],
+      "invalid": {
+        "eyJpZCI6ImxpdmUiLCJsaXZlIjp0cnVlLCJhY2NvdW50IjoibGl2ZSIsImRlc2NyaXB0aW9uIjoiTGl2ZSBlbnZpcm9ubWVudCJ9": "Live environment"
+      }
     },
     "environmentGroupName": {
       "type": "string",
