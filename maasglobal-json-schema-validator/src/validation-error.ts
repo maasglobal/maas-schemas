@@ -1,6 +1,6 @@
 /* eslint-disable fp/no-class, fp/no-this, fp/no-mutation */
 
-import AJV from 'ajv';
+import Ajv from 'ajv';
 
 const MAXIMUM_REPORTED_RESPONSE_LENGTH = 80;
 
@@ -52,13 +52,10 @@ export class ValidationError extends Error {
    * @param object the object that failed to validate
    * @return the new error
    */
-  static fromValidatorErrors(
-    errors: AJV.Ajv['errors'],
-    object: unknown,
-  ): ValidationError {
-    const errorArray: Array<AJV.ErrorObject> = Array.isArray(errors) ? errors : [];
+  static fromValidatorErrors(errors: Ajv['errors'], object: unknown): ValidationError {
+    const errorArray: Ajv['errors'] = Array.isArray(errors) ? errors : [];
     const messages = errorArray.map((error) => {
-      return `'${error.dataPath}' ${trim(error.message ?? String())}, got '${
+      return `'${error.instancePath}' ${trim(error.message ?? String())}, got '${
         error.data == null ? String(error.data) : trim(JSON.stringify(error.data))
       }'`;
     });

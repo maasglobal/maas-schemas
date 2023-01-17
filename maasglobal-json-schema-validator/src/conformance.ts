@@ -1,4 +1,4 @@
-import ajvFactory from 'ajv';
+import Ajv from 'ajv';
 import * as fs from 'fs';
 import * as glob from 'glob';
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema';
@@ -13,7 +13,7 @@ type InvalidExamples = Record<InvalidExample, Description>;
 type JsonSchema = JSONSchema7 & { invalid?: InvalidExamples };
 type JsonSchemaDefinition = JSONSchema7Definition & (boolean | JsonSchema);
 
-const ajv = ajvFactory({ allErrors: true });
+const ajv = new Ajv({ allErrors: true });
 
 const slash = '/';
 const endpointSchema = 'endpoint.json';

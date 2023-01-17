@@ -1,5 +1,4 @@
-import AJV from 'ajv';
-import initKeywords from 'ajv-keywords';
+import Ajv from 'ajv';
 
 import { ValidationError } from './validation-error';
 
@@ -16,23 +15,27 @@ export type Validator = {
 };
 
 export function validator(registries: Registries): Validator {
-  const ajv: AJV.Ajv = new AJV({
+  const ajv: Ajv = new Ajv({
+    strictTypes: true,
+    strictTuples: true,
+    strictRequired: false,
+    strictSchema: true,
+    strictNumbers: true,
+    allowUnionTypes: true,
     addUsedSchema: false,
     allErrors: true,
     coerceTypes: true,
-    errorDataPath: 'property',
     inlineRefs: false,
     meta: true,
     multipleOfPrecision: 6,
     removeAdditional: true,
-    //sanitize: false,
-    sourceCode: false,
-    useDefaults: true,
+    code: { source: false },
+    useDefaults: false,
     validateSchema: false,
     verbose: true,
     $data: true,
   });
-  initKeywords(ajv);
+  ajv.addKeyword('invalid');
 
   registries.forEach((registry) => {
     Object.values(registry).forEach((schema) => ajv.addSchema(schema));
