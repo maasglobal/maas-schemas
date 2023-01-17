@@ -14,7 +14,7 @@
     },
     "spaceDemandString": {
       "type": "string",
-      "regexp": "/(adults:[1-9][0-9]*)|(children:[1-9][0-9]*)|(infants:[1-9][0-9]*)|(bags:[1-9][0-9]*)/gui",
+      "pattern": "(adults:[1-9][0-9]*)|(children:[1-9][0-9]*)|(infants:[1-9][0-9]*)|(bags:[1-9][0-9]*)",
       "examples": ["adults:1|bags:2"]
     }
   }

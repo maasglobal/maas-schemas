@@ -57,6 +57,7 @@
           "$ref": "https://schemas.maas.global/core/customer.json"
         },
         {
+          "type": "object",
           "required": ["identityId"]
         }
       ]

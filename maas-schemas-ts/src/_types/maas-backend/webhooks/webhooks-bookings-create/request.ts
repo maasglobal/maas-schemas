@@ -55,19 +55,21 @@ export type Request = t.Branded<
         configurator?: Booking_.Configurator;
       } & Record<string, unknown>) &
         (
-          | {
-              leg: Defined;
-              terms: Defined;
-              cost: Defined;
-              meta: Defined;
-            }
-          | {
-              leg: Defined;
-              terms: Defined;
-              cost: Defined;
-              meta: Defined;
-              configurator: Defined;
-            }
+          | (Record<string, unknown> &
+              Record<string, unknown> & {
+                leg: Defined;
+                terms: Defined;
+                cost: Defined;
+                meta: Defined;
+              })
+          | (Record<string, unknown> &
+              Record<string, unknown> & {
+                leg: Defined;
+                terms: Defined;
+                cost: Defined;
+                meta: Defined;
+                configurator: Defined;
+              })
         );
       customerSelection?: CustomerSelection_.CustomerSelection;
     } & Record<string, unknown>) & {
@@ -116,19 +118,31 @@ export type RequestC = t.BrandC<
                       >,
                       t.UnionC<
                         [
-                          t.TypeC<{
-                            leg: typeof Defined;
-                            terms: typeof Defined;
-                            cost: typeof Defined;
-                            meta: typeof Defined;
-                          }>,
-                          t.TypeC<{
-                            leg: typeof Defined;
-                            terms: typeof Defined;
-                            cost: typeof Defined;
-                            meta: typeof Defined;
-                            configurator: typeof Defined;
-                          }>,
+                          t.IntersectionC<
+                            [
+                              t.UnknownRecordC,
+                              t.RecordC<t.StringC, t.UnknownC>,
+                              t.TypeC<{
+                                leg: typeof Defined;
+                                terms: typeof Defined;
+                                cost: typeof Defined;
+                                meta: typeof Defined;
+                              }>,
+                            ]
+                          >,
+                          t.IntersectionC<
+                            [
+                              t.UnknownRecordC,
+                              t.RecordC<t.StringC, t.UnknownC>,
+                              t.TypeC<{
+                                leg: typeof Defined;
+                                terms: typeof Defined;
+                                cost: typeof Defined;
+                                meta: typeof Defined;
+                                configurator: typeof Defined;
+                              }>,
+                            ]
+                          >,
                         ]
                       >,
                     ]
@@ -180,19 +194,27 @@ export const Request: RequestC = t.brand(
                 t.record(t.string, t.unknown),
               ]),
               t.union([
-                t.type({
-                  leg: Defined,
-                  terms: Defined,
-                  cost: Defined,
-                  meta: Defined,
-                }),
-                t.type({
-                  leg: Defined,
-                  terms: Defined,
-                  cost: Defined,
-                  meta: Defined,
-                  configurator: Defined,
-                }),
+                t.intersection([
+                  t.UnknownRecord,
+                  t.record(t.string, t.unknown),
+                  t.type({
+                    leg: Defined,
+                    terms: Defined,
+                    cost: Defined,
+                    meta: Defined,
+                  }),
+                ]),
+                t.intersection([
+                  t.UnknownRecord,
+                  t.record(t.string, t.unknown),
+                  t.type({
+                    leg: Defined,
+                    terms: Defined,
+                    cost: Defined,
+                    meta: Defined,
+                    configurator: Defined,
+                  }),
+                ]),
               ]),
             ]),
             customerSelection: CustomerSelection_.CustomerSelection,
@@ -229,19 +251,21 @@ export const Request: RequestC = t.brand(
           configurator?: Booking_.Configurator;
         } & Record<string, unknown>) &
           (
-            | {
-                leg: Defined;
-                terms: Defined;
-                cost: Defined;
-                meta: Defined;
-              }
-            | {
-                leg: Defined;
-                terms: Defined;
-                cost: Defined;
-                meta: Defined;
-                configurator: Defined;
-              }
+            | (Record<string, unknown> &
+                Record<string, unknown> & {
+                  leg: Defined;
+                  terms: Defined;
+                  cost: Defined;
+                  meta: Defined;
+                })
+            | (Record<string, unknown> &
+                Record<string, unknown> & {
+                  leg: Defined;
+                  terms: Defined;
+                  cost: Defined;
+                  meta: Defined;
+                  configurator: Defined;
+                })
           );
         customerSelection?: CustomerSelection_.CustomerSelection;
       } & Record<string, unknown>) & {

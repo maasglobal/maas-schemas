@@ -14,30 +14,13 @@ import * as Address_ from './address';
 import * as Station_ from './station';
 import * as UnitsGeo_ from './units-geo';
 
-export type Defined = {} | null;
-export class DefinedType extends t.Type<Defined> {
-  readonly _tag: 'DefinedType' = 'DefinedType';
-  constructor() {
-    super(
-      'defined',
-      (u): u is Defined => typeof u !== 'undefined',
-      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
-      t.identity,
-    );
-  }
-}
-export type DefinedC = {} & DefinedType;
-export const Defined: DefinedC = new DefinedType();
-
 export const schemaId = 'https://schemas.maas.global/core/components/place.json';
 
 // Place
 // The default export. More information at the top.
 export type Place = t.Branded<
-  Record<string, unknown> & {
-    lat: Defined;
-    lon: Defined;
-  } & (UnitsGeo_.RelaxedLocation &
+  Record<string, unknown> &
+    (UnitsGeo_.RelaxedLocation &
       ({
         name?: Address_.PlaceName;
         address?: Address_.ComponentAddress;
@@ -55,10 +38,6 @@ export type PlaceC = t.BrandC<
   t.IntersectionC<
     [
       t.RecordC<t.StringC, t.UnknownC>,
-      t.TypeC<{
-        lat: typeof Defined;
-        lon: typeof Defined;
-      }>,
       t.IntersectionC<
         [
           typeof UnitsGeo_.RelaxedLocation,
@@ -87,10 +66,6 @@ export type PlaceC = t.BrandC<
 export const Place: PlaceC = t.brand(
   t.intersection([
     t.record(t.string, t.unknown),
-    t.type({
-      lat: Defined,
-      lon: Defined,
-    }),
     t.intersection([
       UnitsGeo_.RelaxedLocation,
       t.intersection([
@@ -112,10 +87,8 @@ export const Place: PlaceC = t.brand(
   (
     x,
   ): x is t.Branded<
-    Record<string, unknown> & {
-      lat: Defined;
-      lon: Defined;
-    } & (UnitsGeo_.RelaxedLocation &
+    Record<string, unknown> &
+      (UnitsGeo_.RelaxedLocation &
         ({
           name?: Address_.PlaceName;
           address?: Address_.ComponentAddress;

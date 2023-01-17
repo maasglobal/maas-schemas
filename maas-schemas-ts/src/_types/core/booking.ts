@@ -320,9 +320,11 @@ export type Booking = t.Branded<
     meta?: BookingMeta_.BookingMeta;
     terms?: Terms;
     unmodifiedTerms?: Terms;
-    customer?: Customer_.Customer & {
-      identityId: Defined;
-    };
+    customer?: Customer_.Customer &
+      (Record<string, unknown> &
+        Record<string, unknown> & {
+          identityId: Defined;
+        });
     product?: Product_.Product;
     signature?: Common_.Signature;
     configurator?: Configurator;
@@ -358,9 +360,15 @@ export type BookingC = t.BrandC<
             customer: t.IntersectionC<
               [
                 typeof Customer_.Customer,
-                t.TypeC<{
-                  identityId: typeof Defined;
-                }>,
+                t.IntersectionC<
+                  [
+                    t.UnknownRecordC,
+                    t.RecordC<t.StringC, t.UnknownC>,
+                    t.TypeC<{
+                      identityId: typeof Defined;
+                    }>,
+                  ]
+                >,
               ]
             >;
             product: typeof Product_.Product;
@@ -401,9 +409,13 @@ export const Booking: BookingC = t.brand(
         unmodifiedTerms: Terms,
         customer: t.intersection([
           Customer_.Customer,
-          t.type({
-            identityId: Defined,
-          }),
+          t.intersection([
+            t.UnknownRecord,
+            t.record(t.string, t.unknown),
+            t.type({
+              identityId: Defined,
+            }),
+          ]),
         ]),
         product: Product_.Product,
         signature: Common_.Signature,
@@ -437,9 +449,11 @@ export const Booking: BookingC = t.brand(
       meta?: BookingMeta_.BookingMeta;
       terms?: Terms;
       unmodifiedTerms?: Terms;
-      customer?: Customer_.Customer & {
-        identityId: Defined;
-      };
+      customer?: Customer_.Customer &
+        (Record<string, unknown> &
+          Record<string, unknown> & {
+            identityId: Defined;
+          });
       product?: Product_.Product;
       signature?: Common_.Signature;
       configurator?: Configurator;

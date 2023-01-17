@@ -42,7 +42,7 @@ export const ComponentAddress: ComponentAddressC = t.brand(
     x.match(
       RegExp(
         "(id:(\\p{L}|\\p{N}|[%-])+\\|?)|(streetName:(\\p{L}|\\p{N}|-|\\/| (?=\\p{L}|&|\\p{N})|[#.,;:'&°’])+\\|?)|(city:(\\p{L}|['-]| (?=\\p{L}))+\\|?)|(state:(\\p{L}|[-]| (?=\\p{L}))+\\|?)|(zipCode:(\\p{L}|\\p{N}|-)+\\|?)|(country:(\\p{L}| (?=\\p{L}))+)\\|?|(streetNumber:(\\p{L}|\\p{N}|-|-|\\/)+)\\|?|(ward:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?|(district:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?",
-        'gui',
+        'u',
       ),
     ) !== null,
   'ComponentAddress',
@@ -91,7 +91,7 @@ export type PlaceIdC = t.BrandC<t.StringC, PlaceIdBrand>;
 export const PlaceId: PlaceIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, PlaceIdBrand> =>
-    (typeof x !== 'string' || x.match(RegExp('^\\p{L}+$', 'gui')) !== null) &&
+    (typeof x !== 'string' || x.match(RegExp('^\\p{L}+$', 'u')) !== null) &&
     (typeof x !== 'string' || x.length <= 64),
   'PlaceId',
 );
@@ -141,7 +141,7 @@ export type StateC = t.BrandC<t.StringC, StateBrand>;
 export const State: StateC = t.brand(
   t.string,
   (x): x is t.Branded<string, StateBrand> =>
-    (typeof x !== 'string' || x.match(RegExp("^(?:\\p{L}|\\s|')+$", 'gui')) !== null) &&
+    (typeof x !== 'string' || x.match(RegExp("^(?:\\p{L}|\\s|')+$", 'u')) !== null) &&
     (typeof x !== 'string' || x.length <= 64),
   'State',
 );
@@ -440,7 +440,7 @@ export type CountryNameC = t.BrandC<t.StringC, CountryNameBrand>;
 export const CountryName: CountryNameC = t.brand(
   t.string,
   (x): x is t.Branded<string, CountryNameBrand> =>
-    (typeof x !== 'string' || x.match(RegExp("^(?:\\p{L}|\\s|')+$", 'gui')) !== null) &&
+    (typeof x !== 'string' || x.match(RegExp("^(?:\\p{L}|\\s|')+$", 'u')) !== null) &&
     (typeof x !== 'string' || x.length <= 64),
   'CountryName',
 );

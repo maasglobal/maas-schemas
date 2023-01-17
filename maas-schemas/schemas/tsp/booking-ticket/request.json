@@ -18,7 +18,7 @@
           "items": {
             "type": "string",
             "pattern": "[a-z]\\.[svg|html|pdf]",
-            "minimum": 1
+            "minLength": 1
           }
         }
       ]

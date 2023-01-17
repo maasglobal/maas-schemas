@@ -145,7 +145,7 @@ export const PersonalName: PersonalNameC = t.brand(
   t.string,
   (x): x is t.Branded<string, PersonalNameBrand> =>
     (typeof x !== 'string' ||
-      x.match(RegExp("^[\\p{L}\\s`'´\\-\\.,]+$", 'gui')) !== null) &&
+      x.match(RegExp("^[\\p{L}\\s`'´\\-\\.,]+$", 'u')) !== null) &&
     (typeof x !== 'string' || x.length >= 1) &&
     (typeof x !== 'string' || x.length <= 255),
   'PersonalName',
