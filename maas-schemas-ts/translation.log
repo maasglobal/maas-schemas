@@ -170,7 +170,7 @@ WARNING: maximum field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/car-rental.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/car-rental.json
-WARNING: regexp field not supported outside top-level definitions
+WARNING: pattern field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/car-rental.json
 WARNING: examples field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/car-rental.json
@@ -184,9 +184,9 @@ WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/car-rental.json
 INFO: primitive type "number" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/car-rental.json
-WARNING: minLength field not supported outside top-level definitions
+WARNING: minimum field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/car-rental.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: maximum field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/car-rental.json
 WARNING: unexpected key in a $ref object
   in ../maas-schemas/schemas/core/components/car-rental.json
@@ -3010,7 +3010,7 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/tsp/booking-ticket/request.json
 WARNING: pattern field not supported outside top-level definitions
   in ../maas-schemas/schemas/tsp/booking-ticket/request.json
-WARNING: minimum field not supported outside top-level definitions
+WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/tsp/booking-ticket/request.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/tsp/booking-ticket/response.json

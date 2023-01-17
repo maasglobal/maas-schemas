@@ -77,7 +77,7 @@ export const SpaceDemandString: SpaceDemandStringC = t.brand(
     x.match(
       RegExp(
         '(adults:[1-9][0-9]*)|(children:[1-9][0-9]*)|(infants:[1-9][0-9]*)|(bags:[1-9][0-9]*)',
-        'gui',
+        'u',
       ),
     ) !== null,
   'SpaceDemandString',
