@@ -71,7 +71,18 @@ export const examplesComponentAddress: NonEmptyArray<ComponentAddress> = [
   'country:skandinavisk',
   'streetNumber:1-1',
   'streetNumber:1/2-d2',
+  'country:Finland|state:Uusimaa|city:Helsinki|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
+  'city:Helsinki|state:Uusimaa|country:Finland|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
+  'city:Helsinki|country:Finland|zipCode:00100|streetName:Ludviginkatu|streetNumber:6',
+  'country:New Zealand|state:Bay of Plenty|city:White Pine Bush|zipCode:3191|streetName:White Pine Bush Road|streetNumber:479',
+  "country:Côte d'Ivoire|city:Abidjan|zipCode:01 BP2581|streetName:Cocody Quartier Ambassades Impasse du Belier|streetNumber:58",
+  "country:Aäöم武кв'|state:Aäöم武кв.-`''´`|city:Aäöم武кв.-`''´`|zipCode:3191|streetName:Aäöم武кв.-`''´`|streetNumber:479",
+  'city:Lontoo|streetNumber:2|streetName:Charrington Street|zipCode:NW1|country:Yhdistynyt kuningaskunta',
+  "country:UK|city:London|zipCode:NW8 7HA|streetName:St John's Wood Road|streetNumber:28",
+  'country:UK|city:London|zipCode:SE1 9DT|streetName:New Globe Walk|streetNumber:21',
 ] as unknown as NonEmptyArray<ComponentAddress>;
+// NEGATIVE Test Case: emoji
+/** require('io-ts-validator').validator(ComponentAddress).decodeEither("💩")._tag // => 'Left' */
 
 // PlaceId
 // Upstream API placeId
@@ -113,6 +124,15 @@ export const City: CityC = t.brand(
 export type CityBrand = {
   readonly City: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(City)).decodeSync(examplesCity) // => examplesCity */
+export const examplesCity: NonEmptyArray<City> = [
+  'Helsinki',
+  '北京',
+  'あきる野市',
+  'Москва',
+] as unknown as NonEmptyArray<City>;
+// NEGATIVE Test Case: empty string
+/** require('io-ts-validator').validator(City).decodeEither("")._tag // => 'Left' */
 
 // State
 // Alphabetic state name
@@ -142,6 +162,20 @@ export const ZipCode: ZipCodeC = t.brand(
 export type ZipCodeBrand = {
   readonly ZipCode: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(ZipCode)).decodeSync(examplesZipCode) // => examplesZipCode */
+export const examplesZipCode: NonEmptyArray<ZipCode> = [
+  '00100',
+  'TW6 2GA',
+  'K1A 0B1',
+  '102600',
+  '90210',
+  'N1C',
+  '3137BH',
+] as unknown as NonEmptyArray<ZipCode>;
+// NEGATIVE Test Case: empty string
+/** require('io-ts-validator').validator(ZipCode).decodeEither("")._tag // => 'Left' */
+// NEGATIVE Test Case: single ascii character
+/** require('io-ts-validator').validator(ZipCode).decodeEither("a")._tag // => 'Left' */
 
 // Country
 // ISO 3166-1 alpha-2 country code, see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
@@ -156,6 +190,19 @@ export const Country: CountryC = t.brand(
 export type CountryBrand = {
   readonly Country: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(Country)).decodeSync(examplesCountry) // => examplesCountry */
+export const examplesCountry: NonEmptyArray<Country> = [
+  'FI',
+  'GB',
+] as unknown as NonEmptyArray<Country>;
+// NEGATIVE Test Case: empty string
+/** require('io-ts-validator').validator(Country).decodeEither("")._tag // => 'Left' */
+// NEGATIVE Test Case: emoji
+/** require('io-ts-validator').validator(Country).decodeEither("💩")._tag // => 'Left' */
+// NEGATIVE Test Case: lower case alpha-2 country code
+/** require('io-ts-validator').validator(Country).decodeEither("fi")._tag // => 'Left' */
+// NEGATIVE Test Case: alpha-3 country code
+/** require('io-ts-validator').validator(Country).decodeEither("FIN")._tag // => 'Left' */
 
 // StreetNumber
 // The purpose of this remains a mystery
@@ -297,6 +344,19 @@ export const PlaceName: PlaceNameC = t.brand(
 export type PlaceNameBrand = {
   readonly PlaceName: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(PlaceName)).decodeSync(examplesPlaceName) // => examplesPlaceName */
+export const examplesPlaceName: NonEmptyArray<PlaceName> = [
+  'Kallan & Co Oy, Simonsgatan, Helsinki',
+  'Erenköy Mahallesi, Çoban Yıldızı Sk. No:4, 34738 Kadıköy/İstanbul, Turkki',
+  '5-2 4-2 タイムズスクエアビル Takashimaya Shinjuku',
+  '武侯区通祠路39号-江城花2楼 (春江花月夜对面)',
+  "28 St John's Wood Road, London",
+  "Shakespeare's Globe",
+  'Tarkk´ampujankatu',
+  "'s-Gravesandestraat 55",
+] as unknown as NonEmptyArray<PlaceName>;
+// NEGATIVE Test Case: empty string
+/** require('io-ts-validator').validator(PlaceName).decodeEither("")._tag // => 'Left' */
 
 // FirstName
 // First name of the customer (e.g. John)
@@ -362,6 +422,16 @@ export const Address: AddressC = t.brand(
 export type AddressBrand = {
   readonly Address: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(Address)).decodeSync(examplesAddress) // => examplesAddress */
+export const examplesAddress: NonEmptyArray<Address> = [
+  'Pohjoiskaari 29 A 2',
+  'Pohjoiskaari 29 A 2, 00200, Helsinki, Finland',
+  'مكة',
+  '5-2 4-2 タイムズスクエアビル',
+  'Красная Площадь',
+] as unknown as NonEmptyArray<Address>;
+// NEGATIVE Test Case: single ascii character
+/** require('io-ts-validator').validator(Address).decodeEither("a")._tag // => 'Left' */
 
 // CountryName
 // Alphabetic country name

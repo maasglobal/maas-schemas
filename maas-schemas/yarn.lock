@@ -3640,10 +3640,10 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
-maasglobal-json-schema-validator@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/maasglobal-json-schema-validator/-/maasglobal-json-schema-validator-0.0.2.tgz#ebb4ed7b48336dfb383820b9ef055e8b20aaf416"
-  integrity sha512-Tdx21jvW2HaTW1VJjTthEzViMp7ia0Qy9BUsf1DjRL0ELG4eRjrOwpP9IJ7TBnllqiBc0eFV9+9GWD89BkrPAQ==
+maasglobal-json-schema-validator@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/maasglobal-json-schema-validator/-/maasglobal-json-schema-validator-0.0.3.tgz#9e0c9b42d47b813aac2c9da0f346c0121375a572"
+  integrity sha512-P3G8ehUFhy6GS3JQ2bCnRtCQLdjFDkMbwXAq/JNNXX/ApXE9xs1dsbX7dukVsGpO7z8itAJnDnDiFkOyTbbj1Q==
   dependencies:
     ajv "^6.8.1"
     ajv-keywords "^3.4.1"

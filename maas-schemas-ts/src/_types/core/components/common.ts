@@ -153,6 +153,35 @@ export const PersonalName: PersonalNameC = t.brand(
 export type PersonalNameBrand = {
   readonly PersonalName: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(PersonalName)).decodeSync(examplesPersonalName) // => examplesPersonalName */
+export const examplesPersonalName: NonEmptyArray<PersonalName> = [
+  'Lauri',
+  '姚 明',
+  'ADÉLAÏDE',
+  'Hans V.',
+  'じぇいむず',
+  'Hiếu Nguyễn',
+  'سيارة',
+  '차',
+  'Jędruś',
+  'Svan',
+  "O'Neill",
+  'Sören-sön',
+  'Dot. d`Tester',
+  'ぐえん',
+] as unknown as NonEmptyArray<PersonalName>;
+// NEGATIVE Test Case: number
+/** require('io-ts-validator').validator(PersonalName).decodeEither(123123)._tag // => 'Left' */
+// NEGATIVE Test Case: stringified number
+/** require('io-ts-validator').validator(PersonalName).decodeEither("123123")._tag // => 'Left' */
+// NEGATIVE Test Case: phonenumber prefix
+/** require('io-ts-validator').validator(PersonalName).decodeEither("+123123")._tag // => 'Left' */
+// NEGATIVE Test Case: string with special characters
+/** require('io-ts-validator').validator(PersonalName).decodeEither("\"#\"€\"€#\"")._tag // => 'Left' */
+// NEGATIVE Test Case: empty string
+/** require('io-ts-validator').validator(PersonalName).decodeEither("")._tag // => 'Left' */
+// NEGATIVE Test Case: emoji
+/** require('io-ts-validator').validator(PersonalName).decodeEither("💩")._tag // => 'Left' */
 
 // Phone
 // ITU-T E.164 phone number, see https://www.safaribooksonline.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html
@@ -170,9 +199,19 @@ export type PhoneBrand = {
 /** require('io-ts-validator').validator(nonEmptyArray(Phone)).decodeSync(examplesPhone) // => examplesPhone */
 export const examplesPhone: NonEmptyArray<Phone> = [
   '+358401234567',
+  '+35850123456',
+  '+855979301811',
 ] as unknown as NonEmptyArray<Phone>;
 // NEGATIVE Test Case: phone number without plus
 /** require('io-ts-validator').validator(Phone).decodeEither("358401234567")._tag // => 'Left' */
+// NEGATIVE Test Case: emoji
+/** require('io-ts-validator').validator(Phone).decodeEither("💩")._tag // => 'Left' */
+// NEGATIVE Test Case: empty string
+/** require('io-ts-validator').validator(Phone).decodeEither("")._tag // => 'Left' */
+// NEGATIVE Test Case: text
+/** require('io-ts-validator').validator(Phone).decodeEither("sdfdsf")._tag // => 'Left' */
+// NEGATIVE Test Case: extremely long phone number
+/** require('io-ts-validator').validator(Phone).decodeEither("+358123456789012345678")._tag // => 'Left' */
 
 // RawPhone
 // Slightly looser definition of phone number
@@ -205,6 +244,9 @@ export type EmailBrand = {
 /** require('io-ts-validator').validator(nonEmptyArray(Email)).decodeSync(examplesEmail) // => examplesEmail */
 export const examplesEmail: NonEmptyArray<Email> = [
   'joe.customer@example.com',
+  'info@maas.global',
+  '#"€"€#"@gmail.com',
+  'very@very@unsual.com',
 ] as unknown as NonEmptyArray<Email>;
 
 // PaymentSourceId

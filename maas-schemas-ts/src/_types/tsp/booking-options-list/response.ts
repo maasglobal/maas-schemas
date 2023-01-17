@@ -8,7 +8,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 import * as BookingOption_ from '../../core/booking-option';
 import * as BikeStation_ from '../../core/components/bike-station';
@@ -98,6 +100,44 @@ export const Response: ResponseC = t.brand(
 export type ResponseBrand = {
   readonly Response: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(Response)).decodeSync(examplesResponse) // => examplesResponse */
+export const examplesResponse: NonEmptyArray<Response> = [
+  {
+    options: [
+      {
+        cost: { amount: 16.7, currency: 'EUR' },
+        terms: {},
+        meta: {
+          MODE_TAXI: {},
+          valopilkku: {
+            name: 'Helsingin Taksi-Data Oy',
+            settings: { telephone: '+3581000700' },
+            capabilities: 929,
+            id: 104,
+            order_price: '0.00',
+            preorder_price: '7.10',
+          },
+        },
+        tspProduct: { id: 'HTD-any' },
+        leg: {
+          from: {
+            name: 'Töölönlahdenkatu 2, FI-00100 Helsinki, Suomi',
+            lat: 60.17252,
+            lon: 24.93789,
+          },
+          to: {
+            name: 'Nuuksiontie 82, FI-02820 Espoo, Suomi',
+            lat: 60.293641,
+            lon: 24.557928,
+          },
+          startTime: 1473937376382,
+          endTime: 1474021856382,
+          mode: 'TAXI',
+        },
+      },
+    ],
+  },
+] as unknown as NonEmptyArray<Response>;
 
 export default Response;
 

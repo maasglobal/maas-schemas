@@ -8,7 +8,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 import * as Booking_ from '../../../core/booking';
 import * as BookingMeta_ from '../../../core/booking-meta';
@@ -258,6 +260,36 @@ export const Request: RequestC = t.brand(
 export type RequestBrand = {
   readonly Request: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(Request)).decodeSync(examplesRequest) // => examplesRequest */
+export const examplesRequest: NonEmptyArray<Request> = [
+  {
+    payload: {
+      identityId: 'c4bf3ad0-4e6d-11ea-b64c-a3d04ec90b87',
+      locale: 'fi',
+      option: {
+        cost: { amount: 0, currency: 'EUR' },
+        leg: {
+          startTime: 1582045562000,
+          endTime: 1582045922000,
+          from: { lat: 60.17806592826971, lon: 24.958452215046275, name: 'Merihaka' },
+          to: { lat: 60.17806592826971, lon: 24.958452215046275, name: 'Merihaka' },
+          mode: 'BICYCLE',
+        },
+        meta: { MODE_BICYCLE: { pickupStationId: '000' } },
+        terms: {
+          validity: { startTime: 1582045562000, endTime: 1582045922000 },
+          cancellation: {
+            isCancellable: true,
+            cost: { amount: 0, currency: 'EUR' },
+            expiration: 1582028997000,
+          },
+          faresRates: [{ amount: 0, currency: 'EUR', timeInterval: 1800, startAt: 0 }],
+        },
+        tspProduct: { id: 'Bike' },
+      },
+    },
+  },
+] as unknown as NonEmptyArray<Request>;
 
 export default Request;
 

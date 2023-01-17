@@ -262,6 +262,8 @@ export type DevEnvironmentBrand = {
 export const examplesDevEnvironment: NonEmptyArray<DevEnvironment> = [
   { id: 'testing', live: false, account: 'testing', description: 'Testing environment' },
 ] as unknown as NonEmptyArray<DevEnvironment>;
+// NEGATIVE Test Case: Live environment
+/** require('io-ts-validator').validator(DevEnvironment).decodeEither({"id":"live","live":true,"account":"live","description":"Live environment"})._tag // => 'Left' */
 
 // EnvironmentGroupName
 // The purpose of this remains a mystery

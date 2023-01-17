@@ -8,7 +8,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 import * as Booking_ from '../../../../core/booking';
 import * as PaymentParameters_ from '../../../../core/components/payment-parameters';
@@ -98,6 +100,194 @@ export const Response: ResponseC = t.brand(
 export type ResponseBrand = {
   readonly Response: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(Response)).decodeSync(examplesResponse) // => examplesResponse */
+export const examplesResponse: NonEmptyArray<Response> = [
+  {
+    booking: {
+      id: '6e05e000-feb3-11e8-8d64-e19805ef49db',
+      state: 'PENDING',
+      leg: {
+        to: { lat: 48.209148, lon: 16.372895 },
+        from: { lat: 48.209148, lon: 16.372895 },
+        mode: 'BUS',
+        endTime: 1543065547506,
+        agencyId: 'example-agency',
+        startTime: 1542892747506,
+      },
+      customer: {
+        identityId: 'eu-west-1:00000000-0000-0000-0000-000000000000',
+        email: 'example@example.com',
+        phone: '+99000000000',
+        locale: 'en',
+        clientId: 'whim',
+        lastName: 'Example',
+        firstName: 'Example',
+      },
+      token: {},
+      terms: {
+        type: '24h card',
+        reusable: true,
+        validity: { endTime: 1543065547506, startTime: 1542892747506 },
+        reconcilable: false,
+      },
+      meta: {
+        MODE_TRANSIT: { productCode: 'example_agency_24h_card', productName: '24 card' },
+      },
+      fares: [{ amount: 800, currency: 'WMP', productionAmount: 800, type: 'charge' }],
+      product: {
+        id: 'example-agency-24h-public-transport',
+        name: 'Example agency 24h card',
+        description: 'Example agency 24h card',
+        priority: 3,
+        agencyId: 'example-agency',
+        tspProductId: 'example_agency_24h_card',
+        icon: 'http://example.com/test.png',
+      },
+      stateLog: [
+        {
+          reason: {},
+          invalid: false,
+          newState: 'PENDING',
+          oldState: 'START',
+          timestamp: 1544691509551,
+        },
+        {
+          reason: { text: 'Unexpectecd error', errorCode: 500 },
+          invalid: false,
+          newState: 'UNKNOWN',
+          oldState: 'UNKNOWN',
+          timestamp: '1545710094600',
+        },
+      ],
+      cancelling: false,
+      configurator: {
+        outboundSingle: {
+          type: 'oneOf',
+          name: 'Outbound Single',
+          description: 'Are you posh or not?',
+          choices: [
+            {
+              id: 'first-class',
+              name: '1st Class',
+              description: 'Yes, posh',
+              fares: [{ amount: 100, currency: 'EUR' }],
+              default: false,
+            },
+            {
+              id: 'second-class',
+              name: '2nd Class',
+              description: 'Not posh',
+              fares: [{ amount: 30, currency: 'EUR' }],
+              default: true,
+            },
+          ],
+        },
+      },
+      customerSelection: {},
+    },
+    paymentParameters: {
+      avainpay: {
+        appId: 'dummy',
+        timeStamp: '1555555555',
+        nonceStr: '89dd456aedf456aef456ff4f456afeaa',
+        package: 'prepay_id=qq8491267490264027474747474747474747',
+        signType: 'TEST',
+        paySign: 'dummy-sign',
+      },
+    },
+  },
+  {
+    booking: {
+      id: '6e05e000-feb3-11e8-8d64-e19805ef49db',
+      state: 'PENDING',
+      leg: {
+        to: { lat: 48.209148, lon: 16.372895 },
+        from: { lat: 48.209148, lon: 16.372895 },
+        mode: 'BUS',
+        endTime: 1543065547506,
+        agencyId: 'example-agency',
+        startTime: 1542892747506,
+      },
+      customer: {
+        identityId: 'eu-west-1:00000000-0000-0000-0000-000000000000',
+        email: 'example@example.com',
+        phone: '+99000000000',
+        locale: 'en',
+        clientId: 'whim',
+        lastName: 'Example',
+        firstName: 'Example',
+      },
+      token: {},
+      terms: {
+        type: '24h card',
+        reusable: true,
+        validity: { endTime: 1543065547506, startTime: 1542892747506 },
+        reconcilable: false,
+      },
+      meta: {
+        MODE_TRANSIT: { productCode: 'example_agency_24h_card', productName: '24 card' },
+      },
+      fares: [{ amount: 800, currency: 'WMP', productionAmount: 800, type: 'charge' }],
+      product: {
+        id: 'example-agency-24h-public-transport',
+        name: 'Example agency 24h card',
+        description: 'Example agency 24h card',
+        priority: 3,
+        agencyId: 'example-agency',
+        tspProductId: 'example_agency_24h_card',
+        icon: 'http://example.com/test.png',
+      },
+      stateLog: [
+        {
+          reason: {},
+          invalid: false,
+          newState: 'PENDING',
+          oldState: 'START',
+          timestamp: 1544691509551,
+        },
+      ],
+      cancelling: false,
+      configurator: {
+        outboundSingle: {
+          type: 'oneOf',
+          name: 'Outbound Single',
+          description: 'Are you posh or not?',
+          choices: [
+            {
+              id: 'first-class',
+              name: '1st Class',
+              description: 'Yes, posh',
+              fares: [{ amount: 100, currency: 'EUR' }],
+              default: false,
+            },
+            {
+              id: 'second-class',
+              name: '2nd Class',
+              description: 'Not posh',
+              fares: [{ amount: 30, currency: 'EUR' }],
+              default: true,
+            },
+          ],
+        },
+      },
+      customerSelection: {},
+    },
+    paymentParameters: {
+      avainpay: {
+        return_code: '1',
+        appid: 'dummy',
+        mch_id: '1234567890',
+        sub_mch_id: '123456',
+        nonce_str: '89dd456aedf456aef456ff4f456afeaa',
+        result_code: 'SUCCESS',
+        prepay_id: 'qq8491267490264027474747474747474747',
+        trade_type: 'TEST',
+        code_url: 'example://example.com',
+        sign: 'dummy-sign',
+      },
+    },
+  },
+] as unknown as NonEmptyArray<Response>;
 
 export default Response;
 

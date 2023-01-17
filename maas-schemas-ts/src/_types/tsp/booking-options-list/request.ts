@@ -8,7 +8,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 import * as Booking_ from '../../core/booking';
 import * as Address_ from '../../core/components/address';
@@ -240,6 +242,18 @@ export const Request: RequestC = t.brand(
 export type RequestBrand = {
   readonly Request: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(Request)).decodeSync(examplesRequest) // => examplesRequest */
+export const examplesRequest: NonEmptyArray<Request> = [
+  {
+    mode: 'TAXI',
+    startTime: 1475850000000,
+    endTime: 1475860000000,
+    from: '-60.00,24.00',
+    to: '+60.05,-24.05',
+    fromRadius: 100,
+    toRadius: 10,
+  },
+] as unknown as NonEmptyArray<Request>;
 
 export default Request;
 

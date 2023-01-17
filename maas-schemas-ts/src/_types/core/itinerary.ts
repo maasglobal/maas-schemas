@@ -8,7 +8,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 import * as Booking_ from './booking';
 import * as Common_ from './components/common';
@@ -155,6 +157,1807 @@ export const Itinerary: ItineraryC = t.brand(
 export type ItineraryBrand = {
   readonly Itinerary: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(Itinerary)).decodeSync(examplesItinerary) // => examplesItinerary */
+export const examplesItinerary: NonEmptyArray<Itinerary> = [
+  {
+    legs: [
+      {
+        from: { lat: 47.372913, lon: 8.534157, name: 'Kochoptik' },
+        distance: 83,
+        endTime: 1619775600000,
+        mode: 'WALK',
+        legGeometry: { points: 'goc`Hgyas@DW\\LPs@ZUTY' },
+        stops: [],
+        to: { lat: 47.372268677, lon: 8.5345697403, name: 'Zürich, Sihlstrasse' },
+        startTime: 1619775540000,
+      },
+      {
+        agencyId: 'Kova',
+        routeLongName: '9 1727',
+        legGeometry: {
+          points:
+            'mlc`Hi|as@IJc@ZIJGLGPo@~Dq@|DSnAO|AI`@QjAGj@CPAZ?XDdAB`@ThB??@HLlANfABNDR|AxEJXJRNRVT??^VVTLPJRN^lAbFRv@Nl@Np@Hj@TnA',
+        },
+        from: {
+          lat: 47.372268677,
+          platformCode: null,
+          lon: 8.5345697403,
+          name: 'Zürich, Sihlstrasse',
+        },
+        stops: [
+          {
+            lat: 47.37342453,
+            stationId: '1:8591381',
+            lon: 8.5292520523,
+            name: 'Zürich, Stauffacher',
+            platformCode: null,
+          },
+          {
+            lat: 47.372325897,
+            stationId: '1:8591427',
+            lon: 8.5268449783,
+            name: 'Zürich, Werd',
+            platformCode: null,
+          },
+        ],
+        mode: 'TRAM',
+        endTime: 1619775960000,
+        productOption: 0,
+        routeShortName: '9 1727',
+        distance: 1,
+        startTime: 1619775600000,
+        to: {
+          lat: 47.371429443,
+          platformCode: null,
+          lon: 8.5241851807,
+          name: 'Zürich Wiedikon, Bahnhof',
+        },
+      },
+      {
+        from: { lat: 47.371429443, lon: 8.5241851807, name: 'Zürich Wiedikon, Bahnhof' },
+        distance: 84,
+        endTime: 1619776020000,
+        mode: 'WALK',
+        legGeometry: { points: 'kfc`Hc{_s@@@??DBBDBFN~@MROPGMKNBHBD' },
+        routeLongName: ' ',
+        routeShortName: ' ',
+        to: { lat: 47.371479034, lon: 8.5234851837, name: 'Zürich Wiedikon' },
+        startTime: 1619775960000,
+        stops: [],
+      },
+      {
+        from: { lat: 47.371479034, lon: 8.5234851837, name: 'Zürich Wiedikon' },
+        agencyId: 'Kova',
+        distance: 0,
+        endTime: 1619776140000,
+        mode: 'WAIT',
+        legGeometry: { points: 'wfc`Hyv_s@??' },
+        productOption: 0,
+        stops: [],
+        to: { lat: 47.371479034, lon: 8.5234851837, name: 'Zürich Wiedikon' },
+        startTime: 1619776020000,
+      },
+      {
+        agencyId: 'Kova',
+        routeLongName: 'S8 18842',
+        legGeometry: {
+          points:
+            'ghc`Hgt_s@iC`EuGhKw@bAc@d@g@`@m@d@]Ty@\\MFm@Re@Lw@J_@DW@m@@]Ai@Ci@I[Ge@Om@WSK[Q_@Y_Ay@eG_GuAwAe@m@Wa@Sc@Q_@Qg@Y}@UeAOkAKkAEcAEkASoIAq@@yAB{@Dy@LoAFa@RqAJo@b@cC\\eB|@cEt@_E^oBJq@bGu\\b@aC`AwEz@{D',
+        },
+        from: {
+          lat: 47.371479034,
+          platformCode: '2',
+          lon: 8.5234851837,
+          name: 'Zürich Wiedikon',
+        },
+        stops: [],
+        mode: 'TRAIN',
+        endTime: 1619776380000,
+        productOption: 0,
+        routeShortName: 'S8 18842',
+        distance: 3,
+        startTime: 1619776140000,
+        to: {
+          lat: 47.378177643,
+          platformCode: '34',
+          lon: 8.5402116776,
+          name: 'Zürich HB',
+        },
+      },
+      {
+        from: { lat: 47.378177643, lon: 8.5402116776, name: 'Zürich HB' },
+        agencyId: 'Kova',
+        distance: 0,
+        endTime: 1619776920000,
+        mode: 'WAIT',
+        legGeometry: { points: 'spd`Hi_cs@??' },
+        productOption: 0,
+        stops: [],
+        to: { lat: 47.378177643, lon: 8.5402116776, name: 'Zürich HB' },
+        startTime: 1619776380000,
+      },
+      {
+        agencyId: 'Kova',
+        routeLongName: 'IC8 816',
+        legGeometry: {
+          points:
+            'qld`Hg}bs@u@dDi@fCaAjFeD`R_BpIIh@}@~EWpAETw@rD]fBa@|BCJIf@Mv@MfAI`AErAAn@@t@DdBRhGBlA?fACfAGdAGr@Ih@Kr@Or@Mf@]fA]z@[l@c@t@sC~D]h@S^]n@g@dASf@]~@]hASr@UbAOt@QfA{@vEeClN{@fF}BdMg@|Bg@rBaCxIm@rBo@jBs@hBg@fAu@|Au@vAwBjEs@dBy@fCk@rBa@tB]lBU|AO~AWzCSpFQ~GK`DKhBUzCMnAOnAK|@O`AqC`P_AtFuAfJi@jDsDjUuAbIuFv[qQtcAcFdW[jBYrBMdAS`CE|@GfACfAAbA?fA?t@@t@DzBj@~QNhFDtBDtEH~GFhDLtEh@hPdAjULdC~@fVTnGPxFNtDNpDb@pIFlBBxB?rACtBGtBOdCQ`CeAzK}AzQ]bEe@bHSjCsCh\\YbDSzAMz@Oz@e@nBYfAy@|B[p@i@fA]h@a@l@a@h@e@j@eAbAcAr@aAh@_CbAcLdFiAh@aAf@iAl@yGvD}A`AcAt@}AnAIFoAjA_A`AaCvCiA`B}m@|_A}GvJs@bAa@p@e@x@y@zAuA|Cs@bBa@tAaA|Cg@pBwB`Jm@~Bm@zBeBdGqA`F}c@dfBqAdFsDbNkAtEiDpN}@pD_D~LoBxHKb@qFrSuC`LU`Ak@bCc@tBIh@y@pGi@vGOhEGnE@zDD~BHxBPnCPdCj@bGB`@nJvdAzj@diGn@dHb@fETrBRfBrDx[`@bEFx@LfBLvCFtCBjDAxCA|Ae@z^I|I@vCFxCJvCPvCPtBRlBVhBVbBTnA`@nB|AbG|@nCbAbC`ApBlAzBbA~Ab@l@|AlBtAzAhC~BvG`F|ArAj@h@l@n@rBxBr@x@n@z@NTt@`AzA`CjAlBhAxB|@jB|@pBx@tBt@pBr@vBzAfFfAvEj@lClAbG^lBZzAPx@bAdF~@|EnOzx@bAdFj@nCx@rCXv@tAfDf@fAtAhChAnBVd@`CnExCxFxC`GnBxDdAjBn@bAr@~@t@z@jAjAx@p@`Ap@l@^bB|@nB~@dDzArBz@fDrAtAf@`FdB|An@h@Vj@ZhBnAbBxAbAhAt@bAz@nA`@r@|@hBv@hBp@tBn@~Bd@tBZjBLx@j@rFpArOxLjxAl@hHz@nKJpBFxB@bCCfBExAOhCOdBYnBUtAWnAe@zBwBdJ{AdH}AtHwDxRo@`Dm@jCABgDrOkP|u@s@|Cq@rCm@vBs@rBgAtCoAlCeAhBeAfB_EtF_CnDeAjBa@x@cAbCw@jBq@tBq@~Bi@|Ba@jBYbBc@pCSpBUxBKhBKfBEdAG`CAlA?vCDvCBxAFrAT`FP~BF~@RfCr@~G^hDFb@jC|RrAvLb@nEn@fH`AvLnZz{DnBxVh@zGl@bIv@|K|@rOZhEtBfXfBfUhBvUd@|FR`Cj@dFj@hEn@pEBLtBlMd@jCh@lCf@hCdA`G`A~Ff@vCj@rCh@fCbAtE`AxEj@~Cf@`Dj@hEdBtOt@zFT~AZnCd@hDrAlIhIvg@`ArFbAxEhAhFlBlH~@~CjAvDrAtDf@nAbAzBdBdDt@zAjAnBzAzBpAfB`BpBpDtDjAdAnDlClBpArBhArAn@tBz@fBp@`MnDtAf@fBt@pAj@pAr@tAx@|AdA|AhAlB|AvBtBvA|ArA`BfAtAxAvBdBtCvAhCfAxBjAnCrAdDbA|ChAtDhApEbA|EdAlGj@dEdBxO`@tCV~AhArGv@jD|@tDfKd`@|G~VhC~IxA`Fb@rAj@zBdA`EfKb`@fGhUxC`LNb@ZlAfBlG^~Ad@bCXnBTrBN~BJ|BBjCAhCG~BM|BMvAOtA]xBa@tBo@bCW|@Yv@u@jBaD`ImAzCm@dBk@pB_@rA]`BYbBYlBY|CYdE_ArO{E~x@[dEo@zFe@fDk@`Du@pDc@hBKZg@~Ak@|Aa@bAm@~Ao@xAm@rAuAnCuB`EoB`EkA~C[hAa@fBMv@O|@OpAEd@MbBE|ACpA@~AFbBNnBNvA\\pBd@pBr@zB`@dAzCnHJZrB`F~BxFz@tBXn@`@x@h@z@f@r@j@n@Z\\d@`@VPd@Xj@Vf@Rr@RD@tA\\nD|@h@Jd@Ht@JnE`@tIx@nD\\n@HzD`@lAJj@DtA@lAI`AOdCs@nEuAlAUnAMxAGpBFbBT`B\\`Bf@xAl@lBbAxBtA~AlAtApAtApAz@hAjAvAzAlB|@fAvA|AxBnBhb@b]tDrC|EtC`ClAhCjAdJ~CrK|C~Cl@`D^vDRzD@jIAz@BdBFlBNfALbANv@Lr@NrBd@lBl@fBl@p@X~BfAfAl@rA|@bAx@rAlAb@`@bAhAh@n@d@r@bCzDjBvDfAjCz@`CdA~D\\xA^fBjA`HjA|Gr@dEfApG|@pEjAlFhAvEdG|ShHvVh@jBfDjLbEdN|BlG`CjFnC`FrDrF`DxDtDnDlB|AnBvAtCdBtCtAbC~@zDlAfIrAlGX~ICrJG~JPzLv@dMvAvKjBlM`DdJ~CdI|DrLlH`JdH|GrGbH`IrIlLtEvHpItP|H|RhDrKxC~K`AhEfAbF`AfF|@hFbF~\\nA|HxA~HzB|J`BpGlBtGrBlGrBtF`C`GjD`InD|GzDxGlFdIpDzEpKrLvDpDpa@h`@nHfHtFrFvD`EfD~DpFjHrHdLxEpIbKdT`I`QfNf[jMrVdOtVhClEdCnE|ErJfGxNvAvDxB~F|EzOtDnNtClMvCzO|Gre@pPjkAl@nE|Fpa@|V~fBbAvH~@tHfBzQzCz[lG`p@|AjMpB~MjCvNpCnM|BzI|BpIdG~QnHrQnDtH|DxHfHxLncAf`BnGtKp\\|n@dVvd@fF~J|ElKpE`LtCfIbCvHnCpJ~@nDvIf_@hCxJ~BdIxCdJbDzIxCjHrBnEvBtEzHrNnEhHbFjHfH|IpEfFzExEpAlApAjAhDtCzIvGhDzBjDrBdIfEbHzC`HfCtPtFr[lKdWnHjBp@tCx@vCt@vCr@~QfErIjB`FbArI`BpIzAhKdBvGbAhs@nKlZnE`D^nAP~C^nAJ~O`AtZxA`P`AhIpArKfClEtAbC~@zAn@tAn@rCtAhGdDpS`MxGlEbGhE|AjAlCxBdA~@jDbDzAzA|BfCbAhA`AjAvEhGpDlFhAfBj@`Ap@lApAzBn@jAl@jAvBnE`CnFp@~AhBzEzBfGfMf^bElLzAbEl@~AvCzGfBvDlA`ChAtBl@hAbBrCv@nAlBxCx@hAv@hAnA`BbBvBfBtBv@z@hAjAhAjAjAfA~BvBdBxA|CbCt@j@jBlAt@f@jBhAt@b@jBbAnBbAx@^vB~@nBv@xCdA`Ct@fD|@zBf@|@RpB\\zCd@hBRlMnAtANjDd@|Ch@fATnCn@pCt@lCz@nC|@lC~@xHlChC`AfBt@dBx@vCxAry@bf@|f@fZzSvTnTd_@vK~YpJna@rDzX~CzYbFlZvIt[`LnX~BzE`CxD|BhD`ChCxBjBhBtAnAt@pAn@nBt@x@VnAZrAVf@HnANh@DpAFlA@tAAvAIrAMtASt@OfAYh@Oh@Q`A]fAg@lD}AxOoHjBy@fAi@lCqAtB_ArG{CXKf@Qx@Sv@KXCVAp@Ap@?t@HbAPl@Nf@Pj@Vr@`@p@f@j@h@l@n@j@v@^n@^p@\\x@Tl@Tr@XhATdANv@Lx@h@nDHr@z@zFVpAThAZrAb@bBh@~Bn@xCf@`Cd@pC~D|WR`B~@dJRfB~CzSh@`DZ`BVdAJ\\\\z@^|@b@z@d@t@RZf@p@l@p@`B|AzEtE`BxAj@`@j@Zl@Xl@Vn@Nn@Lp@Fp@Dn@@|FFt@@p@Dn@Hn@Ll@Pl@Tl@VfJhEx@b@lAn@bAj@j@ZhAh@|B`Av@Z|@Pl@R^Pb@Xb@`@d@j@`@x@`@~@',
+        },
+        from: {
+          lat: 47.378177643,
+          platformCode: '31',
+          lon: 8.5402116776,
+          name: 'Zürich HB',
+        },
+        stops: [],
+        mode: 'TRAIN',
+        endTime: 1619780280000,
+        productOption: 0,
+        routeShortName: 'IC8 816',
+        distance: 117,
+        startTime: 1619776920000,
+        to: { lat: 46.948829651, platformCode: '5', lon: 7.4391283989, name: 'Bern' },
+      },
+      {
+        from: { lat: 46.948829651, lon: 7.4391283989, name: 'Bern' },
+        distance: 369,
+        endTime: 1619780520000,
+        mode: 'WALK',
+        legGeometry: {
+          points: 'cup}Go}kl@?q@IaAIBCIN]h@MCOz@S|@Iz@Op@ALKFQJPD@Mv@APVjCh@M',
+        },
+        stops: [],
+        to: { lat: 46.947073, lon: 7.439385, name: 'Bubenbergplatz 11, Berne' },
+        startTime: 1619780280000,
+      },
+    ],
+    startTime: 1619775540000,
+    sourcePlanId: '4c6c7690-a995-11eb-ae40-bf1250611c28',
+    fares: [
+      {
+        amount: 4744,
+        currency: 'WMP',
+        productionAmount: 4744,
+        originalAmount: 4744,
+        type: 'charge',
+      },
+    ],
+    endTime: 1619780520000,
+    signature: '51236c26c20eb2ab0e6378d0751004bb0c0614a18e1fdb44108bd9f05f7e8c92',
+    co2: 16,
+    productOptions: [
+      {
+        identityId: 'a2825ef0-5bc5-11eb-8fe1-2f1c39696bf6',
+        terms: { validity: { endTime: 1619780520000, startTime: 1619775540000 } },
+        product: {
+          agencyId: 'Kova',
+          id: 'kova',
+          tspProductId: 'Kova',
+          allowFinishTrip: false,
+          description: 'KOVA_DESC',
+          priority: 1,
+          name: 'KOVA_NAME',
+          icon: 'https://example.com/product-icons/NS.png',
+        },
+        meta: {
+          kova: {
+            providerOfferRequest: {
+              travelerInfo: {
+                contact: {
+                  email: 'support@example.com',
+                  passportLastname: 'ExampleLname',
+                  passportFirstname: 'exampleFname',
+                  birthdate: '1991-04-30',
+                },
+                preferences: { trainTravelCard: [{ code: 'KEINE_ERMAESSIGUNGSKARTE' }] },
+              },
+              segment: {
+                transportMode: { mode: 'publictransport' },
+                providerId: 'kova',
+                departureTime: { value: '2021-04-30T09:39:00.000Z' },
+                arrivalTime: { value: '2021-04-30T11:02:00.000Z' },
+                originSegIdx: 0,
+                departureLocation: { name: 'Kochoptik' },
+                arrivalLocation: { name: 'Bubenbergplatz 11, Berne' },
+              },
+              providerOfferInput: {
+                segment: {
+                  legs: [
+                    {
+                      passlist: ['8591369', '8591381', '8591427', '8573710'],
+                      departureTime: { value: '2021-04-30T09:40:00.000+00:00' },
+                      arrivalTime: { value: '2021-04-30T09:46:00.000+00:00' },
+                      administrativeCode: '003849',
+                      transport: { vehicleNumber: '1727', code: 'T' },
+                      toStation: '8573710',
+                      fromStation: '8591369',
+                    },
+                    {
+                      passlist: [],
+                      departureTime: { value: '2021-04-30T09:46:00.000+00:00' },
+                      arrivalTime: { value: '2021-04-30T09:49:00.000+00:00' },
+                      administrativeCode: '00',
+                      transport: { code: 'WALK' },
+                      toStation: '8503011',
+                      fromStation: '8573710',
+                    },
+                    {
+                      passlist: ['8503011', '8503000'],
+                      departureTime: { value: '2021-04-30T09:49:00.000+00:00' },
+                      arrivalTime: { value: '2021-04-30T09:53:00.000+00:00' },
+                      administrativeCode: '000011',
+                      transport: { vehicleNumber: '18842', code: 'S' },
+                      toStation: '8503000',
+                      fromStation: '8503011',
+                    },
+                    {
+                      passlist: ['8503000', '8507000'],
+                      departureTime: { value: '2021-04-30T10:02:00.000+00:00' },
+                      arrivalTime: { value: '2021-04-30T10:58:00.000+00:00' },
+                      administrativeCode: '000011',
+                      transport: { vehicleNumber: '816', code: 'IC' },
+                      toStation: '8507000',
+                      fromStation: '8503000',
+                    },
+                  ],
+                },
+                offerFilters: [
+                  { type: 'number', number: '125' },
+                  { type: 'number', number: '2007' },
+                  { type: 'number', number: '2010' },
+                  { type: 'number', number: '7774' },
+                  { type: 'number', number: '7775' },
+                  { type: 'number', number: '8728' },
+                  { type: 'number', number: '8729' },
+                  { type: 'number', number: '8752' },
+                  { type: 'number', number: '8753' },
+                  { type: 'number', number: '10972' },
+                  { type: 'number', number: '10979' },
+                ],
+              },
+              userId: 'maas-global-backend-kova-price-provider',
+            },
+          },
+        },
+        configurator: {
+          version: '2',
+          estimatable: true,
+          validUntil: 1621967334551,
+          configuratorSelection: {
+            ticketClass: ['second'],
+            ticketCoverage: ['single'],
+            travelCard: ['none'],
+            choices: [],
+          },
+          purchasable: false,
+          configurations: {
+            ticketClass: {
+              type: 'oneOf',
+              name: 'SWISS_PT_TICKET_CLASS',
+              choices: [
+                { id: 'second', name: 'SWISS_PT_SECOND_CLASS', default: true },
+                { id: 'first', name: 'SWISS_PT_FIRST_CLASS', default: false },
+              ],
+            },
+            ticketCoverage: {
+              type: 'oneOf',
+              name: 'SWISS_PT_OPEN_RETURN',
+              choices: [
+                { id: 'single', name: 'SWISS_PT_SINGLE_TICKET', default: true },
+                { id: 'return', name: 'SWISS_PT_OPEN_RETURN_SELECTED', default: false },
+              ],
+            },
+            travelCard: {
+              type: 'oneOf',
+              name: 'SWISS_PT_TRAVEL_CARD',
+              choices: [
+                { id: 'none', name: 'SWISS_PT_NO_TRAVEL_CARD', default: true },
+                { id: 'halfFare', name: 'SWISS_PT_HALF_FARE_CARD', default: false },
+              ],
+            },
+          },
+          fares: [
+            {
+              amount: 4744,
+              currency: 'WMP',
+              productionAmount: 4744,
+              originalAmount: 4744,
+              type: 'charge',
+            },
+          ],
+        },
+        ref: 0,
+      },
+    ],
+    id: '4c6c7691-a995-11eb-ae40-bf1250611c28',
+    type: 'outward',
+  },
+  {
+    startTime: 1622032680000,
+    signature: '453c4ec8bf749e5423cf92dfe9e035e350a3a6446626929ad4d54fcfdedf4fbe',
+    fares: [
+      {
+        amount: 2586,
+        currency: 'WMP',
+        productionAmount: 2586,
+        originalAmount: 2586,
+        type: 'charge',
+      },
+    ],
+    id: 'da65c501-be17-11eb-91d1-e9bf88371f9e',
+    co2: 18,
+    type: 'outward',
+    endTime: 1622037420000,
+    legs: [
+      {
+        from: { lat: 46.411076, lon: 6.178333, name: 'Route De Trélex 19, Gingins' },
+        distance: 426,
+        endTime: 1622033040000,
+        mode: 'WALK',
+        legGeometry: { points: 'isgzGowud@bCzBjAR~BqAb@MLCZDZXrC}Dt@tA' },
+        stops: [],
+        to: { lat: 46.407714844, lon: 6.1787743568, name: 'Gingins, poste' },
+        startTime: 1622032680000,
+      },
+      {
+        agencyId: 'Kova',
+        routeLongName: '815 81540',
+        legGeometry: {
+          points:
+            'm_gzGywud@KN{@wAMR}@pAa@p@KNT\\n@fAzAlCTf@R\\VZRR??\\V|A|@r@f@h@h@rAfBXb@PTPNPHHDJ@L@r@Ex@IZC\\A\\@t@Fd@Jd@Lh@TjJrEVLHBF?FCJh@J\\Th@P^X`@|@hAhAtA??tA`BHFFBFEbCcGR_@EEaAcBc@u@??w@uA}@cBM][o@KKSMAW?K^sAVCzj@o_B??wWyvAk@[TFLBHAFAPGPQxAuBbCuDNWL]Ja@rKdFjAn@`@Xj@d@`@`@Zb@\\f@Xd@P`@d@jAfAbDHTLTJNPN`B|@x@h@JFXPPN??PVPZRb@Nb@Lf@Nn@Nt@Fj@Dh@DjA?x@CxCExDAz@??A\\Bj@CDCDAFAF?F@HBDBDFBD?DADCBGBG@IAIAGACTe@LYVk@Vq@Tq@bFiQ~GgV`@kA??\\y@Te@\\m@`@i@v@w@|AmAtD{C~AoA??XYTETAF?DABCBG@G@GAGAGCEEEEA[s@q@qCkA_F{EoSc@iBYiA??e@qBC]e@uBIw@?K?GCECGEEGACGg@i@IOg@w@W]UWaIgIBG@IAKCIEEECG?GDEJu@o@mCoCe@c@[m@ISAICGLy@X{Ad@qBt@oCf@cBRg@X_AV_AH[HUNg@@E??FYd@yA@EbByFLg@F]F?BCBE@E?GAGCELYNe@Vw@b@uAVy@Tk@h@mAh@aAPY\\i@b@m@z@cAv@@bBsg@',
+        },
+        from: {
+          lat: 46.407714844,
+          platformCode: null,
+          lon: 6.1787743568,
+          name: 'Gingins, poste',
+        },
+        stops: [
+          {
+            lat: 46.407466888,
+            stationId: '1:8570007',
+            lon: 6.1765012741,
+            name: 'Gingins, ouest',
+            platformCode: null,
+          },
+          {
+            lat: 46.400436401,
+            stationId: '1:8501966',
+            lon: 6.1714711189,
+            name: 'Chéserex, poste',
+            platformCode: null,
+          },
+          {
+            lat: 46.399330139,
+            stationId: '1:8580603',
+            lon: 6.1731147766,
+            name: 'Chéserex, Au Courtillet',
+            platformCode: null,
+          },
+          {
+            lat: 46.400253296,
+            stationId: '1:8570006',
+            lon: 6.1753697395,
+            name: "Chéserex, A l'Oche",
+            platformCode: null,
+          },
+          {
+            lat: 46.393230438,
+            stationId: '1:8501968',
+            lon: 6.1908116341,
+            name: 'Grens, village',
+            platformCode: null,
+          },
+          {
+            lat: 46.397190094,
+            stationId: '1:8570005',
+            lon: 6.2048611641,
+            name: 'Signy, centre commercial',
+            platformCode: null,
+          },
+          {
+            lat: 46.390563965,
+            stationId: '1:8501970',
+            lon: 6.2023458481,
+            name: 'Signy, village',
+            platformCode: null,
+          },
+          {
+            lat: 46.389705658,
+            stationId: '1:8501969',
+            lon: 6.197719574,
+            name: 'Signy, Le Glassey',
+            platformCode: null,
+          },
+          {
+            lat: 46.38634491,
+            stationId: '1:8595175',
+            lon: 6.205265522,
+            name: 'Eysins, Petit-Eysins',
+            platformCode: null,
+          },
+          {
+            lat: 46.383514404,
+            stationId: '1:8579308',
+            lon: 6.2080860138,
+            name: 'Eysins, est',
+            platformCode: null,
+          },
+          {
+            lat: 46.385299683,
+            stationId: '1:8595905',
+            lon: 6.2148776054,
+            name: 'Eysins, Terre-Bonne nord',
+            platformCode: null,
+          },
+          {
+            lat: 46.38841629,
+            stationId: '1:8570002',
+            lon: 6.2248220444,
+            name: 'Nyon, route de Signy',
+            platformCode: null,
+          },
+          {
+            lat: 46.385334015,
+            stationId: '1:8570001',
+            lon: 6.2303195,
+            name: 'Nyon, ch. Monastier',
+            platformCode: null,
+          },
+        ],
+        mode: 'BUS',
+        endTime: 1622034360000,
+        productOption: 0,
+        routeShortName: '815 81540',
+        distance: 10,
+        startTime: 1622033040000,
+        to: {
+          lat: 46.384838104,
+          platformCode: null,
+          lon: 6.2368235588,
+          name: 'Nyon, gare',
+        },
+      },
+      {
+        from: { lat: 46.384838104, lon: 6.2368235588, name: 'Nyon, gare' },
+        distance: 170,
+        endTime: 1622034540000,
+        mode: 'WALK',
+        legGeometry: { points: 'epbzGccae@BIDFJJF@@LBJJL|@jAGLh@r@IPEHk@s@??' },
+        routeLongName: ' ',
+        routeShortName: ' ',
+        to: { lat: 46.384418488, lon: 6.2359700203, name: 'Nyon' },
+        startTime: 1622034360000,
+        stops: [],
+      },
+      {
+        from: { lat: 46.384418488, lon: 6.2359700203, name: 'Nyon' },
+        agencyId: 'Kova',
+        distance: 0,
+        endTime: 1622034780000,
+        mode: 'WAIT',
+        legGeometry: { points: 'smbzGy}`e@??' },
+        productOption: 0,
+        stops: [],
+        to: { lat: 46.384418488, lon: 6.2359700203, name: 'Nyon' },
+        startTime: 1622034540000,
+      },
+      {
+        agencyId: 'Kova',
+        routeLongName: 'IR15 2527',
+        legGeometry: {
+          points:
+            'smbzGu|`e@kG_IqB_Cm@m@aB_By@s@eA{@oBuAuBoAKEeDwA_AYy@UyG_BcBk@eBs@wAu@iAo@kA}@kAaAwAwAqBaCmE}FoUe[iEsF}CiD{BwB}BmB{q@km@{CkCoG}FmEcEsMaN}EcF}FeGsDyDwKaLqDuDkkAqmA}DgEyAeBaAoAeA{AaA{Ay@qAw@wA_B{Cc@}@s@}AaA{B_AcCgAeD]eAi@oBw@uC_Nwj@mByHkBqHaB_GoAqDqDwJ_Uwk@kOe`@Se@sCiGoDaHsA_C}IuNwW{a@Ye@}GsKg@y@iBiDeAaCm@}AaAiCaAyCc@cB[aAw@eDs@qDY{AoAeIgA{Gg@gCoAmFMc@q@eCs@}Bw@}B}@}Bu@kB_EoJ{@yBmBeGo@cCo@kCg@cCc@gCa@oCa@wCeDyXo@qG_@mFQ}CMuDI{CCgH@qCJ{FLqDZsGv@yMHaCFaCB_C?cCC_CEcCI{BM}BO_CUaC]uC{G{e@uOugAaAmHg@oESeCWkDSgDKeBo@_PIuCEiFBcFNyFbIe}AXmFXaGLmCFcC@gCA_CAgCGmCKaCOeCSeCWcCY_C]_CoAsG_Qy{@Mk@aA_FaAiEg@oBk@gBm@gBk@sAm@sAkBmDmBsCw@aAw@y@IMqBmB_CyBUU{EoEaDaDsFoG}B{CmC_EyBkDed@ev@sI{Nw@aBo@{Aq@cBm@eBk@mBiA{EoBaJg@oBk@kBm@gBq@cBu@cBw@}AeBsCuAkBaAkAeAeAiAcAiA}@_BcAqRmK}AcAkCsBu@m@qAoAyA}A{@_Aw@aAw@gAmEqGy@sA_A_B}BeE??qAcCoDiHoCiGe@gA}@wBaAeCu@yBiAsDmAeEo@yBq@qB{Mk`@kWyu@uAgEsBaHW{@{@{C_AiDiAiEkAuEcCkKcDyO}BoMyBiNyC}T{@eG]kCe@_DUkAa@kBi@_Cu@uCo@qB}@gC_@gAiAmCgA_CwN_[iHmOkC{F_B_Dm@cAu@gAy@cA{@_AaA_AeAy@mAy@o@[u@]s@Y}DwAy@]uAw@mAaA[Yw@{@g@m@k@y@k@}@c@{@c@aA[u@m@uBa@_BUgAWcBY_CGeAIcBC}@Aw@Ay@BmCFgBHwALsARyA\\oB^oBnAeFh@yBd@cB`@wAp@kBbBgEzHyQd@}A~@aDjAsCpCqHh@uAtAwCfHoP~BuFbBcE`GoO`C_GRg@dAgCvEyKpAaDpAmD|@mCbAaDj@qBjHyYpBkH`CoJPu@XgAlCqLzIu^j@uB`@mA`@kAx@yB|@mB`AmB|@yAbG_JbFuHf@y@b@y@j@qAZ{@Pm@Li@Nm@Jk@Ju@J}@ZmDRyAvAeKrAiJjAoI\\gCRuAF_AVeD',
+        },
+        from: { lat: 46.384418488, platformCode: '2', lon: 6.2359700203, name: 'Nyon' },
+        stops: [
+          {
+            lat: 46.511100769,
+            stationId: '1:8501037:0:3',
+            lon: 6.4939661026,
+            name: 'Morges',
+            platformCode: '3',
+          },
+        ],
+        mode: 'TRAIN',
+        endTime: 1622036520000,
+        productOption: 0,
+        routeShortName: 'IR15 2527',
+        distance: 38,
+        startTime: 1622034780000,
+        to: { lat: 46.516792297, platformCode: '3', lon: 6.629090786, name: 'Lausanne' },
+      },
+      {
+        agencyId: 'Kova',
+        routeLongName: 'RE 18427',
+        legGeometry: {
+          points:
+            'qh|zGmwmg@`@kFH}@Fe@Fc@Jg@Pk@Pm@Zo@Zk@t@iAh@}@b@o@r@eAz@eAf@u@b@s@Zi@Tg@r@oBj@kB^wANm@Je@Jk@PgAFi@NsAFq@Di@FgAHkCf@iVF{AH{ATiDd@yDj@oDbAoFb@eC\\mCNoBPcCFaBBmEUiT?cEHoDLsCLiBPqBJ}@Dg@j@{DxBiNj@cEL}AJsBH_DJoEFuBPeCZaCXaB`@cBz@iDr@uCr@qCt@gC~B_Hp@mBf@eB`@iBnAyG\\{BXcCPiCBeCBqCBmPBmDBaAPcDRsB^iCp@aDfBuFjAoD`AoC~@oDdB}Hp@_D`BsHf@qBd@}A~@gCt@iBbAcCx@qBxBcF`AcBb@o@jAuAlCsCn@y@v@oAr@oAr@yAlBmEz@uB|EkM~@cCpAmCdCcEdIsMpAyBfA}Bt@oBhEkMh@wAj@sAjA{BjDwGd@cAd@eA\\cA^oATaAToAPmANqAHsABw@@q@@_AAcAA_AIgBGq@OwAWiBKo@UmA_@}Aa@_BiHyWaAaEScAOkAKy@Gu@IwAEy@CgBBsBJ_CJsAPwAlB{LVkCJmC@yCC{G@qADoAVqDVkB^kBJ_@XaA^iA^}@\\y@|AeDt@sBp@}BvCsK|@eCt@_Bx@qAl@w@lEcFl@{@h@_A`@w@`@cA|BwGXw@b@}@d@{@f@w@nA{AnC{Cb@m@f@u@Zo@l@oAb@eAxAyDd@uA~C_KRq@T{@jAuFd@wBf@kB|BmHXcAVuATqA\\}BTmAP_Ah@_C|BuJz@kDvBiI\\wARaARoAP_BrBgRDc@LoBHsC@gBAiAIgCMsBUmC_AmLIuAE}@AcA?yAByAFwAJkAJaAnBwOPsAVqAXmA`BgGPo@RaAVuALaAVwBFi@XeD|AcRHuADs@X_JD}@HeAH}@LcApAsIPqALuAFiABg@F_CvAiz@D_CD_AFeAFq@NuAL_ANs@Ns@R{@XcAz@wCZiA^}APcAJq@PuAFy@Di@DeABgA@sBAs@EkAIcBo@{JCa@EoAAm@A{A@}ADyADw@Dw@PqBJs@XiBLs@\\wA^wAfAyDZeA`@qAb@kAt@aBv@}AJUf@cAf@mAb@gA\\s@pDaH~A_D~A}CXw@Ti@xCqG',
+        },
+        from: {
+          lat: 46.516792297,
+          platformCode: '6',
+          lon: 6.629090786,
+          name: 'Lausanne',
+        },
+        stops: [],
+        mode: 'TRAIN',
+        endTime: 1622037360000,
+        productOption: 0,
+        routeShortName: 'RE 18427',
+        distance: 18,
+        startTime: 1622036520000,
+        to: { lat: 46.463005066, platformCode: '4', lon: 6.8434467316, name: 'Vevey' },
+      },
+      {
+        from: { lat: 46.463005066, lon: 6.8434467316, name: 'Vevey' },
+        distance: 150,
+        endTime: 1622037420000,
+        mode: 'WALK',
+        legGeometry: { points: 'wxqzGorwh@k@lAXXVBBLBj@KfAVVHKH?' },
+        stops: [],
+        to: { lat: 46.462777, lon: 6.842206, name: 'Rond-Point de la Gare, Vevey' },
+        startTime: 1622037360000,
+      },
+    ],
+    productOptions: [
+      {
+        identityId: 'dec87560-ac5c-11eb-a6fc-cb59ad789c50',
+        terms: { validity: { endTime: 1622029522168, startTime: 1622029522168 } },
+        product: {
+          agencyId: 'Kova',
+          id: 'kova',
+          tspProductId: 'Kova',
+          allowFinishTrip: false,
+          description: 'KOVA_DESC',
+          priority: 1,
+          name: 'KOVA_NAME',
+          icon: 'https://example.com/product-icons/kova.png',
+        },
+        meta: {
+          kova: {
+            jp: {
+              providerOfferRequest: {
+                travelerInfo: {
+                  contact: {
+                    email: 'support@example.com',
+                    passportLastname: 'ExampleLname',
+                    passportFirstname: 'ExampleFname',
+                    birthdate: '1991-05-26',
+                  },
+                  preferences: {
+                    trainClass: [{ code: 'SECOND' }],
+                    trainTravelCard: [{ code: 'KEINE_ERMAESSIGUNGSKARTE' }],
+                  },
+                },
+                segment: {
+                  transportMode: { mode: 'publictransport' },
+                  providerId: 'kova',
+                  departureTime: { value: '2021-05-26T12:38:00.000Z' },
+                  arrivalTime: { value: '2021-05-26T13:57:00.000Z' },
+                  originSegIdx: 0,
+                  departureLocation: { name: 'Route De Trélex 19, Gingins' },
+                  arrivalLocation: { name: 'Rond-Point de la Gare, Vevey' },
+                },
+                providerOfferInput: {
+                  segment: {
+                    legs: [
+                      {
+                        passlist: [
+                          '8501967',
+                          '8570007',
+                          '8501966',
+                          '8580603',
+                          '8570006',
+                          '8501968',
+                          '8570005',
+                          '8501970',
+                          '8501969',
+                          '8595175',
+                          '8579308',
+                          '8595905',
+                          '8570002',
+                          '8570001',
+                          '8570000',
+                        ],
+                        departureTime: { value: '2021-05-26T12:44:00.000+00:00' },
+                        arrivalTime: { value: '2021-05-26T13:06:00.000+00:00' },
+                        administrativeCode: '000738',
+                        transport: { vehicleNumber: '81540', code: 'B' },
+                        toStation: '8570000',
+                        fromStation: '8501967',
+                      },
+                      {
+                        passlist: [],
+                        departureTime: { value: '2021-05-26T13:06:00.000+00:00' },
+                        arrivalTime: { value: '2021-05-26T13:13:00.000+00:00' },
+                        administrativeCode: '00',
+                        transport: { code: 'WALK' },
+                        toStation: '8501030',
+                        fromStation: '8570000',
+                      },
+                      {
+                        passlist: ['8501030', '8501037', '8501120'],
+                        departureTime: { value: '2021-05-26T13:13:00.000+00:00' },
+                        arrivalTime: { value: '2021-05-26T13:42:00.000+00:00' },
+                        administrativeCode: '000011',
+                        transport: { vehicleNumber: '2527', code: 'IR' },
+                        toStation: '8501120',
+                        fromStation: '8501030',
+                      },
+                      {
+                        passlist: ['8501120', '8501200'],
+                        departureTime: { value: '2021-05-26T13:42:00.000+00:00' },
+                        arrivalTime: { value: '2021-05-26T13:56:00.000+00:00' },
+                        administrativeCode: '000011',
+                        transport: { vehicleNumber: '18427', code: 'RE' },
+                        toStation: '8501200',
+                        fromStation: '8501120',
+                      },
+                    ],
+                  },
+                  offerFilters: [
+                    { type: 'number', number: '125' },
+                    { type: 'number', number: '2007' },
+                    { type: 'number', number: '2010' },
+                    { type: 'number', number: '7774' },
+                    { type: 'number', number: '7775' },
+                    { type: 'number', number: '8728' },
+                    { type: 'number', number: '8729' },
+                    { type: 'number', number: '8752' },
+                    { type: 'number', number: '8753' },
+                    { type: 'number', number: '10972' },
+                    { type: 'number', number: '10979' },
+                  ],
+                  returnTrip: true,
+                },
+                userId: 'maas-global-backend-kova-price-provider',
+              },
+            },
+            display: {
+              name: 'SWISS_PT_MOBILIS_SINGLE_TICKET',
+              description: '4 hour(s), All Zones',
+            },
+            offer: {
+              id: 'ca267a27-986f-44bf-992d-c8112e972a01',
+              providerId: 'kova',
+              providerOfferRequest: {
+                travelerInfo: {
+                  contact: {
+                    email: 'user@example.com',
+                    passportLastname: 'ExampleLname',
+                    passportFirstname: 'ExampleFname',
+                    birthdate: '2005-01-01',
+                  },
+                  preferences: {
+                    trainClass: [{ code: 'SECOND' }],
+                    trainTravelCard: [{ code: 'NONE' }],
+                  },
+                },
+                userId: 'maas-global-backend-kova-price-provider',
+                providerOfferInput: {
+                  returnTrip: true,
+                  nonBindingOffer: {
+                    id: '5fdfb238-8ddd-4fb1-b2d7-f91db0a10a24',
+                    providerId: 'kova',
+                    providerOfferRequest: {
+                      travelerInfo: {
+                        contact: {
+                          email: 'user@example.com',
+                          passportLastname: 'ExampleLname',
+                          passportFirstname: 'ExampleFname',
+                          birthdate: '2005-01-01',
+                        },
+                        preferences: {
+                          trainClass: [{ code: 'SECOND' }],
+                          trainTravelCard: [{ code: 'NONE' }],
+                        },
+                      },
+                      userId: 'maas-global-backend-kova-price-provider',
+                      providerOfferInput: {
+                        segment: {
+                          legs: [
+                            {
+                              passlist: [
+                                '8501967',
+                                '8570007',
+                                '8501966',
+                                '8580603',
+                                '8570006',
+                                '8501968',
+                                '8570005',
+                                '8501970',
+                                '8501969',
+                                '8595175',
+                                '8579308',
+                                '8595905',
+                                '8570002',
+                                '8570001',
+                                '8570000',
+                              ],
+                              departureTime: { value: '2021-05-26T12:44:00.000+00:00' },
+                              arrivalTime: { value: '2021-05-26T13:06:00.000+00:00' },
+                              administrativeCode: '000738',
+                              transport: { vehicleNumber: '81540', code: 'B' },
+                              toStation: '8570000',
+                              fromStation: '8501967',
+                            },
+                            {
+                              passlist: [],
+                              departureTime: { value: '2021-05-26T13:06:00.000+00:00' },
+                              arrivalTime: { value: '2021-05-26T13:13:00.000+00:00' },
+                              administrativeCode: '00',
+                              transport: { code: 'WALK' },
+                              toStation: '8501030',
+                              fromStation: '8570000',
+                            },
+                            {
+                              passlist: ['8501030', '8501037', '8501120'],
+                              departureTime: { value: '2021-05-26T13:13:00.000+00:00' },
+                              arrivalTime: { value: '2021-05-26T13:42:00.000+00:00' },
+                              administrativeCode: '000011',
+                              transport: { vehicleNumber: '2527', code: 'IR' },
+                              toStation: '8501120',
+                              fromStation: '8501030',
+                            },
+                            {
+                              passlist: ['8501120', '8501200'],
+                              departureTime: { value: '2021-05-26T13:42:00.000+00:00' },
+                              arrivalTime: { value: '2021-05-26T13:56:00.000+00:00' },
+                              administrativeCode: '000011',
+                              transport: { vehicleNumber: '18427', code: 'RE' },
+                              toStation: '8501200',
+                              fromStation: '8501120',
+                            },
+                          ],
+                        },
+                        offerFilters: [
+                          { type: 'number', number: 125 },
+                          { type: 'number', number: 2007 },
+                          { type: 'number', number: 2010 },
+                          { type: 'number', number: 7774 },
+                          { type: 'number', number: 7775 },
+                          { type: 'number', number: 8728 },
+                          { type: 'number', number: 8729 },
+                          { type: 'number', number: 8752 },
+                          { type: 'number', number: 8753 },
+                          { type: 'number', number: 10972 },
+                          { type: 'number', number: 10979 },
+                        ],
+                        returnTrip: true,
+                      },
+                    },
+                    price: { totalAmount: '27.80', currencyUnit: { code: 'CHF' } },
+                    providerOfferProposal: {
+                      offer: {
+                        id: '_b68b9346-bc4c-497c-ae30-06c91e9d4001',
+                        needsNewPhoto: 'false',
+                        productInfluenceFactors: {
+                          ticketClass: 'KLASSE_2',
+                          ticketType: 'E_TICKET',
+                          customerSegment: {
+                            description: {
+                              en: 'Adults',
+                              de: 'Erwachsene',
+                              fr: 'Adultes',
+                              it: 'Adulti',
+                            },
+                            segmentCode: 'PERSON_16+',
+                          },
+                        },
+                        productNumber: '2007',
+                        areaOfValidity: {
+                          validityZoneInfo: {
+                            zoneBundles: [
+                              {
+                                allZones: 'true',
+                                compulsoryZonesBundle: 'false',
+                                kovaZoneTariffCode: '449_EB',
+                                driveType: 'RAUMZEIT',
+                                description: { en: ' ', de: ' ', fr: ' ', it: ' ' },
+                                zones: [],
+                                tariffOwner: '449',
+                              },
+                            ],
+                          },
+                          id: 'gb35681f26-c7a3-4857-8ffc-77dd91b65523',
+                          wayIndication: [
+                            {
+                              rateClass: 'VERBUND',
+                              travelRouteSegments: [
+                                {
+                                  description: {
+                                    en: 'All Zones',
+                                    de: 'Alle Zonen',
+                                    fr: 'Toutes les zones',
+                                    it: 'Tutte le zone',
+                                  },
+                                  segmentType: 'INFO',
+                                },
+                              ],
+                            },
+                          ],
+                          validityStretchInfo: {
+                            travelWayInfo: [
+                              {
+                                travelRouteSegment: [
+                                  {
+                                    description: {
+                                      en: 'via',
+                                      de: 'via',
+                                      fr: 'via',
+                                      it: 'via',
+                                    },
+                                    segmentType: 'SEPARATOR',
+                                  },
+                                  {
+                                    description: {
+                                      en: 'All Zones',
+                                      de: 'Alle Zonen',
+                                      fr: 'Toutes les zones',
+                                      it: 'Tutte le zone',
+                                    },
+                                    segmentType: 'INFO',
+                                  },
+                                ],
+                                metaData: {
+                                  fastestTravelPeriod: '72',
+                                  minNumberOfChanges: '2',
+                                  numberOfConnections: '1',
+                                },
+                                to: {
+                                  stationCode: '8501200',
+                                  description: {
+                                    en: 'Vevey',
+                                    de: 'Vevey',
+                                    fr: 'Vevey',
+                                    it: 'Vevey',
+                                  },
+                                  segmentType: 'HALTESTELLE',
+                                },
+                                from: {
+                                  stationCode: '8501967',
+                                  description: {
+                                    en: 'Gingins, poste',
+                                    de: 'Gingins, poste',
+                                    fr: 'Gingins, poste',
+                                    it: 'Gingins, poste',
+                                  },
+                                  segmentType: 'HALTESTELLE',
+                                },
+                              },
+                            ],
+                            metaData: {
+                              fastestTravelPeriod: '72',
+                              minNumberOfChanges: '2',
+                              numberOfConnections: '1',
+                            },
+                            transportDistance: [
+                              {
+                                id: 'Vs986779cb-ceb9-4a8a-8c0c-053e46497e5b',
+                                tariffedRoute: {
+                                  egdes: [
+                                    {
+                                      to: '8570007',
+                                      transportationAvailableType: 'BUS',
+                                      from: '8501967',
+                                    },
+                                    {
+                                      to: '8501966',
+                                      transportationAvailableType: 'BUS',
+                                      from: '8570007',
+                                    },
+                                    {
+                                      to: '8580603',
+                                      transportationAvailableType: 'BUS',
+                                      from: '8501966',
+                                    },
+                                    {
+                                      to: '8570006',
+                                      transportationAvailableType: 'BUS',
+                                      from: '8580603',
+                                    },
+                                    {
+                                      to: '8501968',
+                                      transportationAvailableType: 'BUS',
+                                      from: '8570006',
+                                    },
+                                    {
+                                      to: '8570005',
+                                      transportationAvailableType: 'BUS',
+                                      from: '8501968',
+                                    },
+                                    {
+                                      to: '8501970',
+                                      transportationAvailableType: 'BUS',
+                                      from: '8570005',
+                                    },
+                                    {
+                                      to: '8501969',
+                                      transportationAvailableType: 'BUS',
+                                      from: '8501970',
+                                    },
+                                    {
+                                      to: '8595175',
+                                      transportationAvailableType: 'BUS',
+                                      from: '8501969',
+                                    },
+                                    {
+                                      to: '8579308',
+                                      transportationAvailableType: 'BUS',
+                                      from: '8595175',
+                                    },
+                                    {
+                                      to: '8595905',
+                                      transportationAvailableType: 'BUS',
+                                      from: '8579308',
+                                    },
+                                    {
+                                      to: '8570002',
+                                      transportationAvailableType: 'BUS',
+                                      from: '8595905',
+                                    },
+                                    {
+                                      to: '8570001',
+                                      transportationAvailableType: 'BUS',
+                                      from: '8570002',
+                                    },
+                                    {
+                                      to: '8570000',
+                                      transportationAvailableType: 'BUS',
+                                      from: '8570001',
+                                    },
+                                    {
+                                      to: '8501037',
+                                      transportationAvailableType: 'BAHN',
+                                      from: '8501030',
+                                    },
+                                    {
+                                      to: '8501120',
+                                      transportationAvailableType: 'BAHN',
+                                      from: '8501037',
+                                    },
+                                    {
+                                      to: '8501200',
+                                      transportationAvailableType: 'BAHN',
+                                      from: '8501120',
+                                    },
+                                  ],
+                                  travelPeriod: {
+                                    value: '72',
+                                    description: {
+                                      en: 'Minuten',
+                                      de: 'Minuten',
+                                      fr: 'Minuten',
+                                      it: 'Minuten',
+                                    },
+                                    code: 'MINUTEN',
+                                  },
+                                },
+                                externalConnectionReferenceId:
+                                  '9dd13a5a-f973-4c7c-ab7f-16ab3b2c105a',
+                              },
+                            ],
+                          },
+                        },
+                        fareRatesDate: '2021-05-26',
+                        valuationInfo: {
+                          temporalFlexibility: {
+                            zoneDriveType: 'RAUMZEIT',
+                            timeRestrictions: 'OHNE_UHRZEITEINSCHRAENKUNGEN',
+                          },
+                          comfort: 'KLASSE_2',
+                          travelingRelationship: 'KEINE_REISENDENBEZIEHUNG',
+                          spatialFlexibility: 'VERBUND',
+                          partOffer: 'false',
+                        },
+                        price: { amount: '27.80', currency: { code: 'CHF' } },
+                        packageDetails: {
+                          id: 'P0',
+                          condition: 'SEPARATER_KAUF_MOEGLICH',
+                          customers: [{ id: 'R1' }],
+                        },
+                        saleParameters: [
+                          {
+                            code: 'GUELTIGKEITSBEGINNZEIT',
+                            value: '14:44:00.000',
+                            type: 'zeit',
+                            description: {
+                              en: 'Start of validity',
+                              de: 'Gültigkeitsbeginnzeitpunkt',
+                              fr: 'Début de validité',
+                              it: 'Inizio di validità',
+                            },
+                            optional: 'false',
+                          },
+                          {
+                            code: 'REISENDER',
+                            type: 'tkid',
+                            description: {
+                              en: 'Traveller',
+                              de: 'Reisender',
+                              fr: 'Voyageur',
+                              it: 'Viaggiatore',
+                            },
+                            optional: 'true',
+                          },
+                          {
+                            code: 'KUNDENNAME',
+                            type: 'nameVorname',
+                            description: {
+                              en: 'Client name',
+                              de: 'Kundenname',
+                              fr: 'Nom du client',
+                              it: 'Nome del cliente',
+                            },
+                            optional: 'true',
+                          },
+                          {
+                            code: 'GEBURTSDATUM',
+                            type: 'datum',
+                            description: {
+                              en: 'Date of birth',
+                              de: 'Geburtsdatum',
+                              fr: 'Date de naissance',
+                              it: 'Data di nascita',
+                            },
+                            optional: 'true',
+                          },
+                        ],
+                        useInfo: {
+                          presaleDeadline: {
+                            value: '2',
+                            unitCode: 'MONATE',
+                            description: {
+                              en: 'Months',
+                              de: 'Monate',
+                              fr: 'Mois',
+                              it: 'Mesi',
+                            },
+                          },
+                          usagePeriod: {
+                            tariffablePeriod: {
+                              to: { value: '2021-05-26T18:44:00.000+02:00' },
+                              from: { value: '2021-05-26T14:44:00.000+02:00' },
+                            },
+                            identifiablePeriod: {
+                              fromDate: '2021-05-26',
+                              toDate: '2021-05-26',
+                              fromTime: '14:44:00.000',
+                              toTime: '18:44:00.000',
+                            },
+                          },
+                          firstDayOfUse: '2021-05-26',
+                        },
+                        fqCode: '(2.)(V)',
+                        canBeCached: 'false',
+                        journeyType: 'HINFAHRT',
+                        containsSwissPassCard: 'false',
+                        availableUntil: { value: '2021-05-26T14:05:31.000+02:00' },
+                      },
+                      customers: [
+                        {
+                          id: 'R1',
+                          externalTravelerReferenceId: 'Example Ref',
+                          travelingRelationship: ['KEINE_REISENDENBEZIEHUNG'],
+                        },
+                      ],
+                    },
+                  },
+                },
+              },
+              price: { totalAmount: '27.80', currencyUnit: { code: 'CHF' } },
+              providerOfferProposal: {
+                offer: {
+                  id: '_b68b9346-bc4c-497c-ae30-06c91e9d4001',
+                  needsNewPhoto: 'false',
+                  productInfluenceFactors: {
+                    ticketClass: 'KLASSE_2',
+                    ticketType: 'E_TICKET',
+                    customerSegment: {
+                      description: {
+                        en: 'Adults',
+                        de: 'Erwachsene',
+                        fr: 'Adultes',
+                        it: 'Adulti',
+                      },
+                      segmentCode: 'PERSON_16+',
+                    },
+                  },
+                  productNumber: '2007',
+                  areaOfValidity: {
+                    validityZoneInfo: {
+                      zoneBundles: [
+                        {
+                          allZones: 'true',
+                          compulsoryZonesBundle: 'false',
+                          kovaZoneTariffCode: '449_EB',
+                          driveType: 'RAUMZEIT',
+                          description: { en: ' ', de: ' ', fr: ' ', it: ' ' },
+                          zones: [],
+                          tariffOwner: '449',
+                        },
+                      ],
+                    },
+                    id: 'gb35681f26-c7a3-4857-8ffc-77dd91b65523',
+                    wayIndication: [
+                      {
+                        rateClass: 'VERBUND',
+                        travelRouteSegments: [
+                          {
+                            description: {
+                              en: 'All Zones',
+                              de: 'Alle Zonen',
+                              fr: 'Toutes les zones',
+                              it: 'Tutte le zone',
+                            },
+                            segmentType: 'INFO',
+                          },
+                        ],
+                      },
+                    ],
+                    validityStretchInfo: {
+                      travelWayInfo: [
+                        {
+                          travelRouteSegment: [
+                            {
+                              description: { en: 'via', de: 'via', fr: 'via', it: 'via' },
+                              segmentType: 'SEPARATOR',
+                            },
+                            {
+                              description: {
+                                en: 'All Zones',
+                                de: 'Alle Zonen',
+                                fr: 'Toutes les zones',
+                                it: 'Tutte le zone',
+                              },
+                              segmentType: 'INFO',
+                            },
+                          ],
+                          metaData: {
+                            fastestTravelPeriod: '72',
+                            minNumberOfChanges: '2',
+                            numberOfConnections: '1',
+                          },
+                          to: {
+                            stationCode: '8501200',
+                            description: {
+                              en: 'Vevey',
+                              de: 'Vevey',
+                              fr: 'Vevey',
+                              it: 'Vevey',
+                            },
+                            segmentType: 'HALTESTELLE',
+                          },
+                          from: {
+                            stationCode: '8501967',
+                            description: {
+                              en: 'Gingins, poste',
+                              de: 'Gingins, poste',
+                              fr: 'Gingins, poste',
+                              it: 'Gingins, poste',
+                            },
+                            segmentType: 'HALTESTELLE',
+                          },
+                        },
+                      ],
+                      metaData: {
+                        fastestTravelPeriod: '72',
+                        minNumberOfChanges: '2',
+                        numberOfConnections: '1',
+                      },
+                      transportDistance: [
+                        {
+                          id: 'Vs986779cb-ceb9-4a8a-8c0c-053e46497e5b',
+                          tariffedRoute: {
+                            egdes: [
+                              {
+                                to: '8570007',
+                                transportationAvailableType: 'BUS',
+                                from: '8501967',
+                              },
+                              {
+                                to: '8501966',
+                                transportationAvailableType: 'BUS',
+                                from: '8570007',
+                              },
+                              {
+                                to: '8580603',
+                                transportationAvailableType: 'BUS',
+                                from: '8501966',
+                              },
+                              {
+                                to: '8570006',
+                                transportationAvailableType: 'BUS',
+                                from: '8580603',
+                              },
+                              {
+                                to: '8501968',
+                                transportationAvailableType: 'BUS',
+                                from: '8570006',
+                              },
+                              {
+                                to: '8570005',
+                                transportationAvailableType: 'BUS',
+                                from: '8501968',
+                              },
+                              {
+                                to: '8501970',
+                                transportationAvailableType: 'BUS',
+                                from: '8570005',
+                              },
+                              {
+                                to: '8501969',
+                                transportationAvailableType: 'BUS',
+                                from: '8501970',
+                              },
+                              {
+                                to: '8595175',
+                                transportationAvailableType: 'BUS',
+                                from: '8501969',
+                              },
+                              {
+                                to: '8579308',
+                                transportationAvailableType: 'BUS',
+                                from: '8595175',
+                              },
+                              {
+                                to: '8595905',
+                                transportationAvailableType: 'BUS',
+                                from: '8579308',
+                              },
+                              {
+                                to: '8570002',
+                                transportationAvailableType: 'BUS',
+                                from: '8595905',
+                              },
+                              {
+                                to: '8570001',
+                                transportationAvailableType: 'BUS',
+                                from: '8570002',
+                              },
+                              {
+                                to: '8570000',
+                                transportationAvailableType: 'BUS',
+                                from: '8570001',
+                              },
+                              {
+                                to: '8501037',
+                                transportationAvailableType: 'BAHN',
+                                from: '8501030',
+                              },
+                              {
+                                to: '8501120',
+                                transportationAvailableType: 'BAHN',
+                                from: '8501037',
+                              },
+                              {
+                                to: '8501200',
+                                transportationAvailableType: 'BAHN',
+                                from: '8501120',
+                              },
+                            ],
+                            travelPeriod: {
+                              value: '72',
+                              description: {
+                                en: 'Minuten',
+                                de: 'Minuten',
+                                fr: 'Minuten',
+                                it: 'Minuten',
+                              },
+                              code: 'MINUTEN',
+                            },
+                          },
+                          externalConnectionReferenceId:
+                            '9dd13a5a-f973-4c7c-ab7f-16ab3b2c105a',
+                        },
+                      ],
+                    },
+                  },
+                  fareRatesDate: '2021-05-26',
+                  valuationInfo: {
+                    temporalFlexibility: {
+                      zoneDriveType: 'RAUMZEIT',
+                      timeRestrictions: 'OHNE_UHRZEITEINSCHRAENKUNGEN',
+                    },
+                    comfort: 'KLASSE_2',
+                    travelingRelationship: 'KEINE_REISENDENBEZIEHUNG',
+                    spatialFlexibility: 'VERBUND',
+                    partOffer: 'false',
+                  },
+                  price: { amount: '27.80', currency: { code: 'CHF' } },
+                  packageDetails: {
+                    id: 'P0',
+                    condition: 'SEPARATER_KAUF_MOEGLICH',
+                    customers: [{ id: 'R1' }],
+                  },
+                  saleParameters: [
+                    {
+                      code: 'GUELTIGKEITSBEGINNZEIT',
+                      value: '14:44:00.000',
+                      type: 'zeit',
+                      description: {
+                        en: 'Start of validity',
+                        de: 'Gültigkeitsbeginnzeitpunkt',
+                        fr: 'Début de validité',
+                        it: 'Inizio di validità',
+                      },
+                      optional: 'false',
+                    },
+                    {
+                      code: 'REISENDER',
+                      type: 'tkid',
+                      description: {
+                        en: 'Traveller',
+                        de: 'Reisender',
+                        fr: 'Voyageur',
+                        it: 'Viaggiatore',
+                      },
+                      optional: 'true',
+                    },
+                    {
+                      code: 'KUNDENNAME',
+                      type: 'nameVorname',
+                      description: {
+                        en: 'Client name',
+                        de: 'Kundenname',
+                        fr: 'Nom du client',
+                        it: 'Nome del cliente',
+                      },
+                      optional: 'true',
+                    },
+                    {
+                      code: 'GEBURTSDATUM',
+                      type: 'datum',
+                      description: {
+                        en: 'Date of birth',
+                        de: 'Geburtsdatum',
+                        fr: 'Date de naissance',
+                        it: 'Data di nascita',
+                      },
+                      optional: 'true',
+                    },
+                  ],
+                  useInfo: {
+                    presaleDeadline: {
+                      value: '2',
+                      unitCode: 'MONATE',
+                      description: { en: 'Months', de: 'Monate', fr: 'Mois', it: 'Mesi' },
+                    },
+                    usagePeriod: {
+                      tariffablePeriod: {
+                        to: { value: '2021-05-26T18:44:00.000+02:00' },
+                        from: { value: '2021-05-26T14:44:00.000+02:00' },
+                      },
+                      identifiablePeriod: {
+                        fromDate: '2021-05-26',
+                        toDate: '2021-05-26',
+                        fromTime: '14:44:00.000',
+                        toTime: '18:44:00.000',
+                      },
+                    },
+                    firstDayOfUse: '2021-05-26',
+                  },
+                  fqCode: '(2.)(V)',
+                  canBeCached: 'false',
+                  journeyType: 'HINFAHRT',
+                  containsSwissPassCard: 'false',
+                  availableUntil: { value: '2021-05-26T14:05:31.000+02:00' },
+                },
+                customers: [
+                  {
+                    id: 'R1',
+                    externalTravelerReferenceId: 'Example Ref',
+                    travelingRelationship: ['KEINE_REISENDENBEZIEHUNG'],
+                  },
+                ],
+                bindingOffer: {
+                  id: '15900021068694',
+                  sellerInformation: {
+                    offerMediator: '53',
+                    salesPoint: '6515',
+                    saleChannel: {
+                      code: '864',
+                      type: 'ONLINE',
+                      businessField: 'B2C',
+                      description: 'TPF_Online_App-Whim',
+                    },
+                    pointOfSale: '6515',
+                    salesDeviceId: '100',
+                  },
+                  generationRandomDate: '2021-05-26',
+                  productNumber: '2007',
+                  areaOfValidity: {
+                    validityZoneInfo: {
+                      zoneBundles: [
+                        {
+                          allZones: 'true',
+                          compulsoryZonesBundle: 'false',
+                          kovaZoneTariffCode: '449_EB',
+                          driveType: 'RAUMZEIT',
+                          description: { en: ' ', de: ' ', fr: ' ', it: ' ' },
+                          zones: [],
+                          tariffOwner: '449',
+                        },
+                      ],
+                    },
+                    id: 'gb15b6ccc3-a021-4b0a-86de-9cda92471021',
+                    wayIndication: [
+                      {
+                        rateClass: 'VERBUND',
+                        travelRouteSegments: [
+                          {
+                            description: {
+                              en: 'All Zones',
+                              de: 'Alle Zonen',
+                              fr: 'Toutes les zones',
+                              it: 'Tutte le zone',
+                            },
+                            segmentType: 'INFO',
+                          },
+                        ],
+                      },
+                    ],
+                    validityStretchInfo: {
+                      travelWayInfo: [
+                        {
+                          travelRouteSegment: [
+                            {
+                              description: { en: 'via', de: 'via', fr: 'via', it: 'via' },
+                              segmentType: 'SEPARATOR',
+                            },
+                            {
+                              description: {
+                                en: 'All Zones',
+                                de: 'Alle Zonen',
+                                fr: 'Toutes les zones',
+                                it: 'Tutte le zone',
+                              },
+                              segmentType: 'INFO',
+                            },
+                          ],
+                          metaData: {
+                            fastestTravelPeriod: '72',
+                            minNumberOfChanges: '2',
+                            numberOfConnections: '1',
+                          },
+                          to: {
+                            stationCode: '8501200',
+                            description: {
+                              en: 'Vevey',
+                              de: 'Vevey',
+                              fr: 'Vevey',
+                              it: 'Vevey',
+                            },
+                            segmentType: 'HALTESTELLE',
+                          },
+                          from: {
+                            stationCode: '8501967',
+                            description: {
+                              en: 'Gingins, poste',
+                              de: 'Gingins, poste',
+                              fr: 'Gingins, poste',
+                              it: 'Gingins, poste',
+                            },
+                            segmentType: 'HALTESTELLE',
+                          },
+                        },
+                      ],
+                      metaData: {
+                        fastestTravelPeriod: '72',
+                        minNumberOfChanges: '2',
+                        numberOfConnections: '1',
+                      },
+                      transportDistance: [
+                        {
+                          id: 'Vsde080081-08bf-455c-8fe3-6b9eb85d3874',
+                          tariffedRoute: {
+                            egdes: [
+                              {
+                                to: '8570007',
+                                transportationAvailableType: 'BUS',
+                                from: '8501967',
+                              },
+                              {
+                                to: '8501966',
+                                transportationAvailableType: 'BUS',
+                                from: '8570007',
+                              },
+                              {
+                                to: '8580603',
+                                transportationAvailableType: 'BUS',
+                                from: '8501966',
+                              },
+                              {
+                                to: '8570006',
+                                transportationAvailableType: 'BUS',
+                                from: '8580603',
+                              },
+                              {
+                                to: '8501968',
+                                transportationAvailableType: 'BUS',
+                                from: '8570006',
+                              },
+                              {
+                                to: '8570005',
+                                transportationAvailableType: 'BUS',
+                                from: '8501968',
+                              },
+                              {
+                                to: '8501970',
+                                transportationAvailableType: 'BUS',
+                                from: '8570005',
+                              },
+                              {
+                                to: '8501969',
+                                transportationAvailableType: 'BUS',
+                                from: '8501970',
+                              },
+                              {
+                                to: '8595175',
+                                transportationAvailableType: 'BUS',
+                                from: '8501969',
+                              },
+                              {
+                                to: '8579308',
+                                transportationAvailableType: 'BUS',
+                                from: '8595175',
+                              },
+                              {
+                                to: '8595905',
+                                transportationAvailableType: 'BUS',
+                                from: '8579308',
+                              },
+                              {
+                                to: '8570002',
+                                transportationAvailableType: 'BUS',
+                                from: '8595905',
+                              },
+                              {
+                                to: '8570001',
+                                transportationAvailableType: 'BUS',
+                                from: '8570002',
+                              },
+                              {
+                                to: '8570000',
+                                transportationAvailableType: 'BUS',
+                                from: '8570001',
+                              },
+                              {
+                                to: '8501037',
+                                transportationAvailableType: 'BAHN',
+                                from: '8501030',
+                              },
+                              {
+                                to: '8501120',
+                                transportationAvailableType: 'BAHN',
+                                from: '8501037',
+                              },
+                              {
+                                to: '8501200',
+                                transportationAvailableType: 'BAHN',
+                                from: '8501120',
+                              },
+                            ],
+                            travelPeriod: {
+                              value: '72',
+                              description: {
+                                en: 'Minuten',
+                                de: 'Minuten',
+                                fr: 'Minuten',
+                                it: 'Minuten',
+                              },
+                              code: 'MINUTEN',
+                            },
+                          },
+                          externalConnectionReferenceId:
+                            '9dd13a5a-f973-4c7c-ab7f-16ab3b2c105a',
+                        },
+                      ],
+                    },
+                  },
+                  dataReleaseId: '14.138.0.20210525-2006.T.T.4654.0',
+                  validUntil: '2021-05-26T14:15:32.000+02:00',
+                  creationTime: '2021-05-26T13:45:32.000+02:00',
+                  price: { amount: '27.80', currency: { code: 'CHF' } },
+                  saleParameters: [
+                    { value: '14:44:00.000', code: 'GUELTIGKEITSBEGINNZEIT' },
+                  ],
+                  offerType: {
+                    description: {
+                      en: 'VERKAUF',
+                      de: 'VERKAUF',
+                      fr: 'VERKAUF',
+                      it: 'VERKAUF',
+                    },
+                    code: 'VERKAUF',
+                  },
+                  useInfo: {
+                    usagePeriod: {
+                      tariffablePeriod: {
+                        to: { value: '2021-05-26T18:44:00.000+02:00' },
+                        from: { value: '2021-05-26T14:44:00.000+02:00' },
+                      },
+                      identifiablePeriod: {
+                        fromDate: '2021-05-26',
+                        toDate: '2021-05-26',
+                        fromTime: '14:44:00.000',
+                        toTime: '18:44:00.000',
+                      },
+                    },
+                    presaleDeadline: {
+                      value: '2',
+                      unitCode: 'MONATE',
+                      description: { en: 'Months', de: 'Monate', fr: 'Mois', it: 'Mesi' },
+                    },
+                    firstDayOfUse: '2021-05-26',
+                    tariffLevel: {
+                      tariffLevelText: {
+                        en: 'All Zones',
+                        de: 'Alle Zonen',
+                        fr: 'Toutes les zones',
+                        it: 'Tutte le zone',
+                      },
+                    },
+                  },
+                  reference: '0021068694',
+                  status: 'OFFERIERT',
+                  productInfluenceFactors: {
+                    ticketClass: 'KLASSE_2',
+                    customerSegment: {
+                      description: {
+                        en: 'Adults',
+                        de: 'Erwachsene',
+                        fr: 'Adultes',
+                        it: 'Adulti',
+                      },
+                      segmentCode: 'PERSON_16+',
+                    },
+                    validity: {
+                      value: '4',
+                      valueCode: 'STUNDEN',
+                      description: {
+                        en: 'hour(s)',
+                        de: 'Stunde(n)',
+                        fr: 'heure(s)',
+                        it: 'ora/e',
+                      },
+                    },
+                    ticketType: 'E_TICKET',
+                  },
+                },
+              },
+            },
+            offersSummary: [
+              [
+                'HINFAHRT',
+                2007,
+                'binding: true',
+                27.8,
+                'CHF',
+                'PERSON_16+',
+                '(2.)(V)',
+                {
+                  value: '4',
+                  valueCode: 'STUNDEN',
+                  description: {
+                    en: 'hour(s)',
+                    de: 'Stunde(n)',
+                    fr: 'heure(s)',
+                    it: 'ora/e',
+                  },
+                },
+              ],
+              [
+                'HINFAHRT',
+                2010,
+                'binding: true',
+                55.6,
+                'CHF',
+                'PERSON_16+',
+                '(2.)(TK)(V)',
+                {
+                  value: '1',
+                  valueCode: 'TAGE',
+                  description: {
+                    en: 'calendar day(s)',
+                    de: 'Kalendertag(e)',
+                    fr: 'jour(s) cal.',
+                    it: 'giorno/i cal.',
+                  },
+                },
+              ],
+            ],
+          },
+        },
+        configurator: {
+          configuratorSelection: {
+            ticketClass: ['second'],
+            travelCard: ['none'],
+            ticketOptions: ['offer_0'],
+          },
+          fares: [
+            {
+              amount: 2586,
+              currency: 'WMP',
+              productionAmount: 2586,
+              originalAmount: 2586,
+              type: 'charge',
+            },
+          ],
+          version: '2',
+          purchasable: true,
+          validUntil: 1622029532613,
+          configurations: {
+            ticketClass: {
+              type: 'oneOf',
+              name: 'Class',
+              choices: [
+                { id: 'second', name: '2nd Class', default: false },
+                { id: 'first', name: '1st Class', default: false },
+              ],
+            },
+            travelCard: {
+              type: 'oneOf',
+              name: 'Travel Card',
+              choices: [
+                { id: 'none', name: 'None', default: false },
+                { id: 'halfFare', name: 'Half Fare', default: false },
+                { id: 'GA1KL', name: 'GA travelcard 1st class', default: false },
+                { id: 'GA2KL', name: 'GA travelcard 2nd class', default: false },
+              ],
+            },
+            ticketOptions: {
+              type: 'oneOf',
+              name: 'Ticket Options',
+              choices: [
+                {
+                  terms: {
+                    validity: { endTime: 1622047440000, startTime: 1622033040000 },
+                  },
+                  id: 'offer_0',
+                  default: false,
+                  fares: [
+                    {
+                      amount: 2586,
+                      currency: 'WMP',
+                      productionAmount: 2586,
+                      originalAmount: 2586,
+                      type: 'charge',
+                    },
+                  ],
+                  name: 'Mobilis Individual Ticket',
+                  description: '4 hour(s), All Zones',
+                },
+                {
+                  terms: {
+                    validity: { endTime: 1622084400000, startTime: 1621980000000 },
+                  },
+                  id: 'offer_1',
+                  default: false,
+                  fares: [
+                    {
+                      amount: 5172,
+                      currency: 'WMP',
+                      productionAmount: 5172,
+                      originalAmount: 5172,
+                      type: 'charge',
+                    },
+                  ],
+                  name: 'Mobilis Day Pass',
+                  description: '1 calendar day(s), All Zones',
+                },
+              ],
+            },
+          },
+          estimatable: true,
+        },
+        ref: 0,
+      },
+    ],
+    sourcePlanId: 'da65c500-be17-11eb-91d1-e9bf88371f9e',
+  },
+] as unknown as NonEmptyArray<Itinerary>;
 
 export default Itinerary;
 

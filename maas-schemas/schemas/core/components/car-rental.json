@@ -96,7 +96,12 @@
         "registrationPlate": {
           "description": "Registration plate (e.g. if we know the actual car already)",
           "type": "string",
-          "regexp": "/^[\\p{L}\\p{N} -_]+$/u"
+          "regexp": "/^[\\p{L}\\p{N} -_]+$/u",
+          "examples": ["ABC1234", "ABC 1234", "ABC-1234", "品川 580 わ 1043"],
+          "invalid": {
+            "IiI=": "empty string",
+            "IvCfkqki": "emoji"
+          }
         },
         "damage": {
           "description": "Any reported damages to the car (if available)",
@@ -175,7 +180,15 @@
         {
           "required": ["title", "image"]
         }
-      ]
+      ],
+      "examples": [
+        { "title": "TITLE", "text": "DESCRIPTION" },
+        { "title": "TITLE", "image": "https://example.com/image.jpg" },
+        { "title": "TITLE", "image": "https://example.com/image.jpg", "icon": "https://example.com/image.jpg" }
+      ],
+      "invalid": {
+        "eyJ0aXRsZSI6IlRJVExFIn0=": "title without other propreties"
+      }
     }
   }
 }

@@ -7,6 +7,12 @@ import { URL } from 'url';
 
 import * as main from './main';
 
+type InvalidExample = string;
+type Description = string;
+type InvalidExamples = Record<InvalidExample, Description>;
+type JsonSchema = JSONSchema7 & { invalid?: InvalidExamples };
+type JsonSchemaDefinition = JSONSchema7Definition & (boolean | JsonSchema);
+
 const ajv = ajvFactory({ allErrors: true });
 
 const slash = '/';
@@ -17,7 +23,7 @@ const JP_ROOT = '#';
 
 function checkExamples(
   uri: string,
-  schema: JSONSchema7Definition,
+  schema: JsonSchemaDefinition,
   { validate }: main.Validator,
 ): void {
   if (typeof schema === 'boolean') {
@@ -57,11 +63,33 @@ function checkExamples(
       validate(uri, constant);
     });
   }
+
+  const { invalid } = schema;
+  if (typeof invalid !== 'undefined') {
+    Object.keys(invalid).forEach((b64) => {
+      const text = Buffer.from(b64, 'base64').toString('utf8');
+      const cut = text.slice(0, 40);
+      const display = text === cut ? cut : cut.concat('...');
+
+      const counterExample = JSON.parse(text);
+      const description = invalid[b64];
+      it(`must reject ${pointer}/invalid/${b64} ${description} ${display}`, () => {
+        try {
+          validate(uri, counterExample);
+        } catch (_validationError) {
+          // counterexamples should fail validation
+          return;
+        }
+        // eslint-disable-next-line fp/no-throw
+        throw new Error('Counterexample passed validation!');
+      });
+    });
+  }
 }
 
 function checkDeclarations(
   uri: string,
-  schema: JSONSchema7,
+  schema: JsonSchema,
   validator: main.Validator,
 ): void {
   const pointer = ((hash) => (hash.length > 0 ? hash : JP_ROOT))(new URL(uri).hash);
@@ -102,7 +130,7 @@ function fromEndpointURL(href: URLTemplate): URI {
   return [endpointSchema, operation, `${id}-plural`, ...path].reverse().join(slash);
 }
 
-function checkEndpoint(uri: string, schema: JSONSchema7): void {
+function checkEndpoint(uri: string, schema: JsonSchema): void {
   it('must define endpoint URL that reflects URI', () => {
     const imp = 'implementation';
     const hyperSchema: any = schema;

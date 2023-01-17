@@ -8,7 +8,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 import * as Units_ from '../../core/components/units';
 
@@ -146,6 +148,10 @@ export const Response: ResponseC = t.brand(
 export type ResponseBrand = {
   readonly Response: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(Response)).decodeSync(examplesResponse) // => examplesResponse */
+export const examplesResponse: NonEmptyArray<Response> = [
+  { ticket: 'test', type: 'html', contentType: 'image/svg+xml' },
+] as unknown as NonEmptyArray<Response>;
 
 export default Response;
 

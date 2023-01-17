@@ -8,7 +8,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 import * as Common_ from './common';
 import * as CustomerSelectionV1_ from './customerSelectionV1';
@@ -54,6 +56,10 @@ export const CustomerSelection: CustomerSelectionC = t.brand(
 export type CustomerSelectionBrand = {
   readonly CustomerSelection: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(CustomerSelection)).decodeSync(examplesCustomerSelection) // => examplesCustomerSelection */
+export const examplesCustomerSelection: NonEmptyArray<CustomerSelection> = [
+  { ticketClass: ['second'], travelCard: ['none'] },
+] as unknown as NonEmptyArray<CustomerSelection>;
 
 export default CustomerSelection;
 
