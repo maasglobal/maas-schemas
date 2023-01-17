@@ -8,7 +8,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 import * as Common_ from '../components/common';
 import * as CostBreakDown_ from '../components/costBreakDown';
@@ -166,6 +168,11 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
 export type MODE_TAXIBrand = {
   readonly MODE_TAXI: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(MODE_TAXI)).decodeSync(examplesMODE_TAXI) // => examplesMODE_TAXI */
+export const examplesMODE_TAXI: NonEmptyArray<MODE_TAXI> = [
+  { vehicleId: 'T123', vehicleType: 'Mercedes' },
+  { vehicleId: 'T123', vehicleType: 'Mercedes', spaceDemand: { adults: 1 } },
+] as unknown as NonEmptyArray<MODE_TAXI>;
 
 export default MODE_TAXI;
 

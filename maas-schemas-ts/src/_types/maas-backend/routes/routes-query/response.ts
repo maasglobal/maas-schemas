@@ -8,7 +8,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 import * as Error_ from '../../../core/error';
 import * as Plan_ from '../../../core/plan';
@@ -86,6 +88,18 @@ export const Response: ResponseC = t.brand(
 export type ResponseBrand = {
   readonly Response: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(Response)).decodeSync(examplesResponse) // => examplesResponse */
+export const examplesResponse: NonEmptyArray<Response> = [
+  {
+    plan: {
+      from: { lat: 35.5907257, lon: 139.6791986 },
+      outwards: [],
+      returns: [],
+      planId: 'd2ac1de0-5edd-11ea-a5fd-b5d2f648464c',
+    },
+    reasons: [{ errorCode: 'ERROR_TSP_UNSUPPORTED_AREA' }],
+  },
+] as unknown as NonEmptyArray<Response>;
 
 export default Response;
 

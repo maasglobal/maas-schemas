@@ -8,7 +8,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 import * as ACRISS_ from './ACRISS';
 import * as Ajv_ from './ajv';
@@ -133,6 +135,18 @@ export const Instruction: InstructionC = t.brand(
 export type InstructionBrand = {
   readonly Instruction: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(Instruction)).decodeSync(examplesInstruction) // => examplesInstruction */
+export const examplesInstruction: NonEmptyArray<Instruction> = [
+  { title: 'TITLE', text: 'DESCRIPTION' },
+  { title: 'TITLE', image: 'https://example.com/image.jpg' },
+  {
+    title: 'TITLE',
+    image: 'https://example.com/image.jpg',
+    icon: 'https://example.com/image.jpg',
+  },
+] as unknown as NonEmptyArray<Instruction>;
+// NEGATIVE Test Case: title without other propreties
+/** require('io-ts-validator').validator(Instruction).decodeEither({"title":"TITLE"})._tag // => 'Left' */
 
 // CarRental
 // The default export. More information at the top.

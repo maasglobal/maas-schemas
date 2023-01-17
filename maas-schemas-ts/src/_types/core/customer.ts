@@ -388,6 +388,16 @@ export const examplesCustomer: NonEmptyArray<Customer> = [
       currency: 'EUR',
     },
   },
+  {
+    balances: {
+      WMP: { currency: 'WMP', amount: 10 },
+      'cx-token-test-foo-bar_v2': {
+        currency: 'TOKEN',
+        tokenId: 'cx-token-test-foo-bar_v2',
+        amount: 1,
+      },
+    },
+  },
 ] as unknown as NonEmptyArray<Customer>;
 
 export default Customer;

@@ -8,7 +8,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 import * as Cost_ from '../../core/components/cost';
 import * as PointCost_ from '../../core/components/point-cost';
@@ -131,6 +133,32 @@ export type PlanBrand = {
   readonly Plan: unique symbol;
 };
 
+// Quantity
+// The purpose of this remains a mystery
+export type Quantity = t.Branded<number, QuantityBrand>;
+export type QuantityC = t.BrandC<t.NumberC, QuantityBrand>;
+export const Quantity: QuantityC = t.brand(
+  t.number,
+  (x): x is t.Branded<number, QuantityBrand> =>
+    (typeof x !== 'number' || x <= 200000) && Number.isInteger(x),
+  'Quantity',
+);
+export type QuantityBrand = {
+  readonly Quantity: unique symbol;
+};
+/** require('io-ts-validator').validator(nonEmptyArray(Quantity)).decodeSync(examplesQuantity) // => examplesQuantity */
+export const examplesQuantity: NonEmptyArray<Quantity> = [
+  0, 151280, 200000,
+] as unknown as NonEmptyArray<Quantity>;
+// NEGATIVE Test Case: over maximum
+/** require('io-ts-validator').validator(Quantity).decodeEither(200001)._tag // => 'Left' */
+/** require('io-ts-validator').validator(Quantity).decodeSync(defaultQuantity) // => defaultQuantity */
+export const defaultQuantity: Quantity = 1 as unknown as Quantity;
+/** require('io-ts-validator').validator(Quantity).decodeSync(minimumQuantity) // => minimumQuantity */
+export const minimumQuantity: Quantity = 0 as unknown as Quantity;
+/** require('io-ts-validator').validator(Quantity).decodeSync(maximumQuantity) // => maximumQuantity */
+export const maximumQuantity: Quantity = 200000 as unknown as Quantity;
+
 // Addon
 // Customer subscription add-ons
 export type Addon = t.Branded<
@@ -138,7 +166,7 @@ export type Addon = t.Branded<
     id?: SubscriptionItemId;
     name?: string;
     description?: string;
-    quantity?: number;
+    quantity?: Quantity;
     unitPrice?: Price;
     image?: Units_.Url;
     virtualCardIssue?: ({
@@ -162,7 +190,7 @@ export type AddonC = t.BrandC<
             id: typeof SubscriptionItemId;
             name: t.StringC;
             description: t.StringC;
-            quantity: t.NumberC;
+            quantity: typeof Quantity;
             unitPrice: typeof Price;
             image: typeof Units_.Url;
             virtualCardIssue: t.IntersectionC<
@@ -200,7 +228,7 @@ export const Addon: AddonC = t.brand(
         id: SubscriptionItemId,
         name: t.string,
         description: t.string,
-        quantity: t.number,
+        quantity: Quantity,
         unitPrice: Price,
         image: Units_.Url,
         virtualCardIssue: t.intersection([
@@ -230,7 +258,7 @@ export const Addon: AddonC = t.brand(
       id?: SubscriptionItemId;
       name?: string;
       description?: string;
-      quantity?: number;
+      quantity?: Quantity;
       unitPrice?: Price;
       image?: Units_.Url;
       virtualCardIssue?: ({

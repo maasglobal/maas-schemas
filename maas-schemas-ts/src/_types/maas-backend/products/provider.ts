@@ -8,7 +8,9 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 */
 
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
+import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 import * as Common_ from '../../core/components/common';
 import * as Fare_ from '../../core/components/fare';
@@ -762,6 +764,34 @@ export const Provider: ProviderC = t.brand(
 export type ProviderBrand = {
   readonly Provider: unique symbol;
 };
+/** require('io-ts-validator').validator(nonEmptyArray(Provider)).decodeSync(examplesProvider) // => examplesProvider */
+export const examplesProvider: NonEmptyArray<Provider> = [
+  {
+    name: 'providerName',
+    agencyId: 'someAgency',
+    groupId: 'someGroupId',
+    hidden: false,
+    branding: {},
+    features: { ticket: true, stationsList: true, stationsRetrieve: true },
+    personalDataOptionsAllow: [],
+    personalDataCreateAllow: [],
+    optionalParameters: [
+      {
+        id: 'someId',
+        name: 'someName',
+        type: 'oneOrNoneOf',
+        userSelectable: true,
+        inputs: [
+          { id: 'via', name: 'Via', type: 'station' },
+          { id: 'avoid', name: 'Avoid', type: 'station' },
+        ],
+      },
+      { message: { property: 'messageToDriver', maxLength: 120 } },
+      { searchDefault: 120 },
+      { gradualRadius: 120, maxRadius: 300 },
+    ],
+  },
+] as unknown as NonEmptyArray<Provider>;
 
 export default Provider;
 

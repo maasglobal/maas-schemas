@@ -172,6 +172,10 @@ INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/car-rental.json
 WARNING: regexp field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/car-rental.json
+WARNING: examples field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/car-rental.json
+WARNING: invalid field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/car-rental.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/car-rental.json
 WARNING: minLength field not supported outside top-level definitions
@@ -877,6 +881,8 @@ WARNING: minimum field not supported outside top-level definitions
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/customer.json
 INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/customer.json
+WARNING: examples field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/customer.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/customer.json
@@ -2560,14 +2566,6 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
-INFO: primitive type "integer" used outside top-level definitions
-  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
-WARNING: minimum field not supported outside top-level definitions
-  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
-WARNING: maximum field not supported outside top-level definitions
-  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
-WARNING: default field not supported outside top-level definitions
-  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 INFO: primitive type "string" used outside top-level definitions
@@ -2589,6 +2587,8 @@ INFO: primitive type "number" used outside top-level definitions
 WARNING: default field not supported outside top-level definitions
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 WARNING: naming clash, ignoring default export
+  in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
+INFO: missing description
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
 INFO: missing description
   in ../maas-schemas/schemas/maas-backend/subscriptions/subscription.json
