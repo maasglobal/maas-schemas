@@ -23,3 +23,6 @@ registry.js
 
 # ignore src until we implement convert-all
 src
+
+# build directory
+lib
