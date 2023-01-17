@@ -35,7 +35,7 @@ export type DeviceTokenC = t.BrandC<t.StringC, DeviceTokenBrand>;
 export const DeviceToken: DeviceTokenC = t.brand(
   t.string,
   (x): x is t.Branded<string, DeviceTokenBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^([A-Fa-f0-9]{2}){8,64}$')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^([A-Fa-f0-9]{2}){8,64}$', 'u')) !== null,
   'DeviceToken',
 );
 export type DeviceTokenBrand = {
@@ -190,7 +190,7 @@ export type PhoneC = t.BrandC<t.StringC, PhoneBrand>;
 export const Phone: PhoneC = t.brand(
   t.string,
   (x): x is t.Branded<string, PhoneBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^\\+(?:\\d){6,14}\\d$')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^\\+(?:\\d){6,14}\\d$', 'u')) !== null,
   'Phone',
 );
 export type PhoneBrand = {
@@ -220,7 +220,7 @@ export type RawPhoneC = t.BrandC<t.StringC, RawPhoneBrand>;
 export const RawPhone: RawPhoneC = t.brand(
   t.string,
   (x): x is t.Branded<string, RawPhoneBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^\\+?(?:\\d){6,14}\\d$')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^\\+?(?:\\d){6,14}\\d$', 'u')) !== null,
   'RawPhone',
 );
 export type RawPhoneBrand = {
@@ -234,7 +234,7 @@ export type EmailC = t.BrandC<t.StringC, EmailBrand>;
 export const Email: EmailC = t.brand(
   t.string,
   (x): x is t.Branded<string, EmailBrand> =>
-    (typeof x !== 'string' || x.match(RegExp('^.+@.+\\..+$')) !== null) &&
+    (typeof x !== 'string' || x.match(RegExp('^.+@.+\\..+$', 'u')) !== null) &&
     (typeof x !== 'string' || x.length <= 64),
   'Email',
 );
@@ -285,7 +285,7 @@ export type OpaqueIdC = t.BrandC<t.StringC, OpaqueIdBrand>;
 export const OpaqueId: OpaqueIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, OpaqueIdBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^[0-9abcdefABCDEF]+$')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^[0-9abcdefABCDEF]+$', 'u')) !== null,
   'OpaqueId',
 );
 export type OpaqueIdBrand = {
@@ -299,7 +299,7 @@ export type OpaqueIdShortC = t.BrandC<t.StringC, OpaqueIdShortBrand>;
 export const OpaqueIdShort: OpaqueIdShortC = t.brand(
   t.string,
   (x): x is t.Branded<string, OpaqueIdShortBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^[0-9abcdefABCDEF]{32}$')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^[0-9abcdefABCDEF]{32}$', 'u')) !== null,
   'OpaqueIdShort',
 );
 export type OpaqueIdShortBrand = {
@@ -380,7 +380,7 @@ export const SsidFI: SsidFIC = t.brand(
   t.string,
   (x): x is t.Branded<string, SsidFIBrand> =>
     typeof x !== 'string' ||
-    x.match(RegExp('^[0-9]{6}[-+A][0-9]{3}[0-9ABCDEFHJKLMNPRSTUVWXY]$')) !== null,
+    x.match(RegExp('^[0-9]{6}[-+A][0-9]{3}[0-9ABCDEFHJKLMNPRSTUVWXY]$', 'u')) !== null,
   'SsidFI',
 );
 export type SsidFIBrand = {
@@ -425,7 +425,7 @@ export const WhimDeepLink: WhimDeepLinkC = t.brand(
   t.string,
   (x): x is t.Branded<string, WhimDeepLinkBrand> =>
     typeof x !== 'string' ||
-    x.match(RegExp('^(whim):\\/\\/\\/[^\\s/$.?#].[^\\s]*$')) !== null,
+    x.match(RegExp('^(whim):\\/\\/\\/[^\\s/$.?#].[^\\s]*$', 'u')) !== null,
   'WhimDeepLink',
 );
 export type WhimDeepLinkBrand = {

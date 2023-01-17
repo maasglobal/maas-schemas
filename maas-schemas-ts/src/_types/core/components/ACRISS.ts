@@ -21,7 +21,10 @@ export const ACRISS: ACRISSC = t.brand(
   (x): x is t.Branded<string, ACRISSBrand> =>
     typeof x !== 'string' ||
     x.match(
-      RegExp('[MNEHCDIJSRFGPULWOX][BCDWVLSTFJXPQZEMRHYNGK][MNCABD][RNDQHIECLSABMFVZUX]'),
+      RegExp(
+        '[MNEHCDIJSRFGPULWOX][BCDWVLSTFJXPQZEMRHYNGK][MNCABD][RNDQHIECLSABMFVZUX]',
+        'u',
+      ),
     ) !== null,
   'ACRISS',
 );

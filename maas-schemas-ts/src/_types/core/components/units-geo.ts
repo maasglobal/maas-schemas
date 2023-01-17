@@ -127,7 +127,7 @@ export const Polyline: PolylineC = t.brand(
   t.string,
   (x): x is t.Branded<string, PolylineBrand> =>
     (typeof x !== 'string' ||
-      x.match(RegExp('^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$')) !== null) &&
+      x.match(RegExp('^([\\x5F-\\x7E]*[\\x3F-\\x5E])+$', 'u')) !== null) &&
     (typeof x !== 'string' || x.length >= 3) &&
     (typeof x !== 'string' || x.length <= 65535),
   'Polyline',
@@ -288,7 +288,8 @@ export const ShortLocationString: ShortLocationStringC = t.brand(
   t.string,
   (x): x is t.Branded<string, ShortLocationStringBrand> =>
     (typeof x !== 'string' ||
-      x.match(RegExp('^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$')) !== null) &&
+      x.match(RegExp('^[+-]?\\d{1,3}(\\.\\d+)?,[+-]?\\d{1,3}(\\.\\d+)?$', 'u')) !==
+        null) &&
     (typeof x !== 'string' || x.length >= 1) &&
     (typeof x !== 'string' || x.length <= 64),
   'ShortLocationString',

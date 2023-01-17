@@ -23,7 +23,7 @@ export const AwsRegion: AwsRegionC = t.brand(
   (x): x is t.Branded<string, AwsRegionBrand> =>
     typeof x !== 'string' ||
     x.match(
-      RegExp('(us(-gov)?|ap|ca|cn|eu|sa)-(central|(north|south)?(east|west)?)-\\d'),
+      RegExp('(us(-gov)?|ap|ca|cn|eu|sa)-(central|(north|south)?(east|west)?)-\\d', 'u'),
     ) !== null,
   'AwsRegion',
 );

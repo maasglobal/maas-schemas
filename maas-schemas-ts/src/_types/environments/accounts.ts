@@ -38,7 +38,7 @@ export type AccountIdC = t.BrandC<t.StringC, AccountIdBrand>;
 export const AccountId: AccountIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, AccountIdBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^[0-9]{12}$')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^[0-9]{12}$', 'u')) !== null,
   'AccountId',
 );
 export type AccountIdBrand = {

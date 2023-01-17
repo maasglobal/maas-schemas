@@ -20,7 +20,7 @@ export const Locale: LocaleC = t.brand(
   t.string,
   (x): x is t.Branded<string, LocaleBrand> =>
     typeof x !== 'string' ||
-    x.match(RegExp('^[a-z]{2,3}(?:-[a-zA-Z]{4})?(?:-[A-Z]{2,3})?$')) !== null,
+    x.match(RegExp('^[a-z]{2,3}(?:-[a-zA-Z]{4})?(?:-[A-Z]{2,3})?$', 'u')) !== null,
   'Locale',
 );
 export type LocaleBrand = {

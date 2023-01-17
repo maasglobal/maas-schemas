@@ -26,7 +26,7 @@ export type ApiUrlC = t.BrandC<
 export const ApiUrl: ApiUrlC = t.brand(
   t.intersection([t.string, Units_.Url]),
   (x): x is t.Branded<string & Units_.Url, ApiUrlBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^https://[^\\s]+/$')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^https://[^\\s]+/$', 'u')) !== null,
   'ApiUrl',
 );
 export type ApiUrlBrand = {
