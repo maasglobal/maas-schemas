@@ -50,7 +50,7 @@ export type TokenIdC = t.BrandC<t.StringC, TokenIdBrand>;
 export const TokenId: TokenIdC = t.brand(
   t.string,
   (x): x is t.Branded<string, TokenIdBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^[a-z]+(-[a-z0-9_]+)+$')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^[a-z]+(-[a-z0-9_]+)+$', 'u')) !== null,
   'TokenId',
 );
 export type TokenIdBrand = {

@@ -184,7 +184,7 @@ export type CountryC = t.BrandC<t.StringC, CountryBrand>;
 export const Country: CountryC = t.brand(
   t.string,
   (x): x is t.Branded<string, CountryBrand> =>
-    typeof x !== 'string' || x.match(RegExp('^[A-Z]{2,2}$')) !== null,
+    typeof x !== 'string' || x.match(RegExp('^[A-Z]{2,2}$', 'u')) !== null,
   'Country',
 );
 export type CountryBrand = {
