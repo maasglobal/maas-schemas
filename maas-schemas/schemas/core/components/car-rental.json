@@ -96,7 +96,7 @@
         "registrationPlate": {
           "description": "Registration plate (e.g. if we know the actual car already)",
           "type": "string",
-          "regexp": "/^[\\p{L}\\p{N} -_]+$/u",
+          "pattern": "^[\\p{L}\\p{N} -_]+$",
           "examples": ["ABC1234", "ABC 1234", "ABC-1234", "品川 580 わ 1043"],
           "invalid": {
             "IiI=": "empty string",
@@ -112,8 +112,8 @@
         "fuelLevel": {
           "description": "The percentage of fuel the car has at the moment",
           "type": "number",
-          "minLength": 0,
-          "maxLength": 100
+          "minimum": 0,
+          "maximum": 100
         },
         "location": {
           "description": "Current geo location",

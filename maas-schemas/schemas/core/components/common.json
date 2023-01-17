@@ -41,7 +41,7 @@
     "personalName": {
       "description": "First or last name of a customer (e.g. John)",
       "type": "string",
-      "regexp": "/^[\\p{L}\\s`'´\\-\\.,]+$/gui",
+      "pattern": "^[\\p{L}\\s`'´\\-\\.,]+$",
       "minLength": 1,
       "maxLength": 255,
       "examples": [

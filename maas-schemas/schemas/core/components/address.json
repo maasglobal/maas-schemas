@@ -5,7 +5,7 @@
     "componentAddress": {
       "description": "Encoded address components. Check the regexr examples. Check https://regexr.com/4ofcq. In streetNumber, there are 2 dashes - they have 2 different unicodes, do not remove",
       "type": "string",
-      "regexp": "/(id:(\\p{L}|\\p{N}|[%-])+\\|?)|(streetName:(\\p{L}|\\p{N}|-|\\/| (?=\\p{L}|&|\\p{N})|[#.,;:'&°’])+\\|?)|(city:(\\p{L}|['-]| (?=\\p{L}))+\\|?)|(state:(\\p{L}|[-]| (?=\\p{L}))+\\|?)|(zipCode:(\\p{L}|\\p{N}|-)+\\|?)|(country:(\\p{L}| (?=\\p{L}))+)\\|?|(streetNumber:(\\p{L}|\\p{N}|-|-|\\/)+)\\|?|(ward:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?|(district:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?/gui",
+      "pattern": "(id:(\\p{L}|\\p{N}|[%-])+\\|?)|(streetName:(\\p{L}|\\p{N}|-|\\/| (?=\\p{L}|&|\\p{N})|[#.,;:'&°’])+\\|?)|(city:(\\p{L}|['-]| (?=\\p{L}))+\\|?)|(state:(\\p{L}|[-]| (?=\\p{L}))+\\|?)|(zipCode:(\\p{L}|\\p{N}|-)+\\|?)|(country:(\\p{L}| (?=\\p{L}))+)\\|?|(streetNumber:(\\p{L}|\\p{N}|-|-|\\/)+)\\|?|(ward:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?|(district:(\\p{L}|\\p{N}|-|[']| (?=\\p{L}|\\p{N}))+)\\|?",
       "examples": [
         "state:Tōkyō-to|district:Kanda Nishikichō 3-chōme|streetNumber:4-パレステュディオ御茶ノ水駿河台参番館|zipCode:101-0054|city:Chiyoda-City|country:Japan",
         "id:pe--Aigle--whosonfirst%3Alocality%3A101853849|streetName:Tarkk'ampujänkätu|city:Helsinki|country:Finland|state:Uusimaa|streetNumber:1|zipCode:00100|district:Tapiola",
@@ -137,13 +137,13 @@
     "state": {
       "description": "Alphabetic state name",
       "type": "string",
-      "regexp": "/^(?:\\p{L}|\\s|')+$/gui",
+      "pattern": "^(?:\\p{L}|\\s|')+$",
       "maxLength": 64
     },
     "countryName": {
       "description": "Alphabetic country name",
       "type": "string",
-      "regexp": "/^(?:\\p{L}|\\s|')+$/gui",
+      "pattern": "^(?:\\p{L}|\\s|')+$",
       "maxLength": 64
     },
     "country": {
@@ -186,7 +186,7 @@
     "placeId": {
       "description": "Upstream API placeId",
       "type": "string",
-      "regexp": "/^\\p{L}+$/gui",
+      "pattern": "^\\p{L}+$",
       "maxLength": 64
     }
   }

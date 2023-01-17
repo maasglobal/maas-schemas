@@ -45,9 +45,11 @@
             {
               "oneOf": [
                 {
+                  "type": "object",
                   "required": ["leg", "terms", "cost", "meta"]
                 },
                 {
+                  "type": "object",
                   "required": ["leg", "terms", "cost", "meta", "configurator"]
                 }
               ]
