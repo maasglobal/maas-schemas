@@ -28,7 +28,7 @@ NOTE: It is recommended to use schema \$id instead of raw schema object
 
 ```javascript
 import * as mjsv from 'maasglobal-json-schema-validator';
-import registry from 'maas-schemas/registry';
+import registry from 'maas-schemas/lib/ajv/registry';
 
 const validator = mjsv.validator([registry]);
 
