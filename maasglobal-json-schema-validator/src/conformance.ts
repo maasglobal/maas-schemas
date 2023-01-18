@@ -143,21 +143,32 @@ function checkEndpoint(uri: string, schema: JsonSchema): void {
   });
 }
 
-export function testSchemaPackage(
-  packageRoot: string,
-  baseURI: string,
-  deps: main.Registries,
-): void {
+/**
+ * Conformance Test Runner
+ *
+ * @param packageRoot - absolute path for schema source directory root
+ */
+export function testSchemaPackage(packageRoot: string): void {
   const schemaDir = path.join(packageRoot, 'schemas');
-  const registryFilePath = path.resolve(path.join(packageRoot, 'registry'));
-
+  const manifestPath = path.join(packageRoot, 'schemas.json');
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const registry = require(registryFilePath);
+  const manifest: main.Manifest = require(manifestPath);
+  const baseURI = manifest.base;
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const deps = Object.values(manifest.deps).map((dep) => require(dep));
+
+  const schemaPaths = glob.sync(`${schemaDir}/**/*.json`);
+
+  const schemas = schemaPaths.map((schemaPath) => require(schemaPath));
+
+  const registry: main.Registry = {
+    schemas,
+  };
 
   const validator = main.validator([...deps, registry]);
 
   describe('Source schemas must be valid JSON Schemas', () => {
-    glob.sync(`${schemaDir}/**/*.json`).forEach((schemaPath) => {
+    schemaPaths.forEach((schemaPath) => {
       const filePath = path.resolve(schemaPath);
       const uri = ((tmp) => {
         // eslint-disable-next-line fp/no-mutation

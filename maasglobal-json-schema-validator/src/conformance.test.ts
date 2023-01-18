@@ -1,7 +1,8 @@
+import path from 'path';
+
 import { testSchemaPackage } from './conformance';
 
 describe('Conformance tests', () => {
-  const packageRoot = './node_modules/maas-schemas';
-  const baseURI = 'https://schemas.maas.global/';
-  testSchemaPackage(packageRoot, baseURI, []);
+  const packageRoot = path.resolve(__dirname, '..', '..', 'maas-schemas');
+  testSchemaPackage(packageRoot);
 });

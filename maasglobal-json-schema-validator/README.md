@@ -4,7 +4,7 @@ Performs schema validation with Ajv.
 
 ```typescript
 import * as mjsv from 'maasglobal-json-schema-validator';
-import registry from 'maas-schemas/registry';
+import registry from 'maas-schemas/lib/ajv/registry';
 
 const validator = mjsv.validator([registry]);
 
