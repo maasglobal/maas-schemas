@@ -7,7 +7,7 @@ export type NpmPackageName = string;
 export type DepInfo = {
   package: NpmPackageName;
 };
-export type Deps = Record<BaseURI, NpmPackageName>;
+export type Deps = Record<BaseURI, DepInfo>;
 export type Manifest = {
   base: BaseURI;
   deps: Deps;
@@ -25,6 +25,10 @@ export type ValidateF = (s: Schema | SchemaURI, o: unknown) => unknown;
 export type Validator = {
   validate: ValidateF;
 };
+
+export type RegistryPath<P extends NpmPackageName = NpmPackageName> = `${P}/lib/ajv/registry`;
+export const registryPath = <P extends NpmPackageName>(packageName: P): RegistryPath<P> =>
+  `${packageName}/lib/ajv/registry`;
 
 export function validator(registries: Registries): Validator {
   const ajv: Ajv = new Ajv({
