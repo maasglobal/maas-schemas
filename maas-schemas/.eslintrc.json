@@ -1,0 +1,45 @@
+{
+  "extends": ["eslint-config-maasglobal-ts/strict"],
+  "rules": {
+    "simple-import-sort/imports": [
+      1,
+      {
+        "groups": [["^\\u0000"], ["^maasglobal-prelude"], ["^[^.]"], ["^\\."]]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["./*.js"],
+      "rules": {
+        "@typescript-eslint/naming-convention":0
+      }
+    },
+    {
+      "files": ["src/ajv/**/*.ts"],
+      "rules": {
+        "fp/no-let": 0,
+        "fp/no-mutation": 0,
+        "import/no-default-export": 0
+      }
+    },
+    {
+      "files": ["utils/make-docs.js"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": 0,
+        "@typescript-eslint/no-var-requires": 0,
+        "fp/no-let": 0,
+        "fp/no-mutation": 0,
+        "simple-import-sort/imports": 0
+      }
+    },
+    {
+      "files": ["src/readme.ts"],
+      "rules": {
+        "@typescript-eslint/consistent-type-definitions": 0,
+        "import/no-duplicates": 0,
+        "simple-import-sort/imports": 0
+      }
+    }
+  ]
+}

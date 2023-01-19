@@ -7,7 +7,7 @@ module.exports = {
     },
   },
   transform: {
-    '^.+\\.(t|j)sx?$': 'ts-jest',
+    '^.+\\.tsx?$': 'ts-jest',
   },
   roots: ['src'],
 };

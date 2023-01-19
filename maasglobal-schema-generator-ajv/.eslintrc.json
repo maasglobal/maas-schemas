@@ -1,0 +1,21 @@
+{
+  "extends": ["eslint-config-maasglobal-ts/strict"],
+  "rules": {
+    "simple-import-sort/sort": [
+      1,
+      {
+        "groups": [["^\\u0000"], ["^maasglobal-prelude"], ["^[^.]"], ["^\\."]]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["src/readme.ts"],
+      "rules": {
+        "@typescript-eslint/consistent-type-definitions": 0,
+        "import/no-duplicates": 0,
+        "simple-import-sort/sort": 0
+      }
+    }
+  ]
+}
