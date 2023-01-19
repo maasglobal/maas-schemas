@@ -1,5 +1,9 @@
 {
   "$id": "https://schemas.maas.global/maas-backend/webhooks/webhooks-bookings-update/response.json",
   "description": "MaaS webhook to update bookings for tsp adapter callback response schema.",
-  "allOf": [{ "$ref": "https://schemas.maas.global/tsp/webhooks-bookings-update/remote-response.json" }]
+  "allOf": [
+    {
+      "$ref": "https://schemas.maas.global/tsp/webhooks-bookings-update/remote-response.json"
+    }
+  ]
 }

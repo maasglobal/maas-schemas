@@ -22,15 +22,24 @@
     },
     "paymentSourceTypePAYPAL_EXPRESS_CHECKOUT": {
       "default": "paypal_express_checkout",
-      "allOf": [{ "$ref": "#/definitions/paymentSourceType" }, { "const": "paypal_express_checkout" }]
+      "allOf": [
+        { "$ref": "#/definitions/paymentSourceType" },
+        { "const": "paypal_express_checkout" }
+      ]
     },
     "paymentSourceTypeAMAZON_PAYMENTS": {
       "default": "amazon_payments",
-      "allOf": [{ "$ref": "#/definitions/paymentSourceType" }, { "const": "amazon_payments" }]
+      "allOf": [
+        { "$ref": "#/definitions/paymentSourceType" },
+        { "const": "amazon_payments" }
+      ]
     },
     "paymentSourceTypeDIRECT_DEBIT": {
       "default": "direct_debit",
-      "allOf": [{ "$ref": "#/definitions/paymentSourceType" }, { "const": "direct_debit" }]
+      "allOf": [
+        { "$ref": "#/definitions/paymentSourceType" },
+        { "const": "direct_debit" }
+      ]
     },
     "paymentSourceTypeGENERIC": {
       "default": "generic",

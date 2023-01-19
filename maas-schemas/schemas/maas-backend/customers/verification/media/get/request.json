@@ -3,10 +3,17 @@
   "additionalProperties": false,
   "description": "MaaS customer verification media get",
   "properties": {
-    "customerId": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId" },
-    "identityId": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId" },
+    "customerId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+    },
+    "identityId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+    },
     "payload": {
-      "properties": { "side": { "minLength": 2, "type": "string" }, "type": { "minLength": 2, "type": "string" } },
+      "properties": {
+        "side": { "minLength": 2, "type": "string" },
+        "type": { "minLength": 2, "type": "string" }
+      },
       "required": ["type", "side"],
       "type": "object"
     }

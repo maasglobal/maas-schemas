@@ -15,11 +15,19 @@
       "examples": ["Helsinki & Turku"]
     },
     "countryCode": {
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/country" }],
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/country"
+        }
+      ],
       "examples": ["FI"]
     },
     "zipCode": {
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/zipCode" }],
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/zipCode"
+        }
+      ],
       "examples": ["00100"]
     },
     "availability": {

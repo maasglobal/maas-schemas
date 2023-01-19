@@ -31,7 +31,9 @@
         {
           "description": "Componentized from address",
           "allOf": [
-            { "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress" }
+            {
+              "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress"
+            }
           ]
         },
         {
@@ -42,7 +44,11 @@
     },
     "fromRadius": {
       "description": "'from' location radius in meters",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance"
+        }
+      ]
     },
     "to": {
       "anyOf": [
@@ -79,7 +85,11 @@
     },
     "toRadius": {
       "description": "'to' location radius in meters",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance"
+        }
+      ]
     },
     "distance": {
       "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance"
@@ -96,11 +106,17 @@
     },
     "tspIdToExtend": {
       "description": "Request for possible booking extension options for tspId",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/booking.json#/definitions/tspId" }]
+      "allOf": [
+        { "$ref": "https://schemas.maas.global/core/booking.json#/definitions/tspId" }
+      ]
     },
     "purchasingAppInstanceId": {
       "description": "appInstanceId to use for options and purchase",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/appInstanceId" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/appInstanceId"
+        }
+      ]
     }
   },
   "patternProperties": {

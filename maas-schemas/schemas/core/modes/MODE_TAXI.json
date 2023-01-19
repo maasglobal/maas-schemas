@@ -12,7 +12,9 @@
     "noShowReportedByDriver": {
       "type": "boolean"
     },
-    "vehicleLocation": { "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/location" },
+    "vehicleLocation": {
+      "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/location"
+    },
     "vehicleType": {
       "type": "string",
       "minLength": 1,
@@ -57,7 +59,9 @@
       "minLength": 1,
       "maxLength": 128
     },
-    "eta": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" },
+    "eta": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+    },
     "pickupAt": {
       "description": "The time that the customer requires the taxi to pick them up. It’s the same what booking.leg.startime if operator doesn't change anything, otherwise it can be different.",
       "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
@@ -73,7 +77,9 @@
           "minLength": 1,
           "maxLength": 64
         },
-        "phone": { "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/phone" },
+        "phone": {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/phone"
+        },
         "supportUrl": {
           "description": "The taxi center support link. It can be for example: chat URL, FAQ url, etc...",
           "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"

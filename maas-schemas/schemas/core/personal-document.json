@@ -4,7 +4,11 @@
   "description": "Personal document object",
   "definitions": {
     "documentId": {
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid" }],
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
+        }
+      ],
       "examples": ["932116e4-94cf-41cd-a62b-82d5f2730586"]
     },
     "documentType": {
@@ -51,14 +55,21 @@
     },
     "documentStatusRESUBMISSION_REQUESTED": {
       "default": "RESUBMISSION_REQUESTED",
-      "allOf": [{ "$ref": "#/definitions/documentStatus" }, { "const": "RESUBMISSION_REQUESTED" }]
+      "allOf": [
+        { "$ref": "#/definitions/documentStatus" },
+        { "const": "RESUBMISSION_REQUESTED" }
+      ]
     },
     "documentStatusABANDONED": {
       "default": "ABANDONED",
       "allOf": [{ "$ref": "#/definitions/documentStatus" }, { "const": "ABANDONED" }]
     },
     "validFrom": {
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/isoDate" }],
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/isoDate"
+        }
+      ],
       "examples": ["2020-01-01"]
     },
     "validTo": {
@@ -106,11 +117,19 @@
       "minLength": 2
     },
     "firstName": {
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName" }],
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName"
+        }
+      ],
       "examples": ["Tea"]
     },
     "lastName": {
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName" }],
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName"
+        }
+      ],
       "examples": ["Snowman"]
     },
     "partyId": {
@@ -181,7 +200,14 @@
     }
   },
   "additionalProperties": false,
-  "required": ["type", "documentNumber", "issuingCountry", "status", "validFrom", "validTo"],
+  "required": [
+    "type",
+    "documentNumber",
+    "issuingCountry",
+    "status",
+    "validFrom",
+    "validTo"
+  ],
   "examples": [
     {
       "identityId": "44ae30b6-eebc-4c00-9e46-704554c2a8a0",

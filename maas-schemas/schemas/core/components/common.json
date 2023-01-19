@@ -95,7 +95,12 @@
       "type": "string",
       "pattern": "^.+@.+\\..+$",
       "maxLength": 64,
-      "examples": ["joe.customer@example.com", "info@maas.global", "#\"€\"€#\"@gmail.com", "very@very@unsual.com"]
+      "examples": [
+        "joe.customer@example.com",
+        "info@maas.global",
+        "#\"€\"€#\"@gmail.com",
+        "very@very@unsual.com"
+      ]
     },
     "paymentSourceId": {
       "type": "string",

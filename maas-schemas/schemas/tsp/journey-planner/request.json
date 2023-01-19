@@ -20,7 +20,9 @@
         "fromAddress": {
           "description": "Componentized from address",
           "allOf": [
-            { "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress" }
+            {
+              "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress"
+            }
           ]
         },
         "fromStationId": {
@@ -35,7 +37,9 @@
         "toAddress": {
           "description": "Componentized to address",
           "allOf": [
-            { "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress" }
+            {
+              "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress"
+            }
           ]
         },
         "toStationId": {

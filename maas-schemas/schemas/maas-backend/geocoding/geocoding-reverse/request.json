@@ -9,10 +9,16 @@
     "payload": {
       "type": "object",
       "properties": {
-        "lat": { "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLatitude" },
-        "lon": { "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLongitude" },
+        "lat": {
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLatitude"
+        },
+        "lon": {
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLongitude"
+        },
         "count": { "type": "integer", "minimum": 1, "maximum": 100, "default": 5 },
-        "radius": { "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance" },
+        "radius": {
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance"
+        },
         "locale": {
           "allOf": [
             {

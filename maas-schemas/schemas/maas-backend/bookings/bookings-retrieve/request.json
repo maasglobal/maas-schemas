@@ -8,7 +8,11 @@
     },
     "bookingId": {
       "description": "bookingId of the requested booking",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
+        }
+      ]
     },
     "refresh": {
       "description": "Whether or not to refresh the booking from the TSP end",

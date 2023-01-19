@@ -60,8 +60,12 @@
                     }
                   ]
                 },
-                "type": { "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/documentType" },
-                "country": { "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/country" },
+                "type": {
+                  "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/documentType"
+                },
+                "country": {
+                  "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/country"
+                },
                 "validFrom": {
                   "oneOf": [
                     {

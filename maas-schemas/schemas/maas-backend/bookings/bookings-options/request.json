@@ -37,33 +37,57 @@
         },
         "fromName": {
           "description": "The human understandable name for 'from'",
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName" }]
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName"
+            }
+          ]
         },
         "fromAddress": {
           "description": "Componentized from address",
           "allOf": [
-            { "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress" }
+            {
+              "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress"
+            }
           ]
         },
         "fromRadius": {
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance" }]
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance"
+            }
+          ]
         },
         "toName": {
           "description": "The human understandable name for 'to'",
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName" }]
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName"
+            }
+          ]
         },
         "toAddress": {
           "description": "Componentized to address",
           "allOf": [
-            { "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress" }
+            {
+              "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress"
+            }
           ]
         },
         "toRadius": {
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance" }]
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance"
+            }
+          ]
         },
         "bookingIdToExtend": {
           "description": "bookingId to fetch possible extension options for",
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid" }]
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
+            }
+          ]
         },
         "spaceDemand": {
           "description": "Optional space demand. Example: 3 adults and 2 luggages.",

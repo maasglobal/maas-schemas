@@ -7,9 +7,21 @@
       "additionalProperties": true,
       "properties": {
         "adults": { "type": "integer", "minimum": 0, "description": "Number of adults" },
-        "children": { "type": "integer", "minimum": 0, "description": "Number of children" },
-        "infants": { "type": "integer", "minimum": 0, "description": "Number of infants" },
-        "bags": { "type": "integer", "minimum": 0, "description": "Number of bags (luggages)" }
+        "children": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of children"
+        },
+        "infants": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of infants"
+        },
+        "bags": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of bags (luggages)"
+        }
       }
     },
     "spaceDemandString": {

@@ -26,7 +26,8 @@ export type Validator = {
   validate: ValidateF;
 };
 
-export type RegistryPath<P extends NpmPackageName = NpmPackageName> = `${P}/lib/ajv/registry`;
+export type RegistryPath<P extends NpmPackageName = NpmPackageName> =
+  `${P}/lib/ajv/registry`;
 export const registryPath = <P extends NpmPackageName>(packageName: P): RegistryPath<P> =>
   `${packageName}/lib/ajv/registry`;
 

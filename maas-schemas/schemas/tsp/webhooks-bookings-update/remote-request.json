@@ -10,7 +10,15 @@
       "$ref": "https://schemas.maas.global/core/booking.json#/definitions/cost"
     },
     "state": {
-      "enum": ["RESERVED", "CONFIRMED", "ARRIVED", "ACTIVATED", "EXPIRED", "CANCELLED", "REJECTED"]
+      "enum": [
+        "RESERVED",
+        "CONFIRMED",
+        "ARRIVED",
+        "ACTIVATED",
+        "EXPIRED",
+        "CANCELLED",
+        "REJECTED"
+      ]
     },
     "leg": {
       "$ref": "https://schemas.maas.global/core/booking-option.json#/definitions/legDelta"

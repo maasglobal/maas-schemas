@@ -19,8 +19,12 @@
     "payload": {
       "type": "object",
       "properties": {
-        "lat": { "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLatitude" },
-        "lon": { "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLongitude" }
+        "lat": {
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLatitude"
+        },
+        "lon": {
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLongitude"
+        }
       },
       "required": ["lat", "lon"]
     }

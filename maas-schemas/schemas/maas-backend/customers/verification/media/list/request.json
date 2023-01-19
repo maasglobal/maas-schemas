@@ -5,7 +5,11 @@
   "additionalProperties": false,
   "required": ["identityId", "customerId"],
   "properties": {
-    "identityId": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId" },
-    "customerId": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId" }
+    "identityId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+    },
+    "customerId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+    }
   }
 }

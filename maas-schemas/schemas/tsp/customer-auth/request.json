@@ -8,7 +8,11 @@
     },
     "returnUrl": {
       "description": "URL where client is returned after authorization flow is completed.",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
+        }
+      ]
     },
     "locale": {
       "$ref": "https://schemas.maas.global/core/components/i18n.json#/definitions/locale"

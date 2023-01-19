@@ -22,5 +22,11 @@
     }
   },
   "additionalProperties": false,
-  "required": ["identityId", "customerId", "virtualCardId", "virtualCardTokenReferenceId", "headers"]
+  "required": [
+    "identityId",
+    "customerId",
+    "virtualCardId",
+    "virtualCardTokenReferenceId",
+    "headers"
+  ]
 }

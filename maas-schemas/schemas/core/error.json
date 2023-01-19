@@ -15,7 +15,10 @@
       "examples": ["ERROR_TSP_UNSUPPORTED_AREA"]
     },
     "errorCode": {
-      "anyOf": [{ "$ref": "#/definitions/errorNumber" }, { "$ref": "#/definitions/errorIdentifier" }],
+      "anyOf": [
+        { "$ref": "#/definitions/errorNumber" },
+        { "$ref": "#/definitions/errorIdentifier" }
+      ],
       "examples": [500, "ERROR_TSP_UNSUPPORTED_AREA"]
     },
     "errorMessage": {

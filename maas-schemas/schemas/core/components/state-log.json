@@ -51,8 +51,20 @@
   },
   "examples": [
     [
-      { "reason": {}, "invalid": false, "newState": "PENDING", "oldState": "START", "timestamp": 1630003779687 },
-      { "reason": {}, "invalid": false, "newState": "PAID", "oldState": "PENDING", "timestamp": 1630003780198 },
+      {
+        "reason": {},
+        "invalid": false,
+        "newState": "PENDING",
+        "oldState": "START",
+        "timestamp": 1630003779687
+      },
+      {
+        "reason": {},
+        "invalid": false,
+        "newState": "PAID",
+        "oldState": "PENDING",
+        "timestamp": 1630003780198
+      },
       {
         "reason": { "text": "INVALID_AUTHORIZATION", "errorCode": 500 },
         "invalid": false,

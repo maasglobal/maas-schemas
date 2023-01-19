@@ -14,7 +14,14 @@
       "enum": ["Alert", "Warning", "Information"]
     },
     "type": {
-      "enum": ["ObjectChange", "TripActivate", "InfoMessage", "ZendeskReply", "VerificationUpdate", "AuthRequired"]
+      "enum": [
+        "ObjectChange",
+        "TripActivate",
+        "InfoMessage",
+        "ZendeskReply",
+        "VerificationUpdate",
+        "AuthRequired"
+      ]
     },
     "data": {
       "oneOf": [

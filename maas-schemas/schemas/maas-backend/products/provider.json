@@ -34,15 +34,27 @@
         },
         "icon": {
           "description": "Icon shown in whim wheel, url to 240x240 png",
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }]
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
+            }
+          ]
         },
         "logoSolidColor": {
           "description": "Icon that can be shown against dark or light background, url to ???x105 png",
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }]
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
+            }
+          ]
         },
         "logoFullColor": {
           "description": "Icon that retains the providers brand identity, url to ???x105 png",
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }]
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
+            }
+          ]
         }
       }
     },
@@ -127,7 +139,11 @@
               "type": "number"
             }
           },
-          "required": ["isSupported", "minIntervalUntilBooking", "maxIntervalUntilBooking"]
+          "required": [
+            "isSupported",
+            "minIntervalUntilBooking",
+            "maxIntervalUntilBooking"
+          ]
         }
       },
       "additionalProperties": false

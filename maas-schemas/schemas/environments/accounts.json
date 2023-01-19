@@ -8,7 +8,11 @@
     },
     "accountAlias": {
       "type": "string",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/hostnameLabel" }],
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/hostnameLabel"
+        }
+      ],
       "examples": ["production", "testing"]
     },
     "accountName": {

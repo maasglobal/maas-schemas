@@ -41,7 +41,11 @@
   "properties": {
     "id": {
       "description": "Subscription change state id",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
+        }
+      ]
     },
     "state": { "$ref": "#/definitions/state" },
     "created": {

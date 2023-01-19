@@ -79,8 +79,12 @@
           "description": "Subscription validity conditions",
           "type": "object",
           "properties": {
-            "startTime": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" },
-            "endTime": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }
+            "startTime": {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+            },
+            "endTime": {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+            }
           },
           "required": ["startTime", "endTime"]
         }
