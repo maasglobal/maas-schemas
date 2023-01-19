@@ -38,7 +38,7 @@ export const generateClient: CodeGenerator = (sourceDir) => {
   const manifest: mjsv.Manifest = require(manifestPath);
 
   const registries = Object.values(manifest.deps)
-    .map((dep) => require(mjsv.registryPath(dep.package)))
+    .map((dep) => `require('${mjsv.registryPath(dep.package)}')`)
     .concat("require('./registry')");
 
   return `import * as mjsv from 'maasglobal-json-schema-validator';
@@ -46,7 +46,9 @@ export const generateClient: CodeGenerator = (sourceDir) => {
 let validator: mjsv.Validator|undefined;
 
 export function init(): mjsv.Validator {
-  validator = mjsv.validator([${registries.join('\n')}]);
+  validator = mjsv.validator([
+${registries.join(',\n')}
+  ]);
 
   return validator;
 }
