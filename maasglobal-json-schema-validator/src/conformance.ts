@@ -22,7 +22,7 @@ const endpointSchema = 'endpoint.json';
 const JP_ROOT = '#';
 
 function checkExamples(
-  uri: string,
+  uri: main.SchemaURI,
   schema: JsonSchemaDefinition,
   { validate }: main.Validator,
 ): void {
@@ -88,7 +88,7 @@ function checkExamples(
 }
 
 function checkDeclarations(
-  uri: string,
+  uri: main.SchemaURI,
   schema: JsonSchema,
   validator: main.Validator,
 ): void {
@@ -130,7 +130,7 @@ function fromEndpointURL(href: URLTemplate): URI {
   return [endpointSchema, operation, `${id}-plural`, ...path].reverse().join(slash);
 }
 
-function checkEndpoint(uri: string, schema: JsonSchema): void {
+function checkEndpoint(uri: main.SchemaURI, schema: JsonSchema): void {
   it('must define endpoint URL that reflects URI', () => {
     const imp = 'implementation';
     const hyperSchema: any = schema;
@@ -148,14 +148,19 @@ function checkEndpoint(uri: string, schema: JsonSchema): void {
  *
  * @param packageRoot - absolute path for schema source directory root
  */
-export function testSchemaPackage(packageRoot: string): void {
+export function testSchemaPackage(
+  packageRoot: string,
+  resolveReg: (p: main.RegistryPath) => main.Registry,
+): void {
   const schemaDir = path.join(packageRoot, 'schemas');
   const manifestPath = path.join(packageRoot, 'schemas.json');
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const manifest: main.Manifest = require(manifestPath);
   const baseURI = manifest.base;
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const deps = Object.values(manifest.deps).map((dep) => require(dep));
+  const deps = Object.values(manifest.deps).map((dep) =>
+    resolveReg(main.registryPath(dep.package)),
+  );
 
   const schemaPaths = glob.sync(`${schemaDir}/**/*.json`);
 
