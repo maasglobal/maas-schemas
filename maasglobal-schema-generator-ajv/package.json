@@ -1,0 +1,53 @@
+{
+  "name": "maasglobal-schema-generator-ajv",
+  "version": "0.0.1",
+  "description": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "bin": {
+    "mgsg-ajv": "lib/cli.js"
+  },
+  "dependencies": {
+    "maasglobal-json-schema-validator": "^0.0.6",
+    "yargs": "^17.6.2"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.41",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "@typescript-eslint/typescript-estree": "^4.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-maasglobal-ts": "^0.0.13",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-deprecation": "^1.2.0",
+    "eslint-plugin-fp": "^2.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "glob": "^8.1.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.5.5",
+    "typescript": "^4.2.4"
+  },
+  "scripts": {
+    "readme-ts": "python3 .extract_code.py < README.md > src/readme.ts",
+    "test": "jest --no-cache",
+    "clean": "rm -rf lib",
+    "typecheck": "tsc -p src/tsconfig.json",
+    "build": "yarn clean && tsc&& chmod u+x ./lib/cli.js",
+    "eslint": "eslint --max-warnings=0 '**/*.{ts,js,json}'",
+    "eslint-fix": "yarn eslint --fix||true",
+    "prettier": "prettier --write --ignore-path .gitignore --config node_modules/eslint-config-maasglobal-ts/prettierrc.js '**/*.{css,html,js,ts,json,md,yaml,yml}'",
+    "prettify": "yarn eslint-fix && yarn prettier",
+    "lint": "yarn eslint",
+    "ci": "yarn readme-ts && yarn typecheck && yarn test && yarn lint && yarn build",
+    "deploy-npm": "yarn ci && yarn publish --non-interactive",
+    "deploy-alpha": "yarn deploy-npm --tag alpha"
+  }
+}
