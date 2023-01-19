@@ -15,6 +15,7 @@ node_modules
 prebuilt
 
 # schemas registry, generated upon build / prepublish
+lib/ajv/registry.js
 registry.js
 
 # npmrc

@@ -7,10 +7,10 @@ const schemaPaths = fg.sync(['schemas/**/*.json'], { cwd: __dirname });
 
 const modulePaths = schemaPaths
   .map(schemaPath => {
-    return `'${schemaPath}': require('./${schemaPath}')`;
+    return `require('../../${schemaPath}')`;
   })
   .join(',\n');
 
-const fileContent = `'use strict'\nmodule.exports = {\n${modulePaths}\n}`;
+const fileContent = `'use strict'\nmodule.exports = { "schemas": [\n${modulePaths}\n] }\n`;
 
-fs.writeFileSync('registry.js', fileContent, { encoding: 'utf-8' });
+fs.writeFileSync('lib/ajv/registry.js', fileContent, { encoding: 'utf-8' });

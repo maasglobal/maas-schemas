@@ -2,11 +2,23 @@ import Ajv from 'ajv';
 
 import { ValidationError } from './validation-error';
 
+export type BaseURI = string;
+export type NpmPackageName = string;
+export type DepInfo = {
+  package: NpmPackageName;
+};
+export type Deps = Record<BaseURI, NpmPackageName>;
+export type Manifest = {
+  base: BaseURI;
+  deps: Deps;
+};
+
 export type SchemaURI = string;
 export type Schema = {
   $id?: SchemaURI;
 };
-export type Registry = Record<string, Schema>;
+export type Schemas = Array<Schema>;
+export type Registry = { schemas: Schemas };
 export type Registries = Array<Registry>;
 
 export type ValidateF = (s: Schema | SchemaURI, o: unknown) => unknown;
@@ -37,8 +49,10 @@ export function validator(registries: Registries): Validator {
   });
   ajv.addKeyword('invalid');
 
-  registries.forEach((registry) => {
-    Object.values(registry).forEach((schema) => ajv.addSchema(schema));
+  registries.forEach(({ schemas }) => {
+    schemas.forEach((schema) => {
+      ajv.addSchema(schema);
+    });
   });
 
   const validate: ValidateF = (schema, object) => {
