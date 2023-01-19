@@ -43,9 +43,10 @@
     "build": "yarn clean && tsc&& chmod u+x ./lib/cli.js",
     "eslint": "eslint --max-warnings=0 '**/*.{ts,js,json}'",
     "eslint-fix": "yarn eslint --fix||true",
-    "prettier": "prettier --write --ignore-path .gitignore --config node_modules/eslint-config-maasglobal-ts/prettierrc.js '**/*.{css,html,js,ts,json,md,yaml,yml}'",
-    "prettify": "yarn eslint-fix && yarn prettier",
-    "lint": "yarn eslint",
+    "prettier-check": "yarn prettier --check '**/*.{css,html,js,ts,json,md,yaml,yml}'",
+    "prettier-fix": "yarn prettier-check --write",
+    "prettify": "yarn eslint-fix && yarn prettier-fix",
+    "lint": "yarn eslint && yarn prettier-check",
     "ci": "yarn readme-ts && yarn typecheck && yarn test && yarn lint && yarn build",
     "deploy-npm": "yarn ci && yarn publish --non-interactive",
     "deploy-alpha": "yarn deploy-npm --tag alpha"
