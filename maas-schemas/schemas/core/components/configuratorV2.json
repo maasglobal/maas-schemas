@@ -45,7 +45,14 @@
       }
     }
   },
-  "required": ["version", "estimatable", "purchasable", "validUntil", "configuratorSelection", "configurations"],
+  "required": [
+    "version",
+    "estimatable",
+    "purchasable",
+    "validUntil",
+    "configuratorSelection",
+    "configurations"
+  ],
   "examples": [
     {
       "version": "2",

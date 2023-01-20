@@ -101,24 +101,54 @@
       "type": "object",
       "description": "MaaS response may return any subset of legCore",
       "properties": {
-        "signature": { "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/signature" },
-        "state": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/state" },
+        "signature": {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/signature"
+        },
+        "state": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/state"
+        },
         "from": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/from" },
         "to": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/to" },
-        "startTime": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/startTime" },
-        "endTime": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/endTime" },
+        "startTime": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/startTime"
+        },
+        "endTime": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/endTime"
+        },
         "mode": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/mode" },
-        "stops": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/stops" },
-        "departureDelay": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/departureDelay" },
-        "arrivalDelay": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/arrivalDelay" },
-        "distance": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/distance" },
-        "route": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/route" },
-        "routeShortName": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/routeShortName" },
-        "routeLongName": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/routeLongName" },
-        "agencyId": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/agencyId" },
-        "legGeometry": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/legGeometry" },
-        "tspProduct": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/tspProduct" },
-        "productOption": { "$ref": "https://schemas.maas.global/core/leg.json#/definitions/productOption" }
+        "stops": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/stops"
+        },
+        "departureDelay": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/departureDelay"
+        },
+        "arrivalDelay": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/arrivalDelay"
+        },
+        "distance": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/distance"
+        },
+        "route": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/route"
+        },
+        "routeShortName": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/routeShortName"
+        },
+        "routeLongName": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/routeLongName"
+        },
+        "agencyId": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/agencyId"
+        },
+        "legGeometry": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/legGeometry"
+        },
+        "tspProduct": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/tspProduct"
+        },
+        "productOption": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/productOption"
+        }
       },
       "additionalProperties": false
     },
@@ -135,11 +165,19 @@
           "properties": {
             "startTime": {
               "description": "The starting time from which the ticket is valid",
-              "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }]
+              "allOf": [
+                {
+                  "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+                }
+              ]
             },
             "endTime": {
               "description": "The finishing time the ticket is valid for",
-              "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }]
+              "allOf": [
+                {
+                  "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+                }
+              ]
             }
           }
         },

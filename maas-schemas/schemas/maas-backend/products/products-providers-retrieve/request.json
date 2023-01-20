@@ -6,7 +6,9 @@
     "identityId": {
       "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
     },
-    "agencyId": { "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId" },
+    "agencyId": {
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
+    },
     "headers": {
       "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
     }

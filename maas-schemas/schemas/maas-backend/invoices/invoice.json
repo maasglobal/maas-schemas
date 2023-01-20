@@ -13,7 +13,11 @@
         },
         "bookingId": {
           "description": "bookingId of the requested booking",
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid" }]
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
+            }
+          ]
         },
         "lineItems": {
           "type": "array",

@@ -5,7 +5,9 @@
   "anyOf": [
     { "$ref": "https://schemas.maas.global/core/components/configuratorV2.json" },
     { "$ref": "https://schemas.maas.global/core/components/configuratorV1.json" },
-    { "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/emptyObject" }
+    {
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/emptyObject"
+    }
   ],
   "examples": [
     {

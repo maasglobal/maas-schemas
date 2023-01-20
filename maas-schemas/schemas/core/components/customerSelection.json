@@ -4,7 +4,9 @@
   "anyOf": [
     { "$ref": "https://schemas.maas.global/core/components/customerSelectionV2.json" },
     { "$ref": "https://schemas.maas.global/core/components/customerSelectionV1.json" },
-    { "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/emptyObject" }
+    {
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/emptyObject"
+    }
   ],
   "examples": [
     {

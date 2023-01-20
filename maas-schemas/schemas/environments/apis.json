@@ -5,7 +5,11 @@
       "description": "has to be url, has to start https://, has to end with slash",
       "type": "string",
       "pattern": "^https://[^\\s]+/$",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }],
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
+        }
+      ],
       "examples": [
         "https://production.example.com/api/",
         "https://testing.example.com/api/",

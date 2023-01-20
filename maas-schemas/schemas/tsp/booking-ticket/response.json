@@ -15,7 +15,11 @@
       "enum": ["application/pdf", "image/svg+xml", "image/png", "text/html"]
     },
     "refreshAt": {
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }],
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+        }
+      ],
       "description": "Epoch when the ticket needs to be refreshed"
     }
   },

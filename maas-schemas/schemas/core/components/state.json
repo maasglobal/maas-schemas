@@ -36,7 +36,10 @@
     },
     "bookingStatePENDING_RESERVATION": {
       "default": "PENDING_RESERVATION",
-      "allOf": [{ "$ref": "#/definitions/bookingState" }, { "const": "PENDING_RESERVATION" }]
+      "allOf": [
+        { "$ref": "#/definitions/bookingState" },
+        { "const": "PENDING_RESERVATION" }
+      ]
     },
     "bookingStateRESERVED": {
       "default": "RESERVED",
@@ -82,7 +85,15 @@
     "legState": {
       "description": "The life-cycle state of a leg",
       "type": "string",
-      "enum": ["START", "PLANNED", "PAID", "ACTIVATED", "CANCELLED", "CANCELLED_WITH_ERRORS", "FINISHED"]
+      "enum": [
+        "START",
+        "PLANNED",
+        "PAID",
+        "ACTIVATED",
+        "CANCELLED",
+        "CANCELLED_WITH_ERRORS",
+        "FINISHED"
+      ]
     },
     "legStateSTART": {
       "default": "START",
@@ -106,7 +117,10 @@
     },
     "legStateCANCELLED_WITH_ERRORS": {
       "default": "CANCELLED_WITH_ERRORS",
-      "allOf": [{ "$ref": "#/definitions/legState" }, { "const": "CANCELLED_WITH_ERRORS" }]
+      "allOf": [
+        { "$ref": "#/definitions/legState" },
+        { "const": "CANCELLED_WITH_ERRORS" }
+      ]
     },
     "legStateFINISHED": {
       "default": "FINISHED",
@@ -115,7 +129,15 @@
     "itineraryState": {
       "description": "The life-cycle state of an itinerary",
       "type": "string",
-      "enum": ["START", "PLANNED", "PAID", "ACTIVATED", "CANCELLED", "CANCELLED_WITH_ERRORS", "FINISHED"]
+      "enum": [
+        "START",
+        "PLANNED",
+        "PAID",
+        "ACTIVATED",
+        "CANCELLED",
+        "CANCELLED_WITH_ERRORS",
+        "FINISHED"
+      ]
     },
     "itineraryStateSTART": {
       "default": "START",
@@ -139,7 +161,10 @@
     },
     "itineraryStateCANCELLED_WITH_ERRORS": {
       "default": "CANCELLED_WITH_ERRORS",
-      "allOf": [{ "$ref": "#/definitions/itineraryState" }, { "const": "CANCELLED_WITH_ERRORS" }]
+      "allOf": [
+        { "$ref": "#/definitions/itineraryState" },
+        { "const": "CANCELLED_WITH_ERRORS" }
+      ]
     },
     "itineraryStateFINISHED": {
       "default": "FINISHED",
@@ -166,19 +191,31 @@
     },
     "subscriptionIntentStateDETAILS": {
       "default": "DETAILS",
-      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "DETAILS" }]
+      "allOf": [
+        { "$ref": "#/definitions/subscriptionIntentState" },
+        { "const": "DETAILS" }
+      ]
     },
     "subscriptionIntentStateCUSTOMISATION": {
       "default": "CUSTOMISATION",
-      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "CUSTOMISATION" }]
+      "allOf": [
+        { "$ref": "#/definitions/subscriptionIntentState" },
+        { "const": "CUSTOMISATION" }
+      ]
     },
     "subscriptionIntentStatePAYMENT": {
       "default": "PAYMENT",
-      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "PAYMENT" }]
+      "allOf": [
+        { "$ref": "#/definitions/subscriptionIntentState" },
+        { "const": "PAYMENT" }
+      ]
     },
     "subscriptionIntentStateVERIFICATION": {
       "default": "VERIFICATION",
-      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "VERIFICATION" }]
+      "allOf": [
+        { "$ref": "#/definitions/subscriptionIntentState" },
+        { "const": "VERIFICATION" }
+      ]
     },
     "subscriptionIntentStateAUTH": {
       "default": "AUTH",
@@ -186,15 +223,24 @@
     },
     "subscriptionIntentStateCANCELLED": {
       "default": "CANCELLED",
-      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "CANCELLED" }]
+      "allOf": [
+        { "$ref": "#/definitions/subscriptionIntentState" },
+        { "const": "CANCELLED" }
+      ]
     },
     "subscriptionIntentStateCANCELLED_WITH_ERRORS": {
       "default": "CANCELLED_WITH_ERRORS",
-      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "CANCELLED_WITH_ERRORS" }]
+      "allOf": [
+        { "$ref": "#/definitions/subscriptionIntentState" },
+        { "const": "CANCELLED_WITH_ERRORS" }
+      ]
     },
     "subscriptionIntentStateFINISHED": {
       "default": "FINISHED",
-      "allOf": [{ "$ref": "#/definitions/subscriptionIntentState" }, { "const": "FINISHED" }]
+      "allOf": [
+        { "$ref": "#/definitions/subscriptionIntentState" },
+        { "const": "FINISHED" }
+      ]
     },
     "verificationState": {
       "description": "The life-cycle state of a verification",
@@ -241,7 +287,10 @@
     },
     "verificationStateRESUBMISSION_REQUESTED": {
       "default": "RESUBMISSION_REQUESTED",
-      "allOf": [{ "$ref": "#/definitions/verificationState" }, { "const": "RESUBMISSION_REQUESTED" }]
+      "allOf": [
+        { "$ref": "#/definitions/verificationState" },
+        { "const": "RESUBMISSION_REQUESTED" }
+      ]
     },
     "verificationStateABANDONED": {
       "default": "ABANDONED",

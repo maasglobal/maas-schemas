@@ -24,19 +24,35 @@
       "type": "object",
       "properties": {
         "startTime": {
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }],
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+            }
+          ],
           "description": "Epoch when the outbound ticket will be valid"
         },
         "endTime": {
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }],
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+            }
+          ],
           "description": "Epoch when the outbound ticket will be invalid"
         },
         "startTimeReturn": {
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }],
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+            }
+          ],
           "description": "Epoch when the return ticket will be valid"
         },
         "endTimeReturn": {
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }],
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+            }
+          ],
           "description": "Epoch when the return ticket will be invalid"
         }
       },
@@ -102,7 +118,11 @@
         },
         "cancellationFormActionUrl": {
           "description": "User will fill in this form to cancel their ticket should programmed cancellation does not function. Edge case support",
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }]
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
+            }
+          ]
         },
         "outward": {
           "$ref": "#/definitions/cancellation"
@@ -125,7 +145,11 @@
     },
     "prePurchaseGuidanceUrl": {
       "description": "If flow requires additional instructions or resources presented to the customer before purchase, they can be embedded in the HTML page and booking option can link to that",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
+        }
+      ]
     },
     "fareRates": {
       "type": "array",
@@ -154,7 +178,14 @@
             "multipleOf": 1
           },
           "type": {
-            "enum": ["maxRate", "missedReturnPenalty", "extra", "perKilometer", "perParkMinute", "unlockFee"]
+            "enum": [
+              "maxRate",
+              "missedReturnPenalty",
+              "extra",
+              "perKilometer",
+              "perParkMinute",
+              "unlockFee"
+            ]
           }
         },
         "required": ["amount", "currency"]
@@ -213,15 +244,21 @@
           "description": "Cancellation validity conditions",
           "type": "object",
           "properties": {
-            "startTime": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" },
-            "endTime": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }
+            "startTime": {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+            },
+            "endTime": {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+            }
           },
           "required": ["endTime"]
         },
         "desc": {
           "type": "string"
         },
-        "expiration": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }
+        "expiration": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+        }
       },
       "required": ["cancellable", "refunded"]
     },

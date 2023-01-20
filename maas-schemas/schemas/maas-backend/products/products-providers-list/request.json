@@ -16,9 +16,16 @@
     "payload": {
       "type": "object",
       "properties": {
-        "lat": { "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLatitude" },
-        "lon": { "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLongitude" },
-        "region": { "type": "string", "enum": ["AT", "BE", "CH", "DE", "FI", "GB", "JP", "LU", "NL", "SG"] }
+        "lat": {
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLatitude"
+        },
+        "lon": {
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/relaxedLongitude"
+        },
+        "region": {
+          "type": "string",
+          "enum": ["AT", "BE", "CH", "DE", "FI", "GB", "JP", "LU", "NL", "SG"]
+        }
       },
       "additionalProperties": false
     }

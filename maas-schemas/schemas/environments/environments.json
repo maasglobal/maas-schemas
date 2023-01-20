@@ -3,7 +3,11 @@
   "definitions": {
     "environmentId": {
       "type": "string",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/hostnameLabel" }],
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/hostnameLabel"
+        }
+      ],
       "examples": ["production", "testing", "environment13", "fantasy-topping"]
     },
     "environmentLive": {
@@ -17,14 +21,20 @@
     },
     "environmentDescription": {
       "type": "string",
-      "examples": ["Production environment", "Testing environment", "Add support for pizza customization"]
+      "examples": [
+        "Production environment",
+        "Testing environment",
+        "Add support for pizza customization"
+      ]
     },
     "environment": {
       "type": "object",
       "properties": {
         "id": { "$ref": "#/definitions/environmentId" },
         "live": { "$ref": "#/definitions/environmentLive" },
-        "account": { "$ref": "https://schemas.maas.global/environments/accounts.json#/definitions/accountAlias" },
+        "account": {
+          "$ref": "https://schemas.maas.global/environments/accounts.json#/definitions/accountAlias"
+        },
         "name": { "$ref": "#/definitions/environmentName" },
         "description": { "$ref": "#/definitions/environmentDescription" }
       },

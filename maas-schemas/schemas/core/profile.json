@@ -81,7 +81,11 @@
         },
         "expiry": {
           "description": "When this payment method expires",
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }]
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+            }
+          ]
         }
       },
       "required": ["type", "valid"]
@@ -107,7 +111,14 @@
     }
   },
   "additionalProperties": false,
-  "required": ["identityId", "phone", "favoriteLocations", "paymentMethod", "subscriptionInstance", "balances"],
+  "required": [
+    "identityId",
+    "phone",
+    "favoriteLocations",
+    "paymentMethod",
+    "subscriptionInstance",
+    "balances"
+  ],
   "definitions": {
     "bookingOptionsReference": {
       "type": "integer",
@@ -120,7 +131,9 @@
           "description": "Refers several seemingly unrelated things. Use is discouraged.",
           "oneOf": [
             { "$ref": "#/definitions/bookingOptionsReference" },
-            { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId" }
+            {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+            }
           ]
         },
         "name": {

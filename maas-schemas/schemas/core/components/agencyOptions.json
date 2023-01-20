@@ -23,22 +23,38 @@
     },
     "fromName": {
       "description": "The human understandable name for 'from'",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName"
+        }
+      ]
     },
     "fromAddress": {
       "description": "Componentized from address",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress"
+        }
+      ]
     },
     "fromRadius": {
       "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance"
     },
     "toName": {
       "description": "The human understandable name for 'to'",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName"
+        }
+      ]
     },
     "toAddress": {
       "description": "Componentized to address",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress"
+        }
+      ]
     },
     "toRadius": {
       "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/distance"

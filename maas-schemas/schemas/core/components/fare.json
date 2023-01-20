@@ -27,8 +27,12 @@
     },
     "currency": {
       "oneOf": [
-        { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency" },
-        { "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/metaCurrency" },
+        {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
+        },
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/metaCurrency"
+        },
         { "$ref": "#/definitions/tokenId" }
       ]
     },

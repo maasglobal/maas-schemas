@@ -34,6 +34,6 @@ const validator = mjsv.validator([registry]);
 
 const phone = validator.validate(
   'https://schemas.maas.global/core/components/common.json#/definitions/phone',
-  '+358401234567'
+  '+358401234567',
 );
 ```

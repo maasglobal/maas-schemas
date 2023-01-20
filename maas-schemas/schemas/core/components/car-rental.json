@@ -117,7 +117,11 @@
         },
         "location": {
           "description": "Current geo location",
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/location" }]
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/location"
+            }
+          ]
         }
       }
     },
@@ -129,21 +133,37 @@
       "description": "Indicate the next booking of this car, if available",
       "type": "object",
       "properties": {
-        "startTime": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" },
-        "endTime": { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time" }
+        "startTime": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+        },
+        "endTime": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+        }
       }
     },
     "pickupInfo": {
       "description": "Pickup instructions in HTML format",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/htmlBlock" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/htmlBlock"
+        }
+      ]
     },
     "returnInfo": {
       "description": "Return Instructions in HTML format",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/htmlBlock" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/htmlBlock"
+        }
+      ]
     },
     "startEndGeoRegionUrl": {
       "description": "Region in which car can be rented and returned. Url to GeoJSON file",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/url"
+        }
+      ]
     },
     "instructions": {
       "description": "Additional instruction sections displayed for booking",
@@ -184,7 +204,11 @@
       "examples": [
         { "title": "TITLE", "text": "DESCRIPTION" },
         { "title": "TITLE", "image": "https://example.com/image.jpg" },
-        { "title": "TITLE", "image": "https://example.com/image.jpg", "icon": "https://example.com/image.jpg" }
+        {
+          "title": "TITLE",
+          "image": "https://example.com/image.jpg",
+          "icon": "https://example.com/image.jpg"
+        }
       ],
       "invalid": {
         "eyJ0aXRsZSI6IlRJVExFIn0=": "title without other propreties"

@@ -1,5 +1,7 @@
 {
   "$id": "https://schemas.maas.global/tsp/journey-planner/response.json",
   "description": "Response schema for getting journey options from a TSP adapter.",
-  "allOf": [{ "$ref": "https://schemas.maas.global/maas-backend/provider/routes/response.json" }]
+  "allOf": [
+    { "$ref": "https://schemas.maas.global/maas-backend/provider/routes/response.json" }
+  ]
 }

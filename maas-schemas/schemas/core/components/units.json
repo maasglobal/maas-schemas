@@ -78,7 +78,10 @@
           "$ref": "#/definitions/uuid"
         }
       ],
-      "examples": ["eu-west-1:4828507e-683f-41bf-9d87-689808fbf958", "4828507e-683f-41bf-9d87-689808fbf958"]
+      "examples": [
+        "eu-west-1:4828507e-683f-41bf-9d87-689808fbf958",
+        "4828507e-683f-41bf-9d87-689808fbf958"
+      ]
     },
     "currency": {
       "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",

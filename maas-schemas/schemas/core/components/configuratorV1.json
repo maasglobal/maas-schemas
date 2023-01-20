@@ -9,26 +9,46 @@
     "seatPosition": {
       "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config"
     },
-    "seatType": { "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config" },
+    "seatType": {
+      "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config"
+    },
     "seatFeatures": {
       "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config"
     },
-    "stations": { "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config" },
+    "stations": {
+      "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config"
+    },
     "outboundSingle": {
       "description": "Single ticket for outwardJourney",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config"
+        }
+      ]
     },
     "inboundSingle": {
       "description": "Single ticket for return journey, go as a pair with outboundSingle",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config"
+        }
+      ]
     },
     "openReturn": {
       "description": "Open return ticket can be used for both outward and return journeys",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config"
+        }
+      ]
     },
     "freeReturn": {
       "description": "Going as a pair with open return, providing options for clients to choose return journey for it's open return tickets",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/config"
+        }
+      ]
     },
     "ticketCollectionPoint": {
       "$ref": "https://schemas.maas.global/core/components/configuratorCommon.json#/definitions/text"

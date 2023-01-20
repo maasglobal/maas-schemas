@@ -11,30 +11,54 @@
     },
     "firstName": {
       "description": "First name of the customer (e.g. John)",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName"
+        }
+      ]
     },
     "lastName": {
       "description": "Last name of the customer (e.g. Doe)",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName"
+        }
+      ]
     },
     "firstNameLocalized": {
       "description": "Localized first name of the customer (e.g. John)",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName"
+        }
+      ]
     },
     "lastNameLocalized": {
       "description": "Localized last name of the customer (e.g. Doe)",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/personalName"
+        }
+      ]
     },
     "sex": {
       "type": "string"
     },
     "phone": {
       "description": "ITU-T E.164 phone number",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/phone" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/phone"
+        }
+      ]
     },
     "email": {
       "description": "Rough validation of a valid e-mail address",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/email" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/email"
+        }
+      ]
     },
     "address": {
       "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/address"
@@ -56,19 +80,35 @@
     },
     "appInstanceId": {
       "description": "An id specific to a user device",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/appInstanceId" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/appInstanceId"
+        }
+      ]
     },
     "opaqueId": {
       "description": "Typically the hash of the identityId",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/opaqueId" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/opaqueId"
+        }
+      ]
     },
     "opaqueIdShort": {
       "description": "Typically the MD5 hash of the identityId",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/opaqueIdShort" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/opaqueIdShort"
+        }
+      ]
     },
     "clientId": {
       "description": "An id indicating the source of the client",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/clientId" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/clientId"
+        }
+      ]
     },
     "dob": {
       "description": "The customer's date of birth or boolean indicating if the value is already in DB",
@@ -111,8 +151,12 @@
           "properties": {
             "currency": {
               "oneOf": [
-                { "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency" },
-                { "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/metaCurrencyWMP" }
+                {
+                  "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
+                },
+                {
+                  "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/metaCurrencyWMP"
+                }
               ]
             },
             "amount": {
@@ -166,7 +210,11 @@
     },
     "authToken": {
       "description": "Authentication Token",
-      "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/encodedQueryParam" }]
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/encodedQueryParam"
+        }
+      ]
     },
     "cugHome": {
       "type": "string"

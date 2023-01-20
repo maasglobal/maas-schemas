@@ -9,6 +9,45 @@ env:
   PRIVATE_NPM_TOKEN: ${{ secrets.PRIVATE_NPM_TOKEN }}
 
 jobs:
+  test-ajv-validator:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    name: test ajv validator
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+          registry-url: "https://registry.npmjs.org"
+      - name: Install Dependencies
+        run: |
+          yarn --cwd maasglobal-json-schema-validator
+          yarn --cwd maas-schemas
+          yarn --cwd maas-schemas convert-ajv
+          yarn --cwd maas-schemas build
+      - name: Run Tests
+        run: |
+          yarn --cwd maasglobal-json-schema-validator ci
+
+  test-ajv-generator:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    name: test ajv generator
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+          registry-url: "https://registry.npmjs.org"
+      - name: Install Dependencies
+        run: |
+          yarn --cwd maasglobal-schema-generator-ajv
+      - name: Run Tests
+        run: |
+          yarn --cwd maasglobal-schema-generator-ajv ci
+
   test-json:
     runs-on: ubuntu-latest
     timeout-minutes: 15

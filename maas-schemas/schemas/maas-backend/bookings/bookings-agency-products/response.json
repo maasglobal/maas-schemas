@@ -57,7 +57,15 @@
           "maxLength": 2000
         }
       },
-      "required": ["id", "agencyId", "tspProductId", "name", "description", "icon", "fares"],
+      "required": [
+        "id",
+        "agencyId",
+        "tspProductId",
+        "name",
+        "description",
+        "icon",
+        "fares"
+      ],
       "additionalProperties": true
     }
   },

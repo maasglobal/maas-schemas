@@ -20,7 +20,11 @@
         },
         "email": {
           "description": "Optional customer e-mail",
-          "allOf": [{ "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/email" }]
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/email"
+            }
+          ]
         },
         "isContactingAllowed": {
           "type": "boolean",

@@ -59,16 +59,22 @@ function createRefLink(schema, schemaPathMap, property, ref, breadcrumbs) {
 function resolveRef(schema, schemaPathMap, o, relativePath) {
   // Resolve manually all links for definitions
   if (o.definitions) {
-    Object.keys(o.definitions).forEach(key => {
+    Object.keys(o.definitions).forEach((key) => {
       subschemaWalk(
         o.definitions[key],
         (schemaObject, path, parentSchemaObject, pathToRoot) => {
           if (schemaObject.$ref) {
-            createRefLink(schema, schemaPathMap, schemaObject, schemaObject.$ref, relativePath + path.join('/'));
+            createRefLink(
+              schema,
+              schemaPathMap,
+              schemaObject,
+              schemaObject.$ref,
+              relativePath + path.join('/'),
+            );
           }
         },
         null,
-        [schema]
+        [schema],
       );
     });
   }
@@ -76,7 +82,13 @@ function resolveRef(schema, schemaPathMap, o, relativePath) {
   // Walk for all properties in schema
   schemaWalk(schema.jsonSchema, (schemaObject, path, parentSchemaObject, pathToRoot) => {
     if (schemaObject !== false && schemaObject.$ref) {
-      createRefLink(schema, schemaPathMap, schemaObject, schemaObject.$ref, relativePath + path.join('/'));
+      createRefLink(
+        schema,
+        schemaPathMap,
+        schemaObject,
+        schemaObject.$ref,
+        relativePath + path.join('/'),
+      );
     }
   });
 }
@@ -89,7 +101,7 @@ async function createMarkdown() {
   }));
 
   const schemaPathMap = {};
-  schemas.forEach(schema => {
+  schemas.forEach((schema) => {
     let key = String(schema.jsonSchema.$id);
     if (key.endsWith('.json#')) {
       key = key.substring(0, key.length - 1);
@@ -104,7 +116,7 @@ async function createMarkdown() {
     }
   });
 
-  schemas.forEach(schema => {
+  schemas.forEach((schema) => {
     const relative = schema.filePath.substring(schemaPath.length + 1);
     resolveRef(schema, schemaPathMap, schema.jsonSchema, '[' + relative + ']', true);
   });

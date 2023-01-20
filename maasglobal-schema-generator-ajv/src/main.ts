@@ -96,6 +96,6 @@ export function main(args: Array<string>): void {
     .option('packageRoot', { type: 'string', demandOption: true })
     .help();
 
-   const packageRoot = path.resolve(argv.packageRoot)
+  const packageRoot = path.resolve(argv.packageRoot);
   _main(packageRoot);
 }
