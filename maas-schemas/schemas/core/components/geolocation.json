@@ -46,37 +46,44 @@
         "name": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 256
+          "maxLength": 256,
+          "examples": ["Jani Hirviinen", "Barri Känälainen-sön"]
         },
         "streetNumber": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 16
+          "maxLength": 16,
+          "examples": ["1", "221B"]
         },
         "streetName": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 256
+          "maxLength": 256,
+          "examples": ["Kalevankatu", "Baker Street", "John Stenbergin ranta"]
         },
         "city": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 64
+          "maxLength": 64,
+          "examples": ["Helsinki", "Tokyo"]
         },
         "country": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 64
+          "maxLength": 64,
+          "examples": ["Finland", "Japan"]
         },
         "countryCode": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 256
+          "maxLength": 256,
+          "examples": ["FI", "JP"]
         },
         "houseNumber": {
-          "type": "integer",
+          "type": "string",
           "minLength": 1,
-          "maxLength": 16
+          "maxLength": 16,
+          "examples": ["1", "221B", "A 9"]
         },
         "zipcode": {
           "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/zipCode"

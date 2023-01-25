@@ -77,6 +77,8 @@
           "$ref": "#/definitions/longitude"
         }
       ],
+      "minItems": 2,
+      "maxItems": 2,
       "additionalItems": false
     },
     "shortLocationString": {

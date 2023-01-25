@@ -64,9 +64,11 @@
         {
           "oneOf": [
             {
+              "type": "object",
               "required": ["leg", "terms", "product", "fares"]
             },
             {
+              "type": "object",
               "required": ["leg", "terms", "product", "configurator"]
             }
           ]
