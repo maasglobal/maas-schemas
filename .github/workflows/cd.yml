@@ -5,7 +5,64 @@ on:
     branches:
       - main
 
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.PUBLIC_NPM_TOKEN }}
+
 jobs:
+  publish-io-ts-generator:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    name: publish ts
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+          registry-url: "https://registry.npmjs.org"
+      - name: Install Dependencies
+        run: |
+          yarn --cwd maasglobal-schema-generator-io-ts
+      - name: Deploy to Registry
+        run: |
+          yarn --cwd maasglobal-schema-generator-io-ts deploy-npm
+
+  publish-ajv-validator:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    name: publish ts
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+          registry-url: "https://registry.npmjs.org"
+      - name: Install Dependencies
+        run: |
+          yarn --cwd maasglobal-json-schema-validator
+      - name: Deploy to Registry
+        run: |
+          yarn --cwd maasglobal-json-schema-validator deploy-npm
+
+  publish-ajv-generator:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    name: publish ts
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+          registry-url: "https://registry.npmjs.org"
+      - name: Install Dependencies
+        run: |
+          yarn --cwd maasglobal-schema-generator-ajv
+      - name: Deploy to Registry
+        run: |
+          yarn --cwd maasglobal-schema-generator-ajv deploy-npm
+
   publish-json:
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -23,8 +80,6 @@ jobs:
       - name: Deploy to Registry
         run: |
           yarn --cwd maas-schemas deploy-npm
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PUBLIC_NPM_TOKEN }}
 
   publish-ts:
     runs-on: ubuntu-latest
@@ -43,5 +98,3 @@ jobs:
       - name: Deploy to Registry
         run: |
           yarn --cwd maas-schemas-ts deploy-npm
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PUBLIC_NPM_TOKEN }}
