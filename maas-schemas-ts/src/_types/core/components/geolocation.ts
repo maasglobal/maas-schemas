@@ -96,7 +96,7 @@ export type Properties = t.Branded<
     city?: string;
     country?: string;
     countryCode?: string;
-    houseNumber?: number;
+    houseNumber?: string;
     zipcode?: Address_.ZipCode;
   } & Record<string, unknown>) & {
     name: Defined;
@@ -115,7 +115,7 @@ export type PropertiesC = t.BrandC<
             city: t.StringC;
             country: t.StringC;
             countryCode: t.StringC;
-            houseNumber: t.NumberC;
+            houseNumber: t.StringC;
             zipcode: typeof Address_.ZipCode;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
@@ -138,7 +138,7 @@ export const Properties: PropertiesC = t.brand(
         city: t.string,
         country: t.string,
         countryCode: t.string,
-        houseNumber: t.number,
+        houseNumber: t.string,
         zipcode: Address_.ZipCode,
       }),
       t.record(t.string, t.unknown),
@@ -157,7 +157,7 @@ export const Properties: PropertiesC = t.brand(
       city?: string;
       country?: string;
       countryCode?: string;
-      houseNumber?: number;
+      houseNumber?: string;
       zipcode?: Address_.ZipCode;
     } & Record<string, unknown>) & {
       name: Defined;

@@ -273,7 +273,9 @@ export type ShortLocationC = t.BrandC<
 >;
 export const ShortLocation: ShortLocationC = t.brand(
   t.tuple([Latitude, Longitude]),
-  (x): x is t.Branded<[Latitude, Longitude], ShortLocationBrand> => true,
+  (x): x is t.Branded<[Latitude, Longitude], ShortLocationBrand> =>
+    (Array.isArray(x) === false || x.length >= 2) &&
+    (Array.isArray(x) === false || x.length <= 2),
   'ShortLocation',
 );
 export type ShortLocationBrand = {

@@ -328,11 +328,7 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
 WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
-INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/geolocation.json
-WARNING: minLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/geolocation.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: examples field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
@@ -340,11 +336,7 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
 WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
-INFO: primitive type "string" used outside top-level definitions
-  in ../maas-schemas/schemas/core/components/geolocation.json
-WARNING: minLength field not supported outside top-level definitions
-  in ../maas-schemas/schemas/core/components/geolocation.json
-WARNING: maxLength field not supported outside top-level definitions
+WARNING: examples field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
@@ -352,17 +344,39 @@ WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
 WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
+WARNING: examples field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/geolocation.json
 INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
 WARNING: maxLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
-INFO: primitive type "integer" used outside top-level definitions
+WARNING: examples field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
 WARNING: minLength field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
 WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/geolocation.json
+WARNING: examples field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/geolocation.json
+WARNING: examples field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in ../maas-schemas/schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in ../maas-schemas/schemas/core/components/geolocation.json
+WARNING: examples field not supported outside top-level definitions
   in ../maas-schemas/schemas/core/components/geolocation.json
 WARNING: missing $schema declaration
   in ../maas-schemas/schemas/core/components/geolocation.json
