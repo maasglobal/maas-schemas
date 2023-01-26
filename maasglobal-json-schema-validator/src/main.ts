@@ -1,4 +1,4 @@
-import Ajv from 'ajv';
+import Ajv, { Options } from 'ajv';
 
 import { ValidationError } from './validation-error';
 
@@ -31,7 +31,10 @@ export type RegistryPath<P extends NpmPackageName = NpmPackageName> =
 export const registryPath = <P extends NpmPackageName>(packageName: P): RegistryPath<P> =>
   `${packageName}/lib/ajv/registry`;
 
-export function validator(registries: Registries): Validator {
+export function validator(
+  registries: Registries,
+  optionsOverride: Partial<Options> = {},
+): Validator {
   const ajv: Ajv = new Ajv({
     strictTypes: true,
     strictTuples: true,
@@ -51,6 +54,7 @@ export function validator(registries: Registries): Validator {
     validateSchema: false,
     verbose: true,
     $data: true,
+    ...optionsOverride,
   });
   ajv.addKeyword('invalid');
 

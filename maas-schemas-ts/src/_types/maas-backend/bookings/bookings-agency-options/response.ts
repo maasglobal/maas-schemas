@@ -47,18 +47,20 @@ export type Option = t.Branded<
     configurator?: Booking_.Configurator;
   } & Record<string, unknown>) &
     (
-      | {
-          leg: Defined;
-          terms: Defined;
-          product: Defined;
-          fares: Defined;
-        }
-      | {
-          leg: Defined;
-          terms: Defined;
-          product: Defined;
-          configurator: Defined;
-        }
+      | (Record<string, unknown> &
+          Record<string, unknown> & {
+            leg: Defined;
+            terms: Defined;
+            product: Defined;
+            fares: Defined;
+          })
+      | (Record<string, unknown> &
+          Record<string, unknown> & {
+            leg: Defined;
+            terms: Defined;
+            product: Defined;
+            configurator: Defined;
+          })
     ),
   OptionBrand
 >;
@@ -88,18 +90,30 @@ export type OptionC = t.BrandC<
       >,
       t.UnionC<
         [
-          t.TypeC<{
-            leg: typeof Defined;
-            terms: typeof Defined;
-            product: typeof Defined;
-            fares: typeof Defined;
-          }>,
-          t.TypeC<{
-            leg: typeof Defined;
-            terms: typeof Defined;
-            product: typeof Defined;
-            configurator: typeof Defined;
-          }>,
+          t.IntersectionC<
+            [
+              t.UnknownRecordC,
+              t.RecordC<t.StringC, t.UnknownC>,
+              t.TypeC<{
+                leg: typeof Defined;
+                terms: typeof Defined;
+                product: typeof Defined;
+                fares: typeof Defined;
+              }>,
+            ]
+          >,
+          t.IntersectionC<
+            [
+              t.UnknownRecordC,
+              t.RecordC<t.StringC, t.UnknownC>,
+              t.TypeC<{
+                leg: typeof Defined;
+                terms: typeof Defined;
+                product: typeof Defined;
+                configurator: typeof Defined;
+              }>,
+            ]
+          >,
         ]
       >,
     ]
@@ -126,18 +140,26 @@ export const Option: OptionC = t.brand(
       t.record(t.string, t.unknown),
     ]),
     t.union([
-      t.type({
-        leg: Defined,
-        terms: Defined,
-        product: Defined,
-        fares: Defined,
-      }),
-      t.type({
-        leg: Defined,
-        terms: Defined,
-        product: Defined,
-        configurator: Defined,
-      }),
+      t.intersection([
+        t.UnknownRecord,
+        t.record(t.string, t.unknown),
+        t.type({
+          leg: Defined,
+          terms: Defined,
+          product: Defined,
+          fares: Defined,
+        }),
+      ]),
+      t.intersection([
+        t.UnknownRecord,
+        t.record(t.string, t.unknown),
+        t.type({
+          leg: Defined,
+          terms: Defined,
+          product: Defined,
+          configurator: Defined,
+        }),
+      ]),
     ]),
   ]),
   (
@@ -155,18 +177,20 @@ export const Option: OptionC = t.brand(
       configurator?: Booking_.Configurator;
     } & Record<string, unknown>) &
       (
-        | {
-            leg: Defined;
-            terms: Defined;
-            product: Defined;
-            fares: Defined;
-          }
-        | {
-            leg: Defined;
-            terms: Defined;
-            product: Defined;
-            configurator: Defined;
-          }
+        | (Record<string, unknown> &
+            Record<string, unknown> & {
+              leg: Defined;
+              terms: Defined;
+              product: Defined;
+              fares: Defined;
+            })
+        | (Record<string, unknown> &
+            Record<string, unknown> & {
+              leg: Defined;
+              terms: Defined;
+              product: Defined;
+              configurator: Defined;
+            })
       ),
     OptionBrand
   > => true,

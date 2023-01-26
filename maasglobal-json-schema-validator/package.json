@@ -1,6 +1,6 @@
 {
   "name": "maasglobal-json-schema-validator",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "",
   "license": "MIT",
   "main": "lib/index.js",
