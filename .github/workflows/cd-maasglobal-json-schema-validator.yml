@@ -1,0 +1,34 @@
+name: CD maasglobal-json-schema-validator
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'maasglobal-json-schema-validator/package.json'
+      - '.github/workflows/cd-maasglobal-json-schema-validator.yml'
+
+defaults:
+  run:
+    working-directory: maasglobal-json-schema-validator
+
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.PUBLIC_NPM_TOKEN }}
+
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    name: publish
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+          registry-url: "https://registry.npmjs.org"
+      - name: Install Dependencies
+        run: |
+          yarn
+      - name: Deploy to Registry
+        run: |
+          yarn deploy-npm
