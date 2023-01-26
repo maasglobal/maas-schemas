@@ -29,7 +29,9 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - name: Install Dependencies
         run: |
+          yarn --cwd ../maas-schemas
           yarn
       - name: Deploy to Registry
         run: |
+          yarn --cwd ../maas-schemas ci
           yarn deploy-npm
