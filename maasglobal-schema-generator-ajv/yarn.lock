@@ -3213,6 +3213,11 @@ maasglobal-json-schema-validator@^0.0.6:
   dependencies:
     ajv "^8.12.0"
 
+maasglobal-schema-package@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/maasglobal-schema-package/-/maasglobal-schema-package-0.0.1.tgz#471a1a7e732295c4256f2ac5c4f3022dc1f69862"
+  integrity sha512-aEltSCAE70nRxsZlbhyRABebbLfTMaM5U4vmhyD4Fn0WXSsDs088ftIkKp9e8FDCku6h13adNEj5Wfbpbh8nNg==
+
 make-dir@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-3.1.0.tgz#415e967046b3a7f1d185277d84aa58203726a13f"

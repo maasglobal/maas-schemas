@@ -2,6 +2,7 @@ import Ajv from 'ajv';
 import * as fs from 'fs';
 import * as glob from 'glob';
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema';
+import { parseSchemaPackage, RootDir } from 'maasglobal-schema-package/lib/main';
 import * as path from 'path';
 import { URL } from 'url';
 
@@ -149,20 +150,16 @@ function checkEndpoint(uri: main.SchemaURI, schema: JsonSchema): void {
  * @param packageRoot - absolute path for schema source directory root
  */
 export function testSchemaPackage(
-  packageRoot: string,
+  packageRoot: RootDir,
   resolveReg: (p: main.RegistryPath) => main.Registry,
 ): void {
-  const schemaDir = path.join(packageRoot, 'schemas');
-  const manifestPath = path.join(packageRoot, 'schemas.json');
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const manifest: main.Manifest = require(manifestPath);
-  const baseURI = manifest.base;
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const deps = Object.values(manifest.deps).map((dep) =>
+  const pkg = parseSchemaPackage(packageRoot);
+  const baseURI = pkg.manifest.base;
+  const deps = Object.values(pkg.manifest.deps).map((dep) =>
     resolveReg(main.registryPath(dep.package)),
   );
 
-  const schemaPaths = glob.sync(`${schemaDir}/**/*.json`);
+  const schemaPaths = glob.sync(`${pkg.paths.schemas}/**/*.json`);
 
   const schemas = schemaPaths.map((schemaPath) => require(schemaPath));
 
@@ -177,7 +174,7 @@ export function testSchemaPackage(
       const filePath = path.resolve(schemaPath);
       const uri = ((tmp) => {
         // eslint-disable-next-line fp/no-mutation
-        tmp.pathname = path.relative(schemaDir, schemaPath);
+        tmp.pathname = path.relative(pkg.paths.schemas, schemaPath);
         return tmp.href;
       })(new URL(baseURI));
       describe(`Schema ${filePath}`, () => {

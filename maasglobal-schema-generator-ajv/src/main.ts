@@ -3,20 +3,21 @@
 import fs from 'fs';
 import * as glob from 'glob';
 import * as mjsv from 'maasglobal-json-schema-validator';
+import { parseSchemaPackage, RootDir, SchemaPackage } from 'maasglobal-schema-package';
 import path from 'path';
 import yargs from 'yargs';
 
-type SourceDir = string;
 type SourceCode = string;
-type CodeGenerator = (d: SourceDir) => SourceCode;
 
-export const generateRegistry: CodeGenerator = (sourceDir) => {
-  const schemaPaths = glob.sync(path.posix.join(sourceDir, 'schemas', '**', '*.json'), {
+type CodeGenerator = (p: SchemaPackage) => SourceCode;
+
+export const generateRegistry: CodeGenerator = (pkg) => {
+  const schemaPaths = glob.sync(path.posix.join(pkg.paths.schemas, '**', '*.json'), {
     cwd: __dirname,
   });
 
   const modulePaths = schemaPaths.map((schemaPath: string) => {
-    const relativePath = path.relative(sourceDir, schemaPath);
+    const relativePath = path.relative(pkg.paths.root, schemaPath);
     const requirePath = path.posix.join('..', '..', relativePath);
     return `require('${requirePath}')`;
   });
@@ -31,13 +32,8 @@ module.exports = registry;
 `;
 };
 
-export const generateClient: CodeGenerator = (sourceDir) => {
-  const manifestPath = path.resolve(__dirname, path.join(sourceDir, 'schemas.json'));
-
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const manifest: mjsv.Manifest = require(manifestPath);
-
-  const registries = Object.values(manifest.deps)
+export const generateClient: CodeGenerator = (pkg) => {
+  const registries = Object.values(pkg.manifest.deps)
     .map((dep) => `require('${mjsv.registryPath(dep.package)}')`)
     .concat("require('./registry')");
 
@@ -67,7 +63,7 @@ export function validate(schema: mjsv.Schema|mjsv.SchemaURI, obj: unknown): unkn
 `;
 };
 
-export const generateConformanceTests: CodeGenerator = (_sourceDir) => {
+export const generateConformanceTests: CodeGenerator = (_pkg) => {
   return `import { testSchemaPackage } from 'maasglobal-json-schema-validator/lib/conformance';
 import path from 'path';
 
@@ -78,13 +74,17 @@ describe('Ajv Validator Conformance', () => {
 `;
 };
 
-export function _main(sourceDir: string): void {
-  const targetDir = path.join(sourceDir, 'src', 'ajv');
+export function _main(rootDir: RootDir): void {
+  const pkg = parseSchemaPackage(rootDir);
+
+  const targetDir = path.join(pkg.paths.src, 'ajv');
+
+  fs.mkdirSync(targetDir, { recursive: true });
 
   const files = {
-    'registry.ts': generateRegistry(sourceDir),
-    'index.ts': generateClient(sourceDir),
-    'conformance.test.ts': generateConformanceTests(sourceDir),
+    'registry.ts': generateRegistry(pkg),
+    'index.ts': generateClient(pkg),
+    'conformance.test.ts': generateConformanceTests(pkg),
   };
 
   Object.entries(files).forEach(([filename, contents]) => {
