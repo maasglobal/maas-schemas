@@ -8,9 +8,33 @@ import yargs from 'yargs';
 
 type SourceDir = string;
 type SourceCode = string;
-type CodeGenerator = (d: SourceDir) => SourceCode;
 
-export const generateRegistry: CodeGenerator = (sourceDir) => {
+type SourcePackage = {
+  sourceDir: SourceDir;
+  manifest: mjsv.Manifest;
+};
+
+type CodeGenerator = (p: SourcePackage) => SourceCode;
+
+export const getManifest = (sourceDir: SourceDir): mjsv.Manifest => {
+  const manifestPath = path.resolve(__dirname, path.join(sourceDir, 'schemas.json'));
+
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const manifest: mjsv.Manifest = require(manifestPath);
+
+  return manifest;
+};
+
+export const parseSourcePackage = (sourceDir: SourceDir): SourcePackage => {
+  const manifest = getManifest(sourceDir);
+
+  return {
+    manifest,
+    sourceDir,
+  };
+};
+
+export const generateRegistry: CodeGenerator = ({ sourceDir }) => {
   const schemaPaths = glob.sync(path.posix.join(sourceDir, 'schemas', '**', '*.json'), {
     cwd: __dirname,
   });
@@ -31,12 +55,7 @@ module.exports = registry;
 `;
 };
 
-export const generateClient: CodeGenerator = (sourceDir) => {
-  const manifestPath = path.resolve(__dirname, path.join(sourceDir, 'schemas.json'));
-
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const manifest: mjsv.Manifest = require(manifestPath);
-
+export const generateClient: CodeGenerator = ({ manifest }) => {
   const registries = Object.values(manifest.deps)
     .map((dep) => `require('${mjsv.registryPath(dep.package)}')`)
     .concat("require('./registry')");
@@ -67,7 +86,7 @@ export function validate(schema: mjsv.Schema|mjsv.SchemaURI, obj: unknown): unkn
 `;
 };
 
-export const generateConformanceTests: CodeGenerator = (_sourceDir) => {
+export const generateConformanceTests: CodeGenerator = (_sourcePackage) => {
   return `import { testSchemaPackage } from 'maasglobal-json-schema-validator/lib/conformance';
 import path from 'path';
 
@@ -79,12 +98,16 @@ describe('Ajv Validator Conformance', () => {
 };
 
 export function _main(sourceDir: string): void {
+  const sourcePackage = parseSourcePackage(sourceDir);
+
   const targetDir = path.join(sourceDir, 'src', 'ajv');
 
+  fs.mkdirSync(targetDir, { recursive: true });
+
   const files = {
-    'registry.ts': generateRegistry(sourceDir),
-    'index.ts': generateClient(sourceDir),
-    'conformance.test.ts': generateConformanceTests(sourceDir),
+    'registry.ts': generateRegistry(sourcePackage),
+    'index.ts': generateClient(sourcePackage),
+    'conformance.test.ts': generateConformanceTests(sourcePackage),
   };
 
   Object.entries(files).forEach(([filename, contents]) => {
