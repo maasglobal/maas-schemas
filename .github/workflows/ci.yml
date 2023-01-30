@@ -9,6 +9,23 @@ env:
   PRIVATE_NPM_TOKEN: ${{ secrets.PRIVATE_NPM_TOKEN }}
 
 jobs:
+  test-schema-package-definitions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    name: test schema package definitions
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+          registry-url: "https://registry.npmjs.org"
+      - name: Install Dependencies
+        run: |
+          yarn --cwd maasglobal-schema-package
+      - name: Run Tests
+        run: |
+          yarn --cwd maasglobal-schema-package ci
   test-ajv-validator:
     runs-on: ubuntu-latest
     timeout-minutes: 15
