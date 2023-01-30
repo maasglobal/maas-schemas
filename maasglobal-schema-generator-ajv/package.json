@@ -1,6 +1,6 @@
 {
   "name": "maasglobal-schema-generator-ajv",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "license": "MIT",
   "main": "lib/index.js",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "maasglobal-json-schema-validator": "^0.0.6",
+    "maasglobal-schema-package": "^0.0.1",
     "yargs": "^17.6.2"
   },
   "devDependencies": {

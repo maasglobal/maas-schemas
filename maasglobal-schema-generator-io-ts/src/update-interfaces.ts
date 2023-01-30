@@ -1,8 +1,9 @@
 import * as fs_ from 'fs';
 import { glob } from 'glob';
+import { SchemaPackage } from 'maasglobal-schema-package';
 import * as path_ from 'path';
 
-export async function updateInterfaces(sourceDir: string): Promise<void> {
+export async function updateInterfaces(pkg: SchemaPackage): Promise<void> {
   const star = '*';
   const stop = '.';
   const suffix = 'ts';
@@ -13,7 +14,7 @@ export async function updateInterfaces(sourceDir: string): Promise<void> {
   const dirUtils = '_utils';
   const dirTest = '__tests__';
 
-  const root = path_.join(sourceDir, 'src', 'io-ts');
+  const root = path_.join(pkg.paths.src, 'io-ts');
   const rootTypes = path_.join(root, dirTypes);
   const rootUtils = path_.join(root, dirUtils);
 

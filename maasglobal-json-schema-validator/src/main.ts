@@ -1,17 +1,7 @@
 import Ajv, { Options } from 'ajv';
+import { NpmPackageName } from 'maasglobal-schema-package/lib/main';
 
 import { ValidationError } from './validation-error';
-
-export type BaseURI = string;
-export type NpmPackageName = string;
-export type DepInfo = {
-  package: NpmPackageName;
-};
-export type Deps = Record<BaseURI, DepInfo>;
-export type Manifest = {
-  base: BaseURI;
-  deps: Deps;
-};
 
 export type SchemaURI = string;
 export type Schema = {
