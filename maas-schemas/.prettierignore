@@ -1,1 +1,3 @@
 lib
+src/**/*.doctest.ts
+coverage

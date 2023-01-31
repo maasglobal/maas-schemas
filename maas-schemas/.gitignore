@@ -21,8 +21,11 @@ registry.js
 # npmrc
 .npmrc
 
-# ignore src until we implement convert-all
-src
-
 # build directory
 lib
+
+# generated test files
+src/**/*.doctest.ts
+
+# test coverage report
+coverage
