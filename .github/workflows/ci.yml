@@ -83,10 +83,10 @@ jobs:
         run: |
           yarn --cwd maasglobal-schema-generator-io-ts ci
 
-  test-json:
+  test-maas-schemas:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    name: test json
+    name: test maas schemas
     steps:
       - uses: actions/checkout@v3
       - name: Setup Node
@@ -100,23 +100,3 @@ jobs:
       - name: Run Tests
         run: |
           yarn --cwd maas-schemas ci
-          node check-versions
-
-  test-ts:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    name: test ts
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "14"
-          registry-url: "https://registry.npmjs.org"
-      - name: Install Dependencies
-        run: |
-          yarn --cwd maas-schemas-ts
-      - name: Run Tests
-        run: |
-          yarn --cwd maas-schemas-ts ci
-          node check-versions

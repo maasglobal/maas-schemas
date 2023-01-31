@@ -26,3 +26,6 @@ maas-schemas/docs
 
 # npm lockfiles
 package-lock.json
+
+# old ts package
+maas-schemas-ts
