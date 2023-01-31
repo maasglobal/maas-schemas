@@ -2,13 +2,16 @@ import * as fs_ from 'fs';
 import * as iotsfjs from 'io-ts-from-json-schema/lib/main';
 import { SchemaPackage } from 'maasglobal-schema-package';
 import path from 'path';
+import process from 'process';
 
 export const logHeader = '# io-ts code generation log\n\n';
 
 const relativeLogPath = path.posix.join('io-ts', '_translation.log');
 
 async function runConverter(pkg: SchemaPackage): Promise<void> {
-  const schemaGlob = path.posix.join(pkg.paths.schemas, '**', '*.json');
+  const cwd = process.cwd();
+  const schemaDir = path.relative(cwd, pkg.paths.schemas);
+  const schemaGlob = path.posix.join(schemaDir, '**', '*.json');
   const typesDir = path.posix.join(pkg.paths.src, 'io-ts', '_types');
 
   const { base, deps } = pkg.manifest;
