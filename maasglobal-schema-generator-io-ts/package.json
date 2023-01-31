@@ -1,6 +1,6 @@
 {
   "name": "maasglobal-schema-generator-io-ts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "license": "MIT",
   "main": "lib/index.js",
