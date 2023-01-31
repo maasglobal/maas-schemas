@@ -172,6 +172,19 @@ export type MODE_TAXIBrand = {
 export const examplesMODE_TAXI: NonEmptyArray<MODE_TAXI> = [
   { vehicleId: 'T123', vehicleType: 'Mercedes' },
   { vehicleId: 'T123', vehicleType: 'Mercedes', spaceDemand: { adults: 1 } },
+  {
+    eta: 1575014272286,
+    vehicleLocation: { lat: 33.230993, lon: 6.374891 },
+    vehicleId: 'Z 123 XX',
+    vehicleDescription: 'proud-hand',
+    taxiCenter: { name: 'More Taxi 123', phone: '+358401234567' },
+  },
+  { taxiCenter: { name: 'Some taxi', phone: '+358401234567' } },
+  {
+    taxiCenter: { name: 'Some taxi', phone: '+358401234567' },
+    extra: { values: 1 },
+    more: 'More values',
+  },
 ] as unknown as NonEmptyArray<MODE_TAXI>;
 
 export default MODE_TAXI;
