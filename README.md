@@ -6,30 +6,27 @@ This repository contains MaaS Global shared type definitions.
 
 The code is divided into several independent npm packages.
 
-* [maas-schemas](maas-schemas) contains language independent JSON Schema type definitions
-* [maas-schemas-ts](maas-schemas-ts) contains corresponding TypeScript types and validators
-
-
-## Documentation
-
-Markdown and HTML documentation can be generated from JSON Schemas. Refer to [maas-schemas](maas-schemas)  for more information.
-
-## Automatic Conversion
-
-The maas-schemas-ts package is generated automatically from the maas-schemas package.
-Travis won't accept any changes to maas-schemas unless you run the converter.
-You can run the converter as follows.
-
-```bash
-yarn --cwd maas-schemas-ts              # install dependencies
-yarn --cwd maas-schemas-ts convert-all  # run the converter
-```
+* [maas-schemas](maas-schemas) contains schemas, type definitions, and related utilities
+* [maasglobal-json-schema-validator](maasglobal-json-schema-validator) contains our ajv validator configuration
+* [maasglobal-schema-generator-ajv](maasglobal-schema-generator-ajv) contains build utils for ensuring ajv compatibility
+* [maasglobal-schema-generator-io-ts](maasglobal-schema-generator-io-ts) contains build utils for generating io-ts codecs
+* [maasglobal-schema-package](maasglobal-schema-package) contains general definitions for our schema package format
 
 ## Devops
 
 The following commands should work in all packages where applicable.
 
-```bash
+```
+npm install -g yarn               # install yarn
 yarn                              # install dependencies
+yarn lint                         # run linters
+yarn typecheck                    # run static type checks
+yarn test                         # run tests
+yarn prettify                     # auto format code base
 yarn ci                           # perform a local CI test run
+yarn build                        # create a production build
+yarn clean                        # remove build artefacts
+yarn readme-ts                    # extract readme code examples
+yarn deploy-npm                   # deploy npm package
+yarn deploy-alpha                 # deploy prelease npm package
 ```

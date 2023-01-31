@@ -1,6 +1,0 @@
-node_modules
-lib
-tsconfig.json
-tsconfig.eslint.json
-src/**/*.doctest.ts
-coverage

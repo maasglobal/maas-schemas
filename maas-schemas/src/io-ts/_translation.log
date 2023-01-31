@@ -1,0 +1,3132 @@
+# io-ts code generation log
+
+WARNING: missing $schema declaration
+  in schemas/core/balances.json
+WARNING: missing $schema declaration
+  in schemas/core/booking-meta.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/booking-option.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/booking-option.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/booking-option.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/booking-option.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/booking-option.json
+WARNING: missing $schema declaration
+  in schemas/core/booking-option.json
+INFO: missing description
+  in schemas/core/booking-option.json
+INFO: missing description
+  in schemas/core/booking-option.json
+WARNING: missing $schema declaration
+  in schemas/core/booking.json
+INFO: missing description
+  in schemas/core/booking.json
+INFO: missing description
+  in schemas/core/booking.json
+INFO: missing description
+  in schemas/core/booking.json
+INFO: missing description
+  in schemas/core/booking.json
+INFO: missing description
+  in schemas/core/booking.json
+INFO: missing description
+  in schemas/core/booking.json
+WARNING: missing $schema declaration
+  in schemas/core/card.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/card.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/card.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/card.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/card.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/card.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/card.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/card.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/card.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/core/card.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/card.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/card.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/card.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/card.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/card.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/card.json
+WARNING: missing $schema declaration
+  in schemas/core/components/ACRISS.json
+WARNING: naming clash, ignoring default export
+  in schemas/core/components/address.json
+INFO: missing description
+  in schemas/core/components/address.json
+INFO: missing description
+  in schemas/core/components/address.json
+INFO: missing description
+  in schemas/core/components/address.json
+INFO: missing description
+  in schemas/core/components/address.json
+INFO: missing description
+  in schemas/core/components/address.json
+WARNING: missing $schema declaration
+  in schemas/core/components/agencyOptions.json
+WARNING: missing $schema declaration
+  in schemas/core/components/ajv.json
+WARNING: missing $schema declaration
+  in schemas/core/components/api-common.json
+INFO: missing description
+  in schemas/core/components/api-common.json
+INFO: missing description
+  in schemas/core/components/api-common.json
+INFO: missing description
+  in schemas/core/components/api-common.json
+INFO: missing description
+  in schemas/core/components/api-common.json
+INFO: missing description
+  in schemas/core/components/api-common.json
+WARNING: missing $schema declaration
+  in schemas/core/components/authorization.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/authorization.json
+WARNING: missing $schema declaration
+  in schemas/core/components/benefit-provider.json
+WARNING: missing $schema declaration
+  in schemas/core/components/bike-station.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/bike-station.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/bike-station.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/bike-station.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/bike-station.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/bike-station.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/bike-station.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/bike-station.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/bike-station.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/car-rental.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: missing $schema declaration
+  in schemas/core/components/car-rental.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: maxItems field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: maxItems field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: examples field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: invalid field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/core/components/car-rental.json
+WARNING: unexpected key in a $ref object
+  in schemas/core/components/car-rental.json
+INFO: missing description
+  in schemas/core/components/car-rental.json
+WARNING: missing $schema declaration
+  in schemas/core/components/common.json
+INFO: missing description
+  in schemas/core/components/common.json
+INFO: missing description
+  in schemas/core/components/common.json
+INFO: missing description
+  in schemas/core/components/common.json
+INFO: missing description
+  in schemas/core/components/common.json
+INFO: missing description
+  in schemas/core/components/common.json
+INFO: missing description
+  in schemas/core/components/common.json
+INFO: missing description
+  in schemas/core/components/common.json
+INFO: missing description
+  in schemas/core/components/common.json
+INFO: missing description
+  in schemas/core/components/common.json
+WARNING: missing $schema declaration
+  in schemas/core/components/configurator.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+WARNING: uniqueItems field not supported outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/configuratorCommon.json
+WARNING: missing $schema declaration
+  in schemas/core/components/configuratorCommon.json
+WARNING: missing $schema declaration
+  in schemas/core/components/configuratorV1.json
+WARNING: missing $schema declaration
+  in schemas/core/components/configuratorV2.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/configuratorV2.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/configuratorV2.json
+WARNING: patternProperty support has limitations
+  in schemas/core/components/configuratorV2.json
+WARNING: missing $schema declaration
+  in schemas/core/components/cost.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/cost.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/core/components/cost.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/cost.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/core/components/cost.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/cost.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/cost.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/core/components/cost.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/cost.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/cost.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/core/components/cost.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/cost.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/costBreakDown.json
+WARNING: missing $schema declaration
+  in schemas/core/components/costBreakDown.json
+WARNING: missing $schema declaration
+  in schemas/core/components/customerSelection.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/customerSelectionCommon.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/customerSelectionCommon.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/customerSelectionCommon.json
+WARNING: missing $schema declaration
+  in schemas/core/components/customerSelectionCommon.json
+WARNING: missing $schema declaration
+  in schemas/core/components/customerSelectionV1.json
+WARNING: missing $schema declaration
+  in schemas/core/components/customerSelectionV2.json
+WARNING: patternProperty support has limitations
+  in schemas/core/components/customerSelectionV2.json
+WARNING: missing $schema declaration
+  in schemas/core/components/fare.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/fare.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/fare.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/fare.json
+INFO: missing description
+  in schemas/core/components/fare.json
+INFO: missing description
+  in schemas/core/components/fare.json
+INFO: missing description
+  in schemas/core/components/fare.json
+INFO: missing description
+  in schemas/core/components/fare.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: examples field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: examples field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: examples field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: examples field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: examples field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: examples field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: examples field not supported outside top-level definitions
+  in schemas/core/components/geolocation.json
+WARNING: missing $schema declaration
+  in schemas/core/components/geolocation.json
+INFO: missing description
+  in schemas/core/components/geolocation.json
+INFO: missing description
+  in schemas/core/components/geolocation.json
+INFO: missing description
+  in schemas/core/components/geolocation.json
+INFO: missing description
+  in schemas/core/components/geolocation.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/geometry.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/geometry.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/core/components/geometry.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/core/components/geometry.json
+WARNING: missing $schema declaration
+  in schemas/core/components/geometry.json
+WARNING: missing $schema declaration
+  in schemas/core/components/i18n.json
+INFO: missing description
+  in schemas/core/components/i18n.json
+WARNING: missing $schema declaration
+  in schemas/core/components/message.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/message.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/message.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/message.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/message.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/payment-parameters.json
+WARNING: missing $schema declaration
+  in schemas/core/components/payment-parameters.json
+INFO: missing description
+  in schemas/core/components/payment-parameters.json
+INFO: missing description
+  in schemas/core/components/payment-parameters.json
+WARNING: missing $schema declaration
+  in schemas/core/components/personalDataAllowItem.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/personalDataAllowItem.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/personalDataAllowItem.json
+WARNING: missing $schema declaration
+  in schemas/core/components/personalDataValidation.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+WARNING: examples field not supported outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/personalDataValidation.json
+WARNING: missing $schema declaration
+  in schemas/core/components/personalDocumentRequiredItem.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/personalDocumentRequiredItem.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/personalDocumentRequiredItem.json
+WARNING: missing $schema declaration
+  in schemas/core/components/place.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/place.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/place.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/place.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/place.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/place.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/place.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/place.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/place.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/place.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/place.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/place.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/place.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/place.json
+WARNING: missing $schema declaration
+  in schemas/core/components/point-cost.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/components/spaceDemand.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/spaceDemand.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/components/spaceDemand.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/spaceDemand.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/components/spaceDemand.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/spaceDemand.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/components/spaceDemand.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/spaceDemand.json
+WARNING: missing $schema declaration
+  in schemas/core/components/spaceDemand.json
+INFO: missing description
+  in schemas/core/components/spaceDemand.json
+INFO: missing description
+  in schemas/core/components/spaceDemand.json
+WARNING: missing $schema declaration
+  in schemas/core/components/state-log.json
+INFO: missing description
+  in schemas/core/components/state-log.json
+INFO: missing description
+  in schemas/core/components/state-log.json
+WARNING: missing $schema declaration
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: missing description
+  in schemas/core/components/state.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/station.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/station.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/station.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/station.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/station.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/station.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/station.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/station.json
+WARNING: missing $schema declaration
+  in schemas/core/components/station.json
+INFO: missing description
+  in schemas/core/components/station.json
+INFO: missing description
+  in schemas/core/components/station.json
+INFO: missing description
+  in schemas/core/components/station.json
+INFO: missing description
+  in schemas/core/components/station.json
+INFO: missing description
+  in schemas/core/components/station.json
+INFO: missing description
+  in schemas/core/components/station.json
+INFO: missing description
+  in schemas/core/components/station.json
+INFO: missing description
+  in schemas/core/components/station.json
+WARNING: missing $schema declaration
+  in schemas/core/components/subscriptionChangeState.json
+INFO: missing description
+  in schemas/core/components/subscriptionChangeState.json
+INFO: missing description
+  in schemas/core/components/subscriptionChangeState.json
+INFO: missing description
+  in schemas/core/components/subscriptionChangeState.json
+INFO: missing description
+  in schemas/core/components/subscriptionChangeState.json
+INFO: missing description
+  in schemas/core/components/subscriptionChangeState.json
+INFO: missing description
+  in schemas/core/components/subscriptionChangeState.json
+WARNING: missing $schema declaration
+  in schemas/core/components/system.json
+INFO: missing description
+  in schemas/core/components/system.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/terms.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/terms.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/terms.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/terms.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: missing $schema declaration
+  in schemas/core/components/terms.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/terms.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/core/components/terms.json
+INFO: missing description
+  in schemas/core/components/terms.json
+INFO: missing description
+  in schemas/core/components/terms.json
+INFO: missing description
+  in schemas/core/components/terms.json
+WARNING: missing $schema declaration
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+INFO: missing description
+  in schemas/core/components/travel-mode.json
+WARNING: missing $schema declaration
+  in schemas/core/components/units-geo.json
+WARNING: missing $schema declaration
+  in schemas/core/components/units.json
+INFO: missing description
+  in schemas/core/components/units.json
+INFO: missing description
+  in schemas/core/components/units.json
+INFO: missing description
+  in schemas/core/components/units.json
+INFO: missing description
+  in schemas/core/components/units.json
+INFO: missing description
+  in schemas/core/components/units.json
+INFO: missing description
+  in schemas/core/components/units.json
+INFO: missing description
+  in schemas/core/components/units.json
+INFO: missing description
+  in schemas/core/components/units.json
+INFO: missing description
+  in schemas/core/components/units.json
+INFO: missing description
+  in schemas/core/components/units.json
+INFO: missing description
+  in schemas/core/components/units.json
+INFO: missing description
+  in schemas/core/components/units.json
+WARNING: missing $schema declaration
+  in schemas/core/customer.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/customer.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/customer.json
+WARNING: patternProperty support has limitations
+  in schemas/core/customer.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/customer.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/customer.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/customer.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/customer.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/customer.json
+WARNING: examples field not supported outside top-level definitions
+  in schemas/core/customer.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/customer.json
+WARNING: missing $schema declaration
+  in schemas/core/error.json
+INFO: missing description
+  in schemas/core/error.json
+INFO: missing description
+  in schemas/core/error.json
+INFO: missing description
+  in schemas/core/error.json
+WARNING: missing $schema declaration
+  in schemas/core/iot-thing-shadow.json
+WARNING: missing $schema declaration
+  in schemas/core/itinerary.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/itinerary.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/itinerary.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/core/itinerary.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/core/itinerary.json
+INFO: missing description
+  in schemas/core/itinerary.json
+WARNING: missing $schema declaration
+  in schemas/core/kyc-service.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/kyc-service.json
+WARNING: examples field not supported outside top-level definitions
+  in schemas/core/kyc-service.json
+WARNING: missing $schema declaration
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_BICYCLE.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_BUS.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_BUSISH.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_CABLE_CAR.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_CAR.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_FERRY.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_FUNICULAR.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_GONDOLA.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_RAIL.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_RAIL.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_RAIL.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_RAIL.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_RAIL.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_SCOOTER.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_SCOOTER.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_SHARED_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_SHARED_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_SHARED_BICYCLE.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_SHARED_CAR.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_SHARED_E_BICYCLE.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_SHARED_E_BICYCLE.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/modes/MODE_SHARED_E_BICYCLE.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_SUBWAY.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: unexpected key in a $ref object
+  in schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: unexpected key in a $ref object
+  in schemas/core/modes/MODE_TAXI.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: unexpected key in a $ref object
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: unexpected key in a $ref object
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: unexpected key in a $ref object
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: unexpected key in a $ref object
+  in schemas/core/modes/MODE_TAXI.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_TRAIN.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_TRAINISH.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_TRAM.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_TRANSIT.json
+WARNING: missing $schema declaration
+  in schemas/core/modes/MODE_WALK.json
+WARNING: missing $schema declaration
+  in schemas/core/package-option.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/package-option.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/package-option.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/package-option.json
+WARNING: missing $schema declaration
+  in schemas/core/partialFavoriteLocation.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/partialFavoriteLocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/partialFavoriteLocation.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/partialFavoriteLocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/partialFavoriteLocation.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/partialFavoriteLocation.json
+INFO: missing description
+  in schemas/core/partialFavoriteLocation.json
+INFO: missing description
+  in schemas/core/partialFavoriteLocation.json
+INFO: missing description
+  in schemas/core/partialFavoriteLocation.json
+WARNING: missing $schema declaration
+  in schemas/core/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/paymentSource.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/paymentSource.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/paymentSource.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/paymentSource.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/paymentSource.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/paymentSource.json
+INFO: missing description
+  in schemas/core/paymentSource.json
+INFO: missing description
+  in schemas/core/paymentSource.json
+INFO: missing description
+  in schemas/core/paymentSource.json
+INFO: missing description
+  in schemas/core/paymentSource.json
+INFO: missing description
+  in schemas/core/paymentSource.json
+INFO: missing description
+  in schemas/core/paymentSource.json
+INFO: missing description
+  in schemas/core/paymentSource.json
+INFO: missing description
+  in schemas/core/paymentSource.json
+INFO: missing description
+  in schemas/core/paymentSource.json
+WARNING: missing $schema declaration
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+INFO: missing description
+  in schemas/core/personal-document.json
+WARNING: missing $schema declaration
+  in schemas/core/plan.json
+INFO: missing description
+  in schemas/core/plan.json
+INFO: missing description
+  in schemas/core/plan.json
+INFO: missing description
+  in schemas/core/plan.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/product-option.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/product-option.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/product-option.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/product-option.json
+WARNING: missing $schema declaration
+  in schemas/core/product-option.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/product.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/product.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/core/product.json
+WARNING: missing $schema declaration
+  in schemas/core/product.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/product.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/product.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/product.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/product.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/product.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/product.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/product.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/product.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/product.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/product.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/product.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/product.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/product.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/product.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/product.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/product.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/product.json
+INFO: missing description
+  in schemas/core/product.json
+INFO: missing description
+  in schemas/core/product.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/profile.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/profile.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/profile.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/profile.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/profile.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/profile.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/profile.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/profile.json
+WARNING: missing $schema declaration
+  in schemas/core/profile.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/profile.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/profile.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/core/profile.json
+INFO: missing description
+  in schemas/core/profile.json
+INFO: missing description
+  in schemas/core/profile.json
+WARNING: missing $schema declaration
+  in schemas/core/region.json
+INFO: missing description
+  in schemas/core/region.json
+INFO: missing description
+  in schemas/core/region.json
+INFO: missing description
+  in schemas/core/region.json
+INFO: missing description
+  in schemas/core/region.json
+INFO: missing description
+  in schemas/core/region.json
+WARNING: missing $schema declaration
+  in schemas/core/stop.json
+WARNING: patternProperty support has limitations
+  in schemas/environments/accounts.json
+WARNING: missing $schema declaration
+  in schemas/environments/accounts.json
+INFO: missing description
+  in schemas/environments/accounts.json
+INFO: missing description
+  in schemas/environments/accounts.json
+INFO: missing description
+  in schemas/environments/accounts.json
+INFO: missing description
+  in schemas/environments/accounts.json
+INFO: missing description
+  in schemas/environments/accounts.json
+INFO: missing description
+  in schemas/environments/accounts.json
+WARNING: missing $schema declaration
+  in schemas/environments/apis.json
+WARNING: missing $schema declaration
+  in schemas/environments/environments.json
+INFO: missing description
+  in schemas/environments/environments.json
+INFO: missing description
+  in schemas/environments/environments.json
+INFO: missing description
+  in schemas/environments/environments.json
+INFO: missing description
+  in schemas/environments/environments.json
+INFO: missing description
+  in schemas/environments/environments.json
+INFO: missing description
+  in schemas/environments/environments.json
+INFO: missing description
+  in schemas/environments/environments.json
+INFO: missing description
+  in schemas/environments/environments.json
+INFO: missing description
+  in schemas/environments/environments.json
+WARNING: missing $schema declaration
+  in schemas/environments/synopses.json
+WARNING: missing $schema declaration
+  in schemas/environments/synopsis.json
+INFO: missing description
+  in schemas/environments/synopsis.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/geojson/geometry.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/geojson/geometry.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/geojson/geometry.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/geojson/geometry.json
+WARNING: missing $schema declaration
+  in schemas/geojson/geometry.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/auth/auth-sms-login/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/auth/auth-sms-login/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/maas-backend/auth/auth-sms-login/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/auth/auth-sms-login/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/auth/auth-sms-login/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/auth/auth-sms-request-code/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/autocomplete/autocomplete-query/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/autocomplete/autocomplete-query/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/autocomplete/autocomplete-query/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/autocomplete/autocomplete-query/request.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/maas-backend/autocomplete/autocomplete-query/request.json
+WARNING: default field not supported outside top-level definitions
+  in schemas/maas-backend/autocomplete/autocomplete-query/request.json
+WARNING: default field not supported outside top-level definitions
+  in schemas/maas-backend/autocomplete/autocomplete-query/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/autocomplete/autocomplete-query/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/autocomplete/autocomplete-query/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/autocomplete/autocomplete-query/suggestion.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/booking-option-create/request.json
+INFO: missing description
+  in schemas/maas-backend/booking-option-create/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/booking-option-create/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/booking-option-create/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/booking-option-create/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/booking-option-create/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/booking-option-create/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/booking-option-create/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/booking-option-create/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/booking-virtual-create/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/booking-virtual-create/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/booking-virtual-create/response.json
+WARNING: unexpected key in a $ref object
+  in schemas/maas-backend/bookings/bookings-agency-options/request.json
+WARNING: patternProperty support has limitations
+  in schemas/maas-backend/bookings/bookings-agency-options/request.json
+WARNING: unexpected key in a $ref object
+  in schemas/maas-backend/bookings/bookings-agency-options/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-agency-options/request.json
+INFO: missing description
+  in schemas/maas-backend/bookings/bookings-agency-options/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-options/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-agency-options/response.json
+INFO: missing description
+  in schemas/maas-backend/bookings/bookings-agency-options/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-agency-products/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+INFO: missing description
+  in schemas/maas-backend/bookings/bookings-agency-products/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-cancel/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-cancel/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-cancel/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-create/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-create/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-list/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-list/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-list/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-list/response.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-list/response.json
+WARNING: unexpected key in a $ref object
+  in schemas/maas-backend/bookings/bookings-options/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-options/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-options/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-options/request.json
+WARNING: patternProperty support has limitations
+  in schemas/maas-backend/bookings/bookings-options/request.json
+WARNING: unexpected key in a $ref object
+  in schemas/maas-backend/bookings/bookings-options/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-options/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-options/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-options/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-options/request.json
+INFO: missing description
+  in schemas/maas-backend/bookings/bookings-options/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-options/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-options/response.json
+INFO: missing description
+  in schemas/maas-backend/bookings/bookings-options/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-retrieve/request.json
+WARNING: default field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-retrieve/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-retrieve/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-update/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-update/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-upload/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/bookings-upload/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-upload/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/v2/bookings-create/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/bookings/v2/bookings-create/response.json
+WARNING: naming clash, ignoring default export
+  in schemas/maas-backend/coupons/code.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/coupons/coupons-validate/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/coupons/coupons-validate/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/coupons/v2/coupons-redeem/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/coupons/v2/coupons-redeem/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/benefits/initiate/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/customers/benefits/initiate/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/benefits/initiate/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/benefits/initiate/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/benefits/initiate/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/benefits/initiate/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/customer.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/customer.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/customer.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/customer.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/customer.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/customer.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/delete/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/delete/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/delete/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/delete/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/favorite-locations/add/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/favorite-locations/add/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/favorite-locations/delete/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/customers/favorite-locations/delete/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/favorite-locations/list/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/favorite-locations/list/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/favorite-locations/update/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/customers/favorite-locations/update/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/favorite-locations/update/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/payment-sources/create/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/create/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/create/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/create/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/payment-sources/delete/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: naming clash, ignoring default export
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+INFO: missing description
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+INFO: missing description
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+INFO: missing description
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+INFO: missing description
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+INFO: missing description
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+INFO: missing description
+  in schemas/maas-backend/customers/payment-sources/paymentSource.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/payment-sources/setup-intent/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/setup-intent/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/setup-intent/request.json
+WARNING: examples field not supported outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/setup-intent/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/payment-sources/setup-intent/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/setup-intent/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/setup-intent/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/payment-sources/setup-intent/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/payment-sources/update/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/payment-sources/update/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/personal-data-delete/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/personal-data-delete/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/personal-data-delete/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/personal-documents/consent/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/personal-documents/consent/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/personal-documents/create/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/personal-documents/create/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/personal-documents/initiate/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/personal-documents/initiate/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/personal-documents/remove/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/personal-documents/remove/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/personal-documents/revoke-consent/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/personal-documents/revoke-consent/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/personal-documents/update/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/personal-documents/update/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/personalData.json
+INFO: missing description
+  in schemas/maas-backend/customers/personalData.json
+INFO: missing description
+  in schemas/maas-backend/customers/personalData.json
+INFO: missing description
+  in schemas/maas-backend/customers/personalData.json
+INFO: missing description
+  in schemas/maas-backend/customers/personalData.json
+INFO: missing description
+  in schemas/maas-backend/customers/personalData.json
+INFO: missing description
+  in schemas/maas-backend/customers/personalData.json
+INFO: missing description
+  in schemas/maas-backend/customers/personalData.json
+INFO: missing description
+  in schemas/maas-backend/customers/personalData.json
+INFO: missing description
+  in schemas/maas-backend/customers/personalData.json
+INFO: missing description
+  in schemas/maas-backend/customers/personalData.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/retrieve/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/retrieve/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/stats/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/stats/response.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/customers/stats/response.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/stats/response.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/customers/stats/response.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/stats/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/update/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/update/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/verification/initiate/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/initiate/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/initiate/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/initiate/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/verification/initiate/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/verification/media/get/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/media/get/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/media/get/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/media/get/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/media/get/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/verification/media/list/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/verification/register/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/verification/register/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/verification/status/response.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/status/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/verification-object.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/verification/verification-object.json
+INFO: missing description
+  in schemas/maas-backend/customers/verification/verification-object.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/decision/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/verification/webhooks/event/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/event/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/event/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/event/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/event/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/event/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/verification/webhooks/event/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-card-issue/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-card-issue/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-card-issue/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-card-issue/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-card-issue/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-card-issue/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-card-issue/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/add-token-reference/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/add-token-reference/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/add-token-reference/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/add-token-reference/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/add-token-reference/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/add-token-reference/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/add-token-reference/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/add-token-reference/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/add-token-reference/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/create/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/create/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/create/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/create/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/create/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/create/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/get-token-reference/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/get-token-reference/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/get-token-reference/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/get-token-reference/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/get-token-reference/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/get-token-reference/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/import-transactions/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/import-transactions/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/list-transactions/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/list-transactions/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/list-transactions/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/list-transactions/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/provision/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/provision/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/provision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/provision/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/provision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/provision/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/provision/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/provision/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/provision/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/provision/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/remove/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/remove/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/remove/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCard.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardAccountPosting.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/customers/virtual-cards/virtualCardTokenReference.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/geocoding/geocoding-query/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/geocoding/geocoding-query/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/geocoding/geocoding-query/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/geocoding/geocoding-query/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/geocoding/geocoding-query/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/geocoding/geocoding-query/request.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/maas-backend/geocoding/geocoding-query/request.json
+WARNING: default field not supported outside top-level definitions
+  in schemas/maas-backend/geocoding/geocoding-query/request.json
+WARNING: default field not supported outside top-level definitions
+  in schemas/maas-backend/geocoding/geocoding-query/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/geocoding/geocoding-query/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/geocoding/geocoding-reverse/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/geocoding/geocoding-reverse/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/geocoding/geocoding-reverse/request.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/maas-backend/geocoding/geocoding-reverse/request.json
+WARNING: default field not supported outside top-level definitions
+  in schemas/maas-backend/geocoding/geocoding-reverse/request.json
+WARNING: default field not supported outside top-level definitions
+  in schemas/maas-backend/geocoding/geocoding-reverse/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/geocoding/geocoding-reverse/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/invoices/invoice.json
+WARNING: naming clash, ignoring default export
+  in schemas/maas-backend/invoices/invoice.json
+INFO: missing description
+  in schemas/maas-backend/invoices/invoice.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/invoices/invoiceLineItem.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/invoices/invoiceLineItem.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/invoices/invoiceLineItem.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/invoices/invoiceLineItem.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/invoices/invoiceLineItem.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/invoices/invoiceLineItem.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/invoices/invoiceLineItem.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/invoices/invoiceLineItem.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/invoices/invoiceLineItem.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/maas-backend/invoices/invoiceLineItem.json
+WARNING: naming clash, ignoring default export
+  in schemas/maas-backend/invoices/invoiceLineItem.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/invoices/invoiceUnits.json
+INFO: missing description
+  in schemas/maas-backend/invoices/invoiceUnits.json
+INFO: missing description
+  in schemas/maas-backend/invoices/invoiceUnits.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/itineraries/itinerary-cancel/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/itineraries/itinerary-cancel/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/itineraries/itinerary-create/request.json
+INFO: missing description
+  in schemas/maas-backend/itineraries/itinerary-create/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/itineraries/itinerary-create/response.json
+INFO: missing description
+  in schemas/maas-backend/itineraries/itinerary-create/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/itineraries/itinerary-estimate/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/itineraries/itinerary-estimate/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/itineraries/itinerary-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/itineraries/itinerary-list/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/maas-backend/itineraries/itinerary-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/itineraries/itinerary-list/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/itineraries/itinerary-list/response.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/maas-backend/itineraries/itinerary-list/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/itineraries/itinerary-retrieve/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/itineraries/itinerary-retrieve/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/itineraries/itinerary-retrieve/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/itineraries/itinerary-update/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/itineraries/itinerary-update/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/products/products-providers-list/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/products/products-providers-list/request.json
+INFO: missing description
+  in schemas/maas-backend/products/products-providers-list/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/products/products-providers-list/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/products/products-providers-options/request.json
+INFO: missing description
+  in schemas/maas-backend/products/products-providers-options/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/products/products-providers-options/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/products/products-providers-retrieve/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/products/products-providers-retrieve/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+WARNING: multipleOf field not supported outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/products/provider.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/profile/profile-devices-put/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/profile/profile-devices-put/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/maas-backend/profile/profile-devices-put/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/profile/profile-devices-put/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/profile/profile-devices-put/response.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/maas-backend/profile/profile-devices-put/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/profile/profile-devices-put/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/profile/profile-devices-put/response.json
+INFO: missing description
+  in schemas/maas-backend/profile/profile-devices-put/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/profile/profile-edit/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/profile/profile-edit/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/profile/profile-favoriteLocations-add/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/profile/profile-favoriteLocations-add/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/profile/profile-favoriteLocations-delete/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/profile/profile-favoriteLocations-delete/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/profile/profile-favoriteLocations-delete/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/profile/profile-favoriteLocations-delete/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/profile/profile-favoriteLocations-delete/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/profile/profile-info/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/profile/profile-info/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/profile/profile-webhook/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/profile/profile-webhook/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/provider/autocomplete/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/provider/autocomplete/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/provider/geocoding-reverse/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/provider/geocoding-reverse/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/provider/geocoding/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/provider/geocoding/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/provider/routes/request.json
+WARNING: patternProperty support has limitations
+  in schemas/maas-backend/provider/routes/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/provider/routes/response.json
+INFO: missing description
+  in schemas/maas-backend/provider/routes/response.json
+INFO: missing description
+  in schemas/maas-backend/provider/routes/response.json
+INFO: missing description
+  in schemas/maas-backend/provider/routes/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/provider/sms/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/provider/sms/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+WARNING: maxItems field not supported outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+WARNING: maxItems field not supported outside top-level definitions
+  in schemas/maas-backend/push-notification/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/push-notification/response.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/push-notification/response.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/push-notification/response.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/push-notification/response.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/push-notification/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/regions/regions-options/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/regions/regions-options/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/routes/routes-query/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/routes/routes-query/request.json
+WARNING: unexpected key in a $ref object
+  in schemas/maas-backend/routes/routes-query/request.json
+WARNING: patternProperty support has limitations
+  in schemas/maas-backend/routes/routes-query/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/routes/routes-query/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/routes/routes-query/request.json
+WARNING: unexpected key in a $ref object
+  in schemas/maas-backend/routes/routes-query/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/routes/routes-query/request.json
+INFO: missing description
+  in schemas/maas-backend/routes/routes-query/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/routes/routes-query/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/stations/stations-list/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/stations/stations-list/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/stations/stations-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/stations/stations-list/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/stations/stations-list/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/stations/stations-list/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/stations/stations-list/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/stations/stations-list/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/stations/stations-retrieve/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/stations/stations-retrieve/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/stations/stations-retrieve/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/stations/stations-retrieve/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/contact.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/contact.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/contact.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/contact.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/contact.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/contact.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/contact.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/contact.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/pricing.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/pricing.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/pricing.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/pricing.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/pricing.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/pricing.json
+WARNING: maximum field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/pricing.json
+WARNING: default field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/pricing.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/pricing.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/pricing.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/pricing.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscription-intent.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/subscription-intent.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/subscription-intent.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/subscription-intent.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/subscription-intent.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/subscription-intent.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+WARNING: examples field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+WARNING: default field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscription.json
+WARNING: naming clash, ignoring default export
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/subscription.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/subscription.json
+WARNING: naming clash, ignoring default export
+  in schemas/maas-backend/subscriptions/subscriptionAddress.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/subscriptionAddress.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscriptionOption.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptionOption.json
+INFO: missing description
+  in schemas/maas-backend/subscriptions/subscriptionOption.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-change-state/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-change-state/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-create/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-create/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-estimate/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-estimate/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-intents-create/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-intents-create/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-intents-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscriptions-intents-list/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscriptions-intents-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscriptions-intents-list/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-intents-list/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-intents-retrieve/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-intents-retrieve/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-intents-update-state/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-intents-update-state/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-intents-update/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-intents-update/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-options/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscriptions-options/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscriptions-options/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscriptions-options/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-options/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-package/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscriptions-package/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscriptions-package/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscriptions-package/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-package/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-retrieve/request.json
+WARNING: default field not supported outside top-level definitions
+  in schemas/maas-backend/subscriptions/subscriptions-retrieve/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-retrieve/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-scheduled-change-delete/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-scheduled-change-delete/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-update/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/subscriptions/subscriptions-update/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tracking/tracking-active-itinerary-get/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tracking/tracking-active-itinerary-get/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tracking/tracking-active-itinerary-set/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tracking/tracking-active-itinerary-set/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tracking/tracking-active-leg-get/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tracking/tracking-active-leg-get/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tracking/tracking-active-leg-set/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tracking/tracking-active-leg-set/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tracking/tracking-cancel-active-itinerary/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tracking/tracking-cancel-active-itinerary/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tracking/tracking-update-user-location/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tracking/tracking-update-user-location/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tsp-auth/expire/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tsp-auth/init/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tsp-auth/init/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tsp-auth/set/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tsp-auth/validate/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tsp-auth/validate/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tsp-auth/verify/definitions.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tsp-auth/verify/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/tsp-auth/verify/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/vehicle/vehicle-alert/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/vehicle/vehicle-alert/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/vehicle/vehicle-alert/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/vehicle/vehicle-alert/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/vehicle/vehicle-alert/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/webhooks/webhooks-bookings-create/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-bookings-create/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/webhooks/webhooks-bookings-create/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/webhooks/webhooks-bookings-update/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/webhooks/webhooks-bookings-update/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/webhooks/webhooks-message-to-user/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-message-to-user/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-message-to-user/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-message-to-user/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/webhooks/webhooks-message-to-user/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-message-to-user/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: missing description
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: missing description
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/stripe.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+INFO: missing description
+  in schemas/maas-backend/webhooks/webhooks-payments/gateway/yaband.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/webhooks/webhooks-payments/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/response.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/response.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/response.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/webhooks-payments/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/webhooks/webhooks-payments/response.json
+INFO: missing description
+  in schemas/maas-backend/webhooks/webhooks-payments/response.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: maxItems field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/request.json
+WARNING: missing $schema declaration
+  in schemas/maas-backend/webhooks/zendesk-push-notification/response.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/response.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/response.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/response.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/maas-backend/webhooks/zendesk-push-notification/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-cancel/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-cancel/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-create/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-create/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: patternProperty support has limitations
+  in schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/tsp/booking-options-list/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-options-list/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-read-by-id/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-read-by-id/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-receipt/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-receipt/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-ticket/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-ticket/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/tsp/booking-ticket/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-ticket/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/tsp/booking-ticket/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/tsp/booking-ticket/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-ticket/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-ticket/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-ticket/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-ticket/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-update/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-update/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-upload/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/booking-upload/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/booking-upload/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/customer-auth-validate/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/customer-auth-validate/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/customer-auth/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/customer-auth/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/customer-registration/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/customer-registration/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/estimate/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/estimate/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/journey-planner/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/journey-planner/request.json
+WARNING: patternProperty support has limitations
+  in schemas/tsp/journey-planner/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/journey-planner/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/journey-planner/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/manage/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/manage/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/manage/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/manage/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/package-create/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/package-create/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/post-kyc-verification-update/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/post-kyc-verification-update/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/post-kyc-verification-update/response.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/tsp/post-kyc-verification-update/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/post-kyc-verification-update/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/post-kyc-verification-update/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/post-kyc-verification-update/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/stations-list/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/stations-list/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/tsp/stations-list/request.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/tsp/stations-list/request.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/tsp/stations-list/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/stations-list/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/stations-retrieve/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/stations-retrieve/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/vehicle-alert/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/vehicle-alert/request.json
+WARNING: minLength field not supported outside top-level definitions
+  in schemas/tsp/vehicle-alert/request.json
+WARNING: maxLength field not supported outside top-level definitions
+  in schemas/tsp/vehicle-alert/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/vehicle-alert/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/webhooks-bookings-update/remote-request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/webhooks-bookings-update/remote-response.json
+INFO: missing description
+  in schemas/tsp/webhooks-bookings-update/remote-response.json
