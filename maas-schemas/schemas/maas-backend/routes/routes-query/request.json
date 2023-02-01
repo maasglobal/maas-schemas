@@ -67,7 +67,15 @@
         },
         "modes": {
           "type": "string",
-          "enum": ["PUBLIC_TRANSIT", "TAXI", "CAR", "WALK", "BICYCLE", "BICYCLE_RENT"]
+          "enum": [
+            "PUBLIC_TRANSIT",
+            "TAXI",
+            "CAR",
+            "WALK",
+            "BICYCLE",
+            "BICYCLE_RENT",
+            "SCOOTER_RENT"
+          ]
         },
         "transitMode": {
           "type": "string",
