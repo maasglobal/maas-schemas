@@ -17,7 +17,7 @@ async function runConverter(pkg: SchemaPackage): Promise<void> {
   const { base, deps } = pkg.manifest;
 
   const importArgs = Object.entries(deps).map(
-    ([depBase, dep]) => `${depBase}^${dep.package}/lib/io-ts`,
+    ([depBase, dep]) => `${depBase}^${dep.package}/lib/io-ts/`,
   );
   const imports = importArgs.length === 0 ? [] : ['--import', ...importArgs];
 
