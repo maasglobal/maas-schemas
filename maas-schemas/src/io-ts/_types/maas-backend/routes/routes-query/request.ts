@@ -54,7 +54,15 @@ export type Payload = t.Branded<
     leaveAtReturn?: Units_c404_.Time;
     arriveByReturn?: Units_c404_.Time;
     modes?: string &
-      ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT');
+      (
+        | 'PUBLIC_TRANSIT'
+        | 'TAXI'
+        | 'CAR'
+        | 'WALK'
+        | 'BICYCLE'
+        | 'BICYCLE_RENT'
+        | 'SCOOTER_RENT'
+      );
     transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
     options?: Record<string, unknown> & Record<string, unknown>;
     bookingIdToExtend?: Units_c404_.Uuid;
@@ -73,7 +81,16 @@ export type Payload = t.Branded<
     | Units_c404_.Time
     | Units_c404_.Time
     | Units_c404_.Time
-    | (string & ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT'))
+    | (string &
+        (
+          | 'PUBLIC_TRANSIT'
+          | 'TAXI'
+          | 'CAR'
+          | 'WALK'
+          | 'BICYCLE'
+          | 'BICYCLE_RENT'
+          | 'SCOOTER_RENT'
+        ))
     | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
     | (Record<string, unknown> & Record<string, unknown>)
     | Units_c404_.Uuid
@@ -114,6 +131,7 @@ export type PayloadC = t.BrandC<
                     t.LiteralC<'WALK'>,
                     t.LiteralC<'BICYCLE'>,
                     t.LiteralC<'BICYCLE_RENT'>,
+                    t.LiteralC<'SCOOTER_RENT'>,
                   ]
                 >,
               ]
@@ -165,6 +183,7 @@ export type PayloadC = t.BrandC<
                         t.LiteralC<'WALK'>,
                         t.LiteralC<'BICYCLE'>,
                         t.LiteralC<'BICYCLE_RENT'>,
+                        t.LiteralC<'SCOOTER_RENT'>,
                       ]
                     >,
                   ]
@@ -225,6 +244,7 @@ export const Payload: PayloadC = t.brand(
             t.literal('WALK'),
             t.literal('BICYCLE'),
             t.literal('BICYCLE_RENT'),
+            t.literal('SCOOTER_RENT'),
           ]),
         ]),
         transitMode: t.intersection([
@@ -265,6 +285,7 @@ export const Payload: PayloadC = t.brand(
               t.literal('WALK'),
               t.literal('BICYCLE'),
               t.literal('BICYCLE_RENT'),
+              t.literal('SCOOTER_RENT'),
             ]),
           ]),
           t.intersection([
@@ -306,7 +327,15 @@ export const Payload: PayloadC = t.brand(
       leaveAtReturn?: Units_c404_.Time;
       arriveByReturn?: Units_c404_.Time;
       modes?: string &
-        ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT');
+        (
+          | 'PUBLIC_TRANSIT'
+          | 'TAXI'
+          | 'CAR'
+          | 'WALK'
+          | 'BICYCLE'
+          | 'BICYCLE_RENT'
+          | 'SCOOTER_RENT'
+        );
       transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
       options?: Record<string, unknown> & Record<string, unknown>;
       bookingIdToExtend?: Units_c404_.Uuid;
@@ -326,7 +355,15 @@ export const Payload: PayloadC = t.brand(
       | Units_c404_.Time
       | Units_c404_.Time
       | (string &
-          ('PUBLIC_TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT'))
+          (
+            | 'PUBLIC_TRANSIT'
+            | 'TAXI'
+            | 'CAR'
+            | 'WALK'
+            | 'BICYCLE'
+            | 'BICYCLE_RENT'
+            | 'SCOOTER_RENT'
+          ))
       | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
       | (Record<string, unknown> & Record<string, unknown>)
       | Units_c404_.Uuid
