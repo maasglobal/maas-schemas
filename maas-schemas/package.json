@@ -73,7 +73,7 @@
     "clean-ajv-src": "rm -rf src/ajv",
     "prettify-ajv": "(yarn eslint --fix 'src/ajv/**/*.ts'||true) && yarn prettier --write 'src/ajv/**/*.ts'",
     "convert-ajv": "yarn clean-ajv-src && yarn mgsg-ajv --packageRoot . && yarn prettify-ajv",
-    "clean-io-ts-types": "rm -rf src/_types",
+    "clean-io-ts-types": "rm -rf src/io-ts/_types",
     "clean-io-ts-interfaces": "find src/io-ts -mindepth 1 -maxdepth 1 -not -name _types -not -name _utils -not -name _private|xargs rm -rf",
     "clean-io-ts-src": "yarn clean-io-ts-types && yarn clean-io-ts-interfaces",
     "prettify-io-ts": "(yarn eslint --fix 'src/io-ts/**/*.ts'||true) && yarn prettier --write 'src/io-ts/**/*.ts'",
