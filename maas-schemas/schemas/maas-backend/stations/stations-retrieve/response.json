@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/stations/stations-retrieve/response.json",
   "allOf": [{ "$ref": "https://schemas.maas.global/tsp/stations-retrieve/response.json" }]
 }

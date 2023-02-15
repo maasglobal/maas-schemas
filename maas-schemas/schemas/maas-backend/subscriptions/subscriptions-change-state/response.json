@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/subscriptions/subscriptions-change-state/response.json",
   "description": "Response schema for subscriptions-change-state",
   "type": "object",

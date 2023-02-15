@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/booking-option-create/response.json",
   "description": "Response schema for booking-option-create",
   "anyOf": [

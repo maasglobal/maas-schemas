@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/itinerary.json",
   "description": "OpenTripPlanner itinerary, augmented with leg bookings per leg",
   "type": "object",

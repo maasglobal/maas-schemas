@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/booking.json",
   "type": "object",
   "description": "The base booking object with all fields, to be inherited",

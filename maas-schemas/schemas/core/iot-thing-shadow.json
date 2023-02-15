@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/iot-thing-shadow.json",
   "description": "Schema for MaaS thing shadow",
   "type": "object",

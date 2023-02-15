@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/subscriptions/subscriptions-intents-create/request.json",
   "description": "Request schema for subscriptions-intents-create",
   "type": "object",

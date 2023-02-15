@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/customers/virtual-cards/add-token-reference/request.json",
   "description": "MaaS customer virtual cards get token reference request",
   "type": "object",

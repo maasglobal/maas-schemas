@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/components/personalDataValidation.json",
   "description": "MaaS personal data validation rules",
   "type": "object",

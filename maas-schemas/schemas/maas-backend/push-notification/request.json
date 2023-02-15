@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/push-notification/request.json",
   "description": "MaaS push notification request schema.",
   "type": "object",

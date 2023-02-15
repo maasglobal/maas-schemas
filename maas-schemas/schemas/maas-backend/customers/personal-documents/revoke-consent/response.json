@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/customers/personal-documents/revoke-consent/response.json",
   "description": "Revoke user consent to send all document to a TSP",
   "type": "object",

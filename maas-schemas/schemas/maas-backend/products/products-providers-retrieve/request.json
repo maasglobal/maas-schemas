@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/products/products-providers-retrieve/request.json",
   "description": "Request schema for products-providers-retrieve",
   "type": "object",

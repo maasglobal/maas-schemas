@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/subscriptions/subscriptions-scheduled-change-delete/response.json",
   "description": "Response schema for subscriptions-scheduled-change-delete",
   "type": "object",

@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/components/costBreakDown.json",
   "description": "A costBreakDown shows pricing according to TSPs wishes and nuances",
   "definitions": {

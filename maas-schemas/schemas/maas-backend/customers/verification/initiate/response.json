@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/customers/verification/initiate/response.json",
   "description": "MaaS customer verification initiate",
   "type": "object",

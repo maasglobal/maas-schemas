@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/provider/routes/response.json",
   "description": "Response schema for routes providers, subset of routes-query response schema",
   "type": "object",

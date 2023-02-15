@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/profile/profile-favoriteLocations-delete/response.json",
   "description": "Response schema for profile-favoriteLocations-delete",
   "type": "object",

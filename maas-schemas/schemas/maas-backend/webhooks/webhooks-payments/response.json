@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/webhooks/webhooks-payments/response.json",
   "description": "Response for MaaS webhook to receive payment status updates from payment gateways.",
   "oneOf": [{ "$ref": "#/definitions/avainpayResponse" }],

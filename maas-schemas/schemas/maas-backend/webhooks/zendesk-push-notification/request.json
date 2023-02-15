@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/webhooks/zendesk-push-notification/request.json",
   "description": "MaaS Zendesk push notification forwarder request schema.",
   "type": "object",

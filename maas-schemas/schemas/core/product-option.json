@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/product-option.json",
   "description": "Product option for an itinerary, is either an existing booking pointer or a new booking instruction",
   "oneOf": [

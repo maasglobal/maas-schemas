@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/webhooks/webhooks-bookings-update/request.json",
   "description": "MaaS webhook to update bookings for tsp adapter callback request schema.",
   "type": "object",

@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/booking-meta.json",
   "description": "TSP/mode-specific additional information. The TSP adapter should set MODE_{mode} with defined data, otherwise 'meta' can be used freely.",
   "type": "object",
