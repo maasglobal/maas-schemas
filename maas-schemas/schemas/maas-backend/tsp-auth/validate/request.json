@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/tsp-auth/validate/request.json",
   "description": "Request schema for tsp-auth validate. Leaving as much flexibility as possible to be resilient for different TSPs",
   "type": "object",

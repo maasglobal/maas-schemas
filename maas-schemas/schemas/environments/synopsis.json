@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/environments/synopsis.json",
   "description": "Experimental synopsis that combines an environment with related information",
   "definitions": {

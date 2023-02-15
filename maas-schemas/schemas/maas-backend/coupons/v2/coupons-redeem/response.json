@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/coupons/v2/coupons-redeem/response.json",
   "description": "MaaS coupon redeem",
   "type": "object",

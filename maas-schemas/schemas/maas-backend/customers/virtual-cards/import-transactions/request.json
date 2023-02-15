@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/customers/virtual-cards/import-transactions/request.json",
   "additionalProperties": false,
   "description": "MaaS customer virtual cards import transactions",

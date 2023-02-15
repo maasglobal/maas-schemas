@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/modes/MODE_SCOOTER.json",
   "type": "object",
   "properties": {

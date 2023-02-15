@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/plan.json",
   "description": "OpenTripPlanner compatible format for plans, extended with id for legs and itineraries",
   "oneOf": [{ "$ref": "#/definitions/plan1" }, { "$ref": "#/definitions/plan2" }],

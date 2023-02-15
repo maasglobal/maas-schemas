@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/subscriptions/subscriptions-intents-retrieve/response.json",
   "description": "Response schema for subscriptions-intents-retrieve",
   "type": "object",

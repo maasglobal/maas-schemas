@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/profile/profile-favoriteLocations-add/request.json",
   "description": "Request schema for profile-favoriteLocations-add",
   "type": "object",

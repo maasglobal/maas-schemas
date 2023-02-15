@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/components/authorization.json",
   "description": "MaaS information about an authorization required to use a particular TSP",
   "type": "object",

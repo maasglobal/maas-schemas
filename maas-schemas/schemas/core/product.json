@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/product.json",
   "description": "Product in core which encapsulates at least an id, name and a tspProductId",
   "type": "object",

@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/customers/personal-documents/remove/response.json",
   "description": "Remove customer personal document by id",
   "type": "object",

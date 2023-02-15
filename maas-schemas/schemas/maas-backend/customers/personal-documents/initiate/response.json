@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/customers/personal-documents/initiate/response.json",
   "description": "Initiate customer KYC process",
   "allOf": [{ "$ref": "https://schemas.maas.global/core/kyc-service.json" }]

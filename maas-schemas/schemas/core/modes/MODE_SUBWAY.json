@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/modes/MODE_SUBWAY.json",
   "description": "Schema for MODE_SUBWAY meta field",
   "type": "object"

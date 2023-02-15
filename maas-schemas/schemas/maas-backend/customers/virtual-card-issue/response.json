@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/customers/virtual-card-issue/response.json",
   "description": "MaaS customer virtual card issue async lambda response",
   "type": "object",

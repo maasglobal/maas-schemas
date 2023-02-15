@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/components/state-log.json",
   "description": "Set of booking state transitions",
   "type": "array",

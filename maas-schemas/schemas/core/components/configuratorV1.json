@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/components/configuratorV1.json",
   "description": "Configurator schema to customize a booking option",
   "type": "object",

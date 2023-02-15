@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/stations/stations-retrieve/request.json",
   "description": "Request schema for regions-options",
   "type": "object",

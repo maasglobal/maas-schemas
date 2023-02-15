@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/itineraries/itinerary-cancel/response.json",
   "description": "Maas Itinerary cancellation response"
 }
