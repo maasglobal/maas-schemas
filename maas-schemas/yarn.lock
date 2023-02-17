@@ -5156,10 +5156,10 @@ maasglobal-schema-generator-ajv@^0.0.4:
     maasglobal-schema-package "^0.0.1"
     yargs "^17.6.2"
 
-maasglobal-schema-generator-io-ts@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/maasglobal-schema-generator-io-ts/-/maasglobal-schema-generator-io-ts-0.0.3.tgz#20808cd494ff47f7df94746b0665f7fbaeaf2ab4"
-  integrity sha512-B70bQwPWNQHuYDV4a7XoQCb6beOQwZRWHwOkjRXL+sIwmqWqTViHNPhaVu8gfzcYpAyExSE7y4UoVfzR3mvEkA==
+maasglobal-schema-generator-io-ts@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/maasglobal-schema-generator-io-ts/-/maasglobal-schema-generator-io-ts-0.0.5.tgz#04a67a341fb261a6ffa5534ccfd050f874e814a9"
+  integrity sha512-xvKIkd3P34MSmCMNvis1Oup6Qh/gG2ncdt3WXEhaaQCFaeaC3W/Jak3qlz+zdrVc4N6g++w8KZOnBN+XV/Q6Zw==
   dependencies:
     io-ts-from-json-schema "^0.0.23"
     maasglobal-schema-package "^0.0.1"
