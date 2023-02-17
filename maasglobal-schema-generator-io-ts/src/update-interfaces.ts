@@ -43,13 +43,22 @@ export async function updateInterfaces(pkg: SchemaPackage): Promise<void> {
     return path.slice(0, 0 - stop.length - suffix.length);
   }
 
+  function dottified(path: string) {
+    if (path.startsWith(stop)) {
+      return path;
+    }
+    return [stop, path].join(path_.sep);
+  }
+
   function relative(filepathFrom: string, filepathTo: string) {
     const dirFrom = path_.dirname(filepathFrom);
     return path_.relative(dirFrom, filepathTo);
   }
 
   function exportStatement(filepathImporter: string, filepathImportee: string) {
-    const moduleName = withoutSuffix(relative(filepathImporter, filepathImportee));
+    const moduleName = withoutSuffix(
+      dottified(relative(filepathImporter, filepathImportee)),
+    );
     return `export * from '${moduleName}';`;
   }
 
