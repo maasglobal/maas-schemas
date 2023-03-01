@@ -24,7 +24,8 @@
     },
     "errorMessage": {
       "description": "A human readable error message (preferrably in English)",
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "reason": {
       "title": "MaaS error reason definition",
@@ -38,9 +39,7 @@
       "examples": [{ "text": "INVALID_AUTHORIZATION", "errorCode": 500 }]
     },
     "responseErrorMessage": {
-      "allOf": [{ "$ref": "#/definitions/errorMessage" }],
-      "minLength": 1,
-      "maxLength": 256
+      "allOf": [{ "$ref": "#/definitions/errorMessage" }]
     },
     "response": {
       "title": "MaaS error response definition",
