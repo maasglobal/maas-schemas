@@ -96,7 +96,8 @@ export type ErrorMessage = t.Branded<string, ErrorMessageBrand>;
 export type ErrorMessageC = t.BrandC<t.StringC, ErrorMessageBrand>;
 export const ErrorMessage: ErrorMessageC = t.brand(
   t.string,
-  (x): x is t.Branded<string, ErrorMessageBrand> => true,
+  (x): x is t.Branded<string, ErrorMessageBrand> =>
+    typeof x !== 'string' || x.length >= 1,
   'ErrorMessage',
 );
 export type ErrorMessageBrand = {
@@ -152,9 +153,7 @@ export type ResponseErrorMessageC = t.BrandC<
 >;
 export const ResponseErrorMessage: ResponseErrorMessageC = t.brand(
   ErrorMessage,
-  (x): x is t.Branded<ErrorMessage, ResponseErrorMessageBrand> =>
-    (typeof x !== 'string' || x.length >= 1) &&
-    (typeof x !== 'string' || x.length <= 256),
+  (x): x is t.Branded<ErrorMessage, ResponseErrorMessageBrand> => true,
   'ResponseErrorMessage',
 );
 export type ResponseErrorMessageBrand = {
