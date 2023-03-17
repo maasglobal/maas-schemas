@@ -1,0 +1,232 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.maas.global/maas-backend/routes/routes-query-v4/request.json",
+  "description": "Request schema for routes query v4",
+  "type": "object",
+  "properties": {
+    "queryStringParameters": {
+      "$ref": "#/definitions/params"
+    },
+    "headers": {
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
+    },
+    "requestContext": {
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/apiGatewayAuthorizedRequestContext"
+    }
+  },
+  "required": ["headers", "queryStringParameters", "requestContext"],
+  "definitions": {
+    "params": {
+      "type": "object",
+      "required": ["from", "to"],
+      "properties": {
+        "from": {
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/shortLocationString"
+        },
+        "fromName": {
+          "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName"
+        },
+        "fromAddress": {
+          "description": "Componentized from address",
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress"
+            }
+          ]
+        },
+        "fromStationId": {
+          "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/id"
+        },
+        "to": {
+          "$ref": "https://schemas.maas.global/core/components/units-geo.json#/definitions/shortLocationString"
+        },
+        "toName": {
+          "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/placeName"
+        },
+        "toAddress": {
+          "description": "Componentized to address",
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/componentAddress"
+            }
+          ]
+        },
+        "toStationId": {
+          "$ref": "https://schemas.maas.global/core/components/station.json#/definitions/id"
+        },
+        "leaveAt": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+        },
+        "arriveBy": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+        },
+        "modeId": {
+          "type": "string",
+          "description": "TODO: make more strict"
+        },
+        "accessibilityFilter": {
+          "type": "boolean",
+          "description": "TODO: make this part of a more general `features` param?"
+        },
+        "bookingIdToExtend": {
+          "description": "bookingId to fetch possible extension options for",
+          "allOf": [
+            {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
+            }
+          ]
+        },
+        "spaceDemand": {
+          "description": "Optional space demand. Example: 3 adults and 2 luggages.",
+          "$ref": "https://schemas.maas.global/core/components/spaceDemand.json#/definitions/spaceDemandString"
+        },
+        "depr_modes": {
+          "type": "string",
+          "enum": [
+            "PUBLIC_TRANSIT",
+            "TAXI",
+            "CAR",
+            "WALK",
+            "BICYCLE",
+            "BICYCLE_RENT",
+            "SCOOTER_RENT"
+          ]
+        },
+        "depr_transitMode": {
+          "type": "string",
+          "enum": ["TRAIN", "BUS", "SUBWAY", "TRAM", "RAIL"]
+        },
+        "depr_options": {
+          "type": "object"
+        },
+        "depr_leaveAtReturn": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+        },
+        "depr_arriveByReturn": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "examples": [
+    {
+      "headers": {
+        "Accept": "application/json;version=7.0.0, application/json;version=6.0.0",
+        "Accept-Encoding": "gzip",
+        "Accept-Language": "en-FI",
+        "Host": "api-eu-west-1.feature3.development.maas.global",
+        "User-Agent": "Amazon CloudFront",
+        "Via": "2.0 de653d123fa07848c46ed3defe8375b6.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "QGT27d7mCaOk1XmyNlO2rxoFd7hY8yCKcV3h-G05ewmUA15AezStyw==",
+        "X-Amzn-Trace-Id": "Root=1-64254778-7ce41f3347aa928b76dbb855",
+        "X-Forwarded-For": "82.181.29.144, 64.252.87.159",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https",
+        "x-maasglobal-app-instance-id": "68199603-9288-4015-82AE-18E16DC13149",
+        "x-maasglobal-edge-tenant": "whim",
+        "x-maasglobal-user-agent": "MaasGlobal/whim/3.0.1400_3 (IOS/15.2.1; iPhone/iPhone XR; 828x1792; en_FI)",
+        "x-my-api-version": "1",
+        "x-whim-app-instance-id": "68199603-9288-4015-82AE-18E16DC13149",
+        "x-whim-user-agent": "Whim/3.0.1400_3 (IOS/15.2.1; iPhone/iPhone XR; 828x1792; en_FI)"
+      },
+      "requestContext": {
+        "requestId": "98434da0-d0e5-4ac4-91b7-510324eb4f85",
+        "accountId": "336575317243",
+        "apiId": "u4nx0qt4ng",
+        "authorizer": {
+          "integrationLatency": 0,
+          "principalId": "e0dd4850-6449-11ea-b274-21ac9ed58ee0"
+        }
+      },
+      "queryStringParameters": {
+        "from": "35.6917414,139.7829273",
+        "fromAddress": "state:Tokyo|zipCode:103-0004|country:Japan|streetNumber:10-3|city:Chuo City|district:Higashinihonbashi 3-chōme",
+        "fromName": "Chuo City, Higashinihonbashi 3-chōme, 10-3",
+        "leaveAt": 1627485225645,
+        "modes": "TAXI",
+        "to": "35.6910514,139.7823222",
+        "toAddress": "state:Tokyo|zipCode:103-0004|country:Japan|streetNumber:3-18|city:Chuo City|district:3-chōme Higashinihonbashi",
+        "toName": "Chuo City, 3-chōme Higashinihonbashi, 3-18"
+      }
+    },
+    {
+      "headers": {
+        "Accept": "application/json;version=7.0.0, application/json;version=6.0.0",
+        "Accept-Encoding": "gzip",
+        "Accept-Language": "en-FI",
+        "Host": "api-eu-west-1.feature3.development.maas.global",
+        "User-Agent": "Amazon CloudFront",
+        "Via": "2.0 de653d123fa07848c46ed3defe8375b6.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "QGT27d7mCaOk1XmyNlO2rxoFd7hY8yCKcV3h-G05ewmUA15AezStyw==",
+        "X-Amzn-Trace-Id": "Root=1-64254778-7ce41f3347aa928b76dbb855",
+        "X-Forwarded-For": "82.181.29.144, 64.252.87.159",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https",
+        "x-maasglobal-app-instance-id": "68199603-9288-4015-82AE-18E16DC13149",
+        "x-maasglobal-edge-tenant": "whim",
+        "x-maasglobal-user-agent": "MaasGlobal/whim/3.0.1400_3 (IOS/15.2.1; iPhone/iPhone XR; 828x1792; en_FI)",
+        "x-my-api-version": "1",
+        "x-whim-app-instance-id": "68199603-9288-4015-82AE-18E16DC13149",
+        "x-whim-user-agent": "Whim/3.0.1400_3 (IOS/15.2.1; iPhone/iPhone XR; 828x1792; en_FI)"
+      },
+      "requestContext": {
+        "requestId": "98434da0-d0e5-4ac4-91b7-510324eb4f85",
+        "accountId": "336575317243",
+        "apiId": "u4nx0qt4ng",
+        "authorizer": {
+          "integrationLatency": 0,
+          "principalId": "e0dd4850-6449-11ea-b274-21ac9ed58ee0"
+        }
+      },
+      "queryStringParameters": {
+        "from": "35.6917414,139.7829273",
+        "fromAddress": "state:Tokyo|zipCode:103-0004|country:Japan|streetNumber:10-3|city:Chuo City|district:Higashinihonbashi 3-chōme",
+        "fromName": "Chuo City, Higashinihonbashi 3-chōme, 10-3",
+        "leaveAt": 1627485225645,
+        "modes": "TAXI",
+        "to": "35.6910514,139.7823222",
+        "toAddress": "state:Tokyo|zipCode:103-0004|country:Japan|streetNumber:3-18|city:Chuo City|district:3-chōme Higashinihonbashi",
+        "toName": "Chuo City, 3-chōme Higashinihonbashi, 3-18",
+        "spaceDemand": "adults:1|bags:2"
+      }
+    },
+    {
+      "headers": {
+        "Accept": "application/json;version=7.0.0, application/json;version=6.0.0",
+        "Accept-Encoding": "gzip",
+        "Accept-Language": "en-FI",
+        "Host": "api-eu-west-1.feature3.development.maas.global",
+        "User-Agent": "Amazon CloudFront",
+        "Via": "2.0 de653d123fa07848c46ed3defe8375b6.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "QGT27d7mCaOk1XmyNlO2rxoFd7hY8yCKcV3h-G05ewmUA15AezStyw==",
+        "X-Amzn-Trace-Id": "Root=1-64254778-7ce41f3347aa928b76dbb855",
+        "X-Forwarded-For": "82.181.29.144, 64.252.87.159",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https",
+        "x-maasglobal-app-instance-id": "68199603-9288-4015-82AE-18E16DC13149",
+        "x-maasglobal-edge-tenant": "whim",
+        "x-maasglobal-user-agent": "MaasGlobal/whim/3.0.1400_3 (IOS/15.2.1; iPhone/iPhone XR; 828x1792; en_FI)",
+        "x-my-api-version": "1",
+        "x-whim-app-instance-id": "68199603-9288-4015-82AE-18E16DC13149",
+        "x-whim-user-agent": "Whim/3.0.1400_3 (IOS/15.2.1; iPhone/iPhone XR; 828x1792; en_FI)"
+      },
+      "requestContext": {
+        "requestId": "98434da0-d0e5-4ac4-91b7-510324eb4f85",
+        "accountId": "336575317243",
+        "apiId": "u4nx0qt4ng",
+        "authorizer": {
+          "integrationLatency": 0,
+          "principalId": "e0dd4850-6449-11ea-b274-21ac9ed58ee0"
+        }
+      },
+      "queryStringParameters": {
+        "from": "35.6917414,139.7829273",
+        "to": "35.6910514,139.7823222",
+        "leaveAt": 1627485225645,
+        "modeId": "PUBLIC_TRANSIT__SCOOTER",
+        "accessibility": false
+      }
+    }
+  ]
+}

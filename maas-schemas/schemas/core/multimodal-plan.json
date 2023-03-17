@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.maas.global/core/multimodal-plan.json",
+  "description": "Format for multi-modal plans",
+  "type": "object",
+  "properties": {
+    "from": {
+      "$ref": "https://schemas.maas.global/core/components/place.json"
+    },
+    "planId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
+    },
+    "outwards": {
+      "$ref": "#/definitions/itineraries"
+    },
+    "returns": {
+      "$ref": "#/definitions/itineraries"
+    },
+    "requestParams": {
+      "$ref": "#/definitions/requestParams"
+    }
+  },
+  "required": ["from", "planId", "outwards", "returns", "requestParams"],
+  "definitions": {
+    "itineraries": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.maas.global/core/itinerary.json"
+      }
+    },
+    "requestParams": {
+      "type": "object",
+      "properties": {
+        "requestModeId": {
+          "type": "string",
+          "description": "TODO: make more strict, ref to common def"
+        },
+        "requestAccessibilityFilter": {
+          "type": "boolean",
+          "description": "TODO: make more strict, ref to common def"
+        }
+      }
+    }
+  }
+}

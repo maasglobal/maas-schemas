@@ -197,12 +197,14 @@ export type StandardApiEndpointHeadersBrand = {
 // The purpose of this remains a mystery
 export type ApiGatewayAuthorizedRequestContext = t.Branded<
   ({
+    requestId?: string;
     authorizer?: ({
       principalId?: Units_c404_.IdentityId;
     } & Record<string, unknown>) & {
       principalId: Defined;
     };
   } & Record<string, unknown>) & {
+    requestId: Defined;
     authorizer: Defined;
   },
   ApiGatewayAuthorizedRequestContextBrand
@@ -213,6 +215,7 @@ export type ApiGatewayAuthorizedRequestContextC = t.BrandC<
       t.IntersectionC<
         [
           t.PartialC<{
+            requestId: t.StringC;
             authorizer: t.IntersectionC<
               [
                 t.IntersectionC<
@@ -233,6 +236,7 @@ export type ApiGatewayAuthorizedRequestContextC = t.BrandC<
         ]
       >,
       t.TypeC<{
+        requestId: typeof Defined;
         authorizer: typeof Defined;
       }>,
     ]
@@ -244,6 +248,7 @@ export const ApiGatewayAuthorizedRequestContext: ApiGatewayAuthorizedRequestCont
     t.intersection([
       t.intersection([
         t.partial({
+          requestId: t.string,
           authorizer: t.intersection([
             t.intersection([
               t.partial({
@@ -259,6 +264,7 @@ export const ApiGatewayAuthorizedRequestContext: ApiGatewayAuthorizedRequestCont
         t.record(t.string, t.unknown),
       ]),
       t.type({
+        requestId: Defined,
         authorizer: Defined,
       }),
     ]),
@@ -266,12 +272,14 @@ export const ApiGatewayAuthorizedRequestContext: ApiGatewayAuthorizedRequestCont
       x,
     ): x is t.Branded<
       ({
+        requestId?: string;
         authorizer?: ({
           principalId?: Units_c404_.IdentityId;
         } & Record<string, unknown>) & {
           principalId: Defined;
         };
       } & Record<string, unknown>) & {
+        requestId: Defined;
         authorizer: Defined;
       },
       ApiGatewayAuthorizedRequestContextBrand

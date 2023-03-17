@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.maas.global/core/multimodal-routes-config.json",
+  "description": "Configuration for multi-modal route search",
+  "type": "object",
+  "properties": {
+    "availableModes": {
+      "description": "List of available query modes for the modeId param",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/routesConfigModesSpec"
+      }
+    },
+    "availableAccessibilityFilter": {
+      "description": "Is the accessibilityFilter param available?",
+      "type": "boolean"
+    }
+  },
+  "required": ["availableModes", "availableAccessibilityFilter"],
+  "additionalProperties": false,
+  "definitions": {
+    "routesConfigModesSpec": {
+      "type": "object",
+      "description": "Route planner query mode",
+      "properties": {
+        "modeId": {
+          "type": "string",
+          "description": "TODO: make more strict?"
+        },
+        "modes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "TODO: make more/less strict?",
+            "enum": [
+              "PUBLIC_TRANSIT",
+              "TAXI",
+              "CAR",
+              "WALK",
+              "BICYCLE",
+              "BICYCLE_RENT",
+              "SCOOTER_RENT"
+            ]
+          }
+        }
+      },
+      "required": ["modeId", "modes"],
+      "additionalProperties": false
+    }
+  },
+  "examples": [
+    {
+      "availableAccessibilityFilter": true,
+      "availableModes": [
+        {
+          "modeId": "PUBLIC_TRANSIT",
+          "modes": ["PUBLIC_TRANSIT"]
+        },
+        {
+          "modeId": "PUBLIC_TRANSIT__SCOOTER_RENT",
+          "modes": ["PUBLIC_TRANSIT", "SCOOTER_RENT"]
+        },
+        {
+          "modeId": "PUBLIC_TRANSIT__BICYCLE_RENT",
+          "modes": ["PUBLIC_TRANSIT", "BICYCLE_RENT"]
+        },
+        {
+          "modeId": "TAXI",
+          "modes": ["TAXI"]
+        }
+      ]
+    }
+  ]
+}

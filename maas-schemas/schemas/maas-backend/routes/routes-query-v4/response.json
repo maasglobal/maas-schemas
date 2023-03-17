@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.maas.global/maas-backend/routes/routes-query-v4/response.json",
+  "description": "Response schema for routes-query v4",
+  "type": "object",
+  "properties": {
+    "plan": {
+      "$ref": "https://schemas.maas.global/core/multimodal-plan.json"
+    },
+    "config": {
+      "$ref": "https://schemas.maas.global/core/multimodal-routes-config.json"
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.maas.global/core/error.json#/definitions/reason"
+      }
+    },
+    "debug": { "type": "object" }
+  },
+  "required": ["plan", "config"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "plan": {
+        "from": {
+          "lat": 35.5907257,
+          "lon": 139.6791986
+        },
+        "outwards": [],
+        "returns": [],
+        "planId": "d2ac1de0-5edd-11ea-a5fd-b5d2f648464c"
+      },
+      "config": {
+        "availableAccessibilityFilter": true,
+        "availableModes": [
+          {
+            "modeId": "PUBLIC_TRANSIT",
+            "modes": ["PUBLIC_TRANSIT"]
+          },
+          {
+            "modeId": "PUBLIC_TRANSIT__SCOOTER_RENT",
+            "modes": ["PUBLIC_TRANSIT", "SCOOTER_RENT"]
+          },
+          {
+            "modeId": "PUBLIC_TRANSIT__BICYCLE_RENT",
+            "modes": ["PUBLIC_TRANSIT", "BICYCLE_RENT"]
+          },
+          {
+            "modeId": "TAXI",
+            "modes": ["TAXI"]
+          }
+        ]
+      },
+      "reasons": [
+        {
+          "errorCode": "ERROR_TSP_UNSUPPORTED_AREA"
+        }
+      ]
+    }
+  ]
+}

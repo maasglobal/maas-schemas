@@ -47,6 +47,9 @@
     "apiGatewayAuthorizedRequestContext": {
       "type": "object",
       "properties": {
+        "requestId": {
+          "type": "string"
+        },
         "authorizer": {
           "type": "object",
           "properties": {
@@ -59,7 +62,7 @@
         }
       },
       "additionalProperties": true,
-      "required": ["authorizer"]
+      "required": ["requestId", "authorizer"]
     }
   }
 }
