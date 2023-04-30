@@ -76,7 +76,7 @@ export const registry: mjsv.Registry = {
     require('../../schemas/core/modes/MODE_TRANSIT.json'),
     require('../../schemas/core/modes/MODE_WALK.json'),
     require('../../schemas/core/multimodal-plan.json'),
-    require('../../schemas/core/multimodal-routes-config.json'),
+    require('../../schemas/core/multimodal-routes-metadata.json'),
     require('../../schemas/core/package-option.json'),
     require('../../schemas/core/partialFavoriteLocation.json'),
     require('../../schemas/core/paymentSource.json'),

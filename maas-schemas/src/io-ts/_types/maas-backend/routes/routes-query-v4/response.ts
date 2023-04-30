@@ -14,7 +14,7 @@ import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
 import * as Error_b620_ from '../../../core/error';
 import * as MultimodalPlan_758c_ from '../../../core/multimodal-plan';
-import * as MultimodalRoutesConfig_62df_ from '../../../core/multimodal-routes-config';
+import * as MultimodalRoutesMetadata_478d_ from '../../../core/multimodal-routes-metadata';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -39,12 +39,12 @@ export const schemaId =
 export type Response = t.Branded<
   {
     plan?: MultimodalPlan_758c_.MultimodalPlan;
-    config?: MultimodalRoutesConfig_62df_.MultimodalRoutesConfig;
+    metadata?: MultimodalRoutesMetadata_478d_.MultimodalRoutesMetadata;
     reasons?: Array<Error_b620_.Reason>;
     debug?: Record<string, unknown> & Record<string, unknown>;
   } & {
     plan: Defined;
-    config: Defined;
+    metadata: Defined;
   },
   ResponseBrand
 >;
@@ -53,13 +53,13 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         plan: typeof MultimodalPlan_758c_.MultimodalPlan;
-        config: typeof MultimodalRoutesConfig_62df_.MultimodalRoutesConfig;
+        metadata: typeof MultimodalRoutesMetadata_478d_.MultimodalRoutesMetadata;
         reasons: t.ArrayC<typeof Error_b620_.Reason>;
         debug: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
       }>,
       t.TypeC<{
         plan: typeof Defined;
-        config: typeof Defined;
+        metadata: typeof Defined;
       }>,
     ]
   >,
@@ -69,13 +69,13 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       plan: MultimodalPlan_758c_.MultimodalPlan,
-      config: MultimodalRoutesConfig_62df_.MultimodalRoutesConfig,
+      metadata: MultimodalRoutesMetadata_478d_.MultimodalRoutesMetadata,
       reasons: t.array(Error_b620_.Reason),
       debug: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
     }),
     t.type({
       plan: Defined,
-      config: Defined,
+      metadata: Defined,
     }),
   ]),
   (
@@ -83,12 +83,12 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       plan?: MultimodalPlan_758c_.MultimodalPlan;
-      config?: MultimodalRoutesConfig_62df_.MultimodalRoutesConfig;
+      metadata?: MultimodalRoutesMetadata_478d_.MultimodalRoutesMetadata;
       reasons?: Array<Error_b620_.Reason>;
       debug?: Record<string, unknown> & Record<string, unknown>;
     } & {
       plan: Defined;
-      config: Defined;
+      metadata: Defined;
     },
     ResponseBrand
   > => true,
@@ -105,8 +105,15 @@ export const examplesResponse: NonEmptyArray<Response> = [
       outwards: [],
       returns: [],
       planId: 'd2ac1de0-5edd-11ea-a5fd-b5d2f648464c',
+      requestParams: {
+        from: { lat: 35.5907257, lon: 139.6791986 },
+        to: { lat: 35.5907257, lon: 139.6791986 },
+        modeId: 'PUBLIC_TRANSIT',
+        accessibilityFilter: false,
+      },
     },
-    config: {
+    metadata: {
+      location: { lat: 35.5907257, lon: 139.6791986 },
       availableAccessibilityFilter: true,
       availableModes: [
         { modeId: 'PUBLIC_TRANSIT', modes: ['PUBLIC_TRANSIT'] },

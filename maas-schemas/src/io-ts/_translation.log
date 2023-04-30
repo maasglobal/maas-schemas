@@ -965,9 +965,9 @@ INFO: missing description
 INFO: missing description
   in schemas/core/multimodal-plan.json
 INFO: primitive type "string" used outside top-level definitions
-  in schemas/core/multimodal-routes-config.json
+  in schemas/core/multimodal-routes-metadata.json
 INFO: primitive type "string" used outside top-level definitions
-  in schemas/core/multimodal-routes-config.json
+  in schemas/core/multimodal-routes-metadata.json
 INFO: primitive type "string" used outside top-level definitions
   in schemas/core/package-option.json
 WARNING: minLength field not supported outside top-level definitions

@@ -51,8 +51,10 @@ export type ItinerariesBrand = {
 // The purpose of this remains a mystery
 export type RequestParams = t.Branded<
   {
-    requestModeId?: string;
-    requestAccessibilityFilter?: boolean;
+    from?: Place_de2d_.Place;
+    to?: Place_de2d_.Place;
+    modeId?: string;
+    accessibilityFilter?: boolean;
   } & Record<string, unknown>,
   RequestParamsBrand
 >;
@@ -60,8 +62,10 @@ export type RequestParamsC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        requestModeId: t.StringC;
-        requestAccessibilityFilter: t.BooleanC;
+        from: typeof Place_de2d_.Place;
+        to: typeof Place_de2d_.Place;
+        modeId: t.StringC;
+        accessibilityFilter: t.BooleanC;
       }>,
       t.RecordC<t.StringC, t.UnknownC>,
     ]
@@ -71,8 +75,10 @@ export type RequestParamsC = t.BrandC<
 export const RequestParams: RequestParamsC = t.brand(
   t.intersection([
     t.partial({
-      requestModeId: t.string,
-      requestAccessibilityFilter: t.boolean,
+      from: Place_de2d_.Place,
+      to: Place_de2d_.Place,
+      modeId: t.string,
+      accessibilityFilter: t.boolean,
     }),
     t.record(t.string, t.unknown),
   ]),
@@ -80,8 +86,10 @@ export const RequestParams: RequestParamsC = t.brand(
     x,
   ): x is t.Branded<
     {
-      requestModeId?: string;
-      requestAccessibilityFilter?: boolean;
+      from?: Place_de2d_.Place;
+      to?: Place_de2d_.Place;
+      modeId?: string;
+      accessibilityFilter?: boolean;
     } & Record<string, unknown>,
     RequestParamsBrand
   > => true,
@@ -95,13 +103,11 @@ export type RequestParamsBrand = {
 // The default export. More information at the top.
 export type MultimodalPlan = t.Branded<
   ({
-    from?: Place_de2d_.Place;
     planId?: Units_c404_.Uuid;
     outwards?: Itineraries;
     returns?: Itineraries;
     requestParams?: RequestParams;
   } & Record<string, unknown>) & {
-    from: Defined;
     planId: Defined;
     outwards: Defined;
     returns: Defined;
@@ -115,7 +121,6 @@ export type MultimodalPlanC = t.BrandC<
       t.IntersectionC<
         [
           t.PartialC<{
-            from: typeof Place_de2d_.Place;
             planId: typeof Units_c404_.Uuid;
             outwards: typeof Itineraries;
             returns: typeof Itineraries;
@@ -125,7 +130,6 @@ export type MultimodalPlanC = t.BrandC<
         ]
       >,
       t.TypeC<{
-        from: typeof Defined;
         planId: typeof Defined;
         outwards: typeof Defined;
         returns: typeof Defined;
@@ -139,7 +143,6 @@ export const MultimodalPlan: MultimodalPlanC = t.brand(
   t.intersection([
     t.intersection([
       t.partial({
-        from: Place_de2d_.Place,
         planId: Units_c404_.Uuid,
         outwards: Itineraries,
         returns: Itineraries,
@@ -148,7 +151,6 @@ export const MultimodalPlan: MultimodalPlanC = t.brand(
       t.record(t.string, t.unknown),
     ]),
     t.type({
-      from: Defined,
       planId: Defined,
       outwards: Defined,
       returns: Defined,
@@ -159,13 +161,11 @@ export const MultimodalPlan: MultimodalPlanC = t.brand(
     x,
   ): x is t.Branded<
     ({
-      from?: Place_de2d_.Place;
       planId?: Units_c404_.Uuid;
       outwards?: Itineraries;
       returns?: Itineraries;
       requestParams?: RequestParams;
     } & Record<string, unknown>) & {
-      from: Defined;
       planId: Defined;
       outwards: Defined;
       returns: Defined;

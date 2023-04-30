@@ -7,8 +7,8 @@
     "plan": {
       "$ref": "https://schemas.maas.global/core/multimodal-plan.json"
     },
-    "config": {
-      "$ref": "https://schemas.maas.global/core/multimodal-routes-config.json"
+    "metadata": {
+      "$ref": "https://schemas.maas.global/core/multimodal-routes-metadata.json"
     },
     "reasons": {
       "type": "array",
@@ -18,7 +18,7 @@
     },
     "debug": { "type": "object" }
   },
-  "required": ["plan", "config"],
+  "required": ["plan", "metadata"],
   "additionalProperties": false,
   "examples": [
     {
@@ -29,9 +29,25 @@
         },
         "outwards": [],
         "returns": [],
-        "planId": "d2ac1de0-5edd-11ea-a5fd-b5d2f648464c"
+        "planId": "d2ac1de0-5edd-11ea-a5fd-b5d2f648464c",
+        "requestParams": {
+          "from": {
+            "lat": 35.5907257,
+            "lon": 139.6791986
+          },
+          "to": {
+            "lat": 35.5907257,
+            "lon": 139.6791986
+          },
+          "modeId": "PUBLIC_TRANSIT",
+          "accessibilityFilter": false
+        }
       },
-      "config": {
+      "metadata": {
+        "location": {
+          "lat": 35.5907257,
+          "lon": 139.6791986
+        },
         "availableAccessibilityFilter": true,
         "availableModes": [
           {

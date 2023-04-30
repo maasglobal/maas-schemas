@@ -4,9 +4,6 @@
   "description": "Format for multi-modal plans",
   "type": "object",
   "properties": {
-    "from": {
-      "$ref": "https://schemas.maas.global/core/components/place.json"
-    },
     "planId": {
       "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
     },
@@ -20,7 +17,7 @@
       "$ref": "#/definitions/requestParams"
     }
   },
-  "required": ["from", "planId", "outwards", "returns", "requestParams"],
+  "required": ["planId", "outwards", "returns", "requestParams"],
   "definitions": {
     "itineraries": {
       "type": "array",
@@ -31,11 +28,17 @@
     "requestParams": {
       "type": "object",
       "properties": {
-        "requestModeId": {
+        "from": {
+          "$ref": "https://schemas.maas.global/core/components/place.json"
+        },
+        "to": {
+          "$ref": "https://schemas.maas.global/core/components/place.json"
+        },
+        "modeId": {
           "type": "string",
           "description": "TODO: make more strict, ref to common def"
         },
-        "requestAccessibilityFilter": {
+        "accessibilityFilter": {
           "type": "boolean",
           "description": "TODO: make more strict, ref to common def"
         }
