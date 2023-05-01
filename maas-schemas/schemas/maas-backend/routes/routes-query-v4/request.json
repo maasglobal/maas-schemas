@@ -80,17 +80,9 @@
           "description": "Optional space demand. Example: 3 adults and 2 luggages.",
           "$ref": "https://schemas.maas.global/core/components/spaceDemand.json#/definitions/spaceDemandString"
         },
-        "depr_modes": {
+        "modes": {
           "type": "string",
-          "enum": [
-            "PUBLIC_TRANSIT",
-            "TAXI",
-            "CAR",
-            "WALK",
-            "BICYCLE",
-            "BICYCLE_RENT",
-            "SCOOTER_RENT"
-          ]
+          "pattern": "((TRANSIT|TAXI|CAR|WALK|BICYCLE|BICYCLE_RENT|SCOOTER_RENT),?)+"
         },
         "depr_transitMode": {
           "type": "string",
@@ -224,7 +216,8 @@
         "from": "35.6917414,139.7829273",
         "to": "35.6910514,139.7823222",
         "leaveAt": 1627485225645,
-        "modeId": "PUBLIC_TRANSIT__SCOOTER",
+        "modeId": "TRANSIT__SCOOTER",
+        "modes": "TRANSIT,SCOOTER_RENT",
         "accessibility": false
       }
     }

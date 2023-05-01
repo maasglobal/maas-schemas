@@ -108,7 +108,7 @@ export const examplesResponse: NonEmptyArray<Response> = [
       requestParams: {
         from: { lat: 35.5907257, lon: 139.6791986 },
         to: { lat: 35.5907257, lon: 139.6791986 },
-        modeId: 'PUBLIC_TRANSIT',
+        modeId: 'TRANSIT',
         accessibilityFilter: false,
       },
     },
@@ -116,15 +116,9 @@ export const examplesResponse: NonEmptyArray<Response> = [
       location: { lat: 35.5907257, lon: 139.6791986 },
       availableAccessibilityFilter: true,
       availableModes: [
-        { modeId: 'PUBLIC_TRANSIT', modes: ['PUBLIC_TRANSIT'] },
-        {
-          modeId: 'PUBLIC_TRANSIT__SCOOTER_RENT',
-          modes: ['PUBLIC_TRANSIT', 'SCOOTER_RENT'],
-        },
-        {
-          modeId: 'PUBLIC_TRANSIT__BICYCLE_RENT',
-          modes: ['PUBLIC_TRANSIT', 'BICYCLE_RENT'],
-        },
+        { modeId: 'TRANSIT', modes: ['TRANSIT'] },
+        { modeId: 'TRANSIT__SCOOTER_RENT', modes: ['TRANSIT', 'SCOOTER_RENT'] },
+        { modeId: 'TRANSIT__BICYCLE_RENT', modes: ['TRANSIT', 'BICYCLE_RENT'] },
         { modeId: 'TAXI', modes: ['TAXI'] },
       ],
     },

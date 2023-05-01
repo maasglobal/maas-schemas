@@ -40,7 +40,7 @@ export type RoutesConfigModesSpec = t.Branded<
     modes?: Array<
       string &
         (
-          | 'PUBLIC_TRANSIT'
+          | 'TRANSIT'
           | 'TAXI'
           | 'CAR'
           | 'WALK'
@@ -66,7 +66,7 @@ export type RoutesConfigModesSpecC = t.BrandC<
               t.StringC,
               t.UnionC<
                 [
-                  t.LiteralC<'PUBLIC_TRANSIT'>,
+                  t.LiteralC<'TRANSIT'>,
                   t.LiteralC<'TAXI'>,
                   t.LiteralC<'CAR'>,
                   t.LiteralC<'WALK'>,
@@ -95,7 +95,7 @@ export const RoutesConfigModesSpec: RoutesConfigModesSpecC = t.brand(
         t.intersection([
           t.string,
           t.union([
-            t.literal('PUBLIC_TRANSIT'),
+            t.literal('TRANSIT'),
             t.literal('TAXI'),
             t.literal('CAR'),
             t.literal('WALK'),
@@ -119,7 +119,7 @@ export const RoutesConfigModesSpec: RoutesConfigModesSpecC = t.brand(
       modes?: Array<
         string &
           (
-            | 'PUBLIC_TRANSIT'
+            | 'TRANSIT'
             | 'TAXI'
             | 'CAR'
             | 'WALK'
@@ -205,15 +205,9 @@ export const examplesMultimodalRoutesMetadata: NonEmptyArray<MultimodalRoutesMet
     location: { lat: 35.5907257, lon: 139.6791986 },
     availableAccessibilityFilter: true,
     availableModes: [
-      { modeId: 'PUBLIC_TRANSIT', modes: ['PUBLIC_TRANSIT'] },
-      {
-        modeId: 'PUBLIC_TRANSIT__SCOOTER_RENT',
-        modes: ['PUBLIC_TRANSIT', 'SCOOTER_RENT'],
-      },
-      {
-        modeId: 'PUBLIC_TRANSIT__BICYCLE_RENT',
-        modes: ['PUBLIC_TRANSIT', 'BICYCLE_RENT'],
-      },
+      { modeId: 'TRANSIT', modes: ['TRANSIT'] },
+      { modeId: 'TRANSIT__SCOOTER_RENT', modes: ['TRANSIT', 'SCOOTER_RENT'] },
+      { modeId: 'TRANSIT__BICYCLE_RENT', modes: ['TRANSIT', 'BICYCLE_RENT'] },
       { modeId: 'TAXI', modes: ['TAXI'] },
     ],
   },

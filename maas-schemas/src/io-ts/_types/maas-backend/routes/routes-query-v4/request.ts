@@ -55,16 +55,7 @@ export type Params = t.Branded<
     accessibilityFilter?: boolean;
     bookingIdToExtend?: Units_c404_.Uuid;
     spaceDemand?: SpaceDemand_101a_.SpaceDemandString;
-    depr_modes?: string &
-      (
-        | 'PUBLIC_TRANSIT'
-        | 'TAXI'
-        | 'CAR'
-        | 'WALK'
-        | 'BICYCLE'
-        | 'BICYCLE_RENT'
-        | 'SCOOTER_RENT'
-      );
+    modes?: string;
     depr_transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
     depr_options?: Record<string, unknown> & Record<string, unknown>;
     depr_leaveAtReturn?: Units_c404_.Time;
@@ -93,22 +84,7 @@ export type ParamsC = t.BrandC<
         accessibilityFilter: t.BooleanC;
         bookingIdToExtend: typeof Units_c404_.Uuid;
         spaceDemand: typeof SpaceDemand_101a_.SpaceDemandString;
-        depr_modes: t.IntersectionC<
-          [
-            t.StringC,
-            t.UnionC<
-              [
-                t.LiteralC<'PUBLIC_TRANSIT'>,
-                t.LiteralC<'TAXI'>,
-                t.LiteralC<'CAR'>,
-                t.LiteralC<'WALK'>,
-                t.LiteralC<'BICYCLE'>,
-                t.LiteralC<'BICYCLE_RENT'>,
-                t.LiteralC<'SCOOTER_RENT'>,
-              ]
-            >,
-          ]
-        >;
+        modes: t.StringC;
         depr_transitMode: t.IntersectionC<
           [
             t.StringC,
@@ -154,18 +130,7 @@ export const Params: ParamsC = t.brand(
       accessibilityFilter: t.boolean,
       bookingIdToExtend: Units_c404_.Uuid,
       spaceDemand: SpaceDemand_101a_.SpaceDemandString,
-      depr_modes: t.intersection([
-        t.string,
-        t.union([
-          t.literal('PUBLIC_TRANSIT'),
-          t.literal('TAXI'),
-          t.literal('CAR'),
-          t.literal('WALK'),
-          t.literal('BICYCLE'),
-          t.literal('BICYCLE_RENT'),
-          t.literal('SCOOTER_RENT'),
-        ]),
-      ]),
+      modes: t.string,
       depr_transitMode: t.intersection([
         t.string,
         t.union([
@@ -203,16 +168,7 @@ export const Params: ParamsC = t.brand(
       accessibilityFilter?: boolean;
       bookingIdToExtend?: Units_c404_.Uuid;
       spaceDemand?: SpaceDemand_101a_.SpaceDemandString;
-      depr_modes?: string &
-        (
-          | 'PUBLIC_TRANSIT'
-          | 'TAXI'
-          | 'CAR'
-          | 'WALK'
-          | 'BICYCLE'
-          | 'BICYCLE_RENT'
-          | 'SCOOTER_RENT'
-        );
+      modes?: string;
       depr_transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
       depr_options?: Record<string, unknown> & Record<string, unknown>;
       depr_leaveAtReturn?: Units_c404_.Time;
@@ -426,7 +382,8 @@ export const examplesRequest: NonEmptyArray<Request> = [
       from: '35.6917414,139.7829273',
       to: '35.6910514,139.7823222',
       leaveAt: 1627485225645,
-      modeId: 'PUBLIC_TRANSIT__SCOOTER',
+      modeId: 'TRANSIT__SCOOTER',
+      modes: 'TRANSIT,SCOOTER_RENT',
       accessibility: false,
     },
   },
