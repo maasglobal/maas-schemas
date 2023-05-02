@@ -4,9 +4,6 @@
   "description": "Metadata for multi-modal route search results",
   "type": "object",
   "properties": {
-    "location": {
-      "$ref": "https://schemas.maas.global/core/components/place.json"
-    },
     "availableModes": {
       "description": "List of available query modes for the modeId param",
       "type": "array",
@@ -42,7 +39,7 @@
               "WALK",
               "BICYCLE",
               "BICYCLE_RENT",
-              "SCOOTER_RENT"
+              "SCOOTER"
             ]
           }
         }
@@ -53,10 +50,6 @@
   },
   "examples": [
     {
-      "location": {
-        "lat": 35.5907257,
-        "lon": 139.6791986
-      },
       "availableAccessibilityFilter": true,
       "availableModes": [
         {

@@ -12,8 +12,6 @@ import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
-import * as Place_de2d_ from './components/place';
-
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
   readonly _tag: 'DefinedType' = 'DefinedType';
@@ -39,15 +37,7 @@ export type RoutesConfigModesSpec = t.Branded<
     modeId?: string;
     modes?: Array<
       string &
-        (
-          | 'TRANSIT'
-          | 'TAXI'
-          | 'CAR'
-          | 'WALK'
-          | 'BICYCLE'
-          | 'BICYCLE_RENT'
-          | 'SCOOTER_RENT'
-        )
+        ('TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT' | 'SCOOTER')
     >;
   } & {
     modeId: Defined;
@@ -72,7 +62,7 @@ export type RoutesConfigModesSpecC = t.BrandC<
                   t.LiteralC<'WALK'>,
                   t.LiteralC<'BICYCLE'>,
                   t.LiteralC<'BICYCLE_RENT'>,
-                  t.LiteralC<'SCOOTER_RENT'>,
+                  t.LiteralC<'SCOOTER'>,
                 ]
               >,
             ]
@@ -101,7 +91,7 @@ export const RoutesConfigModesSpec: RoutesConfigModesSpecC = t.brand(
             t.literal('WALK'),
             t.literal('BICYCLE'),
             t.literal('BICYCLE_RENT'),
-            t.literal('SCOOTER_RENT'),
+            t.literal('SCOOTER'),
           ]),
         ]),
       ),
@@ -118,15 +108,7 @@ export const RoutesConfigModesSpec: RoutesConfigModesSpecC = t.brand(
       modeId?: string;
       modes?: Array<
         string &
-          (
-            | 'TRANSIT'
-            | 'TAXI'
-            | 'CAR'
-            | 'WALK'
-            | 'BICYCLE'
-            | 'BICYCLE_RENT'
-            | 'SCOOTER_RENT'
-          )
+          ('TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT' | 'SCOOTER')
       >;
     } & {
       modeId: Defined;
@@ -144,7 +126,6 @@ export type RoutesConfigModesSpecBrand = {
 // The default export. More information at the top.
 export type MultimodalRoutesMetadata = t.Branded<
   {
-    location?: Place_de2d_.Place;
     availableModes?: Array<RoutesConfigModesSpec>;
     availableAccessibilityFilter?: boolean;
   } & {
@@ -157,7 +138,6 @@ export type MultimodalRoutesMetadataC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        location: typeof Place_de2d_.Place;
         availableModes: t.ArrayC<typeof RoutesConfigModesSpec>;
         availableAccessibilityFilter: t.BooleanC;
       }>,
@@ -172,7 +152,6 @@ export type MultimodalRoutesMetadataC = t.BrandC<
 export const MultimodalRoutesMetadata: MultimodalRoutesMetadataC = t.brand(
   t.intersection([
     t.partial({
-      location: Place_de2d_.Place,
       availableModes: t.array(RoutesConfigModesSpec),
       availableAccessibilityFilter: t.boolean,
     }),
@@ -185,7 +164,6 @@ export const MultimodalRoutesMetadata: MultimodalRoutesMetadataC = t.brand(
     x,
   ): x is t.Branded<
     {
-      location?: Place_de2d_.Place;
       availableModes?: Array<RoutesConfigModesSpec>;
       availableAccessibilityFilter?: boolean;
     } & {
@@ -202,7 +180,6 @@ export type MultimodalRoutesMetadataBrand = {
 /** require('io-ts-validator').validator(nonEmptyArray(MultimodalRoutesMetadata)).decodeSync(examplesMultimodalRoutesMetadata) // => examplesMultimodalRoutesMetadata */
 export const examplesMultimodalRoutesMetadata: NonEmptyArray<MultimodalRoutesMetadata> = [
   {
-    location: { lat: 35.5907257, lon: 139.6791986 },
     availableAccessibilityFilter: true,
     availableModes: [
       { modeId: 'TRANSIT', modes: ['TRANSIT'] },

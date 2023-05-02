@@ -113,7 +113,6 @@ export const examplesResponse: NonEmptyArray<Response> = [
       },
     },
     metadata: {
-      location: { lat: 35.5907257, lon: 139.6791986 },
       availableAccessibilityFilter: true,
       availableModes: [
         { modeId: 'TRANSIT', modes: ['TRANSIT'] },
