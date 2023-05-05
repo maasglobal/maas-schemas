@@ -57,8 +57,8 @@
           "modes": ["TRANSIT"]
         },
         {
-          "modeId": "TRANSIT__SCOOTER_RENT",
-          "modes": ["TRANSIT", "SCOOTER_RENT"]
+          "modeId": "TRANSIT__SCOOTER",
+          "modes": ["TRANSIT", "SCOOTER"]
         },
         {
           "modeId": "TRANSIT__BICYCLE_RENT",

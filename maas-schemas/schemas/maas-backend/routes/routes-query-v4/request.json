@@ -82,7 +82,7 @@
         },
         "modes": {
           "type": "string",
-          "pattern": "((TRANSIT|TAXI|CAR|WALK|BICYCLE|BICYCLE_RENT|SCOOTER_RENT),?)+"
+          "pattern": "((TRANSIT|TAXI|CAR|WALK|BICYCLE|BICYCLE_RENT|SCOOTER),?)+"
         },
         "depr_transitMode": {
           "type": "string",
@@ -217,7 +217,7 @@
         "to": "35.6910514,139.7823222",
         "leaveAt": 1627485225645,
         "modeId": "TRANSIT__SCOOTER",
-        "modes": "TRANSIT,SCOOTER_RENT",
+        "modes": "TRANSIT,SCOOTER",
         "accessibility": false
       }
     }

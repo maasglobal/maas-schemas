@@ -116,7 +116,7 @@ export const examplesResponse: NonEmptyArray<Response> = [
       availableAccessibilityFilter: true,
       availableModes: [
         { modeId: 'TRANSIT', modes: ['TRANSIT'] },
-        { modeId: 'TRANSIT__SCOOTER_RENT', modes: ['TRANSIT', 'SCOOTER_RENT'] },
+        { modeId: 'TRANSIT__SCOOTER', modes: ['TRANSIT', 'SCOOTER'] },
         { modeId: 'TRANSIT__BICYCLE_RENT', modes: ['TRANSIT', 'BICYCLE_RENT'] },
         { modeId: 'TAXI', modes: ['TAXI'] },
       ],

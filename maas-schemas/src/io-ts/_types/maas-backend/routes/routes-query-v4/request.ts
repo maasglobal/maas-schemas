@@ -383,7 +383,7 @@ export const examplesRequest: NonEmptyArray<Request> = [
       to: '35.6910514,139.7823222',
       leaveAt: 1627485225645,
       modeId: 'TRANSIT__SCOOTER',
-      modes: 'TRANSIT,SCOOTER_RENT',
+      modes: 'TRANSIT,SCOOTER',
       accessibility: false,
     },
   },

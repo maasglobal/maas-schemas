@@ -75,7 +75,7 @@
             "WALK",
             "BICYCLE",
             "BICYCLE_RENT",
-            "SCOOTER_RENT"
+            "SCOOTER"
           ]
         },
         "transitMode": {
