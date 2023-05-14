@@ -12,7 +12,7 @@ import * as t from 'io-ts';
 
 import * as Place_de2d_ from './components/place';
 import * as Units_c404_ from './components/units';
-import * as Itinerary_8303_ from './itinerary';
+import * as ItineraryV2_5f31_ from './itineraryV2';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -33,14 +33,17 @@ export const schemaId = 'https://schemas.maas.global/core/multimodal-plan.json';
 
 // Itineraries
 // The purpose of this remains a mystery
-export type Itineraries = t.Branded<Array<Itinerary_8303_.Itinerary>, ItinerariesBrand>;
+export type Itineraries = t.Branded<
+  Array<ItineraryV2_5f31_.ItineraryV2>,
+  ItinerariesBrand
+>;
 export type ItinerariesC = t.BrandC<
-  t.ArrayC<typeof Itinerary_8303_.Itinerary>,
+  t.ArrayC<typeof ItineraryV2_5f31_.ItineraryV2>,
   ItinerariesBrand
 >;
 export const Itineraries: ItinerariesC = t.brand(
-  t.array(Itinerary_8303_.Itinerary),
-  (x): x is t.Branded<Array<Itinerary_8303_.Itinerary>, ItinerariesBrand> => true,
+  t.array(ItineraryV2_5f31_.ItineraryV2),
+  (x): x is t.Branded<Array<ItineraryV2_5f31_.ItineraryV2>, ItinerariesBrand> => true,
   'Itineraries',
 );
 export type ItinerariesBrand = {

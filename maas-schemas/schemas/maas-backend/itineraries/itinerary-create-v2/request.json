@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.maas.global/maas-backend/itineraries/itinerary-create-v2/request.json",
+  "description": "Request schema for itineraries-create-v2",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identityId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+    },
+    "headers": {
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "itinerary": {
+          "$ref": "https://schemas.maas.global/core/itineraryV2.json"
+        },
+        "paymentSourceId": {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/paymentSourceId"
+        },
+        "outward": {
+          "$ref": "#/definitions/outwardReturnWrapper"
+        },
+        "return": {
+          "$ref": "#/definitions/outwardReturnWrapper"
+        },
+        "message": {
+          "$ref": "https://schemas.maas.global/core/components/message.json"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "definitions": {
+    "outwardReturnWrapper": {
+      "type": "object",
+      "properties": {
+        "itinerary": {
+          "$ref": "https://schemas.maas.global/core/itinerary.json"
+        },
+        "customerSelections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ref": {
+                "$ref": "https://schemas.maas.global/core/product-optionV2.json#/definitions/ref"
+              },
+              "customerSelection": {
+                "$ref": "https://schemas.maas.global/core/components/customerSelection.json"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

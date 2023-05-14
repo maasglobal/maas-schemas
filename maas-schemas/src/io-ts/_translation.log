@@ -834,6 +834,16 @@ WARNING: minItems field not supported outside top-level definitions
   in schemas/core/itinerary.json
 INFO: missing description
   in schemas/core/itinerary.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/itineraryV2.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/itineraryV2.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/core/itineraryV2.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/core/itineraryV2.json
+INFO: missing description
+  in schemas/core/itineraryV2.json
 WARNING: missing $schema declaration
   in schemas/core/kyc-service.json
 INFO: primitive type "string" used outside top-level definitions
@@ -878,6 +888,44 @@ INFO: missing description
   in schemas/core/leg.json
 INFO: missing description
   in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
 INFO: primitive type "string" used outside top-level definitions
   in schemas/core/modes/MODE_BICYCLE.json
 INFO: primitive type "string" used outside top-level definitions
@@ -1096,6 +1144,32 @@ INFO: primitive type "integer" used outside top-level definitions
   in schemas/core/product-option.json
 WARNING: minimum field not supported outside top-level definitions
   in schemas/core/product-option.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/product-optionV2.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/product-optionV2.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/product-optionV2.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/product-optionV2.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/product-optionV2.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/product-optionV2.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/product-optionV2.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/product-optionV2.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/product-optionV2.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/product-optionV2.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/product-optionV2.json
+INFO: missing description
+  in schemas/core/product-optionV2.json
+INFO: missing description
+  in schemas/core/product-optionV2.json
 INFO: primitive type "number" used outside top-level definitions
   in schemas/core/product.json
 WARNING: minimum field not supported outside top-level definitions
@@ -1826,6 +1900,10 @@ INFO: missing description
   in schemas/maas-backend/invoices/invoiceUnits.json
 INFO: missing description
   in schemas/maas-backend/invoices/invoiceUnits.json
+INFO: missing description
+  in schemas/maas-backend/itineraries/itinerary-create-v2/request.json
+INFO: missing description
+  in schemas/maas-backend/itineraries/itinerary-create-v2/response.json
 INFO: missing description
   in schemas/maas-backend/itineraries/itinerary-create/request.json
 INFO: missing description

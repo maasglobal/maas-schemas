@@ -101,7 +101,6 @@ export type ResponseBrand = {
 export const examplesResponse: NonEmptyArray<Response> = [
   {
     plan: {
-      from: { lat: 35.5907257, lon: 139.6791986 },
       outwards: [],
       returns: [],
       planId: 'd2ac1de0-5edd-11ea-a5fd-b5d2f648464c',
