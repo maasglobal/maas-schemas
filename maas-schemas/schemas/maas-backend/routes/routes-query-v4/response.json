@@ -7,6 +7,9 @@
     "plan": {
       "$ref": "https://schemas.maas.global/core/multimodal-plan.json"
     },
+    "requestParams": {
+      "$ref": "#/definitions/requestParams"
+    },
     "metadata": {
       "$ref": "https://schemas.maas.global/core/multimodal-routes-metadata.json"
     },
@@ -18,8 +21,29 @@
     },
     "debug": { "type": "object" }
   },
-  "required": ["plan", "metadata"],
+  "required": ["plan", "requestParams", "metadata"],
   "additionalProperties": false,
+  "definitions": {
+    "requestParams": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "$ref": "https://schemas.maas.global/core/components/place.json"
+        },
+        "to": {
+          "$ref": "https://schemas.maas.global/core/components/place.json"
+        },
+        "modeId": {
+          "type": "string",
+          "description": "TODO: make more strict, ref to common def"
+        },
+        "accessibilityFilter": {
+          "type": "boolean",
+          "description": "TODO: make more strict, ref to common def"
+        }
+      }
+    }
+  },
   "examples": [
     {
       "plan": {
@@ -38,6 +62,18 @@
           "modeId": "TRANSIT",
           "accessibilityFilter": false
         }
+      },
+      "requestParams": {
+        "from": {
+          "lat": 35.5907257,
+          "lon": 139.6791986
+        },
+        "to": {
+          "lat": 35.5907257,
+          "lon": 139.6791986
+        },
+        "modeId": "TRANSIT",
+        "accessibilityFilter": false
       },
       "metadata": {
         "availableAccessibilityFilter": true,

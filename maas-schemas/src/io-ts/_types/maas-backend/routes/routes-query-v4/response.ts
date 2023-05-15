@@ -12,6 +12,7 @@ import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as t from 'io-ts';
 import { nonEmptyArray } from 'io-ts-types/lib/nonEmptyArray';
 
+import * as Place_de2d_ from '../../../core/components/place';
 import * as Error_b620_ from '../../../core/error';
 import * as MultimodalPlan_758c_ from '../../../core/multimodal-plan';
 import * as MultimodalRoutesMetadata_478d_ from '../../../core/multimodal-routes-metadata';
@@ -34,16 +35,70 @@ export const Defined: DefinedC = new DefinedType();
 export const schemaId =
   'https://schemas.maas.global/maas-backend/routes/routes-query-v4/response.json';
 
+// RequestParams
+// The purpose of this remains a mystery
+export type RequestParams = t.Branded<
+  {
+    from?: Place_de2d_.Place;
+    to?: Place_de2d_.Place;
+    modeId?: string;
+    accessibilityFilter?: boolean;
+  } & Record<string, unknown>,
+  RequestParamsBrand
+>;
+export type RequestParamsC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        from: typeof Place_de2d_.Place;
+        to: typeof Place_de2d_.Place;
+        modeId: t.StringC;
+        accessibilityFilter: t.BooleanC;
+      }>,
+      t.RecordC<t.StringC, t.UnknownC>,
+    ]
+  >,
+  RequestParamsBrand
+>;
+export const RequestParams: RequestParamsC = t.brand(
+  t.intersection([
+    t.partial({
+      from: Place_de2d_.Place,
+      to: Place_de2d_.Place,
+      modeId: t.string,
+      accessibilityFilter: t.boolean,
+    }),
+    t.record(t.string, t.unknown),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      from?: Place_de2d_.Place;
+      to?: Place_de2d_.Place;
+      modeId?: string;
+      accessibilityFilter?: boolean;
+    } & Record<string, unknown>,
+    RequestParamsBrand
+  > => true,
+  'RequestParams',
+);
+export type RequestParamsBrand = {
+  readonly RequestParams: unique symbol;
+};
+
 // Response
 // The default export. More information at the top.
 export type Response = t.Branded<
   {
     plan?: MultimodalPlan_758c_.MultimodalPlan;
+    requestParams?: RequestParams;
     metadata?: MultimodalRoutesMetadata_478d_.MultimodalRoutesMetadata;
     reasons?: Array<Error_b620_.Reason>;
     debug?: Record<string, unknown> & Record<string, unknown>;
   } & {
     plan: Defined;
+    requestParams: Defined;
     metadata: Defined;
   },
   ResponseBrand
@@ -53,12 +108,14 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         plan: typeof MultimodalPlan_758c_.MultimodalPlan;
+        requestParams: typeof RequestParams;
         metadata: typeof MultimodalRoutesMetadata_478d_.MultimodalRoutesMetadata;
         reasons: t.ArrayC<typeof Error_b620_.Reason>;
         debug: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
       }>,
       t.TypeC<{
         plan: typeof Defined;
+        requestParams: typeof Defined;
         metadata: typeof Defined;
       }>,
     ]
@@ -69,12 +126,14 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       plan: MultimodalPlan_758c_.MultimodalPlan,
+      requestParams: RequestParams,
       metadata: MultimodalRoutesMetadata_478d_.MultimodalRoutesMetadata,
       reasons: t.array(Error_b620_.Reason),
       debug: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
     }),
     t.type({
       plan: Defined,
+      requestParams: Defined,
       metadata: Defined,
     }),
   ]),
@@ -83,11 +142,13 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       plan?: MultimodalPlan_758c_.MultimodalPlan;
+      requestParams?: RequestParams;
       metadata?: MultimodalRoutesMetadata_478d_.MultimodalRoutesMetadata;
       reasons?: Array<Error_b620_.Reason>;
       debug?: Record<string, unknown> & Record<string, unknown>;
     } & {
       plan: Defined;
+      requestParams: Defined;
       metadata: Defined;
     },
     ResponseBrand
@@ -110,6 +171,12 @@ export const examplesResponse: NonEmptyArray<Response> = [
         modeId: 'TRANSIT',
         accessibilityFilter: false,
       },
+    },
+    requestParams: {
+      from: { lat: 35.5907257, lon: 139.6791986 },
+      to: { lat: 35.5907257, lon: 139.6791986 },
+      modeId: 'TRANSIT',
+      accessibilityFilter: false,
     },
     metadata: {
       availableAccessibilityFilter: true,

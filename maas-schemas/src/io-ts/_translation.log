@@ -1006,10 +1006,6 @@ WARNING: unexpected key in a $ref object
   in schemas/core/modes/MODE_TAXI.json
 WARNING: unexpected key in a $ref object
   in schemas/core/modes/MODE_TAXI.json
-INFO: primitive type "string" used outside top-level definitions
-  in schemas/core/multimodal-plan.json
-INFO: missing description
-  in schemas/core/multimodal-plan.json
 INFO: missing description
   in schemas/core/multimodal-plan.json
 INFO: primitive type "string" used outside top-level definitions
@@ -2062,6 +2058,10 @@ INFO: primitive type "string" used outside top-level definitions
   in schemas/maas-backend/routes/routes-query-v4/request.json
 INFO: missing description
   in schemas/maas-backend/routes/routes-query-v4/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/routes/routes-query-v4/response.json
+INFO: missing description
+  in schemas/maas-backend/routes/routes-query-v4/response.json
 INFO: primitive type "string" used outside top-level definitions
   in schemas/maas-backend/routes/routes-query/request.json
 INFO: primitive type "string" used outside top-level definitions

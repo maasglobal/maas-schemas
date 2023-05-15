@@ -12,36 +12,14 @@
     },
     "returns": {
       "$ref": "#/definitions/itineraries"
-    },
-    "requestParams": {
-      "$ref": "#/definitions/requestParams"
     }
   },
-  "required": ["planId", "outwards", "returns", "requestParams"],
+  "required": ["planId", "outwards", "returns"],
   "definitions": {
     "itineraries": {
       "type": "array",
       "items": {
         "$ref": "https://schemas.maas.global/core/itineraryV2.json"
-      }
-    },
-    "requestParams": {
-      "type": "object",
-      "properties": {
-        "from": {
-          "$ref": "https://schemas.maas.global/core/components/place.json"
-        },
-        "to": {
-          "$ref": "https://schemas.maas.global/core/components/place.json"
-        },
-        "modeId": {
-          "type": "string",
-          "description": "TODO: make more strict, ref to common def"
-        },
-        "accessibilityFilter": {
-          "type": "boolean",
-          "description": "TODO: make more strict, ref to common def"
-        }
       }
     }
   }

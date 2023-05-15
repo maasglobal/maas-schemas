@@ -10,7 +10,6 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
-import * as Place_de2d_ from './components/place';
 import * as Units_c404_ from './components/units';
 import * as ItineraryV2_5f31_ from './itineraryV2';
 
@@ -50,58 +49,6 @@ export type ItinerariesBrand = {
   readonly Itineraries: unique symbol;
 };
 
-// RequestParams
-// The purpose of this remains a mystery
-export type RequestParams = t.Branded<
-  {
-    from?: Place_de2d_.Place;
-    to?: Place_de2d_.Place;
-    modeId?: string;
-    accessibilityFilter?: boolean;
-  } & Record<string, unknown>,
-  RequestParamsBrand
->;
-export type RequestParamsC = t.BrandC<
-  t.IntersectionC<
-    [
-      t.PartialC<{
-        from: typeof Place_de2d_.Place;
-        to: typeof Place_de2d_.Place;
-        modeId: t.StringC;
-        accessibilityFilter: t.BooleanC;
-      }>,
-      t.RecordC<t.StringC, t.UnknownC>,
-    ]
-  >,
-  RequestParamsBrand
->;
-export const RequestParams: RequestParamsC = t.brand(
-  t.intersection([
-    t.partial({
-      from: Place_de2d_.Place,
-      to: Place_de2d_.Place,
-      modeId: t.string,
-      accessibilityFilter: t.boolean,
-    }),
-    t.record(t.string, t.unknown),
-  ]),
-  (
-    x,
-  ): x is t.Branded<
-    {
-      from?: Place_de2d_.Place;
-      to?: Place_de2d_.Place;
-      modeId?: string;
-      accessibilityFilter?: boolean;
-    } & Record<string, unknown>,
-    RequestParamsBrand
-  > => true,
-  'RequestParams',
-);
-export type RequestParamsBrand = {
-  readonly RequestParams: unique symbol;
-};
-
 // MultimodalPlan
 // The default export. More information at the top.
 export type MultimodalPlan = t.Branded<
@@ -109,12 +56,10 @@ export type MultimodalPlan = t.Branded<
     planId?: Units_c404_.Uuid;
     outwards?: Itineraries;
     returns?: Itineraries;
-    requestParams?: RequestParams;
   } & Record<string, unknown>) & {
     planId: Defined;
     outwards: Defined;
     returns: Defined;
-    requestParams: Defined;
   },
   MultimodalPlanBrand
 >;
@@ -127,7 +72,6 @@ export type MultimodalPlanC = t.BrandC<
             planId: typeof Units_c404_.Uuid;
             outwards: typeof Itineraries;
             returns: typeof Itineraries;
-            requestParams: typeof RequestParams;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
         ]
@@ -136,7 +80,6 @@ export type MultimodalPlanC = t.BrandC<
         planId: typeof Defined;
         outwards: typeof Defined;
         returns: typeof Defined;
-        requestParams: typeof Defined;
       }>,
     ]
   >,
@@ -149,7 +92,6 @@ export const MultimodalPlan: MultimodalPlanC = t.brand(
         planId: Units_c404_.Uuid,
         outwards: Itineraries,
         returns: Itineraries,
-        requestParams: RequestParams,
       }),
       t.record(t.string, t.unknown),
     ]),
@@ -157,7 +99,6 @@ export const MultimodalPlan: MultimodalPlanC = t.brand(
       planId: Defined,
       outwards: Defined,
       returns: Defined,
-      requestParams: Defined,
     }),
   ]),
   (
@@ -167,12 +108,10 @@ export const MultimodalPlan: MultimodalPlanC = t.brand(
       planId?: Units_c404_.Uuid;
       outwards?: Itineraries;
       returns?: Itineraries;
-      requestParams?: RequestParams;
     } & Record<string, unknown>) & {
       planId: Defined;
       outwards: Defined;
       returns: Defined;
-      requestParams: Defined;
     },
     MultimodalPlanBrand
   > => true,
