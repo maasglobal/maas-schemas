@@ -50,15 +50,12 @@ export type IdBrand = {
   readonly Id: unique symbol;
 };
 
-// ItineraryV2
-// The default export. More information at the top.
-export type ItineraryV2 = t.Branded<
-  {
-    id?: Id;
-    sourcePlanId?: Units_c404_.Uuid;
+// ItineraryV2Base
+// The purpose of this remains a mystery
+export type ItineraryV2Base = t.Branded<
+  ({
     isOvertaken?: boolean;
     identityId?: Units_c404_.IdentityId;
-    signature?: Common_ffba_.Signature;
     state?: State_2db3_.ItineraryState;
     startTime?: Units_c404_.Time;
     endTime?: Units_c404_.Time;
@@ -68,32 +65,34 @@ export type ItineraryV2 = t.Branded<
     productOptions?: Array<ProductOptionV2_8170_.ProductOptionV2>;
     type?: 'outward' | 'return';
     bookings?: Array<Booking_4353_.Booking>;
-  } & {
+  } & Record<string, unknown>) & {
     startTime: Defined;
     endTime: Defined;
     legs: Defined;
   },
-  ItineraryV2Brand
+  ItineraryV2BaseBrand
 >;
-export type ItineraryV2C = t.BrandC<
+export type ItineraryV2BaseC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        id: typeof Id;
-        sourcePlanId: typeof Units_c404_.Uuid;
-        isOvertaken: t.BooleanC;
-        identityId: typeof Units_c404_.IdentityId;
-        signature: typeof Common_ffba_.Signature;
-        state: typeof State_2db3_.ItineraryState;
-        startTime: typeof Units_c404_.Time;
-        endTime: typeof Units_c404_.Time;
-        co2: t.NumberC;
-        fares: t.ArrayC<typeof Fare_a3ab_.Fare>;
-        legs: t.ArrayC<typeof LegV2_0fbd_.LegV2>;
-        productOptions: t.ArrayC<typeof ProductOptionV2_8170_.ProductOptionV2>;
-        type: t.UnionC<[t.LiteralC<'outward'>, t.LiteralC<'return'>]>;
-        bookings: t.ArrayC<typeof Booking_4353_.Booking>;
-      }>,
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            isOvertaken: t.BooleanC;
+            identityId: typeof Units_c404_.IdentityId;
+            state: typeof State_2db3_.ItineraryState;
+            startTime: typeof Units_c404_.Time;
+            endTime: typeof Units_c404_.Time;
+            co2: t.NumberC;
+            fares: t.ArrayC<typeof Fare_a3ab_.Fare>;
+            legs: t.ArrayC<typeof LegV2_0fbd_.LegV2>;
+            productOptions: t.ArrayC<typeof ProductOptionV2_8170_.ProductOptionV2>;
+            type: t.UnionC<[t.LiteralC<'outward'>, t.LiteralC<'return'>]>;
+            bookings: t.ArrayC<typeof Booking_4353_.Booking>;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
       t.TypeC<{
         startTime: typeof Defined;
         endTime: typeof Defined;
@@ -101,26 +100,26 @@ export type ItineraryV2C = t.BrandC<
       }>,
     ]
   >,
-  ItineraryV2Brand
+  ItineraryV2BaseBrand
 >;
-export const ItineraryV2: ItineraryV2C = t.brand(
+export const ItineraryV2Base: ItineraryV2BaseC = t.brand(
   t.intersection([
-    t.partial({
-      id: Id,
-      sourcePlanId: Units_c404_.Uuid,
-      isOvertaken: t.boolean,
-      identityId: Units_c404_.IdentityId,
-      signature: Common_ffba_.Signature,
-      state: State_2db3_.ItineraryState,
-      startTime: Units_c404_.Time,
-      endTime: Units_c404_.Time,
-      co2: t.number,
-      fares: t.array(Fare_a3ab_.Fare),
-      legs: t.array(LegV2_0fbd_.LegV2),
-      productOptions: t.array(ProductOptionV2_8170_.ProductOptionV2),
-      type: t.union([t.literal('outward'), t.literal('return')]),
-      bookings: t.array(Booking_4353_.Booking),
-    }),
+    t.intersection([
+      t.partial({
+        isOvertaken: t.boolean,
+        identityId: Units_c404_.IdentityId,
+        state: State_2db3_.ItineraryState,
+        startTime: Units_c404_.Time,
+        endTime: Units_c404_.Time,
+        co2: t.number,
+        fares: t.array(Fare_a3ab_.Fare),
+        legs: t.array(LegV2_0fbd_.LegV2),
+        productOptions: t.array(ProductOptionV2_8170_.ProductOptionV2),
+        type: t.union([t.literal('outward'), t.literal('return')]),
+        bookings: t.array(Booking_4353_.Booking),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
     t.type({
       startTime: Defined,
       endTime: Defined,
@@ -130,12 +129,9 @@ export const ItineraryV2: ItineraryV2C = t.brand(
   (
     x,
   ): x is t.Branded<
-    {
-      id?: Id;
-      sourcePlanId?: Units_c404_.Uuid;
+    ({
       isOvertaken?: boolean;
       identityId?: Units_c404_.IdentityId;
-      signature?: Common_ffba_.Signature;
       state?: State_2db3_.ItineraryState;
       startTime?: Units_c404_.Time;
       endTime?: Units_c404_.Time;
@@ -145,11 +141,93 @@ export const ItineraryV2: ItineraryV2C = t.brand(
       productOptions?: Array<ProductOptionV2_8170_.ProductOptionV2>;
       type?: 'outward' | 'return';
       bookings?: Array<Booking_4353_.Booking>;
-    } & {
+    } & Record<string, unknown>) & {
       startTime: Defined;
       endTime: Defined;
       legs: Defined;
     },
+    ItineraryV2BaseBrand
+  > => true,
+  'ItineraryV2Base',
+);
+export type ItineraryV2BaseBrand = {
+  readonly ItineraryV2Base: unique symbol;
+};
+
+// ItineraryV2
+// The default export. More information at the top.
+export type ItineraryV2 = t.Branded<
+  ItineraryV2Base &
+    (({
+      id?: Id;
+      sourcePlanId?: Units_c404_.Uuid;
+      signature?: Common_ffba_.Signature;
+    } & Record<string, unknown>) & {
+      id: Defined;
+      sourcePlanId: Defined;
+      signature: Defined;
+    }),
+  ItineraryV2Brand
+>;
+export type ItineraryV2C = t.BrandC<
+  t.IntersectionC<
+    [
+      typeof ItineraryV2Base,
+      t.IntersectionC<
+        [
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                id: typeof Id;
+                sourcePlanId: typeof Units_c404_.Uuid;
+                signature: typeof Common_ffba_.Signature;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
+          t.TypeC<{
+            id: typeof Defined;
+            sourcePlanId: typeof Defined;
+            signature: typeof Defined;
+          }>,
+        ]
+      >,
+    ]
+  >,
+  ItineraryV2Brand
+>;
+export const ItineraryV2: ItineraryV2C = t.brand(
+  t.intersection([
+    ItineraryV2Base,
+    t.intersection([
+      t.intersection([
+        t.partial({
+          id: Id,
+          sourcePlanId: Units_c404_.Uuid,
+          signature: Common_ffba_.Signature,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
+      t.type({
+        id: Defined,
+        sourcePlanId: Defined,
+        signature: Defined,
+      }),
+    ]),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    ItineraryV2Base &
+      (({
+        id?: Id;
+        sourcePlanId?: Units_c404_.Uuid;
+        signature?: Common_ffba_.Signature;
+      } & Record<string, unknown>) & {
+        id: Defined;
+        sourcePlanId: Defined;
+        signature: Defined;
+      }),
     ItineraryV2Brand
   > => true,
   'ItineraryV2',

@@ -2,74 +2,84 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/itineraryV2.json",
   "description": "OpenTripPlanner itinerary V2, augmented with leg bookings per leg",
-  "type": "object",
   "definitions": {
     "id": {
       "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
+    },
+    "ItineraryV2Base": {
+      "type": "object",
+      "properties": {
+        "isOvertaken": {
+          "type": "boolean"
+        },
+        "identityId": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+        },
+        "state": {
+          "$ref": "https://schemas.maas.global/core/components/state.json#/definitions/itineraryState"
+        },
+        "startTime": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+        },
+        "endTime": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+        },
+        "co2": {
+          "description": "Grams of CO2 as a byproduct by the trip",
+          "type": "number",
+          "minimum": 0
+        },
+        "fares": {
+          "type": "array",
+          "items": {
+            "$ref": "https://schemas.maas.global/core/components/fare.json"
+          }
+        },
+        "legs": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "https://schemas.maas.global/core/legV2.json"
+          }
+        },
+        "productOptions": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "https://schemas.maas.global/core/product-optionV2.json"
+          }
+        },
+        "type": {
+          "enum": ["outward", "return"]
+        },
+        "bookings": {
+          "type": "array",
+          "items": {
+            "$ref": "https://schemas.maas.global/core/booking.json"
+          }
+        }
+      },
+      "required": ["startTime", "endTime", "legs"]
     }
   },
-  "properties": {
-    "id": {
-      "$ref": "#/definitions/id"
-    },
-    "sourcePlanId": {
-      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
-    },
-    "isOvertaken": {
-      "type": "boolean"
-    },
-    "identityId": {
-      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
-    },
-    "signature": {
-      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/signature"
-    },
-    "state": {
-      "$ref": "https://schemas.maas.global/core/components/state.json#/definitions/itineraryState"
-    },
-    "startTime": {
-      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
-    },
-    "endTime": {
-      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
-    },
-    "co2": {
-      "description": "Grams of CO2 as a byproduct by the trip",
-      "type": "number",
-      "minimum": 0
-    },
-    "fares": {
-      "type": "array",
-      "items": {
-        "$ref": "https://schemas.maas.global/core/components/fare.json"
-      }
-    },
-    "legs": {
-      "type": "array",
-      "minItems": 0,
-      "items": {
-        "$ref": "https://schemas.maas.global/core/legV2.json"
-      }
-    },
-    "productOptions": {
-      "type": "array",
-      "minItems": 0,
-      "items": {
-        "$ref": "https://schemas.maas.global/core/product-optionV2.json"
-      }
-    },
-    "type": {
-      "enum": ["outward", "return"]
-    },
-    "bookings": {
-      "type": "array",
-      "items": {
-        "$ref": "https://schemas.maas.global/core/booking.json"
-      }
+  "allOf": [
+    { "$ref": "#/definitions/ItineraryV2Base" },
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/id"
+        },
+        "sourcePlanId": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
+        },
+        "signature": {
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/signature"
+        }
+      },
+      "required": ["id", "sourcePlanId", "signature"]
     }
-  },
-  "additionalProperties": false,
-  "required": ["startTime", "endTime", "legs"],
+  ],
   "examples": [
     {
       "legs": [
