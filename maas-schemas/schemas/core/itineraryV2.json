@@ -67,6 +67,10 @@
     {
       "type": "object",
       "properties": {
+        "version": {
+          "type": "string",
+          "const": "2"
+        },
         "id": {
           "$ref": "#/definitions/id"
         },
@@ -77,11 +81,14 @@
           "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/signature"
         }
       },
-      "required": ["id", "sourcePlanId", "signature"]
+      "required": ["version", "id", "sourcePlanId", "signature"]
     }
   ],
   "examples": [
     {
+      "version": "2",
+      "id": "4c6c7691-a995-11eb-ae40-bf1250611c28",
+      "type": "outward",
       "legs": [
         {
           "from": { "lat": 47.372913, "lon": 8.534157, "name": "Kochoptik" },
@@ -506,11 +513,11 @@
           },
           "ref": 0
         }
-      ],
-      "id": "4c6c7691-a995-11eb-ae40-bf1250611c28",
-      "type": "outward"
+      ]
     },
     {
+      "version": "2",
+      "id": "da65c501-be17-11eb-91d1-e9bf88371f9e",
       "startTime": 1622032680000,
       "signature": "453c4ec8bf749e5423cf92dfe9e035e350a3a6446626929ad4d54fcfdedf4fbe",
       "fares": [
@@ -522,7 +529,6 @@
           "type": "charge"
         }
       ],
-      "id": "da65c501-be17-11eb-91d1-e9bf88371f9e",
       "co2": 18,
       "type": "outward",
       "endTime": 1622037420000,

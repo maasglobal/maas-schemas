@@ -14,9 +14,6 @@
     "payload": {
       "type": "object",
       "properties": {
-        "itinerary": {
-          "$ref": "https://schemas.maas.global/core/itineraryV2.json"
-        },
         "paymentSourceId": {
           "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/paymentSourceId"
         },
@@ -38,7 +35,7 @@
       "type": "object",
       "properties": {
         "itinerary": {
-          "$ref": "https://schemas.maas.global/core/itinerary.json"
+          "$ref": "https://schemas.maas.global/core/itineraryV2.json"
         },
         "customerSelections": {
           "type": "array",

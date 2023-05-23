@@ -842,6 +842,8 @@ WARNING: minItems field not supported outside top-level definitions
   in schemas/core/itineraryV2.json
 WARNING: minItems field not supported outside top-level definitions
   in schemas/core/itineraryV2.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/itineraryV2.json
 INFO: missing description
   in schemas/core/itineraryV2.json
 INFO: missing description

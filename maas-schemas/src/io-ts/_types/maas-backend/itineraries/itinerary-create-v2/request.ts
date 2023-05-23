@@ -15,7 +15,6 @@ import * as Common_ffba_ from '../../../core/components/common';
 import * as CustomerSelection_57c3_ from '../../../core/components/customerSelection';
 import * as Message_554d_ from '../../../core/components/message';
 import * as Units_c404_ from '../../../core/components/units';
-import * as Itinerary_8303_ from '../../../core/itinerary';
 import * as ItineraryV2_5f31_ from '../../../core/itineraryV2';
 import * as ProductOptionV2_8170_ from '../../../core/product-optionV2';
 
@@ -26,7 +25,7 @@ export const schemaId =
 // The purpose of this remains a mystery
 export type OutwardReturnWrapper = t.Branded<
   {
-    itinerary?: Itinerary_8303_.Itinerary;
+    itinerary?: ItineraryV2_5f31_.ItineraryV2;
     customerSelections?: Array<
       {
         ref?: ProductOptionV2_8170_.Ref;
@@ -40,7 +39,7 @@ export type OutwardReturnWrapperC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        itinerary: typeof Itinerary_8303_.Itinerary;
+        itinerary: typeof ItineraryV2_5f31_.ItineraryV2;
         customerSelections: t.ArrayC<
           t.IntersectionC<
             [
@@ -61,7 +60,7 @@ export type OutwardReturnWrapperC = t.BrandC<
 export const OutwardReturnWrapper: OutwardReturnWrapperC = t.brand(
   t.intersection([
     t.partial({
-      itinerary: Itinerary_8303_.Itinerary,
+      itinerary: ItineraryV2_5f31_.ItineraryV2,
       customerSelections: t.array(
         t.intersection([
           t.partial({
@@ -78,7 +77,7 @@ export const OutwardReturnWrapper: OutwardReturnWrapperC = t.brand(
     x,
   ): x is t.Branded<
     {
-      itinerary?: Itinerary_8303_.Itinerary;
+      itinerary?: ItineraryV2_5f31_.ItineraryV2;
       customerSelections?: Array<
         {
           ref?: ProductOptionV2_8170_.Ref;
@@ -101,7 +100,6 @@ export type Request = t.Branded<
     identityId?: Units_c404_.IdentityId;
     headers?: ApiCommon_16a4_.Headers;
     payload?: {
-      itinerary?: ItineraryV2_5f31_.ItineraryV2;
       paymentSourceId?: Common_ffba_.PaymentSourceId;
       outward?: OutwardReturnWrapper;
       return?: OutwardReturnWrapper;
@@ -115,7 +113,6 @@ export type RequestC = t.BrandC<
     identityId: typeof Units_c404_.IdentityId;
     headers: typeof ApiCommon_16a4_.Headers;
     payload: t.PartialC<{
-      itinerary: typeof ItineraryV2_5f31_.ItineraryV2;
       paymentSourceId: typeof Common_ffba_.PaymentSourceId;
       outward: typeof OutwardReturnWrapper;
       return: typeof OutwardReturnWrapper;
@@ -129,7 +126,6 @@ export const Request: RequestC = t.brand(
     identityId: Units_c404_.IdentityId,
     headers: ApiCommon_16a4_.Headers,
     payload: t.partial({
-      itinerary: ItineraryV2_5f31_.ItineraryV2,
       paymentSourceId: Common_ffba_.PaymentSourceId,
       outward: OutwardReturnWrapper,
       return: OutwardReturnWrapper,
@@ -143,7 +139,6 @@ export const Request: RequestC = t.brand(
       identityId?: Units_c404_.IdentityId;
       headers?: ApiCommon_16a4_.Headers;
       payload?: {
-        itinerary?: ItineraryV2_5f31_.ItineraryV2;
         paymentSourceId?: Common_ffba_.PaymentSourceId;
         outward?: OutwardReturnWrapper;
         return?: OutwardReturnWrapper;

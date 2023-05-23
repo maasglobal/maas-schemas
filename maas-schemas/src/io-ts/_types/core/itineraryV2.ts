@@ -159,10 +159,12 @@ export type ItineraryV2BaseBrand = {
 export type ItineraryV2 = t.Branded<
   ItineraryV2Base &
     (({
+      version?: string & '2';
       id?: Id;
       sourcePlanId?: Units_c404_.Uuid;
       signature?: Common_ffba_.Signature;
     } & Record<string, unknown>) & {
+      version: Defined;
       id: Defined;
       sourcePlanId: Defined;
       signature: Defined;
@@ -178,6 +180,7 @@ export type ItineraryV2C = t.BrandC<
           t.IntersectionC<
             [
               t.PartialC<{
+                version: t.IntersectionC<[t.StringC, t.LiteralC<'2'>]>;
                 id: typeof Id;
                 sourcePlanId: typeof Units_c404_.Uuid;
                 signature: typeof Common_ffba_.Signature;
@@ -186,6 +189,7 @@ export type ItineraryV2C = t.BrandC<
             ]
           >,
           t.TypeC<{
+            version: typeof Defined;
             id: typeof Defined;
             sourcePlanId: typeof Defined;
             signature: typeof Defined;
@@ -202,6 +206,7 @@ export const ItineraryV2: ItineraryV2C = t.brand(
     t.intersection([
       t.intersection([
         t.partial({
+          version: t.intersection([t.string, t.literal('2')]),
           id: Id,
           sourcePlanId: Units_c404_.Uuid,
           signature: Common_ffba_.Signature,
@@ -209,6 +214,7 @@ export const ItineraryV2: ItineraryV2C = t.brand(
         t.record(t.string, t.unknown),
       ]),
       t.type({
+        version: Defined,
         id: Defined,
         sourcePlanId: Defined,
         signature: Defined,
@@ -220,10 +226,12 @@ export const ItineraryV2: ItineraryV2C = t.brand(
   ): x is t.Branded<
     ItineraryV2Base &
       (({
+        version?: string & '2';
         id?: Id;
         sourcePlanId?: Units_c404_.Uuid;
         signature?: Common_ffba_.Signature;
       } & Record<string, unknown>) & {
+        version: Defined;
         id: Defined;
         sourcePlanId: Defined;
         signature: Defined;
@@ -238,6 +246,9 @@ export type ItineraryV2Brand = {
 /** require('io-ts-validator').validator(nonEmptyArray(ItineraryV2)).decodeSync(examplesItineraryV2) // => examplesItineraryV2 */
 export const examplesItineraryV2: NonEmptyArray<ItineraryV2> = [
   {
+    version: '2',
+    id: '4c6c7691-a995-11eb-ae40-bf1250611c28',
+    type: 'outward',
     legs: [
       {
         from: { lat: 47.372913, lon: 8.534157, name: 'Kochoptik' },
@@ -548,10 +559,10 @@ export const examplesItineraryV2: NonEmptyArray<ItineraryV2> = [
         ref: 0,
       },
     ],
-    id: '4c6c7691-a995-11eb-ae40-bf1250611c28',
-    type: 'outward',
   },
   {
+    version: '2',
+    id: 'da65c501-be17-11eb-91d1-e9bf88371f9e',
     startTime: 1622032680000,
     signature: '453c4ec8bf749e5423cf92dfe9e035e350a3a6446626929ad4d54fcfdedf4fbe',
     fares: [
@@ -563,7 +574,6 @@ export const examplesItineraryV2: NonEmptyArray<ItineraryV2> = [
         type: 'charge',
       },
     ],
-    id: 'da65c501-be17-11eb-91d1-e9bf88371f9e',
     co2: 18,
     type: 'outward',
     endTime: 1622037420000,
