@@ -80,6 +80,8 @@ INFO: missing description
   in schemas/core/components/api-common.json
 INFO: missing description
   in schemas/core/components/api-common.json
+INFO: missing description
+  in schemas/core/components/api-common.json
 INFO: primitive type "string" used outside top-level definitions
   in schemas/core/components/authorization.json
 INFO: primitive type "string" used outside top-level definitions
@@ -1900,6 +1902,8 @@ INFO: missing description
   in schemas/maas-backend/invoices/invoiceUnits.json
 INFO: missing description
   in schemas/maas-backend/invoices/invoiceUnits.json
+INFO: missing description
+  in schemas/maas-backend/itineraries/itinerary-create-v2/request.json
 INFO: missing description
   in schemas/maas-backend/itineraries/itinerary-create-v2/request.json
 INFO: missing description

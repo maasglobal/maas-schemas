@@ -14,9 +14,23 @@ import * as ApiCommon_16a4_ from '../../../core/components/api-common';
 import * as Common_ffba_ from '../../../core/components/common';
 import * as CustomerSelection_57c3_ from '../../../core/components/customerSelection';
 import * as Message_554d_ from '../../../core/components/message';
-import * as Units_c404_ from '../../../core/components/units';
 import * as ItineraryV2_5f31_ from '../../../core/itineraryV2';
 import * as ProductOptionV2_8170_ from '../../../core/product-optionV2';
+
+export type Defined = {} | null;
+export class DefinedType extends t.Type<Defined> {
+  readonly _tag: 'DefinedType' = 'DefinedType';
+  constructor() {
+    super(
+      'defined',
+      (u): u is Defined => typeof u !== 'undefined',
+      (u, c) => (this.is(u) ? t.success(u) : t.failure(u, c)),
+      t.identity,
+    );
+  }
+}
+export type DefinedC = {} & DefinedType;
+export const Defined: DefinedC = new DefinedType();
 
 export const schemaId =
   'https://schemas.maas.global/maas-backend/itineraries/itinerary-create-v2/request.json';
@@ -93,57 +107,101 @@ export type OutwardReturnWrapperBrand = {
   readonly OutwardReturnWrapper: unique symbol;
 };
 
-// Request
-// The default export. More information at the top.
-export type Request = t.Branded<
+// Body
+// The purpose of this remains a mystery
+export type Body = t.Branded<
   {
-    identityId?: Units_c404_.IdentityId;
-    headers?: ApiCommon_16a4_.Headers;
-    payload?: {
-      paymentSourceId?: Common_ffba_.PaymentSourceId;
-      outward?: OutwardReturnWrapper;
-      return?: OutwardReturnWrapper;
-      message?: Message_554d_.Message;
-    };
+    paymentSourceId?: Common_ffba_.PaymentSourceId;
+    outward?: OutwardReturnWrapper;
+    return?: OutwardReturnWrapper;
+    message?: Message_554d_.Message;
+  } & {
+    outward: Defined;
+    paymentSourceId: Defined;
   },
-  RequestBrand
+  BodyBrand
 >;
-export type RequestC = t.BrandC<
-  t.PartialC<{
-    identityId: typeof Units_c404_.IdentityId;
-    headers: typeof ApiCommon_16a4_.Headers;
-    payload: t.PartialC<{
-      paymentSourceId: typeof Common_ffba_.PaymentSourceId;
-      outward: typeof OutwardReturnWrapper;
-      return: typeof OutwardReturnWrapper;
-      message: typeof Message_554d_.Message;
-    }>;
-  }>,
-  RequestBrand
+export type BodyC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        paymentSourceId: typeof Common_ffba_.PaymentSourceId;
+        outward: typeof OutwardReturnWrapper;
+        return: typeof OutwardReturnWrapper;
+        message: typeof Message_554d_.Message;
+      }>,
+      t.TypeC<{
+        outward: typeof Defined;
+        paymentSourceId: typeof Defined;
+      }>,
+    ]
+  >,
+  BodyBrand
 >;
-export const Request: RequestC = t.brand(
-  t.partial({
-    identityId: Units_c404_.IdentityId,
-    headers: ApiCommon_16a4_.Headers,
-    payload: t.partial({
+export const Body: BodyC = t.brand(
+  t.intersection([
+    t.partial({
       paymentSourceId: Common_ffba_.PaymentSourceId,
       outward: OutwardReturnWrapper,
       return: OutwardReturnWrapper,
       message: Message_554d_.Message,
     }),
+    t.type({
+      outward: Defined,
+      paymentSourceId: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    {
+      paymentSourceId?: Common_ffba_.PaymentSourceId;
+      outward?: OutwardReturnWrapper;
+      return?: OutwardReturnWrapper;
+      message?: Message_554d_.Message;
+    } & {
+      outward: Defined;
+      paymentSourceId: Defined;
+    },
+    BodyBrand
+  > => true,
+  'Body',
+);
+export type BodyBrand = {
+  readonly Body: unique symbol;
+};
+
+// Request
+// The default export. More information at the top.
+export type Request = t.Branded<
+  {
+    headers?: ApiCommon_16a4_.StandardApiEndpointHeaders;
+    requestContext?: ApiCommon_16a4_.ApiGatewayAuthorizedRequestContext;
+    body?: Body;
+  },
+  RequestBrand
+>;
+export type RequestC = t.BrandC<
+  t.PartialC<{
+    headers: typeof ApiCommon_16a4_.StandardApiEndpointHeaders;
+    requestContext: typeof ApiCommon_16a4_.ApiGatewayAuthorizedRequestContext;
+    body: typeof Body;
+  }>,
+  RequestBrand
+>;
+export const Request: RequestC = t.brand(
+  t.partial({
+    headers: ApiCommon_16a4_.StandardApiEndpointHeaders,
+    requestContext: ApiCommon_16a4_.ApiGatewayAuthorizedRequestContext,
+    body: Body,
   }),
   (
     x,
   ): x is t.Branded<
     {
-      identityId?: Units_c404_.IdentityId;
-      headers?: ApiCommon_16a4_.Headers;
-      payload?: {
-        paymentSourceId?: Common_ffba_.PaymentSourceId;
-        outward?: OutwardReturnWrapper;
-        return?: OutwardReturnWrapper;
-        message?: Message_554d_.Message;
-      };
+      headers?: ApiCommon_16a4_.StandardApiEndpointHeaders;
+      requestContext?: ApiCommon_16a4_.ApiGatewayAuthorizedRequestContext;
+      body?: Body;
     },
     RequestBrand
   > => true,

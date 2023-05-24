@@ -5,13 +5,18 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "identityId": {
-      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
-    },
     "headers": {
-      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/headers"
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/standardApiEndpointHeaders"
     },
-    "payload": {
+    "requestContext": {
+      "$ref": "https://schemas.maas.global/core/components/api-common.json#/definitions/apiGatewayAuthorizedRequestContext"
+    },
+    "body": {
+      "$ref": "#/definitions/body"
+    }
+  },
+  "definitions": {
+    "body": {
       "type": "object",
       "properties": {
         "paymentSourceId": {
@@ -27,10 +32,9 @@
           "$ref": "https://schemas.maas.global/core/components/message.json"
         }
       },
+      "required": ["outward", "paymentSourceId"],
       "additionalProperties": false
-    }
-  },
-  "definitions": {
+    },
     "outwardReturnWrapper": {
       "type": "object",
       "properties": {
