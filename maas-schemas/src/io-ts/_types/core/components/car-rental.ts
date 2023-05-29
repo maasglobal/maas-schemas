@@ -17,6 +17,7 @@ import * as Ajv_5e26_ from './ajv';
 import * as Common_ffba_ from './common';
 import * as Units_c404_ from './units';
 import * as UnitsGeo_3e31_ from './units-geo';
+import * as Vehicle_52ac_ from './vehicle';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -152,7 +153,7 @@ export const examplesInstruction: NonEmptyArray<Instruction> = [
 // The default export. More information at the top.
 export type CarRental = t.Branded<
   {
-    id?: string;
+    id?: string & Vehicle_52ac_.VehicleId;
     name?: string;
     description?: string;
     image?: Units_c404_.Url;
@@ -204,7 +205,7 @@ export type CarRentalC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        id: t.StringC;
+        id: t.IntersectionC<[t.StringC, typeof Vehicle_52ac_.VehicleId]>;
         name: t.StringC;
         description: t.StringC;
         image: typeof Units_c404_.Url;
@@ -282,7 +283,7 @@ export type CarRentalC = t.BrandC<
 export const CarRental: CarRentalC = t.brand(
   t.intersection([
     t.partial({
-      id: t.string,
+      id: t.intersection([t.string, Vehicle_52ac_.VehicleId]),
       name: t.string,
       description: t.string,
       image: Units_c404_.Url,
@@ -344,7 +345,7 @@ export const CarRental: CarRentalC = t.brand(
     x,
   ): x is t.Branded<
     {
-      id?: string;
+      id?: string & Vehicle_52ac_.VehicleId;
       name?: string;
       description?: string;
       image?: Units_c404_.Url;

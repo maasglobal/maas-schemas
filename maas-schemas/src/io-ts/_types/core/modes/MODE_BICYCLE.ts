@@ -11,6 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 
 import * as BikeStation_4888_ from '../components/bike-station';
+import * as Vehicle_52ac_ from '../components/vehicle';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -38,7 +39,7 @@ export type MODE_BICYCLE = t.Branded<
     pickupStationId?: string;
     returnStationId?: string;
     bike?: ({
-      id?: string;
+      id?: Vehicle_52ac_.VehicleId;
       type?: string;
     } & Record<string, unknown>) & {
       id: Defined;
@@ -59,7 +60,7 @@ export type MODE_BICYCLEC = t.BrandC<
             t.IntersectionC<
               [
                 t.PartialC<{
-                  id: t.StringC;
+                  id: typeof Vehicle_52ac_.VehicleId;
                   type: t.StringC;
                 }>,
                 t.RecordC<t.StringC, t.UnknownC>,
@@ -86,7 +87,7 @@ export const MODE_BICYCLE: MODE_BICYCLEC = t.brand(
       bike: t.intersection([
         t.intersection([
           t.partial({
-            id: t.string,
+            id: Vehicle_52ac_.VehicleId,
             type: t.string,
           }),
           t.record(t.string, t.unknown),
@@ -107,7 +108,7 @@ export const MODE_BICYCLE: MODE_BICYCLEC = t.brand(
       pickupStationId?: string;
       returnStationId?: string;
       bike?: ({
-        id?: string;
+        id?: Vehicle_52ac_.VehicleId;
         type?: string;
       } & Record<string, unknown>) & {
         id: Defined;
