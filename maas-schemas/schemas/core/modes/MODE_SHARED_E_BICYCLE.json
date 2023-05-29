@@ -7,7 +7,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "$ref": "https://schemas.maas.global/core/components/vehicle.json#/definitions/vehicleId"
         },
         "battery": {
           "type": "number"

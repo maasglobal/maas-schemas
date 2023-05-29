@@ -8,7 +8,12 @@
       "description": "The taxi id (in the taxi number plate on top of the vehicle)",
       "type": "string",
       "minLength": 1,
-      "maxLength": 256
+      "maxLength": 256,
+      "allOf": [
+        {
+          "$ref": "https://schemas.maas.global/core/components/vehicle.json#/definitions/vehicleId"
+        }
+      ]
     },
     "noShowReportedByDriver": {
       "type": "boolean"
