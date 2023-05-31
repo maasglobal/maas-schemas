@@ -1,6 +1,5 @@
 import { validator } from 'io-ts-validator';
 
-import { BookingMeta } from '../../../../../_types/core/booking-meta';
 import { VehicleId, VehicleIds } from '../../../../../_types/core/components/vehicle';
 import { MODE_BICYCLE } from '../../../../../_types/core/modes/MODE_BICYCLE';
 import { MODE_BUS } from '../../../../../_types/core/modes/MODE_BUS';
@@ -275,83 +274,6 @@ describe('vehicle-ids', () => {
     it('should extract VehicleIds from MODE_WALK', () => {
       const mode = validator(MODE_WALK).decodeSync({});
       const result: VehicleIds = VehicleIds_.fromMODE_WALK(mode);
-      expect(result).toEqual([]);
-    });
-  });
-
-  describe('fromBookingBeta', () => {
-    it('should extract VehicleIds from BookingMeta', () => {
-      const bicycleId = 'bicycle1';
-      const carId = 'car1';
-      const scooterId = 'scooter1';
-      const sharedBicycleId = 'sharedBicycle1';
-      const sharedCarId = 'sharedCar1';
-      const sharedEBicycleId = 'sharedEBicycle1';
-      const taxiId = 'taxi1';
-      const bookingMeta = validator(BookingMeta).decodeSync({
-        MODE_BICYCLE: {
-          bike: {
-            id: bicycleId,
-          },
-        },
-        MODE_BUS: {},
-        MODE_BUSISH: {},
-        MODE_CABLE_CAR: {},
-        MODE_CAR: {
-          id: carId,
-          name: 'Basic Car',
-          description: 'Red sedan',
-          image: 'https://example.com/image.png',
-        },
-        MODE_FERRY: {},
-        MODE_FUNICULAR: {},
-        MODE_GONDOLA: {},
-        MODE_RAIL: {},
-        MODE_SCOOTER: {
-          scooter: {
-            id: scooterId,
-          },
-        },
-        MODE_SHARED_BICYCLE: {
-          bike: {
-            id: sharedBicycleId,
-          },
-        },
-        MODE_SHARED_CAR: {
-          id: sharedCarId,
-          name: 'Basic Car',
-          description: 'Red sedan',
-          image: 'https://example.com/image.png',
-        },
-        MODE_SHARED_E_BICYCLE: {
-          bike: {
-            id: sharedEBicycleId,
-          },
-        },
-        MODE_SUBWAY: {},
-        MODE_TAXI: {
-          vehicleId: taxiId,
-        },
-        MODE_TRAIN: {},
-        MODE_TRAINISH: {},
-        MODE_TRAM: {},
-        MODE_TRANSIT: {},
-        MODE_WALK: {},
-      });
-      const result: VehicleIds = VehicleIds_.fromBookingMeta(bookingMeta);
-      expect(result).toEqual([
-        bicycleId,
-        carId,
-        scooterId,
-        sharedBicycleId,
-        sharedCarId,
-        sharedEBicycleId,
-        taxiId,
-      ]);
-    });
-    it('should support BookingMeta with no modes', () => {
-      const bookingMeta = validator(BookingMeta).decodeSync({});
-      const result: VehicleIds = VehicleIds_.fromBookingMeta(bookingMeta);
       expect(result).toEqual([]);
     });
   });
