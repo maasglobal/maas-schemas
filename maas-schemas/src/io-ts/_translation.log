@@ -792,6 +792,8 @@ INFO: missing description
   in schemas/core/components/units.json
 INFO: missing description
   in schemas/core/components/vehicle.json
+INFO: missing description
+  in schemas/core/components/vehicle.json
 INFO: primitive type "string" used outside top-level definitions
   in schemas/core/customer.json
 INFO: primitive type "string" used outside top-level definitions
