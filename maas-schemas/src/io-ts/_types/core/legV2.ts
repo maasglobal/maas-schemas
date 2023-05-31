@@ -223,6 +223,20 @@ export type AgencyIdBrand = {
   readonly AgencyId: unique symbol;
 };
 
+// ProviderAgencyId
+// The purpose of this remains a mystery
+export type ProviderAgencyId = t.Branded<string, ProviderAgencyIdBrand>;
+export type ProviderAgencyIdC = t.BrandC<t.StringC, ProviderAgencyIdBrand>;
+export const ProviderAgencyId: ProviderAgencyIdC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, ProviderAgencyIdBrand> =>
+    typeof x !== 'string' || x.length >= 1,
+  'ProviderAgencyId',
+);
+export type ProviderAgencyIdBrand = {
+  readonly ProviderAgencyId: unique symbol;
+};
+
 // LegGeometry
 // The purpose of this remains a mystery
 export type LegGeometry = t.Branded<

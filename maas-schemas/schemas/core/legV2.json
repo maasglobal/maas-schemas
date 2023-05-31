@@ -55,6 +55,10 @@
     "agencyId": {
       "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
     },
+    "providerAgencyId": {
+      "type": "string",
+      "minLength": 1
+    },
     "legGeometry": {
       "type": "object",
       "properties": {
