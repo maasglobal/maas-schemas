@@ -11,6 +11,54 @@
       "items": {
         "$ref": "#/definitions/vehicleId"
       }
+    },
+    "vehicleIdsByMode": {
+      "type": "object",
+      "properties": {
+        "MODE_BICYCLE": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_BUS": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_BUSISH": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_CABLE_CAR": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_CAR": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_FERRY": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_FUNICULAR": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_GONDOLA": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_RAIL": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_SCOOTER": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_SHARED_BICYCLE": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_SHARED_CAR": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_SHARED_E_BICYCLE": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_SUBWAY": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_TAXI": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_TRAIN": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_TRAINISH": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_TRAM": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_TRANSIT": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_WALK": { "$ref": "#/definitions/vehicleIds" }
+      },
+      "required": [
+        "MODE_BICYCLE",
+        "MODE_BUS",
+        "MODE_BUSISH",
+        "MODE_CABLE_CAR",
+        "MODE_CAR",
+        "MODE_FERRY",
+        "MODE_FUNICULAR",
+        "MODE_GONDOLA",
+        "MODE_RAIL",
+        "MODE_SCOOTER",
+        "MODE_SHARED_BICYCLE",
+        "MODE_SHARED_CAR",
+        "MODE_SHARED_E_BICYCLE",
+        "MODE_SUBWAY",
+        "MODE_TAXI",
+        "MODE_TRAIN",
+        "MODE_TRAINISH",
+        "MODE_TRAM",
+        "MODE_TRANSIT",
+        "MODE_WALK"
+      ],
+      "additionalProperties": false
     }
   }
 }
