@@ -31,6 +31,35 @@
         }
       },
       "required": ["outward"]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "itinerary": {
+          "$ref": "https://schemas.maas.global/core/itineraryV2.json"
+        },
+        "paymentParameters": {
+          "description": "Payment parameters for asynchronous payment methods",
+          "allOf": [{ "$ref": "#/definitions/paymentParameters" }]
+        }
+      },
+      "required": ["itinerary"]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "outward": {
+          "$ref": "https://schemas.maas.global/core/itineraryV2.json"
+        },
+        "return": {
+          "$ref": "https://schemas.maas.global/core/itineraryV2.json"
+        },
+        "paymentParameters": {
+          "description": "Payment parameters for asynchronous payment methods",
+          "allOf": [{ "$ref": "#/definitions/paymentParameters" }]
+        }
+      },
+      "required": ["outward"]
     }
   ],
   "definitions": {

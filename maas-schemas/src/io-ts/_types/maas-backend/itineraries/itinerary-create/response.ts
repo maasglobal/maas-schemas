@@ -12,6 +12,7 @@ import * as t from 'io-ts';
 
 import * as PaymentParameters_ea40_ from '../../../core/components/payment-parameters';
 import * as Itinerary_8303_ from '../../../core/itinerary';
+import * as ItineraryV2_5f31_ from '../../../core/itineraryV2';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -112,6 +113,19 @@ export type Response = t.Branded<
       paymentParameters?: PaymentParameters;
     } & Record<string, unknown>) & {
       outward: Defined;
+    })
+  | (({
+      itinerary?: ItineraryV2_5f31_.ItineraryV2;
+      paymentParameters?: PaymentParameters;
+    } & Record<string, unknown>) & {
+      itinerary: Defined;
+    })
+  | (({
+      outward?: ItineraryV2_5f31_.ItineraryV2;
+      return?: ItineraryV2_5f31_.ItineraryV2;
+      paymentParameters?: PaymentParameters;
+    } & Record<string, unknown>) & {
+      outward: Defined;
     }),
   ResponseBrand
 >;
@@ -141,6 +155,39 @@ export type ResponseC = t.BrandC<
               t.PartialC<{
                 outward: typeof Itinerary_8303_.Itinerary;
                 return: typeof Itinerary_8303_.Itinerary;
+                paymentParameters: typeof PaymentParameters;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
+          t.TypeC<{
+            outward: typeof Defined;
+          }>,
+        ]
+      >,
+      t.IntersectionC<
+        [
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                itinerary: typeof ItineraryV2_5f31_.ItineraryV2;
+                paymentParameters: typeof PaymentParameters;
+              }>,
+              t.RecordC<t.StringC, t.UnknownC>,
+            ]
+          >,
+          t.TypeC<{
+            itinerary: typeof Defined;
+          }>,
+        ]
+      >,
+      t.IntersectionC<
+        [
+          t.IntersectionC<
+            [
+              t.PartialC<{
+                outward: typeof ItineraryV2_5f31_.ItineraryV2;
+                return: typeof ItineraryV2_5f31_.ItineraryV2;
                 paymentParameters: typeof PaymentParameters;
               }>,
               t.RecordC<t.StringC, t.UnknownC>,
@@ -182,6 +229,31 @@ export const Response: ResponseC = t.brand(
         outward: Defined,
       }),
     ]),
+    t.intersection([
+      t.intersection([
+        t.partial({
+          itinerary: ItineraryV2_5f31_.ItineraryV2,
+          paymentParameters: PaymentParameters,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
+      t.type({
+        itinerary: Defined,
+      }),
+    ]),
+    t.intersection([
+      t.intersection([
+        t.partial({
+          outward: ItineraryV2_5f31_.ItineraryV2,
+          return: ItineraryV2_5f31_.ItineraryV2,
+          paymentParameters: PaymentParameters,
+        }),
+        t.record(t.string, t.unknown),
+      ]),
+      t.type({
+        outward: Defined,
+      }),
+    ]),
   ]),
   (
     x,
@@ -195,6 +267,19 @@ export const Response: ResponseC = t.brand(
     | (({
         outward?: Itinerary_8303_.Itinerary;
         return?: Itinerary_8303_.Itinerary;
+        paymentParameters?: PaymentParameters;
+      } & Record<string, unknown>) & {
+        outward: Defined;
+      })
+    | (({
+        itinerary?: ItineraryV2_5f31_.ItineraryV2;
+        paymentParameters?: PaymentParameters;
+      } & Record<string, unknown>) & {
+        itinerary: Defined;
+      })
+    | (({
+        outward?: ItineraryV2_5f31_.ItineraryV2;
+        return?: ItineraryV2_5f31_.ItineraryV2;
         paymentParameters?: PaymentParameters;
       } & Record<string, unknown>) & {
         outward: Defined;
