@@ -48,6 +48,7 @@ export const registry: mjsv.Registry = {
     require('../../schemas/core/components/travel-mode.json'),
     require('../../schemas/core/components/units-geo.json'),
     require('../../schemas/core/components/units.json'),
+    require('../../schemas/core/components/vehicle.json'),
     require('../../schemas/core/customer.json'),
     require('../../schemas/core/error.json'),
     require('../../schemas/core/iot-thing-shadow.json'),

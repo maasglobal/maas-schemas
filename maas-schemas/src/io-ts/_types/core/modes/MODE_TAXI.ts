@@ -18,6 +18,7 @@ import * as Place_de2d_ from '../components/place';
 import * as SpaceDemand_101a_ from '../components/spaceDemand';
 import * as Units_c404_ from '../components/units';
 import * as UnitsGeo_3e31_ from '../components/units-geo';
+import * as Vehicle_52ac_ from '../components/vehicle';
 
 export const schemaId = 'https://schemas.maas.global/core/modes/MODE_TAXI.json';
 
@@ -25,7 +26,7 @@ export const schemaId = 'https://schemas.maas.global/core/modes/MODE_TAXI.json';
 // The default export. More information at the top.
 export type MODE_TAXI = t.Branded<
   {
-    vehicleId?: string;
+    vehicleId?: string & Vehicle_52ac_.VehicleId;
     noShowReportedByDriver?: boolean;
     vehicleLocation?: UnitsGeo_3e31_.Location;
     vehicleType?: string;
@@ -56,7 +57,7 @@ export type MODE_TAXI = t.Branded<
 >;
 export type MODE_TAXIC = t.BrandC<
   t.PartialC<{
-    vehicleId: t.StringC;
+    vehicleId: t.IntersectionC<[t.StringC, typeof Vehicle_52ac_.VehicleId]>;
     noShowReportedByDriver: t.BooleanC;
     vehicleLocation: typeof UnitsGeo_3e31_.Location;
     vehicleType: t.StringC;
@@ -97,7 +98,7 @@ export type MODE_TAXIC = t.BrandC<
 >;
 export const MODE_TAXI: MODE_TAXIC = t.brand(
   t.partial({
-    vehicleId: t.string,
+    vehicleId: t.intersection([t.string, Vehicle_52ac_.VehicleId]),
     noShowReportedByDriver: t.boolean,
     vehicleLocation: UnitsGeo_3e31_.Location,
     vehicleType: t.string,
@@ -134,7 +135,7 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
     x,
   ): x is t.Branded<
     {
-      vehicleId?: string;
+      vehicleId?: string & Vehicle_52ac_.VehicleId;
       noShowReportedByDriver?: boolean;
       vehicleLocation?: UnitsGeo_3e31_.Location;
       vehicleType?: string;

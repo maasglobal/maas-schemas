@@ -10,6 +10,8 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 
 import * as t from 'io-ts';
 
+import * as Vehicle_52ac_ from '../components/vehicle';
+
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
   readonly _tag: 'DefinedType' = 'DefinedType';
@@ -32,7 +34,7 @@ export const schemaId = 'https://schemas.maas.global/core/modes/MODE_SHARED_BICY
 export type MODE_SHARED_BICYCLE = t.Branded<
   {
     bike?: ({
-      id?: string;
+      id?: Vehicle_52ac_.VehicleId;
       type?: string;
     } & Record<string, unknown>) & {
       id: Defined;
@@ -49,7 +51,7 @@ export type MODE_SHARED_BICYCLEC = t.BrandC<
             t.IntersectionC<
               [
                 t.PartialC<{
-                  id: t.StringC;
+                  id: typeof Vehicle_52ac_.VehicleId;
                   type: t.StringC;
                 }>,
                 t.RecordC<t.StringC, t.UnknownC>,
@@ -72,7 +74,7 @@ export const MODE_SHARED_BICYCLE: MODE_SHARED_BICYCLEC = t.brand(
       bike: t.intersection([
         t.intersection([
           t.partial({
-            id: t.string,
+            id: Vehicle_52ac_.VehicleId,
             type: t.string,
           }),
           t.record(t.string, t.unknown),
@@ -89,7 +91,7 @@ export const MODE_SHARED_BICYCLE: MODE_SHARED_BICYCLEC = t.brand(
   ): x is t.Branded<
     {
       bike?: ({
-        id?: string;
+        id?: Vehicle_52ac_.VehicleId;
         type?: string;
       } & Record<string, unknown>) & {
         id: Defined;

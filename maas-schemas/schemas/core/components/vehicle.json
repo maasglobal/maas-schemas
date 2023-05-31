@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.maas.global/core/components/vehicle.json",
+  "definitions": {
+    "vehicleId": {
+      "description": "An identifier used by a TSP to uniquely identify one of their vehicles",
+      "type": "string"
+    },
+    "vehicleIds": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/vehicleId"
+      }
+    }
+  }
+}
