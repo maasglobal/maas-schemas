@@ -3,7 +3,7 @@
   "$id": "https://schemas.maas.global/core/components/vehicle.json",
   "definitions": {
     "vehicleId": {
-      "description": "An identifier used by a TSP to uniquely identify one of their vehicles",
+      "description": "An identifier used by a TSP to uniquely identify one of their vehicles. Used by customer care to report a broken scooter to the TSP or locate the physical car where a customer left their umbrella.",
       "type": "string"
     },
     "vehicleIds": {
