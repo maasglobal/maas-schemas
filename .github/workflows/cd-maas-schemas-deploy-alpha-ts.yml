@@ -1,11 +1,11 @@
-name: Publish alpha package
+name: Publish alpha ts package
 
 on:
   workflow_dispatch:
 
 defaults:
   run:
-    working-directory: maas-schemas
+    working-directory: maas-schemas-ts
 
 env:
   NODE_AUTH_TOKEN: ${{ secrets.PUBLIC_NPM_TOKEN }}
