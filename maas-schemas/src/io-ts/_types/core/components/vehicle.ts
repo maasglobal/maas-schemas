@@ -28,7 +28,7 @@ export const Defined: DefinedC = new DefinedType();
 export const schemaId = 'https://schemas.maas.global/core/components/vehicle.json';
 
 // VehicleId
-// An identifier used by a TSP to uniquely identify one of their vehicles
+// An identifier used by a TSP to uniquely identify one of their vehicles. Used by customer care to report a broken scooter to the TSP or locate the physical car where a customer left their umbrella.
 export type VehicleId = t.Branded<string, VehicleIdBrand>;
 export type VehicleIdC = t.BrandC<t.StringC, VehicleIdBrand>;
 export const VehicleId: VehicleIdC = t.brand(
