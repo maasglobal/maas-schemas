@@ -42,9 +42,6 @@
           "anyOf": [
             {
               "$ref": "https://schemas.maas.global/core/itineraryV2.json"
-            },
-            {
-              "$ref": "https://schemas.maas.global/core/itinerary.json"
             }
           ]
         },

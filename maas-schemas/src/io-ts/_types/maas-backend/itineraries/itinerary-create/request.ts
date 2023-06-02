@@ -14,7 +14,6 @@ import * as ApiCommon_16a4_ from '../../../core/components/api-common';
 import * as Common_ffba_ from '../../../core/components/common';
 import * as CustomerSelection_57c3_ from '../../../core/components/customerSelection';
 import * as Message_554d_ from '../../../core/components/message';
-import * as Itinerary_8303_ from '../../../core/itinerary';
 import * as ItineraryV2_5f31_ from '../../../core/itineraryV2';
 import * as ProductOptionV2_8170_ from '../../../core/product-optionV2';
 
@@ -40,7 +39,7 @@ export const schemaId =
 // The purpose of this remains a mystery
 export type OutwardReturnWrapper = t.Branded<
   {
-    itinerary?: ItineraryV2_5f31_.ItineraryV2 | Itinerary_8303_.Itinerary;
+    itinerary?: ItineraryV2_5f31_.ItineraryV2;
     customerSelections?: Array<
       {
         ref?: ProductOptionV2_8170_.Ref;
@@ -54,9 +53,7 @@ export type OutwardReturnWrapperC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        itinerary: t.UnionC<
-          [typeof ItineraryV2_5f31_.ItineraryV2, typeof Itinerary_8303_.Itinerary]
-        >;
+        itinerary: typeof ItineraryV2_5f31_.ItineraryV2;
         customerSelections: t.ArrayC<
           t.IntersectionC<
             [
@@ -77,7 +74,7 @@ export type OutwardReturnWrapperC = t.BrandC<
 export const OutwardReturnWrapper: OutwardReturnWrapperC = t.brand(
   t.intersection([
     t.partial({
-      itinerary: t.union([ItineraryV2_5f31_.ItineraryV2, Itinerary_8303_.Itinerary]),
+      itinerary: ItineraryV2_5f31_.ItineraryV2,
       customerSelections: t.array(
         t.intersection([
           t.partial({
@@ -94,7 +91,7 @@ export const OutwardReturnWrapper: OutwardReturnWrapperC = t.brand(
     x,
   ): x is t.Branded<
     {
-      itinerary?: ItineraryV2_5f31_.ItineraryV2 | Itinerary_8303_.Itinerary;
+      itinerary?: ItineraryV2_5f31_.ItineraryV2;
       customerSelections?: Array<
         {
           ref?: ProductOptionV2_8170_.Ref;

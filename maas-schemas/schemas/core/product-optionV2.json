@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/product-optionV2.json",
   "description": "Product option V2 for an itinerary, is either an existing booking pointer or a new booking instruction",
-  "oneOf": [
+  "anyOf": [
     { "$ref": "#/definitions/productOptionWithFares" },
     { "$ref": "#/definitions/productOptionWithFaresExistingBooking" },
     { "$ref": "#/definitions/productOptionWithConfigurator" },
