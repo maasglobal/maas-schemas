@@ -1,4 +1,3 @@
-import { BookingMeta } from '../../../../_types/core/booking-meta';
 import { VehicleId, VehicleIds } from '../../../../_types/core/components/vehicle';
 import { MODE_BICYCLE } from '../../../../_types/core/modes/MODE_BICYCLE';
 import { MODE_BUS } from '../../../../_types/core/modes/MODE_BUS';
@@ -125,32 +124,3 @@ export function fromMODE_WALK(_mode: MODE_WALK): VehicleIds {
 }
 
 /* eslint-enable @typescript-eslint/naming-convention */
-
-export function fromBookingMeta(meta: BookingMeta): VehicleIds {
-  return flatten([
-    meta['MODE_BICYCLE'] ? fromMODE_BICYCLE(meta['MODE_BICYCLE']) : empty,
-    meta['MODE_BUS'] ? fromMODE_BUS(meta['MODE_BUS']) : empty,
-    meta['MODE_BUSISH'] ? fromMODE_BUSISH(meta['MODE_BUSISH']) : empty,
-    meta['MODE_CABLE_CAR'] ? fromMODE_CABLE_CAR(meta['MODE_CABLE_CAR']) : empty,
-    meta['MODE_CAR'] ? fromMODE_CAR(meta['MODE_CAR']) : empty,
-    meta['MODE_FERRY'] ? fromMODE_FERRY(meta['MODE_FERRY']) : empty,
-    meta['MODE_FUNICULAR'] ? fromMODE_FUNICULAR(meta['MODE_FUNICULAR']) : empty,
-    meta['MODE_GONDOLA'] ? fromMODE_GONDOLA(meta['MODE_GONDOLA']) : empty,
-    meta['MODE_RAIL'] ? fromMODE_RAIL(meta['MODE_RAIL']) : empty,
-    meta['MODE_SCOOTER'] ? fromMODE_SCOOTER(meta['MODE_SCOOTER']) : empty,
-    meta['MODE_SHARED_BICYCLE']
-      ? fromMODE_SHARED_BICYCLE(meta['MODE_SHARED_BICYCLE'])
-      : empty,
-    meta['MODE_SHARED_CAR'] ? fromMODE_SHARED_CAR(meta['MODE_SHARED_CAR']) : empty,
-    meta['MODE_SHARED_E_BICYCLE']
-      ? fromMODE_SHARED_E_BICYCLE(meta['MODE_SHARED_E_BICYCLE'])
-      : empty,
-    meta['MODE_SUBWAY'] ? fromMODE_SUBWAY(meta['MODE_SUBWAY']) : empty,
-    meta['MODE_TAXI'] ? fromMODE_TAXI(meta['MODE_TAXI']) : empty,
-    meta['MODE_TRAIN'] ? fromMODE_TRAIN(meta['MODE_TRAIN']) : empty,
-    meta['MODE_TRAINISH'] ? fromMODE_TRAINISH(meta['MODE_TRAINISH']) : empty,
-    meta['MODE_TRAM'] ? fromMODE_TRAM(meta['MODE_TRAM']) : empty,
-    meta['MODE_TRANSIT'] ? fromMODE_TRANSIT(meta['MODE_TRANSIT']) : empty,
-    meta['MODE_WALK'] ? fromMODE_WALK(meta['MODE_WALK']) : empty,
-  ]);
-}
