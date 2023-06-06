@@ -27,6 +27,10 @@
           "type": "string",
           "description": "TODO: make more strict?"
         },
+        "label": {
+          "type": "string",
+          "description": "UI label for this mode combination"
+        },
         "modes": {
           "type": "array",
           "items": {
@@ -44,7 +48,7 @@
           }
         }
       },
-      "required": ["modeId", "modes"],
+      "required": ["modeId", "label", "modes"],
       "additionalProperties": false
     }
   },
@@ -54,18 +58,22 @@
       "availableModes": [
         {
           "modeId": "TRANSIT",
+          "label": "Transit",
           "modes": ["TRANSIT"]
         },
         {
           "modeId": "TRANSIT__SCOOTER",
+          "label": "Transit and Scooter",
           "modes": ["TRANSIT", "SCOOTER"]
         },
         {
           "modeId": "TRANSIT__BICYCLE_RENT",
+          "label": "Transit and Bicycle Rent",
           "modes": ["TRANSIT", "BICYCLE_RENT"]
         },
         {
           "modeId": "TAXI",
+          "label": "Taxi",
           "modes": ["TAXI"]
         }
       ]

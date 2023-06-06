@@ -35,12 +35,14 @@ export const schemaId =
 export type RoutesConfigModesSpec = t.Branded<
   {
     modeId?: string;
+    label?: string;
     modes?: Array<
       string &
         ('TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT' | 'SCOOTER')
     >;
   } & {
     modeId: Defined;
+    label: Defined;
     modes: Defined;
   },
   RoutesConfigModesSpecBrand
@@ -50,6 +52,7 @@ export type RoutesConfigModesSpecC = t.BrandC<
     [
       t.PartialC<{
         modeId: t.StringC;
+        label: t.StringC;
         modes: t.ArrayC<
           t.IntersectionC<
             [
@@ -71,6 +74,7 @@ export type RoutesConfigModesSpecC = t.BrandC<
       }>,
       t.TypeC<{
         modeId: typeof Defined;
+        label: typeof Defined;
         modes: typeof Defined;
       }>,
     ]
@@ -81,6 +85,7 @@ export const RoutesConfigModesSpec: RoutesConfigModesSpecC = t.brand(
   t.intersection([
     t.partial({
       modeId: t.string,
+      label: t.string,
       modes: t.array(
         t.intersection([
           t.string,
@@ -98,6 +103,7 @@ export const RoutesConfigModesSpec: RoutesConfigModesSpecC = t.brand(
     }),
     t.type({
       modeId: Defined,
+      label: Defined,
       modes: Defined,
     }),
   ]),
@@ -106,12 +112,14 @@ export const RoutesConfigModesSpec: RoutesConfigModesSpecC = t.brand(
   ): x is t.Branded<
     {
       modeId?: string;
+      label?: string;
       modes?: Array<
         string &
           ('TRANSIT' | 'TAXI' | 'CAR' | 'WALK' | 'BICYCLE' | 'BICYCLE_RENT' | 'SCOOTER')
       >;
     } & {
       modeId: Defined;
+      label: Defined;
       modes: Defined;
     },
     RoutesConfigModesSpecBrand
@@ -182,10 +190,18 @@ export const examplesMultimodalRoutesMetadata: NonEmptyArray<MultimodalRoutesMet
   {
     availableAccessibilityFilter: true,
     availableModes: [
-      { modeId: 'TRANSIT', modes: ['TRANSIT'] },
-      { modeId: 'TRANSIT__SCOOTER', modes: ['TRANSIT', 'SCOOTER'] },
-      { modeId: 'TRANSIT__BICYCLE_RENT', modes: ['TRANSIT', 'BICYCLE_RENT'] },
-      { modeId: 'TAXI', modes: ['TAXI'] },
+      { modeId: 'TRANSIT', label: 'Transit', modes: ['TRANSIT'] },
+      {
+        modeId: 'TRANSIT__SCOOTER',
+        label: 'Transit and Scooter',
+        modes: ['TRANSIT', 'SCOOTER'],
+      },
+      {
+        modeId: 'TRANSIT__BICYCLE_RENT',
+        label: 'Transit and Bicycle Rent',
+        modes: ['TRANSIT', 'BICYCLE_RENT'],
+      },
+      { modeId: 'TAXI', label: 'Taxi', modes: ['TAXI'] },
     ],
   },
 ] as unknown as NonEmptyArray<MultimodalRoutesMetadata>;

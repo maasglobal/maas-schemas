@@ -1023,6 +1023,8 @@ INFO: primitive type "string" used outside top-level definitions
 INFO: primitive type "string" used outside top-level definitions
   in schemas/core/multimodal-routes-metadata.json
 INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/multimodal-routes-metadata.json
+INFO: primitive type "string" used outside top-level definitions
   in schemas/core/package-option.json
 WARNING: minLength field not supported outside top-level definitions
   in schemas/core/package-option.json

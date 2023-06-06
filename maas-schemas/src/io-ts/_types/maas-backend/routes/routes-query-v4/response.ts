@@ -181,10 +181,18 @@ export const examplesResponse: NonEmptyArray<Response> = [
     metadata: {
       availableAccessibilityFilter: true,
       availableModes: [
-        { modeId: 'TRANSIT', modes: ['TRANSIT'] },
-        { modeId: 'TRANSIT__SCOOTER', modes: ['TRANSIT', 'SCOOTER'] },
-        { modeId: 'TRANSIT__BICYCLE_RENT', modes: ['TRANSIT', 'BICYCLE_RENT'] },
-        { modeId: 'TAXI', modes: ['TAXI'] },
+        { modeId: 'TRANSIT', label: 'Transit', modes: ['TRANSIT'] },
+        {
+          modeId: 'TRANSIT__SCOOTER',
+          label: 'Transit and Scooter',
+          modes: ['TRANSIT', 'SCOOTER'],
+        },
+        {
+          modeId: 'TRANSIT__BICYCLE_RENT',
+          label: 'Transit and Bicycle Rent',
+          modes: ['TRANSIT', 'BICYCLE_RENT'],
+        },
+        { modeId: 'TAXI', label: 'Taxi', modes: ['TAXI'] },
       ],
     },
     reasons: [{ errorCode: 'ERROR_TSP_UNSUPPORTED_AREA' }],

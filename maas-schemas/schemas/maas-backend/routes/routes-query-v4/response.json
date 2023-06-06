@@ -80,18 +80,22 @@
         "availableModes": [
           {
             "modeId": "TRANSIT",
+            "label": "Transit",
             "modes": ["TRANSIT"]
           },
           {
             "modeId": "TRANSIT__SCOOTER",
+            "label": "Transit and Scooter",
             "modes": ["TRANSIT", "SCOOTER"]
           },
           {
             "modeId": "TRANSIT__BICYCLE_RENT",
+            "label": "Transit and Bicycle Rent",
             "modes": ["TRANSIT", "BICYCLE_RENT"]
           },
           {
             "modeId": "TAXI",
+            "label": "Taxi",
             "modes": ["TAXI"]
           }
         ]
