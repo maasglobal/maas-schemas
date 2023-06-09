@@ -1,0 +1,30 @@
+{
+  "$id": "http://maasglobal.com/maas-backend/bookings/v2/bookings-estimate/request.json",
+  "description": "Request schema for bookings-create v2",
+  "type": "object",
+  "properties": {
+    "identityId": {
+      "$ref": "http://maasglobal.com/core/components/units.json#/definitions/identityId"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "paymentSourceId": {
+          "$ref": "http://maasglobal.com/core/components/common.json#/definitions/paymentSourceId"
+        },
+        "booking": {
+          "$ref": "http://maasglobal.com/maas-backend/bookings/bookings-agency-options/response.json#/definitions/option"
+        },
+        "customerSelection": {
+          "$ref": "http://maasglobal.com/core/components/configurator.json#/definitions/customerSelection"
+        }
+      },
+      "required": ["paymentSourceId"]
+    },
+    "headers": {
+      "$ref": "http://maasglobal.com/core/components/api-common.json#/definitions/headers"
+    }
+  },
+  "required": ["identityId", "payload"],
+  "additionalProperties": false
+}
