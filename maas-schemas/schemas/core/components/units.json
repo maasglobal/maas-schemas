@@ -87,7 +87,7 @@
     "currency": {
       "description": "Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1",
       "type": "string",
-      "enum": ["EUR", "GBP", "SGD", "JPY", "CHF"]
+      "enum": ["EUR", "GBP", "SGD", "JPY", "CHF", "TRY"]
     },
     "currencyOrToken": {
       "anyOf": [
@@ -118,6 +118,10 @@
     "currencyCHF": {
       "default": "CHF",
       "allOf": [{ "$ref": "#/definitions/currency" }, { "const": "CHF" }]
+    },
+    "currencyTRY": {
+      "default": "TRY",
+      "allOf": [{ "$ref": "#/definitions/currency" }, { "const": "TRY" }]
     },
     "time": {
       "description": "POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time",
