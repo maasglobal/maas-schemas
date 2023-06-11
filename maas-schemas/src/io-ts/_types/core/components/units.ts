@@ -265,7 +265,7 @@ export const examplesIdentityId: NonEmptyArray<IdentityId> = [
 // Currency
 // Accepted monetary unit in ISO 4127 format, see https://en.wikipedia.org/wiki/ISO_4217#cite_note-1
 export type Currency = t.Branded<
-  string & ('EUR' | 'GBP' | 'SGD' | 'JPY' | 'CHF'),
+  string & ('EUR' | 'GBP' | 'SGD' | 'JPY' | 'CHF' | 'TRY'),
   CurrencyBrand
 >;
 export type CurrencyC = t.BrandC<
@@ -279,6 +279,7 @@ export type CurrencyC = t.BrandC<
           t.LiteralC<'SGD'>,
           t.LiteralC<'JPY'>,
           t.LiteralC<'CHF'>,
+          t.LiteralC<'TRY'>,
         ]
       >,
     ]
@@ -294,10 +295,15 @@ export const Currency: CurrencyC = t.brand(
       t.literal('SGD'),
       t.literal('JPY'),
       t.literal('CHF'),
+      t.literal('TRY'),
     ]),
   ]),
-  (x): x is t.Branded<string & ('EUR' | 'GBP' | 'SGD' | 'JPY' | 'CHF'), CurrencyBrand> =>
-    true,
+  (
+    x,
+  ): x is t.Branded<
+    string & ('EUR' | 'GBP' | 'SGD' | 'JPY' | 'CHF' | 'TRY'),
+    CurrencyBrand
+  > => true,
   'Currency',
 );
 export type CurrencyBrand = {
@@ -409,6 +415,24 @@ export type CurrencyCHFBrand = {
 };
 /** require('io-ts-validator').validator(CurrencyCHF).decodeSync(defaultCurrencyCHF) // => defaultCurrencyCHF */
 export const defaultCurrencyCHF: CurrencyCHF = 'CHF' as unknown as CurrencyCHF;
+
+// CurrencyTRY
+// The purpose of this remains a mystery
+export type CurrencyTRY = t.Branded<Currency & 'TRY', CurrencyTRYBrand>;
+export type CurrencyTRYC = t.BrandC<
+  t.IntersectionC<[typeof Currency, t.LiteralC<'TRY'>]>,
+  CurrencyTRYBrand
+>;
+export const CurrencyTRY: CurrencyTRYC = t.brand(
+  t.intersection([Currency, t.literal('TRY')]),
+  (x): x is t.Branded<Currency & 'TRY', CurrencyTRYBrand> => true,
+  'CurrencyTRY',
+);
+export type CurrencyTRYBrand = {
+  readonly CurrencyTRY: unique symbol;
+};
+/** require('io-ts-validator').validator(CurrencyTRY).decodeSync(defaultCurrencyTRY) // => defaultCurrencyTRY */
+export const defaultCurrencyTRY: CurrencyTRY = 'TRY' as unknown as CurrencyTRY;
 
 // Time
 // POSIX time in milliseconds, https://en.wikipedia.org/wiki/Unix_time
