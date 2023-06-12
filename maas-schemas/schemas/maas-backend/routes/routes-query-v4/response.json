@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.maas.global/maas-backend/routes/routes-query-v4/response.json",
+  "description": "Response schema for routes-query v4",
+  "type": "object",
+  "properties": {
+    "plan": {
+      "$ref": "https://schemas.maas.global/core/multimodal-plan.json"
+    },
+    "requestParams": {
+      "$ref": "#/definitions/requestParams"
+    },
+    "metadata": {
+      "$ref": "https://schemas.maas.global/core/multimodal-routes-metadata.json"
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.maas.global/core/error.json#/definitions/reason"
+      }
+    },
+    "debug": { "type": "object" }
+  },
+  "required": ["plan", "requestParams", "metadata"],
+  "additionalProperties": false,
+  "definitions": {
+    "requestParams": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "$ref": "https://schemas.maas.global/core/components/place.json"
+        },
+        "to": {
+          "$ref": "https://schemas.maas.global/core/components/place.json"
+        },
+        "modeId": {
+          "type": "string",
+          "description": "TODO: make more strict, ref to common def"
+        },
+        "accessibilityFilter": {
+          "type": "boolean",
+          "description": "TODO: make more strict, ref to common def"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "plan": {
+        "outwards": [],
+        "returns": [],
+        "planId": "d2ac1de0-5edd-11ea-a5fd-b5d2f648464c",
+        "requestParams": {
+          "from": {
+            "lat": 35.5907257,
+            "lon": 139.6791986
+          },
+          "to": {
+            "lat": 35.5907257,
+            "lon": 139.6791986
+          },
+          "modeId": "TRANSIT",
+          "accessibilityFilter": false
+        }
+      },
+      "requestParams": {
+        "from": {
+          "lat": 35.5907257,
+          "lon": 139.6791986
+        },
+        "to": {
+          "lat": 35.5907257,
+          "lon": 139.6791986
+        },
+        "modeId": "TRANSIT",
+        "accessibilityFilter": false
+      },
+      "metadata": {
+        "availableAccessibilityFilter": true,
+        "availableModes": [
+          {
+            "modeId": "TRANSIT",
+            "label": "Transit",
+            "modes": ["TRANSIT"]
+          },
+          {
+            "modeId": "TRANSIT__SCOOTER",
+            "label": "Transit and Scooter",
+            "modes": ["TRANSIT", "SCOOTER"]
+          },
+          {
+            "modeId": "TRANSIT__BICYCLE_RENT",
+            "label": "Transit and Bicycle Rent",
+            "modes": ["TRANSIT", "BICYCLE_RENT"]
+          },
+          {
+            "modeId": "TAXI",
+            "label": "Taxi",
+            "modes": ["TAXI"]
+          }
+        ]
+      },
+      "reasons": [
+        {
+          "errorCode": "ERROR_TSP_UNSUPPORTED_AREA"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.maas.global/core/multimodal-plan.json",
+  "description": "Format for multi-modal plans",
+  "type": "object",
+  "properties": {
+    "planId": {
+      "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
+    },
+    "outwards": {
+      "$ref": "#/definitions/itineraries"
+    },
+    "returns": {
+      "$ref": "#/definitions/itineraries"
+    }
+  },
+  "required": ["planId", "outwards", "returns"],
+  "definitions": {
+    "itineraries": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.maas.global/core/itineraryV2.json"
+      }
+    }
+  }
+}

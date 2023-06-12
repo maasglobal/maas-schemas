@@ -8,7 +8,10 @@
       "type": "array",
       "minItems": 0,
       "items": {
-        "$ref": "https://schemas.maas.global/core/itinerary.json"
+        "oneOf": [
+          { "$ref": "https://schemas.maas.global/core/itinerary.json" },
+          { "$ref": "https://schemas.maas.global/core/itineraryV2.json" }
+        ]
       }
     },
     "maas": {

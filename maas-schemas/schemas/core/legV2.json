@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://schemas.maas.global/core/leg.json",
+  "$id": "https://schemas.maas.global/core/legV2.json",
   "type": "object",
   "description": "The base leg object with all fields, to be inherited",
   "definitions": {

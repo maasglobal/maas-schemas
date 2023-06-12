@@ -11,6 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 
 import * as Itinerary_8303_ from '../../../core/itinerary';
+import * as ItineraryV2_5f31_ from '../../../core/itineraryV2';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -34,7 +35,7 @@ export const schemaId =
 // The default export. More information at the top.
 export type Response = t.Branded<
   {
-    itinerary?: Itinerary_8303_.Itinerary;
+    itinerary?: Itinerary_8303_.Itinerary | ItineraryV2_5f31_.ItineraryV2;
   } & {
     itinerary: Defined;
   },
@@ -44,7 +45,9 @@ export type ResponseC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        itinerary: typeof Itinerary_8303_.Itinerary;
+        itinerary: t.UnionC<
+          [typeof Itinerary_8303_.Itinerary, typeof ItineraryV2_5f31_.ItineraryV2]
+        >;
       }>,
       t.TypeC<{
         itinerary: typeof Defined;
@@ -56,7 +59,7 @@ export type ResponseC = t.BrandC<
 export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
-      itinerary: Itinerary_8303_.Itinerary,
+      itinerary: t.union([Itinerary_8303_.Itinerary, ItineraryV2_5f31_.ItineraryV2]),
     }),
     t.type({
       itinerary: Defined,
@@ -66,7 +69,7 @@ export const Response: ResponseC = t.brand(
     x,
   ): x is t.Branded<
     {
-      itinerary?: Itinerary_8303_.Itinerary;
+      itinerary?: Itinerary_8303_.Itinerary | ItineraryV2_5f31_.ItineraryV2;
     } & {
       itinerary: Defined;
     },

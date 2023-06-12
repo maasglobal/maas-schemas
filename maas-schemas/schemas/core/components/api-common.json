@@ -9,7 +9,7 @@
         "accept": {
           "$ref": "#/definitions/acceptHeader"
         },
-        "x-whim-user-agent": {
+        "x-maasglobal-user-agent": {
           "$ref": "#/definitions/userAgentHeader"
         }
       },
@@ -21,15 +21,23 @@
         "accept": {
           "$ref": "#/definitions/acceptHeader"
         },
-        "x-whim-user-agent": {
+        "x-maasglobal-user-agent": {
           "$ref": "#/definitions/userAgentHeader"
         },
-        "x-whim-app-instance-id": {
+        "x-maasglobal-app-instance-id": {
           "$ref": "#/definitions/appInstanceIdHeader"
+        },
+        "x-maasglobal-edge-tenant": {
+          "$ref": "#/definitions/tenantHeader"
         }
       },
       "additionalProperties": true,
-      "required": ["accept", "x-whim-user-agent", "x-whim-app-instance-id"]
+      "required": [
+        "accept",
+        "x-maasglobal-user-agent",
+        "x-maasglobal-app-instance-id",
+        "x-maasglobal-edge-tenant"
+      ]
     },
     "acceptHeader": {
       "description": "SemVer versioning schemas for versioning our resources",
@@ -44,9 +52,16 @@
       "type": "string",
       "minLength": 1
     },
+    "tenantHeader": {
+      "type": "string",
+      "minLength": 3
+    },
     "apiGatewayAuthorizedRequestContext": {
       "type": "object",
       "properties": {
+        "requestId": {
+          "type": "string"
+        },
         "authorizer": {
           "type": "object",
           "properties": {
@@ -59,7 +74,7 @@
         }
       },
       "additionalProperties": true,
-      "required": ["authorizer"]
+      "required": ["requestId", "authorizer"]
     }
   }
 }

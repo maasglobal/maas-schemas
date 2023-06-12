@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.maas.global/core/multimodal-routes-metadata.json",
+  "description": "Metadata for multi-modal route search results",
+  "type": "object",
+  "properties": {
+    "availableModes": {
+      "description": "List of available query modes for the modeId param",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/routesConfigModesSpec"
+      }
+    },
+    "availableAccessibilityFilter": {
+      "description": "Is the accessibilityFilter param available?",
+      "type": "boolean"
+    }
+  },
+  "required": ["availableModes", "availableAccessibilityFilter"],
+  "additionalProperties": false,
+  "definitions": {
+    "routesConfigModesSpec": {
+      "type": "object",
+      "description": "Route planner query mode",
+      "properties": {
+        "modeId": {
+          "type": "string",
+          "description": "TODO: make more strict?"
+        },
+        "label": {
+          "type": "string",
+          "description": "UI label for this mode combination"
+        },
+        "modes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "TODO: make more/less strict?",
+            "enum": [
+              "TRANSIT",
+              "TAXI",
+              "CAR",
+              "WALK",
+              "BICYCLE",
+              "BICYCLE_RENT",
+              "SCOOTER"
+            ]
+          }
+        }
+      },
+      "required": ["modeId", "label", "modes"],
+      "additionalProperties": false
+    }
+  },
+  "examples": [
+    {
+      "availableAccessibilityFilter": true,
+      "availableModes": [
+        {
+          "modeId": "TRANSIT",
+          "label": "Transit",
+          "modes": ["TRANSIT"]
+        },
+        {
+          "modeId": "TRANSIT__SCOOTER",
+          "label": "Transit and Scooter",
+          "modes": ["TRANSIT", "SCOOTER"]
+        },
+        {
+          "modeId": "TRANSIT__BICYCLE_RENT",
+          "label": "Transit and Bicycle Rent",
+          "modes": ["TRANSIT", "BICYCLE_RENT"]
+        },
+        {
+          "modeId": "TAXI",
+          "label": "Taxi",
+          "modes": ["TAXI"]
+        }
+      ]
+    }
+  ]
+}

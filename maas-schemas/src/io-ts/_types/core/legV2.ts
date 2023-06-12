@@ -34,7 +34,7 @@ export class DefinedType extends t.Type<Defined> {
 export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
-export const schemaId = 'https://schemas.maas.global/core/leg.json';
+export const schemaId = 'https://schemas.maas.global/core/legV2.json';
 
 // State
 // The purpose of this remains a mystery
@@ -628,15 +628,15 @@ export type TransferLegBrand = {
   readonly TransferLeg: unique symbol;
 };
 
-// Leg
+// LegV2
 // The default export. More information at the top.
-export type Leg = t.Branded<
+export type LegV2 = t.Branded<
   Record<string, unknown> &
     Record<string, unknown> &
     (LegExtensions & (LegCore | WaitingLeg | TransferLeg)),
-  LegBrand
+  LegV2Brand
 >;
-export type LegC = t.BrandC<
+export type LegV2C = t.BrandC<
   t.IntersectionC<
     [
       t.UnknownRecordC,
@@ -649,9 +649,9 @@ export type LegC = t.BrandC<
       >,
     ]
   >,
-  LegBrand
+  LegV2Brand
 >;
-export const Leg: LegC = t.brand(
+export const LegV2: LegV2C = t.brand(
   t.intersection([
     t.UnknownRecord,
     t.record(t.string, t.unknown),
@@ -663,14 +663,14 @@ export const Leg: LegC = t.brand(
     Record<string, unknown> &
       Record<string, unknown> &
       (LegExtensions & (LegCore | WaitingLeg | TransferLeg)),
-    LegBrand
+    LegV2Brand
   > => true,
-  'Leg',
+  'LegV2',
 );
-export type LegBrand = {
-  readonly Leg: unique symbol;
+export type LegV2Brand = {
+  readonly LegV2: unique symbol;
 };
 
-export default Leg;
+export default LegV2;
 
 // Success

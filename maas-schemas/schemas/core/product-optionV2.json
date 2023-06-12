@@ -1,0 +1,198 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.maas.global/core/product-optionV2.json",
+  "description": "Product option V2 for an itinerary, is either an existing booking pointer or a new booking instruction",
+  "anyOf": [
+    { "$ref": "#/definitions/productOptionWithFares" },
+    { "$ref": "#/definitions/productOptionWithFaresExistingBooking" },
+    { "$ref": "#/definitions/productOptionWithConfigurator" },
+    { "$ref": "#/definitions/productOptionWithConfiguratorExistingBooking" },
+    { "$ref": "#/definitions/productOptionUnnecessary" },
+    { "$ref": "#/definitions/productOptionUnavailable" },
+    { "$ref": "#/definitions/productOptionAvailable" },
+    { "$ref": "#/definitions/productOptionOwnAsset" }
+  ],
+  "definitions": {
+    "ref": {
+      "description": "numeric key for connecting productOption with leg.productOption",
+      "type": "integer",
+      "minimum": 0
+    },
+    "productOptionWithFares": {
+      "description": "Product option with fares",
+      "type": "object",
+      "required": ["ref", "customerId", "type", "product", "terms", "meta", "fares"],
+      "properties": {
+        "ref": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "customerId": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+        },
+        "type": {
+          "const": "BOOKING_BOOKABLE"
+        },
+        "product": {
+          "$ref": "https://schemas.maas.global/core/product.json"
+        },
+        "terms": {
+          "$ref": "https://schemas.maas.global/core/components/terms.json"
+        },
+        "meta": {
+          "$ref": "https://schemas.maas.global/core/booking-meta.json"
+        },
+        "fares": {
+          "type": "array",
+          "items": {
+            "$ref": "https://schemas.maas.global/core/components/fare.json"
+          }
+        }
+      }
+    },
+    "productOptionWithFaresExistingBooking": {
+      "allOf": [
+        { "$ref": "#/definitions/productOptionWithFares" },
+        {
+          "type": "object",
+          "properties": {
+            "bookingId": {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
+            }
+          },
+          "required": ["bookingId"]
+        }
+      ]
+    },
+    "productOptionWithConfigurator": {
+      "description": "Product option with configurator",
+      "type": "object",
+      "required": [
+        "ref",
+        "customerId",
+        "type",
+        "product",
+        "terms",
+        "meta",
+        "configurator"
+      ],
+      "properties": {
+        "ref": {
+          "$ref": "#/definitions/ref"
+        },
+        "customerId": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+        },
+        "type": {
+          "oneOf": [{ "const": "BOOKING_BOOKABLE" }, { "const": "BOOKING_ESTIMATABLE" }]
+        },
+        "product": {
+          "$ref": "https://schemas.maas.global/core/product.json"
+        },
+        "terms": {
+          "$ref": "https://schemas.maas.global/core/components/terms.json"
+        },
+        "meta": {
+          "$ref": "https://schemas.maas.global/core/booking-meta.json"
+        },
+        "configurator": {
+          "$ref": "https://schemas.maas.global/core/components/configurator.json"
+        }
+      }
+    },
+    "productOptionWithConfiguratorExistingBooking": {
+      "allOf": [
+        { "$ref": "#/definitions/productOptionWithConfigurator" },
+        {
+          "type": "object",
+          "properties": {
+            "bookingId": {
+              "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/uuid"
+            }
+          },
+          "required": ["bookingId"]
+        }
+      ]
+    },
+    "productOptionUnnecessary": {
+      "description": "No booking necessary for the associated leg",
+      "type": "object",
+      "required": ["ref", "customerId", "type"],
+      "properties": {
+        "ref": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "customerId": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+        },
+        "type": {
+          "const": "BOOKING_UNNECESSARY"
+        }
+      }
+    },
+    "productOptionUnavailable": {
+      "description": "A booking is required but cannot be fulfilled by the system",
+      "type": "object",
+      "required": ["ref", "customerId", "type", "agencyId"],
+      "properties": {
+        "ref": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "customerId": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+        },
+        "type": {
+          "const": "BOOKING_UNAVAILABLE"
+        },
+        "agencyId": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/agencyId"
+        }
+      }
+    },
+    "productOptionAvailable": {
+      "description": "A booking is required but it should be deferred",
+      "type": "object",
+      "required": ["ref", "customerId", "type", "agencyId", "productId"],
+      "properties": {
+        "ref": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "customerId": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+        },
+        "type": {
+          "const": "BOOKING_AVAILABLE"
+        },
+        "agencyId": {
+          "$ref": "https://schemas.maas.global/core/leg.json#/definitions/agencyId"
+        },
+        "productId": {
+          "$ref": "https://schemas.maas.global/core/product.json#/definitions/id"
+        }
+      }
+    },
+    "productOptionOwnAsset": {
+      "description": "The customer must provide their own asset to fulfill the leg",
+      "type": "object",
+      "required": ["ref", "customerId", "type", "description"],
+      "properties": {
+        "ref": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "customerId": {
+          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
+        },
+        "type": {
+          "const": "BOOKING_OWN_ASSET"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

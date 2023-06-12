@@ -68,6 +68,10 @@ INFO: missing description
   in schemas/core/components/address.json
 INFO: missing description
   in schemas/core/components/address.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/components/api-common.json
+INFO: missing description
+  in schemas/core/components/api-common.json
 INFO: missing description
   in schemas/core/components/api-common.json
 INFO: missing description
@@ -832,6 +836,20 @@ WARNING: minItems field not supported outside top-level definitions
   in schemas/core/itinerary.json
 INFO: missing description
   in schemas/core/itinerary.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/core/itineraryV2.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/itineraryV2.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/core/itineraryV2.json
+WARNING: minItems field not supported outside top-level definitions
+  in schemas/core/itineraryV2.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/itineraryV2.json
+INFO: missing description
+  in schemas/core/itineraryV2.json
+INFO: missing description
+  in schemas/core/itineraryV2.json
 WARNING: missing $schema declaration
   in schemas/core/kyc-service.json
 INFO: primitive type "string" used outside top-level definitions
@@ -876,6 +894,48 @@ INFO: missing description
   in schemas/core/leg.json
 INFO: missing description
   in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/leg.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
+INFO: missing description
+  in schemas/core/legV2.json
 INFO: primitive type "string" used outside top-level definitions
   in schemas/core/modes/MODE_BICYCLE.json
 INFO: primitive type "string" used outside top-level definitions
@@ -956,6 +1016,14 @@ WARNING: unexpected key in a $ref object
   in schemas/core/modes/MODE_TAXI.json
 WARNING: unexpected key in a $ref object
   in schemas/core/modes/MODE_TAXI.json
+INFO: missing description
+  in schemas/core/multimodal-plan.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/multimodal-routes-metadata.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/multimodal-routes-metadata.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/multimodal-routes-metadata.json
 INFO: primitive type "string" used outside top-level definitions
   in schemas/core/package-option.json
 WARNING: minLength field not supported outside top-level definitions
@@ -1084,6 +1152,32 @@ INFO: primitive type "integer" used outside top-level definitions
   in schemas/core/product-option.json
 WARNING: minimum field not supported outside top-level definitions
   in schemas/core/product-option.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/product-optionV2.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/product-optionV2.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/product-optionV2.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/product-optionV2.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/product-optionV2.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/product-optionV2.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/product-optionV2.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/product-optionV2.json
+INFO: primitive type "integer" used outside top-level definitions
+  in schemas/core/product-optionV2.json
+WARNING: minimum field not supported outside top-level definitions
+  in schemas/core/product-optionV2.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/core/product-optionV2.json
+INFO: missing description
+  in schemas/core/product-optionV2.json
+INFO: missing description
+  in schemas/core/product-optionV2.json
 INFO: primitive type "number" used outside top-level definitions
   in schemas/core/product.json
 WARNING: minimum field not supported outside top-level definitions
@@ -1817,6 +1911,8 @@ INFO: missing description
 INFO: missing description
   in schemas/maas-backend/itineraries/itinerary-create/request.json
 INFO: missing description
+  in schemas/maas-backend/itineraries/itinerary-create/request.json
+INFO: missing description
   in schemas/maas-backend/itineraries/itinerary-create/response.json
 INFO: primitive type "string" used outside top-level definitions
   in schemas/maas-backend/itineraries/itinerary-list/request.json
@@ -1960,6 +2056,20 @@ INFO: primitive type "integer" used outside top-level definitions
   in schemas/maas-backend/push-notification/response.json
 WARNING: minimum field not supported outside top-level definitions
   in schemas/maas-backend/push-notification/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/routes/routes-query-v4/request.json
+WARNING: unexpected key in a $ref object
+  in schemas/maas-backend/routes/routes-query-v4/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/routes/routes-query-v4/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/maas-backend/routes/routes-query-v4/request.json
+INFO: missing description
+  in schemas/maas-backend/routes/routes-query-v4/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/routes/routes-query-v4/response.json
+INFO: missing description
+  in schemas/maas-backend/routes/routes-query-v4/response.json
 INFO: primitive type "string" used outside top-level definitions
   in schemas/maas-backend/routes/routes-query/request.json
 INFO: primitive type "string" used outside top-level definitions

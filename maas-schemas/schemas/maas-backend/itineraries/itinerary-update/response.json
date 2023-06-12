@@ -5,7 +5,10 @@
   "type": "object",
   "properties": {
     "itinerary": {
-      "$ref": "https://schemas.maas.global/core/itinerary.json"
+      "oneOf": [
+        { "$ref": "https://schemas.maas.global/core/itinerary.json" },
+        { "$ref": "https://schemas.maas.global/core/itineraryV2.json" }
+      ]
     }
   },
   "required": ["itinerary"],

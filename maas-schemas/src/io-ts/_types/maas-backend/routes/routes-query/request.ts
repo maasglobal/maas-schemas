@@ -61,7 +61,7 @@ export type Payload = t.Branded<
         | 'WALK'
         | 'BICYCLE'
         | 'BICYCLE_RENT'
-        | 'SCOOTER_RENT'
+        | 'SCOOTER'
       );
     transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
     options?: Record<string, unknown> & Record<string, unknown>;
@@ -89,7 +89,7 @@ export type Payload = t.Branded<
           | 'WALK'
           | 'BICYCLE'
           | 'BICYCLE_RENT'
-          | 'SCOOTER_RENT'
+          | 'SCOOTER'
         ))
     | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
     | (Record<string, unknown> & Record<string, unknown>)
@@ -131,7 +131,7 @@ export type PayloadC = t.BrandC<
                     t.LiteralC<'WALK'>,
                     t.LiteralC<'BICYCLE'>,
                     t.LiteralC<'BICYCLE_RENT'>,
-                    t.LiteralC<'SCOOTER_RENT'>,
+                    t.LiteralC<'SCOOTER'>,
                   ]
                 >,
               ]
@@ -183,7 +183,7 @@ export type PayloadC = t.BrandC<
                         t.LiteralC<'WALK'>,
                         t.LiteralC<'BICYCLE'>,
                         t.LiteralC<'BICYCLE_RENT'>,
-                        t.LiteralC<'SCOOTER_RENT'>,
+                        t.LiteralC<'SCOOTER'>,
                       ]
                     >,
                   ]
@@ -244,7 +244,7 @@ export const Payload: PayloadC = t.brand(
             t.literal('WALK'),
             t.literal('BICYCLE'),
             t.literal('BICYCLE_RENT'),
-            t.literal('SCOOTER_RENT'),
+            t.literal('SCOOTER'),
           ]),
         ]),
         transitMode: t.intersection([
@@ -285,7 +285,7 @@ export const Payload: PayloadC = t.brand(
               t.literal('WALK'),
               t.literal('BICYCLE'),
               t.literal('BICYCLE_RENT'),
-              t.literal('SCOOTER_RENT'),
+              t.literal('SCOOTER'),
             ]),
           ]),
           t.intersection([
@@ -334,7 +334,7 @@ export const Payload: PayloadC = t.brand(
           | 'WALK'
           | 'BICYCLE'
           | 'BICYCLE_RENT'
-          | 'SCOOTER_RENT'
+          | 'SCOOTER'
         );
       transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
       options?: Record<string, unknown> & Record<string, unknown>;
@@ -362,7 +362,7 @@ export const Payload: PayloadC = t.brand(
             | 'WALK'
             | 'BICYCLE'
             | 'BICYCLE_RENT'
-            | 'SCOOTER_RENT'
+            | 'SCOOTER'
           ))
       | (string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL'))
       | (Record<string, unknown> & Record<string, unknown>)
