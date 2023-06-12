@@ -9,7 +9,7 @@
         "accept": {
           "$ref": "#/definitions/acceptHeader"
         },
-        "x-maasglobal-user-agent\"": {
+        "x-maasglobal-user-agent": {
           "$ref": "#/definitions/userAgentHeader"
         }
       },

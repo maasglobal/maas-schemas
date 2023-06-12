@@ -56,10 +56,6 @@ export type Params = t.Branded<
     bookingIdToExtend?: Units_c404_.Uuid;
     spaceDemand?: SpaceDemand_101a_.SpaceDemandString;
     modes?: string;
-    depr_transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
-    depr_options?: Record<string, unknown> & Record<string, unknown>;
-    depr_leaveAtReturn?: Units_c404_.Time;
-    depr_arriveByReturn?: Units_c404_.Time;
   } & {
     from: Defined;
     to: Defined;
@@ -85,25 +81,6 @@ export type ParamsC = t.BrandC<
         bookingIdToExtend: typeof Units_c404_.Uuid;
         spaceDemand: typeof SpaceDemand_101a_.SpaceDemandString;
         modes: t.StringC;
-        depr_transitMode: t.IntersectionC<
-          [
-            t.StringC,
-            t.UnionC<
-              [
-                t.LiteralC<'TRAIN'>,
-                t.LiteralC<'BUS'>,
-                t.LiteralC<'SUBWAY'>,
-                t.LiteralC<'TRAM'>,
-                t.LiteralC<'RAIL'>,
-              ]
-            >,
-          ]
-        >;
-        depr_options: t.IntersectionC<
-          [t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]
-        >;
-        depr_leaveAtReturn: typeof Units_c404_.Time;
-        depr_arriveByReturn: typeof Units_c404_.Time;
       }>,
       t.TypeC<{
         from: typeof Defined;
@@ -131,19 +108,6 @@ export const Params: ParamsC = t.brand(
       bookingIdToExtend: Units_c404_.Uuid,
       spaceDemand: SpaceDemand_101a_.SpaceDemandString,
       modes: t.string,
-      depr_transitMode: t.intersection([
-        t.string,
-        t.union([
-          t.literal('TRAIN'),
-          t.literal('BUS'),
-          t.literal('SUBWAY'),
-          t.literal('TRAM'),
-          t.literal('RAIL'),
-        ]),
-      ]),
-      depr_options: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
-      depr_leaveAtReturn: Units_c404_.Time,
-      depr_arriveByReturn: Units_c404_.Time,
     }),
     t.type({
       from: Defined,
@@ -169,10 +133,6 @@ export const Params: ParamsC = t.brand(
       bookingIdToExtend?: Units_c404_.Uuid;
       spaceDemand?: SpaceDemand_101a_.SpaceDemandString;
       modes?: string;
-      depr_transitMode?: string & ('TRAIN' | 'BUS' | 'SUBWAY' | 'TRAM' | 'RAIL');
-      depr_options?: Record<string, unknown> & Record<string, unknown>;
-      depr_leaveAtReturn?: Units_c404_.Time;
-      depr_arriveByReturn?: Units_c404_.Time;
     } & {
       from: Defined;
       to: Defined;

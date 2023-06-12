@@ -2064,8 +2064,6 @@ INFO: primitive type "string" used outside top-level definitions
   in schemas/maas-backend/routes/routes-query-v4/request.json
 WARNING: pattern field not supported outside top-level definitions
   in schemas/maas-backend/routes/routes-query-v4/request.json
-INFO: primitive type "string" used outside top-level definitions
-  in schemas/maas-backend/routes/routes-query-v4/request.json
 INFO: missing description
   in schemas/maas-backend/routes/routes-query-v4/request.json
 INFO: primitive type "string" used outside top-level definitions

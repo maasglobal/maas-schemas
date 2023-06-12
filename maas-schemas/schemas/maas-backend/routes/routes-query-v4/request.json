@@ -83,19 +83,6 @@
         "modes": {
           "type": "string",
           "pattern": "((TRANSIT|TAXI|CAR|WALK|BICYCLE|BICYCLE_RENT|SCOOTER),?)+"
-        },
-        "depr_transitMode": {
-          "type": "string",
-          "enum": ["TRAIN", "BUS", "SUBWAY", "TRAM", "RAIL"]
-        },
-        "depr_options": {
-          "type": "object"
-        },
-        "depr_leaveAtReturn": {
-          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
-        },
-        "depr_arriveByReturn": {
-          "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
         }
       },
       "additionalProperties": false

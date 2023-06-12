@@ -68,7 +68,7 @@ export type UserAgentHeaderBrand = {
 export type Headers = t.Branded<
   {
     accept?: AcceptHeader;
-    'x-maasglobal-user-agent"'?: UserAgentHeader;
+    'x-maasglobal-user-agent'?: UserAgentHeader;
   } & Record<string, unknown>,
   HeadersBrand
 >;
@@ -77,7 +77,7 @@ export type HeadersC = t.BrandC<
     [
       t.PartialC<{
         accept: typeof AcceptHeader;
-        'x-maasglobal-user-agent"': typeof UserAgentHeader;
+        'x-maasglobal-user-agent': typeof UserAgentHeader;
       }>,
       t.RecordC<t.StringC, t.UnknownC>,
     ]
@@ -88,7 +88,7 @@ export const Headers: HeadersC = t.brand(
   t.intersection([
     t.partial({
       accept: AcceptHeader,
-      'x-maasglobal-user-agent"': UserAgentHeader,
+      'x-maasglobal-user-agent': UserAgentHeader,
     }),
     t.record(t.string, t.unknown),
   ]),
@@ -97,7 +97,7 @@ export const Headers: HeadersC = t.brand(
   ): x is t.Branded<
     {
       accept?: AcceptHeader;
-      'x-maasglobal-user-agent"'?: UserAgentHeader;
+      'x-maasglobal-user-agent'?: UserAgentHeader;
     } & Record<string, unknown>,
     HeadersBrand
   > => true,
