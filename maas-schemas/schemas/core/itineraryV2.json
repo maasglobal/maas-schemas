@@ -59,7 +59,7 @@
           }
         }
       },
-      "required": ["startTime", "endTime", "legs"]
+      "required": ["startTime", "endTime", "legs", "productOptions"]
     }
   },
   "allOf": [

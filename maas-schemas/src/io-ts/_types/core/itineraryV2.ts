@@ -69,6 +69,7 @@ export type ItineraryV2Base = t.Branded<
     startTime: Defined;
     endTime: Defined;
     legs: Defined;
+    productOptions: Defined;
   },
   ItineraryV2BaseBrand
 >;
@@ -97,6 +98,7 @@ export type ItineraryV2BaseC = t.BrandC<
         startTime: typeof Defined;
         endTime: typeof Defined;
         legs: typeof Defined;
+        productOptions: typeof Defined;
       }>,
     ]
   >,
@@ -124,6 +126,7 @@ export const ItineraryV2Base: ItineraryV2BaseC = t.brand(
       startTime: Defined,
       endTime: Defined,
       legs: Defined,
+      productOptions: Defined,
     }),
   ]),
   (
@@ -145,6 +148,7 @@ export const ItineraryV2Base: ItineraryV2BaseC = t.brand(
       startTime: Defined;
       endTime: Defined;
       legs: Defined;
+      productOptions: Defined;
     },
     ItineraryV2BaseBrand
   > => true,
