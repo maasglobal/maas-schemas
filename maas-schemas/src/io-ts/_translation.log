@@ -1909,6 +1909,14 @@ INFO: missing description
 INFO: missing description
   in schemas/maas-backend/invoices/invoiceUnits.json
 INFO: missing description
+  in schemas/maas-backend/itineraries/itinerary-create/request-v1.json
+INFO: missing description
+  in schemas/maas-backend/itineraries/itinerary-create/request-v1.json
+INFO: missing description
+  in schemas/maas-backend/itineraries/itinerary-create/request-v2.json
+INFO: missing description
+  in schemas/maas-backend/itineraries/itinerary-create/request-v2.json
+INFO: missing description
   in schemas/maas-backend/itineraries/itinerary-create/request.json
 INFO: missing description
   in schemas/maas-backend/itineraries/itinerary-create/request.json

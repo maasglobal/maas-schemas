@@ -206,6 +206,8 @@ export const registry: mjsv.Registry = {
     require('../../schemas/maas-backend/invoices/invoiceUnits.json'),
     require('../../schemas/maas-backend/itineraries/itinerary-cancel/request.json'),
     require('../../schemas/maas-backend/itineraries/itinerary-cancel/response.json'),
+    require('../../schemas/maas-backend/itineraries/itinerary-create/request-v1.json'),
+    require('../../schemas/maas-backend/itineraries/itinerary-create/request-v2.json'),
     require('../../schemas/maas-backend/itineraries/itinerary-create/request.json'),
     require('../../schemas/maas-backend/itineraries/itinerary-create/response.json'),
     require('../../schemas/maas-backend/itineraries/itinerary-estimate/request.json'),

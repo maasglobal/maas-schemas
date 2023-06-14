@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://schemas.maas.global/maas-backend/itineraries/itinerary-create/request.json",
+  "$id": "https://schemas.maas.global/maas-backend/itineraries/itinerary-create/request-v1.json",
   "description": "Request schema for itineraries-create-v2",
   "type": "object",
   "additionalProperties": false,
@@ -39,10 +39,7 @@
       "type": "object",
       "properties": {
         "itinerary": {
-          "anyOf": [
-            { "$ref": "https://schemas.maas.global/core/itinerary.json" },
-            { "$ref": "https://schemas.maas.global/core/itineraryV2.json" }
-          ]
+          "$ref": "https://schemas.maas.global/core/itinerary.json"
         },
         "customerSelections": {
           "type": "array",
