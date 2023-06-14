@@ -2051,6 +2051,167 @@ export const examplesItineraryV2: NonEmptyArray<ItineraryV2> = [
     ],
     sourcePlanId: 'da65c500-be17-11eb-91d1-e9bf88371f9e',
   },
+  {
+    type: 'outward',
+    startTime: 1686752850000,
+    id: 'bff40f3b-3919-4a96-9b40-0dd82b7a5827',
+    endTime: 1686754407000,
+    fares: [
+      {
+        amount: 220,
+        currency: 'EUR',
+        productionAmount: 220,
+        originalAmount: 220,
+        type: 'charge',
+      },
+    ],
+    version: '2',
+    co2: 173,
+    signature: '9b1c61da77039fc82531b78432881a5d2a476691e358308b11dc9ad49517c74c',
+    productOptions: [
+      {
+        type: 'BOOKING_UNNECESSARY',
+        ref: 80,
+        customerId: '1c98521c-eb10-4290-a0dc-d198b4296f05',
+      },
+      {
+        ref: 94,
+        product: {
+          agencyId: 'ATM',
+          id: 'atm-mi1_mi3',
+          tspProductId: 'atm-2301',
+          allowFinishTrip: false,
+          description: 'Zona: Mi1 - Mi3',
+          name: 'Biglietto semplice Mi1-Mi3',
+          icon: 'https://assets.development.maas.global/product-icons/atm.png',
+        },
+        fares: [
+          {
+            amount: 220,
+            currency: 'EUR',
+            productionAmount: 220,
+            originalAmount: 220,
+            type: 'charge',
+          },
+        ],
+        meta: { MODE_TRANSIT: { zones: ['Mi1', 'Mi2', 'Mi3'] } },
+        customerId: '1c98521c-eb10-4290-a0dc-d198b4296f05',
+        type: 'BOOKING_BOOKABLE',
+        identityId: '1c98521c-eb10-4290-a0dc-d198b4296f05',
+        terms: {
+          reconcilable: false,
+          validity: { endTime: 1686758342000, startTime: 1686752942000 },
+          reusable: true,
+          restrictions: { singleDevice: true },
+        },
+      },
+    ],
+    sourcePlanId: '8f2f6b50-34c3-4550-9452-fb5bd1dd755b',
+    legs: [
+      {
+        from: {
+          name: 'Via Lattanzio 60A, Milano, Italia',
+          lon: 9.2170177,
+          lat: 45.4527079,
+        },
+        distance: 108,
+        endTime: 1686752942000,
+        mode: 'WALK',
+        legGeometry: { points: 'onltGaegw@jCtBFABBBBFS@@', length: 7 },
+        productOption: 80,
+        startTime: 1686752850000,
+        to: {
+          lat: 45.4518998,
+          stationId: '12074',
+          name: 'via tito livio',
+          lon: 9.2164488,
+        },
+      },
+      {
+        agencyId: 'ATM',
+        routeLongName: 'm.te velino - s.siro',
+        legGeometry: {
+          points:
+            'ciltGqagw@Oj@i@fBeAhDELADA@EHCDC@CBE@A@G@E?G?E?AACAECGEu@k@_@[a@YUSMIEC??????CAC?EAE?C?E?E@C@E@EBM`@Sr@Md@]pAQp@Qj@??Qj@uBdHo@vB??K^[`AeAnDs@~BQj@??K^gArDM`@W|@Qj@k@fBkAbE??Qj@ENITOr@CPCP?J@HBP@FBFFHLJd@THDFHDHBL\\rDNfB??P`AFf@Dl@?T?VPtBVjCj@tG????Db@l@`HFb@^lELnA???@@R@F@J?JAFQ\\g@~@Sb@Uf@IRyDdHEHGJ{@`BIPINQ\\EH????Ub@ILABGJe@v@CNIPEJKRk@jAsAjCMX}@jBeA|BOXS^QXMTAD??GNMVC@C@A@C?CAA?UGOCo@KE?GAGAW?OA{@A_@?Q?a@?Y?O?c@?k@?gBA',
+          length: 168,
+        },
+        from: {
+          lat: 45.4518998,
+          stationId: '12074',
+          name: 'via tito livio',
+          lon: 9.2164488,
+        },
+        stops: [
+          {
+            lat: 45.4537181,
+            stationId: '12071',
+            lon: 9.2153527,
+            name: 'v.le umbria via comelico',
+          },
+          { lat: 45.4546004, stationId: '12067', lon: 9.2138021, name: 'via comelico' },
+          {
+            lat: 45.455514,
+            stationId: '12059',
+            lon: 9.2115052,
+            name: 'via cadore via bergamo',
+          },
+          { lat: 45.4564047, stationId: '12051', lon: 9.2092719, name: 'via bergamo' },
+          {
+            lat: 45.4577262,
+            stationId: '11826',
+            lon: 9.2060255,
+            name: 'v.le monte nero via bergamo',
+          },
+          { lat: 45.4573019, stationId: '11774', lon: 9.2029978, name: 'via lamarmora' },
+          {
+            lat: 45.4566978,
+            stationId: '11770',
+            lon: 9.1993426,
+            name: 'via lamarmora via commenda',
+          },
+          { lat: 45.4561713, stationId: '11764', lon: 9.1960962, name: 'crocetta m3' },
+          {
+            lat: 45.4582076,
+            stationId: '11520',
+            lon: 9.1924615,
+            name: 'c.so p.ta romana via s. sofia',
+          },
+          { lat: 45.4604956, stationId: '11511', lon: 9.1885712, name: 'missori m3' },
+        ],
+        mode: 'TRAM',
+        endTime: 1686754111000,
+        productOption: 94,
+        route: 'T16',
+        routeShortName: 'T16',
+        distance: 3081,
+        startTime: 1686752942000,
+        to: { lat: 45.4632545, stationId: '11503', name: 'duomo m1 m3', lon: 9.1885628 },
+      },
+      {
+        from: {
+          lat: 45.4632545,
+          stationId: '11503',
+          name: 'duomo m1 m3',
+          lon: 9.1885628,
+        },
+        distance: 348,
+        endTime: 1686754407000,
+        mode: 'WALK',
+        legGeometry: {
+          points:
+            'ipntGosaw@?AG?C?w@?G?G??AMHUAa@?_@?c@?aA?OK?@I????A?A?a@?q@?c@?G?I?}A?_@?C?M?C?G?EG?uA@',
+          length: 34,
+        },
+        productOption: 80,
+        startTime: 1686754111000,
+        to: {
+          name: 'Via Ugo Foscolo 1/3, Milano, Italia',
+          lon: 9.1901054,
+          lat: 45.4652938,
+        },
+      },
+    ],
+  },
 ] as unknown as NonEmptyArray<ItineraryV2>;
 
 export default ItineraryV2;
