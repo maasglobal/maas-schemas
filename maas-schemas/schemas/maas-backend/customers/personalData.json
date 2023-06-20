@@ -109,6 +109,10 @@
         }
       ]
     },
+    "fiscalCodeIt": {
+      "description": "Italian fiscal code",
+      "type": "string"
+    },
     "subscriberType": {
       "description": "Subscriber Type",
       "type": "string"
@@ -173,6 +177,9 @@
     },
     "ssid-fi": {
       "$ref": "#/definitions/ssidFi"
+    },
+    "fiscalCode-it": {
+      "$ref": "#/definitions/fiscalCodeIt"
     },
     "subscriberType": {
       "$ref": "#/definitions/subscriberType"
