@@ -253,6 +253,19 @@ export type SsidFiBrand = {
   readonly SsidFi: unique symbol;
 };
 
+// FiscalCodeIt
+// Italian fiscal code
+export type FiscalCodeIt = t.Branded<string, FiscalCodeItBrand>;
+export type FiscalCodeItC = t.BrandC<t.StringC, FiscalCodeItBrand>;
+export const FiscalCodeIt: FiscalCodeItC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, FiscalCodeItBrand> => true,
+  'FiscalCodeIt',
+);
+export type FiscalCodeItBrand = {
+  readonly FiscalCodeIt: unique symbol;
+};
+
 // SubscriberType
 // Subscriber Type
 export type SubscriberType = t.Branded<string, SubscriberTypeBrand>;
@@ -315,6 +328,7 @@ export type PersonalData = t.Branded<
     dob?: Dob;
     ssid?: Ssid;
     'ssid-fi'?: SsidFi;
+    'fiscalCode-it'?: FiscalCodeIt;
     subscriberType?: SubscriberType;
     profileImageUrl?: ProfileImageUrl;
     nationality?: Nationality;
@@ -342,6 +356,7 @@ export type PersonalDataC = t.BrandC<
         dob: typeof Dob;
         ssid: typeof Ssid;
         'ssid-fi': typeof SsidFi;
+        'fiscalCode-it': typeof FiscalCodeIt;
         subscriberType: typeof SubscriberType;
         profileImageUrl: typeof ProfileImageUrl;
         nationality: typeof Nationality;
@@ -371,6 +386,7 @@ export const PersonalData: PersonalDataC = t.brand(
       dob: Dob,
       ssid: Ssid,
       'ssid-fi': SsidFi,
+      'fiscalCode-it': FiscalCodeIt,
       subscriberType: SubscriberType,
       profileImageUrl: ProfileImageUrl,
       nationality: Nationality,
@@ -398,6 +414,7 @@ export const PersonalData: PersonalDataC = t.brand(
       dob?: Dob;
       ssid?: Ssid;
       'ssid-fi'?: SsidFi;
+      'fiscalCode-it'?: FiscalCodeIt;
       subscriberType?: SubscriberType;
       profileImageUrl?: ProfileImageUrl;
       nationality?: Nationality;
