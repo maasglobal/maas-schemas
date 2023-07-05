@@ -113,6 +113,10 @@
       "description": "Italian fiscal code",
       "type": "string"
     },
+    "extCreditIdIt": {
+      "description": "Italian voucher credit code",
+      "type": "string"
+    },
     "subscriberType": {
       "description": "Subscriber Type",
       "type": "string"
@@ -180,6 +184,9 @@
     },
     "fiscalCode-it": {
       "$ref": "#/definitions/fiscalCodeIt"
+    },
+    "extCreditId-it": {
+      "$ref": "#/definitions/extCreditIdIt"
     },
     "subscriberType": {
       "$ref": "#/definitions/subscriberType"
