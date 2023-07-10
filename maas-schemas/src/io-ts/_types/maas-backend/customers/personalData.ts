@@ -266,6 +266,19 @@ export type FiscalCodeItBrand = {
   readonly FiscalCodeIt: unique symbol;
 };
 
+// ExtCreditIdIt
+// Italian voucher credit code
+export type ExtCreditIdIt = t.Branded<string, ExtCreditIdItBrand>;
+export type ExtCreditIdItC = t.BrandC<t.StringC, ExtCreditIdItBrand>;
+export const ExtCreditIdIt: ExtCreditIdItC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, ExtCreditIdItBrand> => true,
+  'ExtCreditIdIt',
+);
+export type ExtCreditIdItBrand = {
+  readonly ExtCreditIdIt: unique symbol;
+};
+
 // SubscriberType
 // Subscriber Type
 export type SubscriberType = t.Branded<string, SubscriberTypeBrand>;
@@ -329,6 +342,7 @@ export type PersonalData = t.Branded<
     ssid?: Ssid;
     'ssid-fi'?: SsidFi;
     'fiscalCode-it'?: FiscalCodeIt;
+    'extCreditId-it'?: ExtCreditIdIt;
     subscriberType?: SubscriberType;
     profileImageUrl?: ProfileImageUrl;
     nationality?: Nationality;
@@ -357,6 +371,7 @@ export type PersonalDataC = t.BrandC<
         ssid: typeof Ssid;
         'ssid-fi': typeof SsidFi;
         'fiscalCode-it': typeof FiscalCodeIt;
+        'extCreditId-it': typeof ExtCreditIdIt;
         subscriberType: typeof SubscriberType;
         profileImageUrl: typeof ProfileImageUrl;
         nationality: typeof Nationality;
@@ -387,6 +402,7 @@ export const PersonalData: PersonalDataC = t.brand(
       ssid: Ssid,
       'ssid-fi': SsidFi,
       'fiscalCode-it': FiscalCodeIt,
+      'extCreditId-it': ExtCreditIdIt,
       subscriberType: SubscriberType,
       profileImageUrl: ProfileImageUrl,
       nationality: Nationality,
@@ -415,6 +431,7 @@ export const PersonalData: PersonalDataC = t.brand(
       ssid?: Ssid;
       'ssid-fi'?: SsidFi;
       'fiscalCode-it'?: FiscalCodeIt;
+      'extCreditId-it'?: ExtCreditIdIt;
       subscriberType?: SubscriberType;
       profileImageUrl?: ProfileImageUrl;
       nationality?: Nationality;
