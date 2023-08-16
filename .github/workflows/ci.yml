@@ -83,6 +83,24 @@ jobs:
         run: |
           yarn --cwd maasglobal-schema-generator-io-ts ci
 
+  test-reference-schemas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    name: test reference schemas
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+          registry-url: "https://registry.npmjs.org"
+      - name: Install Dependencies
+        run: |
+          yarn --cwd maasglobal-reference-schemas
+      - name: Run Tests
+        run: |
+          yarn --cwd maasglobal-reference-schemas ci
+
   test-maas-schemas:
     runs-on: ubuntu-latest
     timeout-minutes: 15

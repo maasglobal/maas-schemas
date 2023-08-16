@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reference-schemas.maas.global/combinator.json",
+  "title": "Combinator Reference Schemas",
+  "description": "Keywords that combine several schemas into one.",
+  "definitions": {
+    "nonNegative": {
+      "type": "number",
+      "minimum": 0
+    },
+    "integer": {
+      "type": "integer"
+    },
+    "nonNegativeInteger": {
+      "allOf": [
+        { "$ref": "#/definitions/nonNegative" },
+        { "$ref": "#/definitions/integer" }
+      ]
+    },
+
+    "email": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "login": {
+      "anyOf": [{ "$ref": "#/definitions/email" }, { "$ref": "#/definitions/username" }]
+    }
+  }
+}

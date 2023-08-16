@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reference-schemas.maas.global/array.json",
+  "title": "Array",
+  "description": "An ordered collection of homogenous values, with duplicates allowed. See Set and Tuple for other array based structures.",
+  "definitions": {
+    "exampleArray": {
+      "type": "array",
+      "items": { "type": "string" },
+      "contains": { "type": "string", "const": "foo" },
+      "minItems": 1,
+      "maxItems": 10,
+      "examples": [["asdf", "foo", "qwer"]]
+    }
+  }
+}

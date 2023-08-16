@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reference-schemas.maas.global/literal.json",
+  "title": "Literal Reference Schemas",
+  "description": "Literals can define any JSON structure, and the input needs to match that structure",
+  "definitions": {
+    "stringLiteral": {
+      "type": "string",
+      "const": "foo",
+      "default": "foo"
+    },
+
+    "numberLiteral": {
+      "type": "number",
+      "const": 123,
+      "default": 123
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reference-schemas.maas.global/comment.json",
+  "$comment": "This is a toplevel comment",
+  "definitions": {
+    "exampleDefinition": {
+      "$comment": "This is a definition comment"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reference-schemas.maas.global/string.json",
+  "title": "String Reference Schemas",
+  "description": "We use several keywords to limit strings to a specific form",
+  "definitions": {
+    "exampleString": {
+      "type": "string",
+      "minLength": "1",
+      "maxLength": "10",
+      "pattern": "^[a-z]+$",
+      "examples": ["asdf"],
+      "invalid": {
+        "too long": "YWJjZGVmZ2hpams="
+      }
+    },
+
+    "exampleIp": {
+      "type": "string",
+      "format": "ipv4",
+      "examples": ["127.0.0.1"]
+    }
+  }
+}

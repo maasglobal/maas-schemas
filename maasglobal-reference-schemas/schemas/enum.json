@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reference-schemas.maas.global/enum.json",
+  "title": "Enum Reference Schemas",
+  "description": "Basic enum definitions should work as expected. Separate accessors can be defined for each value.",
+  "definitions": {
+    "timeOfDay": {
+      "type": "string",
+      "enum": ["night", "day"],
+      "examples": ["night", "day"]
+    },
+    "timeOfDayNIGHT": {
+      "$comment": "Example accessor",
+      "default": "night",
+      "allOf": [
+        {
+          "$ref": "#/definitions/timeOfDay"
+        },
+        { "const": "night" }
+      ]
+    },
+    "timeOfDayDAY": {
+      "$comment": "Another example accessor",
+      "default": "day",
+      "allOf": [
+        {
+          "$ref": "#/definitions/timeOfDay"
+        },
+        { "const": "day" }
+      ]
+    }
+  }
+}
