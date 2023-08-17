@@ -74,7 +74,7 @@
       "examples": ["2020-01-01"]
     },
     "validTo": {
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/isoDate"
         },
@@ -180,7 +180,7 @@
       "$ref": "#/definitions/kycServiceId"
     },
     "firstName": {
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "#/definitions/firstName"
         },
@@ -190,7 +190,7 @@
       ]
     },
     "lastName": {
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "#/definitions/lastName"
         },

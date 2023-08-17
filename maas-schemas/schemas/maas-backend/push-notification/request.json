@@ -25,7 +25,7 @@
       ]
     },
     "data": {
-      "oneOf": [
+      "anyOf": [
         {
           "type": "object",
           "properties": {

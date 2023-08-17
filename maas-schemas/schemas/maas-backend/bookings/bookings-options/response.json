@@ -63,7 +63,7 @@
           }
         },
         {
-          "oneOf": [
+          "anyOf": [
             {
               "required": ["leg", "terms", "product", "fares"]
             },

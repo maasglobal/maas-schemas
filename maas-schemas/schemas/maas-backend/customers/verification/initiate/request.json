@@ -31,7 +31,7 @@
               "maxLength": 255
             }
           },
-          "oneOf": [{ "required": ["planId"] }, { "required": ["agencyId"] }]
+          "anyOf": [{ "required": ["planId"] }, { "required": ["agencyId"] }]
         }
       },
       "required": ["location"]

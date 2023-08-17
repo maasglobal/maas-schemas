@@ -27,7 +27,7 @@
       "minimum": 0
     },
     "currency": {
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
         },

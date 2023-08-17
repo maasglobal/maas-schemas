@@ -129,7 +129,7 @@
       "properties": {
         "id": {
           "description": "Refers several seemingly unrelated things. Use is discouraged.",
-          "oneOf": [
+          "anyOf": [
             { "$ref": "#/definitions/bookingOptionsReference" },
             {
               "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"

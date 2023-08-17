@@ -5,7 +5,7 @@
   "description": "GeoJSON geometry, forked from https://github.com/fge/sample-json-schemas/ under BSD license",
   "type": "object",
   "required": ["type", "coordinates"],
-  "oneOf": [
+  "anyOf": [
     {
       "title": "Point",
       "type": "object",

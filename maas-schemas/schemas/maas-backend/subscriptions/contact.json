@@ -136,7 +136,7 @@
       "required": ["type", "number", "expiryMonth", "expiryYear", "cvv"]
     },
     "newPaymentMethod": {
-      "oneOf": [
+      "anyOf": [
         { "$ref": "#/definitions/stripePaymentMethod" },
         { "$ref": "#/definitions/creditCardPaymentMethod" }
       ]

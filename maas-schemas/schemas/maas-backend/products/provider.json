@@ -99,7 +99,7 @@
             },
             "fixedFareCurrency": {
               "description": "The currency of the maximum fixed fare",
-              "oneOf": [
+              "anyOf": [
                 {
                   "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
                 },

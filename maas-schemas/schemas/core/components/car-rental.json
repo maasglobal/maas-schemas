@@ -70,7 +70,7 @@
           "enum": ["manual", "automatic", null]
         },
         "fuel": {
-          "oneOf": [
+          "anyOf": [
             {
               "enum": [
                 "diesel",
@@ -90,7 +90,7 @@
           ]
         },
         "classification": {
-          "oneOf": [
+          "anyOf": [
             {
               "$ref": "https://schemas.maas.global/core/components/ACRISS.json"
             },

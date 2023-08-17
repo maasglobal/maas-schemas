@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/itineraries/itinerary-create/response.json",
   "description": "Response schema for itineraries-create",
-  "oneOf": [
+  "anyOf": [
     {
       "type": "object",
       "properties": {
@@ -76,7 +76,7 @@
     },
     "paymentParameters": {
       "description": "Payment parameters for asynchronous payment methods",
-      "oneOf": [
+      "anyOf": [
         { "$ref": "#/definitions/paymentParameter" },
         {
           "type": "array",
