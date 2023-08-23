@@ -8,7 +8,7 @@
       "$ref": "#/definitions/id"
     },
     "tspId": {
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "#/definitions/tspId"
         },
@@ -27,7 +27,7 @@
       "$ref": "#/definitions/fares"
     },
     "cost": {
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "#/definitions/cost"
         },

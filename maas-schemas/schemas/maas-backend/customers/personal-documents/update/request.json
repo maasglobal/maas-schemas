@@ -46,7 +46,7 @@
           "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/kycServiceId"
         },
         "firstName": {
-          "oneOf": [
+          "anyOf": [
             {
               "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/firstName"
             },
@@ -56,7 +56,7 @@
           ]
         },
         "lastName": {
-          "oneOf": [
+          "anyOf": [
             {
               "$ref": "https://schemas.maas.global/core/personal-document.json#/definitions/lastName"
             },

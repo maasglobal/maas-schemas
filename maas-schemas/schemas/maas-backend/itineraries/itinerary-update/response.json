@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "itinerary": {
-      "oneOf": [
+      "anyOf": [
         { "$ref": "https://schemas.maas.global/core/itinerary.json" },
         { "$ref": "https://schemas.maas.global/core/itineraryV2.json" }
       ]

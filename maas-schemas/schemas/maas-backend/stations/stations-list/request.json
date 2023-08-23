@@ -11,7 +11,7 @@
       "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/agencyId"
     },
     "payload": {
-      "oneOf": [
+      "anyOf": [
         {
           "type": "object",
           "description": "Query by radius",

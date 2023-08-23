@@ -1,7 +1,7 @@
 {
   "$id": "https://schemas.maas.global/tsp/stations-list/request.json",
   "description": "MaaS stations query request schema",
-  "oneOf": [
+  "anyOf": [
     {
       "type": "object",
       "properties": {

@@ -29,7 +29,7 @@
     },
     "group": { "$ref": "#/definitions/groupMeta" },
     "account": {
-      "oneOf": [
+      "anyOf": [
         { "$ref": "#/definitions/unknownAccount" },
         {
           "$ref": "https://schemas.maas.global/environments/accounts.json#/definitions/account"

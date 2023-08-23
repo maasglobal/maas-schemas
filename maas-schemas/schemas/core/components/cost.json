@@ -29,7 +29,7 @@
       "description": "A flag indicating whether TSP price is fixed"
     },
     "currency": {
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
         },

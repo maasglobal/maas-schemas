@@ -54,7 +54,7 @@
       "maxLength": 255
     },
     "preAuthBuffer": {
-      "oneOf": [
+      "anyOf": [
         {
           "type": "object",
           "properties": {

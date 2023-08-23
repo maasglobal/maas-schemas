@@ -44,7 +44,7 @@
               }
             },
             {
-              "oneOf": [
+              "anyOf": [
                 {
                   "type": "object",
                   "required": ["leg", "terms", "cost", "meta"]

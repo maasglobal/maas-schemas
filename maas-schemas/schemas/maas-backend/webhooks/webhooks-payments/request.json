@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/maas-backend/webhooks/webhooks-payments/request.json",
   "description": "MaaS webhook to receive payment status updates from payment gateways.",
-  "oneOf": [
+  "anyOf": [
     {
       "$ref": "https://schemas.maas.global/maas-backend/webhooks/webhooks-payments/gateway/avainpay.json#/definitions/request"
     },

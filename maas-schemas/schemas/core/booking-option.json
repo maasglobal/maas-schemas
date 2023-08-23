@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.maas.global/core/booking-option.json",
   "description": "MaaS single TSP adapter option",
-  "oneOf": [
+  "anyOf": [
     {
       "$ref": "#/definitions/contentWithCost"
     },

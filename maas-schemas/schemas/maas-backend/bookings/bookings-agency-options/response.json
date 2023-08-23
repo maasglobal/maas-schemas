@@ -63,7 +63,7 @@
           }
         },
         {
-          "oneOf": [
+          "anyOf": [
             {
               "type": "object",
               "required": ["leg", "terms", "product", "fares"]

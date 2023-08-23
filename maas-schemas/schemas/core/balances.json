@@ -5,7 +5,7 @@
   "definitions": {
     "balanceName": {
       "description": "Uniqued name for a currency",
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
         },

@@ -84,7 +84,7 @@
           "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/identityId"
         },
         "type": {
-          "oneOf": [{ "const": "BOOKING_BOOKABLE" }, { "const": "BOOKING_ESTIMATABLE" }]
+          "anyOf": [{ "const": "BOOKING_BOOKABLE" }, { "const": "BOOKING_ESTIMATABLE" }]
         },
         "product": {
           "$ref": "https://schemas.maas.global/core/product.json"

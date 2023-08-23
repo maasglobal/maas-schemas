@@ -151,7 +151,7 @@
           "type": "object",
           "properties": {
             "currency": {
-              "oneOf": [
+              "anyOf": [
                 {
                   "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/currency"
                 },
@@ -173,7 +173,7 @@
           "description": "key would typically match tokenId",
           "properties": {
             "currency": {
-              "oneOf": [
+              "anyOf": [
                 {
                   "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/metaCurrencyTOKEN"
                 },

@@ -4,7 +4,7 @@
   "definitions": {
     "stringCoarsedNull": {
       "description": "Ajv type coarsing replaces null with empty string",
-      "oneOf": [
+      "anyOf": [
         {
           "type": "null"
         },
