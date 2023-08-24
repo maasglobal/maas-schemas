@@ -3865,10 +3865,10 @@ io-ts-codegen@^0.4.5:
   resolved "https://registry.yarnpkg.com/io-ts-codegen/-/io-ts-codegen-0.4.5.tgz#67a5e0e0d72751451ab6c2c70e2f304408f398de"
   integrity sha512-7Q6CbNyYOIelPt2OddqMIk5jGfUM5Z+Y2OSsPAJnaSRroCwedAp0cFNh5h02nsE/33P9xjyGhKTajMkPApEdcA==
 
-io-ts-from-json-schema@^0.0.23:
-  version "0.0.23"
-  resolved "https://registry.yarnpkg.com/io-ts-from-json-schema/-/io-ts-from-json-schema-0.0.23.tgz#f24e2dc239ef23d4ccbb0367eafd2861347c8ce6"
-  integrity sha512-KMTIF7HJ6BVfmmW3eaKsSloQjm9FRStfdT+NJT06HCRprUofcGw/tD/NhDCcnhcKh/HPX5O44jc6J83PDHRyzA==
+io-ts-from-json-schema@^0.0.26:
+  version "0.0.26"
+  resolved "https://registry.yarnpkg.com/io-ts-from-json-schema/-/io-ts-from-json-schema-0.0.26.tgz#96fb6126994d47c96db2ba0237f8e932efd1f2f2"
+  integrity sha512-pH7l1VDLvOfaq9lkorlb2G2vORU1NWAY0U/yzOWJy0OkZak7HXQ18G1ClKj2KOZsmdDagGyWJt/QOxXbmXf1aQ==
   dependencies:
     glob "^7.1.6"
     io-ts-codegen "^0.4.5"
@@ -5156,12 +5156,12 @@ maasglobal-schema-generator-ajv@^0.0.4:
     maasglobal-schema-package "^0.0.1"
     yargs "^17.6.2"
 
-maasglobal-schema-generator-io-ts@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/maasglobal-schema-generator-io-ts/-/maasglobal-schema-generator-io-ts-0.0.5.tgz#04a67a341fb261a6ffa5534ccfd050f874e814a9"
-  integrity sha512-xvKIkd3P34MSmCMNvis1Oup6Qh/gG2ncdt3WXEhaaQCFaeaC3W/Jak3qlz+zdrVc4N6g++w8KZOnBN+XV/Q6Zw==
+maasglobal-schema-generator-io-ts@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/maasglobal-schema-generator-io-ts/-/maasglobal-schema-generator-io-ts-0.0.6.tgz#acf3d807b9eb966c582c69b215df25eeee13faad"
+  integrity sha512-F3IbqNacp905vxt0jHrziPSkX7ZB2XWxZ4QE1K9PgTdfOseQTIXFELdYvCbKjdowG+7Nm3rsm9roNQcfN4vG7w==
   dependencies:
-    io-ts-from-json-schema "^0.0.23"
+    io-ts-from-json-schema "^0.0.26"
     maasglobal-schema-package "^0.0.1"
     yargs "^17.6.2"
 
