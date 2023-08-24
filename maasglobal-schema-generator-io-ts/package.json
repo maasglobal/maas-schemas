@@ -11,7 +11,7 @@
     "mgsg-io-ts": "lib/cli.js"
   },
   "dependencies": {
-    "io-ts-from-json-schema": "^0.0.23",
+    "io-ts-from-json-schema": "^0.0.26",
     "maasglobal-schema-package": "^0.0.1",
     "yargs": "^17.6.2"
   },
