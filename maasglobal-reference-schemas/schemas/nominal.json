@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reference-schemas.maas.global/nominal.json",
+  "title": "Nominal Typing",
+  "description": "Naming basic types is useful as documentation. In addition the TypeScript we generate has nominal typing to prevent assigning unrelated basic types to each other.",
+  "definitions": {
+    "customerId": {
+      "type": "string"
+    },
+    "age": {
+      "type": "integer"
+    },
+    "distance": {
+      "type": "number"
+    },
+    "membership": {
+      "type": "boolean"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "unknownCustomer": {
+      "type": "null",
+      "default": null
+    }
+  }
+}

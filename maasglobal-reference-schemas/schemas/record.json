@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reference-schemas.maas.global/record.json",
+  "title": "Record Reference Schemas",
+  "description": "Record represents a hashmap from a key type to a value type",
+  "definitions": {
+    "exampleId": { "type": "string" },
+    "exampleField": { "type": "string" },
+    "exampleStruct": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "#/definitions/exampleId" },
+        "field": { "$ref": "#/definitions/exampleField" }
+      },
+      "additionalProperties": false
+    },
+    "exampleRecord": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/definitions/exampleId" },
+      "additionalProperties": { "$ref": "#/definitions/exampleStruct" }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reference-schemas.maas.global/struct.json",
+  "title": "Struct Reference Schemas",
+  "description": "Structs contain fields with values of specific type dictated by the key",
+  "definitions": {
+    "struct": {
+      "type": "object",
+      "properties": {
+        "foo": {
+          "$ref": "https://reference-schemas.maas.global/foo.json#/definitions/string"
+        },
+        "bar": {
+          "$ref": "https://reference-schemas.maas.global/foo.json#/definitions/number"
+        }
+      },
+      "required": ["foo", "bar"],
+      "additionalProperties": false,
+      "examples": [
+        {
+          "foo": "asdf",
+          "bar": 4
+        }
+      ]
+    },
+    "patterns": {
+      "type": "object",
+      "patternProperties": {
+        "^s": {
+          "$ref": "https://reference-schemas.maas.global/foo.json#/definitions/string"
+        },
+        "^n": {
+          "$ref": "https://reference-schemas.maas.global/foo.json#/definitions/number"
+        }
+      },
+      "additionalProperties": false,
+      "examples": [
+        {
+          "s1": "asdf",
+          "s2": "qwer",
+          "n1": 2,
+          "n2": 4
+        }
+      ]
+    }
+  }
+}

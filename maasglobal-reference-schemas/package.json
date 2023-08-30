@@ -1,0 +1,32 @@
+{
+  "name": "maasglobal-reference-schemas",
+  "version": "0.0.1",
+  "description": "Test suite for JSON schema features used by MaaS Global",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maasglobal/maas-schemas.git"
+  },
+  "keywords": [
+    "schemas",
+    "JSON"
+  ],
+  "bugs": {
+    "url": "https://github.com/maasglobal/maas-schemas/issues"
+  },
+  "homepage": "https://github.com/maasglobal/maas-schemas/",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint-config-maasglobal-ts": "^0.0.14",
+    "prettier": "^2.8.1"
+  },
+  "scripts": {
+    "prettier-check": "yarn prettier --check '**/*.{css,html,js,ts,json,md,yaml,yml}'",
+    "prettier-fix": "yarn prettier-check --write",
+    "prettify": "yarn prettier-fix",
+    "lint": "yarn prettier-check",
+    "ci": "yarn lint",
+    "deploy-npm": "yarn ci && yarn publish --non-interactive",
+    "deploy-alpha": "yarn deploy-npm --tag alpha"
+  }
+}

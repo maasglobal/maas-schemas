@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reference-schemas.maas.global/tuple.json",
+  "title": "Tuple Reference schemas",
+  "description": "An ordered collection of items, the type of which depend on their position in the collection",
+  "definitions": {
+    "tuple": {
+      "type": "array",
+      "items": [
+        { "$ref": "https://reference-schemas.maas.global/foo.json#/definitions/string" },
+        { "$ref": "https://reference-schemas.maas.global/foo.json#/definitions/number" }
+      ],
+      "additionalItems": false,
+      "examples": [["asdf", 2]]
+    }
+  }
+}

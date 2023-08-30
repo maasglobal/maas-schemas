@@ -1,0 +1,35 @@
+name: CD maasglobal-reference-schemas
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'maasglobal-reference-schemas/package.json'
+      - '.github/workflows/cd-maasglobal-reference-schemas.yml'
+
+defaults:
+  run:
+    working-directory: maasglobal-reference-schemas
+
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.PUBLIC_NPM_TOKEN }}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    name: publish
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+          registry-url: "https://registry.npmjs.org"
+      - name: Install Dependencies
+        run: |
+          yarn
+      - name: Deploy to Registry
+        run: |
+          yarn deploy-npm

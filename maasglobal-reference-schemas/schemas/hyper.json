@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reference-schemas.maas.global/hyper.json",
+  "title": "Hyper Schema Reference",
+  "description": "Example endpoint",
+  "definitions": {
+    "pizzaId": { "type": "string" },
+    "recipe": {
+      "type": "object",
+      "properties": {
+        "pizza": { "$ref": "#/definitions/pizzaId" },
+        "ingredients": { "type": "object" },
+        "steps": { "type": "array" }
+      },
+      "additionalProperties": false
+    },
+    "unknownPizza": {
+      "type": "null",
+      "default": null
+    },
+    "withGarlic": {
+      "type": "boolean"
+    },
+    "request": {
+      "type": "object",
+      "properties": {
+        "garlic": { "$ref": "#/definitions/withGarlic" }
+      },
+      "required": ["garlic"],
+      "additionalProperties": false
+    },
+    "response": {
+      "anyOf": [
+        { "$ref": "#/definitions/unknownPizza" },
+        { "$ref": "#/definitions/recipe" }
+      ]
+    }
+  },
+  "links": [
+    {
+      "rel": "implementation",
+
+      "href": "{+api}pizza/{pizzaId}/recipe",
+      "hrefSchema": {
+        "type": "object",
+        "properties": {
+          "api": {
+            "type": "string",
+            "const": "https://example.com/"
+          },
+          "pizzaId": {
+            "$ref": "#/definitions/pizzaId"
+          }
+        },
+        "required": ["api", "pizzaId"],
+        "additionalProperties": false
+      },
+
+      "headerSchema": {
+        "content-type": {
+          "type": "string",
+          "const": "application/json"
+        }
+      },
+      "submissionSchema": {
+        "$ref": "#/definitions/request"
+      },
+
+      "targetHints": {
+        "content-type": ["application/json"],
+        "allow": ["POST"]
+      },
+      "targetSchema": {
+        "$ref": "#/definitions/response"
+      }
+    }
+  ]
+}

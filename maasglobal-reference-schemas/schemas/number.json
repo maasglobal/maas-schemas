@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reference-schemas.maas.global/number.json",
+  "title": "Number Reference Schemas",
+  "description": "We use several keywords to limit numbers to a specific form",
+  "definitions": {
+    "integer": {
+      "type": "integer"
+    },
+    "positiveNumber": {
+      "type": "number",
+      "minimum": 1,
+      "examples": [1, 2],
+      "invalid": {
+        "negative number": "LTE=",
+        "zero": "MA=="
+      }
+    },
+    "evenNumber": {
+      "type": "number",
+      "multipleOf": 2,
+      "examples": [2, 4],
+      "invalid": {
+        "odd number": "Mw=="
+      }
+    },
+    "portNumber": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 65535
+    }
+  }
+}
