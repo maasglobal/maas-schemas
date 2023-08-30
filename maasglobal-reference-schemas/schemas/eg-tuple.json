@@ -6,10 +6,7 @@
   "definitions": {
     "tuple": {
       "type": "array",
-      "items": [
-        { "$ref": "https://reference-schemas.maas.global/foo.json#/definitions/string" },
-        { "$ref": "https://reference-schemas.maas.global/foo.json#/definitions/number" }
-      ],
+      "items": [{ "type": "string" }, { "type": "number" }],
       "additionalItems": false,
       "examples": [["asdf", 2]]
     }
