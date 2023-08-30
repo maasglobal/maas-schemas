@@ -4,7 +4,7 @@
   "title": "Set Reference schemas",
   "description": "Collection of unique items",
   "definitions": {
-    "exmapleSet": {
+    "exampleSet": {
       "type": "array",
       "uniqueItems": true,
       "examples": [[1, 2, 3]],
