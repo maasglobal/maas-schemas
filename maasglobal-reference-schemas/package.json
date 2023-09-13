@@ -1,6 +1,6 @@
 {
   "name": "maasglobal-reference-schemas",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Test suite for JSON schema features used by MaaS Global",
   "license": "MIT",
   "repository": {
