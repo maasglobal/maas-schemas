@@ -38,7 +38,7 @@ export const schemaId =
 // OutwardReturnWrapper
 // The purpose of this remains a mystery
 export type OutwardReturnWrapper = t.Branded<
-  {
+  ({
     itinerary?: Itinerary_8303_.Itinerary;
     customerSelections?: Array<
       {
@@ -46,51 +46,65 @@ export type OutwardReturnWrapper = t.Branded<
         customerSelection?: CustomerSelection_57c3_.CustomerSelection;
       } & Record<string, unknown>
     >;
-  } & Record<string, unknown>,
+  } & Record<string, unknown>) & {
+    itinerary: Defined;
+  },
   OutwardReturnWrapperBrand
 >;
 export type OutwardReturnWrapperC = t.BrandC<
   t.IntersectionC<
     [
-      t.PartialC<{
-        itinerary: typeof Itinerary_8303_.Itinerary;
-        customerSelections: t.ArrayC<
-          t.IntersectionC<
-            [
-              t.PartialC<{
-                ref: typeof ProductOptionV2_8170_.Ref;
-                customerSelection: typeof CustomerSelection_57c3_.CustomerSelection;
-              }>,
-              t.RecordC<t.StringC, t.UnknownC>,
-            ]
-          >
-        >;
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            itinerary: typeof Itinerary_8303_.Itinerary;
+            customerSelections: t.ArrayC<
+              t.IntersectionC<
+                [
+                  t.PartialC<{
+                    ref: typeof ProductOptionV2_8170_.Ref;
+                    customerSelection: typeof CustomerSelection_57c3_.CustomerSelection;
+                  }>,
+                  t.RecordC<t.StringC, t.UnknownC>,
+                ]
+              >
+            >;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
+      t.TypeC<{
+        itinerary: typeof Defined;
       }>,
-      t.RecordC<t.StringC, t.UnknownC>,
     ]
   >,
   OutwardReturnWrapperBrand
 >;
 export const OutwardReturnWrapper: OutwardReturnWrapperC = t.brand(
   t.intersection([
-    t.partial({
-      itinerary: Itinerary_8303_.Itinerary,
-      customerSelections: t.array(
-        t.intersection([
-          t.partial({
-            ref: ProductOptionV2_8170_.Ref,
-            customerSelection: CustomerSelection_57c3_.CustomerSelection,
-          }),
-          t.record(t.string, t.unknown),
-        ]),
-      ),
+    t.intersection([
+      t.partial({
+        itinerary: Itinerary_8303_.Itinerary,
+        customerSelections: t.array(
+          t.intersection([
+            t.partial({
+              ref: ProductOptionV2_8170_.Ref,
+              customerSelection: CustomerSelection_57c3_.CustomerSelection,
+            }),
+            t.record(t.string, t.unknown),
+          ]),
+        ),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
+    t.type({
+      itinerary: Defined,
     }),
-    t.record(t.string, t.unknown),
   ]),
   (
     x,
   ): x is t.Branded<
-    {
+    ({
       itinerary?: Itinerary_8303_.Itinerary;
       customerSelections?: Array<
         {
@@ -98,7 +112,9 @@ export const OutwardReturnWrapper: OutwardReturnWrapperC = t.brand(
           customerSelection?: CustomerSelection_57c3_.CustomerSelection;
         } & Record<string, unknown>
       >;
-    } & Record<string, unknown>,
+    } & Record<string, unknown>) & {
+      itinerary: Defined;
+    },
     OutwardReturnWrapperBrand
   > => true,
   'OutwardReturnWrapper',
@@ -178,23 +194,43 @@ export type RequestV1 = t.Branded<
     headers?: ApiCommon_16a4_.StandardApiEndpointHeaders;
     requestContext?: ApiCommon_16a4_.ApiGatewayAuthorizedRequestContext;
     body?: Body;
+  } & {
+    headers: Defined;
+    requestContext: Defined;
+    body: Defined;
   },
   RequestV1Brand
 >;
 export type RequestV1C = t.BrandC<
-  t.PartialC<{
-    headers: typeof ApiCommon_16a4_.StandardApiEndpointHeaders;
-    requestContext: typeof ApiCommon_16a4_.ApiGatewayAuthorizedRequestContext;
-    body: typeof Body;
-  }>,
+  t.IntersectionC<
+    [
+      t.PartialC<{
+        headers: typeof ApiCommon_16a4_.StandardApiEndpointHeaders;
+        requestContext: typeof ApiCommon_16a4_.ApiGatewayAuthorizedRequestContext;
+        body: typeof Body;
+      }>,
+      t.TypeC<{
+        headers: typeof Defined;
+        requestContext: typeof Defined;
+        body: typeof Defined;
+      }>,
+    ]
+  >,
   RequestV1Brand
 >;
 export const RequestV1: RequestV1C = t.brand(
-  t.partial({
-    headers: ApiCommon_16a4_.StandardApiEndpointHeaders,
-    requestContext: ApiCommon_16a4_.ApiGatewayAuthorizedRequestContext,
-    body: Body,
-  }),
+  t.intersection([
+    t.partial({
+      headers: ApiCommon_16a4_.StandardApiEndpointHeaders,
+      requestContext: ApiCommon_16a4_.ApiGatewayAuthorizedRequestContext,
+      body: Body,
+    }),
+    t.type({
+      headers: Defined,
+      requestContext: Defined,
+      body: Defined,
+    }),
+  ]),
   (
     x,
   ): x is t.Branded<
@@ -202,6 +238,10 @@ export const RequestV1: RequestV1C = t.brand(
       headers?: ApiCommon_16a4_.StandardApiEndpointHeaders;
       requestContext?: ApiCommon_16a4_.ApiGatewayAuthorizedRequestContext;
       body?: Body;
+    } & {
+      headers: Defined;
+      requestContext: Defined;
+      body: Defined;
     },
     RequestV1Brand
   > => true,

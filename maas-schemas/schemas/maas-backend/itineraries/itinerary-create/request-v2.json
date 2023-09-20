@@ -15,6 +15,7 @@
       "$ref": "#/definitions/body"
     }
   },
+  "required": ["headers", "requestContext", "body"],
   "definitions": {
     "body": {
       "type": "object",
@@ -55,7 +56,8 @@
             }
           }
         }
-      }
+      },
+      "required": ["itinerary"]
     }
   }
 }
