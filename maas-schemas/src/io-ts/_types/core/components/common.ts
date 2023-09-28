@@ -227,6 +227,20 @@ export type RawPhoneBrand = {
   readonly RawPhone: unique symbol;
 };
 
+// LoosePhone
+// Loose definition of phone number
+export type LoosePhone = t.Branded<string, LoosePhoneBrand>;
+export type LoosePhoneC = t.BrandC<t.StringC, LoosePhoneBrand>;
+export const LoosePhone: LoosePhoneC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, LoosePhoneBrand> =>
+    typeof x !== 'string' || x.match(RegExp('^\\+?[\\d\\s.-]+$', 'u')) !== null,
+  'LoosePhone',
+);
+export type LoosePhoneBrand = {
+  readonly LoosePhone: unique symbol;
+};
+
 // Email
 // Rough validation of a valid e-mail address, see https://davidcel.is/posts/stop-validating-email-addresses-with-regex/
 export type Email = t.Branded<string, EmailBrand>;
