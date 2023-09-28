@@ -39,6 +39,8 @@ export const generateClient: CodeGenerator = (pkg) => {
 
   return `import * as mjsv from 'maasglobal-json-schema-validator';
 
+export { ValidationError } from 'maasglobal-json-schema-validator';
+
 let validator: mjsv.Validator|undefined;
 
 export function init(): mjsv.Validator {
