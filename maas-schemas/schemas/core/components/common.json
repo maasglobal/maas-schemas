@@ -91,6 +91,11 @@
       "type": "string",
       "pattern": "^\\+?(?:\\d){6,14}\\d$"
     },
+    "loosePhone": {
+      "description": "Loose definition of phone number",
+      "type": "string",
+      "pattern": "^\\+?[\\d\\s.-]+$"
+    },
     "email": {
       "description": "Rough validation of a valid e-mail address, see https://davidcel.is/posts/stop-validating-email-addresses-with-regex/",
       "type": "string",

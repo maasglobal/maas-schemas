@@ -44,7 +44,7 @@ export type MODE_TAXI = t.Branded<
     taxiCenter?: {
       image?: Units_c404_.Url;
       name?: string;
-      phone?: Common_ffba_.Phone;
+      phone?: Common_ffba_.LoosePhone;
       supportUrl?: Units_c404_.Url;
     } & Record<string, unknown>;
     messageToDriver?: string;
@@ -82,7 +82,7 @@ export type MODE_TAXIC = t.BrandC<
         t.PartialC<{
           image: typeof Units_c404_.Url;
           name: t.StringC;
-          phone: typeof Common_ffba_.Phone;
+          phone: typeof Common_ffba_.LoosePhone;
           supportUrl: typeof Units_c404_.Url;
         }>,
         t.RecordC<t.StringC, t.UnknownC>,
@@ -120,7 +120,7 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
       t.partial({
         image: Units_c404_.Url,
         name: t.string,
-        phone: Common_ffba_.Phone,
+        phone: Common_ffba_.LoosePhone,
         supportUrl: Units_c404_.Url,
       }),
       t.record(t.string, t.unknown),
@@ -153,7 +153,7 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
       taxiCenter?: {
         image?: Units_c404_.Url;
         name?: string;
-        phone?: Common_ffba_.Phone;
+        phone?: Common_ffba_.LoosePhone;
         supportUrl?: Units_c404_.Url;
       } & Record<string, unknown>;
       messageToDriver?: string;

@@ -84,7 +84,7 @@
           "maxLength": 64
         },
         "phone": {
-          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/phone"
+          "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/loosePhone"
         },
         "supportUrl": {
           "description": "The taxi center support link. It can be for example: chat URL, FAQ url, etc...",
