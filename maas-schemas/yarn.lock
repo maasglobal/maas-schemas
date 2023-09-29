@@ -5147,10 +5147,10 @@ maasglobal-prelude-ts@^0.0.13:
   resolved "https://registry.yarnpkg.com/maasglobal-prelude-ts/-/maasglobal-prelude-ts-0.0.13.tgz#c720a1d4c45c91764b80564987f24b60654fc3e9"
   integrity sha512-aFnCiyP0Q5my3Wwp0+T/e9fPGJgilvamfR8KdetP5XXB3Mjq4nyj1lbBx+4NcKTdUtk8FOxhfih83Rb3gOztzQ==
 
-maasglobal-schema-generator-ajv@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/maasglobal-schema-generator-ajv/-/maasglobal-schema-generator-ajv-0.0.4.tgz#a14ee3101d129a2720709776d7ce3a5527a14a4c"
-  integrity sha512-TWcr4kQqcMbHS6ydzhjPppmECu0JQNXnnfhhhT+R2WfY1A9dngkALqGF/0IAY+FAS0aWTpA6zHpVv+cOyemcZQ==
+maasglobal-schema-generator-ajv@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/maasglobal-schema-generator-ajv/-/maasglobal-schema-generator-ajv-0.0.5.tgz#d981a4b92d766ee907139fb567ac4fe8cf88e6ef"
+  integrity sha512-07dKubzOLN3KwQQF4ORpNxxRsSRbqIcxS7e6U00o2TcUVyxPzLjEGtBoeMQazIvePVVPuzTNQPB3tV12oal3PA==
   dependencies:
     maasglobal-json-schema-validator "^0.0.6"
     maasglobal-schema-package "^0.0.1"
