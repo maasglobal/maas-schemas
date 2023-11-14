@@ -1464,6 +1464,12 @@ WARNING: pattern field not supported outside top-level definitions
   in schemas/maas-backend/bookings/bookings-list/request.json
 WARNING: minItems field not supported outside top-level definitions
   in schemas/maas-backend/bookings/bookings-list/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-options/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-options/request.json
+WARNING: examples field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-options/request.json
 WARNING: unexpected key in a $ref object
   in schemas/maas-backend/bookings/bookings-options/request.json
 INFO: primitive type "string" used outside top-level definitions
@@ -1473,6 +1479,12 @@ WARNING: minLength field not supported outside top-level definitions
 WARNING: maxLength field not supported outside top-level definitions
   in schemas/maas-backend/bookings/bookings-options/request.json
 WARNING: patternProperty support has limitations
+  in schemas/maas-backend/bookings/bookings-options/request.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-options/request.json
+WARNING: pattern field not supported outside top-level definitions
+  in schemas/maas-backend/bookings/bookings-options/request.json
+WARNING: examples field not supported outside top-level definitions
   in schemas/maas-backend/bookings/bookings-options/request.json
 WARNING: unexpected key in a $ref object
   in schemas/maas-backend/bookings/bookings-options/request.json
