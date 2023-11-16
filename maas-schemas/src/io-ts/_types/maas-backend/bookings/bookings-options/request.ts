@@ -40,7 +40,6 @@ export const schemaId =
 // The purpose of this remains a mystery
 export type Payload = t.Branded<
   {
-    filters?: string;
     mode?: TravelMode_5e34_.TravelMode;
     startTime?: Units_c404_.Time;
     endTime?: Units_c404_.Time;
@@ -58,7 +57,6 @@ export type Payload = t.Branded<
     code?: string;
   } & Record<
     string,
-    | string
     | TravelMode_5e34_.TravelMode
     | Units_c404_.Time
     | Units_c404_.Time
@@ -82,7 +80,6 @@ export type PayloadC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        filters: t.StringC;
         mode: typeof TravelMode_5e34_.TravelMode;
         startTime: typeof Units_c404_.Time;
         endTime: typeof Units_c404_.Time;
@@ -103,7 +100,6 @@ export type PayloadC = t.BrandC<
         t.StringC,
         t.UnionC<
           [
-            t.StringC,
             typeof TravelMode_5e34_.TravelMode,
             typeof Units_c404_.Time,
             typeof Units_c404_.Time,
@@ -130,7 +126,6 @@ export type PayloadC = t.BrandC<
 export const Payload: PayloadC = t.brand(
   t.intersection([
     t.partial({
-      filters: t.string,
       mode: TravelMode_5e34_.TravelMode,
       startTime: Units_c404_.Time,
       endTime: Units_c404_.Time,
@@ -150,7 +145,6 @@ export const Payload: PayloadC = t.brand(
     t.record(
       t.string,
       t.union([
-        t.string,
         TravelMode_5e34_.TravelMode,
         Units_c404_.Time,
         Units_c404_.Time,
@@ -174,7 +168,6 @@ export const Payload: PayloadC = t.brand(
     x,
   ): x is t.Branded<
     {
-      filters?: string;
       mode?: TravelMode_5e34_.TravelMode;
       startTime?: Units_c404_.Time;
       endTime?: Units_c404_.Time;
@@ -192,7 +185,6 @@ export const Payload: PayloadC = t.brand(
       code?: string;
     } & Record<
       string,
-      | string
       | TravelMode_5e34_.TravelMode
       | Units_c404_.Time
       | Units_c404_.Time

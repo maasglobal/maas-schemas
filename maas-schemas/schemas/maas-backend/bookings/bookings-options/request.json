@@ -21,15 +21,6 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "filters": {
-          "type": "string",
-          "pattern": "[a-zA-Z_]+==[\\-a-zA-Z0-9]+(?=[;,]|$)",
-          "description": "Schema for client filters which are passed to TSP-adapter. Based on https://developers.google.com/analytics/devguides/reporting/core/v3/reference#filters",
-          "examples": [
-            "ticketZone==ATM-m1,ticketZone==ATM-m2",
-            "ticketType==daily;ticketZone==ATM-m2"
-          ]
-        },
         "mode": {
           "$ref": "https://schemas.maas.global/core/components/travel-mode.json"
         },

@@ -200,6 +200,7 @@ export type PayloadBrand = {
 // The default export. More information at the top.
 export type Request = t.Branded<
   {
+    filters?: string;
     identityId?: Units_c404_.IdentityId;
     agencyId?: Common_ffba_.AgencyId;
     payload?: Payload;
@@ -216,6 +217,7 @@ export type RequestC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
+        filters: t.StringC;
         identityId: typeof Units_c404_.IdentityId;
         agencyId: typeof Common_ffba_.AgencyId;
         payload: typeof Payload;
@@ -234,6 +236,7 @@ export type RequestC = t.BrandC<
 export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
+      filters: t.string,
       identityId: Units_c404_.IdentityId,
       agencyId: Common_ffba_.AgencyId,
       payload: Payload,
@@ -250,6 +253,7 @@ export const Request: RequestC = t.brand(
     x,
   ): x is t.Branded<
     {
+      filters?: string;
       identityId?: Units_c404_.IdentityId;
       agencyId?: Common_ffba_.AgencyId;
       payload?: Payload;
