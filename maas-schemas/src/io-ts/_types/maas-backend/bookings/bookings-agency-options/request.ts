@@ -55,6 +55,7 @@ export type Payload = t.Branded<
     toRadius?: UnitsGeo_3e31_.Distance;
     bookingIdToExtend?: Units_c404_.Uuid;
     spaceDemand?: SpaceDemand_101a_.SpaceDemandString;
+    filters?: string;
   } & Record<
     string,
     | TravelMode_5e34_.TravelMode
@@ -70,6 +71,7 @@ export type Payload = t.Branded<
     | UnitsGeo_3e31_.Distance
     | Units_c404_.Uuid
     | SpaceDemand_101a_.SpaceDemandString
+    | string
     | (string | number | boolean)
   >,
   PayloadBrand
@@ -91,6 +93,7 @@ export type PayloadC = t.BrandC<
         toRadius: typeof UnitsGeo_3e31_.Distance;
         bookingIdToExtend: typeof Units_c404_.Uuid;
         spaceDemand: typeof SpaceDemand_101a_.SpaceDemandString;
+        filters: t.StringC;
       }>,
       t.RecordC<
         t.StringC,
@@ -109,6 +112,7 @@ export type PayloadC = t.BrandC<
             typeof UnitsGeo_3e31_.Distance,
             typeof Units_c404_.Uuid,
             typeof SpaceDemand_101a_.SpaceDemandString,
+            t.StringC,
             t.UnionC<[t.StringC, t.NumberC, t.BooleanC]>,
           ]
         >
@@ -133,6 +137,7 @@ export const Payload: PayloadC = t.brand(
       toRadius: UnitsGeo_3e31_.Distance,
       bookingIdToExtend: Units_c404_.Uuid,
       spaceDemand: SpaceDemand_101a_.SpaceDemandString,
+      filters: t.string,
     }),
     t.record(
       t.string,
@@ -150,6 +155,7 @@ export const Payload: PayloadC = t.brand(
         UnitsGeo_3e31_.Distance,
         Units_c404_.Uuid,
         SpaceDemand_101a_.SpaceDemandString,
+        t.string,
         t.union([t.string, t.number, t.boolean]),
       ]),
     ),
@@ -171,6 +177,7 @@ export const Payload: PayloadC = t.brand(
       toRadius?: UnitsGeo_3e31_.Distance;
       bookingIdToExtend?: Units_c404_.Uuid;
       spaceDemand?: SpaceDemand_101a_.SpaceDemandString;
+      filters?: string;
     } & Record<
       string,
       | TravelMode_5e34_.TravelMode
@@ -186,6 +193,7 @@ export const Payload: PayloadC = t.brand(
       | UnitsGeo_3e31_.Distance
       | Units_c404_.Uuid
       | SpaceDemand_101a_.SpaceDemandString
+      | string
       | (string | number | boolean)
     >,
     PayloadBrand
@@ -200,7 +208,6 @@ export type PayloadBrand = {
 // The default export. More information at the top.
 export type Request = t.Branded<
   {
-    filters?: string;
     identityId?: Units_c404_.IdentityId;
     agencyId?: Common_ffba_.AgencyId;
     payload?: Payload;
@@ -217,7 +224,6 @@ export type RequestC = t.BrandC<
   t.IntersectionC<
     [
       t.PartialC<{
-        filters: t.StringC;
         identityId: typeof Units_c404_.IdentityId;
         agencyId: typeof Common_ffba_.AgencyId;
         payload: typeof Payload;
@@ -236,7 +242,6 @@ export type RequestC = t.BrandC<
 export const Request: RequestC = t.brand(
   t.intersection([
     t.partial({
-      filters: t.string,
       identityId: Units_c404_.IdentityId,
       agencyId: Common_ffba_.AgencyId,
       payload: Payload,
@@ -253,7 +258,6 @@ export const Request: RequestC = t.brand(
     x,
   ): x is t.Branded<
     {
-      filters?: string;
       identityId?: Units_c404_.IdentityId;
       agencyId?: Common_ffba_.AgencyId;
       payload?: Payload;
