@@ -198,6 +198,12 @@
     },
     "created": {
       "$ref": "https://schemas.maas.global/core/components/units.json#/definitions/time"
+    },
+    "filters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/providerFilter"
+      }
     }
   },
   "required": [
@@ -213,6 +219,55 @@
   ],
   "additionalProperties": false,
   "definitions": {
+    "providerFilter": {
+      "description": "Product provider filter",
+      "type": "object",
+      "required": ["name", "label"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "default": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/providerFilterOption"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "selectionOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/providerFilterOption"
+          }
+        }
+      }
+    },
+    "providerFilterOption": {
+      "description": "Product provider filter option",
+      "type": "object",
+      "required": ["value", "label"],
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
     "selection": {
       "description": "Optional parameter for selections",
       "type": "object",
@@ -312,6 +367,35 @@
         "ticket": true,
         "stationsList": true,
         "stationsRetrieve": true
+      },
+      "filters": {
+        "filters": [
+          {
+            "name": "ticketType",
+            "label": "ticketTypeLabel",
+            "selectionOptions": [
+              {
+                "value": null,
+                "label": "PLEASE_CHOOSE"
+              },
+              {
+                "value": "ordinary",
+                "label": "TYPE_ORDINARY"
+              }
+            ],
+            "default":  {
+              "value": null,
+              "label": "PLEASE_CHOOSE"
+            }
+          },
+          {
+            "name": "ticketZone",
+            "label": "ticketZoneLabel",
+            "selectionOptions": [
+            ],
+            "default":  null
+          }
+        ]
       },
       "personalDataOptionsAllow": [],
       "personalDataCreateAllow": [],

@@ -19,6 +19,17 @@ import * as PersonalDataValidation_1572_ from '../../core/components/personalDat
 import * as PersonalDocumentRequiredItem_b279_ from '../../core/components/personalDocumentRequiredItem';
 import * as Units_c404_ from '../../core/components/units';
 
+export type NullBrand = {
+  readonly Null: unique symbol;
+};
+export type NullC = t.BrandC<t.UnknownC, NullBrand>;
+export const Null: NullC = t.brand(
+  t.unknown,
+  (n): n is t.Branded<unknown, NullBrand> => n === null,
+  'Null',
+);
+export type Null = t.TypeOf<typeof Null>;
+
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
   readonly _tag: 'DefinedType' = 'DefinedType';
@@ -35,6 +46,142 @@ export type DefinedC = {} & DefinedType;
 export const Defined: DefinedC = new DefinedType();
 
 export const schemaId = 'https://schemas.maas.global/maas-backend/products/provider.json';
+
+// ProviderFilterOption
+// Product provider filter option
+export type ProviderFilterOption = t.Branded<
+  ({
+    value?: string | Null;
+    label?: string;
+  } & Record<string, unknown>) & {
+    value: Defined;
+    label: Defined;
+  },
+  ProviderFilterOptionBrand
+>;
+export type ProviderFilterOptionC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            value: t.UnionC<[t.StringC, typeof Null]>;
+            label: t.StringC;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
+      t.TypeC<{
+        value: typeof Defined;
+        label: typeof Defined;
+      }>,
+    ]
+  >,
+  ProviderFilterOptionBrand
+>;
+export const ProviderFilterOption: ProviderFilterOptionC = t.brand(
+  t.intersection([
+    t.intersection([
+      t.partial({
+        value: t.union([t.string, Null]),
+        label: t.string,
+      }),
+      t.record(t.string, t.unknown),
+    ]),
+    t.type({
+      value: Defined,
+      label: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    ({
+      value?: string | Null;
+      label?: string;
+    } & Record<string, unknown>) & {
+      value: Defined;
+      label: Defined;
+    },
+    ProviderFilterOptionBrand
+  > => true,
+  'ProviderFilterOption',
+);
+export type ProviderFilterOptionBrand = {
+  readonly ProviderFilterOption: unique symbol;
+};
+
+// ProviderFilter
+// Product provider filter
+export type ProviderFilter = t.Branded<
+  ({
+    name?: string;
+    label?: string;
+    default?: ProviderFilterOption | Null;
+    selectionOptions?: Array<ProviderFilterOption>;
+  } & Record<string, unknown>) & {
+    name: Defined;
+    label: Defined;
+  },
+  ProviderFilterBrand
+>;
+export type ProviderFilterC = t.BrandC<
+  t.IntersectionC<
+    [
+      t.IntersectionC<
+        [
+          t.PartialC<{
+            name: t.StringC;
+            label: t.StringC;
+            default: t.UnionC<[typeof ProviderFilterOption, typeof Null]>;
+            selectionOptions: t.ArrayC<typeof ProviderFilterOption>;
+          }>,
+          t.RecordC<t.StringC, t.UnknownC>,
+        ]
+      >,
+      t.TypeC<{
+        name: typeof Defined;
+        label: typeof Defined;
+      }>,
+    ]
+  >,
+  ProviderFilterBrand
+>;
+export const ProviderFilter: ProviderFilterC = t.brand(
+  t.intersection([
+    t.intersection([
+      t.partial({
+        name: t.string,
+        label: t.string,
+        default: t.union([ProviderFilterOption, Null]),
+        selectionOptions: t.array(ProviderFilterOption),
+      }),
+      t.record(t.string, t.unknown),
+    ]),
+    t.type({
+      name: Defined,
+      label: Defined,
+    }),
+  ]),
+  (
+    x,
+  ): x is t.Branded<
+    ({
+      name?: string;
+      label?: string;
+      default?: ProviderFilterOption | Null;
+      selectionOptions?: Array<ProviderFilterOption>;
+    } & Record<string, unknown>) & {
+      name: Defined;
+      label: Defined;
+    },
+    ProviderFilterBrand
+  > => true,
+  'ProviderFilter',
+);
+export type ProviderFilterBrand = {
+  readonly ProviderFilter: unique symbol;
+};
 
 // Selection
 // Optional parameter for selections
@@ -470,6 +617,7 @@ export type Provider = t.Branded<
     >;
     disruption?: Record<string, unknown> & Record<string, unknown>;
     created?: Units_c404_.Time;
+    filters?: Array<ProviderFilter>;
   } & {
     name: Defined;
     agencyId: Defined;
@@ -586,6 +734,7 @@ export type ProviderC = t.BrandC<
         >;
         disruption: t.IntersectionC<[t.UnknownRecordC, t.RecordC<t.StringC, t.UnknownC>]>;
         created: typeof Units_c404_.Time;
+        filters: t.ArrayC<typeof ProviderFilter>;
       }>,
       t.TypeC<{
         name: typeof Defined;
@@ -683,6 +832,7 @@ export const Provider: ProviderC = t.brand(
       ),
       disruption: t.intersection([t.UnknownRecord, t.record(t.string, t.unknown)]),
       created: Units_c404_.Time,
+      filters: t.array(ProviderFilter),
     }),
     t.type({
       name: Defined,
@@ -756,6 +906,7 @@ export const Provider: ProviderC = t.brand(
       >;
       disruption?: Record<string, unknown> & Record<string, unknown>;
       created?: Units_c404_.Time;
+      filters?: Array<ProviderFilter>;
     } & {
       name: Defined;
       agencyId: Defined;
@@ -783,6 +934,25 @@ export const examplesProvider: NonEmptyArray<Provider> = [
     hidden: false,
     branding: {},
     features: { ticket: true, stationsList: true, stationsRetrieve: true },
+    filters: {
+      filters: [
+        {
+          name: 'ticketType',
+          label: 'ticketTypeLabel',
+          selectionOptions: [
+            { value: null, label: 'PLEASE_CHOOSE' },
+            { value: 'ordinary', label: 'TYPE_ORDINARY' },
+          ],
+          default: { value: null, label: 'PLEASE_CHOOSE' },
+        },
+        {
+          name: 'ticketZone',
+          label: 'ticketZoneLabel',
+          selectionOptions: [],
+          default: null,
+        },
+      ],
+    },
     personalDataOptionsAllow: [],
     personalDataCreateAllow: [],
     optionalParameters: [
