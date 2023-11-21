@@ -934,25 +934,23 @@ export const examplesProvider: NonEmptyArray<Provider> = [
     hidden: false,
     branding: {},
     features: { ticket: true, stationsList: true, stationsRetrieve: true },
-    filters: {
-      filters: [
-        {
-          name: 'ticketType',
-          label: 'ticketTypeLabel',
-          selectionOptions: [
-            { value: null, label: 'PLEASE_CHOOSE' },
-            { value: 'ordinary', label: 'TYPE_ORDINARY' },
-          ],
-          default: { value: null, label: 'PLEASE_CHOOSE' },
-        },
-        {
-          name: 'ticketZone',
-          label: 'ticketZoneLabel',
-          selectionOptions: [],
-          default: null,
-        },
-      ],
-    },
+    filters: [
+      {
+        name: 'ticketType',
+        label: 'ticketTypeLabel',
+        selectionOptions: [
+          { value: null, label: 'PLEASE_CHOOSE' },
+          { value: 'ordinary', label: 'TYPE_ORDINARY' },
+        ],
+        default: { value: null, label: 'PLEASE_CHOOSE' },
+      },
+      {
+        name: 'ticketZone',
+        label: 'ticketZoneLabel',
+        selectionOptions: [],
+        default: null,
+      },
+    ],
     personalDataOptionsAllow: [],
     personalDataCreateAllow: [],
     optionalParameters: [

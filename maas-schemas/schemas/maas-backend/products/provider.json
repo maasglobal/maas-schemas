@@ -368,35 +368,32 @@
         "stationsList": true,
         "stationsRetrieve": true
       },
-      "filters": {
-        "filters": [
-          {
-            "name": "ticketType",
-            "label": "ticketTypeLabel",
-            "selectionOptions": [
-              {
-                "value": null,
-                "label": "PLEASE_CHOOSE"
-              },
-              {
-                "value": "ordinary",
-                "label": "TYPE_ORDINARY"
-              }
-            ],
-            "default":  {
+      "filters": [
+        {
+          "name": "ticketType",
+          "label": "ticketTypeLabel",
+          "selectionOptions": [
+            {
               "value": null,
               "label": "PLEASE_CHOOSE"
+            },
+            {
+              "value": "ordinary",
+              "label": "TYPE_ORDINARY"
             }
-          },
-          {
-            "name": "ticketZone",
-            "label": "ticketZoneLabel",
-            "selectionOptions": [
-            ],
-            "default":  null
+          ],
+          "default": {
+            "value": null,
+            "label": "PLEASE_CHOOSE"
           }
-        ]
-      },
+        },
+        {
+          "name": "ticketZone",
+          "label": "ticketZoneLabel",
+          "selectionOptions": [],
+          "default": null
+        }
+      ],
       "personalDataOptionsAllow": [],
       "personalDataCreateAllow": [],
       "optionalParameters": [
