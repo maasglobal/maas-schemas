@@ -172,6 +172,18 @@
       "type": "object",
       "properties": {},
       "additionalProperties": false
+    },
+    "nationality": {
+      "description": "ISO 3166-1 alpha-2 country code, see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2",
+      "type": "string",
+      "pattern": "^[A-Z]{2,2}$",
+      "examples": ["FI", "GB"],
+      "invalid": {
+        "IiI=": "empty string",
+        "IvCfkqki": "emoji",
+        "ImZpIg==": "lower case alpha-2 country code",
+        "IkZJTiI=": "alpha-3 country code"
+      }
     }
   }
 }
