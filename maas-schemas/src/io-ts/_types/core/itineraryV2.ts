@@ -61,6 +61,7 @@ export type ItineraryV2Base = t.Branded<
     endTime?: Units_c404_.Time;
     co2?: number;
     fares?: Array<Fare_a3ab_.Fare>;
+    estimatedTotalFares?: Array<Fare_a3ab_.Fare>;
     legs?: Array<LegV2_0fbd_.LegV2>;
     productOptions?: Array<ProductOptionV2_8170_.ProductOptionV2>;
     type?: 'outward' | 'return';
@@ -86,6 +87,7 @@ export type ItineraryV2BaseC = t.BrandC<
             endTime: typeof Units_c404_.Time;
             co2: t.NumberC;
             fares: t.ArrayC<typeof Fare_a3ab_.Fare>;
+            estimatedTotalFares: t.ArrayC<typeof Fare_a3ab_.Fare>;
             legs: t.ArrayC<typeof LegV2_0fbd_.LegV2>;
             productOptions: t.ArrayC<typeof ProductOptionV2_8170_.ProductOptionV2>;
             type: t.UnionC<[t.LiteralC<'outward'>, t.LiteralC<'return'>]>;
@@ -115,6 +117,7 @@ export const ItineraryV2Base: ItineraryV2BaseC = t.brand(
         endTime: Units_c404_.Time,
         co2: t.number,
         fares: t.array(Fare_a3ab_.Fare),
+        estimatedTotalFares: t.array(Fare_a3ab_.Fare),
         legs: t.array(LegV2_0fbd_.LegV2),
         productOptions: t.array(ProductOptionV2_8170_.ProductOptionV2),
         type: t.union([t.literal('outward'), t.literal('return')]),
@@ -140,6 +143,7 @@ export const ItineraryV2Base: ItineraryV2BaseC = t.brand(
       endTime?: Units_c404_.Time;
       co2?: number;
       fares?: Array<Fare_a3ab_.Fare>;
+      estimatedTotalFares?: Array<Fare_a3ab_.Fare>;
       legs?: Array<LegV2_0fbd_.LegV2>;
       productOptions?: Array<ProductOptionV2_8170_.ProductOptionV2>;
       type?: 'outward' | 'return';
@@ -415,6 +419,15 @@ export const examplesItineraryV2: NonEmptyArray<ItineraryV2> = [
         type: 'charge',
       },
     ],
+    estimatedTotalFares: [
+      {
+        amount: 4744,
+        currency: 'WMP',
+        productionAmount: 4744,
+        originalAmount: 4744,
+        type: 'charge',
+      },
+    ],
     endTime: 1619780520000,
     signature: '51236c26c20eb2ab0e6378d0751004bb0c0614a18e1fdb44108bd9f05f7e8c92',
     co2: 16,
@@ -562,6 +575,14 @@ export const examplesItineraryV2: NonEmptyArray<ItineraryV2> = [
         },
         ref: 0,
       },
+      {
+        type: 'BOOKING_AVAILABLE',
+        ref: 1,
+        customerId: 'a2825ef0-5bc5-11eb-8fe1-2f1c39696bf6',
+        agencyId: 'Kova',
+        productId: 'Kova-scooter',
+        estimatedFares: [],
+      },
     ],
   },
   {
@@ -570,6 +591,15 @@ export const examplesItineraryV2: NonEmptyArray<ItineraryV2> = [
     startTime: 1622032680000,
     signature: '453c4ec8bf749e5423cf92dfe9e035e350a3a6446626929ad4d54fcfdedf4fbe',
     fares: [
+      {
+        amount: 2586,
+        currency: 'WMP',
+        productionAmount: 2586,
+        originalAmount: 2586,
+        type: 'charge',
+      },
+    ],
+    estimatedTotalFares: [
       {
         amount: 2586,
         currency: 'WMP',
@@ -2057,6 +2087,15 @@ export const examplesItineraryV2: NonEmptyArray<ItineraryV2> = [
     id: 'bff40f3b-3919-4a96-9b40-0dd82b7a5827',
     endTime: 1686754407000,
     fares: [
+      {
+        amount: 220,
+        currency: 'EUR',
+        productionAmount: 220,
+        originalAmount: 220,
+        type: 'charge',
+      },
+    ],
+    estimatedTotalFares: [
       {
         amount: 220,
         currency: 'EUR',

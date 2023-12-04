@@ -35,6 +35,12 @@
             "$ref": "https://schemas.maas.global/core/components/fare.json"
           }
         },
+        "estimatedTotalFares": {
+          "type": "array",
+          "items": {
+            "$ref": "https://schemas.maas.global/core/components/fare.json"
+          }
+        },
         "legs": {
           "type": "array",
           "minItems": 0,
@@ -253,6 +259,15 @@
       "startTime": 1619775540000,
       "sourcePlanId": "4c6c7690-a995-11eb-ae40-bf1250611c28",
       "fares": [
+        {
+          "amount": 4744,
+          "currency": "WMP",
+          "productionAmount": 4744,
+          "originalAmount": 4744,
+          "type": "charge"
+        }
+      ],
+      "estimatedTotalFares": [
         {
           "amount": 4744,
           "currency": "WMP",
@@ -512,6 +527,14 @@
             ]
           },
           "ref": 0
+        },
+        {
+          "type": "BOOKING_AVAILABLE",
+          "ref": 1,
+          "customerId": "a2825ef0-5bc5-11eb-8fe1-2f1c39696bf6",
+          "agencyId": "Kova",
+          "productId": "Kova-scooter",
+          "estimatedFares": []
         }
       ]
     },
@@ -521,6 +544,15 @@
       "startTime": 1622032680000,
       "signature": "453c4ec8bf749e5423cf92dfe9e035e350a3a6446626929ad4d54fcfdedf4fbe",
       "fares": [
+        {
+          "amount": 2586,
+          "currency": "WMP",
+          "productionAmount": 2586,
+          "originalAmount": 2586,
+          "type": "charge"
+        }
+      ],
+      "estimatedTotalFares": [
         {
           "amount": 2586,
           "currency": "WMP",
@@ -2138,6 +2170,15 @@
       "id": "bff40f3b-3919-4a96-9b40-0dd82b7a5827",
       "endTime": 1686754407000,
       "fares": [
+        {
+          "amount": 220,
+          "currency": "EUR",
+          "productionAmount": 220,
+          "originalAmount": 220,
+          "type": "charge"
+        }
+      ],
+      "estimatedTotalFares": [
         {
           "amount": 220,
           "currency": "EUR",

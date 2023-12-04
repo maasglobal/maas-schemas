@@ -154,7 +154,14 @@
     "productOptionAvailable": {
       "description": "A booking is required but it should be deferred",
       "type": "object",
-      "required": ["ref", "customerId", "type", "agencyId", "productId"],
+      "required": [
+        "ref",
+        "customerId",
+        "type",
+        "agencyId",
+        "productId",
+        "estimatedFares"
+      ],
       "properties": {
         "ref": {
           "type": "integer",
@@ -171,6 +178,12 @@
         },
         "productId": {
           "$ref": "https://schemas.maas.global/core/product.json#/definitions/id"
+        },
+        "estimatedFares": {
+          "type": "array",
+          "items": {
+            "$ref": "https://schemas.maas.global/core/components/fare.json"
+          }
         }
       }
     },
