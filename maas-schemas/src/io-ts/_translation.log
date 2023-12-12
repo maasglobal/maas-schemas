@@ -2613,6 +2613,24 @@ WARNING: missing $schema declaration
 WARNING: missing $schema declaration
   in schemas/tsp/package-create/response.json
 WARNING: missing $schema declaration
+  in schemas/tsp/payments-initiate/request.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/tsp/payments-initiate/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/payments-initiate/response.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/tsp/payments-initiate/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/payments-initiate/response.json
+WARNING: missing $schema declaration
+  in schemas/tsp/payments-retrieve/request.json
+WARNING: missing $schema declaration
+  in schemas/tsp/payments-retrieve/response.json
+INFO: primitive type "number" used outside top-level definitions
+  in schemas/tsp/payments-retrieve/response.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/tsp/payments-retrieve/response.json
+WARNING: missing $schema declaration
   in schemas/tsp/post-kyc-verification-update/request.json
 INFO: primitive type "string" used outside top-level definitions
   in schemas/tsp/post-kyc-verification-update/request.json
