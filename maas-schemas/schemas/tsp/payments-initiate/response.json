@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.maas.global/tsp/payments-initiate/request.json",
+  "$id": "https://schemas.maas.global/tsp/payments-initiate/response.json",
   "description": "Response schema for creating payment through TSP api",
   "type": "object",
   "properties": {
