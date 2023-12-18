@@ -6,8 +6,14 @@
   "properties": {
     "customer": {
       "$ref": "https://schemas.maas.global/maas-backend/customers/customer.json"
+    },
+    "personalDataCatalogue": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.maas.global/maas-backend/customers/personalDataCatalogue.json#/definitions/personalDataCatalogueItem"
+      }
     }
   },
   "additionalProperties": false,
-  "required": ["customer"]
+  "required": ["customer", "personalDataCatalogue"]
 }
