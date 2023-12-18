@@ -1,0 +1,25 @@
+{
+  "$id": "https://schemas.maas.global/tsp/payments-retrieve/response.json",
+  "description": "Response schema for retrieving a TSP payment from TSP api",
+  "type": "object",
+  "properties": {
+    "tspId": {
+      "$ref": "https://schemas.maas.global/core/booking.json#/definitions/tspId"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "paymentStatus": {
+      "type": "string"
+    }
+  },
+  "required": ["tspId", "amount", "paymentStatus"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "tspId": "00000000-cafe-cafe-cafe-cafecafecafe",
+      "amount": 2405,
+      "paymentStatus": "PENDING"
+    }
+  ]
+}
