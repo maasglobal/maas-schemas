@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://schemas.maas.global/maas-backend/customers/personalDataCatalogue.json",
-  "description": "MaaS customer personal data catalogue schema",
+  "$id": "https://schemas.maas.global/maas-backend/customers/personalDataCatalog.json",
+  "description": "MaaS customer personal data catalog schema",
   "definitions": {
     "regionRestriction": {
       "type": "array",
@@ -24,9 +24,10 @@
             "type": "string"
           }
         }
-      }
+      },
+      "required": ["name"]
     },
-    "personalDataCatalogueItem": {
+    "personalDataCatalogItem": {
       "type": "object",
       "properties": {
         "name": {
@@ -34,7 +35,7 @@
         },
         "type": {
           "type": "string",
-          "enum": ["string", "ISODate", "email", "phone", "locale"]
+          "enum": ["string", "ISODate", "ISODatetime", "ISOCountryAlpha2"]
         },
         "enum": {
           "type": "array",
@@ -47,21 +48,17 @@
           "type": "boolean",
           "description": "True if the client should show the value in plain text. False if the value should be obfuscated."
         },
-        "isReadOnly": {
-          "type": "boolean",
-          "description": "True if the item is read-only. False if the item can be edited."
-        },
-        "description": {
-          "type": "string"
-        },
         "regionRestriction": {
           "$ref": "#/definitions/regionRestriction"
         },
         "dependsOn": {
-          "$ref": "#/definitions/dependsOnRestriction"
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/dependsOnRestriction"
+          }
         }
       },
-      "required": ["name", "type", "canShowPlain", "isReadOnly"],
+      "required": ["name", "type", "canShowPlain"],
       "additionalProperties": false
     }
   }

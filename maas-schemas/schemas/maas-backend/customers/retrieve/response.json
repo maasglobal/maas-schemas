@@ -7,13 +7,13 @@
     "customer": {
       "$ref": "https://schemas.maas.global/maas-backend/customers/customer.json"
     },
-    "personalDataCatalogue": {
+    "personalDataCatalog": {
       "type": "array",
       "items": {
-        "$ref": "https://schemas.maas.global/maas-backend/customers/personalDataCatalogue.json#/definitions/personalDataCatalogueItem"
+        "$ref": "https://schemas.maas.global/maas-backend/customers/personalDataCatalog.json#/definitions/personalDataCatalogItem"
       }
     }
   },
   "additionalProperties": false,
-  "required": ["customer", "personalDataCatalogue"]
+  "required": ["customer", "personalDataCatalog"]
 }

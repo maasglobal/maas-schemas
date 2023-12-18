@@ -11,6 +11,7 @@ See https://www.npmjs.com/package/io-ts-from-json-schema
 import * as t from 'io-ts';
 
 import * as Customer_1cb6_ from '../customer';
+import * as PersonalDataCatalog_96ca_ from '../personalDataCatalog';
 
 export type Defined = {} | null;
 export class DefinedType extends t.Type<Defined> {
@@ -35,8 +36,10 @@ export const schemaId =
 export type Response = t.Branded<
   {
     customer?: Customer_1cb6_.Customer;
+    personalDataCatalog?: Array<PersonalDataCatalog_96ca_.PersonalDataCatalogItem>;
   } & {
     customer: Defined;
+    personalDataCatalog: Defined;
   },
   ResponseBrand
 >;
@@ -45,9 +48,13 @@ export type ResponseC = t.BrandC<
     [
       t.PartialC<{
         customer: typeof Customer_1cb6_.Customer;
+        personalDataCatalog: t.ArrayC<
+          typeof PersonalDataCatalog_96ca_.PersonalDataCatalogItem
+        >;
       }>,
       t.TypeC<{
         customer: typeof Defined;
+        personalDataCatalog: typeof Defined;
       }>,
     ]
   >,
@@ -57,9 +64,11 @@ export const Response: ResponseC = t.brand(
   t.intersection([
     t.partial({
       customer: Customer_1cb6_.Customer,
+      personalDataCatalog: t.array(PersonalDataCatalog_96ca_.PersonalDataCatalogItem),
     }),
     t.type({
       customer: Defined,
+      personalDataCatalog: Defined,
     }),
   ]),
   (
@@ -67,8 +76,10 @@ export const Response: ResponseC = t.brand(
   ): x is t.Branded<
     {
       customer?: Customer_1cb6_.Customer;
+      personalDataCatalog?: Array<PersonalDataCatalog_96ca_.PersonalDataCatalogItem>;
     } & {
       customer: Defined;
+      personalDataCatalog: Defined;
     },
     ResponseBrand
   > => true,
