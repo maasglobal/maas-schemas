@@ -1610,6 +1610,20 @@ INFO: missing description
   in schemas/maas-backend/customers/personalData.json
 INFO: missing description
   in schemas/maas-backend/customers/personalData.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/personalDataCatalog.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/personalDataCatalog.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/personalDataCatalog.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/personalDataCatalog.json
+INFO: primitive type "string" used outside top-level definitions
+  in schemas/maas-backend/customers/personalDataCatalog.json
+INFO: missing description
+  in schemas/maas-backend/customers/personalDataCatalog.json
+INFO: missing description
+  in schemas/maas-backend/customers/personalDataCatalog.json
 INFO: primitive type "integer" used outside top-level definitions
   in schemas/maas-backend/customers/stats/response.json
 WARNING: minimum field not supported outside top-level definitions

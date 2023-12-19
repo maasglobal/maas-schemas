@@ -65,6 +65,7 @@ export type Customer = t.Branded<
     state?: Address_2d0a_.State;
     country?: Address_2d0a_.Country;
     zipCode?: Address_2d0a_.ZipCode;
+    nationality?: Common_ffba_.Nationality;
     locale?: I18n_b70d_.Locale;
     appInstanceId?: Common_ffba_.AppInstanceId;
     opaqueId?: Common_ffba_.OpaqueId;
@@ -118,6 +119,7 @@ export type CustomerC = t.BrandC<
     state: typeof Address_2d0a_.State;
     country: typeof Address_2d0a_.Country;
     zipCode: typeof Address_2d0a_.ZipCode;
+    nationality: typeof Common_ffba_.Nationality;
     locale: typeof I18n_b70d_.Locale;
     appInstanceId: typeof Common_ffba_.AppInstanceId;
     opaqueId: typeof Common_ffba_.OpaqueId;
@@ -204,6 +206,7 @@ export const Customer: CustomerC = t.brand(
     state: Address_2d0a_.State,
     country: Address_2d0a_.Country,
     zipCode: Address_2d0a_.ZipCode,
+    nationality: Common_ffba_.Nationality,
     locale: I18n_b70d_.Locale,
     appInstanceId: Common_ffba_.AppInstanceId,
     opaqueId: Common_ffba_.OpaqueId,
@@ -274,6 +277,7 @@ export const Customer: CustomerC = t.brand(
       state?: Address_2d0a_.State;
       country?: Address_2d0a_.Country;
       zipCode?: Address_2d0a_.ZipCode;
+      nationality?: Common_ffba_.Nationality;
       locale?: I18n_b70d_.Locale;
       appInstanceId?: Common_ffba_.AppInstanceId;
       opaqueId?: Common_ffba_.OpaqueId;

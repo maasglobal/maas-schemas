@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.maas.global/maas-backend/customers/personalDataCatalog.json",
+  "description": "MaaS customer personal data catalog schema",
+  "definitions": {
+    "regionRestriction": {
+      "type": "array",
+      "description": "Restrict to the specified list of regions",
+      "items": {
+        "$ref": "https://schemas.maas.global/core/region.json#/definitions/regionId"
+      }
+    },
+    "dependsOnRestriction": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of another personal data item that this item depends on. I.e. the dependee item must have a value for this item to be enabled"
+        },
+        "values": {
+          "type": "array",
+          "description": "A list of possible values of the dependee item which enable the dependency",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["name"]
+    },
+    "personalDataCatalogItem": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["string", "ISODate", "ISODatetime", "ISOCountryAlpha2"]
+        },
+        "enum": {
+          "type": "array",
+          "description": "The value is limited to a fixed set of possible values",
+          "items": {
+            "type": "string"
+          }
+        },
+        "canShowPlain": {
+          "type": "boolean",
+          "description": "True if the client should show the value in plain text. False if the value should be obfuscated."
+        },
+        "regionRestriction": {
+          "$ref": "#/definitions/regionRestriction"
+        },
+        "dependsOn": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/dependsOnRestriction"
+          }
+        }
+      },
+      "required": ["name", "type", "canShowPlain"],
+      "additionalProperties": false
+    }
+  }
+}
