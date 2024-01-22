@@ -555,12 +555,14 @@ export type ProductOptionAvailable = t.Branded<
     type?: 'BOOKING_AVAILABLE';
     agencyId?: Leg_1308_.AgencyId;
     productId?: Product_d23e_.Id;
+    estimatedFares?: Array<Fare_a3ab_.Fare>;
   } & Record<string, unknown>) & {
     ref: Defined;
     customerId: Defined;
     type: Defined;
     agencyId: Defined;
     productId: Defined;
+    estimatedFares: Defined;
   },
   ProductOptionAvailableBrand
 >;
@@ -575,6 +577,7 @@ export type ProductOptionAvailableC = t.BrandC<
             type: t.LiteralC<'BOOKING_AVAILABLE'>;
             agencyId: typeof Leg_1308_.AgencyId;
             productId: typeof Product_d23e_.Id;
+            estimatedFares: t.ArrayC<typeof Fare_a3ab_.Fare>;
           }>,
           t.RecordC<t.StringC, t.UnknownC>,
         ]
@@ -585,6 +588,7 @@ export type ProductOptionAvailableC = t.BrandC<
         type: typeof Defined;
         agencyId: typeof Defined;
         productId: typeof Defined;
+        estimatedFares: typeof Defined;
       }>,
     ]
   >,
@@ -599,6 +603,7 @@ export const ProductOptionAvailable: ProductOptionAvailableC = t.brand(
         type: t.literal('BOOKING_AVAILABLE'),
         agencyId: Leg_1308_.AgencyId,
         productId: Product_d23e_.Id,
+        estimatedFares: t.array(Fare_a3ab_.Fare),
       }),
       t.record(t.string, t.unknown),
     ]),
@@ -608,6 +613,7 @@ export const ProductOptionAvailable: ProductOptionAvailableC = t.brand(
       type: Defined,
       agencyId: Defined,
       productId: Defined,
+      estimatedFares: Defined,
     }),
   ]),
   (
@@ -619,12 +625,14 @@ export const ProductOptionAvailable: ProductOptionAvailableC = t.brand(
       type?: 'BOOKING_AVAILABLE';
       agencyId?: Leg_1308_.AgencyId;
       productId?: Product_d23e_.Id;
+      estimatedFares?: Array<Fare_a3ab_.Fare>;
     } & Record<string, unknown>) & {
       ref: Defined;
       customerId: Defined;
       type: Defined;
       agencyId: Defined;
       productId: Defined;
+      estimatedFares: Defined;
     },
     ProductOptionAvailableBrand
   > => true,
