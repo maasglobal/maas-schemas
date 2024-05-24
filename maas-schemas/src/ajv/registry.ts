@@ -163,6 +163,7 @@ export const registry: mjsv.Registry = {
     require('../../schemas/maas-backend/customers/personal-documents/update/request.json'),
     require('../../schemas/maas-backend/customers/personal-documents/update/response.json'),
     require('../../schemas/maas-backend/customers/personalData.json'),
+    require('../../schemas/maas-backend/customers/personalDataCatalog.json'),
     require('../../schemas/maas-backend/customers/retrieve/request.json'),
     require('../../schemas/maas-backend/customers/retrieve/response.json'),
     require('../../schemas/maas-backend/customers/stats/request.json'),
