@@ -32,7 +32,8 @@
         "MODE_TRAINISH",
         "MODE_BUSISH",
         "MODE_TAXI",
-        "MODE_SCOOTER"
+        "MODE_SCOOTER",
+        "MODE_MOPED"
       ]
     },
     "property": {

@@ -70,6 +70,7 @@ export type VehicleIdsByMode = t.Branded<
     MODE_SHARED_BICYCLE?: VehicleIds;
     MODE_SHARED_CAR?: VehicleIds;
     MODE_SHARED_E_BICYCLE?: VehicleIds;
+    MODE_MOPED?: VehicleIds;
     MODE_SUBWAY?: VehicleIds;
     MODE_TAXI?: VehicleIds;
     MODE_TRAIN?: VehicleIds;
@@ -118,6 +119,7 @@ export type VehicleIdsByModeC = t.BrandC<
         MODE_SHARED_BICYCLE: typeof VehicleIds;
         MODE_SHARED_CAR: typeof VehicleIds;
         MODE_SHARED_E_BICYCLE: typeof VehicleIds;
+        MODE_MOPED: typeof VehicleIds;
         MODE_SUBWAY: typeof VehicleIds;
         MODE_TAXI: typeof VehicleIds;
         MODE_TRAIN: typeof VehicleIds;
@@ -168,6 +170,7 @@ export const VehicleIdsByMode: VehicleIdsByModeC = t.brand(
       MODE_SHARED_BICYCLE: VehicleIds,
       MODE_SHARED_CAR: VehicleIds,
       MODE_SHARED_E_BICYCLE: VehicleIds,
+      MODE_MOPED: VehicleIds,
       MODE_SUBWAY: VehicleIds,
       MODE_TAXI: VehicleIds,
       MODE_TRAIN: VehicleIds,
@@ -216,6 +219,7 @@ export const VehicleIdsByMode: VehicleIdsByModeC = t.brand(
       MODE_SHARED_BICYCLE?: VehicleIds;
       MODE_SHARED_CAR?: VehicleIds;
       MODE_SHARED_E_BICYCLE?: VehicleIds;
+      MODE_MOPED?: VehicleIds;
       MODE_SUBWAY?: VehicleIds;
       MODE_TAXI?: VehicleIds;
       MODE_TRAIN?: VehicleIds;

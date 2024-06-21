@@ -116,7 +116,15 @@ export const defaultTransferModeTRANSFER: TransferModeTRANSFER =
 // A mode that involves using your personal vehicle or legs
 export type PersonalMode = t.Branded<
   string &
-    ('BICYCLE' | 'CAR' | 'SCOOTER' | 'SHARED_BICYCLE' | 'WALK' | 'SHARED_E_BICYCLE'),
+    (
+      | 'BICYCLE'
+      | 'CAR'
+      | 'SCOOTER'
+      | 'SHARED_BICYCLE'
+      | 'WALK'
+      | 'SHARED_E_BICYCLE'
+      | 'MOPED'
+    ),
   PersonalModeBrand
 >;
 export type PersonalModeC = t.BrandC<
@@ -131,6 +139,7 @@ export type PersonalModeC = t.BrandC<
           t.LiteralC<'SHARED_BICYCLE'>,
           t.LiteralC<'WALK'>,
           t.LiteralC<'SHARED_E_BICYCLE'>,
+          t.LiteralC<'MOPED'>,
         ]
       >,
     ]
@@ -147,13 +156,22 @@ export const PersonalMode: PersonalModeC = t.brand(
       t.literal('SHARED_BICYCLE'),
       t.literal('WALK'),
       t.literal('SHARED_E_BICYCLE'),
+      t.literal('MOPED'),
     ]),
   ]),
   (
     x,
   ): x is t.Branded<
     string &
-      ('BICYCLE' | 'CAR' | 'SCOOTER' | 'SHARED_BICYCLE' | 'WALK' | 'SHARED_E_BICYCLE'),
+      (
+        | 'BICYCLE'
+        | 'CAR'
+        | 'SCOOTER'
+        | 'SHARED_BICYCLE'
+        | 'WALK'
+        | 'SHARED_E_BICYCLE'
+        | 'MOPED'
+      ),
     PersonalModeBrand
   > => true,
   'PersonalMode',
@@ -293,6 +311,25 @@ export type PersonalModeSHARED_E_BICYCLEBrand = {
 /** require('io-ts-validator').validator(PersonalModeSHARED_E_BICYCLE).decodeSync(defaultPersonalModeSHARED_E_BICYCLE) // => defaultPersonalModeSHARED_E_BICYCLE */
 export const defaultPersonalModeSHARED_E_BICYCLE: PersonalModeSHARED_E_BICYCLE =
   'SHARED_E_BICYCLE' as unknown as PersonalModeSHARED_E_BICYCLE;
+
+// PersonalModeMOPED
+// The purpose of this remains a mystery
+export type PersonalModeMOPED = t.Branded<PersonalMode & 'MOPED', PersonalModeMOPEDBrand>;
+export type PersonalModeMOPEDC = t.BrandC<
+  t.IntersectionC<[typeof PersonalMode, t.LiteralC<'MOPED'>]>,
+  PersonalModeMOPEDBrand
+>;
+export const PersonalModeMOPED: PersonalModeMOPEDC = t.brand(
+  t.intersection([PersonalMode, t.literal('MOPED')]),
+  (x): x is t.Branded<PersonalMode & 'MOPED', PersonalModeMOPEDBrand> => true,
+  'PersonalModeMOPED',
+);
+export type PersonalModeMOPEDBrand = {
+  readonly PersonalModeMOPED: unique symbol;
+};
+/** require('io-ts-validator').validator(PersonalModeMOPED).decodeSync(defaultPersonalModeMOPED) // => defaultPersonalModeMOPED */
+export const defaultPersonalModeMOPED: PersonalModeMOPED =
+  'MOPED' as unknown as PersonalModeMOPED;
 
 // PublicTransitMode
 // A mode that involves transit with fixed schedules

@@ -41,6 +41,7 @@
     },
     "MODE_BUSISH": { "$ref": "https://schemas.maas.global/core/modes/MODE_BUSISH.json" },
     "MODE_TAXI": { "$ref": "https://schemas.maas.global/core/modes/MODE_TAXI.json" },
-    "MODE_SCOOTER": { "$ref": "https://schemas.maas.global/core/modes/MODE_SCOOTER.json" }
+    "MODE_SCOOTER": { "$ref": "https://schemas.maas.global/core/modes/MODE_SCOOTER.json" },
+    "MODE_MOPED": { "$ref": "https://schemas.maas.global/core/modes/MODE_MOPED.json" }
   }
 }

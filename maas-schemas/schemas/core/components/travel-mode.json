@@ -35,7 +35,7 @@
     "personalMode": {
       "description": "A mode that involves using your personal vehicle or legs",
       "type": "string",
-      "enum": ["BICYCLE", "CAR", "SCOOTER", "SHARED_BICYCLE", "WALK", "SHARED_E_BICYCLE"]
+      "enum": ["BICYCLE", "CAR", "SCOOTER", "SHARED_BICYCLE", "WALK", "SHARED_E_BICYCLE", "MOPED"]
     },
     "personalModeBICYCLE": {
       "default": "BICYCLE",
@@ -60,6 +60,10 @@
     "personalModeSHARED_E_BICYCLE": {
       "default": "SHARED_E_BICYCLE",
       "allOf": [{ "$ref": "#/definitions/personalMode" }, { "const": "SHARED_E_BICYCLE" }]
+    },
+    "personalModeMOPED": {
+      "default": "MOPED",
+      "allOf": [{ "$ref": "#/definitions/personalMode" }, { "const": "MOPED" }]
     },
     "publicTransitMode": {
       "description": "A mode that involves transit with fixed schedules",
