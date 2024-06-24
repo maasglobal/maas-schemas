@@ -18,6 +18,7 @@ import * as MODE_CAR_4d30_ from './modes/MODE_CAR';
 import * as MODE_FERRY_f954_ from './modes/MODE_FERRY';
 import * as MODE_FUNICULAR_d8d1_ from './modes/MODE_FUNICULAR';
 import * as MODE_GONDOLA_a364_ from './modes/MODE_GONDOLA';
+import * as MODE_MOPED_b703_ from './modes/MODE_MOPED';
 import * as MODE_RAIL_40d3_ from './modes/MODE_RAIL';
 import * as MODE_SCOOTER_8025_ from './modes/MODE_SCOOTER';
 import * as MODE_SHARED_BICYCLE_f843_ from './modes/MODE_SHARED_BICYCLE';
@@ -57,6 +58,7 @@ export type BookingMeta = t.Branded<
     MODE_BUSISH?: MODE_BUSISH_89ff_.MODE_BUSISH;
     MODE_TAXI?: MODE_TAXI_3ea5_.MODE_TAXI;
     MODE_SCOOTER?: MODE_SCOOTER_8025_.MODE_SCOOTER;
+    MODE_MOPED?: MODE_MOPED_b703_.MODE_MOPED;
   } & Record<string, unknown>,
   BookingMetaBrand
 >;
@@ -84,6 +86,7 @@ export type BookingMetaC = t.BrandC<
         MODE_BUSISH: typeof MODE_BUSISH_89ff_.MODE_BUSISH;
         MODE_TAXI: typeof MODE_TAXI_3ea5_.MODE_TAXI;
         MODE_SCOOTER: typeof MODE_SCOOTER_8025_.MODE_SCOOTER;
+        MODE_MOPED: typeof MODE_MOPED_b703_.MODE_MOPED;
       }>,
       t.RecordC<t.StringC, t.UnknownC>,
     ]
@@ -113,6 +116,7 @@ export const BookingMeta: BookingMetaC = t.brand(
       MODE_BUSISH: MODE_BUSISH_89ff_.MODE_BUSISH,
       MODE_TAXI: MODE_TAXI_3ea5_.MODE_TAXI,
       MODE_SCOOTER: MODE_SCOOTER_8025_.MODE_SCOOTER,
+      MODE_MOPED: MODE_MOPED_b703_.MODE_MOPED,
     }),
     t.record(t.string, t.unknown),
   ]),
@@ -140,6 +144,7 @@ export const BookingMeta: BookingMetaC = t.brand(
       MODE_BUSISH?: MODE_BUSISH_89ff_.MODE_BUSISH;
       MODE_TAXI?: MODE_TAXI_3ea5_.MODE_TAXI;
       MODE_SCOOTER?: MODE_SCOOTER_8025_.MODE_SCOOTER;
+      MODE_MOPED?: MODE_MOPED_b703_.MODE_MOPED;
     } & Record<string, unknown>,
     BookingMetaBrand
   > => true,

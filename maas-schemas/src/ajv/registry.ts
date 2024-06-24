@@ -65,6 +65,7 @@ export const registry: mjsv.Registry = {
     require('../../schemas/core/modes/MODE_FERRY.json'),
     require('../../schemas/core/modes/MODE_FUNICULAR.json'),
     require('../../schemas/core/modes/MODE_GONDOLA.json'),
+    require('../../schemas/core/modes/MODE_MOPED.json'),
     require('../../schemas/core/modes/MODE_RAIL.json'),
     require('../../schemas/core/modes/MODE_SCOOTER.json'),
     require('../../schemas/core/modes/MODE_SHARED_BICYCLE.json'),
