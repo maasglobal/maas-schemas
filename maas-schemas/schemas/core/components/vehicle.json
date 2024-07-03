@@ -28,6 +28,7 @@
         "MODE_SHARED_BICYCLE": { "$ref": "#/definitions/vehicleIds" },
         "MODE_SHARED_CAR": { "$ref": "#/definitions/vehicleIds" },
         "MODE_SHARED_E_BICYCLE": { "$ref": "#/definitions/vehicleIds" },
+        "MODE_MOPED": { "$ref": "#/definitions/vehicleIds" },
         "MODE_SUBWAY": { "$ref": "#/definitions/vehicleIds" },
         "MODE_TAXI": { "$ref": "#/definitions/vehicleIds" },
         "MODE_TRAIN": { "$ref": "#/definitions/vehicleIds" },

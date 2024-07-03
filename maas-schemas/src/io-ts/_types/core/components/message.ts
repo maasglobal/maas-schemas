@@ -54,6 +54,7 @@ export type Message = t.Branded<
         | 'MODE_BUSISH'
         | 'MODE_TAXI'
         | 'MODE_SCOOTER'
+        | 'MODE_MOPED'
       );
     property?: string;
   } & {
@@ -93,6 +94,7 @@ export type MessageC = t.BrandC<
                 t.LiteralC<'MODE_BUSISH'>,
                 t.LiteralC<'MODE_TAXI'>,
                 t.LiteralC<'MODE_SCOOTER'>,
+                t.LiteralC<'MODE_MOPED'>,
               ]
             >,
           ]
@@ -135,6 +137,7 @@ export const Message: MessageC = t.brand(
           t.literal('MODE_BUSISH'),
           t.literal('MODE_TAXI'),
           t.literal('MODE_SCOOTER'),
+          t.literal('MODE_MOPED'),
         ]),
       ]),
       property: t.string,
@@ -172,6 +175,7 @@ export const Message: MessageC = t.brand(
           | 'MODE_BUSISH'
           | 'MODE_TAXI'
           | 'MODE_SCOOTER'
+          | 'MODE_MOPED'
         );
       property?: string;
     } & {
