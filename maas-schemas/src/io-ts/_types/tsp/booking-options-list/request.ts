@@ -79,7 +79,6 @@ export type Request = t.Branded<
   > &
     Record<string, unknown>) & {
     startTime: Defined;
-    from: Defined;
   },
   RequestBrand
 >;
@@ -135,7 +134,6 @@ export type RequestC = t.BrandC<
       >,
       t.TypeC<{
         startTime: typeof Defined;
-        from: typeof Defined;
       }>,
     ]
   >,
@@ -188,7 +186,6 @@ export const Request: RequestC = t.brand(
     ]),
     t.type({
       startTime: Defined,
-      from: Defined,
     }),
   ]),
   (
@@ -233,7 +230,6 @@ export const Request: RequestC = t.brand(
     > &
       Record<string, unknown>) & {
       startTime: Defined;
-      from: Defined;
     },
     RequestBrand
   > => true,

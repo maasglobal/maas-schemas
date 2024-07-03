@@ -124,7 +124,7 @@
       "type": ["string", "number", "boolean"]
     }
   },
-  "required": ["startTime", "from"],
+  "required": ["startTime"],
   "additionalProperties": true,
   "examples": [
     {
