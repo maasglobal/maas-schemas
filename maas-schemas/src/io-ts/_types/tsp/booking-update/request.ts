@@ -37,7 +37,7 @@ export const schemaId = 'https://schemas.maas.global/tsp/booking-update/request.
 export type Request = t.Branded<
   ({
     tspId?: Booking_4353_.TspId;
-    state?: 'RESERVED' | 'ACTIVATED' | 'ON_HOLD' | 'EXPIRED';
+    state?: 'RESERVED' | 'ACTIVATED' | 'ON_HOLD' | 'EXPIRED' | 'FINISHED';
     configurator?: Configurator_2e96_.Configurator;
     meta?: BookingMeta_c057_.BookingMeta;
     terms?: Booking_4353_.Terms;
@@ -60,6 +60,7 @@ export type RequestC = t.BrandC<
                 t.LiteralC<'ACTIVATED'>,
                 t.LiteralC<'ON_HOLD'>,
                 t.LiteralC<'EXPIRED'>,
+                t.LiteralC<'FINISHED'>,
               ]
             >;
             configurator: typeof Configurator_2e96_.Configurator;
@@ -87,6 +88,7 @@ export const Request: RequestC = t.brand(
           t.literal('ACTIVATED'),
           t.literal('ON_HOLD'),
           t.literal('EXPIRED'),
+          t.literal('FINISHED'),
         ]),
         configurator: Configurator_2e96_.Configurator,
         meta: BookingMeta_c057_.BookingMeta,
@@ -104,7 +106,7 @@ export const Request: RequestC = t.brand(
   ): x is t.Branded<
     ({
       tspId?: Booking_4353_.TspId;
-      state?: 'RESERVED' | 'ACTIVATED' | 'ON_HOLD' | 'EXPIRED';
+      state?: 'RESERVED' | 'ACTIVATED' | 'ON_HOLD' | 'EXPIRED' | 'FINISHED';
       configurator?: Configurator_2e96_.Configurator;
       meta?: BookingMeta_c057_.BookingMeta;
       terms?: Booking_4353_.Terms;
