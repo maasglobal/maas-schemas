@@ -7,7 +7,7 @@
       "$ref": "https://schemas.maas.global/core/booking.json#/definitions/tspId"
     },
     "state": {
-      "enum": ["RESERVED", "ACTIVATED", "ON_HOLD", "EXPIRED", "FINISHED"]
+      "enum": ["RESERVED", "ACTIVATED", "ON_HOLD", "EXPIRED", "FINISHED", "CANCELLED"]
     },
     "configurator": {
       "$ref": "https://schemas.maas.global/core/components/configurator.json"
