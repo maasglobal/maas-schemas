@@ -15,6 +15,10 @@
         }
       ]
     },
+    "durationTimeSpan": {
+      "description": "Represents a duration in TimeSpan format as a string.",
+      "type": "string"
+    },
     "noShowReportedByDriver": {
       "type": "boolean"
     },
@@ -128,6 +132,7 @@
       }
     },
     {
+      "durationTimeSpan": "01:30:45",
       "eta": 1575014272286,
       "vehicleLocation": { "lat": 33.230993, "lon": 6.374891 },
       "vehicleId": "Z 123 XX",
