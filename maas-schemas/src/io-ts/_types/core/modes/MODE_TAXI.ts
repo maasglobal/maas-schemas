@@ -27,6 +27,7 @@ export const schemaId = 'https://schemas.maas.global/core/modes/MODE_TAXI.json';
 export type MODE_TAXI = t.Branded<
   {
     vehicleId?: string & Vehicle_52ac_.VehicleId;
+    durationTimeSpan?: string;
     noShowReportedByDriver?: boolean;
     vehicleLocation?: UnitsGeo_3e31_.Location;
     vehicleType?: string;
@@ -58,6 +59,7 @@ export type MODE_TAXI = t.Branded<
 export type MODE_TAXIC = t.BrandC<
   t.PartialC<{
     vehicleId: t.IntersectionC<[t.StringC, typeof Vehicle_52ac_.VehicleId]>;
+    durationTimeSpan: t.StringC;
     noShowReportedByDriver: t.BooleanC;
     vehicleLocation: typeof UnitsGeo_3e31_.Location;
     vehicleType: t.StringC;
@@ -99,6 +101,7 @@ export type MODE_TAXIC = t.BrandC<
 export const MODE_TAXI: MODE_TAXIC = t.brand(
   t.partial({
     vehicleId: t.intersection([t.string, Vehicle_52ac_.VehicleId]),
+    durationTimeSpan: t.string,
     noShowReportedByDriver: t.boolean,
     vehicleLocation: UnitsGeo_3e31_.Location,
     vehicleType: t.string,
@@ -136,6 +139,7 @@ export const MODE_TAXI: MODE_TAXIC = t.brand(
   ): x is t.Branded<
     {
       vehicleId?: string & Vehicle_52ac_.VehicleId;
+      durationTimeSpan?: string;
       noShowReportedByDriver?: boolean;
       vehicleLocation?: UnitsGeo_3e31_.Location;
       vehicleType?: string;
@@ -174,6 +178,7 @@ export const examplesMODE_TAXI: NonEmptyArray<MODE_TAXI> = [
   { vehicleId: 'T123', vehicleType: 'Mercedes' },
   { vehicleId: 'T123', vehicleType: 'Mercedes', spaceDemand: { adults: 1 } },
   {
+    durationTimeSpan: '01:30:45',
     eta: 1575014272286,
     vehicleLocation: { lat: 33.230993, lon: 6.374891 },
     vehicleId: 'Z 123 XX',
