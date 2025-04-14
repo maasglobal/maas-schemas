@@ -459,6 +459,33 @@ export type EmptyObjectBrand = {
   readonly EmptyObject: unique symbol;
 };
 
+// Nationality
+// ISO 3166-1 alpha-2 country code, see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+export type Nationality = t.Branded<string, NationalityBrand>;
+export type NationalityC = t.BrandC<t.StringC, NationalityBrand>;
+export const Nationality: NationalityC = t.brand(
+  t.string,
+  (x): x is t.Branded<string, NationalityBrand> =>
+    typeof x !== 'string' || x.match(RegExp('^[A-Z]{2,2}$', 'u')) !== null,
+  'Nationality',
+);
+export type NationalityBrand = {
+  readonly Nationality: unique symbol;
+};
+/** require('io-ts-validator').validator(nonEmptyArray(Nationality)).decodeSync(examplesNationality) // => examplesNationality */
+export const examplesNationality: NonEmptyArray<Nationality> = [
+  'FI',
+  'GB',
+] as unknown as NonEmptyArray<Nationality>;
+// NEGATIVE Test Case: empty string
+/** require('io-ts-validator').validator(Nationality).decodeEither("")._tag // => 'Left' */
+// NEGATIVE Test Case: emoji
+/** require('io-ts-validator').validator(Nationality).decodeEither("💩")._tag // => 'Left' */
+// NEGATIVE Test Case: lower case alpha-2 country code
+/** require('io-ts-validator').validator(Nationality).decodeEither("fi")._tag // => 'Left' */
+// NEGATIVE Test Case: alpha-3 country code
+/** require('io-ts-validator').validator(Nationality).decodeEither("FIN")._tag // => 'Left' */
+
 // Common
 // The default export. More information at the top.
 export type Common = t.Branded<unknown, CommonBrand>;

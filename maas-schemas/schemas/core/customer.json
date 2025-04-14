@@ -76,6 +76,9 @@
     "zipCode": {
       "$ref": "https://schemas.maas.global/core/components/address.json#/definitions/zipCode"
     },
+    "nationality": {
+      "$ref": "https://schemas.maas.global/core/components/common.json#/definitions/nationality"
+    },
     "locale": {
       "$ref": "https://schemas.maas.global/core/components/i18n.json#/definitions/locale"
     },
